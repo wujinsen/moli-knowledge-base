@@ -50,6 +50,9 @@ const characters = defineCollection({
     法宝: z.array(z.string()).default([]),
     结局: z.string().optional(),
     收服者: z.string().optional(),
+    // 金瓶梅 · 图鉴扩展（P5）
+    靠山: z.string().optional(),
+    依附: z.string().optional(),
     // 关系与版本
     relations: z.array(relation).default([]),
     variants: z.array(variant).default([]),
@@ -86,7 +89,7 @@ const books = defineCollection({
     author: z.string(),
     chapter_count: z.number(),
     features: z.array(
-      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'sna', 'compare', 'nan', 'route', 'chain', 'kaozheng', 'quanshi'])
+      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'sna', 'compare', 'nan', 'route', 'chain', 'town', 'kaozheng', 'quanshi'])
     ),
     summary: z.string().optional(),
   }),
@@ -128,6 +131,7 @@ const locations = defineCollection({
     appear_in: z.array(z.string()).default([]),
     tags: z.array(z.string()).default([]),
     summary: z.string().optional(),
+    map_zone: z.enum(['府内', '市井', '寺观', '城外']).optional(),
     // 取经路线 GIS（西游记专用，可选）
     realm: z.string().optional(),
     layer: z.enum(ROUTE_LAYERS).optional(),

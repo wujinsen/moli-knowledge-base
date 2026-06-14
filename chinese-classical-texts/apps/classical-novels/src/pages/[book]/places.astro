@@ -37,6 +37,13 @@ const rootEntry = root ? places.find((p) => p.data.id === root.id) : undefined;
   </h1>
   <p class="mb-6 text-sm" style="color: var(--ink-soft)">
     {root?.blurb ?? '府邸、园林、亭榭堂馆'}（共 {places.length} 处）
+    {
+      meta.features.includes('town') && (
+        <a href={`/${meta.slug}/town`} class="ml-2 hover:underline" style="color: var(--accent)">
+          → 市井地图
+        </a>
+      )
+    }
   </p>
 
   {

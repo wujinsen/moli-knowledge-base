@@ -54,7 +54,10 @@ const readEdition = slug === 'jinpingmei' ? 'cihua' : slug === 'honglou' ? 'zhib
 
   <div class="surface mt-4 grid gap-2 p-4 text-sm sm:grid-cols-2" style="color: var(--ink)">
     {d.faction && <div>阵营：{d.faction}</div>}
+    {d.ximen_proximity && <div>西门府距离：{d.ximen_proximity}</div>}
     {d.first_appear && <div>首次登场：{d.first_appear}</div>}
+    {d.靠山 && <div>靠山：{d.靠山}</div>}
+    {d.依附 && <div>依附：{d.依附}</div>}
     {d.洞府 && <div>洞府：{d.洞府}</div>}
     {d.原型 && <div>原型：{d.原型}</div>}
     {d.能力.length > 0 && <div>能力：{d.能力.join('、')}</div>}

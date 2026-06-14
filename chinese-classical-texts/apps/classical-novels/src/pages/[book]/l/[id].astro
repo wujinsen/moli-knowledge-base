@@ -15,7 +15,10 @@ export async function getStaticPaths() {
   }[] = [];
 
   for (const b of books.filter(
-    (x) => x.data.features.includes('places') || x.data.features.includes('route'),
+    (x) =>
+      x.data.features.includes('places') ||
+      x.data.features.includes('route') ||
+      x.data.features.includes('town'),
   )) {
     const places = await loadBookPlaces(b.data.book);
     for (const entry of places) {
@@ -32,12 +35,13 @@ const { slug, entry, features } = Astro.props;
 const d = entry.data;
 const { Content } = await render(entry);
 
-// 取经路线地点回链取经路线，其余回链建筑居所
+// 取经路线地点回链取经路线；金瓶梅有 map_zone 回链市井地图，其余回链建筑居所
 const isRoute = features.includes('route') && !!d.layer;
-const backHref = isRoute ? `/${slug}/route` : `/${slug}/places`;
+const isTown = features.includes('town') && !!d.map_zone;
+const backHref = isRoute ? `/${slug}/route` : isTown ? `/${slug}/town` : `/${slug}/places`;
 const placesLabel =
   slug === 'jinpingmei' ? '西门府' : slug === 'honglou' ? '大观园' : '地点';
-const backLabel = isRoute ? '← 取经路线' : `← ${placesLabel} · 建筑居所`;
+const backLabel = isRoute ? '← 取经路线' : isTown ? '← 市井地图' : `← ${placesLabel} · 建筑居所`;
 
 const relatedItems = await relatedItemsForPlace(d.book, d.id, d.occupants);
 const chapterNums = chaptersFromAppearIn(d.appear_in);
@@ -83,6 +87,11 @@ const chapterNums = chaptersFromAppearIn(d.appear_in);
       {d.route_order != null && (
         <div>
           取经第 {d.route_order} 站 · <a class="hover:underline" style="color: var(--primary)" href={`/${slug}/route`}>路线图</a>
+        </div>
+      )}
+      {d.map_zone && d.coord && (
+        <div>
+          {d.map_zone} · <a class="hover:underline" style="color: var(--primary)" href={`/${slug}/town`}>市井地图</a>
         </div>
       )}
       {d.parent && (

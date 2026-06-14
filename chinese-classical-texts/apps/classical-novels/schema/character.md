@@ -26,6 +26,12 @@
 
 `洞府` `原型` `能力[]` `法宝[]` `结局` `收服者`
 
+## 金瓶梅图鉴扩展（type: character）
+
+`ximen_proximity`（亲缘 / 雇佣 / 利益交换 / 外人）· `靠山` · `依附` · `结局`
+
+数据：`src/data/jinpingmei.bestiary.json` · 同步 `python scripts/seed_jpm_bestiary.py`
+
 ## 示例
 
 见 `src/content/characters/西游记/孙悟空.md`（character）与 `白骨精.md`（monster）。

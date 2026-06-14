@@ -1,0 +1,111 @@
+---
+import { getCollection } from 'astro:content';
+import { getBooks } from '../../lib/getBooks';
+import GraphLayout from '../../layouts/GraphLayout.astro';
+import TownMap from '../../components/TownMap.tsx';
+import crosslinks from '../../data/jinpingmei.crosslinks.json';
+import { buildTownEdges, type TownEventRef, type TownMapNode } from '../../lib/townMap';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  return books
+    .filter((b) => b.data.features.includes('town'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+
+const locations = (await getCollection('locations')).filter(
+  (l) => l.data.book === meta.book && l.data.coord && l.data.map_zone,
+);
+
+const chainEvents = (await getCollection('events')).filter(
+  (e) => e.data.book === meta.book && (e.data.subtype === 'financial' || e.data.subtype === 'plot'),
+);
+
+const eventsByLocation = new Map<string, TownEventRef[]>();
+for (const ev of chainEvents) {
+  const ref: TownEventRef = {
+    id: ev.data.id,
+    title: ev.data.title,
+    subtype: ev.data.subtype ?? 'plot',
+    chapters: ev.data.chapters,
+  };
+  for (const loc of ev.data.locations ?? []) {
+    if (!eventsByLocation.has(loc)) eventsByLocation.set(loc, []);
+    eventsByLocation.get(loc)!.push(ref);
+  }
+}
+
+const locationItems = crosslinks.location_items as Record<string, string[]>;
+
+const nodes: TownMapNode[] = locations.map((l) => {
+  const d = l.data;
+  const chapters = [
+    ...new Set(
+      d.appear_in
+        .map((s) => {
+          const m = s.match(/第(\d+)回/);
+          return m ? Number(m[1]) : null;
+        })
+        .filter((n): n is number => n != null),
+    ),
+  ].sort((a, b) => a - b);
+
+  return {
+    id: d.id,
+    name: d.name,
+    zone: d.map_zone!,
+    category: d.category,
+    x: d.coord!.x,
+    y: d.coord!.y,
+    parent: d.parent,
+    summary: d.summary ?? '',
+    chapters,
+    items: locationItems[d.id] ?? [],
+    events: eventsByLocation.get(d.id) ?? [],
+    nearby: d.nearby,
+  };
+});
+
+const townData = { nodes, edges: buildTownEdges(nodes) };
+const zoneCounts = Object.fromEntries(
+  ['府内', '市井', '寺观', '城外'].map((z) => [z, nodes.filter((n) => n.zone === z).length]),
+);
+---
+
+<GraphLayout
+  title={`${meta.book} 市井地图`}
+  bookSlug={meta.slug}
+  bookName={meta.book}
+  moduleLabel="市井地图"
+>
+  {
+    nodes.length === 0 ? (
+      <div class="flex min-h-[70vh] flex-col items-center justify-center px-4 text-center text-slate-300">
+        <p class="mb-2 text-lg">市井地图待生成</p>
+        <p class="max-w-md text-sm text-slate-400">
+          运行
+          <code class="mx-1 rounded bg-slate-800 px-2 py-0.5 text-amber-300">
+            python scripts/seed_jpm_locations.py
+          </code>
+          为地点注入坐标与 map_zone。
+        </p>
+        <a href={`/${meta.slug}`} class="mt-6 text-sm text-amber-300 hover:underline">
+          ← 返回 {meta.book}
+        </a>
+      </div>
+    ) : (
+      <>
+        <div class="pointer-events-none absolute left-1/2 top-3 z-20 -translate-x-1/2 text-center sm:hidden">
+          <span class="text-xs text-slate-400">
+            府内 {zoneCounts['府内']} · 市井 {zoneCounts['市井']} · 寺观 {zoneCounts['寺观']} · 城外{' '}
+            {zoneCounts['城外']}
+          </span>
+        </div>
+        <TownMap data={townData} bookSlug={meta.slug} client:only="react" />
+      </>
+    )
+  }
+</GraphLayout>

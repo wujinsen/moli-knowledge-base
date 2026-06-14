@@ -163,8 +163,9 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
       return [
         { key: 'read', glyph: '读', title: '逐回精读', desc: '词话 · 崇祯 · 竹坡三版本', status: 'live', href: `/${slug}/read/cihua` },
         { key: 'graph', glyph: '谱', title: '西门府社会网', desc: '妻妾 · 帮闲 · 政商利益', ...live(has('graph'), slug, 'graph', `/${slug}/graph`) },
-        { key: 'bestiary', glyph: '鉴', title: '人物图鉴', desc: '妻妾 · 帮闲 · 政商群像', ...live(has('bestiary'), slug, 'bestiary', `/${slug}/bestiary`) },
+        { key: 'bestiary', glyph: '鉴', title: '人物图鉴', desc: '靠山 · 依附 · 结局 · 派系分组', ...live(has('bestiary'), slug, 'bestiary', `/${slug}/bestiary`) },
         { key: 'places', glyph: '府', title: '西门府', desc: '院落居所 · 店铺 · 县城市井', ...live(has('places'), slug, 'places', `/${slug}/places`) },
+        { key: 'town', glyph: '图', title: '市井地图', desc: '清河 · 西门府 · 东京政商链示意', ...live(has('town'), slug, 'town', `/${slug}/town`) },
         {
           key: 'chain', glyph: '链', title: '发家衰败链', desc: '白银节点 · 情节转折 · 回目时间轴', ...live(has('chain'), slug, 'chain', `/${slug}/chain`),
           preview: {
