@@ -1,22 +1,66 @@
 {
   "book": "红楼梦",
-  "generated": "2026-06-14",
+  "generated": "2026-06-15",
   "source": "程高本章节原文抽取 + schema/location.md",
   "hierarchy": {
     "金陵城": {
       "荣国府": {
-        "children": ["荣禧堂", "梨香院", "大观园"]
+        "children": [
+          "荣禧堂",
+          "荣庆堂",
+          "梨香院",
+          "薛家",
+          "贾母上房",
+          "王夫人上房",
+          "贾政上房",
+          "凤姐院",
+          "赵姨娘房",
+          "梦坡斋",
+          "小书房",
+          "大观园"
+        ]
       },
       "宁国府": {
-        "children": ["会芳园", "天香楼"]
+        "children": [
+          "会芳园",
+          "天香楼",
+          "可卿上房",
+          "尤氏上房",
+          "邢夫人上房",
+          "贾氏宗祠"
+        ]
       },
-      "children": ["铁槛寺"]
+      "children": [
+        "铁槛寺",
+        "水月庵",
+        "清虚观",
+        "宁荣街",
+        "赖大家",
+        "小花枝巷",
+        "急流津",
+        "十里屯",
+        "北静王府",
+        "忠顺王府",
+        "孝慈县",
+        "南安王府",
+        "姑子庙",
+        "锦乡侯府",
+        "甄家",
+        "乐善郡王府",
+        "临昌伯府",
+        "永昌驸马府",
+        "临安伯府"
+      ]
     },
     "姑苏阊门": {
-      "children": ["葫芦庙"]
+      "children": [
+        "葫芦庙"
+      ]
     },
     "离恨天": {
-      "children": ["太虚幻境"]
+      "children": [
+        "太虚幻境"
+      ]
     },
     "大观园": {
       "children": [
@@ -37,14 +81,57 @@
         "滴翠亭",
         "凸碧堂",
         "凹晶馆",
-        "省亲别墅"
+        "省亲别墅",
+        "嘉荫堂",
+        "缀锦阁",
+        "芦雪庵",
+        "蜂腰桥",
+        "蓼溆",
+        "议事厅",
+        "柳叶渚",
+        "翠烟桥",
+        "船坞",
+        "大观园厨房",
+        "茶房",
+        "玉皇庙",
+        "达摩庵",
+        "云步石梯"
+      ]
+    },
+    "蓼风轩": {
+      "children": [
+        "暖香坞"
       ]
     },
     "会芳园": {
-      "children": ["天香楼"]
+      "children": [
+        "天香楼",
+        "登仙阁"
+      ]
     },
     "秋爽斋": {
-      "children": ["晓翠堂"]
+      "children": [
+        "晓翠堂"
+      ]
+    },
+    "荣国府": {
+      "children": [
+        "周姨娘房",
+        "穿堂",
+        "仪门",
+        "角门",
+        "东角门"
+      ]
+    },
+    "孝慈县": {
+      "children": [
+        "下处"
+      ]
+    },
+    "贾氏宗祠": {
+      "children": [
+        "抱厦"
+      ]
     }
   },
   "nodes": [
@@ -53,7 +140,15 @@
       "type": "garden",
       "category": "花园",
       "plaque": "大观园",
-      "occupants": ["贾宝玉", "林黛玉", "薛宝钗", "贾迎春", "贾探春", "贾惜春", "李纨"],
+      "occupants": [
+        "贾宝玉",
+        "林黛玉",
+        "薛宝钗",
+        "贾迎春",
+        "贾探春",
+        "贾惜春",
+        "李纨"
+      ],
       "first_appear": "第16回",
       "summary": "省亲别墅，后成姊妹与宝玉主场景"
     },
@@ -63,9 +158,18 @@
       "category": "院落",
       "parent": "大观园",
       "plaque": "有凤来仪",
-      "couplet": { "upper": "宝鼎茶闲烟尚绿", "lower": "幽窗棋罢指犹凉" },
-      "occupants": ["林黛玉"],
-      "plants": ["翠竹", "梨花", "芭蕉"],
+      "couplet": {
+        "upper": "宝鼎茶闲烟尚绿",
+        "lower": "幽窗棋罢指犹凉"
+      },
+      "occupants": [
+        "林黛玉"
+      ],
+      "plants": [
+        "翠竹",
+        "梨花",
+        "芭蕉"
+      ],
       "first_appear": "第17回"
     },
     {
@@ -74,10 +178,20 @@
       "category": "院落",
       "parent": "大观园",
       "plaque": "怡红快绿",
-      "aliases": ["红香绿玉"],
-      "occupants": ["贾宝玉"],
-      "plants": ["芭蕉", "西府海棠"],
-      "features": ["雕空玲珑隔扇", "玻璃镜迷径"],
+      "aliases": [
+        "红香绿玉"
+      ],
+      "occupants": [
+        "贾宝玉"
+      ],
+      "plants": [
+        "芭蕉",
+        "西府海棠"
+      ],
+      "features": [
+        "雕空玲珑隔扇",
+        "玻璃镜迷径"
+      ],
       "first_appear": "第17回"
     },
     {
@@ -86,9 +200,17 @@
       "category": "院落",
       "parent": "大观园",
       "plaque": "蘅芷清芬",
-      "couplet": { "upper": "吟成莼潞才犹艳", "lower": "睡足酴醿梦也香" },
-      "occupants": ["薛宝钗"],
-      "plants": ["杜若", "蘅芜"],
+      "couplet": {
+        "upper": "吟成莼潞才犹艳",
+        "lower": "睡足酴醿梦也香"
+      },
+      "occupants": [
+        "薛宝钗"
+      ],
+      "plants": [
+        "杜若",
+        "蘅芜"
+      ],
       "first_appear": "第17回"
     },
     {
@@ -97,10 +219,19 @@
       "category": "院落",
       "parent": "大观园",
       "plaque": "杏帘在望",
-      "aliases": ["杏花村"],
-      "couplet": { "upper": "新涨绿添浣葛处", "lower": "好云香护采芹人" },
-      "occupants": ["李纨"],
-      "plants": ["杏花"],
+      "aliases": [
+        "杏花村"
+      ],
+      "couplet": {
+        "upper": "新涨绿添浣葛处",
+        "lower": "好云香护采芹人"
+      },
+      "occupants": [
+        "李纨"
+      ],
+      "plants": [
+        "杏花"
+      ],
       "first_appear": "第17回"
     },
     {
@@ -108,7 +239,9 @@
       "type": "building",
       "category": "院落",
       "parent": "大观园",
-      "occupants": ["贾探春"],
+      "occupants": [
+        "贾探春"
+      ],
       "first_appear": "第23回"
     },
     {
@@ -116,7 +249,9 @@
       "type": "building",
       "category": "楼",
       "parent": "大观园",
-      "occupants": ["贾迎春"],
+      "occupants": [
+        "贾迎春"
+      ],
       "first_appear": "第23回"
     },
     {
@@ -124,7 +259,9 @@
       "type": "building",
       "category": "院落",
       "parent": "大观园",
-      "occupants": ["贾惜春"],
+      "occupants": [
+        "贾惜春"
+      ],
       "first_appear": "第23回"
     },
     {
@@ -133,7 +270,10 @@
       "category": "亭",
       "parent": "大观园",
       "plaque": "沁芳",
-      "couplet": { "upper": "绕堤柳借三篙翠", "lower": "隔岸花分一脉香" },
+      "couplet": {
+        "upper": "绕堤柳借三篙翠",
+        "lower": "隔岸花分一脉香"
+      },
       "first_appear": "第17回"
     },
     {
@@ -148,7 +288,9 @@
       "type": "temple",
       "category": "庵",
       "parent": "大观园",
-      "occupants": ["妙玉"],
+      "occupants": [
+        "妙玉"
+      ],
       "first_appear": "第41回"
     },
     {
@@ -191,7 +333,9 @@
       "type": "building",
       "category": "院落",
       "parent": "大观园",
-      "occupants": ["史湘云"],
+      "occupants": [
+        "史湘云"
+      ],
       "first_appear": "第40回"
     },
     {
@@ -200,7 +344,10 @@
       "category": "楼",
       "parent": "大观园",
       "plaque": "省亲别墅",
-      "aliases": ["蓬莱仙境", "天仙宝境"],
+      "aliases": [
+        "蓬莱仙境",
+        "天仙宝境"
+      ],
       "first_appear": "第17回"
     },
     {
@@ -251,7 +398,9 @@
       "type": "building",
       "category": "院落",
       "parent": "荣国府",
-      "occupants": ["薛宝钗"],
+      "occupants": [
+        "薛宝钗"
+      ],
       "first_appear": "第4回"
     },
     {
@@ -267,7 +416,10 @@
       "category": "幻境",
       "parent": "离恨天",
       "plaque": "太虚幻境",
-      "couplet": { "upper": "假作真时真亦假", "lower": "无为有处有还无" },
+      "couplet": {
+        "upper": "假作真时真亦假",
+        "lower": "无为有处有还无"
+      },
       "first_appear": "第5回"
     },
     {
@@ -282,8 +434,468 @@
       "type": "building",
       "category": "堂",
       "parent": "大观园",
-      "occupants": ["贾母"],
+      "occupants": [
+        "贾母"
+      ],
       "first_appear": "第71回"
+    },
+    {
+      "id": "金陵城",
+      "type": "location",
+      "category": "市街",
+      "aliases": [
+        "金陵"
+      ],
+      "first_appear": "第2回"
+    },
+    {
+      "id": "姑苏阊门",
+      "type": "location",
+      "category": "市街",
+      "parent": null,
+      "first_appear": "第1回"
+    },
+    {
+      "id": "宁荣街",
+      "type": "location",
+      "category": "市街",
+      "parent": "金陵城",
+      "first_appear": "第2回"
+    },
+    {
+      "id": "水月庵",
+      "type": "temple",
+      "category": "庵",
+      "parent": "金陵城",
+      "aliases": [
+        "馒头庵"
+      ],
+      "first_appear": "第15回"
+    },
+    {
+      "id": "清虚观",
+      "type": "temple",
+      "category": "祠",
+      "parent": "金陵城",
+      "first_appear": "第29回"
+    },
+    {
+      "id": "贾母上房",
+      "type": "building",
+      "category": "院落",
+      "parent": "荣国府",
+      "occupants": [
+        "贾母"
+      ],
+      "first_appear": "第3回"
+    },
+    {
+      "id": "王夫人上房",
+      "type": "building",
+      "category": "院落",
+      "parent": "荣国府",
+      "occupants": [
+        "王夫人"
+      ],
+      "first_appear": "第7回"
+    },
+    {
+      "id": "贾政上房",
+      "type": "building",
+      "category": "院落",
+      "parent": "荣国府",
+      "occupants": [
+        "贾政"
+      ],
+      "first_appear": "第9回"
+    },
+    {
+      "id": "离恨天",
+      "type": "realm",
+      "category": "幻境",
+      "parent": null,
+      "first_appear": "第5回"
+    },
+    {
+      "id": "芦雪庵",
+      "type": "building",
+      "category": "其他",
+      "parent": "大观园",
+      "first_appear": "第49回"
+    },
+    {
+      "id": "暖香坞",
+      "type": "building",
+      "category": "院落",
+      "parent": "蓼风轩",
+      "occupants": [
+        "贾惜春"
+      ],
+      "first_appear": "第50回"
+    },
+    {
+      "id": "蓼溆",
+      "type": "building",
+      "category": "其他",
+      "parent": "大观园",
+      "first_appear": "第40回"
+    },
+    {
+      "id": "缀锦阁",
+      "type": "building",
+      "category": "阁",
+      "parent": "大观园",
+      "first_appear": "第40回"
+    },
+    {
+      "id": "蜂腰桥",
+      "type": "building",
+      "category": "其他",
+      "parent": "大观园",
+      "first_appear": "第26回"
+    },
+    {
+      "id": "小花枝巷",
+      "type": "building",
+      "category": "市街",
+      "parent": "金陵城",
+      "first_appear": "第63回"
+    },
+    {
+      "id": "急流津",
+      "type": "location",
+      "category": "其他",
+      "parent": "金陵城",
+      "first_appear": "第120回"
+    },
+    {
+      "id": "赖大家",
+      "type": "building",
+      "category": "府邸",
+      "parent": "宁荣街",
+      "first_appear": "第47回"
+    },
+    {
+      "id": "薛家",
+      "type": "building",
+      "category": "院落",
+      "parent": "荣国府",
+      "occupants": [
+        "薛姨妈",
+        "薛宝钗",
+        "薛蟠"
+      ],
+      "first_appear": "第4回"
+    },
+    {
+      "id": "贾母套间",
+      "type": "building",
+      "category": "其他",
+      "parent": "贾母上房",
+      "occupants": [
+        "贾母"
+      ],
+      "first_appear": "第111回"
+    },
+    {
+      "id": "凤姐院",
+      "type": "building",
+      "category": "院落",
+      "parent": "荣国府",
+      "occupants": [
+        "王熙凤",
+        "贾琏",
+        "平儿",
+        "巧姐"
+      ],
+      "first_appear": "第3回"
+    },
+    {
+      "id": "赵姨娘房",
+      "type": "building",
+      "category": "院落",
+      "parent": "荣国府",
+      "occupants": [
+        "赵姨娘",
+        "贾环"
+      ],
+      "first_appear": "第20回"
+    },
+    {
+      "id": "梦坡斋",
+      "type": "building",
+      "category": "其他",
+      "parent": "荣国府",
+      "occupants": [
+        "贾政"
+      ],
+      "first_appear": "第8回"
+    },
+    {
+      "id": "可卿上房",
+      "type": "building",
+      "category": "院落",
+      "parent": "宁国府",
+      "occupants": [
+        "秦可卿",
+        "贾蓉"
+      ],
+      "first_appear": "第5回"
+    },
+    {
+      "id": "荣庆堂",
+      "type": "building",
+      "category": "堂",
+      "parent": "荣国府",
+      "first_appear": "第71回"
+    },
+    {
+      "id": "尤氏上房",
+      "type": "building",
+      "category": "院落",
+      "parent": "宁国府",
+      "occupants": [
+        "尤氏"
+      ],
+      "first_appear": "第5回"
+    },
+    {
+      "id": "邢夫人上房",
+      "type": "building",
+      "category": "院落",
+      "parent": "宁国府",
+      "occupants": [
+        "邢夫人"
+      ],
+      "first_appear": "第7回"
+    },
+    {
+      "id": "十里屯",
+      "type": "location",
+      "category": "其他",
+      "parent": "金陵城",
+      "first_appear": "第96回"
+    },
+    {
+      "id": "小书房",
+      "type": "building",
+      "category": "其他",
+      "parent": "荣国府",
+      "occupants": [
+        "贾宝玉"
+      ],
+      "first_appear": "第19回"
+    },
+    {
+      "id": "贾氏宗祠",
+      "type": "building",
+      "category": "祠",
+      "parent": "宁国府",
+      "first_appear": "第53回"
+    },
+    {
+      "id": "周姨娘房",
+      "type": "building",
+      "category": "院落",
+      "parent": "荣国府",
+      "occupants": [
+        "周姨娘"
+      ],
+      "first_appear": "第35回"
+    },
+    {
+      "id": "议事厅",
+      "type": "building",
+      "category": "其他",
+      "parent": "大观园",
+      "plaque": "辅仁谕德",
+      "occupants": [
+        "贾探春",
+        "李纨"
+      ],
+      "first_appear": "第55回"
+    },
+    {
+      "id": "柳叶渚",
+      "type": "location",
+      "category": "其他",
+      "parent": "大观园",
+      "first_appear": "第59回"
+    },
+    {
+      "id": "翠烟桥",
+      "type": "building",
+      "category": "桥",
+      "parent": "大观园",
+      "first_appear": "第25回"
+    },
+    {
+      "id": "船坞",
+      "type": "building",
+      "category": "其他",
+      "parent": "大观园",
+      "first_appear": "第40回"
+    },
+    {
+      "id": "北静王府",
+      "type": "building",
+      "category": "府邸",
+      "parent": "金陵城",
+      "first_appear": "第14回"
+    },
+    {
+      "id": "忠顺王府",
+      "type": "building",
+      "category": "府邸",
+      "parent": "金陵城",
+      "first_appear": "第33回"
+    },
+    {
+      "id": "登仙阁",
+      "type": "building",
+      "category": "阁",
+      "parent": "会芳园",
+      "first_appear": "第13回"
+    },
+    {
+      "id": "孝慈县",
+      "type": "location",
+      "category": "市街",
+      "parent": "金陵城",
+      "first_appear": "第58回"
+    },
+    {
+      "id": "南安王府",
+      "type": "building",
+      "category": "府邸",
+      "parent": "金陵城",
+      "first_appear": "第71回"
+    },
+    {
+      "id": "下处",
+      "type": "building",
+      "category": "其他",
+      "parent": "孝慈县",
+      "first_appear": "第58回"
+    },
+    {
+      "id": "大观园厨房",
+      "type": "building",
+      "category": "其他",
+      "parent": "大观园",
+      "first_appear": "第61回"
+    },
+    {
+      "id": "茶房",
+      "type": "building",
+      "category": "其他",
+      "parent": "大观园",
+      "first_appear": "第61回"
+    },
+    {
+      "id": "姑子庙",
+      "type": "temple",
+      "category": "庵",
+      "parent": "金陵城",
+      "first_appear": "第68回"
+    },
+    {
+      "id": "锦乡侯府",
+      "type": "building",
+      "category": "府邸",
+      "parent": "金陵城",
+      "first_appear": "第55回"
+    },
+    {
+      "id": "穿堂",
+      "type": "building",
+      "category": "其他",
+      "parent": "荣国府",
+      "first_appear": "第59回"
+    },
+    {
+      "id": "仪门",
+      "type": "building",
+      "category": "其他",
+      "parent": "荣国府",
+      "first_appear": "第14回"
+    },
+    {
+      "id": "角门",
+      "type": "building",
+      "category": "其他",
+      "parent": "荣国府",
+      "first_appear": "第59回"
+    },
+    {
+      "id": "玉皇庙",
+      "type": "temple",
+      "category": "庵",
+      "parent": "大观园",
+      "first_appear": "第23回"
+    },
+    {
+      "id": "达摩庵",
+      "type": "temple",
+      "category": "庵",
+      "parent": "大观园",
+      "first_appear": "第23回"
+    },
+    {
+      "id": "甄家",
+      "type": "building",
+      "category": "府邸",
+      "parent": "金陵城",
+      "first_appear": "第57回"
+    },
+    {
+      "id": "云步石梯",
+      "type": "building",
+      "category": "其他",
+      "parent": "大观园",
+      "first_appear": "第40回"
+    },
+    {
+      "id": "乐善郡王府",
+      "type": "building",
+      "category": "府邸",
+      "parent": "金陵城",
+      "first_appear": "第71回"
+    },
+    {
+      "id": "抱厦",
+      "type": "building",
+      "category": "其他",
+      "parent": "贾氏宗祠",
+      "first_appear": "第53回"
+    },
+    {
+      "id": "东角门",
+      "type": "building",
+      "category": "其他",
+      "parent": "荣国府",
+      "first_appear": "第7回"
+    },
+    {
+      "id": "临昌伯府",
+      "type": "building",
+      "category": "府邸",
+      "parent": "金陵城",
+      "first_appear": "第71回"
+    },
+    {
+      "id": "永昌驸马府",
+      "type": "building",
+      "category": "府邸",
+      "parent": "金陵城",
+      "first_appear": "第71回"
+    },
+    {
+      "id": "临安伯府",
+      "type": "building",
+      "category": "府邸",
+      "parent": "金陵城",
+      "first_appear": "第93回"
     }
   ],
   "residence_assignment": {
@@ -301,14 +913,49 @@
   "inscription_tour": {
     "chapter": "第17回",
     "by_baoyu": [
-      { "location": "曲径通幽", "plaque": "曲径通幽处" },
-      { "location": "沁芳亭", "plaque": "沁芳", "couplet": ["绕堤柳借三篙翠", "隔岸花分一脉香"] },
-      { "location": "潇湘馆", "plaque": "有凤来仪", "couplet": ["宝鼎茶闲烟尚绿", "幽窗棋罢指犹凉"] },
-      { "location": "稻香村", "plaque": "杏帘在望", "couplet": ["新涨绿添浣葛处", "好云香护采芹人"] },
-      { "location": "蘅芜苑", "plaque": "蘅芷清芬", "couplet": ["吟成莼潞才犹艳", "睡足酴醿梦也香"] },
-      { "location": "怡红院", "plaque": "红香绿玉", "note": "元春第18回改怡红快绿" }
+      {
+        "location": "曲径通幽",
+        "plaque": "曲径通幽处"
+      },
+      {
+        "location": "沁芳亭",
+        "plaque": "沁芳",
+        "couplet": [
+          "绕堤柳借三篙翠",
+          "隔岸花分一脉香"
+        ]
+      },
+      {
+        "location": "潇湘馆",
+        "plaque": "有凤来仪",
+        "couplet": [
+          "宝鼎茶闲烟尚绿",
+          "幽窗棋罢指犹凉"
+        ]
+      },
+      {
+        "location": "稻香村",
+        "plaque": "杏帘在望",
+        "couplet": [
+          "新涨绿添浣葛处",
+          "好云香护采芹人"
+        ]
+      },
+      {
+        "location": "蘅芜苑",
+        "plaque": "蘅芷清芬",
+        "couplet": [
+          "吟成莼潞才犹艳",
+          "睡足酴醿梦也香"
+        ]
+      },
+      {
+        "location": "怡红院",
+        "plaque": "红香绿玉",
+        "note": "元春第18回改怡红快绿"
+      }
     ]
   },
   "entity_pages_dir": "locations/红楼梦/",
-  "entity_count": 29
+  "entity_count": 86
 }
