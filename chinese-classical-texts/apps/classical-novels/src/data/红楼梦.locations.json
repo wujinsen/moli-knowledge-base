@@ -22,7 +22,8 @@
           "外书房",
           "下房",
           "腰门",
-          "后廊"
+          "后廊",
+          "家塾"
         ]
       },
       "宁国府": {
@@ -1052,6 +1053,15 @@
       "category": "其他",
       "parent": "荣国府",
       "first_appear": "第93回"
+    },
+    {
+      "id": "家塾",
+      "type": "building",
+      "category": "其他",
+      "parent": "荣国府",
+      "occupants": ["贾代儒", "贾瑞"],
+      "first_appear": "第9回",
+      "summary": "贾氏义学，宝玉秦钟入学，闹学堂"
     }
   ],
   "residence_assignment": {
@@ -1113,5 +1123,5 @@
     ]
   },
   "entity_pages_dir": "locations/红楼梦/",
-  "entity_count": 105
+  "entity_count": 106
 }
