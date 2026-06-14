@@ -1,0 +1,148 @@
+{
+  "book": "金瓶梅",
+  "metrics": [
+    {
+      "id": "西门庆",
+      "degree": 16,
+      "degree_norm": 1.0,
+      "betweenness": 1.6611,
+      "faction": "西门府",
+      "ximen_proximity": "亲缘"
+    },
+    {
+      "id": "潘金莲",
+      "degree": 6,
+      "degree_norm": 0.375,
+      "betweenness": 0.0444,
+      "faction": "西门府",
+      "ximen_proximity": "亲缘"
+    },
+    {
+      "id": "李瓶儿",
+      "degree": 5,
+      "degree_norm": 0.312,
+      "betweenness": 0.025,
+      "faction": "西门府",
+      "ximen_proximity": "亲缘"
+    },
+    {
+      "id": "应伯爵",
+      "degree": 4,
+      "degree_norm": 0.25,
+      "betweenness": 0.025,
+      "faction": "帮闲圈",
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "吴月娘",
+      "degree": 5,
+      "degree_norm": 0.312,
+      "betweenness": 0.0111,
+      "faction": "西门府",
+      "ximen_proximity": "亲缘"
+    },
+    {
+      "id": "庞春梅",
+      "degree": 4,
+      "degree_norm": 0.25,
+      "betweenness": 0.0,
+      "faction": "西门府",
+      "ximen_proximity": "雇佣"
+    },
+    {
+      "id": "陈经济",
+      "degree": 3,
+      "degree_norm": 0.188,
+      "betweenness": 0.0,
+      "faction": "西门府",
+      "ximen_proximity": "亲缘"
+    },
+    {
+      "id": "孙雪娥",
+      "degree": 2,
+      "degree_norm": 0.125,
+      "betweenness": 0.0,
+      "faction": "西门府",
+      "ximen_proximity": "亲缘"
+    },
+    {
+      "id": "李智",
+      "degree": 2,
+      "degree_norm": 0.125,
+      "betweenness": 0.0,
+      "faction": "帮闲圈",
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "翟管家",
+      "degree": 2,
+      "degree_norm": 0.125,
+      "betweenness": 0.0,
+      "faction": "帮闲圈",
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "花子虚",
+      "degree": 2,
+      "degree_norm": 0.125,
+      "betweenness": 0.0,
+      "faction": "清河县",
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "蔡京",
+      "degree": 2,
+      "degree_norm": 0.125,
+      "betweenness": 0.0,
+      "faction": "朝廷",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "谢希大",
+      "degree": 2,
+      "degree_norm": 0.125,
+      "betweenness": 0.0,
+      "faction": "帮闲圈",
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "韩道国",
+      "degree": 2,
+      "degree_norm": 0.125,
+      "betweenness": 0.0,
+      "faction": "帮闲圈",
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "孟玉楼",
+      "degree": 1,
+      "degree_norm": 0.062,
+      "betweenness": 0.0,
+      "faction": "西门府",
+      "ximen_proximity": "亲缘"
+    },
+    {
+      "id": "来旺",
+      "degree": 1,
+      "degree_norm": 0.062,
+      "betweenness": 0.0,
+      "faction": "西门府",
+      "ximen_proximity": "雇佣"
+    },
+    {
+      "id": "玳安",
+      "degree": 1,
+      "degree_norm": 0.062,
+      "betweenness": 0.0,
+      "faction": "西门府",
+      "ximen_proximity": "雇佣"
+    }
+  ],
+  "hubs": [
+    "西门庆",
+    "潘金莲",
+    "李瓶儿",
+    "应伯爵",
+    "吴月娘"
+  ]
+}

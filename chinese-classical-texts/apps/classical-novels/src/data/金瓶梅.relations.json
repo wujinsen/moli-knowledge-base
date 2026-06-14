@@ -1,0 +1,384 @@
+{
+  "book": "金瓶梅",
+  "nodes": [
+    {
+      "id": "吴月娘",
+      "type": "character",
+      "faction": "西门府",
+      "weight": 70,
+      "ximen_proximity": "亲缘"
+    },
+    {
+      "id": "孙雪娥",
+      "type": "character",
+      "faction": "西门府",
+      "weight": 32,
+      "ximen_proximity": "亲缘"
+    },
+    {
+      "id": "孟玉楼",
+      "type": "character",
+      "faction": "西门府",
+      "weight": 26,
+      "ximen_proximity": "亲缘"
+    },
+    {
+      "id": "应伯爵",
+      "type": "character",
+      "faction": "帮闲圈",
+      "weight": 64,
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "庞春梅",
+      "type": "character",
+      "faction": "西门府",
+      "weight": 64,
+      "ximen_proximity": "雇佣"
+    },
+    {
+      "id": "李智",
+      "type": "character",
+      "faction": "帮闲圈",
+      "weight": 32,
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "李瓶儿",
+      "type": "character",
+      "faction": "西门府",
+      "weight": 64,
+      "ximen_proximity": "亲缘"
+    },
+    {
+      "id": "来旺",
+      "type": "character",
+      "faction": "西门府",
+      "weight": 26,
+      "ximen_proximity": "雇佣"
+    },
+    {
+      "id": "潘金莲",
+      "type": "character",
+      "faction": "西门府",
+      "weight": 64,
+      "ximen_proximity": "亲缘"
+    },
+    {
+      "id": "玳安",
+      "type": "character",
+      "faction": "西门府",
+      "weight": 26,
+      "ximen_proximity": "雇佣"
+    },
+    {
+      "id": "翟管家",
+      "type": "character",
+      "faction": "帮闲圈",
+      "weight": 32,
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "花子虚",
+      "type": "character",
+      "faction": "清河县",
+      "weight": 32,
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "蔡京",
+      "type": "character",
+      "faction": "朝廷",
+      "weight": 32,
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "西门庆",
+      "type": "character",
+      "faction": "西门府",
+      "weight": 100,
+      "ximen_proximity": "亲缘"
+    },
+    {
+      "id": "谢希大",
+      "type": "character",
+      "faction": "帮闲圈",
+      "weight": 32,
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "陈经济",
+      "type": "character",
+      "faction": "西门府",
+      "weight": 38,
+      "ximen_proximity": "亲缘"
+    },
+    {
+      "id": "韩道国",
+      "type": "character",
+      "faction": "帮闲圈",
+      "weight": 32,
+      "ximen_proximity": "利益交换"
+    }
+  ],
+  "edges": [
+    {
+      "source": "吴月娘",
+      "target": "西门庆",
+      "type": "夫妻",
+      "contradiction": false
+    },
+    {
+      "source": "吴月娘",
+      "target": "庞春梅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "吴月娘",
+      "target": "潘金莲",
+      "type": "妯娌",
+      "contradiction": false
+    },
+    {
+      "source": "吴月娘",
+      "target": "李瓶儿",
+      "type": "妯娌",
+      "contradiction": false
+    },
+    {
+      "source": "吴月娘",
+      "target": "陈经济",
+      "type": "母子",
+      "contradiction": false
+    },
+    {
+      "source": "孙雪娥",
+      "target": "西门庆",
+      "type": "情人",
+      "contradiction": false
+    },
+    {
+      "source": "孙雪娥",
+      "target": "潘金莲",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孟玉楼",
+      "target": "西门庆",
+      "type": "情人",
+      "contradiction": false
+    },
+    {
+      "source": "应伯爵",
+      "target": "西门庆",
+      "type": "帮闲",
+      "contradiction": false
+    },
+    {
+      "source": "应伯爵",
+      "target": "谢希大",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "应伯爵",
+      "target": "李智",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "应伯爵",
+      "target": "韩道国",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "庞春梅",
+      "target": "西门庆",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "庞春梅",
+      "target": "潘金莲",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "庞春梅",
+      "target": "吴月娘",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "庞春梅",
+      "target": "李瓶儿",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "李智",
+      "target": "西门庆",
+      "type": "借贷",
+      "contradiction": false
+    },
+    {
+      "source": "李瓶儿",
+      "target": "西门庆",
+      "type": "情人",
+      "contradiction": false
+    },
+    {
+      "source": "李瓶儿",
+      "target": "花子虚",
+      "type": "夫妻",
+      "contradiction": false
+    },
+    {
+      "source": "李瓶儿",
+      "target": "潘金莲",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "李瓶儿",
+      "target": "庞春梅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "来旺",
+      "target": "西门庆",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "潘金莲",
+      "target": "西门庆",
+      "type": "情人",
+      "contradiction": false
+    },
+    {
+      "source": "潘金莲",
+      "target": "李瓶儿",
+      "type": "嫉妒",
+      "contradiction": false
+    },
+    {
+      "source": "潘金莲",
+      "target": "庞春梅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "潘金莲",
+      "target": "陈经济",
+      "type": "情人",
+      "contradiction": false
+    },
+    {
+      "source": "玳安",
+      "target": "西门庆",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "翟管家",
+      "target": "西门庆",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "翟管家",
+      "target": "蔡京",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "花子虚",
+      "target": "西门庆",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "蔡京",
+      "target": "西门庆",
+      "type": "庇护",
+      "contradiction": false
+    },
+    {
+      "source": "蔡京",
+      "target": "翟管家",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "西门庆",
+      "target": "庞春梅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "西门庆",
+      "target": "应伯爵",
+      "type": "帮闲",
+      "contradiction": false
+    },
+    {
+      "source": "西门庆",
+      "target": "谢希大",
+      "type": "帮闲",
+      "contradiction": false
+    },
+    {
+      "source": "西门庆",
+      "target": "韩道国",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "西门庆",
+      "target": "蔡京",
+      "type": "贿赂",
+      "contradiction": false
+    },
+    {
+      "source": "西门庆",
+      "target": "玳安",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "西门庆",
+      "target": "来旺",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "西门庆",
+      "target": "陈经济",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "谢希大",
+      "target": "西门庆",
+      "type": "帮闲",
+      "contradiction": false
+    },
+    {
+      "source": "陈经济",
+      "target": "西门庆",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "陈经济",
+      "target": "吴月娘",
+      "type": "母子",
+      "contradiction": false
+    }
+  ]
+}

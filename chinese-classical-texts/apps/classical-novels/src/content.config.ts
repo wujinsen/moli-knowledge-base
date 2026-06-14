@@ -10,7 +10,11 @@ export const RELATION_TYPES = [
   '主仆', '师徒', '师兄弟', '同僚', '朋友', '结拜', '君臣',
   // 情感
   '情人', '恋慕', '仇敌', '敌对',
+  // 金瓶梅 · 利益与府内
+  '帮闲', '贿赂', '借贷', '认干亲', '庇护', '资助', '嫉妒', '陷害',
 ] as const;
+
+export const XIMEN_PROXIMITY = ['亲缘', '雇佣', '利益交换', '外人'] as const;
 
 const relation = z.object({
   target: z.string(),
@@ -37,6 +41,8 @@ const characters = defineCollection({
     first_appear: z.string().optional(),
     status: z.enum(['主角', '重要', '配角']).optional(),
     tags: z.array(z.string()).default([]),
+    // 金瓶梅 · 与西门府利益距离
+    ximen_proximity: z.enum(XIMEN_PROXIMITY).optional(),
     // 妖怪扩展字段
     洞府: z.string().optional(),
     原型: z.string().optional(),
@@ -80,7 +86,7 @@ const books = defineCollection({
     author: z.string(),
     chapter_count: z.number(),
     features: z.array(
-      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'nan', 'route'])
+      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'sna', 'nan', 'route'])
     ),
     summary: z.string().optional(),
   }),

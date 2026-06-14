@@ -1,0 +1,25 @@
+# 金瓶梅货币换算 v1（见 docs/金瓶梅-知识图谱架构.md §6.1、§7.1）
+# 晚明口径因地因时浮动；修订系数须同步 conversion_note，不可 silently 改 raw。
+
+qian_per_liang: 1000   # 钱/文 ÷ 1000 ≈ 1 两
+guan_per_liang: 1      # 1 贯 ≈ 1 两（简化）
+
+disputed_threshold_qian: 500  # ≥ 此值标 conversion_disputed
+
+units:
+  银:
+    strategy: direct
+    factor: 1
+  钱:
+    strategy: divide
+    factor: 1000
+    note: 晚明常用口径，因地因时浮动
+  文:
+    strategy: divide
+    factor: 1000
+    note: 与「钱」混用需看上下文
+  贯:
+    strategy: divide
+    factor: 1
+    note: 1 贯 ≈ 1 两（简化，一条鞭法后白银化相关）
+    disputed: true

@@ -199,7 +199,7 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
           },
         },
         {
-          key: 'sna', glyph: '网', title: '社会网络分析', desc: '帮闲圈介数中心性 SNA', ...plan(slug, 'sna'),
+          key: 'sna', glyph: '网', title: '社会网络分析', desc: '帮闲圈介数中心性 SNA', ...live(has('sna'), slug, 'sna', `/${slug}/sna`),
           preview: {
             intro:
               '把西门府的人际勾连作为社会网络，用图算法找出把控信息与利益流动的关键掮客——这是《金瓶梅》作为「社会人类学报告」的核心价值。',
