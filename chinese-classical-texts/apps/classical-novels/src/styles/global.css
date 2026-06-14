@@ -1020,6 +1020,31 @@ a.edition-tab:hover {
 }
 
 /* ============ 关系图谱 ============ */
+.graph-main {
+  min-height: calc(100vh - var(--graph-chrome, 7.5rem));
+}
+
+.graph-topbar .topbar-modules {
+  scrollbar-color: color-mix(in srgb, var(--gold) 35%, transparent) transparent;
+}
+
+.graph-topbar .nav-module-card {
+  border-color: color-mix(in srgb, var(--gold) 28%, transparent);
+  background: color-mix(in srgb, #fdf7ec 6%, transparent);
+  color: color-mix(in srgb, #fdf7ec 82%, transparent);
+}
+
+.graph-topbar .nav-module-card:hover {
+  background: color-mix(in srgb, #fdf7ec 12%, transparent);
+  color: #fff;
+}
+
+.graph-topbar .nav-module-card.is-active {
+  background: color-mix(in srgb, var(--paper-2) 92%, transparent);
+  color: var(--primary);
+  border-color: color-mix(in srgb, var(--gold) 55%, transparent);
+}
+
 .graph-toolbar {
   background: linear-gradient(to bottom, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.55));
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);

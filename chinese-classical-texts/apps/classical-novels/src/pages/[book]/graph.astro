@@ -47,7 +47,7 @@ const data = relationGraphForSlug(meta.slug);
       </div>
     ) : (
       <>
-        <RelationGraph data={data} bookSlug={meta.slug} client:only="react">
+        <RelationGraph bookSlug={meta.slug} client:only="react">
         <div
           slot="fallback"
           class="flex min-h-[70vh] flex-col items-center justify-center gap-3 px-4 text-center text-slate-400"

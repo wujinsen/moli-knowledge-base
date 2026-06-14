@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import * as echarts from 'echarts';
 import type { EChartsOption } from 'echarts';
 import { factionColor, relationColor, graphTheme } from '../lib/graphTheme';
+import { relationGraphForSlug } from '../lib/relations';
 
 interface Node {
   id: string;
@@ -20,7 +21,6 @@ interface Edge {
   inference?: boolean;
 }
 interface Props {
-  data: { nodes: Node[]; edges: Edge[] };
   bookSlug: string;
 }
 
@@ -48,7 +48,8 @@ function forceSettings(nodeCount: number) {
   };
 }
 
-export default function RelationGraph({ data, bookSlug }: Props) {
+export default function RelationGraph({ bookSlug }: Props) {
+  const data = useMemo(() => relationGraphForSlug(bookSlug), [bookSlug]);
   const gt = useMemo(() => graphTheme(bookSlug), [bookSlug]);
   const containerRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<HTMLDivElement>(null);
@@ -57,6 +58,7 @@ export default function RelationGraph({ data, bookSlug }: Props) {
   const prevPhysicsRef = useRef(true);
 
   const [chartReady, setChartReady] = useState(false);
+  const [chartError, setChartError] = useState<string | null>(null);
   const [query, setQuery] = useState('');
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [hiddenFactions, setHiddenFactions] = useState<Set<string>>(new Set());
@@ -239,7 +241,14 @@ export default function RelationGraph({ data, bookSlug }: Props) {
 
   useEffect(() => {
     if (!chartRef.current) return;
-    const chart = echarts.init(chartRef.current, undefined, { renderer: 'canvas' });
+    setChartError(null);
+    let chart: echarts.ECharts;
+    try {
+      chart = echarts.init(chartRef.current, undefined, { renderer: 'canvas' });
+    } catch (err) {
+      setChartError(err instanceof Error ? err.message : '图谱初始化失败');
+      return;
+    }
     chartInstance.current = chart;
 
     chart.on('click', (params) => {
@@ -338,10 +347,30 @@ export default function RelationGraph({ data, bookSlug }: Props) {
 
   const relationTypes = [...new Set(visibleEdges.map((e) => e.type))];
 
+  const graphHeight = 'calc(100vh - var(--graph-chrome, 7.5rem))';
+
+  if (data.nodes.length === 0) {
+    return (
+      <div
+        className="flex flex-col items-center justify-center px-4 text-center text-slate-400"
+        style={{ minHeight: graphHeight }}
+      >
+        <p className="mb-2 text-lg" style={{ color: gt.accentSoft }}>
+          关系图谱待生成
+        </p>
+        <p className="max-w-md text-sm">
+          运行 <code className="mx-1 rounded px-2 py-0.5 bg-slate-900/80">python scripts/build_relations.py</code>{' '}
+          后刷新页面。
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div
       ref={containerRef}
-      className="graph-explorer relative min-h-[calc(100vh-3rem)] overflow-hidden"
+      className="graph-explorer relative overflow-hidden"
+      style={{ height: graphHeight, minHeight: graphHeight }}
     >
       {/* 背景装饰 */}
       <div
@@ -527,7 +556,20 @@ export default function RelationGraph({ data, bookSlug }: Props) {
         </aside>
       )}
 
-      <div ref={chartRef} className="absolute inset-0 h-full w-full" style={{ minHeight: 'calc(100vh - 3rem)' }} />
+      {chartError && (
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-2 bg-slate-950/80 px-4 text-center text-sm text-slate-300">
+          <p>图谱渲染失败：{chartError}</p>
+          <button
+            type="button"
+            onClick={() => window.location.reload()}
+            className="rounded-lg border border-white/15 px-3 py-1.5 hover:border-white/30"
+          >
+            重新加载
+          </button>
+        </div>
+      )}
+
+      <div ref={chartRef} className="absolute inset-0 h-full w-full" />
 
       <p className="pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 select-none text-center text-slate-700/40 text-sm">
         拖拽节点 · 滚轮缩放 · 点击高亮邻接
