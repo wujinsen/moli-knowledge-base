@@ -30,11 +30,28 @@ function neighborSet(nodeId: string, edges: Edge[]): Set<string> {
   return set;
 }
 
+function circularCoords(index: number, total: number, radius = 280): { x: number; y: number } {
+  const angle = (2 * Math.PI * index) / Math.max(total, 1);
+  return { x: Math.cos(angle) * radius, y: Math.sin(angle) * radius };
+}
+
+function forceSettings(nodeCount: number) {
+  return {
+    initLayout: 'circular' as const,
+    repulsion: Math.min(420, Math.max(100, 6500 / nodeCount)),
+    gravity: 0.14,
+    edgeLength: nodeCount > 80 ? [45, 110] : [70, 150],
+    friction: 0.42,
+  };
+}
+
 export default function RelationGraph({ data, bookSlug }: Props) {
   const gt = useMemo(() => graphTheme(bookSlug), [bookSlug]);
   const containerRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<HTMLDivElement>(null);
   const chartInstance = useRef<echarts.ECharts | null>(null);
+  const layoutPositionsRef = useRef<Map<string, { x: number; y: number }>>(new Map());
+  const prevPhysicsRef = useRef(true);
 
   const [chartReady, setChartReady] = useState(false);
   const [query, setQuery] = useState('');
@@ -115,15 +132,11 @@ export default function RelationGraph({ data, bookSlug }: Props) {
             lineStyle: { width: 3, opacity: 1 },
             itemStyle: { shadowBlur: 28 },
           },
-          force: {
-            repulsion: 320,
-            gravity: 0.08,
-            edgeLength: [80, 180],
-            friction: 0.35,
-            layoutAnimation: physics,
-          },
+          force: physics
+            ? { ...forceSettings(visibleNodes.length), layoutAnimation: true }
+            : { layoutAnimation: false },
           categories,
-          data: visibleNodes.map((n) => {
+          data: visibleNodes.map((n, idx) => {
             const fi = factions.indexOf(n.faction);
             const color = factionColor(fi);
             const matched = q && n.id.toLowerCase().includes(q);
@@ -133,12 +146,18 @@ export default function RelationGraph({ data, bookSlug }: Props) {
             const highlighted = q && matched;
             const size = 22 + (n.weight ?? 30) * 0.45;
 
+            const saved = layoutPositionsRef.current.get(n.id);
+            const fixedPos = !physics
+              ? (saved ?? circularCoords(idx, visibleNodes.length))
+              : null;
+
             return {
               id: n.id,
               name: n.id,
               category: fi,
               faction: n.faction,
               nodeType: n.type,
+              ...(fixedPos ? { x: fixedPos.x, y: fixedPos.y, fixed: true } : {}),
               symbol:
                 n.type === 'monster' ? 'diamond' : n.type === 'topic' ? 'roundRect' : 'circle',
               symbolSize: highlighted ? size * 1.2 : size,
@@ -233,8 +252,46 @@ export default function RelationGraph({ data, bookSlug }: Props) {
 
   useEffect(() => {
     if (!chartReady || !chartInstance.current) return;
-    chartInstance.current.setOption(buildOption(), { notMerge: true });
-  }, [chartReady, buildOption]);
+    const chart = chartInstance.current;
+    const switchedToForce = !prevPhysicsRef.current && physics;
+    prevPhysicsRef.current = physics;
+
+    if (switchedToForce) chart.clear();
+    chart.setOption(buildOption(), { notMerge: true });
+
+    const timer = window.setTimeout(() => chart.resize(), switchedToForce ? 150 : 0);
+    return () => clearTimeout(timer);
+  }, [chartReady, buildOption, physics]);
+
+  const captureLayoutPositions = () => {
+    const chart = chartInstance.current;
+    if (!chart) return;
+    try {
+      const seriesModel = chart.getModel().getSeriesByIndex(0);
+      if (!seriesModel) return;
+      const graphData = seriesModel.getData();
+      const next = new Map<string, { x: number; y: number }>();
+      for (let i = 0; i < graphData.count(); i++) {
+        const layout = graphData.getItemLayout(i);
+        if (layout && Number.isFinite(layout[0]) && Number.isFinite(layout[1])) {
+          next.set(String(graphData.getName(i)), { x: layout[0], y: layout[1] });
+        }
+      }
+      if (next.size > 0) layoutPositionsRef.current = next;
+    } catch {
+      /* chart mid-update */
+    }
+  };
+
+  const togglePhysics = () => {
+    if (physics) {
+      captureLayoutPositions();
+      setPhysics(false);
+      return;
+    }
+    layoutPositionsRef.current.clear();
+    setPhysics(true);
+  };
 
   const toggleFaction = (f: string) => {
     setHiddenFactions((prev) => {
@@ -284,25 +341,25 @@ export default function RelationGraph({ data, bookSlug }: Props) {
       />
 
       {/* 顶栏控件 */}
-      <div className="absolute left-0 right-0 top-0 z-10 flex flex-wrap items-center gap-2 p-3">
+      <div className="graph-toolbar absolute left-0 right-0 top-0 z-10 flex h-12 items-center gap-2 px-3">
         <input
           type="search"
           placeholder="搜索人物…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-44 rounded-lg border border-white/10 bg-slate-900/80 px-3 py-1.5 text-sm text-slate-100 placeholder:text-slate-500 backdrop-blur-sm focus:border-white/40 focus:outline-none"
+          className="w-40 rounded-lg border border-white/10 bg-slate-900/80 px-3 py-1.5 text-sm text-slate-100 placeholder:text-slate-500 backdrop-blur-sm focus:border-white/40 focus:outline-none sm:w-44"
         />
         <button
           type="button"
           onClick={resetView}
           className="rounded-lg border border-white/10 bg-slate-900/80 px-3 py-1.5 text-sm text-slate-300 backdrop-blur-sm hover:border-white/20 hover:text-white"
         >
-          重置视图
+          重置
         </button>
         <button
           type="button"
-          onClick={() => setPhysics((p) => !p)}
-          className="rounded-lg border border-white/10 bg-slate-900/80 px-3 py-1.5 text-sm text-slate-300 backdrop-blur-sm hover:border-white/20 hover:text-white"
+          onClick={togglePhysics}
+          className="hidden rounded-lg border border-white/10 bg-slate-900/80 px-3 py-1.5 text-sm text-slate-300 backdrop-blur-sm hover:border-white/20 hover:text-white sm:inline-block"
         >
           {physics ? '固定布局' : '力导向'}
         </button>
@@ -313,10 +370,15 @@ export default function RelationGraph({ data, bookSlug }: Props) {
         >
           全屏
         </button>
-        <div className="ml-auto flex gap-3 text-xs text-slate-400">
-          <span>{visibleNodes.length} 节点</span>
-          <span>{visibleEdges.length} 关系</span>
-        </div>
+        {!selectedNode && (
+          <div className="ml-auto graph-stat-pill">
+            <strong style={{ color: gt.accentSoft }}>{visibleNodes.length}</strong>
+            <span>节点</span>
+            <span className="text-slate-600">·</span>
+            <strong style={{ color: gt.accentSoft }}>{visibleEdges.length}</strong>
+            <span>关系</span>
+          </div>
+        )}
       </div>
 
       {/* 阵营筛选 */}
@@ -367,22 +429,43 @@ export default function RelationGraph({ data, bookSlug }: Props) {
       {/* 选中详情 */}
       {selectedNode && (
         <aside
-          className="absolute right-3 top-14 z-10 w-56 rounded-xl border bg-slate-900/90 p-4 shadow-xl backdrop-blur-md"
+          className="absolute right-3 top-[3.25rem] z-20 flex w-60 max-h-[calc(100vh-6.5rem)] flex-col rounded-xl border bg-slate-900/92 shadow-2xl backdrop-blur-md"
           style={{ borderColor: gt.accentLine }}
         >
-          <div className="mb-1 text-lg font-semibold" style={{ color: gt.accentSoft }}>
-            {selectedNode.id}
+          <div className="border-b border-white/5 px-4 py-3">
+            <div className="flex items-start justify-between gap-2">
+              <div className="min-w-0">
+                <div className="truncate text-lg font-semibold" style={{ color: gt.accentSoft }}>
+                  {selectedNode.id}
+                </div>
+                <div className="mt-0.5 text-xs text-slate-400">
+                  {selectedNode.type === 'topic'
+                    ? '版本异文议题'
+                    : `${selectedNode.faction} · ${selectedNode.type === 'monster' ? '妖怪' : '人物'}`}
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedId(null)}
+                className="shrink-0 rounded-md p-1 text-slate-500 hover:bg-white/5 hover:text-slate-200"
+                aria-label="关闭详情"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="graph-stat-pill mt-2.5 w-fit text-[11px]">
+              <strong style={{ color: gt.accentSoft }}>{selectedEdges.length}</strong>
+              <span>条邻接</span>
+              <span className="text-slate-600">·</span>
+              <strong style={{ color: gt.accentSoft }}>{visibleNodes.length}</strong>
+              <span>节点</span>
+            </div>
           </div>
-          <div className="mb-3 text-xs text-slate-400">
-            {selectedNode.type === 'topic'
-              ? '版本异文议题'
-              : `${selectedNode.faction} · ${selectedNode.type === 'monster' ? '妖怪' : '人物'}`}
-          </div>
-          <ul className="mb-3 max-h-40 space-y-1 overflow-y-auto text-sm">
+          <ul className="graph-panel-scroll flex-1 space-y-1 overflow-y-auto px-4 py-3 text-sm">
             {selectedEdges.map((e, i) => {
               const other = e.source === selectedNode.id ? e.target : e.source;
               return (
-                <li key={i} className="text-slate-300">
+                <li key={i} className="leading-snug text-slate-300">
                   <span style={{ color: relationColor(e.type) }}>{e.type}</span>
                   <span className="text-slate-500"> → </span>
                   {other}
@@ -391,13 +474,15 @@ export default function RelationGraph({ data, bookSlug }: Props) {
             })}
           </ul>
           {selectedNode.type !== 'topic' && (
-            <a
-              href={`/${bookSlug}/c/${encodeURIComponent(selectedNode.id)}`}
-              className="inline-block text-sm hover:underline"
-              style={{ color: gt.accent }}
-            >
-              查看人物页 →
-            </a>
+            <div className="border-t border-white/5 px-4 py-3">
+              <a
+                href={`/${bookSlug}/c/${encodeURIComponent(selectedNode.id)}`}
+                className="inline-block text-sm hover:underline"
+                style={{ color: gt.accent }}
+              >
+                查看人物页 →
+              </a>
+            </div>
           )}
         </aside>
       )}

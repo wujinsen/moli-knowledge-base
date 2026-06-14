@@ -939,3 +939,77 @@ a.edition-tab:hover {
     border-bottom: none;
   }
 }
+
+/* ============ 关系图谱 ============ */
+.graph-toolbar {
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.55));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.graph-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.85);
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+
+.graph-stat-pill strong {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.graph-panel-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+}
+
+.graph-panel-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.graph-panel-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.graph-panel-scroll::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 999px;
+}
+
+.graph-panel-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.55);
+}
+
+.graph-nav-search {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.55);
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8125rem;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.graph-nav-search:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #f1f5f9;
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.graph-nav-search svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  opacity: 0.75;
+}
+
