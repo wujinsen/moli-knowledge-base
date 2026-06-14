@@ -17,7 +17,12 @@
           "赵姨娘房",
           "梦坡斋",
           "小书房",
-          "大观园"
+          "大观园",
+          "厢房",
+          "外书房",
+          "下房",
+          "腰门",
+          "后廊"
         ]
       },
       "宁国府": {
@@ -49,7 +54,13 @@
         "乐善郡王府",
         "临昌伯府",
         "永昌驸马府",
-        "临安伯府"
+        "临安伯府",
+        "地藏庵",
+        "郝家庄",
+        "孙家",
+        "破寺",
+        "贡院",
+        "临敬殿"
       ]
     },
     "姑苏阊门": {
@@ -95,7 +106,9 @@
         "茶房",
         "玉皇庙",
         "达摩庵",
-        "云步石梯"
+        "云步石梯",
+        "后门",
+        "回廊"
       ]
     },
     "蓼风轩": {
@@ -120,7 +133,12 @@
         "穿堂",
         "仪门",
         "角门",
-        "东角门"
+        "东角门",
+        "洒泪亭",
+        "二门",
+        "夹道",
+        "孝幕",
+        "门上"
       ]
     },
     "孝慈县": {
@@ -131,6 +149,11 @@
     "贾氏宗祠": {
       "children": [
         "抱厦"
+      ]
+    },
+    "宁国府": {
+      "children": [
+        "内茶房"
       ]
     }
   },
@@ -896,6 +919,139 @@
       "category": "府邸",
       "parent": "金陵城",
       "first_appear": "第93回"
+    },
+    {
+      "id": "内茶房",
+      "type": "building",
+      "category": "其他",
+      "parent": "宁国府",
+      "first_appear": "第14回"
+    },
+    {
+      "id": "洒泪亭",
+      "type": "building",
+      "category": "亭",
+      "parent": "荣国府",
+      "first_appear": "第37回"
+    },
+    {
+      "id": "地藏庵",
+      "type": "temple",
+      "category": "庵",
+      "parent": "金陵城",
+      "first_appear": "第115回"
+    },
+    {
+      "id": "二门",
+      "type": "building",
+      "category": "其他",
+      "parent": "荣国府",
+      "first_appear": "第89回"
+    },
+    {
+      "id": "厢房",
+      "type": "building",
+      "category": "其他",
+      "parent": "荣国府",
+      "first_appear": "第69回"
+    },
+    {
+      "id": "后门",
+      "type": "building",
+      "category": "其他",
+      "parent": "大观园",
+      "first_appear": "第37回"
+    },
+    {
+      "id": "郝家庄",
+      "type": "building",
+      "category": "市街",
+      "parent": "金陵城",
+      "first_appear": "第93回"
+    },
+    {
+      "id": "孙家",
+      "type": "building",
+      "category": "府邸",
+      "parent": "金陵城",
+      "first_appear": "第79回"
+    },
+    {
+      "id": "外书房",
+      "type": "building",
+      "category": "其他",
+      "parent": "荣国府",
+      "first_appear": "第16回"
+    },
+    {
+      "id": "下房",
+      "type": "building",
+      "category": "其他",
+      "parent": "荣国府",
+      "first_appear": "第57回"
+    },
+    {
+      "id": "腰门",
+      "type": "building",
+      "category": "其他",
+      "parent": "荣国府",
+      "first_appear": "第112回"
+    },
+    {
+      "id": "破寺",
+      "type": "temple",
+      "category": "庵",
+      "parent": "金陵城",
+      "first_appear": "第98回"
+    },
+    {
+      "id": "后廊",
+      "type": "building",
+      "category": "其他",
+      "parent": "荣国府",
+      "first_appear": "第24回"
+    },
+    {
+      "id": "回廊",
+      "type": "building",
+      "category": "其他",
+      "parent": "大观园",
+      "first_appear": "第57回"
+    },
+    {
+      "id": "夹道",
+      "type": "building",
+      "category": "其他",
+      "parent": "荣国府",
+      "first_appear": "第12回"
+    },
+    {
+      "id": "贡院",
+      "type": "building",
+      "category": "其他",
+      "parent": "金陵城",
+      "first_appear": "第119回"
+    },
+    {
+      "id": "临敬殿",
+      "type": "building",
+      "category": "其他",
+      "parent": "金陵城",
+      "first_appear": "第16回"
+    },
+    {
+      "id": "孝幕",
+      "type": "building",
+      "category": "其他",
+      "parent": "荣国府",
+      "first_appear": "第111回"
+    },
+    {
+      "id": "门上",
+      "type": "building",
+      "category": "其他",
+      "parent": "荣国府",
+      "first_appear": "第93回"
     }
   ],
   "residence_assignment": {
@@ -957,5 +1113,5 @@
     ]
   },
   "entity_pages_dir": "locations/红楼梦/",
-  "entity_count": 86
+  "entity_count": 105
 }
