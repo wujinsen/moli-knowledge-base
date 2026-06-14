@@ -1,10 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import { THEME_BY_SLUG, modulesFor } from '../lib/books';
+import { getBooks } from '../lib/getBooks';
 
 const order = ['honglou', 'xiyouji', 'jinpingmei'];
-const books = (await getCollection('books')).sort(
+const books = (await getBooks()).sort(
   (a, b) => order.indexOf(a.data.slug) - order.indexOf(b.data.slug),
 );
 const booksMissing = books.length === 0;

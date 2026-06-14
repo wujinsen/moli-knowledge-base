@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import { THEME_BY_SLUG, modulesFor } from '../../lib/books';
 import EditionTabs from '../../components/EditionTabs.astro';
@@ -12,7 +13,7 @@ import {
 } from '../../lib/editions';
 
 export async function getStaticPaths() {
-  const books = await getCollection('books');
+  const books = await getBooks();
   return books.map((b) => ({
     params: { book: b.data.slug },
     props: { book: b },

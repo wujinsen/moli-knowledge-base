@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import {
   TRIBULATION_PHASES,
@@ -10,7 +11,7 @@ import {
 } from '../../lib/events';
 
 export async function getStaticPaths() {
-  const books = await getCollection('books');
+  const books = await getBooks();
   return books
     .filter((b) => b.data.features.includes('nan'))
     .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));

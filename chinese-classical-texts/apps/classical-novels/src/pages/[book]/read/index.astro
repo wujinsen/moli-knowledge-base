@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { getBooks } from '../../../lib/getBooks';
 import {
   defaultEditionSlug,
   hasMultipleEditions,
@@ -8,7 +9,7 @@ import {
 } from '../../../lib/editions';
 
 export async function getStaticPaths() {
-  const books = await getCollection('books');
+  const books = await getBooks();
   return books.map((b) => ({
     params: { book: b.data.slug },
     props: { book: b.data },

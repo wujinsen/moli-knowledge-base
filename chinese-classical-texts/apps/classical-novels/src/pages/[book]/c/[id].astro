@@ -1,9 +1,10 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
 
 export async function getStaticPaths() {
-  const books = await getCollection('books');
+  const books = await getBooks();
   const slugByBook = new Map(books.map((b) => [b.data.book, b.data.slug]));
   const featuresByBook = new Map(books.map((b) => [b.data.book, b.data.features]));
   const chars = await getCollection('characters');

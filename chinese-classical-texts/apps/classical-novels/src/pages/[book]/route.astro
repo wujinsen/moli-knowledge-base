@@ -1,12 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
+import { getBooks } from '../../lib/getBooks';
 import GraphLayout from '../../layouts/GraphLayout.astro';
 import RouteMap from '../../components/RouteMap.tsx';
 import { buildRouteEdges, type RouteNode } from '../../lib/route';
 import { sortEvents } from '../../lib/events';
 
 export async function getStaticPaths() {
-  const books = await getCollection('books');
+  const books = await getBooks();
   return books
     .filter((b) => b.data.features.includes('route'))
     .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));

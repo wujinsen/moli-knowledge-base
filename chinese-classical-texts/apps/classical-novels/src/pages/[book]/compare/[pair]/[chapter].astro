@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { getBooks } from '../../../../lib/getBooks';
 import Base from '../../../../layouts/Base.astro';
 import {
   COMPARE_PAIR_SLUGS,
@@ -12,7 +13,7 @@ import {
 import { variantsForChapter } from '../../../../lib/variants';
 
 export async function getStaticPaths() {
-  const books = await getCollection('books');
+  const books = await getBooks();
   const chapters = await getCollection('chapters');
   const paths: {
     params: { book: string; pair: string; chapter: string };

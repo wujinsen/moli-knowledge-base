@@ -1,11 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
+import { getBooks } from '../../lib/getBooks';
 import GraphLayout from '../../layouts/GraphLayout.astro';
 import RelationGraph from '../../components/RelationGraph.tsx';
 import { graphTheme } from '../../lib/graphTheme';
+import { relationGraphForSlug } from '../../lib/relations';
 
 export async function getStaticPaths() {
-  const books = await getCollection('books');
+  const books = await getBooks();
   return books
     .filter((b) => b.data.features.includes('graph'))
     .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
@@ -14,10 +15,7 @@ export async function getStaticPaths() {
 const { book } = Astro.props;
 const meta = book.data;
 const gt = graphTheme(meta.slug);
-
-const files = import.meta.glob('../../data/*.relations.json', { eager: true });
-const key = Object.keys(files).find((k) => k.includes(meta.book));
-const data = key ? (files[key] as any).default ?? files[key] : { nodes: [], edges: [] };
+const data = relationGraphForSlug(meta.slug);
 ---
 
 <GraphLayout title={`${meta.book} 关系图谱`} bookSlug={meta.slug} bookName={meta.book}>
@@ -43,7 +41,18 @@ const data = key ? (files[key] as any).default ?? files[key] : { nodes: [], edge
         </a>
       </div>
     ) : (
-      <RelationGraph data={data} bookSlug={meta.slug} client:only="react" />
+      <RelationGraph data={data} bookSlug={meta.slug} client:only="react">
+        <div
+          slot="fallback"
+          class="flex min-h-[70vh] flex-col items-center justify-center gap-3 px-4 text-center text-slate-400"
+        >
+          <div
+            class="h-8 w-8 animate-spin rounded-full border-2 border-slate-600 border-t-slate-300"
+            aria-hidden="true"
+          />
+          <p class="text-sm">加载关系图谱…</p>
+        </div>
+      </RelationGraph>
     )
   }
 </GraphLayout>

@@ -1,10 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
+import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
 import { modulesFor, type BookModule } from '../../../lib/books';
 
 export async function getStaticPaths() {
-  const books = await getCollection('books');
+  const books = await getBooks();
   const paths: {
     params: { book: string; key: string };
     props: { slug: string; bookName: string; features: string[]; mod: BookModule };

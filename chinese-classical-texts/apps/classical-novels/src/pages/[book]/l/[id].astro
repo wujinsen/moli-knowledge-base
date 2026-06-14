@@ -1,11 +1,12 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
 import { loadBookPlaces, typeLabel } from '../../../lib/places';
 import { chaptersFromAppearIn, relatedItemsForPlace } from '../../../lib/crosslinks';
 
 export async function getStaticPaths() {
-  const books = await getCollection('books');
+  const books = await getBooks();
   const slugByBook = new Map(books.map((b) => [b.data.book, b.data.slug]));
 
   const paths: {

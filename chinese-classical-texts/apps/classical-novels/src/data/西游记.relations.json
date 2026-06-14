@@ -83,7 +83,7 @@
       "id": "女儿国国王",
       "type": "character",
       "faction": "西梁女国",
-      "weight": 32
+      "weight": 52
     },
     {
       "id": "如意真仙",
@@ -227,7 +227,7 @@
       "id": "蝎子精",
       "type": "monster",
       "faction": "妖魔",
-      "weight": 38
+      "weight": 58
     },
     {
       "id": "观音菩萨",

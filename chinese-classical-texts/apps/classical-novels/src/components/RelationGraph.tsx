@@ -36,6 +36,7 @@ export default function RelationGraph({ data, bookSlug }: Props) {
   const chartRef = useRef<HTMLDivElement>(null);
   const chartInstance = useRef<echarts.ECharts | null>(null);
 
+  const [chartReady, setChartReady] = useState(false);
   const [query, setQuery] = useState('');
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [hiddenFactions, setHiddenFactions] = useState<Set<string>>(new Set());
@@ -213,18 +214,27 @@ export default function RelationGraph({ data, bookSlug }: Props) {
       if (!e.target) setSelectedId(null);
     });
 
+    chart.setOption(buildOption(), { notMerge: true });
+    setChartReady(true);
+
     const onResize = () => chart.resize();
     window.addEventListener('resize', onResize);
+    const ro = new ResizeObserver(() => chart.resize());
+    ro.observe(chartRef.current);
+
     return () => {
+      ro.disconnect();
       window.removeEventListener('resize', onResize);
       chart.dispose();
       chartInstance.current = null;
+      setChartReady(false);
     };
   }, []);
 
   useEffect(() => {
-    chartInstance.current?.setOption(buildOption(), { notMerge: true });
-  }, [buildOption]);
+    if (!chartReady || !chartInstance.current) return;
+    chartInstance.current.setOption(buildOption(), { notMerge: true });
+  }, [chartReady, buildOption]);
 
   const toggleFaction = (f: string) => {
     setHiddenFactions((prev) => {

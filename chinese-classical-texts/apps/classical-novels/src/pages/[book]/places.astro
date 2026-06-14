@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import {
@@ -11,7 +12,7 @@ import {
 } from '../../lib/places';
 
 export async function getStaticPaths() {
-  const books = await getCollection('books');
+  const books = await getBooks();
   return books
     .filter((b) => b.data.features.includes('places'))
     .map((b) => ({

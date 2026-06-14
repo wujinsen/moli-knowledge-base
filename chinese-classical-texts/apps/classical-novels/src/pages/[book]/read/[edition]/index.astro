@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { getBooks } from '../../../../lib/getBooks';
 import Base from '../../../../layouts/Base.astro';
 import EditionTabs from '../../../../components/EditionTabs.astro';
 import {
@@ -15,7 +16,7 @@ import {
 } from '../../../../lib/editions';
 
 export async function getStaticPaths() {
-  const books = await getCollection('books');
+  const books = await getBooks();
   const paths: { params: { book: string; edition: string }; props: Record<string, unknown> }[] =
     [];
 
@@ -74,7 +75,7 @@ const max = maxChapterForEdition(book, editionName, total);
   title={`${book} · ${editionLabel(editionName)}`}
   bookSlug={slug}
   bookName={book}
-  features={(await getCollection('books')).find((b) => b.data.slug === slug)?.data.features ?? []}
+  features={(await getBooks()).find((b) => b.data.slug === slug)?.data.features ?? []}
 >
   <header class="mb-6">
     <h1 class="section-title text-2xl">逐回精读</h1>

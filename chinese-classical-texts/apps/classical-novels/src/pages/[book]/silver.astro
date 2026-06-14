@@ -1,12 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
+import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import SilverFlow from '../../components/SilverFlow.tsx';
 import { formatLiang } from '../../lib/currency';
 import { amountDisplay, buildSankey, effectiveLiang } from '../../lib/transactions';
 
 export async function getStaticPaths() {
-  const books = await getCollection('books');
+  const books = await getBooks();
   return books
     .filter((b) => b.data.features.includes('silver'))
     .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));

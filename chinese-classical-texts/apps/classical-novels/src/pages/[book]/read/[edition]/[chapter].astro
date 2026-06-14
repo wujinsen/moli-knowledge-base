@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { getBooks } from '../../../../lib/getBooks';
 import Base from '../../../../layouts/Base.astro';
 import ReaderNav from '../../../../components/ReaderNav.astro';
 import ReaderControls from '../../../../components/ReaderControls.astro';
@@ -19,7 +20,7 @@ import {
 } from '../../../../lib/editions';
 
 export async function getStaticPaths() {
-  const books = await getCollection('books');
+  const books = await getBooks();
   const slugByBook = new Map(books.map((b) => [b.data.book, b.data.slug]));
   const countByBook = new Map(books.map((b) => [b.data.book, b.data.chapter_count]));
   const featuresByBook = new Map(books.map((b) => [b.data.book, b.data.features]));

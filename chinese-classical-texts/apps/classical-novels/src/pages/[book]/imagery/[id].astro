@@ -1,10 +1,11 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
 import { chapterLabel, subtypeLabel } from '../../../lib/imagery';
 
 export async function getStaticPaths() {
-  const books = await getCollection('books');
+  const books = await getBooks();
   const items = await getCollection('imagery');
   const paths: { params: { book: string; id: string }; props: { book: typeof books[0]; item: typeof items[0] } }[] = [];
   for (const b of books) {
