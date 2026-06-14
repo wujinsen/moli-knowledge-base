@@ -7,6 +7,9 @@ export interface RelationNode {
   type: string;
   faction: string;
   weight?: number;
+  chapter?: number;
+  summary?: string;
+  variantIds?: string[];
 }
 
 export interface RelationEdge {

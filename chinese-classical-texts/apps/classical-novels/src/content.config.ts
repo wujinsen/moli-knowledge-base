@@ -376,6 +376,7 @@ const textVariants = defineCollection({
     note: z.string().optional(),
     tags: z.array(z.string()).default([]),
     summary: z.string(),
+    topic_id: z.string().optional(),
   }),
 });
 

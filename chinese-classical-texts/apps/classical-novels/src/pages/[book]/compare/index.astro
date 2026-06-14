@@ -55,6 +55,13 @@ const jumpMarks = [1, 10, 20, 30, 50, 80, 100].filter((n) => n <= meta.chapter_c
           </a>
         ))
       }
+      {
+        meta.features.includes('graph') && (
+          <a href={`/${meta.slug}/graph`} class="chip" style="color: var(--accent)">
+            关系图谱 · 版本议题
+          </a>
+        )
+      }
     </nav>
   </section>
 

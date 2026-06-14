@@ -1,0 +1,154 @@
+---
+import { getCollection, render } from 'astro:content';
+import { getBooks } from '../../../lib/getBooks';
+import Base from '../../../layouts/Base.astro';
+import { topicSlug, LENS_GLYPH, BRANCH_GLYPH, STANCE_LABEL } from '../../../lib/topics';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  const slugByBook = new Map(books.map((b) => [b.data.book, b.data.slug]));
+  const featByBook = new Map(books.map((b) => [b.data.book, b.data.features]));
+  const topics = await getCollection('topics');
+  return topics.map((t) => ({
+    params: { book: slugByBook.get(t.data.book)!, slug: topicSlug(t) },
+    props: { entry: t, slug: slugByBook.get(t.data.book)!, features: featByBook.get(t.data.book) ?? [] },
+  }));
+}
+
+const { entry, slug, features } = Astro.props;
+const d = entry.data;
+const { Content } = await render(entry);
+
+const glyph = (d.lens && LENS_GLYPH[d.lens]) || (d.branch && BRANCH_GLYPH[d.branch]) || '题';
+const backHref = d.category === '考证' ? `/${slug}/kaozheng` : d.category === '诠释' ? `/${slug}/quanshi` : `/${slug}`;
+const backLabel = d.category === '考证' ? '← 考证台' : d.category === '诠释' ? '← 诠释专题' : `← ${d.book}`;
+const stanceClass = (s: string) =>
+  s === '主流' ? 'stance-main' : s === '少数' ? 'stance-minor' : s === '已弃' ? 'stance-dropped' : 'stance-doubt';
+---
+
+<Base title={`${d.book} · ${d.title}`} bookSlug={slug} bookName={d.book} features={features}>
+  <a href={backHref} class="text-sm hover:underline" style="color: var(--ink-soft)" data-pagefind-ignore>{backLabel}</a>
+
+  <div data-pagefind-body data-pagefind-meta={`title:${d.title}`} data-pagefind-filter={`书:${d.book},类型:主题`}>
+    <section class="surface relative mt-3 mb-6 overflow-hidden px-6 py-7 sm:px-8">
+      <div class="flex items-start gap-4">
+        <span class="glyph" style="width:3.4rem;height:3.4rem;font-size:1.7rem">{glyph}</span>
+        <div class="min-w-0">
+          <div class="flex flex-wrap items-center gap-2">
+            <h1 class="brand text-3xl sm:text-4xl" style="color: var(--primary)">{d.title}</h1>
+            <span class="chip">{d.category}</span>
+            {d.branch && <span class="chip">{d.branch}</span>}
+            {d.lens && <span class="chip">{d.lens}</span>}
+          </div>
+          {d.summary && <p class="mt-2 text-sm leading-relaxed" style="color: var(--ink-soft)">{d.summary}</p>}
+        </div>
+      </div>
+      {
+        d.tags.length > 0 && (
+          <div class="mt-4 flex flex-wrap gap-1.5">
+            {d.tags.map((t) => <span class="chip" style="font-size:0.66rem">{t}</span>)}
+          </div>
+        )
+      }
+    </section>
+
+    {/* 假说卡：作者公案 / 探佚等，inference 分层 */}
+    {
+      d.hypotheses.length > 0 && (
+        <section class="mb-8">
+          <h2 class="section-title mb-1 text-lg">假说卡</h2>
+          <p class="mb-4 text-sm" style="color: var(--ink-soft)">
+            以下均为学术「诠释 / 推论」，非定论；标注提出者、年代、证据与可信度。
+          </p>
+          <div class="grid gap-4 sm:grid-cols-2">
+            {d.hypotheses.map((h) => (
+              <article class="surface hypothesis-card p-4">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class={`seal stance ${stanceClass(h.stance)}`}>{STANCE_LABEL[h.stance] ?? h.stance}</span>
+                  {h.proponent && <span class="text-sm font-bold" style="color: var(--accent)">{h.proponent}</span>}
+                  {h.period && <span class="text-xs" style="color: var(--ink-soft)">{h.period}</span>}
+                </div>
+                <p class="mt-2 leading-relaxed" style="color: var(--ink)">{h.claim}</p>
+                {h.evidence.length > 0 && (
+                  <ul class="mt-2 list-disc space-y-0.5 pl-5 text-sm" style="color: var(--ink-soft)">
+                    {h.evidence.map((e) => <li>{e}</li>)}
+                  </ul>
+                )}
+                {h.counter && (
+                  <p class="mt-2 text-sm" style="color: var(--seal)">⊘ 反驳：{h.counter}</p>
+                )}
+                {h.source && (
+                  <p class="mt-2 text-xs" style="color: var(--ink-soft)">出处：{h.source}</p>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    {/* 诠释条目：符号 → 义理 */}
+    {
+      d.readings.length > 0 && (
+        <section class="mb-8">
+          <h2 class="section-title mb-1 text-lg">诠释条目</h2>
+          <p class="mb-4 text-sm" style="color: var(--ink-soft)">
+            象征解读属「诠释」（inference），与原文事实分层；同一符号可有多种读法。
+          </p>
+          <div class="overflow-x-auto">
+            <table class="reading-table w-full text-sm">
+              <thead>
+                <tr>
+                  <th>视角</th><th>符号 / 意象</th><th>诠释</th><th>提出者</th>
+                </tr>
+              </thead>
+              <tbody>
+                {d.readings.map((r) => (
+                  <tr>
+                    <td><span class="chip">{r.lens}</span></td>
+                    <td class="font-bold" style="color: var(--accent)">{r.symbol}</td>
+                    <td style="color: var(--ink)">
+                      {r.meaning}
+                      {r.inference && <span class="ml-1 chip" style="font-size:0.6rem">诠释</span>}
+                    </td>
+                    <td style="color: var(--ink-soft)">{r.proponent ?? '—'}{r.source ? `（${r.source}）` : ''}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )
+    }
+
+    {/* 来源实体 */}
+    {
+      d.derived_from.length > 0 && (
+        <div class="surface mb-6 flex flex-wrap items-center gap-x-1.5 gap-y-1 p-4 text-sm" style="color: var(--ink-soft)">
+          <span class="chip">综合自</span>
+          <span>{d.derived_from.join(' · ')}</span>
+        </div>
+      )
+    }
+
+    <article class="prose-cn surface mt-2 max-w-none px-6 py-5 sm:px-8" style="color: var(--ink)">
+      <Content />
+    </article>
+  </div>
+</Base>
+
+<style is:global>
+  .hypothesis-card { border-color: color-mix(in srgb, var(--gold) 40%, transparent); }
+  .seal.stance { letter-spacing: 0; }
+  .stance-main { background: var(--primary); color: #fff; border: none; }
+  .stance-doubt { background: transparent; color: var(--ink-soft); border: 1px solid color-mix(in srgb, var(--ink-soft) 45%, transparent); }
+  .stance-minor { background: transparent; color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent); }
+  .stance-dropped { background: transparent; color: var(--seal); border: 1px solid color-mix(in srgb, var(--seal) 45%, transparent); text-decoration: line-through; }
+  .reading-table th, .reading-table td {
+    text-align: left;
+    padding: 0.5rem 0.7rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--ink-soft) 18%, transparent);
+    vertical-align: top;
+  }
+  .reading-table th { color: var(--ink-soft); font-weight: 600; }
+</style>

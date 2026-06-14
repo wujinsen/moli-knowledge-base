@@ -38,6 +38,12 @@
       "weight": 58
     },
     {
+      "id": "南山大王",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 38
+    },
+    {
       "id": "哪吒",
       "type": "character",
       "faction": "天界",
@@ -432,6 +438,24 @@
     {
       "source": "六耳猕猴",
       "target": "唐僧",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "南山大王",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "南山大王",
+      "target": "唐僧",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "南山大王",
+      "target": "猪八戒",
       "type": "敌对",
       "contradiction": false
     },

@@ -8,6 +8,9 @@ interface Node {
   type: string;
   faction: string;
   weight?: number;
+  chapter?: number;
+  summary?: string;
+  variantIds?: string[];
 }
 interface Edge {
   source: string;
@@ -110,7 +113,12 @@ export default function RelationGraph({ data, bookSlug }: Props) {
           }
           const d = params.data ?? {};
           if (d.nodeType === 'topic') {
-            return `<strong style="font-size:15px">${d.name}</strong><br/><span style="color:${gt.accent}">版本异文议题</span><br/>连接存在脂评/探佚与程高本分歧的人物`;
+            const hint =
+              bookSlug === 'jinpingmei'
+                ? '词话/崇祯/竹坡版本差异'
+                : '脂评/探佚与程高本分歧';
+            const summary = d.summary ? `<br/>${d.summary}` : '';
+            return `<strong style="font-size:15px">${d.name}</strong><br/><span style="color:${gt.accent}">版本异文议题</span><br/>${hint}${summary}`;
           }
           return `<strong style="font-size:15px">${d.name}</strong><br/>阵营：${d.faction ?? '—'}<br/>类型：${d.nodeType === 'monster' ? '妖怪' : '人物'}`;
         },
@@ -157,6 +165,8 @@ export default function RelationGraph({ data, bookSlug }: Props) {
               category: fi,
               faction: n.faction,
               nodeType: n.type,
+              summary: n.summary,
+              chapter: n.chapter,
               ...(fixedPos ? { x: fixedPos.x, y: fixedPos.y, fixed: true } : {}),
               symbol:
                 n.type === 'monster' ? 'diamond' : n.type === 'topic' ? 'roundRect' : 'circle',
@@ -440,9 +450,14 @@ export default function RelationGraph({ data, bookSlug }: Props) {
                 </div>
                 <div className="mt-0.5 text-xs text-slate-400">
                   {selectedNode.type === 'topic'
-                    ? '版本异文议题'
+                    ? bookSlug === 'jinpingmei'
+                      ? '词话 · 崇祯 · 竹坡 异文'
+                      : '脂评 · 程高 版本争议'
                     : `${selectedNode.faction} · ${selectedNode.type === 'monster' ? '妖怪' : '人物'}`}
                 </div>
+                {selectedNode.type === 'topic' && selectedNode.summary && (
+                  <p className="mt-2 text-xs leading-relaxed text-slate-400">{selectedNode.summary}</p>
+                )}
               </div>
               <button
                 type="button"
@@ -473,7 +488,23 @@ export default function RelationGraph({ data, bookSlug }: Props) {
               );
             })}
           </ul>
-          {selectedNode.type !== 'topic' && (
+          {selectedNode.type === 'topic' && selectedNode.chapter ? (
+            <div className="border-t border-white/5 px-4 py-3 space-y-2">
+              <a
+                href={`/${bookSlug}/compare/cihua-chongzhen/${selectedNode.chapter}`}
+                className="inline-block text-sm hover:underline"
+                style={{ color: gt.accent }}
+              >
+                对勘第 {selectedNode.chapter} 回 →
+              </a>
+              <a
+                href={`/${bookSlug}/graph`}
+                className="block text-xs text-slate-500 hover:text-slate-300"
+              >
+                返回全图
+              </a>
+            </div>
+          ) : selectedNode.type !== 'topic' ? (
             <div className="border-t border-white/5 px-4 py-3">
               <a
                 href={`/${bookSlug}/c/${encodeURIComponent(selectedNode.id)}`}
@@ -483,7 +514,7 @@ export default function RelationGraph({ data, bookSlug }: Props) {
                 查看人物页 →
               </a>
             </div>
-          )}
+          ) : null}
         </aside>
       )}
 

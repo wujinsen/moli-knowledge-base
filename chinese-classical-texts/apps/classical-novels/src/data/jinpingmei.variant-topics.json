@@ -1,0 +1,54 @@
+{
+  "book": "金瓶梅",
+  "topics": [
+    {
+      "id": "版本-买春梅银价",
+      "chapter": 12,
+      "summary": "买庞春梅三十两——词话/崇祯银价锚点（见 jpm-tx-012 存疑）",
+      "variant_ids": ["jpm-v-009"],
+      "characters": ["西门庆", "潘金莲", "庞春梅"]
+    },
+    {
+      "id": "版本-犀角带物价",
+      "chapter": 27,
+      "summary": "犀角带买卖——政商链物价锚点",
+      "variant_ids": ["jpm-v-007"],
+      "characters": ["西门庆"]
+    },
+    {
+      "id": "版本-认干礼百两",
+      "chapter": 23,
+      "summary": "认干爹百两礼——翟管家政商链物价锚点",
+      "variant_ids": ["jpm-v-014"],
+      "characters": ["西门庆", "翟管家"]
+    },
+    {
+      "id": "版本-李瓶儿私房",
+      "chapter": 16,
+      "summary": "李瓶儿私房物资清单——两本情节同、版式异",
+      "variant_ids": ["jpm-v-006"],
+      "characters": ["西门庆", "李瓶儿"]
+    },
+    {
+      "id": "版本-胡僧春药",
+      "chapter": 49,
+      "summary": "胡僧春药情节——三版本正文与批语层差异大",
+      "variant_ids": ["jpm-v-008"],
+      "characters": ["西门庆"]
+    },
+    {
+      "id": "版本-删润避讳",
+      "chapter": 1,
+      "summary": "崇祯删润分段 + 词话避讳符号 vs 崇祯直写",
+      "variant_ids": ["jpm-v-002", "jpm-v-004"],
+      "characters": ["西门庆"]
+    },
+    {
+      "id": "版本-打虎赏银",
+      "chapter": 1,
+      "summary": "打虎赏银五十两——词话/崇祯同值异排",
+      "variant_ids": ["jpm-v-015"],
+      "characters": ["武松"]
+    }
+  ]
+}

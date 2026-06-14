@@ -1,0 +1,128 @@
+---
+import { getBooks } from '../../lib/getBooks';
+import Base from '../../layouts/Base.astro';
+import {
+  loadTopics,
+  byCategory,
+  groupByBranch,
+  collectHypotheses,
+  topicHref,
+  BRANCH_GLYPH,
+  STANCE_LABEL,
+} from '../../lib/topics';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  return books
+    .filter((b) => b.data.features.includes('kaozheng'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+const topics = byCategory(await loadTopics(meta.book), '考证');
+const groups = groupByBranch(topics);
+const hypotheses = collectHypotheses(topics);
+const stanceOrder = ['主流', '存疑', '少数', '已弃'];
+hypotheses.sort((a, b) => stanceOrder.indexOf(a.stance) - stanceOrder.indexOf(b.stance));
+const stanceClass = (s: string) =>
+  s === '主流' ? 'stance-main' : s === '少数' ? 'stance-minor' : s === '已弃' ? 'stance-dropped' : 'stance-doubt';
+---
+
+<Base title={`${meta.book} · 考证台`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  <a href={`/${meta.slug}`} class="text-sm hover:underline" style="color: var(--ink-soft)">← {meta.book}</a>
+
+  <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
+    <div class="flex items-start gap-4">
+      <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">考</span>
+      <div>
+        <h1 class="brand text-4xl" style="color: var(--primary)">考证台</h1>
+        <p class="mt-2 text-sm" style="color: var(--ink-soft)">
+          成书史 · 版本学 · 作者公案 · {topics.length} 个专题 · {hypotheses.length} 张假说卡
+        </p>
+      </div>
+    </div>
+    <p class="mt-5 max-w-2xl text-sm leading-relaxed" style="color: var(--ink)">
+      考证台汇集本书的「身世之谜」。<strong>原文只读真相源</strong>；成书源流、版本异同与作者归属诸说一律作为分层的
+      <span class="chip">诠释 / 假说</span>呈现，挂证据链、标可信度，绝不写成事实。
+    </p>
+  </section>
+
+  {
+    topics.length === 0 ? (
+      <div class="surface p-8 text-center text-sm" style="color: var(--ink-soft)">
+        尚无考证专题。请在
+        <code class="mx-1 rounded px-2 py-0.5" style="background: var(--base)">src/content/topics/{meta.book}/</code>
+        新建 category: 考证 的 topic（branch: 成书史 / 版本学 / 作者公案）。
+      </div>
+    ) : (
+      <>
+        {/* 假说卡墙：跨专题汇总 */}
+        {hypotheses.length > 0 && (
+          <section class="mb-10">
+            <h2 class="section-title mb-1 text-lg">假说卡 · inference 分层</h2>
+            <p class="mb-4 text-sm" style="color: var(--ink-soft)">
+              按可信度排序：<span class="seal stance stance-main">主流说</span>
+              <span class="seal stance stance-doubt ml-1">存疑</span>
+              <span class="seal stance stance-minor ml-1">少数说</span>
+              <span class="seal stance stance-dropped ml-1">已弃</span>
+            </p>
+            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {hypotheses.map((h) => (
+                <article class="surface hypothesis-card p-4">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <span class={`seal stance ${stanceClass(h.stance)}`}>{STANCE_LABEL[h.stance] ?? h.stance}</span>
+                    {h.proponent && <span class="text-sm font-bold" style="color: var(--accent)">{h.proponent}</span>}
+                    {h.period && <span class="text-xs" style="color: var(--ink-soft)">{h.period}</span>}
+                  </div>
+                  <p class="mt-2 text-sm leading-relaxed" style="color: var(--ink)">{h.claim}</p>
+                  {h.evidence.length > 0 && (
+                    <ul class="mt-2 list-disc space-y-0.5 pl-5 text-xs" style="color: var(--ink-soft)">
+                      {h.evidence.map((e) => <li>{e}</li>)}
+                    </ul>
+                  )}
+                  {h.counter && <p class="mt-2 text-xs" style="color: var(--seal)">⊘ {h.counter}</p>}
+                  <a href={topicHref(meta.slug, h.topic)} class="mt-2 inline-block text-xs hover:underline" style="color: var(--primary)">
+                    {h.topic.data.title} →
+                  </a>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 按分支列专题 */}
+        {groups.map((g) => (
+          <section class="mb-10">
+            <div class="mb-3 flex items-center gap-2">
+              <span class="glyph" style="width:2.2rem;height:2.2rem;font-size:1.1rem">{BRANCH_GLYPH[g.branch] ?? '考'}</span>
+              <h2 class="brand text-2xl" style="color: var(--primary)">{g.branch}</h2>
+            </div>
+            <div class="grid gap-3 sm:grid-cols-2">
+              {g.items.map((t) => (
+                <a href={topicHref(meta.slug, t)} class="surface block p-4 transition hover:-translate-y-0.5">
+                  <div class="flex items-center gap-2">
+                    <h3 class="font-bold" style="color: var(--accent)">{t.data.title}</h3>
+                    {t.data.hypotheses.length > 0 && <span class="chip" style="font-size:0.62rem">{t.data.hypotheses.length} 假说</span>}
+                  </div>
+                  {t.data.summary && (
+                    <p class="mt-1 text-sm leading-snug" style="color: var(--ink-soft)">{t.data.summary}</p>
+                  )}
+                </a>
+              ))}
+            </div>
+          </section>
+        ))}
+      </>
+    )
+  }
+</Base>
+
+<style is:global>
+  .hypothesis-card { border-color: color-mix(in srgb, var(--gold) 40%, transparent); }
+  .seal.stance { letter-spacing: 0; }
+  .stance-main { background: var(--primary); color: #fff; border: none; }
+  .stance-doubt { background: transparent; color: var(--ink-soft); border: 1px solid color-mix(in srgb, var(--ink-soft) 45%, transparent); }
+  .stance-minor { background: transparent; color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent); }
+  .stance-dropped { background: transparent; color: var(--seal); border: 1px solid color-mix(in srgb, var(--seal) 45%, transparent); text-decoration: line-through; }
+</style>

@@ -140,6 +140,84 @@
       "faction": "帮闲圈",
       "weight": 30,
       "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "版本-买春梅银价",
+      "type": "topic",
+      "faction": "版本异文",
+      "weight": 60,
+      "chapter": 12,
+      "summary": "买庞春梅三十两——词话/崇祯银价锚点（见 jpm-tx-012 存疑）",
+      "variantIds": [
+        "jpm-v-009"
+      ]
+    },
+    {
+      "id": "版本-李瓶儿私房",
+      "type": "topic",
+      "faction": "版本异文",
+      "weight": 48,
+      "chapter": 16,
+      "summary": "李瓶儿私房物资清单——两本情节同、版式异",
+      "variantIds": [
+        "jpm-v-006"
+      ]
+    },
+    {
+      "id": "版本-打虎赏银",
+      "type": "topic",
+      "faction": "版本异文",
+      "weight": 36,
+      "chapter": 1,
+      "summary": "打虎赏银五十两——词话/崇祯同值异排",
+      "variantIds": [
+        "jpm-v-015"
+      ]
+    },
+    {
+      "id": "版本-认干礼百两",
+      "type": "topic",
+      "faction": "版本异文",
+      "weight": 48,
+      "chapter": 23,
+      "summary": "认干爹百两礼——翟管家政商链物价锚点",
+      "variantIds": [
+        "jpm-v-014"
+      ]
+    },
+    {
+      "id": "版本-删润避讳",
+      "type": "topic",
+      "faction": "版本异文",
+      "weight": 36,
+      "chapter": 1,
+      "summary": "崇祯删润分段 + 词话避讳符号 vs 崇祯直写",
+      "variantIds": [
+        "jpm-v-002",
+        "jpm-v-004"
+      ]
+    },
+    {
+      "id": "版本-犀角带物价",
+      "type": "topic",
+      "faction": "版本异文",
+      "weight": 36,
+      "chapter": 27,
+      "summary": "犀角带买卖——政商链物价锚点",
+      "variantIds": [
+        "jpm-v-007"
+      ]
+    },
+    {
+      "id": "版本-胡僧春药",
+      "type": "topic",
+      "faction": "版本异文",
+      "weight": 36,
+      "chapter": 49,
+      "summary": "胡僧春药情节——三版本正文与批语层差异大",
+      "variantIds": [
+        "jpm-v-008"
+      ]
     }
   ],
   "edges": [
@@ -240,6 +318,12 @@
       "contradiction": false
     },
     {
+      "source": "庞春梅",
+      "target": "版本-买春梅银价",
+      "type": "矛盾",
+      "contradiction": true
+    },
+    {
       "source": "李娇儿",
       "target": "西门庆",
       "type": "情人",
@@ -282,6 +366,12 @@
       "contradiction": false
     },
     {
+      "source": "李瓶儿",
+      "target": "版本-李瓶儿私房",
+      "type": "矛盾",
+      "contradiction": true
+    },
+    {
       "source": "来旺",
       "target": "西门庆",
       "type": "主仆",
@@ -318,6 +408,12 @@
       "contradiction": false
     },
     {
+      "source": "武松",
+      "target": "版本-打虎赏银",
+      "type": "矛盾",
+      "contradiction": true
+    },
+    {
       "source": "潘金莲",
       "target": "西门庆",
       "type": "情人",
@@ -342,6 +438,12 @@
       "contradiction": false
     },
     {
+      "source": "潘金莲",
+      "target": "版本-买春梅银价",
+      "type": "矛盾",
+      "contradiction": true
+    },
+    {
       "source": "玳安",
       "target": "西门庆",
       "type": "主仆",
@@ -358,6 +460,12 @@
       "target": "蔡京",
       "type": "主仆",
       "contradiction": false
+    },
+    {
+      "source": "翟管家",
+      "target": "版本-认干礼百两",
+      "type": "矛盾",
+      "contradiction": true
     },
     {
       "source": "花子虚",
@@ -424,6 +532,42 @@
       "target": "陈经济",
       "type": "主仆",
       "contradiction": false
+    },
+    {
+      "source": "西门庆",
+      "target": "版本-买春梅银价",
+      "type": "矛盾",
+      "contradiction": true
+    },
+    {
+      "source": "西门庆",
+      "target": "版本-删润避讳",
+      "type": "矛盾",
+      "contradiction": true
+    },
+    {
+      "source": "西门庆",
+      "target": "版本-李瓶儿私房",
+      "type": "矛盾",
+      "contradiction": true
+    },
+    {
+      "source": "西门庆",
+      "target": "版本-犀角带物价",
+      "type": "矛盾",
+      "contradiction": true
+    },
+    {
+      "source": "西门庆",
+      "target": "版本-胡僧春药",
+      "type": "矛盾",
+      "contradiction": true
+    },
+    {
+      "source": "西门庆",
+      "target": "版本-认干礼百两",
+      "type": "矛盾",
+      "contradiction": true
     },
     {
       "source": "谢希大",

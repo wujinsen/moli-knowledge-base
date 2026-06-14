@@ -91,6 +91,7 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
             relatedDoc: '红楼梦-知识图谱架构.md（文本意象与互文网络维度）',
           },
         },
+        kaozhengModule(slug, has),
       ];
     case 'xiyouji':
       return [
@@ -136,6 +137,27 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
             relatedDoc: '西游记-知识图谱架构.md（地理坐标层）',
           },
         },
+        {
+          key: 'quanshi', glyph: '诠', title: '诠释专题', desc: '内丹心性 · 政治隐喻 · 原型源流',
+          ...live(has('quanshi'), slug, 'quanshi', `/${slug}/quanshi`),
+          preview: {
+            intro:
+              '《西游记》自明清以来被反复「诠释」：道家读作内丹修炼，士人读作官场讽喻，学者考其原型源流。本模块把这些读法作为分层的「诠释」（inference）沉淀，并叠加「情境边」——变身/伪装等临时关系。',
+            dimensions: [
+              { title: '内丹心性', desc: '心猿意马、金公木母；刘一明《西游原旨》等丹道解' },
+              { title: '政治隐喻', desc: '天庭官僚、有无背景的妖怪、对明代政治的讽喻' },
+              { title: '原型源流', desc: '孙悟空（无支祁/哈奴曼之争）、唐僧=玄奘历史原型' },
+              { title: '情境边', desc: '变身/伪装等 ephemeral 关系（六耳猕猴假冒、白骨精三变）' },
+            ],
+            phases: [
+              'X4 symbol + inference 边录入（标注 inference，可溯源）',
+              'X4 情境边（scoped_relations）叠加到事件与图谱',
+              'X4 刘一明等诠释专题 topic',
+            ],
+            relatedDoc: '西游学分支与产品映射.md（⑤ 诠释 + 情境边）',
+          },
+        },
+        kaozhengModule(slug, has),
       ];
     case 'jinpingmei':
       return [
@@ -238,8 +260,41 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
             relatedDoc: '金瓶梅-知识图谱架构.md（§五 SNA）',
           },
         },
+        kaozhengModule(slug, has),
       ];
     default:
       return [];
   }
+}
+
+/** 考证台模块（三书共用）：成书史 / 版本学 / 作者公案 / 假说卡（inference 分层） */
+function kaozhengModule(slug: string, has: (f: string) => boolean): BookModule {
+  const descBySlug: Record<string, string> = {
+    honglou: '版本（脂/程）· 曹家成书 · 探佚公案',
+    jinpingmei: '三版本对勘 · 兰陵笑笑生公案',
+    xiyouji: '世德堂成书 · 吴承恩/丘处机公案',
+  };
+  return {
+    key: 'kaozheng',
+    glyph: '考',
+    title: '考证台',
+    desc: descBySlug[slug] ?? '成书史 · 版本学 · 作者公案',
+    ...live(has('kaozheng'), slug, 'kaozheng', `/${slug}/kaozheng`),
+    preview: {
+      intro:
+        '考证台汇集一部书的「身世之谜」：成书源流、版本系统、作者公案。所有作者归属、探佚结论一律作为分层的「假说卡」（inference）呈现，挂证据链，绝不写成事实。',
+      dimensions: [
+        { title: '成书史', desc: '从素材到定本的演化（增删、话本、对勘）' },
+        { title: '版本学', desc: '版本系统与异文（脂/程、词话/崇祯/竹坡、世德堂…）' },
+        { title: '作者公案', desc: '作者归属诸说，逐条标可信度与证据' },
+        { title: '假说卡', desc: 'inference 分层：主流 / 存疑 / 少数 / 已弃' },
+      ],
+      phases: [
+        '成书史 / 版本学 / 作者公案 topic 落地',
+        '假说卡（hypotheses）录入，标注 stance 与证据',
+        '与版本对勘 / 探佚图谱矛盾边互链',
+      ],
+      relatedDoc: '红学/西游学/金学 分支与产品映射.md（考证台）',
+    },
+  };
 }
