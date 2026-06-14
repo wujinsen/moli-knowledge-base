@@ -77,6 +77,40 @@ VARIANTS: list[dict] = [
         note="词话本纯说书正文；张竹坡评本（当前库为崇祯绣像+眉批旁批）含评点层。",
         summary="张评本批语层——非完整张竹坡全文评，但已具眉批/旁批结构。",
     ),
+    dict(
+        id="jpm-v-011", chapter=1, category="措辞",
+        edition_a="词话本", edition_b="张竹坡评本",
+        text_a="西门庆", text_b="西門慶",
+        summary="人名用字简繁差异（全书通例）。",
+        tags=["简繁"],
+    ),
+    dict(
+        id="jpm-v-012", chapter=1, category="批语",
+        edition_a="崇祯本", edition_b="张竹坡评本",
+        note="崇祯本正文分段；张竹坡评本同底本但嵌 zhupi 眉批/旁批 span。",
+        summary="绣像批评本 vs 张评批语 markup 层差异。",
+        tags=["批语"],
+    ),
+    dict(
+        id="jpm-v-013", chapter=1, category="措辞",
+        edition_a="词话本", edition_b="张竹坡评本",
+        text_a="怎能与人争气", text_b="怎能勾與人爭氣",
+        summary="简繁 + 「怎的/怎勾」口语异写（张评本同崇祯系）。",
+    ),
+    dict(
+        id="jpm-v-014", chapter=23, category="物价",
+        edition_a="词话本", edition_b="崇祯本",
+        note="认翟管家干礼百两；三版本金额一致，措辞或有微差。",
+        summary="认干爹百两礼——政商链物价锚点。",
+        tags=["白银流"],
+    ),
+    dict(
+        id="jpm-v-015", chapter=1, category="情节",
+        edition_a="词话本", edition_b="崇祯本",
+        note="武松打虎赏五十两、散猎户；两本情节同，崇祯本分段更细。",
+        summary="打虎赏银五十两——词话/崇祯同值异排。",
+        tags=["白银流"],
+    ),
 ]
 
 

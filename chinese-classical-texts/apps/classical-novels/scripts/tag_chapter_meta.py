@@ -38,6 +38,26 @@ LOCATION_EXTRA: dict[str, str] = {
     "内书房": "荣国府",
 }
 
+BOOK_LOCATION_EXTRA: dict[str, dict[str, str]] = {
+    "金瓶梅": {
+        "西门大官人家": "西门府",
+        "大官人": "西门府",
+        "月娘房": "吴月娘房",
+        "五娘房": "潘金莲房",
+        "六娘房": "李瓶儿房",
+        "三娘房": "孟玉楼房",
+        "药铺": "西门庆生药铺",
+        "生药铺": "西门庆生药铺",
+        "勾栏": "李娇儿院",
+        "院中": "李娇儿院",
+        "花二哥家": "花家",
+        "武大郎家": "潘家",
+        "紫石街": "潘家",
+        "吴道官": "玉皇庙",
+        "间壁花家": "花家",
+    },
+}
+
 LOCATION_BLOCK: dict[str, list[str]] = {
     "大观园": ["小大观园"],
 }
@@ -65,6 +85,8 @@ def load_location_pairs(book: str) -> list[tuple[str, str]]:
                 if len(a) >= 2:
                     pairs[a] = lid
     for alias, lid in LOCATION_EXTRA.items():
+        pairs.setdefault(alias, lid)
+    for alias, lid in BOOK_LOCATION_EXTRA.get(book, {}).items():
         pairs.setdefault(alias, lid)
     return sorted(pairs.items(), key=lambda x: (-len(x[0]), x[0]))
 

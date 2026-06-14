@@ -6,6 +6,7 @@ import {
   gardenChildren,
   groupByCategory,
   loadBookPlaces,
+  placeRootFor,
   sortedCategories,
 } from '../../lib/places';
 
@@ -24,29 +25,37 @@ const meta = book.data;
 const places = await loadBookPlaces(meta.book);
 const grouped = groupByCategory(places);
 const categories = sortedCategories(grouped);
-const daguan = gardenChildren(places, '大观园');
+const root = placeRootFor(meta.book);
+const rootChildren = root ? gardenChildren(places, root.id) : [];
+const rootEntry = root ? places.find((p) => p.data.id === root.id) : undefined;
 ---
 
 <Base title={`${meta.book} · 建筑居所`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
-  <h1 class="brand mb-1 text-3xl" style="color: var(--primary)">{meta.book} · 大观园 · 建筑居所</h1>
+  <h1 class="brand mb-1 text-3xl" style="color: var(--primary)">
+    {meta.book} · {root?.pageTitle ?? '建筑居所'}
+  </h1>
   <p class="mb-6 text-sm" style="color: var(--ink-soft)">
-    府邸、园林、亭榭堂馆（共 {places.length} 处）
+    {root?.blurb ?? '府邸、园林、亭榭堂馆'}（共 {places.length} 处）
   </p>
 
   {
-    daguan.length > 0 && (
-      <section id="daguan" class="mb-10">
-        <h2 class="section-title mb-3 text-lg">大观园（{daguan.length + 1}）</h2>
+    root && (rootChildren.length > 0 || rootEntry) && (
+      <section id={root.id} class="mb-10">
+        <h2 class="section-title mb-3 text-lg">
+          {root.title}（{rootChildren.length + (rootEntry ? 1 : 0)}）
+        </h2>
         <div class="mb-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <PlaceCard
-            href={`/${meta.slug}/l/大观园`}
-            name="大观园"
-            type="garden"
-            category="花园"
-            summary="省亲别墅，全书主场景"
-            tags={['主场景']}
-          />
-          {daguan.map((entry) => (
+          {rootEntry && (
+            <PlaceCard
+              href={`/${meta.slug}/l/${rootEntry.data.id}`}
+              name={rootEntry.data.name}
+              type={rootEntry.data.type}
+              category={rootEntry.data.category}
+              summary={rootEntry.data.summary}
+              tags={rootEntry.data.tags}
+            />
+          )}
+          {rootChildren.map((entry) => (
             <PlaceCard
               href={`/${meta.slug}/l/${entry.data.id}`}
               name={entry.data.name}
@@ -65,7 +74,9 @@ const daguan = gardenChildren(places, '大观园');
   {
     categories.map((cat) => {
       const list = grouped.get(cat)!;
-      const rest = list.filter((p) => p.data.id !== '大观园' && p.data.parent !== '大观园');
+      const rest = root
+        ? list.filter((p) => p.data.id !== root.id && p.data.parent !== root.id)
+        : list;
       if (rest.length === 0) return null;
       return (
         <section id={cat} class="mb-10">

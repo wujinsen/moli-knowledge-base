@@ -7,6 +7,7 @@ financial_kind: 放债
 title: 李智应伯爵转贷
 chapters: [14]
 characters: [西门庆, 李智, 应伯爵, 黄四]
+locations: []
 amount_liang: 50
 transaction_refs: [jpm-tx-010]
 tags: [帮闲圈, 借贷]

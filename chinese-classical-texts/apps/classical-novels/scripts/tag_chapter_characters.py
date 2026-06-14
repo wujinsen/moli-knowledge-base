@@ -10,7 +10,8 @@ from pathlib import Path
 from _common import CHAPTER_DIR, iter_characters
 
 # Common narrative forms not always listed in entity aliases (alias -> id)
-EXTRA_ALIASES: dict[str, str] = {
+BOOK_EXTRA_ALIASES: dict[str, dict[str, str]] = {
+    "红楼梦": {
     "凤姐儿": "王熙凤",
     "凤姐": "王熙凤",
     "凤丫头": "王熙凤",
@@ -78,8 +79,140 @@ EXTRA_ALIASES: dict[str, str] = {
     "焙茗": "茗烟",
     "瑞大爷": "贾瑞",
     "金钏": "金钏儿",
-    "多浑虫": "多官",
+        "多浑虫": "多官",
+    },
+    "西游记": {
+        "悟空": "孙悟空",
+        "行者": "孙悟空",
+        "孙行者": "孙悟空",
+        "齐天大圣": "孙悟空",
+        "美猴王": "孙悟空",
+        "猴王": "孙悟空",
+        "三藏": "唐僧",
+        "玄奘": "唐僧",
+        "唐三藏": "唐僧",
+        "陈玄奘": "唐僧",
+        "八戒": "猪八戒",
+        "悟能": "猪八戒",
+        "天蓬元帅": "猪八戒",
+        "沙和尚": "沙僧",
+        "悟净": "沙僧",
+        "卷帘大将": "沙僧",
+        "观音": "观音菩萨",
+        "观世音": "观音菩萨",
+        "玉帝": "玉皇大帝",
+        "如来": "如来佛祖",
+        "世尊": "如来佛祖",
+        "太宗": "唐太宗",
+        "李世民": "唐太宗",
+        "唐王": "唐太宗",
+        "龙王": "东海龙王",
+        "敖广": "东海龙王",
+        "二郎": "二郎神",
+        "杨戬": "二郎神",
+        "显圣真君": "二郎神",
+        "李天王": "李靖",
+        "托塔天王": "李靖",
+        "三太子": "哪吒",
+        "哪吒三太子": "哪吒",
+        "镇元子": "镇元子",
+        "地仙之祖": "镇元子",
+        "牛魔王": "牛魔王",
+        "平天大圣": "牛魔王",
+        "铁扇仙": "铁扇公主",
+        "罗刹女": "铁扇公主",
+        "铁扇公主": "铁扇公主",
+        "圣婴大王": "红孩儿",
+        "红孩儿": "红孩儿",
+        "尸魔": "白骨精",
+        "白骨夫人": "白骨精",
+        "黄风怪": "黄风怪",
+        "黄风大圣": "黄风怪",
+        "熊罴怪": "黑熊精",
+        "黑熊精": "黑熊精",
+        "金角大王": "金角大王",
+        "银角大王": "银角大王",
+        "混世魔王": "混世魔王",
+        "狮猁怪": "狮猁怪",
+        "灵感大王": "灵感大王",
+        "独角兕大王": "青牛精",
+        "青牛精": "青牛精",
+        "兕大王": "青牛精",
+        "黄眉怪": "黄眉怪",
+        "黄眉童儿": "黄眉怪",
+        "赛太岁": "赛太岁",
+        "青狮精": "青狮精",
+        "白象精": "白象精",
+        "大鹏精": "大鹏精",
+        "大鹏金翅雕": "大鹏精",
+        "蜘蛛精": "蜘蛛精",
+        "百眼魔君": "百眼魔君",
+        "蜈蚣精": "百眼魔君",
+        "如意真仙": "如意真仙",
+        "老君": "太上老君",
+        "太上老君": "太上老君",
+        "灵吉菩萨": "灵吉菩萨",
+        "六耳猕猴": "六耳猕猴",
+        "假悟空": "六耳猕猴",
+    },
+    "金瓶梅": {
+        "西门大官人": "西门庆",
+        "大官人": "西门庆",
+        "月娘": "吴月娘",
+        "月姐": "吴月娘",
+        "吴氏": "吴月娘",
+        "五娘": "潘金莲",
+        "潘氏": "潘金莲",
+        "六娘": "李瓶儿",
+        "瓶儿": "李瓶儿",
+        "三娘": "孟玉楼",
+        "二娘": "孙雪娥",
+        "春梅": "庞春梅",
+        "应二哥": "应伯爵",
+        "花二哥": "花子虚",
+        "花子虚": "花子虚",
+        "玳安儿": "玳安",
+        "玳安": "玳安",
+        "来兴儿": "来旺",
+        "韩道国": "韩道国",
+        "陈敬济": "陈经济",
+        "敬济": "陈经济",
+        "蔡太师": "蔡京",
+        "翟管家": "翟管家",
+        "李智": "李智",
+        "谢希大": "谢希大",
+        "子纯": "谢希大",
+        "应花子": "应伯爵",
+        "应伯爵": "应伯爵",
+        # 张竹坡评本繁体
+        "西門慶": "西门庆",
+        "西門大官人": "西门庆",
+        "吳月娘": "吴月娘",
+        "月姐": "吴月娘",
+        "應伯爵": "应伯爵",
+        "應二哥": "应伯爵",
+        "應花子": "应伯爵",
+        "謝希大": "谢希大",
+        "玳安兒": "玳安",
+        "花子虛": "花子虚",
+        "花二哥": "花子虚",
+        "李瓶兒": "李瓶儿",
+        "六娘": "李瓶儿",
+        "陳敬濟": "陈经济",
+        "敬濟": "陈经济",
+        "武二郎": "武松",
+        "武大郎": "武大郎",
+        "李嬌兒": "李娇儿",
+        "潘金蓮": "潘金莲",
+        "龐春梅": "庞春梅",
+        "孟玉樓": "孟玉楼",
+        "孫雪娥": "孙雪娥",
+        "韓道國": "韩道国",
+    },
 }
+
+# backward compat
+EXTRA_ALIASES = BOOK_EXTRA_ALIASES["红楼梦"]
 
 # Skip overly short / ambiguous aliases when scanning
 MIN_ALIAS_LEN = 2
@@ -100,7 +233,7 @@ def build_alias_map(book: str) -> list[tuple[str, str]]:
             n = (n or "").strip()
             if len(n) >= MIN_ALIAS_LEN and n not in SKIP_ALIASES:
                 pairs.setdefault(n, cid)
-    for alias, cid in EXTRA_ALIASES.items():
+    for alias, cid in BOOK_EXTRA_ALIASES.get(book, {}).items():
         if len(alias) >= MIN_ALIAS_LEN and alias not in SKIP_ALIASES:
             pairs.setdefault(alias, cid)
     return sorted(pairs.items(), key=lambda x: (-len(x[0]), x[0]))
@@ -113,8 +246,9 @@ def split_body(raw: str) -> str:
 
 
 def strip_html(body: str) -> str:
-    # Drop 脂砚斋 side/head comments before matching (not story text)
+    # Drop side/head comments before matching (not story text)
     text = re.sub(r'<span class="zhipi">.*?</span>', "", body, flags=re.S)
+    text = re.sub(r'<span class="zhupi"[^>]*>.*?</span>', "", body, flags=re.S)
     text = re.sub(r"<[^>]+>", "", text)
     text = text.replace("&quot;", '"').replace("&#x27;", "'")
     return text
@@ -196,6 +330,7 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--force", action="store_true", help="Overwrite existing non-empty characters[]")
     ap.add_argument("--files", nargs="*", help="Only process these basenames (e.g. 001.md)")
+    ap.add_argument("--to-chapter", type=int, default=0, help="Only process NNN.md where number <= this")
     ap.add_argument("--min-chars", type=int, default=1, help="Min matches to write (default 1)")
     args = ap.parse_args()
 
@@ -206,6 +341,12 @@ def main() -> int:
     for path in paths:
         if args.files and path.name not in args.files:
             continue
+        if args.to_chapter:
+            try:
+                if int(path.stem) > args.to_chapter:
+                    continue
+            except ValueError:
+                pass
         raw = path.read_text(encoding="utf-8")
         is_empty = bool(re.search(r"^characters:\s*\[\]\s*$", raw, re.M))
         if not is_empty and not args.force:

@@ -7,6 +7,7 @@ financial_kind: 遗产
 title: 李瓶儿私房物资变现
 chapters: [16, 17]
 characters: [西门庆, 李瓶儿]
+locations: [李瓶儿房]
 amount_liang: 380
 transaction_refs: []
 tags: [李瓶儿, 经营投资]

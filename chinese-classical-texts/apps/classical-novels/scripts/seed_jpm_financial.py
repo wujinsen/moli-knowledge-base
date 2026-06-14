@@ -43,9 +43,28 @@ EVENTS: list[dict] = [
     dict(
         id="jpm-fe-005", title="李瓶儿私房物资变现", financial_kind="遗产",
         chapters=[16, 17], characters=["西门庆", "李瓶儿"],
+        locations=["李瓶儿房"],
         amount_liang=380, transaction_refs=[],
         tags=["李瓶儿", "经营投资"],
         summary="李瓶儿箱藏香蜡水银等，经经纪变卖三百八十两，凑盖房与过门。",
+    ),
+    dict(
+        id="jpm-fe-006", title="结拜十弟兄买办", financial_kind="经营",
+        chapters=[1], characters=["西门庆", "应伯爵", "花子虚"],
+        locations=["玉皇庙", "西门府"],
+        amount_liang=4, transaction_refs=["jpm-tx-019", "jpm-tx-015"],
+        tags=["结拜", "帮闲"],
+        summary="初三玉皇庙结拜，猪羊酒礼与分资汇聚帮闲圈。",
+        body="## 关联\n\n[[玉皇庙]] 结拜 · transaction [[jpm-tx-019]]、[[jpm-tx-015]]。\n",
+    ),
+    dict(
+        id="jpm-fe-007", title="认翟管家干亲", financial_kind="贿赂",
+        chapters=[23], characters=["西门庆", "翟管家"],
+        locations=["清河县"],
+        amount_liang=100, transaction_refs=["jpm-tx-018"],
+        tags=["政商", "干亲"],
+        summary="西门庆百两认干礼，打通蔡京府门路。",
+        body="## 关联\n\n[[翟管家]] 政商中介 · transaction [[jpm-tx-018]]。\n",
     ),
 ]
 
@@ -54,6 +73,8 @@ def write(e: dict) -> None:
     amt = e.get("amount_liang")
     amt_line = f"amount_liang: {amt}\n" if amt is not None else ""
     refs = e.get("transaction_refs", [])
+    locs = e.get("locations", [])
+    loc_line = f"locations: [{', '.join(locs)}]" if locs else "locations: []"
     text = f"""---
 id: {e['id']}
 type: event
@@ -63,6 +84,7 @@ financial_kind: {e['financial_kind']}
 title: {e['title']}
 chapters: [{', '.join(str(c) for c in e['chapters'])}]
 characters: [{', '.join(e.get('characters', []))}]
+{loc_line}
 {amt_line}transaction_refs: [{', '.join(refs)}]
 tags: [{', '.join(e.get('tags', []))}]
 summary: {e['summary']}

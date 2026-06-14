@@ -141,6 +141,8 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
       return [
         { key: 'read', glyph: '读', title: '逐回精读', desc: '词话 · 崇祯 · 竹坡三版本', status: 'live', href: `/${slug}/read/cihua` },
         { key: 'graph', glyph: '谱', title: '西门府社会网', desc: '妻妾 · 帮闲 · 政商利益', ...live(has('graph'), slug, 'graph', `/${slug}/graph`) },
+        { key: 'bestiary', glyph: '鉴', title: '人物图鉴', desc: '妻妾 · 帮闲 · 政商群像', ...live(has('bestiary'), slug, 'bestiary', `/${slug}/bestiary`) },
+        { key: 'places', glyph: '府', title: '西门府', desc: '院落居所 · 店铺 · 县城市井', ...live(has('places'), slug, 'places', `/${slug}/places`) },
         {
           key: 'silver', glyph: '银', title: '物价 · 白银流', desc: '交易记录 · 银两换算 · 资金流向', ...live(has('silver'), slug, 'silver', `/${slug}/silver`),
           preview: {

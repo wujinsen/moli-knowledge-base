@@ -7,6 +7,7 @@ financial_kind: 贿赂
 title: 蔡京寿礼行贿链
 chapters: [27]
 characters: [西门庆, 蔡京, 翟管家]
+locations: []
 amount_liang: 50
 transaction_refs: [jpm-tx-003, jpm-tx-011]
 tags: [政商, 白银流]

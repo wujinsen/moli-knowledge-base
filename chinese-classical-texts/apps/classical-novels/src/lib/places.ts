@@ -68,3 +68,25 @@ export function gardenChildren(places: PlaceEntry[], parentId: string): PlaceEnt
     .filter((p) => p.data.parent === parentId)
     .sort((a, b) => a.data.name.localeCompare(b.data.name, 'zh-CN'));
 }
+
+/** 书目主场景根节点（places 页顶栏分组用） */
+export const BOOK_PLACE_ROOT: Partial<
+  Record<string, { id: string; title: string; pageTitle: string; blurb: string }>
+> = {
+  红楼梦: {
+    id: '大观园',
+    title: '大观园',
+    pageTitle: '大观园 · 建筑居所',
+    blurb: '府邸、园林、亭榭堂馆',
+  },
+  金瓶梅: {
+    id: '西门府',
+    title: '西门府',
+    pageTitle: '西门府 · 建筑居所',
+    blurb: '府内院落、县城市井、寺观院馆',
+  },
+};
+
+export function placeRootFor(bookName: string) {
+  return BOOK_PLACE_ROOT[bookName];
+}

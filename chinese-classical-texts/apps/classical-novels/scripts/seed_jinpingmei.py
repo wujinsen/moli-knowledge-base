@@ -187,6 +187,35 @@ CHARACTERS: list[dict] = [
             {"target": "应伯爵", "type": "朋友"},
         ],
     ),
+    dict(
+        id="武松", name="武松", status="重要", faction="清河县", ximen_proximity="外人",
+        tags=["官员"], first_appear="第1回",
+        summary="打虎都头，武大嫡亲兄弟；后杀西门庆为兄报仇。",
+        relations=[
+            {"target": "武大郎", "type": "兄弟"},
+            {"target": "潘金莲", "type": "敌对"},
+            {"target": "西门庆", "type": "仇敌"},
+        ],
+    ),
+    dict(
+        id="武大郎", name="武大郎", status="配角", faction="清河县", ximen_proximity="外人",
+        tags=["商贾"], first_appear="第1回",
+        summary="武松之兄，卖炊饼为生；潘金莲之夫，被西门庆害死。",
+        relations=[
+            {"target": "武松", "type": "兄弟"},
+            {"target": "潘金莲", "type": "夫妻"},
+            {"target": "西门庆", "type": "敌对"},
+        ],
+    ),
+    dict(
+        id="李娇儿", name="李娇儿", status="配角", faction="清河县", ximen_proximity="利益交换",
+        tags=["妻妾"], first_appear="第1回",
+        summary="勾栏妓女，后入西门府；与吴月娘争房。",
+        relations=[
+            {"target": "西门庆", "type": "情人"},
+            {"target": "吴月娘", "type": "妯娌"},
+        ],
+    ),
 ]
 
 DISHES = [
