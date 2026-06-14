@@ -1,0 +1,129 @@
+{
+  "book": "红楼梦",
+  "generated": "2026-06-14",
+  "festivals": [
+    {
+      "id": "元春省亲",
+      "name": "元春省亲",
+      "type": "ritual",
+      "chapter": 18,
+      "location": "省亲别墅",
+      "procedure": ["更衣", "降省", "行礼", "赐宴", "题匾", "命众姊妹入苑居住"],
+      "duration": "五更起至戌初"
+    },
+    {
+      "id": "元宵",
+      "name": "元宵",
+      "type": "festival",
+      "chapter": 53,
+      "location": "宁荣两府",
+      "procedure": ["挂灯", "戏班", "夜宴", "放烟火"],
+      "economic": "年例、赏钱、戏班"
+    },
+    {
+      "id": "端午",
+      "name": "端午",
+      "type": "festival",
+      "chapter": 31,
+      "note": "赐扇、节礼；金钏投井前情"
+    },
+    {
+      "id": "中秋",
+      "name": "中秋",
+      "type": "festival",
+      "chapter": 76,
+      "location": "凸碧堂、凹晶馆",
+      "procedure": ["赏月", "联诗", "笛声"]
+    }
+  ],
+  "wedding_funeral": [
+    {
+      "id": "秦可卿丧仪",
+      "name": "秦可卿丧仪",
+      "type": "funeral",
+      "chapter": "13-15",
+      "procedure": ["停灵", "买官", "路祭", "北静王祭", "僧道水陆"],
+      "economic": "贾珍「尽用」、四王八公路祭",
+      "legal_norm": "五品诰命、非嫡出仍享哀荣（inference 争议）"
+    },
+    {
+      "id": "宝玉宝钗成婚",
+      "name": "宝玉宝钗成婚",
+      "type": "wedding",
+      "chapter": "97-98",
+      "procedure": ["偷梁换柱", "拜堂", "合卺"],
+      "legal_norm": "父母之命、金玉良缘"
+    },
+    {
+      "id": "迎春出嫁",
+      "name": "迎春出嫁",
+      "type": "wedding",
+      "chapter": 80,
+      "note": "孙绍祖；嫁妆、哭嫁"
+    }
+  ],
+  "currency_and_prices": [
+    { "item": "鸽子蛋", "price": "一两银子一个", "chapter": 40, "source": "fact" },
+    { "item": "螃蟹宴", "price": "约二十两", "chapter": 38, "source": "fact" },
+    { "item": "袭人赎身", "price": "四十两", "chapter": 19, "source": "fact" },
+    { "item": "乌进孝租", "price": "二千五百两（欠）", "chapter": 53, "source": "fact" },
+    { "item": "凤姐月例", "price": "二十两", "chapter": 55, "source": "fact" },
+    { "item": "小丫头月钱", "price": "五百文", "chapter": 55, "source": "fact" },
+    { "item": "贾琏偷当", "price": "四百两（累丝金凤等）", "chapter": 21, "source": "fact" }
+  ],
+  "servant_system": [
+    {
+      "rank": "主子",
+      "examples": ["贾母", "王夫人", "凤姐"],
+      "note": "内帏、管家权"
+    },
+    {
+      "rank": "大丫鬟",
+      "examples": ["袭人", "晴雯", "平儿"],
+      "monthly": "一两银子（袭人例）",
+      "rights": "可配小厮、将来可放出去"
+    },
+    {
+      "rank": "小丫头",
+      "examples": ["小红", "坠儿"],
+      "monthly": "五百文",
+      "note": "服侍、学规矩"
+    },
+    {
+      "rank": "婆子",
+      "examples": ["李嬷嬷", "周瑞家的"],
+      "note": "陪侍、管事、外场"
+    },
+    {
+      "rank": "家生奴",
+      "note": "世代奴仆，如袭人「家生」",
+      "legal": "可赎身、可配婚"
+    }
+  ],
+  "annual_rites": [
+    {
+      "name": "年例",
+      "chapter": 53,
+      "items": ["押岁锞", "赏钱", "戏班", "祭祖"],
+      "host": "贾母"
+    },
+    {
+      "name": "宗祠祭祖",
+      "chapter": 53,
+      "location": "宁国府宗祠",
+      "procedure": ["排班", "献祭", "按品级列位"]
+    }
+  ],
+  "entity_pages": [
+    "customs/红楼梦/宗祠祭祖.md",
+    "customs/红楼梦/元宵夜宴.md",
+    "customs/红楼梦/秦可卿丧仪.md",
+    "customs/红楼梦/元春省亲.md",
+    "customs/红楼梦/奴婢月例.md",
+    "customs/红楼梦/端午.md",
+    "customs/红楼梦/中秋.md",
+    "customs/红楼梦/宝玉宝钗成婚.md",
+    "customs/红楼梦/迎春出嫁.md",
+    "customs/红楼梦/年例.md"
+  ]
+}

@@ -1,0 +1,89 @@
+---
+interface Props {
+  slug: string;
+  book: string;
+  characters?: string[];
+  locations?: string[];
+  items?: string[];
+  hasPlaces?: boolean;
+  hasItems?: boolean;
+  itemRefs?: { id: string; name: string }[];
+  characterIds?: Set<string>;
+}
+
+const {
+  slug,
+  characters = [],
+  locations = [],
+  items = [],
+  hasPlaces = false,
+  hasItems = false,
+  itemRefs = [],
+  characterIds = new Set<string>(),
+} = Astro.props;
+
+const show =
+  (hasPlaces && locations.length > 0) ||
+  (hasItems && itemRefs.length > 0) ||
+  characters.length > 0;
+
+if (!show) return null;
+
+const itemNameById = new Map(itemRefs.map((r) => [r.id, r.name]));
+---
+
+<aside class="reader-chapter-links mt-4 rounded-lg p-4 text-sm" data-pagefind-ignore>
+  <p class="reader-chapter-links-title mb-3 font-medium">本回关联</p>
+  <div class="reader-chapter-links-groups">
+    {
+      hasPlaces && locations.length > 0 && (
+        <div class="reader-chapter-links-group">
+          <span class="reader-chapter-links-label">地点</span>
+          <div class="reader-chapter-links-tags">
+            {locations.map((id) => (
+              <a href={`/${slug}/l/${id}`} class="reader-chapter-links-tag" title={`查看地点：${id}`}>
+                {id}
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
+    {
+      hasItems && items.length > 0 && (
+        <div class="reader-chapter-links-group">
+          <span class="reader-chapter-links-label">名物</span>
+          <div class="reader-chapter-links-tags">
+            {items.map((id) => (
+              <a
+                href={`/${slug}/i/${id}`}
+                class="reader-chapter-links-tag"
+                title={`查看名物：${itemNameById.get(id) ?? id}`}
+              >
+                {itemNameById.get(id) ?? id}
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
+    {
+      characters.length > 0 && (
+        <div class="reader-chapter-links-group">
+          <span class="reader-chapter-links-label">人物</span>
+          <div class="reader-chapter-links-tags">
+            {characters.map((id) =>
+              characterIds.has(id) ? (
+                <a href={`/${slug}/c/${id}`} class="reader-chapter-links-tag" title={`查看人物：${id}`}>
+                  {id}
+                </a>
+              ) : (
+                <span class="reader-chapter-links-plain">{id}</span>
+              ),
+            )}
+          </div>
+        </div>
+      )
+    }
+  </div>
+</aside>

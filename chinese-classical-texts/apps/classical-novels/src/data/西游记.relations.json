@@ -1,0 +1,559 @@
+{
+  "book": "西游记",
+  "nodes": [
+    {
+      "id": "东海龙王",
+      "type": "character",
+      "faction": "龙宫",
+      "weight": 30
+    },
+    {
+      "id": "二郎神",
+      "type": "character",
+      "faction": "天界",
+      "weight": 30
+    },
+    {
+      "id": "六耳猕猴",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 30
+    },
+    {
+      "id": "哪吒",
+      "type": "character",
+      "faction": "天界",
+      "weight": 30
+    },
+    {
+      "id": "唐僧",
+      "type": "character",
+      "faction": "取经队伍",
+      "weight": 30
+    },
+    {
+      "id": "唐太宗",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 30
+    },
+    {
+      "id": "如来佛祖",
+      "type": "character",
+      "faction": "佛界",
+      "weight": 30
+    },
+    {
+      "id": "孙悟空",
+      "type": "character",
+      "faction": "取经队伍",
+      "weight": 30
+    },
+    {
+      "id": "李靖",
+      "type": "character",
+      "faction": "天界",
+      "weight": 30
+    },
+    {
+      "id": "沙僧",
+      "type": "character",
+      "faction": "取经队伍",
+      "weight": 30
+    },
+    {
+      "id": "牛魔王",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 30
+    },
+    {
+      "id": "猪八戒",
+      "type": "character",
+      "faction": "取经队伍",
+      "weight": 30
+    },
+    {
+      "id": "玉皇大帝",
+      "type": "character",
+      "faction": "天界",
+      "weight": 30
+    },
+    {
+      "id": "白骨精",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 30
+    },
+    {
+      "id": "白龙马",
+      "type": "character",
+      "faction": "取经队伍",
+      "weight": 30
+    },
+    {
+      "id": "红孩儿",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 30
+    },
+    {
+      "id": "观音菩萨",
+      "type": "character",
+      "faction": "佛界",
+      "weight": 30
+    },
+    {
+      "id": "铁扇公主",
+      "type": "character",
+      "faction": "妖魔",
+      "weight": 30
+    },
+    {
+      "id": "镇元子",
+      "type": "character",
+      "faction": "仙界",
+      "weight": 30
+    },
+    {
+      "id": "黄风怪",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 30
+    }
+  ],
+  "edges": [
+    {
+      "source": "东海龙王",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "东海龙王",
+      "target": "白龙马",
+      "type": "父子",
+      "contradiction": false
+    },
+    {
+      "source": "东海龙王",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "二郎神",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "二郎神",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "二郎神",
+      "target": "哪吒",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "六耳猕猴",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "六耳猕猴",
+      "target": "如来佛祖",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "六耳猕猴",
+      "target": "唐僧",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "哪吒",
+      "target": "李靖",
+      "type": "父子",
+      "contradiction": false
+    },
+    {
+      "source": "哪吒",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "哪吒",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "哪吒",
+      "target": "牛魔王",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
+      "target": "孙悟空",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
+      "target": "猪八戒",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
+      "target": "沙僧",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
+      "target": "白龙马",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
+      "target": "观音菩萨",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
+      "target": "唐太宗",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
+      "target": "白骨精",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "唐僧",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "观音菩萨",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "如来佛祖",
+      "target": "观音菩萨",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "如来佛祖",
+      "target": "孙悟空",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "如来佛祖",
+      "target": "玉皇大帝",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "如来佛祖",
+      "target": "唐僧",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "唐僧",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "猪八戒",
+      "type": "师兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "沙僧",
+      "type": "师兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "白龙马",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "观音菩萨",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "如来佛祖",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "牛魔王",
+      "type": "结拜",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "镇元子",
+      "type": "结拜",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "白骨精",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "红孩儿",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "铁扇公主",
+      "type": "仇敌",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "玉皇大帝",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "李靖",
+      "target": "哪吒",
+      "type": "父子",
+      "contradiction": false
+    },
+    {
+      "source": "李靖",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "李靖",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "李靖",
+      "target": "牛魔王",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "沙僧",
+      "target": "唐僧",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "沙僧",
+      "target": "猪八戒",
+      "type": "师兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "沙僧",
+      "target": "观音菩萨",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "牛魔王",
+      "target": "铁扇公主",
+      "type": "夫妻",
+      "contradiction": false
+    },
+    {
+      "source": "牛魔王",
+      "target": "红孩儿",
+      "type": "父子",
+      "contradiction": false
+    },
+    {
+      "source": "猪八戒",
+      "target": "唐僧",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "猪八戒",
+      "target": "观音菩萨",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "李靖",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "哪吒",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "二郎神",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "白龙马",
+      "target": "唐僧",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "白龙马",
+      "target": "观音菩萨",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "红孩儿",
+      "target": "牛魔王",
+      "type": "父子",
+      "contradiction": false
+    },
+    {
+      "source": "红孩儿",
+      "target": "铁扇公主",
+      "type": "母子",
+      "contradiction": false
+    },
+    {
+      "source": "红孩儿",
+      "target": "孙悟空",
+      "type": "仇敌",
+      "contradiction": false
+    },
+    {
+      "source": "红孩儿",
+      "target": "唐僧",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "红孩儿",
+      "target": "观音菩萨",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "观音菩萨",
+      "target": "唐僧",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "观音菩萨",
+      "target": "孙悟空",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "观音菩萨",
+      "target": "猪八戒",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "观音菩萨",
+      "target": "沙僧",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "观音菩萨",
+      "target": "白龙马",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "观音菩萨",
+      "target": "如来佛祖",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "铁扇公主",
+      "target": "红孩儿",
+      "type": "母子",
+      "contradiction": false
+    },
+    {
+      "source": "铁扇公主",
+      "target": "观音菩萨",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "镇元子",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "镇元子",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "镇元子",
+      "target": "观音菩萨",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "黄风怪",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "黄风怪",
+      "target": "唐僧",
+      "type": "敌对",
+      "contradiction": false
+    }
+  ]
+}

@@ -1,0 +1,422 @@
+{
+  "book": "红楼梦",
+  "links": [
+    {
+      "source": "晴雯",
+      "target": "林黛玉",
+      "predicate": "影射",
+      "inference": true,
+      "note": "晴为黛影；撕扇、补裘、性情与黛玉镜像",
+      "chapter": 31
+    },
+    {
+      "source": "hl-s-furong",
+      "target": "晴雯",
+      "predicate": "象征",
+      "inference": true,
+      "note": "晴雯撕扇、死后芙蓉女儿诔",
+      "chapter": 78
+    },
+    {
+      "source": "hl-s-furong",
+      "target": "林黛玉",
+      "predicate": "隐喻",
+      "inference": true,
+      "note": "芙蓉花签、葬花、泪尽",
+      "chapter": 63
+    },
+    {
+      "source": "hl-f-01",
+      "target": "林黛玉",
+      "predicate": "预示",
+      "inference": true,
+      "note": "莫怨东风当自嗟",
+      "chapter": 63
+    },
+    {
+      "source": "hl-s-zhu",
+      "target": "林黛玉",
+      "predicate": "象征",
+      "inference": true,
+      "note": "潇湘馆、湘妃竹",
+      "chapter": 17
+    },
+    {
+      "source": "hl-s-yu",
+      "target": "贾宝玉",
+      "predicate": "象征",
+      "inference": false,
+      "note": "通灵玉",
+      "chapter": 3
+    },
+    {
+      "source": "hl-s-jin",
+      "target": "薛宝钗",
+      "predicate": "象征",
+      "inference": false,
+      "note": "金锁、冷香丸",
+      "chapter": 3
+    },
+    {
+      "source": "hl-p-01",
+      "target": "林黛玉",
+      "predicate": "作",
+      "inference": false,
+      "note": "葬花吟",
+      "chapter": 27
+    },
+    {
+      "source": "hl-p-03",
+      "target": "贾宝玉",
+      "predicate": "预示",
+      "inference": true,
+      "note": "阆苑仙葩/美玉无瑕",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-03",
+      "target": "林黛玉",
+      "predicate": "预示",
+      "inference": true,
+      "note": "阆苑仙葩",
+      "chapter": 5
+    },
+    {
+      "source": "hl-j-01",
+      "target": "hl-j-02",
+      "predicate": "互文",
+      "inference": true,
+      "note": "钗黛合判对照",
+      "chapter": 5
+    },
+    {
+      "source": "hl-s-bing",
+      "target": "hl-s-jin",
+      "predicate": "互文",
+      "inference": true,
+      "note": "冷香/晶莹雪与金锁",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-05",
+      "target": "晴雯",
+      "predicate": "影射",
+      "inference": false,
+      "note": "芙蓉女儿诔祭晴雯",
+      "chapter": 78
+    },
+    {
+      "source": "hl-p-05",
+      "target": "hl-s-furong",
+      "predicate": "互文",
+      "inference": false,
+      "note": "芙蓉枝前奠祭",
+      "chapter": 78
+    },
+    {
+      "source": "hl-p-05",
+      "target": "hl-j-13",
+      "predicate": "互文",
+      "inference": true,
+      "note": "判词在祭文中兑现",
+      "chapter": 78
+    },
+    {
+      "source": "hl-p-05",
+      "target": "林黛玉",
+      "predicate": "互文",
+      "inference": false,
+      "note": "黛玉改字论诗",
+      "chapter": 78
+    },
+    {
+      "source": "hl-p-06",
+      "target": "hl-p-05",
+      "predicate": "互文",
+      "inference": true,
+      "note": "第78回主宾：姽婳词为宾，芙蓉诔为主",
+      "chapter": 78
+    },
+    {
+      "source": "hl-p-06",
+      "target": "晴雯",
+      "predicate": "影射",
+      "inference": true,
+      "note": "林四娘忠义与晴雯夭逝对读",
+      "chapter": 78
+    },
+    {
+      "source": "hl-p-07",
+      "target": "hl-p-02",
+      "predicate": "互文",
+      "inference": true,
+      "note": "好了歌与曲词同旨归空",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-08",
+      "target": "hl-p-03",
+      "predicate": "互文",
+      "inference": true,
+      "note": "终身误与枉凝眉同属钗黛悲剧",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-08",
+      "target": "薛宝钗",
+      "predicate": "预示",
+      "inference": true,
+      "note": "金玉良姻",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-08",
+      "target": "林黛玉",
+      "predicate": "预示",
+      "inference": true,
+      "note": "木石前盟",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-09",
+      "target": "王熙凤",
+      "predicate": "预示",
+      "inference": true,
+      "note": "一从二令三人木",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-09",
+      "target": "hl-j-09",
+      "predicate": "互文",
+      "inference": false,
+      "note": "判词与曲互证",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-10",
+      "target": "hl-p-01",
+      "predicate": "互文",
+      "inference": true,
+      "note": "秋夜悲音与葬花一脉",
+      "chapter": 45
+    },
+    {
+      "source": "hl-p-10",
+      "target": "hl-s-zhu",
+      "predicate": "象征",
+      "inference": true,
+      "note": "潇湘秋窗风雨",
+      "chapter": 45
+    },
+    {
+      "source": "五儿",
+      "target": "晴雯",
+      "predicate": "影射",
+      "inference": true,
+      "note": "凤姐云五儿像晴雯；第109回宝玉错爱",
+      "chapter": 109
+    },
+    {
+      "source": "hl-p-11",
+      "target": "hl-j-03",
+      "predicate": "互文",
+      "inference": false,
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-11",
+      "target": "hl-p-07",
+      "predicate": "互文",
+      "inference": true,
+      "chapter": 5,
+      "note": "曲词总收束之一"
+    },
+    {
+      "source": "hl-p-12",
+      "target": "hl-j-04",
+      "predicate": "互文",
+      "inference": false,
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-13",
+      "target": "hl-j-10",
+      "predicate": "互文",
+      "inference": false,
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-13",
+      "target": "刘姥姥",
+      "predicate": "预示",
+      "inference": true,
+      "chapter": 5,
+      "note": "忽遇恩人；后文救巧"
+    },
+    {
+      "source": "hl-p-14",
+      "target": "hl-p-01",
+      "predicate": "互文",
+      "inference": true,
+      "chapter": 70,
+      "note": "桃花社后咏絮"
+    },
+    {
+      "source": "hl-p-15",
+      "target": "hl-j-05",
+      "predicate": "互文",
+      "inference": false,
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-16",
+      "target": "hl-j-06",
+      "predicate": "互文",
+      "inference": false,
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-17",
+      "target": "hl-j-11",
+      "predicate": "互文",
+      "inference": false,
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-18",
+      "target": "hl-j-12",
+      "predicate": "互文",
+      "inference": false,
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-07",
+      "target": "hl-p-18",
+      "predicate": "互文",
+      "inference": true,
+      "chapter": 5,
+      "note": "曲词总收束链"
+    },
+    {
+      "source": "hl-j-01",
+      "target": "hl-p-03",
+      "predicate": "互文",
+      "inference": true,
+      "chapter": 5,
+      "note": "黛玉判词与枉凝眉"
+    },
+    {
+      "source": "hl-j-02",
+      "target": "hl-p-08",
+      "predicate": "互文",
+      "inference": true,
+      "chapter": 5,
+      "note": "宝钗判词与终身误"
+    },
+    {
+      "source": "hl-j-03",
+      "target": "hl-p-11",
+      "predicate": "互文",
+      "inference": false,
+      "chapter": 5
+    },
+    {
+      "source": "hl-j-04",
+      "target": "hl-p-12",
+      "predicate": "互文",
+      "inference": false,
+      "chapter": 5
+    },
+    {
+      "source": "hl-j-05",
+      "target": "hl-p-15",
+      "predicate": "互文",
+      "inference": false,
+      "chapter": 5
+    },
+    {
+      "source": "hl-j-06",
+      "target": "hl-p-16",
+      "predicate": "互文",
+      "inference": false,
+      "chapter": 5
+    },
+    {
+      "source": "hl-j-09",
+      "target": "hl-p-09",
+      "predicate": "互文",
+      "inference": false,
+      "chapter": 5,
+      "note": "凤姐判词与聪明累"
+    },
+    {
+      "source": "hl-j-10",
+      "target": "hl-p-13",
+      "predicate": "互文",
+      "inference": false,
+      "chapter": 5
+    },
+    {
+      "source": "hl-j-11",
+      "target": "hl-p-17",
+      "predicate": "互文",
+      "inference": false,
+      "chapter": 5
+    },
+    {
+      "source": "hl-j-12",
+      "target": "hl-p-18",
+      "predicate": "互文",
+      "inference": false,
+      "chapter": 5
+    },
+    {
+      "source": "hl-j-13",
+      "target": "hl-p-05",
+      "predicate": "互文",
+      "inference": true,
+      "chapter": 78,
+      "note": "晴雯判词与芙蓉诔"
+    },
+    {
+      "source": "hl-j-07",
+      "target": "hl-p-19",
+      "predicate": "互文",
+      "inference": false,
+      "chapter": 5,
+      "note": "迎春判词与喜冤家"
+    },
+    {
+      "source": "hl-j-08",
+      "target": "hl-p-20",
+      "predicate": "互文",
+      "inference": false,
+      "chapter": 5,
+      "note": "惜春判词与虚花悟"
+    },
+    {
+      "source": "hl-p-19",
+      "target": "孙绍祖",
+      "predicate": "影射",
+      "inference": true,
+      "chapter": 5,
+      "note": "中山狼"
+    },
+    {
+      "source": "hl-j-14",
+      "target": "hl-p-21",
+      "predicate": "互文",
+      "inference": true,
+      "chapter": 49,
+      "note": "判词与咏月永团圆"
+    },
+    {
+      "source": "hl-p-21",
+      "target": "香菱",
+      "predicate": "作",
+      "inference": false,
+      "chapter": 49
+    }
+  ]
+}

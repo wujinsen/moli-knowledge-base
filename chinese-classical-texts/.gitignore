@@ -1,0 +1,6 @@
+# 检索语料副本（由 scripts/normalize_text.py 生成，可重建，raw 才是真相源）
+build/
+
+# python
+__pycache__/
+*.pyc

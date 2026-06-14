@@ -1,0 +1,114 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ImageryGraph from '../../components/ImageryGraph.tsx';
+import {
+  HIGHLIGHT_CHAINS,
+  buildImageryGraph,
+  chapterLabel,
+  sortImagery,
+  subtypeLabel,
+} from '../../lib/imagery';
+import type { ImageryGraphEdge } from '../../lib/imagery';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  return books
+    .filter((b) => b.data.features.includes('poems'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+const items = sortImagery(
+  (await getCollection('imagery')).filter((i) => i.data.book === meta.book),
+);
+
+const linkFiles = import.meta.glob('../../data/*.imagery-links.json', { eager: true });
+const linkKey = Object.keys(linkFiles).find((k) => k.includes(meta.book));
+const extraRaw = linkKey ? (linkFiles[linkKey] as { default?: { links: ImageryGraphEdge[] }; links?: ImageryGraphEdge[] }) : null;
+const extraLinks: ImageryGraphEdge[] = extraRaw?.default?.links ?? extraRaw?.links ?? [];
+
+const graph = buildImageryGraph(items, extraLinks);
+const bySubtype = (st: string) => items.filter((i) => i.data.subtype === st);
+const featuredChain = HIGHLIGHT_CHAINS[0];
+---
+
+<Base title={`${meta.book} · 诗词意象`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  <a href={`/${meta.slug}`} class="text-sm hover:underline" style="color: var(--ink-soft)">← {meta.book}</a>
+
+  <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
+    <div class="flex items-start gap-4">
+      <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">诗</span>
+      <div>
+        <h1 class="brand text-4xl" style="color: var(--primary)">诗词意象 · 互文网络</h1>
+        <p class="mt-2 text-sm" style="color: var(--ink-soft)">
+          {items.length} 条意象实体 · {graph.edges.length} 条关联边 · 判词 / 诗词 / 象征 / 花签
+        </p>
+      </div>
+    </div>
+    <p class="mt-5 max-w-2xl text-sm leading-relaxed" style="color: var(--ink)">
+      图谶式文本的核心：表层意象与人物命运的「隐喻」推论边（<code class="rounded px-1" style="background: color-mix(in srgb, var(--primary) 8%, transparent)">inference</code>）。
+      示例链路：<strong>{featuredChain.name}</strong>。
+    </p>
+  </section>
+
+  <h2 class="section-title mb-4 text-lg">意象互文图</h2>
+  <div class="surface mb-10 p-4 sm:p-6">
+    <ImageryGraph
+      graph={graph}
+      bookSlug={meta.slug}
+      highlightPath={featuredChain.path}
+      client:only="react"
+    />
+    <div class="mt-4 flex flex-wrap gap-2 text-xs" style="color: var(--ink-soft)">
+      {
+        HIGHLIGHT_CHAINS.map((c) => (
+          <span class="chip">{c.name}</span>
+        ))
+      }
+    </div>
+  </div>
+
+  {
+    ['judgment', 'poem', 'symbol', 'flower_lot'].map((st) => {
+      const group = bySubtype(st);
+      if (group.length === 0) return null;
+      return (
+        <div class="mb-2">
+          <h2 class="section-title mb-4 text-lg">{subtypeLabel(st)}</h2>
+          <div class="mb-10 grid gap-3 sm:grid-cols-2">
+            {
+              group.map((item) => {
+                const d = item.data;
+                const infCount = d.links.filter((l) => l.inference).length;
+                return (
+                  <a href={`/${meta.slug}/imagery/${d.id}`} class="module-card">
+                    <span class="glyph" style="font-size:1.2rem;width:2.6rem;height:2.6rem">
+                      {st === 'judgment' ? '谶' : st === 'poem' ? '吟' : st === 'symbol' ? '象' : '签'}
+                    </span>
+                    <div class="min-w-0">
+                      <h3 class="font-bold" style="color: var(--primary)">{d.title}</h3>
+                      {d.text && (
+                        <p class="mt-1 line-clamp-2 text-sm" style="color: var(--ink-soft)">{d.text}</p>
+                      )}
+                      <div class="mt-2 flex flex-wrap gap-2 text-xs">
+                        {d.chapters[0] != null && (
+                          <span class="chip">{chapterLabel(d.chapters)}</span>
+                        )}
+                        {d.characters.map((c) => <span class="chip">{c}</span>)}
+                        {infCount > 0 && (
+                          <span class="chip" title="推论边">推论 ×{infCount}</span>
+                        )}
+                      </div>
+                    </div>
+                  </a>
+                );
+              })
+            }
+          </div>
+        </div>
+      );
+    })
+  }
+</Base>

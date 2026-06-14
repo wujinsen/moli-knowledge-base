@@ -1,0 +1,64 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import CharacterCard from '../../components/CharacterCard.astro';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  return books.map((b) => ({
+    params: { book: b.data.slug },
+    props: { book: b },
+  }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+
+const entries = (await getCollection('characters'))
+  .filter((c) => c.data.book === meta.book)
+  .sort((a, b) => (b.data.weight ?? 0) - (a.data.weight ?? 0));
+
+const characters = entries.filter((c) => c.data.type === 'character');
+const monsters = entries.filter((c) => c.data.type === 'monster');
+---
+
+<Base title={`${meta.book} 图鉴`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  <h1 class="brand mb-1 text-3xl" style="color: var(--primary)">{meta.book} · 图鉴</h1>
+  <p class="mb-6 text-sm" style="color: var(--ink-soft)">登场人物与妖怪群像</p>
+
+  <h2 class="section-title mb-3 text-lg">人物（{characters.length}）</h2>
+  <div class="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      characters.map((c) => (
+        <CharacterCard
+          href={`/${meta.slug}/c/${c.data.id}`}
+          name={c.data.name}
+          type={c.data.type}
+          faction={c.data.faction}
+          summary={c.data.summary}
+          tags={c.data.tags}
+        />
+      ))
+    }
+  </div>
+
+  {
+    monsters.length > 0 && (
+      <>
+        <h2 class="section-title mb-3 text-lg">妖怪（{monsters.length}）</h2>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {monsters.map((c) => (
+            <CharacterCard
+              href={`/${meta.slug}/c/${c.data.id}`}
+              name={c.data.name}
+              type={c.data.type}
+              faction={c.data.faction}
+              summary={c.data.summary}
+              tags={c.data.tags}
+            />
+          ))}
+        </div>
+      </>
+    )
+  }
+</Base>

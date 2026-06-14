@@ -1,0 +1,246 @@
+#!/usr/bin/env python3
+"""Match chapter bodies against known character ids/aliases; fill empty characters[]."""
+from __future__ import annotations
+
+import argparse
+import re
+import sys
+from pathlib import Path
+
+from _common import CHAPTER_DIR, iter_characters
+
+# Common narrative forms not always listed in entity aliases (alias -> id)
+EXTRA_ALIASES: dict[str, str] = {
+    "凤姐儿": "王熙凤",
+    "凤姐": "王熙凤",
+    "凤丫头": "王熙凤",
+    "凤哥儿": "王熙凤",
+    "琏二奶奶": "王熙凤",
+    "黛玉": "林黛玉",
+    "林妹妹": "林黛玉",
+    "林姑娘": "林黛玉",
+    "宝姑娘": "薛宝钗",
+    "宝钗": "薛宝钗",
+    "宝玉": "贾宝玉",
+    "宝二爷": "贾宝玉",
+    "薛大哥": "薛蟠",
+    "呆霸王": "薛蟠",
+    "可卿": "秦可卿",
+    "湘云": "史湘云",
+    "探春": "贾探春",
+    "三姑娘": "贾探春",
+    "迎春": "贾迎春",
+    "二姑娘": "贾迎春",
+    "惜春": "贾惜春",
+    "四姑娘": "贾惜春",
+    "元春": "贾元春",
+    "环哥儿": "贾环",
+    "环儿": "贾环",
+    "兰哥儿": "贾兰",
+    "岫烟": "邢岫烟",
+    "智能儿": "智能",
+    "来旺媳妇": "来旺家的",
+    "来旺妇": "来旺家的",
+    "周瑞媳妇": "周瑞家的",
+    "周嫂子": "周瑞家的",
+    "鲍二媳妇": "鲍二家的",
+    "鲍二老婆": "鲍二家的",
+    "芸哥儿": "贾芸",
+    "芸二爷": "贾芸",
+    "琏二爷": "贾琏",
+    "琏哥": "贾琏",
+    "珍大爷": "贾珍",
+    "蓉哥儿": "贾蓉",
+    "大老爷": "贾赦",
+    "二老爷": "贾政",
+    "老祖宗": "贾母",
+    "史太君": "贾母",
+    "太太": "王夫人",
+    "大太太": "邢夫人",
+    "薛姨妈": "薛姨妈",
+    "姨太太": "薛姨妈",
+    "醉金刚": "倪二",
+    "冷二郎": "柳湘莲",
+    "琪官": "蒋玉菡",
+    "鲸卿": "秦钟",
+    "秦鲸卿": "秦钟",
+    "红玉": "小红",
+    "林红玉": "小红",
+    "黄金莺": "莺儿",
+    "来旺儿": "旺儿",
+    "来旺": "旺儿",
+    "赖总管": "赖大",
+    "林之孝家": "林之孝",
+    "狗儿": "王狗儿",
+    "詹子亮": "詹光",
+    "大姐儿": "巧姐",
+    "巧哥儿": "巧姐",
+    "焙茗": "茗烟",
+    "瑞大爷": "贾瑞",
+    "金钏": "金钏儿",
+    "多浑虫": "多官",
+}
+
+# Skip overly short / ambiguous aliases when scanning
+MIN_ALIAS_LEN = 2
+# Too ambiguous for substring auto-tag (keep on entity pages for manual use)
+SKIP_ALIASES = frozenset({"老爷", "太太", "姑娘", "奶奶"})
+
+
+def build_alias_map(book: str) -> list[tuple[str, str]]:
+    """Return (alias, id) pairs sorted by alias length descending."""
+    pairs: dict[str, str] = {}
+    for _, fm, _ in iter_characters(book):
+        cid = fm.get("id") or fm.get("name")
+        if not cid:
+            continue
+        names = [cid, fm.get("name", "")]
+        names.extend(fm.get("aliases") or [])
+        for n in names:
+            n = (n or "").strip()
+            if len(n) >= MIN_ALIAS_LEN and n not in SKIP_ALIASES:
+                pairs.setdefault(n, cid)
+    for alias, cid in EXTRA_ALIASES.items():
+        if len(alias) >= MIN_ALIAS_LEN and alias not in SKIP_ALIASES:
+            pairs.setdefault(alias, cid)
+    return sorted(pairs.items(), key=lambda x: (-len(x[0]), x[0]))
+
+
+def split_body(raw: str) -> str:
+    """Return markdown body without parsing YAML (tolerates bad frontmatter)."""
+    m = re.match(r"^---\s*\n.*?\n---\s*\n?(.*)$", raw, re.S)
+    return m.group(1) if m else raw
+
+
+def strip_html(body: str) -> str:
+    # Drop 脂砚斋 side/head comments before matching (not story text)
+    text = re.sub(r'<span class="zhipi">.*?</span>', "", body, flags=re.S)
+    text = re.sub(r"<[^>]+>", "", text)
+    text = text.replace("&quot;", '"').replace("&#x27;", "'")
+    return text
+
+
+# alias -> compound phrases where the alias must not match as substring
+ALIAS_BLOCK: dict[str, list[str]] = {
+    "宝玉": ["通灵宝玉"],
+    "鸳鸯": ["卧鸳鸯"],
+}
+
+
+def alias_in_text(text: str, alias: str) -> int:
+    """Return first valid start index of alias in text, or -1."""
+    start = 0
+    blocks = ALIAS_BLOCK.get(alias, [])
+    while True:
+        idx = text.find(alias, start)
+        if idx < 0:
+            return -1
+        blocked = False
+        for compound in blocks:
+            cidx = text.find(compound)
+            while cidx >= 0:
+                if cidx <= idx < cidx + len(compound):
+                    blocked = True
+                    break
+                cidx = text.find(compound, cidx + 1)
+        if not blocked:
+            return idx
+        start = idx + 1
+
+
+def find_characters(text: str, alias_pairs: list[tuple[str, str]]) -> list[str]:
+    found: list[str] = []
+    seen: set[str] = set()
+    positions: dict[str, int] = {}
+    for alias, cid in alias_pairs:
+        if cid in seen:
+            continue
+        idx = alias_in_text(text, alias)
+        if idx >= 0:
+            seen.add(cid)
+            positions[cid] = idx
+            found.append(cid)
+    found.sort(key=lambda c: positions[c])
+    return found
+
+
+def format_characters_line(chars: list[str]) -> str:
+    if not chars:
+        return "characters: []"
+    return f"characters: [{', '.join(chars)}]"
+
+
+def patch_frontmatter(raw: str, chars: list[str], *, force: bool = False) -> str | None:
+    if force:
+        if not re.search(r"^characters:\s*\[.*\]\s*$", raw, re.M):
+            return None
+        line = format_characters_line(chars)
+        return re.sub(r"^characters:\s*\[.*\]\s*$", line, raw, count=1, flags=re.M)
+    if not re.search(r"^characters:\s*\[\]\s*$", raw, re.M):
+        return None
+    line = format_characters_line(chars)
+    return re.sub(r"^characters:\s*\[\]\s*$", line, raw, count=1, flags=re.M)
+
+
+def iter_chapter_files(book: str, subdir: str | None) -> list[Path]:
+    base = CHAPTER_DIR / book
+    if subdir:
+        base = base / subdir
+    return sorted(base.glob("[0-9]*.md"))
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description="Fill empty chapter characters[] from body text")
+    ap.add_argument("book", nargs="?", default="红楼梦")
+    ap.add_argument("--subdir", default="", help='e.g. "脂砚斋本"; default = 程高本 root')
+    ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--force", action="store_true", help="Overwrite existing non-empty characters[]")
+    ap.add_argument("--files", nargs="*", help="Only process these basenames (e.g. 001.md)")
+    ap.add_argument("--min-chars", type=int, default=1, help="Min matches to write (default 1)")
+    args = ap.parse_args()
+
+    alias_pairs = build_alias_map(args.book)
+    paths = iter_chapter_files(args.book, args.subdir or None)
+    updated = skipped = empty_still = 0
+
+    for path in paths:
+        if args.files and path.name not in args.files:
+            continue
+        raw = path.read_text(encoding="utf-8")
+        is_empty = bool(re.search(r"^characters:\s*\[\]\s*$", raw, re.M))
+        if not is_empty and not args.force:
+            skipped += 1
+            continue
+        body = split_body(raw)
+        text = strip_html(body)
+        chars = find_characters(text, alias_pairs)
+        if len(chars) < args.min_chars:
+            if args.force and not is_empty:
+                new_raw = patch_frontmatter(raw, [], force=True)
+                if new_raw and not args.dry_run:
+                    path.write_text(new_raw, encoding="utf-8")
+                if new_raw:
+                    updated += 1
+                    if args.dry_run:
+                        print(f"  {path.name}: (cleared, no KB match)")
+            else:
+                empty_still += 1
+                if args.dry_run:
+                    print(f"  {path.name}: (no match)")
+            continue
+        new_raw = patch_frontmatter(raw, chars, force=args.force or not is_empty)
+        if not new_raw:
+            continue
+        if args.dry_run:
+            print(f"  {path.name}: {len(chars)} -> {chars[:8]}{'...' if len(chars) > 8 else ''}")
+        else:
+            path.write_text(new_raw, encoding="utf-8")
+        updated += 1
+
+    label = args.subdir or "程高本"
+    print(f"[{args.book}/{label}] updated {updated}, skipped {skipped}, still empty {empty_still}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

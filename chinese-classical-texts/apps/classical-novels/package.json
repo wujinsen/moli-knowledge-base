@@ -1,0 +1,36 @@
+{
+  "name": "classical-novels",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "clean": "node -e \"const fs=require('fs');for(const d of ['.astro','node_modules/.vite'])fs.rmSync(d,{recursive:true,force:true});console.log('cleared .astro + node_modules/.vite')\"",
+    "dev:clean": "npm run clean && astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "import": "python scripts/import_chapters.py all",
+    "relations": "python scripts/build_relations.py",
+    "guard": "python scripts/trust_guard.py"
+  },
+  "dependencies": {
+    "@astrojs/react": "^5.0.7",
+    "@tailwindcss/postcss": "^4.3.1",
+    "astro": "^6.4.6",
+    "echarts": "^6.1.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "tailwindcss": "^4.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "astro-pagefind": "^2.0.0",
+    "pagefind": "^1.5.2",
+    "typescript": "^6.0.3"
+  },
+  "overrides": {
+    "vite": "^7"
+  }
+}

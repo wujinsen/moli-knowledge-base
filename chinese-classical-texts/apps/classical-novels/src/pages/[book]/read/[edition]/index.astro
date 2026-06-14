@@ -1,0 +1,135 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../../../layouts/Base.astro';
+import EditionTabs from '../../../../components/EditionTabs.astro';
+import {
+  DEFAULT_EDITION,
+  editionFromSlug,
+  editionLabel,
+  editionSlug,
+  hasMultipleEditions,
+  maxChapterForEdition,
+  readChapterPath,
+  readIndexPath,
+  ZHIBEN_MAX,
+} from '../../../../lib/editions';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  const paths: { params: { book: string; edition: string }; props: Record<string, unknown> }[] =
+    [];
+
+  for (const honglou of books) {
+    if (!hasMultipleEditions(honglou.data.book)) continue;
+
+    const slug = honglou.data.slug;
+    const book = honglou.data.book;
+    const total = honglou.data.chapter_count;
+    const chapters = (await getCollection('chapters'))
+      .filter((c) => c.data.book === book)
+      .sort((a, b) => a.data.number - b.data.number);
+
+    const byEdition = new Map<string, typeof chapters>();
+    for (const c of chapters) {
+      const ed = c.data.edition ?? DEFAULT_EDITION;
+      const edSlug = editionSlug(ed);
+      if (!editionFromSlug(edSlug)) continue;
+      if (!byEdition.has(ed)) byEdition.set(ed, []);
+      byEdition.get(ed)!.push(c);
+    }
+
+    for (const [editionName, list] of byEdition) {
+      const edSlug = editionSlug(editionName);
+      const max = maxChapterForEdition(book, editionName, total);
+      paths.push({
+        params: { book: slug, edition: edSlug },
+        props: {
+          slug,
+          book,
+          editionName,
+          chapters: list.filter((c) => c.data.number <= max),
+          total,
+        },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { slug, book, editionName, chapters, total } = Astro.props as {
+  slug: string;
+  book: string;
+  editionName: string;
+  chapters: Awaited<ReturnType<typeof getCollection<'chapters'>>>;
+  total: number;
+};
+
+const first = chapters[0];
+const edSlug = editionSlug(editionName);
+const max = maxChapterForEdition(book, editionName, total);
+---
+
+<Base
+  title={`${book} · ${editionLabel(editionName)}`}
+  bookSlug={slug}
+  bookName={book}
+  features={(await getCollection('books')).find((b) => b.data.slug === slug)?.data.features ?? []}
+>
+  <header class="mb-6">
+    <h1 class="section-title text-2xl">逐回精读</h1>
+    <p class="mt-2 text-sm leading-relaxed" style="color: var(--ink-soft)">
+      先选版本，再进入阅读。
+      {
+        book === '红楼梦' &&
+          (editionName === '脂砚斋本' ? '脂本仅前 80 回。' : `程高本共 ${total} 回。`)
+      }
+      {book === '金瓶梅' && `${editionLabel(editionName)}共 ${chapters.length} 回。`}
+    </p>
+  </header>
+
+  <EditionTabs slug={slug} book={book} currentEdition={editionName} />
+
+  {
+    first && (
+      <div class="mb-8">
+        <a href={readChapterPath(slug, book, first.data.number, editionName)} class="btn btn-primary">
+          开始阅读 · 第{first.data.number}回
+        </a>
+      </div>
+    )
+  }
+
+  <h2 class="section-title mb-4 text-lg">
+    {editionLabel(editionName)} · 回目（{chapters.length} 回）
+  </h2>
+  <ul class="grid gap-1 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      chapters.map((c) => (
+        <li>
+          <a
+            href={`/${slug}/read/${edSlug}/${c.data.number}`}
+            class="flex items-baseline gap-2 rounded px-2.5 py-1.5 text-sm transition hover:bg-[color-mix(in_srgb,var(--primary)_8%,transparent)]"
+          >
+            <span class="brand shrink-0 text-xs" style="color: var(--primary)">
+              {String(c.data.number).padStart(3, '0')}
+            </span>
+            <span class="truncate" style="color: var(--ink)">{c.data.title}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  {
+    book === '红楼梦' && editionName === '脂砚斋本' && (
+      <p class="mt-8 text-sm" style="color: var(--ink-soft)">
+        第 {ZHIBEN_MAX + 1}–{total} 回仅程高本续书，见
+        <a href={readIndexPath(slug, book, '程高本')} class="hover:underline" style="color: var(--primary)">
+          程高本回目
+        </a>
+        。
+      </p>
+    )
+  }
+</Base>

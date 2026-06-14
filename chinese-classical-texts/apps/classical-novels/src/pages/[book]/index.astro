@@ -1,0 +1,155 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { THEME_BY_SLUG, modulesFor } from '../../lib/books';
+import EditionTabs from '../../components/EditionTabs.astro';
+import {
+  defaultEditionForBook,
+  hasMultipleEditions,
+  readChapterPath,
+  readIndexPath,
+  ZHIBEN_MAX,
+} from '../../lib/editions';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  return books.map((b) => ({
+    params: { book: b.data.slug },
+    props: { book: b },
+  }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+
+const preferredEdition = defaultEditionForBook(meta.book);
+
+const chapters = (await getCollection('chapters'))
+  .filter((c) => c.data.book === meta.book)
+  .filter((c) => {
+    if (!hasMultipleEditions(meta.book)) return true;
+    const ed = c.data.edition ?? preferredEdition;
+    return ed === preferredEdition;
+  })
+  .sort((a, b) => a.data.number - b.data.number);
+
+const first = chapters[0];
+const multiEd = hasMultipleEditions(meta.book);
+const t = THEME_BY_SLUG[meta.slug];
+const modules = modulesFor(meta.slug, meta.features);
+---
+
+<Base title={meta.book} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  {/* 英雄区 */}
+  <section class="surface relative mb-10 overflow-hidden px-6 py-8 sm:px-10 sm:py-10">
+    <span
+      class="brand pointer-events-none absolute -right-4 -top-10 select-none text-[12rem] leading-none opacity-[0.06] sm:text-[16rem]"
+      style="color: var(--primary)"
+      aria-hidden="true"
+    >
+      {meta.book.slice(0, 1)}
+    </span>
+    <div class="relative max-w-2xl">
+      <p class="mb-2 text-sm tracking-widest" style="color: var(--ink-soft)">{t?.tagline}</p>
+      <h1 class="brand text-5xl sm:text-6xl" style="color: var(--primary)">{meta.book}</h1>
+      <p class="mt-3 text-base" style="color: var(--accent)">{t?.essence}</p>
+      <p class="mt-1 text-sm" style="color: var(--ink-soft)">
+        {meta.author} ·         {meta.chapter_count} 回
+        {
+          multiEd &&
+            (meta.book === '红楼梦'
+              ? ' · 脂本优先 · 程高本续书'
+              : meta.book === '金瓶梅'
+                ? ' · 词话本优先 · 三版本'
+                : '')
+        }
+      </p>
+      {meta.summary && (
+        <p class="mt-4 leading-relaxed" style="color: var(--ink-soft)">{meta.summary}</p>
+      )}
+      <div class="mt-6 flex flex-wrap gap-3">
+        {first && (
+          <a
+            href={readChapterPath(meta.slug, meta.book, first.data.number)}
+            class="btn btn-primary"
+          >
+            {
+              multiEd
+                ? meta.book === '红楼梦'
+                  ? `开始阅读 · 脂本第${first.data.number}回`
+                  : meta.book === '金瓶梅'
+                    ? `开始阅读 · 词话本第${first.data.number}回`
+                    : `开始阅读 · 第${first.data.number}回`
+                : `开始阅读 · 第${first.data.number}回`
+            }
+          </a>
+        )}
+        <a href="/search" class="btn btn-ghost">全文检索</a>
+      </div>
+    </div>
+  </section>
+
+  {/* 功能模块（书目页唯一入口；子页见顶栏快捷导航） */}
+  <h2 class="section-title mb-4 text-lg">探索模块</h2>
+  <div class="mb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      modules.map((m) => (
+        <a href={m.href} class={`module-card${m.status === 'planned' ? ' planned' : ''}`}>
+          <span class="glyph">{m.glyph}</span>
+          <span class="min-w-0">
+            <span class="flex items-center gap-2">
+              <span class="font-bold">{m.title}</span>
+              {m.status === 'planned' && <span class="seal seal-planned">未做</span>}
+            </span>
+            <span class="mt-1 block text-sm leading-snug" style="color: var(--ink-soft)">
+              {m.desc}
+            </span>
+          </span>
+        </a>
+      ))
+    }
+  </div>
+
+  {/* 回目目录 */}
+  <h2 class="section-title mb-4 text-lg">回目目录</h2>
+  {multiEd && (
+    <EditionTabs slug={meta.slug} book={meta.book} currentEdition={preferredEdition} />
+  )}
+  {
+    chapters.length === 0 ? (
+      <p class="text-sm" style="color: var(--ink-soft)">
+        暂无章节。运行：
+        <code class="rounded px-1" style="background: color-mix(in srgb, var(--primary) 10%, transparent)">
+          python scripts/import_chapters.py {meta.book}
+        </code>
+      </p>
+    ) : (
+      <ul class="grid gap-1 sm:grid-cols-2 lg:grid-cols-3">
+        {chapters.map((c) => (
+          <li>
+            <a
+              href={readChapterPath(meta.slug, meta.book, c.data.number, multiEd ? preferredEdition : undefined)}
+              class="flex items-baseline gap-2 rounded px-2.5 py-1.5 text-sm transition hover:bg-[color-mix(in_srgb,var(--primary)_8%,transparent)]"
+            >
+              <span class="brand shrink-0 text-xs" style="color: var(--primary)">
+                {String(c.data.number).padStart(3, '0')}
+              </span>
+              <span class="truncate" style="color: var(--ink)">{c.data.title}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+  {
+    multiEd && meta.book === '红楼梦' && (
+      <p class="mt-6 text-sm" style="color: var(--ink-soft)">
+        第 {ZHIBEN_MAX + 1}–{meta.chapter_count} 回见
+        <a href={readIndexPath(meta.slug, meta.book, '程高本')} class="hover:underline" style="color: var(--primary)">
+          程高本回目
+        </a>
+        。
+      </p>
+    )
+  }
+</Base>

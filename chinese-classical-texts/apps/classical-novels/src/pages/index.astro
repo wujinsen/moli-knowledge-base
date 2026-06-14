@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { THEME_BY_SLUG, modulesFor } from '../lib/books';
+
+const order = ['honglou', 'xiyouji', 'jinpingmei'];
+const books = (await getCollection('books')).sort(
+  (a, b) => order.indexOf(a.data.slug) - order.indexOf(b.data.slug),
+);
+---
+
+<Base title="首页">
+  <section class="mb-10 text-center">
+    <p class="mb-3 text-sm tracking-widest" style="color: var(--ink-soft)">中 国 古 典 名 著 · 知 识 图 谱</p>
+    <h1 class="brand mb-4 text-5xl sm:text-6xl" style="color: var(--primary)">三大奇书</h1>
+    <p class="mx-auto max-w-2xl text-base leading-relaxed" style="color: var(--ink-soft)">
+      以 raw 只读真相源为根，LLM 维护的人物、关系、名物与版本图谱。<br class="hidden sm:block" />
+      一部贵族挽歌，一程神魔修心，一面世情照妖镜。
+    </p>
+  </section>
+
+  <div class="grid gap-6 lg:grid-cols-3">
+    {
+      books.map((b) => {
+        const t = THEME_BY_SLUG[b.data.slug];
+        const live = modulesFor(b.data.slug, b.data.features).filter((m) => m.status === 'live');
+        return (
+          <a href={`/${b.data.slug}`} data-book={t?.theme} class="portal-card brand-host">
+            <span class="portal-seal">{b.data.book.slice(0, 1)}</span>
+            <div>
+              <h2 class="brand text-3xl" style="color: var(--primary)">
+                {b.data.book}
+              </h2>
+              <p class="mt-1 text-sm" style="color: var(--ink-soft)">
+                {b.data.author} · {b.data.chapter_count} 回
+              </p>
+            </div>
+            {t && (
+              <p class="mt-3 text-[0.95rem] font-medium" style="color: var(--accent)">
+                {t.essence}
+              </p>
+            )}
+            <p class="mt-2 text-sm leading-relaxed" style="color: var(--ink-soft)">
+              {b.data.summary}
+            </p>
+            <div class="mt-auto pt-5">
+              <div class="mb-3 flex flex-wrap gap-1.5">
+                {t?.motifs.map((m) => <span class="chip">{m}</span>)}
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm" style="color: var(--ink-soft)">
+                  {live.length} 个模块已上线
+                </span>
+                <span class="brand text-lg" style="color: var(--primary)">
+                  入 →
+                </span>
+              </div>
+            </div>
+          </a>
+        );
+      })
+    }
+  </div>
+
+  <div class="rule-seal mt-12">
+    <span class="brand text-base">阅</span>
+  </div>
+</Base>

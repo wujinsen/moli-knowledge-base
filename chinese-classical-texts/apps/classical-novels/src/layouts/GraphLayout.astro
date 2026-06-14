@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+import { themeFor } from '../lib/books';
+import { graphTheme } from '../lib/graphTheme';
+interface Props {
+  title: string;
+  bookSlug: string;
+  bookName: string;
+  moduleLabel?: string;
+}
+const { title, bookSlug, bookName, moduleLabel = '关系图谱' } = Astro.props;
+const theme = themeFor(bookSlug);
+const gt = graphTheme(bookSlug);
+---
+
+<!doctype html>
+<html lang="zh-CN" data-book={theme}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} · 古典小说知识库</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen text-slate-100" style={`background-color:${gt.base}`}>
+    <header
+      class="border-b backdrop-blur-md"
+      style={`background-color:${gt.base}d9;border-color:${gt.accentLine}`}
+    >
+      <nav class="flex items-center gap-4 px-4 py-2.5">
+        <a href="/" class="text-sm text-slate-400 hover:text-white">首页</a>
+        <span class="text-slate-600">/</span>
+        <a href={`/${bookSlug}`} class="brand text-lg" style={`color:${gt.accentSoft}`}>{bookName}</a>
+        <span class="text-slate-600">/</span>
+        <span class="text-sm font-medium" style={`color:${gt.accent}`}>{moduleLabel}</span>
+        <a href="/search" class="ml-auto text-sm text-slate-400 hover:text-white">搜索</a>
+      </nav>
+    </header>
+    <main class="relative">
+      <slot />
+    </main>
+  </body>
+</html>

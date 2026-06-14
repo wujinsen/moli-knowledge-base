@@ -1,0 +1,119 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import { chapterLabel, subtypeLabel } from '../../../lib/imagery';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  const items = await getCollection('imagery');
+  const paths: { params: { book: string; id: string }; props: { book: typeof books[0]; item: typeof items[0] } }[] = [];
+  for (const b of books) {
+    if (!b.data.features.includes('poems')) continue;
+    for (const item of items.filter((i) => i.data.book === b.data.book)) {
+      paths.push({
+        params: { book: b.data.slug, id: item.data.id },
+        props: { book: b, item },
+      });
+    }
+  }
+  return paths;
+}
+
+const { book, item } = Astro.props;
+const meta = book.data;
+const d = item.data;
+const { Content } = await render(item);
+const factLinks = d.links.filter((l) => !l.inference);
+const infLinks = d.links.filter((l) => l.inference);
+---
+
+<Base title={`${meta.book} · ${d.title}`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  <a href={`/${meta.slug}/shi`} class="text-sm hover:underline" style="color: var(--ink-soft)">← 诗词意象</a>
+
+  <section class="surface mt-3 mb-6 px-6 py-7 sm:px-8">
+    <div class="flex flex-wrap items-start gap-3">
+      <span class="chip">{subtypeLabel(d.subtype)}</span>
+      {d.chapters[0] != null && (
+        <a href={`/${meta.slug}/read/${d.chapters[0]}`} class="chip hover:opacity-80">
+          {chapterLabel(d.chapters)}
+        </a>
+      )}
+    </div>
+    <h1 class="brand mt-3 text-3xl sm:text-4xl" style="color: var(--primary)">{d.title}</h1>
+    {d.text && (
+      <blockquote class="mt-4 border-l-[3px] pl-4 text-base leading-relaxed" style="border-color: var(--primary-soft); color: var(--ink)">
+        {d.text}
+      </blockquote>
+    )}
+    {d.summary && <p class="mt-4 text-sm leading-relaxed" style="color: var(--ink-soft)">{d.summary}</p>}
+  </section>
+
+  {
+    d.characters.length > 0 && (
+      <>
+        <h2 class="section-title mb-3 text-lg">关联人物</h2>
+        <div class="mb-6 flex flex-wrap gap-2">
+          {
+            d.characters.map((c) => (
+              <a href={`/${meta.slug}/c/${c}`} class="chip hover:opacity-80">{c}</a>
+            ))
+          }
+        </div>
+      </>
+    )
+  }
+
+  {
+    (factLinks.length > 0 || infLinks.length > 0) && (
+      <>
+        <h2 class="section-title mb-3 text-lg">意象关联边</h2>
+        <div class="mb-6 overflow-x-auto">
+          <table class="w-full min-w-[520px] border-collapse text-sm">
+            <thead>
+              <tr style="border-bottom: 1.5px solid var(--line); color: var(--ink-soft)">
+                <th class="px-3 py-2 text-left font-normal">目标</th>
+                <th class="px-3 py-2 text-left font-normal">关系</th>
+                <th class="px-3 py-2 text-left font-normal">类型</th>
+                <th class="px-3 py-2 text-left font-normal">说明</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                [...factLinks, ...infLinks].map((l) => (
+                  <tr style="border-bottom: 1px solid var(--line)">
+                    <td class="px-3 py-2.5">
+                      {
+                        l.target_kind === 'imagery' ? (
+                          <a href={`/${meta.slug}/imagery/${l.target}`} class="hover:underline" style="color: var(--accent)">
+                            {l.target}
+                          </a>
+                        ) : (
+                          <a href={`/${meta.slug}/c/${l.target}`} class="hover:underline" style="color: var(--accent)">
+                            {l.target}
+                          </a>
+                        )
+                      }
+                    </td>
+                    <td class="px-3 py-2.5">{l.predicate}</td>
+                    <td class="px-3 py-2.5">
+                      {l.inference ? (
+                        <span class="chip">推论</span>
+                      ) : (
+                        <span class="chip">事实</span>
+                      )}
+                    </td>
+                    <td class="px-3 py-2.5" style="color: var(--ink-soft)">{l.note ?? '—'}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </>
+    )
+  }
+
+  <div class="prose-cn surface px-6 py-5 text-sm sm:px-8">
+    <Content />
+  </div>
+</Base>

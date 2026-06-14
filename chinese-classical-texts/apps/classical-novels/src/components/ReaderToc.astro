@@ -1,0 +1,40 @@
+---
+import type { ReaderChapterItem } from '../lib/readerChapters';
+
+interface Props {
+  chapters: ReaderChapterItem[];
+  current: number;
+  indexHref: string;
+}
+
+const { chapters, current, indexHref } = Astro.props;
+---
+
+<div class="reader-toc" data-pagefind-ignore>
+  <a href={indexHref} class="reader-toc-back hover:underline">← 回目</a>
+  <span class="reader-toc-sep" aria-hidden="true">·</span>
+  <label class="reader-toc-picker">
+    <span class="reader-toc-picker-label">选择目录</span>
+    <select class="reader-toc-select" aria-label="跳转到指定回目">
+      {
+        chapters.map((c) => (
+          <option value={c.href} selected={c.number === current}>
+            {`第${c.number}回 · ${c.title}`}
+          </option>
+        ))
+      }
+    </select>
+  </label>
+</div>
+
+<script>
+  document.querySelectorAll('.reader-toc-select').forEach((el) => {
+    el.addEventListener('change', () => {
+      const sel = el as HTMLSelectElement;
+      const url = sel.value;
+      if (url && url !== window.location.pathname) {
+        window.location.href = url;
+      }
+    });
+  });
+</script>

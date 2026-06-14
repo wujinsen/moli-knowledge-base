@@ -1,0 +1,133 @@
+---
+/** 阅读页：浅色/深色 + 滚动/双栏 + 字号（版本在目录页切换） */
+---
+
+<div class="reader-toolbar surface" data-pagefind-ignore role="toolbar" aria-label="阅读设置">
+  <div class="reader-toolbar-group" role="group" aria-label="配色">
+    <span class="reader-toolbar-label">配色</span>
+    <button type="button" class="reader-toggle" data-reader-theme="light" aria-pressed="true" title="白底阅读">浅色</button>
+    <button type="button" class="reader-toggle" data-reader-theme="dark" aria-pressed="false" title="暗色阅读">深色</button>
+  </div>
+  <span class="reader-toolbar-divider" aria-hidden="true"></span>
+  <div class="reader-toolbar-group" role="group" aria-label="版式">
+    <span class="reader-toolbar-label">版式</span>
+    <button type="button" class="reader-toggle" data-reader-layout="scroll" aria-pressed="true">滚动</button>
+    <button type="button" class="reader-toggle" data-reader-layout="columns" aria-pressed="false">双栏</button>
+  <span class="reader-toolbar-divider" aria-hidden="true"></span>
+  <div class="reader-toolbar-group" role="group" aria-label="字号">
+    <span class="reader-toolbar-label">字号</span>
+    <button type="button" class="reader-toggle" data-reader-font="sm" aria-pressed="false" title="较小">小</button>
+    <button type="button" class="reader-toggle" data-reader-font="md" aria-pressed="true" title="默认">标准</button>
+    <button type="button" class="reader-toggle" data-reader-font="lg" aria-pressed="false" title="较大">大</button>
+    <button type="button" class="reader-toggle" data-reader-font="xl" aria-pressed="false" title="特大">特大</button>
+  </div>
+</div>
+
+<script>
+  const STORAGE_THEME = 'reader-theme';
+  const STORAGE_LAYOUT = 'reader-layout';
+  const STORAGE_FONT = 'reader-font-size';
+  const FONT_LEVELS = ['sm', 'md', 'lg', 'xl'];
+
+  function normalizeFont(raw) {
+    return FONT_LEVELS.includes(raw) ? raw : 'md';
+  }
+
+  function normalizeTheme(raw) {
+    if (raw === 'dark' || raw === 'night' || raw === '夜间' || raw === '黯') return 'dark';
+    return 'light';
+  }
+
+  function shell() {
+    return document.getElementById('reader-shell');
+  }
+
+  function syncButtons() {
+    const s = shell();
+    if (!s) return;
+    const theme = s.dataset.readerTheme ?? 'light';
+    const layout = s.dataset.readerLayout ?? 'scroll';
+    document.querySelectorAll('[data-reader-theme]').forEach((btn) => {
+      const pressed = btn.getAttribute('data-reader-theme') === theme;
+      btn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+      btn.classList.toggle('is-active', pressed);
+    });
+    document.querySelectorAll('[data-reader-layout]').forEach((btn) => {
+      const pressed = btn.getAttribute('data-reader-layout') === layout;
+      btn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+      btn.classList.toggle('is-active', pressed);
+    });
+    const font = s.dataset.readerFontSize ?? 'md';
+    document.querySelectorAll('[data-reader-font]').forEach((btn) => {
+      const pressed = btn.getAttribute('data-reader-font') === font;
+      btn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+      btn.classList.toggle('is-active', pressed);
+    });
+  }
+
+  function applyTheme(theme) {
+    const s = shell();
+    if (!s) return;
+    const next = normalizeTheme(theme);
+    s.dataset.readerTheme = next;
+    try {
+      localStorage.setItem(STORAGE_THEME, next);
+    } catch (_) {}
+    syncButtons();
+  }
+
+  function applyLayout(layout) {
+    const s = shell();
+    if (!s) return;
+    s.dataset.readerLayout = layout;
+    try {
+      localStorage.setItem(STORAGE_LAYOUT, layout);
+    } catch (_) {}
+    syncButtons();
+  }
+
+  function applyFont(size) {
+    const s = shell();
+    if (!s) return;
+    const next = normalizeFont(size);
+    s.dataset.readerFontSize = next;
+    try {
+      localStorage.setItem(STORAGE_FONT, next);
+    } catch (_) {}
+    syncButtons();
+  }
+
+  document.querySelectorAll('[data-reader-theme]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      applyTheme(btn.getAttribute('data-reader-theme'));
+    });
+  });
+
+  document.querySelectorAll('[data-reader-layout]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      applyLayout(btn.getAttribute('data-reader-layout'));
+    });
+  });
+
+  document.querySelectorAll('[data-reader-font]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      applyFont(btn.getAttribute('data-reader-font'));
+    });
+  });
+
+  syncButtons();
+
+  (function migrateTheme() {
+    const s = shell();
+    if (!s) return;
+    try {
+      const next = normalizeTheme(localStorage.getItem(STORAGE_THEME));
+      s.dataset.readerTheme = next;
+      localStorage.setItem(STORAGE_THEME, next);
+      const font = normalizeFont(localStorage.getItem(STORAGE_FONT));
+      s.dataset.readerFontSize = font;
+      localStorage.setItem(STORAGE_FONT, font);
+      syncButtons();
+    } catch (_) {}
+  })();
+</script>

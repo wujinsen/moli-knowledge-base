@@ -1,0 +1,154 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import { loadBookPlaces, typeLabel } from '../../../lib/places';
+import { chaptersFromAppearIn, relatedItemsForPlace } from '../../../lib/crosslinks';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  const slugByBook = new Map(books.map((b) => [b.data.book, b.data.slug]));
+
+  const paths: {
+    params: { book: string; id: string };
+    props: { slug: string; entry: Awaited<ReturnType<typeof loadBookPlaces>>[number]; features: string[] };
+  }[] = [];
+
+  for (const b of books.filter(
+    (x) => x.data.features.includes('places') || x.data.features.includes('route'),
+  )) {
+    const places = await loadBookPlaces(b.data.book);
+    for (const entry of places) {
+      paths.push({
+        params: { book: slugByBook.get(b.data.book)!, id: entry.data.id },
+        props: { slug: slugByBook.get(b.data.book)!, entry, features: b.data.features },
+      });
+    }
+  }
+  return paths;
+}
+
+const { slug, entry, features } = Astro.props;
+const d = entry.data;
+const { Content } = await render(entry);
+
+// 取经路线地点回链取经路线，其余回链建筑居所
+const isRoute = features.includes('route') && !!d.layer;
+const backHref = isRoute ? `/${slug}/route` : `/${slug}/places`;
+const backLabel = isRoute ? '← 取经路线' : '← 大观园 · 建筑居所';
+
+const relatedItems = await relatedItemsForPlace(d.book, d.id, d.occupants);
+const chapterNums = chaptersFromAppearIn(d.appear_in);
+---
+
+<Base title={d.name} bookSlug={slug} bookName={d.book} features={features}>
+  <a href={backHref} class="text-sm hover:underline" style="color: var(--ink-soft)" data-pagefind-ignore>
+    {backLabel}
+  </a>
+  <div
+    data-pagefind-body
+    data-pagefind-meta={`title:${d.name}`}
+    data-pagefind-filter={`书:${d.book},类型:${typeLabel(d.type)}`}
+  >
+    <div class="mt-3 flex flex-wrap items-center gap-2">
+      <h1 class="brand text-4xl" style="color: var(--primary)">{d.name}</h1>
+      <span class="chip">{typeLabel(d.type)}</span>
+      {d.category && <span class="chip">{d.category}</span>}
+    </div>
+
+    {d.aliases.length > 0 && (
+      <p class="mt-2 text-sm" style="color: var(--ink-soft)">别名：{d.aliases.join('、')}</p>
+    )}
+    {d.summary && <p class="mt-2 text-sm" style="color: var(--ink-soft)">{d.summary}</p>}
+
+    {
+      d.plaque && (
+        <div class="surface mt-4 p-4 text-sm">
+          <div class="brand text-lg" style="color: var(--primary)">匾 · {d.plaque}</div>
+          {
+            d.couplet && (
+              <div class="mt-1" style="color: var(--ink-soft)">
+                联：{d.couplet.upper}；{d.couplet.lower}
+              </div>
+            )
+          }
+        </div>
+      )
+    }
+
+    <div class="surface mt-4 grid gap-2 p-4 text-sm sm:grid-cols-2" style="color: var(--ink)">
+      {d.realm && <div>地理：{d.realm}（{d.layer === 'myth' ? '神话异界' : '凡间路线'}）</div>}
+      {d.route_order != null && (
+        <div>
+          取经第 {d.route_order} 站 · <a class="hover:underline" style="color: var(--primary)" href={`/${slug}/route`}>路线图</a>
+        </div>
+      )}
+      {d.parent && (
+        <div>
+          上级：<a class="hover:underline" style="color: var(--primary)" href={`/${slug}/l/${d.parent}`}>{d.parent}</a>
+        </div>
+      )}
+      {d.first_appear && <div>首现：{d.first_appear}</div>}
+      {d.occupants.length > 0 && <div>居住/关联：{d.occupants.join('、')}</div>}
+      {d.plants.length > 0 && <div>植物：{d.plants.join('、')}</div>}
+    </div>
+
+    {
+      d.features.length > 0 && (
+        <ul class="mt-3 list-inside list-disc text-sm" style="color: var(--ink-soft)">
+          {d.features.map((f) => (
+            <li>{f}</li>
+          ))}
+        </ul>
+      )
+    }
+
+    {
+      d.nearby.length > 0 && (
+        <div class="mt-6">
+          <h2 class="section-title mb-2 text-sm">邻近</h2>
+          <div class="flex flex-wrap gap-2">
+            {d.nearby.map((n) => (
+              <a href={`/${slug}/l/${n}`} class="chip hover:underline">
+                {n}
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    {
+      relatedItems.length > 0 && (
+        <div class="mt-6">
+          <h2 class="section-title mb-2 text-sm">相关名物</h2>
+          <div class="flex flex-wrap gap-2">
+            {relatedItems.map((item) => (
+              <a href={`/${slug}/i/${item.id}`} class="chip hover:underline">
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    {
+      chapterNums.length > 0 && (
+        <div class="mt-6">
+          <h2 class="section-title mb-2 text-sm">相关回目</h2>
+          <div class="flex flex-wrap gap-2">
+            {chapterNums.map((num) => (
+              <a href={`/${slug}/read/${num}`} class="chip hover:underline">
+                第{num}回
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    <article class="prose-cn mt-6 max-w-none" style="color: var(--ink)">
+      <Content />
+    </article>
+  </div>
+</Base>

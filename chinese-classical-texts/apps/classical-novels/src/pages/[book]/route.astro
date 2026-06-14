@@ -1,0 +1,111 @@
+---
+import { getCollection } from 'astro:content';
+import GraphLayout from '../../layouts/GraphLayout.astro';
+import RouteMap from '../../components/RouteMap.tsx';
+import { buildRouteEdges, type RouteNode } from '../../lib/route';
+import { sortEvents } from '../../lib/events';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  return books
+    .filter((b) => b.data.features.includes('route'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+
+const locations = (await getCollection('locations')).filter(
+  (l) => l.data.book === meta.book && l.data.coord && l.data.layer,
+);
+
+const tribulations = sortEvents(
+  (await getCollection('events')).filter(
+    (e) => e.data.book === meta.book && e.data.subtype === 'tribulation',
+  ),
+);
+
+// 章回 → 劫难（按章回交叠把劫难落到地点）
+const tribByChapter = new Map<number, { id: string; no: number; title: string }[]>();
+for (const ev of tribulations) {
+  const ref = { id: ev.data.id, no: ev.data.tribulation_no ?? 0, title: ev.data.title };
+  for (const c of ev.data.chapters) {
+    if (!tribByChapter.has(c)) tribByChapter.set(c, []);
+    tribByChapter.get(c)!.push(ref);
+  }
+}
+
+const nodes: RouteNode[] = locations.map((l) => {
+  const d = l.data;
+  const chapters = [
+    ...new Set(
+      d.appear_in
+        .map((s) => {
+          const m = s.match(/第(\d+)回/);
+          return m ? Number(m[1]) : null;
+        })
+        .filter((n): n is number => n != null),
+    ),
+  ].sort((a, b) => a - b);
+
+  const trSeen = new Set<string>();
+  const tribulationsHere: { id: string; no: number; title: string }[] = [];
+  for (const c of chapters) {
+    for (const t of tribByChapter.get(c) ?? []) {
+      if (!trSeen.has(t.id)) {
+        trSeen.add(t.id);
+        tribulationsHere.push(t);
+      }
+    }
+  }
+  tribulationsHere.sort((a, b) => a.no - b.no);
+
+  return {
+    id: d.id,
+    name: d.name,
+    realm: d.realm ?? '凡间',
+    layer: d.layer === 'myth' ? 'myth' : 'real',
+    x: d.coord!.x,
+    y: d.coord!.y,
+    order: d.route_order ?? null,
+    aliases: d.aliases,
+    summary: d.summary ?? '',
+    chapters,
+    tribulations: tribulationsHere,
+  };
+});
+
+const routeData = { nodes, edges: buildRouteEdges(nodes) };
+const realCount = nodes.filter((n) => n.layer === 'real').length;
+const mythCount = nodes.filter((n) => n.layer === 'myth').length;
+---
+
+<GraphLayout
+  title={`${meta.book} 取经路线`}
+  bookSlug={meta.slug}
+  bookName={meta.book}
+  moduleLabel="取经路线"
+>
+  {
+    nodes.length === 0 ? (
+      <div class="flex min-h-[70vh] flex-col items-center justify-center px-4 text-center text-slate-300">
+        <p class="mb-2 text-lg">取经路线待生成</p>
+        <p class="max-w-md text-sm text-slate-400">
+          运行
+          <code class="mx-1 rounded bg-slate-800 px-2 py-0.5 text-amber-300">
+            python scripts/seed_route.py
+          </code>
+          注入凡间路线与神话异界地点。
+        </p>
+        <a href={`/${meta.slug}`} class="mt-6 text-sm text-amber-300 hover:underline">← 返回 {meta.book}</a>
+      </div>
+    ) : (
+      <>
+        <div class="pointer-events-none absolute left-1/2 top-3 z-20 -translate-x-1/2 text-center sm:hidden">
+          <span class="text-xs text-slate-400">{realCount} 凡间站 · {mythCount} 异界</span>
+        </div>
+        <RouteMap data={routeData} bookSlug={meta.slug} client:only="react" />
+      </>
+    )
+  }
+</GraphLayout>

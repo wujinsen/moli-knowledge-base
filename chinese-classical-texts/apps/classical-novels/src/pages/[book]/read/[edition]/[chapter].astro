@@ -1,0 +1,202 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../../../layouts/Base.astro';
+import ReaderNav from '../../../../components/ReaderNav.astro';
+import ReaderControls from '../../../../components/ReaderControls.astro';
+import ReaderToc from '../../../../components/ReaderToc.astro';
+import ChapterLinks from '../../../../components/ChapterLinks.astro';
+import EditionTabs from '../../../../components/EditionTabs.astro';
+import { relatedItemsForChapter } from '../../../../lib/crosslinks';
+import { listReaderChapters, shouldShowChapterSummary } from '../../../../lib/readerChapters';
+import {
+  DEFAULT_EDITION,
+  editionFromSlug,
+  editionLabel,
+  editionSlug,
+  hasMultipleEditions,
+  maxChapterForEdition,
+  readIndexPath,
+} from '../../../../lib/editions';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  const slugByBook = new Map(books.map((b) => [b.data.book, b.data.slug]));
+  const countByBook = new Map(books.map((b) => [b.data.book, b.data.chapter_count]));
+  const featuresByBook = new Map(books.map((b) => [b.data.book, b.data.features]));
+  const chapters = await getCollection('chapters');
+
+  const paths: {
+    params: { book: string; edition: string; chapter: string };
+    props: Record<string, unknown>;
+  }[] = [];
+
+  for (const b of books) {
+    if (!hasMultipleEditions(b.data.book)) continue;
+    const slug = b.data.slug;
+    const book = b.data.book;
+    const total = b.data.chapter_count;
+    const features = b.data.features;
+
+    for (const c of chapters) {
+      if (c.data.book !== book) continue;
+      const edition = c.data.edition ?? DEFAULT_EDITION;
+      const edSlug = editionSlug(edition);
+      if (!editionFromSlug(edSlug)) continue;
+      paths.push({
+        params: { book: slug, edition: edSlug, chapter: String(c.data.number) },
+        props: { entry: c, slug, total, features, editionName: edition },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { entry, slug, total, features, editionName } = Astro.props as {
+  entry: Awaited<ReturnType<typeof getCollection<'chapters'>>>[0];
+  slug: string;
+  total: number;
+  features: string[];
+  editionName: string;
+};
+
+const book = entry.data.book;
+const n = entry.data.number;
+const edSlug = editionSlug(editionName);
+const { Content } = await render(entry);
+
+const pfFilter = `书:${book},类型:回目,版本:${editionName}`;
+const editionMax = maxChapterForEdition(book, editionName, total);
+const prev = n > 1 ? n - 1 : undefined;
+const next = n < editionMax ? n + 1 : undefined;
+
+const hasItems = features.includes('items');
+const hasPlaces = features.includes('places');
+const itemRefs =
+  hasItems && entry.data.items.length > 0
+    ? await relatedItemsForChapter(book, entry.data.items)
+    : [];
+const characterIds = new Set(
+  (await getCollection('characters'))
+    .filter((c) => c.data.book === book)
+    .map((c) => c.data.id),
+);
+
+const tocChapters = await listReaderChapters(book, slug, {
+  edition: editionName,
+  bookTotal: total,
+});
+---
+
+<Base
+  title={`${book} 第${n}回 · ${editionLabel(editionName)}`}
+  bookSlug={slug}
+  bookName={book}
+  features={features}
+  readerWide
+>
+  <EditionTabs slug={slug} book={book} currentEdition={editionName} />
+
+  <div
+    class="reader-shell"
+    id="reader-shell"
+    data-reader-theme="light"
+    data-reader-layout="scroll"
+    data-reader-font-size="md"
+  >
+    <script is:inline>
+      (function () {
+        var el = document.getElementById('reader-shell');
+        if (!el) return;
+        try {
+          function normalizeReaderTheme(t) {
+            if (t === 'dark' || t === 'night' || t === '夜间' || t === '黯') return 'dark';
+            return 'light';
+          }
+          var t = normalizeReaderTheme(localStorage.getItem('reader-theme'));
+          var l = localStorage.getItem('reader-layout');
+          var f = localStorage.getItem('reader-font-size');
+          localStorage.setItem('reader-theme', t);
+          el.dataset.readerTheme = t;
+          if (l === 'scroll' || l === 'columns') el.dataset.readerLayout = l;
+          if (f === 'sm' || f === 'md' || f === 'lg' || f === 'xl') el.dataset.readerFontSize = f;
+        } catch (e) {}
+      })();
+    </script>
+
+    <ReaderControls />
+
+    <div class="reader-topbar mb-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm" data-pagefind-ignore>
+      <ReaderToc
+        chapters={tocChapters}
+        current={n}
+        indexHref={readIndexPath(slug, book, editionName)}
+      />
+      <span>· {editionLabel(editionName)}</span>
+    </div>
+
+    <article
+      class="reader-article"
+      data-pagefind-body
+      data-pagefind-meta={`title:第${n}回 ${entry.data.title}`}
+      data-pagefind-filter={pfFilter}
+    >
+      <header class="reader-header mb-8 border-b pb-4">
+        <p class="brand text-sm">第 {n} 回</p>
+        <h1 class="mt-1 text-2xl font-bold leading-snug sm:text-3xl">{entry.data.title}</h1>
+        {shouldShowChapterSummary(entry.data.title, entry.data.summary) && (
+          <p class="mt-3 text-sm leading-relaxed">{entry.data.summary}</p>
+        )}
+        <ChapterLinks
+          slug={slug}
+          book={book}
+          characters={entry.data.characters}
+          locations={entry.data.locations}
+          items={entry.data.items}
+          hasPlaces={hasPlaces}
+          hasItems={hasItems}
+          itemRefs={itemRefs}
+          characterIds={characterIds}
+        />
+      </header>
+
+      <div class="reader-body prose-cn reader-content">
+        {editionName === '脂砚斋本' && (
+          <p class="reader-zhipi-hint text-sm" data-pagefind-ignore>
+            批语以<span class="zhipi zhipi-inline">脂批</span>标出，底本更接近曹雪芹原稿。
+          </p>
+        )}
+        {editionName === '张竹坡评本' && (
+          <p class="reader-zhipi-hint text-sm" data-pagefind-ignore>
+            批语以<span class="zhupi zhupi-inline">眉批 / 旁批</span>标出（绣像批评本；张竹坡全文批语待补全）。
+          </p>
+        )}
+        <Content />
+      </div>
+    </article>
+
+    <ReaderNav
+      slug={slug}
+      bookName={book}
+      number={n}
+      total={editionMax}
+      prev={prev}
+      next={next}
+      editionSlug={edSlug}
+    />
+  </div>
+</Base>
+
+<script>
+  document.addEventListener('keydown', (e) => {
+    if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+    const nav = document.querySelector('.reader-nav') as HTMLElement | null;
+    if (!nav) return;
+    if (e.key === 'ArrowLeft' && nav.dataset.prev) {
+      window.location.href = nav.dataset.prev;
+    }
+    if (e.key === 'ArrowRight' && nav.dataset.next) {
+      window.location.href = nav.dataset.next;
+    }
+  });
+</script>

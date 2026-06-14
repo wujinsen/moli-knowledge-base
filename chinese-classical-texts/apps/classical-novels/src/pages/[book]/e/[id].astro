@@ -1,0 +1,120 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import { chapterLabel, displayTitle } from '../../../lib/events';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  const events = await getCollection('events');
+  const paths: { params: { book: string; id: string }; props: { book: typeof books[0]; ev: typeof events[0] } }[] = [];
+  for (const b of books) {
+    if (!b.data.features.includes('nan')) continue;
+    for (const ev of events.filter((e) => e.data.book === b.data.book)) {
+      paths.push({
+        params: { book: b.data.slug, id: ev.data.id },
+        props: { book: b, ev },
+      });
+    }
+  }
+  return paths;
+}
+
+const { book, ev } = Astro.props;
+const meta = book.data;
+const d = ev.data;
+const no = d.tribulation_no;
+const { Content } = await render(ev);
+---
+
+<Base title={`${meta.book} · ${d.title}`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  <a href={`/${meta.slug}/nan`} class="text-sm hover:underline" style="color: var(--ink-soft)">← 八十一难时间轴</a>
+
+  <section class="surface mt-3 mb-6 px-6 py-7 sm:px-8">
+    <div class="flex flex-wrap items-start gap-4">
+      {
+        no != null && (
+          <span
+            class="brand grid h-14 w-14 shrink-0 place-items-center rounded-xl text-2xl text-white"
+            style="background: linear-gradient(135deg, var(--primary), var(--primary-soft))"
+          >
+            {no}
+          </span>
+        )
+      }
+      <div>
+        <h1 class="brand text-3xl sm:text-4xl" style="color: var(--primary)">{displayTitle(d)}</h1>
+        {
+          d.aliases.length > 0 && (
+            <p class="mt-1 text-sm" style="color: var(--ink-soft)">难簿名：{d.title}</p>
+          )
+        }
+        {d.summary && <p class="mt-3 leading-relaxed" style="color: var(--ink)">{d.summary}</p>}
+      </div>
+    </div>
+
+    <dl class="mt-6 grid gap-3 text-sm sm:grid-cols-2">
+      {
+        d.chapters.length > 0 && (
+          <>
+            <dt style="color: var(--ink-soft)">回目锚点</dt>
+            <dd>
+              {
+                d.chapters.map((c) => (
+                  <a href={`/${meta.slug}/read/${c}`} class="mr-2 hover:underline" style="color: var(--accent)">
+                    第{c}回
+                  </a>
+                ))
+              }
+              <span class="ml-1" style="color: var(--ink-soft)">（{chapterLabel(d.chapters)}）</span>
+            </dd>
+          </>
+        )
+      }
+      {
+        d.characters.length > 0 && (
+          <>
+            <dt style="color: var(--ink-soft)">人物</dt>
+            <dd>{d.characters.join(' · ')}</dd>
+          </>
+        )
+      }
+      {
+        d.monsters.length > 0 && (
+          <>
+            <dt style="color: var(--ink-soft)">妖魔</dt>
+            <dd>{d.monsters.join(' · ')}</dd>
+          </>
+        )
+      }
+      {
+        d.locations.length > 0 && (
+          <>
+            <dt style="color: var(--ink-soft)">地点</dt>
+            <dd>{d.locations.join(' · ')}</dd>
+          </>
+        )
+      }
+      {
+        d.artifacts.length > 0 && (
+          <>
+            <dt style="color: var(--ink-soft)">法宝</dt>
+            <dd>{d.artifacts.join(' · ')}</dd>
+          </>
+        )
+      }
+    </dl>
+
+    <div class="mt-6 flex flex-wrap gap-4 text-sm">
+      {d.prev && (
+        <a href={`/${meta.slug}/e/${d.prev}`} class="btn btn-ghost">← 上一难</a>
+      )}
+      {d.next && (
+        <a href={`/${meta.slug}/e/${d.next}`} class="btn btn-ghost">下一难 →</a>
+      )}
+    </div>
+  </section>
+
+  <div class="prose-cn surface mt-4 px-6 py-5 text-sm leading-relaxed sm:px-8" style="color: var(--ink-soft)">
+    <Content />
+  </div>
+</Base>

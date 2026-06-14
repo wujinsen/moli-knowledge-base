@@ -1,0 +1,59 @@
+---
+import {
+  readerEditions,
+  editionSlug,
+  editionLabel,
+  editionTabMeta,
+} from '../lib/editions';
+
+interface Props {
+  slug: string;
+  book: string;
+  currentEdition: string;
+  /** 链接到目录页 true，否则仅展示当前选中态（由父级路由决定） */
+  linkToIndex?: boolean;
+}
+
+const { slug, book, currentEdition, linkToIndex = true } = Astro.props;
+const editions = readerEditions(book);
+---
+
+{
+  editions.length > 1 && (
+    <div
+      class="edition-tabs surface mb-6 flex flex-wrap gap-2 p-2"
+      role="tablist"
+      aria-label="选择版本"
+      data-pagefind-ignore
+    >
+      {editions.map((ed) => {
+        const active = ed === currentEdition;
+        const href = linkToIndex ? `/${slug}/read/${editionSlug(ed)}` : undefined;
+        const Tag = linkToIndex ? 'a' : 'span';
+        const meta = editionTabMeta(book, ed);
+        return (
+          <Tag
+            {...(linkToIndex ? { href } : {})}
+            class:list={['edition-tab', active && 'is-active']}
+            role="tab"
+            aria-selected={active ? 'true' : 'false'}
+            title={
+              ed === '脂砚斋本'
+                ? '脂砚斋评本，更接近曹雪芹原稿（前八十回）'
+                : ed === '词话本'
+                  ? '万历词话本，最接近原貌'
+                  : ed === '崇祯本'
+                    ? '崇祯绣像本正文，经文学加工润色'
+                    : ed === '张竹坡评本'
+                      ? '绣像批评系统，含眉批旁批，通行影响最大'
+                      : undefined
+            }
+          >
+            <span class="edition-tab-label">{editionLabel(ed)}</span>
+            {meta && <span class="edition-tab-meta">{meta}</span>}
+          </Tag>
+        );
+      })}
+    </div>
+  )
+}

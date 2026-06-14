@@ -1,0 +1,49 @@
+---
+interface Props {
+  href: string;
+  name: string;
+  kind: 'medicine' | 'dish' | 'costume' | 'custom';
+  subtype?: string;
+  summary?: string;
+  tags?: string[];
+}
+
+const { href, name, kind, subtype, summary, tags = [] } = Astro.props;
+
+const kindLabel: Record<Props['kind'], string> = {
+  medicine: '医药',
+  dish: '饮食',
+  costume: '服饰',
+  custom: '民俗',
+};
+
+const kindColor: Record<Props['kind'], string> = {
+  medicine: 'bg-emerald-100 text-emerald-800',
+  dish: 'bg-orange-100 text-orange-800',
+  costume: 'bg-violet-100 text-violet-800',
+  custom: 'bg-amber-100 text-amber-800',
+};
+---
+
+<a
+  href={href}
+  class="block rounded-lg border border-stone-300 bg-white p-4 transition hover:shadow-md"
+>
+  <div class="flex items-center justify-between gap-2">
+    <h3 class="text-lg font-bold text-stone-800">{name}</h3>
+    <span class={`shrink-0 rounded px-2 py-0.5 text-xs ${kindColor[kind]}`}>
+      {kindLabel[kind]}
+    </span>
+  </div>
+  {subtype && <p class="mt-1 text-xs text-stone-500">{subtype}</p>}
+  {summary && <p class="mt-2 line-clamp-3 text-sm text-stone-600">{summary}</p>}
+  {
+    tags.length > 0 && (
+      <div class="mt-2 flex flex-wrap gap-1">
+        {tags.map((t) => (
+          <span class="rounded bg-stone-100 px-1.5 py-0.5 text-xs text-stone-500">{t}</span>
+        ))}
+      </div>
+    )
+  }
+</a>

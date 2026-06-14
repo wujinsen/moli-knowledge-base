@@ -1,0 +1,314 @@
+{
+  "book": "红楼梦",
+  "generated": "2026-06-14",
+  "source": "程高本章节原文抽取 + schema/location.md",
+  "hierarchy": {
+    "金陵城": {
+      "荣国府": {
+        "children": ["荣禧堂", "梨香院", "大观园"]
+      },
+      "宁国府": {
+        "children": ["会芳园", "天香楼"]
+      },
+      "children": ["铁槛寺"]
+    },
+    "姑苏阊门": {
+      "children": ["葫芦庙"]
+    },
+    "离恨天": {
+      "children": ["太虚幻境"]
+    },
+    "大观园": {
+      "children": [
+        "曲径通幽",
+        "沁芳亭",
+        "沁芳闸",
+        "潇湘馆",
+        "怡红院",
+        "蘅芜苑",
+        "稻香村",
+        "秋爽斋",
+        "晓翠堂",
+        "缀锦楼",
+        "蓼风轩",
+        "紫菱洲",
+        "栊翠庵",
+        "藕香榭",
+        "滴翠亭",
+        "凸碧堂",
+        "凹晶馆",
+        "省亲别墅"
+      ]
+    },
+    "会芳园": {
+      "children": ["天香楼"]
+    },
+    "秋爽斋": {
+      "children": ["晓翠堂"]
+    }
+  },
+  "nodes": [
+    {
+      "id": "大观园",
+      "type": "garden",
+      "category": "花园",
+      "plaque": "大观园",
+      "occupants": ["贾宝玉", "林黛玉", "薛宝钗", "贾迎春", "贾探春", "贾惜春", "李纨"],
+      "first_appear": "第16回",
+      "summary": "省亲别墅，后成姊妹与宝玉主场景"
+    },
+    {
+      "id": "潇湘馆",
+      "type": "building",
+      "category": "院落",
+      "parent": "大观园",
+      "plaque": "有凤来仪",
+      "couplet": { "upper": "宝鼎茶闲烟尚绿", "lower": "幽窗棋罢指犹凉" },
+      "occupants": ["林黛玉"],
+      "plants": ["翠竹", "梨花", "芭蕉"],
+      "first_appear": "第17回"
+    },
+    {
+      "id": "怡红院",
+      "type": "building",
+      "category": "院落",
+      "parent": "大观园",
+      "plaque": "怡红快绿",
+      "aliases": ["红香绿玉"],
+      "occupants": ["贾宝玉"],
+      "plants": ["芭蕉", "西府海棠"],
+      "features": ["雕空玲珑隔扇", "玻璃镜迷径"],
+      "first_appear": "第17回"
+    },
+    {
+      "id": "蘅芜苑",
+      "type": "building",
+      "category": "院落",
+      "parent": "大观园",
+      "plaque": "蘅芷清芬",
+      "couplet": { "upper": "吟成莼潞才犹艳", "lower": "睡足酴醿梦也香" },
+      "occupants": ["薛宝钗"],
+      "plants": ["杜若", "蘅芜"],
+      "first_appear": "第17回"
+    },
+    {
+      "id": "稻香村",
+      "type": "building",
+      "category": "院落",
+      "parent": "大观园",
+      "plaque": "杏帘在望",
+      "aliases": ["杏花村"],
+      "couplet": { "upper": "新涨绿添浣葛处", "lower": "好云香护采芹人" },
+      "occupants": ["李纨"],
+      "plants": ["杏花"],
+      "first_appear": "第17回"
+    },
+    {
+      "id": "秋爽斋",
+      "type": "building",
+      "category": "院落",
+      "parent": "大观园",
+      "occupants": ["贾探春"],
+      "first_appear": "第23回"
+    },
+    {
+      "id": "缀锦楼",
+      "type": "building",
+      "category": "楼",
+      "parent": "大观园",
+      "occupants": ["贾迎春"],
+      "first_appear": "第23回"
+    },
+    {
+      "id": "蓼风轩",
+      "type": "building",
+      "category": "院落",
+      "parent": "大观园",
+      "occupants": ["贾惜春"],
+      "first_appear": "第23回"
+    },
+    {
+      "id": "沁芳亭",
+      "type": "building",
+      "category": "亭",
+      "parent": "大观园",
+      "plaque": "沁芳",
+      "couplet": { "upper": "绕堤柳借三篙翠", "lower": "隔岸花分一脉香" },
+      "first_appear": "第17回"
+    },
+    {
+      "id": "沁芳闸",
+      "type": "building",
+      "category": "闸",
+      "parent": "大观园",
+      "first_appear": "第17回"
+    },
+    {
+      "id": "栊翠庵",
+      "type": "temple",
+      "category": "庵",
+      "parent": "大观园",
+      "occupants": ["妙玉"],
+      "first_appear": "第41回"
+    },
+    {
+      "id": "藕香榭",
+      "type": "building",
+      "category": "榭",
+      "parent": "大观园",
+      "first_appear": "第40回"
+    },
+    {
+      "id": "滴翠亭",
+      "type": "building",
+      "category": "亭",
+      "parent": "大观园",
+      "first_appear": "第27回"
+    },
+    {
+      "id": "凸碧堂",
+      "type": "building",
+      "category": "堂",
+      "parent": "大观园",
+      "first_appear": "第76回"
+    },
+    {
+      "id": "凹晶馆",
+      "type": "building",
+      "category": "馆",
+      "parent": "大观园",
+      "first_appear": "第76回"
+    },
+    {
+      "id": "晓翠堂",
+      "type": "building",
+      "category": "堂",
+      "parent": "秋爽斋",
+      "first_appear": "第40回"
+    },
+    {
+      "id": "紫菱洲",
+      "type": "building",
+      "category": "院落",
+      "parent": "大观园",
+      "occupants": ["史湘云"],
+      "first_appear": "第40回"
+    },
+    {
+      "id": "省亲别墅",
+      "type": "building",
+      "category": "楼",
+      "parent": "大观园",
+      "plaque": "省亲别墅",
+      "aliases": ["蓬莱仙境", "天仙宝境"],
+      "first_appear": "第17回"
+    },
+    {
+      "id": "曲径通幽",
+      "type": "building",
+      "category": "其他",
+      "parent": "大观园",
+      "plaque": "曲径通幽",
+      "first_appear": "第17回"
+    },
+    {
+      "id": "荣国府",
+      "type": "location",
+      "category": "府邸",
+      "parent": "金陵城",
+      "first_appear": "第2回"
+    },
+    {
+      "id": "宁国府",
+      "type": "location",
+      "category": "府邸",
+      "parent": "金陵城",
+      "first_appear": "第2回"
+    },
+    {
+      "id": "荣禧堂",
+      "type": "building",
+      "category": "堂",
+      "parent": "荣国府",
+      "first_appear": "第3回"
+    },
+    {
+      "id": "会芳园",
+      "type": "garden",
+      "category": "花园",
+      "parent": "宁国府",
+      "first_appear": "第5回"
+    },
+    {
+      "id": "天香楼",
+      "type": "building",
+      "category": "楼",
+      "parent": "会芳园",
+      "first_appear": "第11回"
+    },
+    {
+      "id": "梨香院",
+      "type": "building",
+      "category": "院落",
+      "parent": "荣国府",
+      "occupants": ["薛宝钗"],
+      "first_appear": "第4回"
+    },
+    {
+      "id": "铁槛寺",
+      "type": "temple",
+      "category": "庵",
+      "parent": "金陵城",
+      "first_appear": "第15回"
+    },
+    {
+      "id": "太虚幻境",
+      "type": "realm",
+      "category": "幻境",
+      "parent": "离恨天",
+      "plaque": "太虚幻境",
+      "couplet": { "upper": "假作真时真亦假", "lower": "无为有处有还无" },
+      "first_appear": "第5回"
+    },
+    {
+      "id": "葫芦庙",
+      "type": "building",
+      "category": "市街",
+      "parent": "姑苏阊门",
+      "first_appear": "第1回"
+    },
+    {
+      "id": "嘉荫堂",
+      "type": "building",
+      "category": "堂",
+      "parent": "大观园",
+      "occupants": ["贾母"],
+      "first_appear": "第71回"
+    }
+  ],
+  "residence_assignment": {
+    "chapter": "第23回",
+    "mapping": {
+      "薛宝钗": "蘅芜苑",
+      "林黛玉": "潇湘馆",
+      "贾迎春": "缀锦楼",
+      "贾探春": "秋爽斋",
+      "贾惜春": "蓼风轩",
+      "李纨": "稻香村",
+      "贾宝玉": "怡红院"
+    }
+  },
+  "inscription_tour": {
+    "chapter": "第17回",
+    "by_baoyu": [
+      { "location": "曲径通幽", "plaque": "曲径通幽处" },
+      { "location": "沁芳亭", "plaque": "沁芳", "couplet": ["绕堤柳借三篙翠", "隔岸花分一脉香"] },
+      { "location": "潇湘馆", "plaque": "有凤来仪", "couplet": ["宝鼎茶闲烟尚绿", "幽窗棋罢指犹凉"] },
+      { "location": "稻香村", "plaque": "杏帘在望", "couplet": ["新涨绿添浣葛处", "好云香护采芹人"] },
+      { "location": "蘅芜苑", "plaque": "蘅芷清芬", "couplet": ["吟成莼潞才犹艳", "睡足酴醿梦也香"] },
+      { "location": "怡红院", "plaque": "红香绿玉", "note": "元春第18回改怡红快绿" }
+    ]
+  },
+  "entity_pages_dir": "locations/红楼梦/",
+  "entity_count": 29
+}

@@ -1,0 +1,91 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import { modulesFor, type BookModule } from '../../../lib/books';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  const paths: {
+    params: { book: string; key: string };
+    props: { slug: string; bookName: string; features: string[]; mod: BookModule };
+  }[] = [];
+  for (const b of books) {
+    for (const m of modulesFor(b.data.slug, b.data.features)) {
+      if (m.status === 'planned' && m.preview) {
+        paths.push({
+          params: { book: b.data.slug, key: m.key },
+          props: { slug: b.data.slug, bookName: b.data.book, features: b.data.features, mod: m },
+        });
+      }
+    }
+  }
+  return paths;
+}
+
+const { slug, bookName, features, mod } = Astro.props;
+const p = mod.preview!;
+---
+
+<Base title={`${bookName} · ${mod.title}`} bookSlug={slug} bookName={bookName} features={features}>
+  <a href={`/${slug}`} class="text-sm hover:underline" style="color: var(--ink-soft)">← {bookName}</a>
+
+  {/* 模块标题 */}
+  <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
+    <div class="flex items-start gap-4">
+      <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem;background:linear-gradient(135deg,var(--ink-soft),color-mix(in srgb,var(--ink-soft) 55%,var(--paper)));box-shadow:none">
+        {mod.glyph}
+      </span>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="brand text-4xl" style="color: var(--primary)">{mod.title}</h1>
+          <span class="seal seal-planned">未做</span>
+        </div>
+        <p class="mt-2 text-sm" style="color: var(--ink-soft)">{mod.desc}</p>
+      </div>
+    </div>
+    <p class="mt-5 max-w-2xl leading-relaxed" style="color: var(--ink)">{p.intro}</p>
+  </section>
+
+  {/* 数据维度 */}
+  <h2 class="section-title mb-4 text-lg">数据维度</h2>
+  <div class="mb-10 grid gap-4 sm:grid-cols-2">
+    {
+      p.dimensions.map((d) => (
+        <div class="surface p-4">
+          <h3 class="font-bold" style="color: var(--accent)">{d.title}</h3>
+          <p class="mt-1 text-sm leading-snug" style="color: var(--ink-soft)">{d.desc}</p>
+        </div>
+      ))
+    }
+  </div>
+
+  {/* 待实现阶段 */}
+  <h2 class="section-title mb-4 text-lg">待实现</h2>
+  <ol class="mb-10 space-y-3">
+    {
+      p.phases.map((ph, i) => (
+        <li class="flex items-start gap-3">
+          <span
+            class="brand mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full text-sm text-white"
+            style="background: linear-gradient(135deg, var(--primary), var(--primary-soft))"
+          >
+            {i + 1}
+          </span>
+          <span class="leading-relaxed" style="color: var(--ink)">{ph}</span>
+        </li>
+      ))
+    }
+  </ol>
+
+  {/* 关联文档 */}
+  <div class="surface flex flex-wrap items-center gap-2 p-4 text-sm" style="color: var(--ink-soft)">
+    <span class="chip">关联文档</span>
+    <code class="rounded px-1.5 py-0.5" style="background: color-mix(in srgb, var(--primary) 10%, transparent); color: var(--primary)">
+      docs/{p.relatedDoc}
+    </code>
+  </div>
+
+  <div class="rule-seal mt-10">
+    <span class="brand text-base">谋</span>
+  </div>
+</Base>

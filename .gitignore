@@ -1,0 +1,24 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+
+# Node / Astro build artifacts
+**/node_modules/
+**/dist/
+**/.astro/
+**/node_modules/.vite/
+
+# Generated search corpus (rebuild from raw)
+chinese-classical-texts/build/
+
+# 殆知阁全集（约 5GB，本地放置；见 chinese-classical-texts/raw/daizhige/README.md）
+chinese-classical-texts/raw/daizhige/

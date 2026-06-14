@@ -1,0 +1,108 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SilverFlow from '../../components/SilverFlow.tsx';
+import { formatLiang } from '../../lib/currency';
+import { amountDisplay, buildSankey, effectiveLiang } from '../../lib/transactions';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  return books
+    .filter((b) => b.data.features.includes('silver'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+const txs = (await getCollection('transactions'))
+  .filter((t) => t.data.book === meta.book)
+  .sort((a, b) => a.data.chapter - b.data.chapter);
+const sankey = buildSankey(txs);
+const totalLiang = txs.reduce((s, t) => s + effectiveLiang(t.data), 0);
+const txRows = txs.map((t) => ({
+  id: t.data.id,
+  chapter: t.data.chapter,
+  subtype: t.data.subtype,
+  amount: amountDisplay(t.data),
+  parties: [t.data.buyer, t.data.seller, t.data.payee].filter(Boolean).join(' · '),
+  summary: t.data.summary ?? '—',
+  disputed: t.data.conversion_disputed,
+  href: `/${meta.slug}/read/${t.data.chapter}`,
+}));
+---
+
+<Base title={`${meta.book} · 白银流`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  <a href={`/${meta.slug}`} class="text-sm hover:underline" style="color: var(--ink-soft)">← {meta.book}</a>
+
+  <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
+    <div class="flex items-start gap-4">
+      <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">银</span>
+      <div>
+        <h1 class="brand text-4xl" style="color: var(--primary)">物价 · 白银流</h1>
+        <p class="mt-2 text-sm" style="color: var(--ink-soft)">
+          交易记录 · 银两换算 · 资金池桑基图 · {txs.length} 笔首批数据
+        </p>
+      </div>
+    </div>
+    <p class="mt-5 max-w-2xl leading-relaxed text-sm" style="color: var(--ink)">
+      以「两银」为统一口径归一化词话本中的银、钱、贯、文；每条交易可溯源至章回原文。
+      晚明「1000 文 ≈ 1 两」为简化换算，存疑处已标注。
+    </p>
+  </section>
+
+  {
+    txs.length === 0 ? (
+      <div class="surface p-8 text-center" style="color: var(--ink-soft)">
+        尚无交易记录，请向 <code>src/content/transactions/{meta.book}/</code> 录入数据。
+      </div>
+    ) : (
+      <>
+        <h2 class="section-title mb-4 text-lg">白银流向</h2>
+        <div class="surface mb-10 p-4 sm:p-6">
+          <SilverFlow sankey={sankey} totalLiang={totalLiang} client:only="react" />
+        </div>
+
+        <h2 class="section-title mb-4 text-lg">交易清单</h2>
+        <div class="mb-6 overflow-x-auto">
+          <table class="w-full min-w-[640px] border-collapse text-sm">
+            <thead>
+              <tr style="border-bottom: 1.5px solid var(--line); color: var(--ink-soft)">
+                <th class="px-3 py-2 text-left font-normal">回</th>
+                <th class="px-3 py-2 text-left font-normal">类型</th>
+                <th class="px-3 py-2 text-left font-normal">金额</th>
+                <th class="px-3 py-2 text-left font-normal">当事人</th>
+                <th class="px-3 py-2 text-left font-normal">摘要</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                txRows.map((r) => (
+                  <tr style="border-bottom: 1px solid var(--line)">
+                    <td class="px-3 py-2.5">
+                      <a href={r.href} class="hover:underline" style="color: var(--accent)">{r.chapter}</a>
+                    </td>
+                    <td class="px-3 py-2.5">{r.subtype}</td>
+                    <td class="px-3 py-2.5 whitespace-nowrap">
+                      {r.amount}
+                      {r.disputed && (
+                        <span class="chip ml-1 text-xs" title="换算或金额存疑">存疑</span>
+                      )}
+                    </td>
+                    <td class="px-3 py-2.5" style="color: var(--ink-soft)">{r.parties || '—'}</td>
+                    <td class="px-3 py-2.5 max-w-xs truncate" style="color: var(--ink-soft)">{r.summary}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+
+        <div class="surface p-4 text-sm" style="color: var(--ink-soft)">
+          <span class="chip">合计（标准化）</span>
+          <strong style="color: var(--primary)">{formatLiang(totalLiang)}</strong>
+          <span class="ml-2">· 资金池：西门庆府 → 妻妾奴婢 / 经营投资 / 政商贿赂 / 帮闲圈 等</span>
+        </div>
+      </>
+    )
+  }
+</Base>

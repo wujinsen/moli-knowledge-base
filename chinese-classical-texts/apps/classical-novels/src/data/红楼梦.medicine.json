@@ -1,0 +1,149 @@
+{
+  "book": "红楼梦",
+  "generated": "2026-06-14",
+  "source": "程高本 chapters + 红学/医学史通说（inference 已标注）",
+  "physicians": [
+    {
+      "id": "张友士",
+      "name": "张友士",
+      "type": "physician",
+      "specialty": "脉学、妇科",
+      "first_appear": "第10回",
+      "patients": ["秦可卿"],
+      "note": "冯紫英所荐，论病细穷源，非「混饭吃」太医"
+    },
+    {
+      "id": "胡庸医",
+      "name": "胡庸医",
+      "type": "physician",
+      "first_appear": "第51回",
+      "patients": ["晴雯"],
+      "diagnosis": "外感内滞，误用枳实麻黄",
+      "note": "陌生大夫，被宝玉斥退"
+    },
+    {
+      "id": "王大夫",
+      "name": "王大夫",
+      "type": "physician",
+      "first_appear": "第97回",
+      "patients": ["林黛玉"],
+      "diagnosis": "郁气伤肝，肝不藏血"
+    },
+    {
+      "id": "王太医",
+      "name": "王太医",
+      "type": "physician",
+      "first_appear": "第51回",
+      "patients": ["晴雯", "林黛玉"],
+      "note": "贾府年例太医；晴雯外感小伤寒；黛玉积郁脉案（第83回）"
+    },
+    {
+      "id": "毕知庵",
+      "name": "毕知庵",
+      "type": "physician",
+      "first_appear": "第98回",
+      "patients": ["贾宝玉"],
+      "diagnosis": "悲喜激射，冷暖失调，饮食失时，忧忿滞中，正气壅闭"
+    }
+  ],
+  "prescriptions": [
+    {
+      "id": "冷香丸",
+      "name": "冷香丸",
+      "patient": "薛宝钗",
+      "prescriber": "癞头和尚",
+      "first_appear": "第7回",
+      "syndrome": "胎里带来热毒",
+      "ingredients": {
+        "花蕊": ["白牡丹十二两", "白荷花十二两", "白芙蓉十二两", "白梅花十二两"],
+        "时令水": ["雨水十二钱", "白露露水十二钱", "霜降霜十二钱", "小雪雪十二钱"],
+        "其他": ["药末引子", "蜂蜜十二钱", "白糖十二钱"]
+      },
+      "process": "花蕊次年春分晒干研末；四时水调匀和药；丸如龙眼大；埋花根下；发时黄柏汤送下",
+      "effect_literary": "宝钗「冷」「香」人格与命运隐喻",
+      "effect_scholarly": {
+        "layer": "inference",
+        "notes": [
+          "工序强调「可巧」，文学性大于可操作性",
+          "四季白花配四时水，象征阴阳调和、抑火",
+          "不可按现代 pharmacology 验证"
+        ]
+      }
+    },
+    {
+      "id": "益气养荣补脾和肝汤",
+      "name": "益气养荣补脾和肝汤",
+      "patient": "秦可卿",
+      "prescriber": "张友士",
+      "first_appear": "第10回",
+      "ingredients": ["人参", "白术", "茯苓", "熟地", "当归", "白芍", "川芎", "黄芪", "香附", "柴胡", "山药", "阿胶", "延胡索", "甘草", "莲子", "红枣"],
+      "syndrome": "水亏木旺，忧虑伤脾，肝木克脾",
+      "prognosis": "过了春分可望全愈（未验）"
+    },
+    {
+      "id": "人参养荣丸",
+      "name": "人参养荣丸",
+      "patient": "林黛玉",
+      "first_appear": "第45回前后",
+      "note": "常年调补，与燕窝粥并提",
+      "effect_scholarly": { "layer": "inference", "notes": ["补气血，契合肺弱、耗神"] }
+    }
+  ],
+  "diagnoses": [
+    {
+      "id": "秦可卿脉案",
+      "chapter": 10,
+      "physician": "张友士",
+      "pulse": "左寸沉数，左关沉伏，右寸细无力，右关濡弱",
+      "symptoms": ["经期不调", "夜间不寐", "肋下胀", "头目眩晕", "寅卯汗", "不思饮食", "四肢酸软"],
+      "syndrome": "心气虚火，肝家血亏气滞，肺气太虚，脾被肝克"
+    },
+    {
+      "id": "黛玉积郁脉案",
+      "chapter": 83,
+      "physician": "王太医",
+      "syndrome": "六脉皆弦，积郁，肝阴亏损，心气衰耗"
+    },
+    {
+      "id": "胡庸医诊晴雯",
+      "chapter": 51,
+      "physician": "胡庸医",
+      "syndrome": "外感内滞，误用虎狼药"
+    },
+    {
+      "id": "王太医诊晴雯",
+      "chapter": 51,
+      "physician": "王太医",
+      "syndrome": "外感小伤寒，和剂疏散"
+    },
+    {
+      "id": "毕知庵诊宝玉",
+      "chapter": 98,
+      "physician": "毕知庵",
+      "syndrome": "悲喜激射，正气壅闭"
+    },
+    {
+      "id": "黛玉郁气吐血",
+      "chapter": 97,
+      "physician": "王大夫",
+      "syndrome": "郁气伤肝，肝不藏血",
+      "treatment": "敛阴止血"
+    }
+  ],
+  "food_medicine_links": [
+    { "person": "林黛玉", "items": ["燕窝粥", "人参养荣丸"], "trait": "肺弱少食" },
+    { "person": "薛宝钗", "items": ["冷香丸"], "trait": "热毒、冷香" },
+    { "person": "贾母", "items": ["软烂菜", "食疗"], "trait": "长寿养生" }
+  ],
+  "entity_pages": [
+    "medicines/红楼梦/冷香丸.md",
+    "medicines/红楼梦/张友士脉案.md",
+    "medicines/红楼梦/益气养荣补脾和肝汤.md",
+    "medicines/红楼梦/人参养荣丸.md",
+    "medicines/红楼梦/黛玉郁气吐血.md",
+    "medicines/红楼梦/黛玉积郁脉案.md",
+    "medicines/红楼梦/胡庸医诊晴雯.md",
+    "medicines/红楼梦/王太医诊晴雯.md",
+    "medicines/红楼梦/毕知庵诊宝玉.md"
+  ]
+}

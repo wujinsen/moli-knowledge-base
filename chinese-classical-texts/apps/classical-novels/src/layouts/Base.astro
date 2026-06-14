@@ -1,0 +1,102 @@
+---
+import '../styles/global.css';
+import { themeFor, modulesFor } from '../lib/books';
+
+interface Props {
+  title: string;
+  bookSlug?: string;
+  bookName?: string;
+  features?: string[];
+  /** 阅读页双栏时放宽主栏宽度 */
+  readerWide?: boolean;
+}
+const { title, bookSlug, bookName, features = [], readerWide = false } = Astro.props;
+const theme = themeFor(bookSlug);
+const navModules =
+  bookSlug && bookName ? modulesFor(bookSlug, features).filter((m) => m.status === 'live') : [];
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+/** 书目首页已有「探索模块」卡片，顶栏不再重复列模块 */
+const showNavModules = Boolean(bookSlug && path !== `/${bookSlug}`);
+---
+
+<!doctype html>
+<html lang="zh-CN" data-book={theme}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} · 古典小说知识库</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen">
+    <header class="topbar sticky top-0 z-30">
+      <nav class="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2.5">
+        {
+          bookSlug && bookName ? (
+            <>
+              <a href="/" class="text-sm opacity-80 hover:opacity-100">典籍</a>
+              <span class="opacity-40">·</span>
+              <a href={`/${bookSlug}`} class="brand-link brand text-xl">
+                {bookName}
+              </a>
+              {
+                showNavModules && (
+                  <div class="ml-2 hidden items-center gap-1 overflow-x-auto md:flex">
+                    {navModules.map((m) => (
+                      <a
+                        href={m.href}
+                        class="whitespace-nowrap rounded px-2.5 py-1 text-sm hover:bg-white/10"
+                      >
+                        {m.title}
+                      </a>
+                    ))}
+                  </div>
+                )
+              }
+              <a href="/search" class="ml-auto rounded px-2.5 py-1 text-sm hover:bg-white/10">
+                检索
+              </a>
+            </>
+          ) : (
+            <>
+              <a href="/" class="brand-link brand text-xl">
+                古典名著知识库
+              </a>
+              <a href="/search" class="ml-auto rounded px-2.5 py-1 text-sm hover:bg-white/10">
+                检索
+              </a>
+            </>
+          )
+        }
+      </nav>
+    </header>
+
+    <div class:list={['page-below-nav', readerWide && 'page-below-nav--reader']}>
+      <main
+        class:list={[
+          'mx-auto py-6',
+          readerWide ? 'reader-main w-full max-w-none' : 'max-w-6xl px-4 py-8',
+        ]}
+      >
+        <slot />
+      </main>
+
+      <footer
+        class:list={[
+          'pb-10 pt-6 text-sm',
+          readerWide ? 'w-full max-w-none' : 'mx-auto max-w-6xl px-4',
+        ]}
+        style="color: var(--ink-soft)"
+      >
+        <div class="rule-seal mb-4">
+          <span class="brand text-base">墨</span>
+        </div>
+        数据由 LLM 按 AGENTS.md 维护 · 原文只读真相源 · 事实与推论分层
+      </footer>
+    </div>
+  </body>
+</html>

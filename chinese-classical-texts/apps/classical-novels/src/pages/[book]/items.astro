@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ItemCard from '../../components/ItemCard.astro';
+import { groupByKind, kindLabel, loadBookItems } from '../../lib/items';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  return books
+    .filter((b) => b.data.features.includes('items'))
+    .map((b) => ({
+      params: { book: b.data.slug },
+      props: { book: b },
+    }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+const items = await loadBookItems(meta.book);
+const grouped = groupByKind(items);
+
+const sections: { key: keyof typeof grouped; anchor: string }[] = [
+  { key: 'medicine', anchor: 'medicine' },
+  { key: 'dish', anchor: 'dish' },
+  { key: 'costume', anchor: 'costume' },
+  { key: 'custom', anchor: 'custom' },
+];
+---
+
+<Base title={`${meta.book} · 名物索引`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  <h1 class="brand mb-1 text-3xl" style="color: var(--primary)">{meta.book} · 名物百科</h1>
+  <p class="mb-6 text-sm" style="color: var(--ink-soft)">
+    医药、饮食、服饰、民俗规章实体（共 {items.length} 条）
+  </p>
+
+  <nav class="mb-8 flex flex-wrap gap-2 text-sm">
+    {
+      sections.map(({ key, anchor }) =>
+        grouped[key].length > 0 ? (
+          <a href={`#${anchor}`} class="chip">
+            {kindLabel(key)}（{grouped[key].length}）
+          </a>
+        ) : null
+      )
+    }
+  </nav>
+
+  {
+    sections.map(({ key, anchor }) =>
+      grouped[key].length > 0 ? (
+        <section id={anchor} class="mb-10">
+          <h2 class="section-title mb-3 text-lg">{kindLabel(key)}（{grouped[key].length}）</h2>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {grouped[key].map(({ kind, entry }) => (
+              <ItemCard
+                href={`/${meta.slug}/i/${entry.data.id}`}
+                name={entry.data.name}
+                kind={kind}
+                subtype={entry.data.type}
+                summary={entry.data.summary}
+                tags={entry.data.tags}
+              />
+            ))}
+          </div>
+        </section>
+      ) : null
+    )
+  }
+
+  {
+    items.length === 0 && (
+      <p class="text-sm" style="color: var(--ink-soft)">本书暂无名物实体页。</p>
+    )
+  }
+</Base>

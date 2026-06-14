@@ -1,0 +1,80 @@
+{
+  "book": "红楼梦",
+  "generated": "2026-06-14",
+  "orientation_theories": [
+    {
+      "id": "north_south_axis",
+      "name": "南北中轴说",
+      "layer": "inference",
+      "summary": "沁芳溪为水系中轴；北为省亲别墅、南为怡红院方向；东西分馆",
+      "supporters": ["周汝昌等"]
+    },
+    {
+      "id": "beijing_northwest",
+      "name": "北京西北郊说",
+      "layer": "inference",
+      "summary": "部分学者比附圆明园、畅春园一带；无正文确证",
+      "note": "地理比附，非作者本意"
+    },
+    {
+      "id": "pure_fiction",
+      "name": "纯虚构说",
+      "layer": "inference",
+      "summary": "大观园为文学空间，不可一一对应现实地图",
+      "supporters": ["多数红学家"]
+    }
+  ],
+  "textual_facts": {
+    "entry": "宁荣街 → 角门 → 曲径通幽 → 沁芳亭",
+    "water": "沁芳溪、沁芳闸",
+    "residences_ch23": [
+      { "person": "林黛玉", "place": "潇湘馆", "direction_hint": "西" },
+      { "person": "薛宝钗", "place": "蘅芜苑", "direction_hint": "东" },
+      { "person": "贾宝玉", "place": "怡红院", "direction_hint": "南" },
+      { "person": "李纨", "place": "稻香村", "direction_hint": "北偏" },
+      { "person": "贾探春", "place": "秋爽斋", "direction_hint": "东" },
+      { "person": "贾迎春", "place": "缀锦楼", "direction_hint": "东" },
+      { "person": "贾惜春", "place": "蓼风轩", "direction_hint": "东" }
+    ],
+    "northeast_trees": "第23回：东北角一带，有松柏等树"
+  },
+  "plant_matrix": [
+    { "place": "潇湘馆", "plants": ["翠竹", "芭蕉"], "chapter": 17, "symbol": "黛玉" },
+    { "place": "蘅芜苑", "plants": ["奇藤异草", "杜若蘅芜"], "chapter": 17, "symbol": "宝钗" },
+    { "place": "怡红院", "plants": ["海棠", "芭蕉"], "chapter": 17, "symbol": "宝玉" },
+    { "place": "稻香村", "plants": ["杏花", "榆荚", "菜畦", "桑榆"], "chapter": 17, "symbol": "李纨" },
+    { "place": "秋爽斋", "plants": ["梧桐", "芭蕉"], "chapter": 17, "symbol": "探春" },
+    { "place": "栊翠庵", "plants": ["红梅"], "chapter": 50, "symbol": "妙玉" }
+  ],
+  "replica_projects": [
+    {
+      "name": "北京大观园",
+      "location": "北京市西城区",
+      "year": "1984",
+      "scale": "按程高本及红学考证布局",
+      "note": "影视基地兼公园，非严格1:1"
+    },
+    {
+      "name": "上海大观园",
+      "location": "青浦淀山湖",
+      "year": "1988",
+      "note": "影视《红楼梦》取景"
+    },
+    {
+      "name": "正定宁荣街/荣国府",
+      "location": "河北正定",
+      "year": "1986",
+      "note": "荣国府、宁国府，非大观园全园"
+    },
+    {
+      "name": "学术复原图纸",
+      "layer": "inference",
+      "note": "建筑学家如梁思成门人、园林学者曾作示意图；各本方位互异，无定稿"
+    }
+  ],
+  "layout_layers": {
+    "fact": "正文题对额、分房、水系、主要建筑名",
+    "inference": "精确方位、面积、1:1尺度",
+    "literary": "人物命运与空间象征对应"
+  }
+}

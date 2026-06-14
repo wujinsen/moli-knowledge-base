@@ -1,0 +1,109 @@
+{
+  "book": "红楼梦",
+  "generated": "2026-06-14",
+  "fabrics_and_garments": [
+    {
+      "id": "软烟罗",
+      "name": "软烟罗",
+      "type": "fabric",
+      "chapter": 40,
+      "wearer": "贾母赏赐",
+      "colors": ["雨过天青", "秋香", "银红", "柳绿"],
+      "description": "四色各一疋；贾母：「这软烟罗最软，又轻」",
+      "rank_signal": "贾母库房、上层用度"
+    },
+    {
+      "id": "雀金裘",
+      "name": "雀金裘",
+      "type": "costume",
+      "chapter": 89,
+      "wearer": "晴雯",
+      "material": "俄罗斯孔雀毛线，金线界边",
+      "description": "贾母所赐；烧洞后需境外匠人修补",
+      "rank_signal": "稀世、与晴雯命运并置"
+    },
+    {
+      "id": "宫制堆纱花",
+      "name": "宫制堆纱花",
+      "type": "accessory",
+      "chapter": 27,
+      "wearer": "薛宝钗",
+      "occasion": "戴花节",
+      "description": "宫制堆纱二支；宝钗不戴，云「不戴这没趣儿的东西」",
+      "literary_function": "宝钗冷艳、与黛玉对比"
+    },
+    {
+      "id": "大红妆缎",
+      "name": "大红妆缎",
+      "type": "fabric",
+      "chapter": 15,
+      "occasion": "秦可卿丧仪",
+      "note": "贾珍「尽用」；丧服礼制与奢靡"
+    },
+    {
+      "id": "大红妆缎蟒袄",
+      "name": "大红妆缎蟒袄",
+      "type": "costume",
+      "chapter": 53,
+      "wearer": "贾珍",
+      "occasion": "宗祠祭祖",
+      "rank_signal": "五品诰命、宗法秩序"
+    }
+  ],
+  "jewelry": [
+    {
+      "id": "通灵宝玉",
+      "name": "通灵宝玉",
+      "type": "accessory",
+      "wearer": "贾宝玉",
+      "description": "大如雀卵，莹洁如脂，刻「莫失莫忘，仙寿恒昌」",
+      "literary_function": "全书核心象征"
+    },
+    {
+      "id": "金锁",
+      "name": "金锁",
+      "type": "accessory",
+      "wearer": "薛宝钗",
+      "description": "癞头和尚所赠，与宝玉玉上「不离不弃，芳龄永继」成对",
+      "literary_function": "金玉良缘"
+    },
+    {
+      "id": "累丝金凤",
+      "name": "累丝金凤",
+      "type": "accessory",
+      "wearer": "王熙凤",
+      "chapter": 21,
+      "note": "典当、经济压力伏笔"
+    }
+  ],
+  "dress_codes": [
+    {
+      "occasion": "省亲",
+      "chapter": 18,
+      "rule": "元春降省，众人按品级着朝服；不得直对",
+      "source": "fact"
+    },
+    {
+      "occasion": "戴花节",
+      "chapter": 27,
+      "rule": "宫花赐戴；宝钗不戴、黛玉戴、湘云半戴",
+      "source": "fact"
+    },
+    {
+      "occasion": "丧仪",
+      "chapter": 15,
+      "rule": "五品诰命、四品以上祭棚；僧道水陆",
+      "source": "fact"
+    }
+  ],
+  "entity_pages": [
+    "costumes/红楼梦/软烟罗.md",
+    "costumes/红楼梦/雀金裘.md",
+    "costumes/红楼梦/宫制堆纱花.md",
+    "costumes/红楼梦/通灵宝玉.md",
+    "costumes/红楼梦/金锁.md",
+    "costumes/红楼梦/累丝金凤.md",
+    "costumes/红楼梦/大红妆缎.md",
+    "costumes/红楼梦/大红妆缎蟒袄.md"
+  ]
+}

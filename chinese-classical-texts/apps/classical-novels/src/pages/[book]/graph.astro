@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import GraphLayout from '../../layouts/GraphLayout.astro';
+import RelationGraph from '../../components/RelationGraph.tsx';
+import { graphTheme } from '../../lib/graphTheme';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  return books
+    .filter((b) => b.data.features.includes('graph'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+const gt = graphTheme(meta.slug);
+
+const files = import.meta.glob('../../data/*.relations.json', { eager: true });
+const key = Object.keys(files).find((k) => k.includes(meta.book));
+const data = key ? (files[key] as any).default ?? files[key] : { nodes: [], edges: [] };
+---
+
+<GraphLayout title={`${meta.book} 关系图谱`} bookSlug={meta.slug} bookName={meta.book}>
+  {
+    data.nodes.length === 0 ? (
+      <div class="flex min-h-[70vh] flex-col items-center justify-center px-4 text-center">
+        <div
+          class="brand mb-5 grid h-20 w-20 place-items-center rounded-2xl text-4xl"
+          style={`color:${gt.accentSoft};border:1.5px solid ${gt.accentLine};background:${gt.base}`}
+        >
+          {meta.book.slice(0, 1)}
+        </div>
+        <p class="mb-2 text-lg" style={`color:${gt.accentSoft}`}>关系图谱待生成</p>
+        <p class="max-w-md text-sm text-slate-400">
+          {meta.book} 的人物 / 社会网尚未注入。运行
+          <code class="mx-1 rounded px-2 py-0.5" style={`background:${gt.base};color:${gt.accent}`}>
+            python scripts/build_relations.py {meta.book}
+          </code>
+          生成图谱数据。
+        </p>
+        <a href={`/${meta.slug}`} class="mt-6 text-sm hover:underline" style={`color:${gt.accent}`}>
+          ← 返回 {meta.book}
+        </a>
+      </div>
+    ) : (
+      <RelationGraph data={data} bookSlug={meta.slug} client:only="react" />
+    )
+  }
+</GraphLayout>

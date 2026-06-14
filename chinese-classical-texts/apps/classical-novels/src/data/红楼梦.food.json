@@ -1,0 +1,139 @@
+{
+  "book": "红楼梦",
+  "generated": "2026-06-14",
+  "dishes": [
+    {
+      "id": "茄鲞",
+      "name": "茄鲞",
+      "type": "dish",
+      "chapter": 41,
+      "location": "大观园",
+      "eaters": ["刘姥姥", "贾母等"],
+      "ingredients": ["茄子", "鸡（十来只配）", "香菌", "新笋", "蘑菇", "五香腐干", "各色干果子", "鸡汤", "香油", "糟油"],
+      "process": "茄子皮削净切碎钉，鸡油炸；与配料以鸡汤煨干，香油一收，糟油一拌",
+      "cost_signal": "刘姥姥：「这要吃我们的家去才使得」；工艺极繁",
+      "literary_vs_real": "plausible_qing",
+      "literary_function": "阶层反差、奢靡讽喻"
+    },
+    {
+      "id": "螃蟹宴",
+      "name": "螃蟹宴",
+      "type": "banquet",
+      "chapter": 38,
+      "location": "藕香榭",
+      "occasion": "重阳前后、诗社",
+      "menu_hint": ["蟹", "酒", "果", "诗"],
+      "cost_estimate": "宝钗云：「不过二十两银子，够使几日」",
+      "literary_function": "诗社高潮、经济尺度"
+    },
+    {
+      "id": "老君眉",
+      "name": "老君眉",
+      "type": "tea",
+      "chapter": 41,
+      "location": "栊翠庵",
+      "eaters": ["贾母"],
+      "note": "妙玉奉茶，非六安茶；旧年蠲的雨水",
+      "literary_function": "贾母专享、阶级"
+    },
+    {
+      "id": "梅花雪水茶",
+      "name": "梅花雪水",
+      "type": "tea",
+      "chapter": 41,
+      "location": "栊翠庵",
+      "eaters": ["薛宝钗", "林黛玉", "贾宝玉"],
+      "process": "玄墓蟠香寺收梅花雪，鬼脸青瓮埋藏五年",
+      "literary_function": "妙玉洁癖、宝黛钗三人对比"
+    },
+    {
+      "id": "燕窝粥",
+      "name": "燕窝粥",
+      "type": "dish",
+      "category": "药膳",
+      "chapter": 45,
+      "eaters": ["林黛玉"],
+      "literary_vs_real": "plausible_qing",
+      "literary_function": "黛玉弱症、贾母王夫人论供给"
+    },
+    {
+      "id": "莲叶羹",
+      "name": "莲叶羹",
+      "type": "dish",
+      "chapter": 35,
+      "eaters": ["贾宝玉"],
+      "note": "小丫头误送，引发「情」与「礼」波澜",
+      "literary_function": "日常饮食触发情感戏"
+    },
+    {
+      "id": "鸽子蛋",
+      "name": "鸽子蛋",
+      "type": "ingredient",
+      "chapter": 40,
+      "cost_signal": "凤姐：「一两银子一个」",
+      "literary_function": "刘姥姥惊异、物价标尺"
+    },
+    {
+      "id": "糟鹅掌",
+      "name": "糟鹅掌",
+      "type": "dish",
+      "chapter": 8,
+      "note": "宝玉、秦钟家宴提及",
+      "literary_function": "富贵闲食"
+    },
+    {
+      "id": "玫瑰露",
+      "name": "玫瑰露",
+      "type": "dish",
+      "category": "露剂",
+      "chapter": 60,
+      "eaters": ["贾环", "彩云"],
+      "literary_function": "露剂案、赵姨娘投鼠忌器"
+    },
+    {
+      "id": "茯苓霜",
+      "name": "茯苓霜",
+      "type": "dish",
+      "category": "点心",
+      "chapter": 60,
+      "eaters": ["芳官", "五儿"],
+      "literary_function": "露剂案、平儿行权"
+    },
+    {
+      "id": "糖蒸酥酪",
+      "name": "糖蒸酥酪",
+      "type": "dish",
+      "category": "点心",
+      "chapter": 19,
+      "eaters": ["袭人", "李嬷嬷", "贾宝玉"],
+      "literary_function": "元春赏赐；李嬷嬷吃酪触发花解语"
+    }
+  ],
+  "banquets_timeline": [
+    { "name": "省亲宴", "chapter": 18, "location": "省亲别墅", "host": "元春" },
+    { "name": "两宴大观园", "chapter": 40, "location": "大观园", "host": "贾母" },
+    { "name": "螃蟹宴", "chapter": 38, "location": "藕香榭", "host": "史湘云/宝钗" },
+    { "name": "元宵夜宴", "chapter": 53, "location": "宁荣两府", "host": "贾母" },
+    { "name": "贾母八旬宴", "chapter": 71, "location": "嘉荫堂", "host": "贾母" }
+  ],
+  "luxury_curve_note": {
+    "layer": "inference",
+    "summary": "前期宴饮精工（41、38回）→ 中期仍有排场 → 后期败落简素（108回宝钗生辰等）"
+  },
+  "entity_pages": [
+    "dishes/红楼梦/茄鲞.md",
+    "dishes/红楼梦/螃蟹宴.md",
+    "dishes/红楼梦/老君眉.md",
+    "dishes/红楼梦/梅花雪水茶.md",
+    "dishes/红楼梦/燕窝粥.md",
+    "dishes/红楼梦/莲叶羹.md",
+    "dishes/红楼梦/鸽子蛋.md",
+    "dishes/红楼梦/糟鹅掌.md",
+    "dishes/红楼梦/省亲宴.md",
+    "dishes/红楼梦/两宴大观园.md",
+    "dishes/红楼梦/贾母八旬宴.md",
+    "dishes/红楼梦/玫瑰露.md",
+    "dishes/红楼梦/茯苓霜.md",
+    "dishes/红楼梦/糖蒸酥酪.md"
+  ]
+}

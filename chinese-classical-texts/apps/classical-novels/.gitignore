@@ -1,0 +1,15 @@
+# build output
+dist/
+.astro/
+
+# deps
+node_modules/
+
+# python
+__pycache__/
+*.pyc
+
+# env / editor
+.env
+.env.production
+.DS_Store

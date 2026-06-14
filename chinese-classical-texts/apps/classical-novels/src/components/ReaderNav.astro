@@ -1,0 +1,50 @@
+---
+interface Props {
+  slug: string;
+  bookName: string;
+  number: number;
+  total: number;
+  prev?: number;
+  next?: number;
+  /** 多版本书籍 URL 段，如 chenggao / zhiben */
+  editionSlug?: string;
+}
+
+const { slug, bookName, number, total, prev, next, editionSlug } = Astro.props;
+
+function chapterHref(num: number) {
+  return editionSlug ? `/${slug}/read/${editionSlug}/${num}` : `/${slug}/read/${num}`;
+}
+---
+
+<nav
+  class="reader-nav surface sticky bottom-3 z-10 mt-10 py-3 backdrop-blur"
+  aria-label="章节导航"
+  data-pagefind-ignore
+  data-prev={prev ? chapterHref(prev) : undefined}
+  data-next={next ? chapterHref(next) : undefined}
+>
+  <div class="flex items-center justify-between gap-2 text-sm">
+    {
+      prev ? (
+        <a href={chapterHref(prev)} class="reader-nav-link min-w-0 truncate rounded px-3 py-2">
+          ← 第{prev}回
+        </a>
+      ) : (
+        <span class="reader-nav-muted px-3 py-2">← 已是第一回</span>
+      )
+    }
+    <span class="brand reader-nav-meta shrink-0">
+      {bookName} · {number}/{total}
+    </span>
+    {
+      next ? (
+        <a href={chapterHref(next)} class="reader-nav-link min-w-0 truncate rounded px-3 py-2">
+          第{next}回 →
+        </a>
+      ) : (
+        <span class="reader-nav-muted px-3 py-2">已是最后一回 →</span>
+      )
+    }
+  </div>
+</nav>

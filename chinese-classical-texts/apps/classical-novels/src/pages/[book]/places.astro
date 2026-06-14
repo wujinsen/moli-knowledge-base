@@ -1,0 +1,91 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PlaceCard from '../../components/PlaceCard.astro';
+import {
+  gardenChildren,
+  groupByCategory,
+  loadBookPlaces,
+  sortedCategories,
+} from '../../lib/places';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  return books
+    .filter((b) => b.data.features.includes('places'))
+    .map((b) => ({
+      params: { book: b.data.slug },
+      props: { book: b },
+    }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+const places = await loadBookPlaces(meta.book);
+const grouped = groupByCategory(places);
+const categories = sortedCategories(grouped);
+const daguan = gardenChildren(places, '大观园');
+---
+
+<Base title={`${meta.book} · 建筑居所`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  <h1 class="brand mb-1 text-3xl" style="color: var(--primary)">{meta.book} · 大观园 · 建筑居所</h1>
+  <p class="mb-6 text-sm" style="color: var(--ink-soft)">
+    府邸、园林、亭榭堂馆（共 {places.length} 处）
+  </p>
+
+  {
+    daguan.length > 0 && (
+      <section id="daguan" class="mb-10">
+        <h2 class="section-title mb-3 text-lg">大观园（{daguan.length + 1}）</h2>
+        <div class="mb-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <PlaceCard
+            href={`/${meta.slug}/l/大观园`}
+            name="大观园"
+            type="garden"
+            category="花园"
+            summary="省亲别墅，全书主场景"
+            tags={['主场景']}
+          />
+          {daguan.map((entry) => (
+            <PlaceCard
+              href={`/${meta.slug}/l/${entry.data.id}`}
+              name={entry.data.name}
+              type={entry.data.type}
+              category={entry.data.category}
+              plaque={entry.data.plaque}
+              summary={entry.data.summary}
+              tags={entry.data.tags}
+            />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  {
+    categories.map((cat) => {
+      const list = grouped.get(cat)!;
+      const rest = list.filter((p) => p.data.id !== '大观园' && p.data.parent !== '大观园');
+      if (rest.length === 0) return null;
+      return (
+        <section id={cat} class="mb-10">
+          <h2 class="section-title mb-3 text-lg">{cat}（{rest.length}）</h2>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {rest.map((entry) => (
+              <PlaceCard
+                href={`/${meta.slug}/l/${entry.data.id}`}
+                name={entry.data.name}
+                type={entry.data.type}
+                category={entry.data.category}
+                parent={entry.data.parent}
+                plaque={entry.data.plaque}
+                summary={entry.data.summary}
+                tags={entry.data.tags}
+              />
+            ))}
+          </div>
+        </section>
+      );
+    })
+  }
+</Base>

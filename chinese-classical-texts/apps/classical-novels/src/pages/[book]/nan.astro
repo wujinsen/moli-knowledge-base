@@ -1,0 +1,123 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import {
+  TRIBULATION_PHASES,
+  chapterLabel,
+  displayTitle,
+  phaseFor,
+  sortEvents,
+} from '../../lib/events';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  return books
+    .filter((b) => b.data.features.includes('nan'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+const events = sortEvents(
+  (await getCollection('events')).filter((e) => e.data.book === meta.book),
+);
+const tribulations = events.filter((e) => e.data.subtype === 'tribulation');
+const phaseCounts = TRIBULATION_PHASES.map((p) => ({
+  ...p,
+  count: tribulations.filter(
+    (e) => {
+      const n = e.data.tribulation_no ?? 0;
+      return n >= p.range[0] && n <= p.range[1];
+    },
+  ).length,
+}));
+---
+
+<Base title={`${meta.book} · 八十一难`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  <a href={`/${meta.slug}`} class="text-sm hover:underline" style="color: var(--ink-soft)">← {meta.book}</a>
+
+  <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
+    <div class="flex items-start gap-4">
+      <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">难</span>
+      <div>
+        <h1 class="brand text-4xl" style="color: var(--primary)">八十一难 · 时间轴</h1>
+        <p class="mt-2 text-sm" style="color: var(--ink-soft)">
+          {tribulations.length} 个劫难单元 · 据第九十九回「历难簿」 · 按序串联西行时间线
+        </p>
+      </div>
+    </div>
+    <p class="mt-5 max-w-2xl text-sm leading-relaxed" style="color: var(--ink)">
+      每条 <code class="rounded px-1" style="background: color-mix(in srgb, var(--primary) 8%, transparent)">event</code>
+      实体含难序、回目锚点与前后置链。第 81 难为菩萨补计「通天河湿经」。回目映射可逐步对勘修订。
+    </p>
+  </section>
+
+  {/* 阶段概览 */}
+  <div class="mb-8 flex flex-wrap gap-2">
+    {
+      phaseCounts.map((p) => (
+        <span class="chip">{p.label} · 难{p.range[0]}–{p.range[1]}（{p.count}）</span>
+      ))
+    }
+  </div>
+
+  {/* 时间轴 */}
+  <div class="tribulation-timeline mb-10">
+    {
+      tribulations.map((ev) => {
+        const d = ev.data;
+        const no = d.tribulation_no ?? 0;
+        const phase = phaseFor(no);
+        const ch = d.chapters[0];
+        return (
+          <article class="timeline-item surface" id={`nan-${no}`}>
+            <div class="timeline-marker">
+              <span class="timeline-no">{no}</span>
+            </div>
+            <div class="timeline-body min-w-0 flex-1">
+              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h2 class="brand text-xl" style="color: var(--primary)">
+                  <a href={`/${meta.slug}/e/${d.id}`} class="hover:underline">{displayTitle(d)}</a>
+                </h2>
+                <span class="text-xs" style="color: var(--ink-soft)">{phase.label}</span>
+              </div>
+              {d.summary && (
+                <p class="mt-1 text-sm leading-snug" style="color: var(--ink-soft)">{d.summary}</p>
+              )}
+              <div class="mt-2 flex flex-wrap gap-2 text-xs">
+                {
+                  ch != null && (
+                    <a href={`/${meta.slug}/read/${ch}`} class="chip hover:opacity-80">
+                      {chapterLabel(d.chapters)}
+                    </a>
+                  )
+                }
+                {d.monsters.map((m) => <span class="chip">{m}</span>)}
+                {d.locations.map((l) => <span class="chip">{l}</span>)}
+                {d.aliases.slice(1).map((a) => <span class="chip">{a}</span>)}
+              </div>
+              <div class="mt-2 flex gap-3 text-xs" style="color: var(--accent)">
+                {d.prev && (
+                  <a href={`/${meta.slug}/e/${d.prev}`} class="hover:underline">← 上一难</a>
+                )}
+                {d.next && (
+                  <a href={`/${meta.slug}/e/${d.next}`} class="hover:underline">下一难 →</a>
+                )}
+              </div>
+            </div>
+          </article>
+        );
+      })
+    }
+  </div>
+
+  <div class="surface p-4 text-sm" style="color: var(--ink-soft)">
+    <span class="chip">数据源</span>
+    第九十九回历难簿 ·
+    <a href={`/${meta.slug}/read/99`} class="hover:underline" style="color: var(--accent)">阅读原文</a>
+    · 重生成：
+    <code class="rounded px-1" style="background: color-mix(in srgb, var(--primary) 8%, transparent)">
+      python scripts/seed_tribulations.py
+    </code>
+  </div>
+</Base>

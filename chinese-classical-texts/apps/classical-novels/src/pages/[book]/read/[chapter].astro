@@ -1,0 +1,178 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import ReaderNav from '../../../components/ReaderNav.astro';
+import ReaderControls from '../../../components/ReaderControls.astro';
+import ReaderToc from '../../../components/ReaderToc.astro';
+import ChapterLinks from '../../../components/ChapterLinks.astro';
+import { relatedItemsForChapter } from '../../../lib/crosslinks';
+import { listReaderChapters, shouldShowChapterSummary } from '../../../lib/readerChapters';
+import { defaultEditionForChapter, hasMultipleEditions, readChapterPath } from '../../../lib/editions';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  const slugByBook = new Map(books.map((b) => [b.data.book, b.data.slug]));
+  const countByBook = new Map(books.map((b) => [b.data.book, b.data.chapter_count]));
+  const featuresByBook = new Map(books.map((b) => [b.data.book, b.data.features]));
+  const chapters = await getCollection('chapters');
+
+  const paths: {
+    params: { book: string; chapter: string };
+    props: Record<string, unknown>;
+  }[] = [];
+  const redirectSeen = new Map<string, Set<number>>();
+
+  for (const c of chapters) {
+    const book = c.data.book;
+    const slug = slugByBook.get(book)!;
+    if (hasMultipleEditions(book)) {
+      const seen = redirectSeen.get(slug) ?? new Set<number>();
+      if (seen.has(c.data.number)) continue;
+      seen.add(c.data.number);
+      redirectSeen.set(slug, seen);
+      paths.push({
+        params: { book: slug, chapter: String(c.data.number) },
+        props: {
+          redirect: readChapterPath(
+            slug,
+            book,
+            c.data.number,
+            defaultEditionForChapter(book, c.data.number),
+          ),
+        },
+      });
+      continue;
+    }
+
+    paths.push({
+      params: { book: slug, chapter: String(c.data.number) },
+      props: {
+        entry: c,
+        slug,
+        total: countByBook.get(book)!,
+        features: featuresByBook.get(book) ?? [],
+      },
+    });
+  }
+
+  return paths;
+}
+
+const props = Astro.props as
+  | { redirect: string }
+  | {
+      entry: Awaited<ReturnType<typeof getCollection<'chapters'>>>[0];
+      slug: string;
+      total: number;
+      features: string[];
+    };
+
+if ('redirect' in props) {
+  return Astro.redirect(props.redirect);
+}
+
+const { entry, slug, total, features } = props;
+const { Content } = await render(entry);
+const book = entry.data.book;
+const n = entry.data.number;
+const ed = entry.data.edition;
+const pfFilter = ed ? `书:${book},类型:回目,版本:${ed}` : `书:${book},类型:回目`;
+const prev = n > 1 ? n - 1 : undefined;
+const next = n < total ? n + 1 : undefined;
+
+const hasItems = features.includes('items');
+const hasPlaces = features.includes('places');
+const itemRefs =
+  hasItems && entry.data.items.length > 0
+    ? await relatedItemsForChapter(book, entry.data.items)
+    : [];
+const characterIds = new Set(
+  (await getCollection('characters'))
+    .filter((c) => c.data.book === book)
+    .map((c) => c.data.id),
+);
+
+const tocChapters = await listReaderChapters(book, slug);
+---
+
+<Base title={`${book} 第${n}回`} bookSlug={slug} bookName={book} features={features} readerWide>
+  <div
+    class="reader-shell"
+    id="reader-shell"
+    data-reader-theme="light"
+    data-reader-layout="scroll"
+    data-reader-font-size="md"
+  >
+    <script is:inline>
+      (function () {
+        var el = document.getElementById('reader-shell');
+        if (!el) return;
+        try {
+          function normalizeReaderTheme(t) {
+            if (t === 'dark' || t === 'night' || t === '夜间' || t === '黯') return 'dark';
+            return 'light';
+          }
+          var t = normalizeReaderTheme(localStorage.getItem('reader-theme'));
+          var l = localStorage.getItem('reader-layout');
+          var f = localStorage.getItem('reader-font-size');
+          localStorage.setItem('reader-theme', t);
+          el.dataset.readerTheme = t;
+          if (l === 'scroll' || l === 'columns') el.dataset.readerLayout = l;
+          if (f === 'sm' || f === 'md' || f === 'lg' || f === 'xl') el.dataset.readerFontSize = f;
+        } catch (e) {}
+      })();
+    </script>
+
+    <ReaderControls />
+
+    <div class="reader-topbar mb-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm" data-pagefind-ignore>
+      <ReaderToc chapters={tocChapters} current={n} indexHref={`/${slug}`} />
+      {ed && <span>· {ed}</span>}
+    </div>
+
+    <article
+      class="reader-article"
+      data-pagefind-body
+      data-pagefind-meta={`title:第${n}回 ${entry.data.title}`}
+      data-pagefind-filter={pfFilter}
+    >
+      <header class="reader-header mb-8 border-b pb-4">
+        <p class="brand text-sm">第 {n} 回</p>
+        <h1 class="mt-1 text-2xl font-bold leading-snug sm:text-3xl">{entry.data.title}</h1>
+        {shouldShowChapterSummary(entry.data.title, entry.data.summary) && (
+          <p class="mt-3 text-sm leading-relaxed">{entry.data.summary}</p>
+        )}
+        <ChapterLinks
+          slug={slug}
+          book={book}
+          characters={entry.data.characters}
+          locations={entry.data.locations}
+          items={entry.data.items}
+          hasPlaces={hasPlaces}
+          hasItems={hasItems}
+          itemRefs={itemRefs}
+          characterIds={characterIds}
+        />
+      </header>
+      <div class="reader-body prose-cn reader-content">
+        <Content />
+      </div>
+    </article>
+
+    <ReaderNav slug={slug} bookName={book} number={n} total={total} prev={prev} next={next} />
+  </div>
+</Base>
+
+<script>
+  document.addEventListener('keydown', (e) => {
+    if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+    const nav = document.querySelector('.reader-nav') as HTMLElement | null;
+    if (!nav) return;
+    if (e.key === 'ArrowLeft' && nav.dataset.prev) {
+      window.location.href = nav.dataset.prev;
+    }
+    if (e.key === 'ArrowRight' && nav.dataset.next) {
+      window.location.href = nav.dataset.next;
+    }
+  });
+</script>

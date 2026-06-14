@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import {
+  defaultEditionSlug,
+  hasMultipleEditions,
+  readChapterPath,
+  readIndexPath,
+} from '../../../lib/editions';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  return books.map((b) => ({
+    params: { book: b.data.slug },
+    props: { book: b.data },
+  }));
+}
+
+const { book } = Astro.props;
+if (hasMultipleEditions(book.book)) {
+  return Astro.redirect(readIndexPath(book.slug, book.book));
+}
+return Astro.redirect(readChapterPath(book.slug, book.book, 1));
+---
