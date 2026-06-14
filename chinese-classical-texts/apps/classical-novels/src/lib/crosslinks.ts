@@ -1,18 +1,28 @@
 import hlmCrosslinks from '../data/hongloumeng.crosslinks.json';
+import jpmCrosslinks from '../data/jinpingmei.crosslinks.json';
 import xyjCrosslinks from '../data/xiyouji.crosslinks.json';
 import { loadBookItems, type ItemEntry } from './items';
 
 export type ItemRef = { id: string; name: string; kind: ItemEntry['kind'] };
 
+export type TransactionRef = {
+  id: string;
+  summary: string;
+  chapter: number;
+  amount?: string;
+};
+
 type CrosslinksFile = {
   book: string;
   location_items: Record<string, string[]>;
   occupant_items: Record<string, string[]>;
+  occupant_transactions?: Record<string, string[]>;
 };
 
 const CROSSLINKS: Record<string, CrosslinksFile> = {
   红楼梦: hlmCrosslinks as CrosslinksFile,
   西游记: xyjCrosslinks as CrosslinksFile,
+  金瓶梅: jpmCrosslinks as CrosslinksFile,
 };
 
 function crosslinksFor(book: string): CrosslinksFile | undefined {
@@ -100,4 +110,66 @@ export async function relatedItemsForChapter(
 ): Promise<ItemRef[]> {
   const index = await itemIndex(book);
   return resolveIds(itemIds, index);
+}
+
+/** 人物页：关联名物（crosslinks occupant_items） */
+export async function relatedItemsForCharacter(
+  book: string,
+  charId: string
+): Promise<ItemRef[]> {
+  const cl = crosslinksFor(book);
+  if (!cl) return [];
+  const index = await itemIndex(book);
+  return resolveIds(cl.occupant_items[charId] ?? [], index);
+}
+
+/** 人物页：关联交易（crosslinks occupant_transactions，金瓶梅等） */
+export async function relatedTransactionsForCharacter(
+  book: string,
+  charId: string
+): Promise<TransactionRef[]> {
+  const cl = crosslinksFor(book);
+  const ids = cl?.occupant_transactions?.[charId];
+  if (!ids?.length) return [];
+
+  const { getCollection } = await import('astro:content');
+  const txs = await getCollection('transactions');
+  const byId = new Map(
+    txs.filter((t) => t.data.book === book).map((t) => [t.data.id, t])
+  );
+
+  const out: TransactionRef[] = [];
+  for (const id of ids) {
+    const tx = byId.get(id);
+    if (!tx) continue;
+    const d = tx.data;
+    out.push({
+      id: d.id,
+      summary: d.summary ?? d.item_ref ?? d.id,
+      chapter: d.chapter,
+      amount: d.amount != null ? `${d.amount}${d.currency ?? ''}` : undefined,
+    });
+  }
+  return out.sort((a, b) => a.chapter - b.chapter);
+}
+
+/** 读回页：本回交易记录 */
+export async function relatedTransactionsForChapter(
+  book: string,
+  chapter: number
+): Promise<TransactionRef[]> {
+  const { getCollection } = await import('astro:content');
+  const txs = await getCollection('transactions');
+  return txs
+    .filter((t) => t.data.book === book && t.data.chapter === chapter)
+    .map((t) => {
+      const d = t.data;
+      return {
+        id: d.id,
+        summary: d.summary ?? d.item_ref ?? d.id,
+        chapter: d.chapter,
+        amount: d.amount != null ? `${d.amount}${d.currency ?? ''}` : undefined,
+      };
+    })
+    .sort((a, b) => a.id.localeCompare(b.id, 'zh-CN'));
 }

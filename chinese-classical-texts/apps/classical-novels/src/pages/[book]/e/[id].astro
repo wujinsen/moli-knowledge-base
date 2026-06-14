@@ -2,15 +2,23 @@
 import { getCollection, render } from 'astro:content';
 import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
-import { chapterLabel, displayTitle } from '../../../lib/events';
+import {
+  chapterLabel,
+  displayTitle,
+  eventSubtypeLabel,
+  formatLiangAmount,
+} from '../../../lib/events';
 
 export async function getStaticPaths() {
   const books = await getBooks();
   const events = await getCollection('events');
   const paths: { params: { book: string; id: string }; props: { book: typeof books[0]; ev: typeof events[0] } }[] = [];
   for (const b of books) {
-    if (!b.data.features.includes('nan')) continue;
+    const feats = b.data.features;
+    if (!feats.includes('nan') && !feats.includes('chain')) continue;
     for (const ev of events.filter((e) => e.data.book === b.data.book)) {
+      if (feats.includes('chain') && !['financial', 'plot'].includes(ev.data.subtype)) continue;
+      if (feats.includes('nan') && !feats.includes('chain') && ev.data.subtype !== 'tribulation') continue;
       paths.push({
         params: { book: b.data.slug, id: ev.data.id },
         props: { book: b, ev },
@@ -23,17 +31,26 @@ export async function getStaticPaths() {
 const { book, ev } = Astro.props;
 const meta = book.data;
 const d = ev.data;
+const isChain = meta.features.includes('chain');
+const isNan = d.subtype === 'tribulation';
 const no = d.tribulation_no;
+const readEdition = meta.slug === 'jinpingmei' ? 'cihua' : '1';
+const backHref = isChain ? `/${meta.slug}/chain` : `/${meta.slug}/nan`;
+const backLabel = isChain ? '← 发家衰败链' : '← 八十一难时间轴';
+const prevLabel = isNan ? '← 上一难' : '← 上一节点';
+const nextLabel = isNan ? '下一难 →' : '下一节点 →';
+const amount = formatLiangAmount(d.amount_liang);
+const subtype = eventSubtypeLabel(d.subtype, d.financial_kind);
 const { Content } = await render(ev);
 ---
 
 <Base title={`${meta.book} · ${d.title}`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
-  <a href={`/${meta.slug}/nan`} class="text-sm hover:underline" style="color: var(--ink-soft)">← 八十一难时间轴</a>
+  <a href={backHref} class="text-sm hover:underline" style="color: var(--ink-soft)">{backLabel}</a>
 
   <section class="surface mt-3 mb-6 px-6 py-7 sm:px-8">
     <div class="flex flex-wrap items-start gap-4">
       {
-        no != null && (
+        isNan && no != null && (
           <span
             class="brand grid h-14 w-14 shrink-0 place-items-center rounded-xl text-2xl text-white"
             style="background: linear-gradient(135deg, var(--primary), var(--primary-soft))"
@@ -43,9 +60,13 @@ const { Content } = await render(ev);
         )
       }
       <div>
+        <div class="mb-2 flex flex-wrap gap-2">
+          <span class="chip">{subtype}</span>
+          {amount && <span class="chip">{amount}</span>}
+        </div>
         <h1 class="brand text-3xl sm:text-4xl" style="color: var(--primary)">{displayTitle(d)}</h1>
         {
-          d.aliases.length > 0 && (
+          d.aliases.length > 0 && isNan && (
             <p class="mt-1 text-sm" style="color: var(--ink-soft)">难簿名：{d.title}</p>
           )
         }
@@ -61,7 +82,11 @@ const { Content } = await render(ev);
             <dd>
               {
                 d.chapters.map((c) => (
-                  <a href={`/${meta.slug}/read/${c}`} class="mr-2 hover:underline" style="color: var(--accent)">
+                  <a
+                    href={`/${meta.slug}/read/${readEdition}/${c}`}
+                    class="mr-2 hover:underline"
+                    style="color: var(--accent)"
+                  >
                     第{c}回
                   </a>
                 ))
@@ -75,7 +100,15 @@ const { Content } = await render(ev);
         d.characters.length > 0 && (
           <>
             <dt style="color: var(--ink-soft)">人物</dt>
-            <dd>{d.characters.join(' · ')}</dd>
+            <dd>
+              {
+                d.characters.map((c) => (
+                  <a href={`/${meta.slug}/c/${c}`} class="mr-2 hover:underline" style="color: var(--accent)">
+                    {c}
+                  </a>
+                ))
+              }
+            </dd>
           </>
         )
       }
@@ -91,7 +124,15 @@ const { Content } = await render(ev);
         d.locations.length > 0 && (
           <>
             <dt style="color: var(--ink-soft)">地点</dt>
-            <dd>{d.locations.join(' · ')}</dd>
+            <dd>
+              {
+                d.locations.map((l) => (
+                  <a href={`/${meta.slug}/l/${l}`} class="mr-2 hover:underline" style="color: var(--accent)">
+                    {l}
+                  </a>
+                ))
+              }
+            </dd>
           </>
         )
       }
@@ -103,14 +144,30 @@ const { Content } = await render(ev);
           </>
         )
       }
+      {
+        d.transaction_refs.length > 0 && (
+          <>
+            <dt style="color: var(--ink-soft)">关联交易</dt>
+            <dd>
+              {
+                d.transaction_refs.map((tid) => (
+                  <a href={`/${meta.slug}/silver#${tid}`} class="mr-2 hover:underline" style="color: var(--accent)">
+                    {tid}
+                  </a>
+                ))
+              }
+            </dd>
+          </>
+        )
+      }
     </dl>
 
     <div class="mt-6 flex flex-wrap gap-4 text-sm">
       {d.prev && (
-        <a href={`/${meta.slug}/e/${d.prev}`} class="btn btn-ghost">← 上一难</a>
+        <a href={`/${meta.slug}/e/${d.prev}`} class="btn btn-ghost">{prevLabel}</a>
       )}
       {d.next && (
-        <a href={`/${meta.slug}/e/${d.next}`} class="btn btn-ghost">下一难 →</a>
+        <a href={`/${meta.slug}/e/${d.next}`} class="btn btn-ghost">{nextLabel}</a>
       )}
     </div>
   </section>

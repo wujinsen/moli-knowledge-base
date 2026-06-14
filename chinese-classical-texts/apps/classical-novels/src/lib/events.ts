@@ -4,6 +4,9 @@ export interface EventData {
   id: string;
   subtype: string;
   tribulation_no?: number | null;
+  financial_kind?: string;
+  amount_liang?: number | null;
+  transaction_refs?: string[];
   title: string;
   aliases: string[];
   chapters: number[];
@@ -43,6 +46,41 @@ export function sortEvents(events: EventEntry[]): EventEntry[] {
     const nb = b.data.tribulation_no ?? 999;
     return na - nb;
   });
+}
+
+/** 金瓶梅 · 发家—攀升—鼎盛—衰败（按首现回目） */
+export const JPM_CHAIN_PHASES: TimelinePhase[] = [
+  { key: 'rise', label: '发家根基', range: [1, 17] },
+  { key: 'climb', label: '政商攀升', range: [18, 40] },
+  { key: 'peak', label: '鼎盛极奢', range: [41, 65] },
+  { key: 'fall', label: '衰败散府', range: [66, 100] },
+];
+
+export function chainPhaseFor(chapter: number): TimelinePhase {
+  return (
+    JPM_CHAIN_PHASES.find((p) => chapter >= p.range[0] && chapter <= p.range[1]) ??
+    JPM_CHAIN_PHASES[2]
+  );
+}
+
+export function sortChainEvents(events: EventEntry[]): EventEntry[] {
+  return [...events].sort((a, b) => {
+    const ca = a.data.chapters[0] ?? 999;
+    const cb = b.data.chapters[0] ?? 999;
+    if (ca !== cb) return ca - cb;
+    return a.data.id.localeCompare(b.data.id, 'zh-CN');
+  });
+}
+
+export function eventSubtypeLabel(subtype: string, financialKind?: string): string {
+  if (subtype === 'financial') return financialKind ? `白银·${financialKind}` : '白银';
+  if (subtype === 'plot') return '情节';
+  return '劫难';
+}
+
+export function formatLiangAmount(liang?: number | null): string | undefined {
+  if (liang == null) return undefined;
+  return `${liang}两`;
 }
 
 export function chapterLabel(chapters: number[]): string {

@@ -86,7 +86,7 @@ const books = defineCollection({
     author: z.string(),
     chapter_count: z.number(),
     features: z.array(
-      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'sna', 'compare', 'nan', 'route'])
+      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'sna', 'compare', 'nan', 'route', 'chain', 'kaozheng', 'quanshi'])
     ),
     summary: z.string().optional(),
   }),
@@ -379,10 +379,61 @@ const textVariants = defineCollection({
   }),
 });
 
+// 主题页 / 回填产物（/query、考证台、诠释专题）
+const TOPIC_TYPES = ['topic', '对比', '分析'] as const;
+// 模块归属：综述（默认）/ 考证（成书史·版本学·作者公案）/ 诠释（内丹·政治·原型…）
+const TOPIC_CATEGORIES = ['综述', '考证', '诠释'] as const;
+// 考证台分支
+const KAOZHENG_BRANCHES = ['成书史', '版本学', '作者公案'] as const;
+// 诠释视角（西游记为主）
+const QUANSHI_LENSES = ['内丹', '政治', '原型', '民俗', '叙事', '宗教'] as const;
+// 假说可信度分层（事实 → 推论分级；作者归属等一律标推论）
+const HYPOTHESIS_STANCES = ['主流', '存疑', '少数', '已弃'] as const;
+
+// 假说卡（作者公案 / 探佚等），inference 分层的核心载体
+const hypothesis = z.object({
+  claim: z.string(),
+  proponent: z.string().optional(),
+  period: z.string().optional(),
+  stance: z.enum(HYPOTHESIS_STANCES).default('存疑'),
+  evidence: z.array(z.string()).default([]),
+  counter: z.string().optional(),
+  source: z.string().optional(),
+});
+
+// 诠释条目（符号 → 义理），默认 inference: true
+const reading = z.object({
+  lens: z.enum(QUANSHI_LENSES),
+  symbol: z.string(),
+  meaning: z.string(),
+  proponent: z.string().optional(),
+  inference: z.boolean().default(true),
+  source: z.string().optional(),
+});
+
+const topics = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/topics' }),
+  schema: z.object({
+    type: z.enum(TOPIC_TYPES).default('topic'),
+    book: z.enum(BOOKS),
+    title: z.string(),
+    category: z.enum(TOPIC_CATEGORIES).default('综述'),
+    branch: z.enum(KAOZHENG_BRANCHES).optional(),
+    lens: z.enum(QUANSHI_LENSES).optional(),
+    derived_from: z.array(z.string()).default([]),
+    created: z.coerce.date().optional(),
+    tags: z.array(z.string()).default([]),
+    summary: z.string().optional(),
+    hypotheses: z.array(hypothesis).default([]),
+    readings: z.array(reading).default([]),
+  }),
+});
+
 export const collections = {
   characters,
   chapters,
   books,
+  topics,
   locations,
   artifacts,
   medicines,

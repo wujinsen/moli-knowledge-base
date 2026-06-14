@@ -7,7 +7,7 @@ import ReaderControls from '../../../../components/ReaderControls.astro';
 import ReaderToc from '../../../../components/ReaderToc.astro';
 import ChapterLinks from '../../../../components/ChapterLinks.astro';
 import EditionTabs from '../../../../components/EditionTabs.astro';
-import { relatedItemsForChapter } from '../../../../lib/crosslinks';
+import { relatedItemsForChapter, relatedTransactionsForChapter } from '../../../../lib/crosslinks';
 import { listReaderChapters, shouldShowChapterSummary } from '../../../../lib/readerChapters';
 import {
   DEFAULT_EDITION,
@@ -73,10 +73,12 @@ const next = n < editionMax ? n + 1 : undefined;
 
 const hasItems = features.includes('items');
 const hasPlaces = features.includes('places');
+const hasSilver = features.includes('silver');
 const itemRefs =
   hasItems && entry.data.items.length > 0
     ? await relatedItemsForChapter(book, entry.data.items)
     : [];
+const txRefs = hasSilver ? await relatedTransactionsForChapter(book, n) : [];
 const characterIds = new Set(
   (await getCollection('characters'))
     .filter((c) => c.data.book === book)
@@ -156,8 +158,11 @@ const tocChapters = await listReaderChapters(book, slug, {
           items={entry.data.items}
           hasPlaces={hasPlaces}
           hasItems={hasItems}
+          hasSilver={hasSilver}
           itemRefs={itemRefs}
+          txRefs={txRefs}
           characterIds={characterIds}
+          readEdition={editionSlug(editionName)}
         />
       </header>
 

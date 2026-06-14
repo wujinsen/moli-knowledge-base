@@ -2,6 +2,10 @@
 import { getCollection, render } from 'astro:content';
 import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
+import {
+  relatedItemsForCharacter,
+  relatedTransactionsForCharacter,
+} from '../../../lib/crosslinks';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -21,6 +25,13 @@ export async function getStaticPaths() {
 const { entry, slug, features } = Astro.props;
 const d = entry.data;
 const { Content } = await render(entry);
+const relatedItems = features.includes('items')
+  ? await relatedItemsForCharacter(d.book, d.id)
+  : [];
+const relatedTxs = features.includes('silver')
+  ? await relatedTransactionsForCharacter(d.book, d.id)
+  : [];
+const readEdition = slug === 'jinpingmei' ? 'cihua' : slug === 'honglou' ? 'zhiben' : '1';
 ---
 
 <Base title={d.name} bookSlug={slug} bookName={d.book} features={features}>
@@ -61,6 +72,49 @@ const { Content } = await render(entry);
             </li>
           ))}
         </ul>
+      </div>
+    )
+  }
+
+  {
+    relatedItems.length > 0 && (
+      <div class="mt-6">
+        <h2 class="section-title mb-2 text-base">相关名物</h2>
+        <ul class="flex flex-wrap gap-2 text-sm">
+          {relatedItems.map((item) => (
+            <li>
+              <a class="chip hover:underline" href={`/${slug}/i/${item.id}`}>
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  {
+    relatedTxs.length > 0 && (
+      <div class="mt-6">
+        <h2 class="section-title mb-2 text-base">白银交易</h2>
+        <ul class="space-y-2 text-sm">
+          {relatedTxs.map((tx) => (
+            <li class="surface px-3 py-2">
+              <a
+                class="hover:underline"
+                style="color: var(--primary)"
+                href={`/${slug}/read/${readEdition}/${tx.chapter}`}
+              >
+                第{tx.chapter}回
+              </a>
+              <span style="color: var(--ink-soft)"> · {tx.summary}</span>
+              {tx.amount && <span class="ml-1 chip">{tx.amount}</span>}
+            </li>
+          ))}
+        </ul>
+        <a href={`/${slug}/silver`} class="mt-2 inline-block text-sm hover:underline" style="color: var(--ink-soft)">
+          查看白银流 →
+        </a>
       </div>
     )
   }

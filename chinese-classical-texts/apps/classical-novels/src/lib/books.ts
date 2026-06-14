@@ -144,6 +144,25 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
         { key: 'bestiary', glyph: '鉴', title: '人物图鉴', desc: '妻妾 · 帮闲 · 政商群像', ...live(has('bestiary'), slug, 'bestiary', `/${slug}/bestiary`) },
         { key: 'places', glyph: '府', title: '西门府', desc: '院落居所 · 店铺 · 县城市井', ...live(has('places'), slug, 'places', `/${slug}/places`) },
         {
+          key: 'chain', glyph: '链', title: '发家衰败链', desc: '白银节点 · 情节转折 · 回目时间轴', ...live(has('chain'), slug, 'chain', `/${slug}/chain`),
+          preview: {
+            intro:
+              '以 event 实体串联西门府从药铺发迹、政商攀升到暴亡散府的完整脉络，白银节点与情节节点前后置链接，可与白银流模块互证。',
+            dimensions: [
+              { title: '白银节点', desc: 'financial_event：药铺、放债、贿赂、遗产等' },
+              { title: '情节节点', desc: 'plot：得官、丧礼、暴亡、散府' },
+              { title: '前后置链', desc: 'prev/next 边，按回目排序渲染时间轴' },
+              { title: '四阶段', desc: '发家根基 → 政商攀升 → 鼎盛极奢 → 衰败散府' },
+            ],
+            phases: [
+              'P2 chain 时间轴 UI（本页）',
+              'P3 增补 event + transaction_refs 自动链接',
+              'P4 与 SNA / 白银桑基图联动高亮',
+            ],
+            relatedDoc: '金瓶梅.log.md · events/金瓶梅/',
+          },
+        },
+        {
           key: 'silver', glyph: '银', title: '物价 · 白银流', desc: '交易记录 · 银两换算 · 资金流向', ...live(has('silver'), slug, 'silver', `/${slug}/silver`),
           preview: {
             intro:

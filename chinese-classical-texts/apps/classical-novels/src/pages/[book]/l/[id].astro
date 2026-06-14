@@ -35,7 +35,9 @@ const { Content } = await render(entry);
 // 取经路线地点回链取经路线，其余回链建筑居所
 const isRoute = features.includes('route') && !!d.layer;
 const backHref = isRoute ? `/${slug}/route` : `/${slug}/places`;
-const backLabel = isRoute ? '← 取经路线' : '← 大观园 · 建筑居所';
+const placesLabel =
+  slug === 'jinpingmei' ? '西门府' : slug === 'honglou' ? '大观园' : '地点';
+const backLabel = isRoute ? '← 取经路线' : `← ${placesLabel} · 建筑居所`;
 
 const relatedItems = await relatedItemsForPlace(d.book, d.id, d.occupants);
 const chapterNums = chaptersFromAppearIn(d.appear_in);

@@ -1,0 +1,146 @@
+---
+import { getCollection } from 'astro:content';
+import { getBooks } from '../../lib/getBooks';
+import Base from '../../layouts/Base.astro';
+import {
+  JPM_CHAIN_PHASES,
+  chainPhaseFor,
+  chapterLabel,
+  displayTitle,
+  eventSubtypeLabel,
+  formatLiangAmount,
+  sortChainEvents,
+} from '../../lib/events';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  return books
+    .filter((b) => b.data.features.includes('chain'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+const readEdition = meta.slug === 'jinpingmei' ? 'cihua' : '1';
+
+const allEvents = sortChainEvents(
+  (await getCollection('events')).filter(
+    (e) =>
+      e.data.book === meta.book &&
+      (e.data.subtype === 'financial' || e.data.subtype === 'plot'),
+  ),
+);
+
+const financialCount = allEvents.filter((e) => e.data.subtype === 'financial').length;
+const plotCount = allEvents.filter((e) => e.data.subtype === 'plot').length;
+
+const phaseCounts = JPM_CHAIN_PHASES.map((p) => ({
+  ...p,
+  count: allEvents.filter((e) => {
+    const ch = e.data.chapters[0] ?? 0;
+    return ch >= p.range[0] && ch <= p.range[1];
+  }).length,
+}));
+---
+
+<Base title={`${meta.book} · 发家衰败链`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  <a href={`/${meta.slug}`} class="text-sm hover:underline" style="color: var(--ink-soft)">← {meta.book}</a>
+
+  <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
+    <div class="flex items-start gap-4">
+      <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">链</span>
+      <div>
+        <h1 class="brand text-4xl" style="color: var(--primary)">发家 · 衰败链</h1>
+        <p class="mt-2 text-sm" style="color: var(--ink-soft)">
+          {financialCount} 个白银节点 · {plotCount} 个情节节点 · 按回目串联西门府百年浮沉
+        </p>
+      </div>
+    </div>
+    <p class="mt-5 max-w-2xl text-sm leading-relaxed" style="color: var(--ink)">
+      每条
+      <code class="rounded px-1" style="background: color-mix(in srgb, var(--primary) 8%, transparent)">event</code>
+      含回目锚点、人物/地点与前后置链。白银节点可跳转
+      <a href={`/${meta.slug}/silver`} class="hover:underline" style="color: var(--accent)">白银流</a>
+      明细。
+    </p>
+  </section>
+
+  <div class="mb-8 flex flex-wrap gap-2">
+    {
+      phaseCounts.map((p) => (
+        <span class="chip">
+          {p.label} · 第{p.range[0]}–{p.range[1]}回（{p.count}）
+        </span>
+      ))
+    }
+  </div>
+
+  <div class="tribulation-timeline mb-10">
+    {
+      allEvents.map((ev, idx) => {
+        const d = ev.data;
+        const ch = d.chapters[0];
+        const phase = ch != null ? chainPhaseFor(ch) : JPM_CHAIN_PHASES[0];
+        const amount = formatLiangAmount(d.amount_liang);
+        const subtype = eventSubtypeLabel(d.subtype, d.financial_kind);
+        return (
+          <article class="timeline-item surface" id={`chain-${d.id}`}>
+            <div class="timeline-marker">
+              <span class="timeline-no">{idx + 1}</span>
+            </div>
+            <div class="timeline-body min-w-0 flex-1">
+              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h2 class="brand text-xl" style="color: var(--primary)">
+                  <a href={`/${meta.slug}/e/${d.id}`} class="hover:underline">{displayTitle(d)}</a>
+                </h2>
+                <span class="chip text-xs">{subtype}</span>
+                {amount && <span class="chip text-xs">{amount}</span>}
+                <span class="text-xs" style="color: var(--ink-soft)">{phase.label}</span>
+              </div>
+              {d.summary && (
+                <p class="mt-1 text-sm leading-snug" style="color: var(--ink-soft)">{d.summary}</p>
+              )}
+              <div class="mt-2 flex flex-wrap gap-2 text-xs">
+                {
+                  ch != null && (
+                    <a href={`/${meta.slug}/read/${readEdition}/${ch}`} class="chip hover:opacity-80">
+                      {chapterLabel(d.chapters)}
+                    </a>
+                  )
+                }
+                {d.characters.slice(0, 4).map((c) => (
+                  <a href={`/${meta.slug}/c/${c}`} class="chip hover:opacity-80">{c}</a>
+                ))}
+                {d.locations.map((l) => (
+                  <a href={`/${meta.slug}/l/${l}`} class="chip hover:opacity-80">{l}</a>
+                ))}
+                {
+                  d.transaction_refs.length > 0 && (
+                    <a href={`/${meta.slug}/silver`} class="chip hover:opacity-80">
+                      {d.transaction_refs.length} 笔交易
+                    </a>
+                  )
+                }
+              </div>
+              <div class="mt-2 flex gap-3 text-xs" style="color: var(--accent)">
+                {d.prev && (
+                  <a href={`/${meta.slug}/e/${d.prev}`} class="hover:underline">← 上一节点</a>
+                )}
+                {d.next && (
+                  <a href={`/${meta.slug}/e/${d.next}`} class="hover:underline">下一节点 →</a>
+                )}
+              </div>
+            </div>
+          </article>
+        );
+      })
+    }
+  </div>
+
+  <div class="surface p-4 text-sm" style="color: var(--ink-soft)">
+    <span class="chip">数据源</span>
+    financial_event + plot ·
+    <a href={`/${meta.slug}/silver`} class="hover:underline" style="color: var(--accent)">白银流</a>
+    · 增补事件后更新 frontmatter 中 prev/next 链
+  </div>
+</Base>

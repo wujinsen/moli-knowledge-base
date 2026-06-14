@@ -7,8 +7,11 @@ interface Props {
   items?: string[];
   hasPlaces?: boolean;
   hasItems?: boolean;
+  hasSilver?: boolean;
   itemRefs?: { id: string; name: string }[];
+  txRefs?: { id: string; summary: string; amount?: string }[];
   characterIds?: Set<string>;
+  readEdition?: string;
 }
 
 const {
@@ -18,13 +21,17 @@ const {
   items = [],
   hasPlaces = false,
   hasItems = false,
+  hasSilver = false,
   itemRefs = [],
+  txRefs = [],
   characterIds = new Set<string>(),
+  readEdition = '1',
 } = Astro.props;
 
 const show =
   (hasPlaces && locations.length > 0) ||
   (hasItems && itemRefs.length > 0) ||
+  (hasSilver && txRefs.length > 0) ||
   characters.length > 0;
 
 if (!show) return null;
@@ -61,6 +68,24 @@ const itemNameById = new Map(itemRefs.map((r) => [r.id, r.name]));
                 title={`查看名物：${itemNameById.get(id) ?? id}`}
               >
                 {itemNameById.get(id) ?? id}
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
+    {
+      hasSilver && txRefs.length > 0 && (
+        <div class="reader-chapter-links-group">
+          <span class="reader-chapter-links-label">白银</span>
+          <div class="reader-chapter-links-tags">
+            {txRefs.map((tx) => (
+              <a
+                href={`/${slug}/read/${readEdition}/${tx.chapter}`}
+                class="reader-chapter-links-tag"
+                title={tx.summary}
+              >
+                {tx.amount ? `${tx.amount} · ${tx.summary}` : tx.summary}
               </a>
             ))}
           </div>

@@ -81,7 +81,7 @@ const finEvents = (await getCollection('events'))
             <tbody>
               {
                 txRows.map((r) => (
-                  <tr style="border-bottom: 1px solid var(--line)">
+                  <tr id={r.id} style="border-bottom: 1px solid var(--line)">
                     <td class="px-3 py-2.5">
                       <a href={r.href} class="hover:underline" style="color: var(--accent)">{r.chapter}</a>
                     </td>
