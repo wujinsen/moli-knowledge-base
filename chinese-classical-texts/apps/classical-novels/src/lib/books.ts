@@ -185,6 +185,7 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
               'P3 增补 event + transaction_refs 自动链接',
               'P4 与 SNA / 白银桑基图联动高亮',
               'J6 financial_event 专题轨 · build_financial.json · 药铺与放债链 topic',
+              'J7 金红跨书 topic · 世情与贵族衰败对比',
             ],
             relatedDoc: '金瓶梅.log.md · events/金瓶梅/',
           },

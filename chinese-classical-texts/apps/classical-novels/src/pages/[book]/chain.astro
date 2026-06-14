@@ -170,6 +170,12 @@ const financialData = financialBySlug[meta.slug];
         <a href={`/${meta.slug}/town`} class="hover:underline" style="color: var(--accent)">市井地图</a>
       </>
     )}
+    {meta.slug === 'jinpingmei' && (
+      <>
+        {' · '}
+        <a href={`/${meta.slug}/topics/世情与贵族衰败对比`} class="hover:underline" style="color: var(--accent)">金红对比</a>
+      </>
+    )}
     · 增补事件后更新 frontmatter 中 prev/next 链
   </div>
 </Base>
