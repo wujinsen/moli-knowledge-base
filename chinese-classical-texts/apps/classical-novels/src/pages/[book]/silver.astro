@@ -126,12 +126,21 @@ const finEvents = (await getCollection('events'))
           <span class="chip">合计（标准化）</span>
           <strong style="color: var(--primary)">{formatLiang(totalLiang)}</strong>
           <span class="ml-2">· 资金池：西门庆府 → 妻妾奴婢 / 经营投资 / 政商贿赂 / 帮闲圈 等</span>
+          {' · '}
+          <a href={`/${meta.slug}/chain`} class="hover:underline" style="color: var(--accent)">发家衰败链</a>
+          {' · '}
+          <a href={`/${meta.slug}/topics/药铺与放债链`} class="hover:underline" style="color: var(--accent)">药铺与放债链</a>
         </div>
 
         {
           finEvents.length > 0 && (
             <>
-              <h2 class="section-title mb-4 mt-10 text-lg">经济事件链</h2>
+              <h2 class="section-title mb-4 mt-10 text-lg">
+                经济事件链
+                <a href={`/${meta.slug}/chain`} class="ml-2 text-sm font-normal hover:underline" style="color: var(--accent)">
+                  专题轨 →
+                </a>
+              </h2>
               <div class="grid gap-3 sm:grid-cols-2">
                 {
                   finEvents.map((e) => (

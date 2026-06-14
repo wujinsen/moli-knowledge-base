@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import JpmModuleNav from '../../components/JpmModuleNav.astro';
+import FinancialTracks from '../../components/FinancialTracks.tsx';
 import {
   JPM_CHAIN_PHASES,
   chainPhaseFor,
@@ -12,6 +13,8 @@ import {
   formatLiangAmount,
   sortChainEvents,
 } from '../../lib/events';
+import type { FinancialData } from '../../lib/financial';
+import jpmFinancial from '../../data/jinpingmei.financial.json';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -42,6 +45,11 @@ const phaseCounts = JPM_CHAIN_PHASES.map((p) => ({
     return ch >= p.range[0] && ch <= p.range[1];
   }).length,
 }));
+
+const financialBySlug: Record<string, FinancialData> = {
+  jinpingmei: jpmFinancial as FinancialData,
+};
+const financialData = financialBySlug[meta.slug];
 ---
 
 <Base title={`${meta.book} · 发家衰败链`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
@@ -78,6 +86,18 @@ const phaseCounts = JPM_CHAIN_PHASES.map((p) => ({
     }
   </div>
 
+  {
+    financialData && (
+      <section class="mb-10">
+        <h2 class="section-title mb-4 text-lg">专题轨 · 药铺 / 放债 / 贿赂</h2>
+        <div class="surface p-4 sm:p-6">
+          <FinancialTracks data={financialData} bookSlug={meta.slug} client:only="react" />
+        </div>
+      </section>
+    )
+  }
+
+  <h2 class="section-title mb-4 text-lg">全书时间轴</h2>
   <div class="tribulation-timeline mb-10">
     {
       allEvents.map((ev, idx) => {

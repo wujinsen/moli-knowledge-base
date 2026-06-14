@@ -1,0 +1,1008 @@
+{
+  "book": "金瓶梅",
+  "generated": "2026-06-15",
+  "event_count": 11,
+  "timeline": [
+    {
+      "id": "jpm-fe-001",
+      "title": "西门庆生药铺经营",
+      "financial_kind": "药铺",
+      "chapters": [
+        1
+      ],
+      "chapter": 1,
+      "characters": [
+        "西门庆"
+      ],
+      "locations": [
+        "西门庆生药铺"
+      ],
+      "amount_liang": 500,
+      "transaction_refs": [],
+      "prev": null,
+      "next": "jpm-fe-006",
+      "summary": "清河县五间门面生药铺，西门庆家业根基，后扩绒线铺、酒店。",
+      "tags": [
+        "经营投资",
+        "西门府"
+      ]
+    },
+    {
+      "id": "jpm-fe-006",
+      "title": "结拜十弟兄买办",
+      "financial_kind": "经营",
+      "chapters": [
+        1
+      ],
+      "chapter": 1,
+      "characters": [
+        "西门庆",
+        "应伯爵",
+        "花子虚"
+      ],
+      "locations": [
+        "玉皇庙",
+        "西门府"
+      ],
+      "amount_liang": 4,
+      "transaction_refs": [
+        "jpm-tx-019",
+        "jpm-tx-015"
+      ],
+      "prev": "jpm-fe-001",
+      "next": "jpm-fe-005",
+      "summary": "初三玉皇庙结拜，猪羊酒礼与分资汇聚帮闲圈。",
+      "tags": [
+        "结拜",
+        "帮闲"
+      ]
+    },
+    {
+      "id": "jpm-fe-005",
+      "title": "李瓶儿私房物资变现",
+      "financial_kind": "遗产",
+      "chapters": [
+        16,
+        17
+      ],
+      "chapter": 16,
+      "characters": [
+        "西门庆",
+        "李瓶儿"
+      ],
+      "locations": [
+        "李瓶儿房"
+      ],
+      "amount_liang": 380,
+      "transaction_refs": [
+        "jpm-tx-021"
+      ],
+      "prev": "jpm-fe-006",
+      "next": "jpm-fe-007",
+      "summary": "李瓶儿箱藏香蜡水银等，经经纪变卖三百八十两，凑盖房与过门。",
+      "tags": [
+        "李瓶儿",
+        "经营投资"
+      ]
+    },
+    {
+      "id": "jpm-fe-007",
+      "title": "认翟管家干亲",
+      "financial_kind": "贿赂",
+      "chapters": [
+        23
+      ],
+      "chapter": 23,
+      "characters": [
+        "西门庆",
+        "翟管家"
+      ],
+      "locations": [
+        "清河县"
+      ],
+      "amount_liang": 100,
+      "transaction_refs": [
+        "jpm-tx-018"
+      ],
+      "prev": "jpm-fe-005",
+      "next": "jpm-fe-009",
+      "summary": "西门庆百两认干礼，打通蔡京府门路。",
+      "tags": [
+        "政商",
+        "干亲"
+      ]
+    },
+    {
+      "id": "jpm-fe-009",
+      "title": "来旺酒店本钱拨付",
+      "financial_kind": "经营",
+      "chapters": [
+        26
+      ],
+      "chapter": 26,
+      "characters": [
+        "西门庆",
+        "来旺"
+      ],
+      "locations": [
+        "西门府"
+      ],
+      "amount_liang": 300,
+      "transaction_refs": [
+        "jpm-tx-002"
+      ],
+      "prev": "jpm-fe-007",
+      "next": "jpm-fe-002",
+      "summary": "付来旺三百两作酒店本钱，由生药铺向多业扩张。",
+      "tags": [
+        "经营投资",
+        "酒店"
+      ]
+    },
+    {
+      "id": "jpm-fe-002",
+      "title": "蔡京寿礼行贿链",
+      "financial_kind": "贿赂",
+      "chapters": [
+        27
+      ],
+      "chapter": 27,
+      "characters": [
+        "西门庆",
+        "蔡京",
+        "翟管家"
+      ],
+      "locations": [
+        "蔡太师府"
+      ],
+      "amount_liang": 300,
+      "transaction_refs": [
+        "jpm-tx-003",
+        "jpm-tx-011"
+      ],
+      "prev": "jpm-fe-009",
+      "next": "jpm-fe-008",
+      "summary": "西门庆经翟管家向蔡太师进寿礼三百两，换得官场庇护。",
+      "tags": [
+        "政商",
+        "白银流"
+      ]
+    },
+    {
+      "id": "jpm-fe-008",
+      "title": "吴典恩借债",
+      "financial_kind": "放债",
+      "chapters": [
+        31
+      ],
+      "chapter": 31,
+      "characters": [
+        "西门庆",
+        "吴典恩"
+      ],
+      "locations": [
+        "西门府"
+      ],
+      "amount_liang": 100,
+      "transaction_refs": [
+        "jpm-tx-006"
+      ],
+      "prev": "jpm-fe-002",
+      "next": "jpm-fe-004",
+      "summary": "吴典恩借西门庆一百两银子，约期归还，府内放债典型。",
+      "tags": [
+        "帮闲圈",
+        "借贷"
+      ]
+    },
+    {
+      "id": "jpm-fe-004",
+      "title": "绒线铺本钱拨付",
+      "financial_kind": "经营",
+      "chapters": [
+        33
+      ],
+      "chapter": 33,
+      "characters": [
+        "西门庆",
+        "韩道国"
+      ],
+      "locations": [
+        "绒线铺"
+      ],
+      "amount_liang": 450,
+      "transaction_refs": [
+        "jpm-tx-004"
+      ],
+      "prev": "jpm-fe-008",
+      "next": "jpm-fe-003",
+      "summary": "西门庆付韩道国绒线铺本钱四百五十两，扩大家业经营面。",
+      "tags": [
+        "经营投资"
+      ]
+    },
+    {
+      "id": "jpm-fe-003",
+      "title": "李智应伯爵转贷",
+      "financial_kind": "放债",
+      "chapters": [
+        38
+      ],
+      "chapter": 38,
+      "characters": [
+        "西门庆",
+        "李智",
+        "应伯爵",
+        "黄四"
+      ],
+      "locations": [
+        "西门府"
+      ],
+      "amount_liang": 1000,
+      "transaction_refs": [
+        "jpm-tx-010"
+      ],
+      "prev": "jpm-fe-004",
+      "next": "jpm-pe-001",
+      "summary": "应伯爵牵线，西门庆借出一千两与李智、黄四，帮闲圈核心放贷链。",
+      "tags": [
+        "帮闲圈",
+        "借贷"
+      ]
+    },
+    {
+      "id": "jpm-fe-011",
+      "title": "蔡府二次寿礼",
+      "financial_kind": "贿赂",
+      "chapters": [
+        75
+      ],
+      "chapter": 75,
+      "characters": [
+        "西门庆",
+        "蔡京"
+      ],
+      "locations": [
+        "蔡太师府"
+      ],
+      "amount_liang": 500,
+      "transaction_refs": [
+        "jpm-tx-022"
+      ],
+      "prev": "jpm-pe-002",
+      "next": "jpm-pe-003",
+      "summary": "蔡京寿辰，西门庆再送五百两寿礼银，巩固政商关系。",
+      "tags": [
+        "政商",
+        "寿礼"
+      ]
+    },
+    {
+      "id": "jpm-fe-012",
+      "title": "西门庆丧礼耗银",
+      "financial_kind": "经营",
+      "chapters": [
+        79
+      ],
+      "chapter": 79,
+      "characters": [
+        "吴月娘",
+        "应伯爵"
+      ],
+      "locations": [
+        "西门府"
+      ],
+      "amount_liang": 200,
+      "transaction_refs": [
+        "jpm-tx-024"
+      ],
+      "prev": "jpm-pe-003",
+      "next": "jpm-pe-004",
+      "summary": "西门庆亡故，吴月娘治丧，帮闲张罗，耗费甚巨（摘记一笔）。",
+      "tags": [
+        "丧礼",
+        "衰败"
+      ]
+    }
+  ],
+  "tracks": [
+    {
+      "id": "yapu",
+      "label": "药铺·经营",
+      "description": "生药铺发迹 → 结拜买办 → 酒店/绒线铺扩张",
+      "color": "#607a67",
+      "event_ids": [
+        "jpm-fe-001",
+        "jpm-fe-006",
+        "jpm-fe-009",
+        "jpm-fe-004"
+      ],
+      "events": [
+        {
+          "id": "jpm-fe-001",
+          "title": "西门庆生药铺经营",
+          "financial_kind": "药铺",
+          "chapters": [
+            1
+          ],
+          "chapter": 1,
+          "characters": [
+            "西门庆"
+          ],
+          "locations": [
+            "西门庆生药铺"
+          ],
+          "amount_liang": 500,
+          "transaction_refs": [],
+          "prev": null,
+          "next": "jpm-fe-006",
+          "summary": "清河县五间门面生药铺，西门庆家业根基，后扩绒线铺、酒店。",
+          "tags": [
+            "经营投资",
+            "西门府"
+          ]
+        },
+        {
+          "id": "jpm-fe-006",
+          "title": "结拜十弟兄买办",
+          "financial_kind": "经营",
+          "chapters": [
+            1
+          ],
+          "chapter": 1,
+          "characters": [
+            "西门庆",
+            "应伯爵",
+            "花子虚"
+          ],
+          "locations": [
+            "玉皇庙",
+            "西门府"
+          ],
+          "amount_liang": 4,
+          "transaction_refs": [
+            "jpm-tx-019",
+            "jpm-tx-015"
+          ],
+          "prev": "jpm-fe-001",
+          "next": "jpm-fe-005",
+          "summary": "初三玉皇庙结拜，猪羊酒礼与分资汇聚帮闲圈。",
+          "tags": [
+            "结拜",
+            "帮闲"
+          ]
+        },
+        {
+          "id": "jpm-fe-009",
+          "title": "来旺酒店本钱拨付",
+          "financial_kind": "经营",
+          "chapters": [
+            26
+          ],
+          "chapter": 26,
+          "characters": [
+            "西门庆",
+            "来旺"
+          ],
+          "locations": [
+            "西门府"
+          ],
+          "amount_liang": 300,
+          "transaction_refs": [
+            "jpm-tx-002"
+          ],
+          "prev": "jpm-fe-007",
+          "next": "jpm-fe-002",
+          "summary": "付来旺三百两作酒店本钱，由生药铺向多业扩张。",
+          "tags": [
+            "经营投资",
+            "酒店"
+          ]
+        },
+        {
+          "id": "jpm-fe-004",
+          "title": "绒线铺本钱拨付",
+          "financial_kind": "经营",
+          "chapters": [
+            33
+          ],
+          "chapter": 33,
+          "characters": [
+            "西门庆",
+            "韩道国"
+          ],
+          "locations": [
+            "绒线铺"
+          ],
+          "amount_liang": 450,
+          "transaction_refs": [
+            "jpm-tx-004"
+          ],
+          "prev": "jpm-fe-008",
+          "next": "jpm-fe-003",
+          "summary": "西门庆付韩道国绒线铺本钱四百五十两，扩大家业经营面。",
+          "tags": [
+            "经营投资"
+          ]
+        }
+      ],
+      "total_liang": 1254,
+      "transaction_count": 4
+    },
+    {
+      "id": "fangzhai",
+      "label": "放债·帮闲",
+      "description": "西门庆经帮闲圈对外放贷，应伯爵等居中撮合",
+      "color": "#5c6359",
+      "event_ids": [
+        "jpm-fe-008",
+        "jpm-fe-003"
+      ],
+      "events": [
+        {
+          "id": "jpm-fe-008",
+          "title": "吴典恩借债",
+          "financial_kind": "放债",
+          "chapters": [
+            31
+          ],
+          "chapter": 31,
+          "characters": [
+            "西门庆",
+            "吴典恩"
+          ],
+          "locations": [
+            "西门府"
+          ],
+          "amount_liang": 100,
+          "transaction_refs": [
+            "jpm-tx-006"
+          ],
+          "prev": "jpm-fe-002",
+          "next": "jpm-fe-004",
+          "summary": "吴典恩借西门庆一百两银子，约期归还，府内放债典型。",
+          "tags": [
+            "帮闲圈",
+            "借贷"
+          ]
+        },
+        {
+          "id": "jpm-fe-003",
+          "title": "李智应伯爵转贷",
+          "financial_kind": "放债",
+          "chapters": [
+            38
+          ],
+          "chapter": 38,
+          "characters": [
+            "西门庆",
+            "李智",
+            "应伯爵",
+            "黄四"
+          ],
+          "locations": [
+            "西门府"
+          ],
+          "amount_liang": 1000,
+          "transaction_refs": [
+            "jpm-tx-010"
+          ],
+          "prev": "jpm-fe-004",
+          "next": "jpm-pe-001",
+          "summary": "应伯爵牵线，西门庆借出一千两与李智、黄四，帮闲圈核心放贷链。",
+          "tags": [
+            "帮闲圈",
+            "借贷"
+          ]
+        }
+      ],
+      "total_liang": 1100,
+      "transaction_count": 2
+    },
+    {
+      "id": "huilu",
+      "label": "政商贿赂",
+      "description": "翟管家—蔡京链：认干礼、寿礼、二次进献",
+      "color": "#8a6532",
+      "event_ids": [
+        "jpm-fe-007",
+        "jpm-fe-002",
+        "jpm-fe-011"
+      ],
+      "events": [
+        {
+          "id": "jpm-fe-007",
+          "title": "认翟管家干亲",
+          "financial_kind": "贿赂",
+          "chapters": [
+            23
+          ],
+          "chapter": 23,
+          "characters": [
+            "西门庆",
+            "翟管家"
+          ],
+          "locations": [
+            "清河县"
+          ],
+          "amount_liang": 100,
+          "transaction_refs": [
+            "jpm-tx-018"
+          ],
+          "prev": "jpm-fe-005",
+          "next": "jpm-fe-009",
+          "summary": "西门庆百两认干礼，打通蔡京府门路。",
+          "tags": [
+            "政商",
+            "干亲"
+          ]
+        },
+        {
+          "id": "jpm-fe-002",
+          "title": "蔡京寿礼行贿链",
+          "financial_kind": "贿赂",
+          "chapters": [
+            27
+          ],
+          "chapter": 27,
+          "characters": [
+            "西门庆",
+            "蔡京",
+            "翟管家"
+          ],
+          "locations": [
+            "蔡太师府"
+          ],
+          "amount_liang": 300,
+          "transaction_refs": [
+            "jpm-tx-003",
+            "jpm-tx-011"
+          ],
+          "prev": "jpm-fe-009",
+          "next": "jpm-fe-008",
+          "summary": "西门庆经翟管家向蔡太师进寿礼三百两，换得官场庇护。",
+          "tags": [
+            "政商",
+            "白银流"
+          ]
+        },
+        {
+          "id": "jpm-fe-011",
+          "title": "蔡府二次寿礼",
+          "financial_kind": "贿赂",
+          "chapters": [
+            75
+          ],
+          "chapter": 75,
+          "characters": [
+            "西门庆",
+            "蔡京"
+          ],
+          "locations": [
+            "蔡太师府"
+          ],
+          "amount_liang": 500,
+          "transaction_refs": [
+            "jpm-tx-022"
+          ],
+          "prev": "jpm-pe-002",
+          "next": "jpm-pe-003",
+          "summary": "蔡京寿辰，西门庆再送五百两寿礼银，巩固政商关系。",
+          "tags": [
+            "政商",
+            "寿礼"
+          ]
+        }
+      ],
+      "total_liang": 900,
+      "transaction_count": 4
+    },
+    {
+      "id": "yicai",
+      "label": "遗产·变现",
+      "description": "李瓶儿私房物资经纪变卖，注入经营池",
+      "color": "#74332c",
+      "event_ids": [
+        "jpm-fe-005"
+      ],
+      "events": [
+        {
+          "id": "jpm-fe-005",
+          "title": "李瓶儿私房物资变现",
+          "financial_kind": "遗产",
+          "chapters": [
+            16,
+            17
+          ],
+          "chapter": 16,
+          "characters": [
+            "西门庆",
+            "李瓶儿"
+          ],
+          "locations": [
+            "李瓶儿房"
+          ],
+          "amount_liang": 380,
+          "transaction_refs": [
+            "jpm-tx-021"
+          ],
+          "prev": "jpm-fe-006",
+          "next": "jpm-fe-007",
+          "summary": "李瓶儿箱藏香蜡水银等，经经纪变卖三百八十两，凑盖房与过门。",
+          "tags": [
+            "李瓶儿",
+            "经营投资"
+          ]
+        }
+      ],
+      "total_liang": 380,
+      "transaction_count": 1
+    },
+    {
+      "id": "shuai",
+      "label": "衰败耗散",
+      "description": "丧礼与散府前变卖家当",
+      "color": "#33493c",
+      "event_ids": [
+        "jpm-fe-012"
+      ],
+      "events": [
+        {
+          "id": "jpm-fe-012",
+          "title": "西门庆丧礼耗银",
+          "financial_kind": "经营",
+          "chapters": [
+            79
+          ],
+          "chapter": 79,
+          "characters": [
+            "吴月娘",
+            "应伯爵"
+          ],
+          "locations": [
+            "西门府"
+          ],
+          "amount_liang": 200,
+          "transaction_refs": [
+            "jpm-tx-024"
+          ],
+          "prev": "jpm-pe-003",
+          "next": "jpm-pe-004",
+          "summary": "西门庆亡故，吴月娘治丧，帮闲张罗，耗费甚巨（摘记一笔）。",
+          "tags": [
+            "丧礼",
+            "衰败"
+          ]
+        }
+      ],
+      "total_liang": 200,
+      "transaction_count": 1
+    }
+  ],
+  "by_kind": {
+    "药铺": [
+      "jpm-fe-001"
+    ],
+    "经营": [
+      "jpm-fe-006",
+      "jpm-fe-009",
+      "jpm-fe-004",
+      "jpm-fe-012"
+    ],
+    "遗产": [
+      "jpm-fe-005"
+    ],
+    "贿赂": [
+      "jpm-fe-007",
+      "jpm-fe-002",
+      "jpm-fe-011"
+    ],
+    "放债": [
+      "jpm-fe-008",
+      "jpm-fe-003"
+    ]
+  },
+  "events": [
+    {
+      "id": "jpm-fe-001",
+      "title": "西门庆生药铺经营",
+      "financial_kind": "药铺",
+      "chapters": [
+        1
+      ],
+      "chapter": 1,
+      "characters": [
+        "西门庆"
+      ],
+      "locations": [
+        "西门庆生药铺"
+      ],
+      "amount_liang": 500,
+      "transaction_refs": [],
+      "prev": null,
+      "next": "jpm-fe-006",
+      "summary": "清河县五间门面生药铺，西门庆家业根基，后扩绒线铺、酒店。",
+      "tags": [
+        "经营投资",
+        "西门府"
+      ]
+    },
+    {
+      "id": "jpm-fe-006",
+      "title": "结拜十弟兄买办",
+      "financial_kind": "经营",
+      "chapters": [
+        1
+      ],
+      "chapter": 1,
+      "characters": [
+        "西门庆",
+        "应伯爵",
+        "花子虚"
+      ],
+      "locations": [
+        "玉皇庙",
+        "西门府"
+      ],
+      "amount_liang": 4,
+      "transaction_refs": [
+        "jpm-tx-019",
+        "jpm-tx-015"
+      ],
+      "prev": "jpm-fe-001",
+      "next": "jpm-fe-005",
+      "summary": "初三玉皇庙结拜，猪羊酒礼与分资汇聚帮闲圈。",
+      "tags": [
+        "结拜",
+        "帮闲"
+      ]
+    },
+    {
+      "id": "jpm-fe-005",
+      "title": "李瓶儿私房物资变现",
+      "financial_kind": "遗产",
+      "chapters": [
+        16,
+        17
+      ],
+      "chapter": 16,
+      "characters": [
+        "西门庆",
+        "李瓶儿"
+      ],
+      "locations": [
+        "李瓶儿房"
+      ],
+      "amount_liang": 380,
+      "transaction_refs": [
+        "jpm-tx-021"
+      ],
+      "prev": "jpm-fe-006",
+      "next": "jpm-fe-007",
+      "summary": "李瓶儿箱藏香蜡水银等，经经纪变卖三百八十两，凑盖房与过门。",
+      "tags": [
+        "李瓶儿",
+        "经营投资"
+      ]
+    },
+    {
+      "id": "jpm-fe-007",
+      "title": "认翟管家干亲",
+      "financial_kind": "贿赂",
+      "chapters": [
+        23
+      ],
+      "chapter": 23,
+      "characters": [
+        "西门庆",
+        "翟管家"
+      ],
+      "locations": [
+        "清河县"
+      ],
+      "amount_liang": 100,
+      "transaction_refs": [
+        "jpm-tx-018"
+      ],
+      "prev": "jpm-fe-005",
+      "next": "jpm-fe-009",
+      "summary": "西门庆百两认干礼，打通蔡京府门路。",
+      "tags": [
+        "政商",
+        "干亲"
+      ]
+    },
+    {
+      "id": "jpm-fe-009",
+      "title": "来旺酒店本钱拨付",
+      "financial_kind": "经营",
+      "chapters": [
+        26
+      ],
+      "chapter": 26,
+      "characters": [
+        "西门庆",
+        "来旺"
+      ],
+      "locations": [
+        "西门府"
+      ],
+      "amount_liang": 300,
+      "transaction_refs": [
+        "jpm-tx-002"
+      ],
+      "prev": "jpm-fe-007",
+      "next": "jpm-fe-002",
+      "summary": "付来旺三百两作酒店本钱，由生药铺向多业扩张。",
+      "tags": [
+        "经营投资",
+        "酒店"
+      ]
+    },
+    {
+      "id": "jpm-fe-002",
+      "title": "蔡京寿礼行贿链",
+      "financial_kind": "贿赂",
+      "chapters": [
+        27
+      ],
+      "chapter": 27,
+      "characters": [
+        "西门庆",
+        "蔡京",
+        "翟管家"
+      ],
+      "locations": [
+        "蔡太师府"
+      ],
+      "amount_liang": 300,
+      "transaction_refs": [
+        "jpm-tx-003",
+        "jpm-tx-011"
+      ],
+      "prev": "jpm-fe-009",
+      "next": "jpm-fe-008",
+      "summary": "西门庆经翟管家向蔡太师进寿礼三百两，换得官场庇护。",
+      "tags": [
+        "政商",
+        "白银流"
+      ]
+    },
+    {
+      "id": "jpm-fe-008",
+      "title": "吴典恩借债",
+      "financial_kind": "放债",
+      "chapters": [
+        31
+      ],
+      "chapter": 31,
+      "characters": [
+        "西门庆",
+        "吴典恩"
+      ],
+      "locations": [
+        "西门府"
+      ],
+      "amount_liang": 100,
+      "transaction_refs": [
+        "jpm-tx-006"
+      ],
+      "prev": "jpm-fe-002",
+      "next": "jpm-fe-004",
+      "summary": "吴典恩借西门庆一百两银子，约期归还，府内放债典型。",
+      "tags": [
+        "帮闲圈",
+        "借贷"
+      ]
+    },
+    {
+      "id": "jpm-fe-004",
+      "title": "绒线铺本钱拨付",
+      "financial_kind": "经营",
+      "chapters": [
+        33
+      ],
+      "chapter": 33,
+      "characters": [
+        "西门庆",
+        "韩道国"
+      ],
+      "locations": [
+        "绒线铺"
+      ],
+      "amount_liang": 450,
+      "transaction_refs": [
+        "jpm-tx-004"
+      ],
+      "prev": "jpm-fe-008",
+      "next": "jpm-fe-003",
+      "summary": "西门庆付韩道国绒线铺本钱四百五十两，扩大家业经营面。",
+      "tags": [
+        "经营投资"
+      ]
+    },
+    {
+      "id": "jpm-fe-003",
+      "title": "李智应伯爵转贷",
+      "financial_kind": "放债",
+      "chapters": [
+        38
+      ],
+      "chapter": 38,
+      "characters": [
+        "西门庆",
+        "李智",
+        "应伯爵",
+        "黄四"
+      ],
+      "locations": [
+        "西门府"
+      ],
+      "amount_liang": 1000,
+      "transaction_refs": [
+        "jpm-tx-010"
+      ],
+      "prev": "jpm-fe-004",
+      "next": "jpm-pe-001",
+      "summary": "应伯爵牵线，西门庆借出一千两与李智、黄四，帮闲圈核心放贷链。",
+      "tags": [
+        "帮闲圈",
+        "借贷"
+      ]
+    },
+    {
+      "id": "jpm-fe-011",
+      "title": "蔡府二次寿礼",
+      "financial_kind": "贿赂",
+      "chapters": [
+        75
+      ],
+      "chapter": 75,
+      "characters": [
+        "西门庆",
+        "蔡京"
+      ],
+      "locations": [
+        "蔡太师府"
+      ],
+      "amount_liang": 500,
+      "transaction_refs": [
+        "jpm-tx-022"
+      ],
+      "prev": "jpm-pe-002",
+      "next": "jpm-pe-003",
+      "summary": "蔡京寿辰，西门庆再送五百两寿礼银，巩固政商关系。",
+      "tags": [
+        "政商",
+        "寿礼"
+      ]
+    },
+    {
+      "id": "jpm-fe-012",
+      "title": "西门庆丧礼耗银",
+      "financial_kind": "经营",
+      "chapters": [
+        79
+      ],
+      "chapter": 79,
+      "characters": [
+        "吴月娘",
+        "应伯爵"
+      ],
+      "locations": [
+        "西门府"
+      ],
+      "amount_liang": 200,
+      "transaction_refs": [
+        "jpm-tx-024"
+      ],
+      "prev": "jpm-pe-003",
+      "next": "jpm-pe-004",
+      "summary": "西门庆亡故，吴月娘治丧，帮闲张罗，耗费甚巨（摘记一笔）。",
+      "tags": [
+        "丧礼",
+        "衰败"
+      ]
+    }
+  ]
+}
