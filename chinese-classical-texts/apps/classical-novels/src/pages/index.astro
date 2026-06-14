@@ -7,6 +7,7 @@ const order = ['honglou', 'xiyouji', 'jinpingmei'];
 const books = (await getCollection('books')).sort(
   (a, b) => order.indexOf(a.data.slug) - order.indexOf(b.data.slug),
 );
+const booksMissing = books.length === 0;
 ---
 
 <Base title="首页">
@@ -19,7 +20,20 @@ const books = (await getCollection('books')).sort(
     </p>
   </section>
 
-  <div class="grid gap-6 lg:grid-cols-3">
+  {
+    booksMissing ? (
+      <div
+        class="rounded-xl border px-5 py-4 text-sm leading-relaxed"
+        style="border-color: var(--line); background: var(--paper-2); color: var(--ink-soft)"
+      >
+        <p class="mb-2 font-medium" style="color: var(--primary)">书目卡片未加载</p>
+        <p>
+          开发模式下 Astro 内容库写入失败（常见于 Windows 上多个 dev 进程争用 <code>.astro/data-store.json</code>）。
+          请在项目目录执行 <code>npm run dev:clean</code>，只保留一个 dev 实例；或使用 <code>npm run build && npm run preview</code>。
+        </p>
+      </div>
+    ) : (
+      <div class="grid gap-6 lg:grid-cols-3">
     {
       books.map((b) => {
         const t = THEME_BY_SLUG[b.data.slug];
@@ -60,7 +74,9 @@ const books = (await getCollection('books')).sort(
         );
       })
     }
-  </div>
+      </div>
+    )
+  }
 
   <div class="rule-seal mt-12">
     <span class="brand text-base">阅</span>
