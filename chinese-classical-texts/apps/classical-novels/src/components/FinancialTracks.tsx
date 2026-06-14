@@ -1,5 +1,6 @@
 import type { FinancialData, FinancialTrack } from '../lib/financial';
 import { eventHref, silverHref } from '../lib/financial';
+import { silverEventHref } from '../lib/chain';
 
 interface Props {
   data: FinancialData;
@@ -52,25 +53,27 @@ function TrackLane({ track, bookSlug }: { track: FinancialTrack; bookSlug: strin
               </div>
               {ev.transaction_refs.length > 0 && (
                 <div className="mt-2 flex flex-wrap gap-1">
-                  {ev.transaction_refs.slice(0, 2).map((tid) => (
-                    <span
-                      key={tid}
+                  {ev.transaction_refs.length > 1 ? (
+                    <a
+                      href={silverEventHref(bookSlug, ev.id)}
                       className="text-xs hover:underline"
                       style={{ color: 'var(--accent)' }}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        window.location.href = silverHref(bookSlug, tid);
-                      }}
-                      role="link"
+                      onClick={(e) => e.stopPropagation()}
                     >
-                      {tid}
-                    </span>
-                  ))}
-                  {ev.transaction_refs.length > 2 && (
-                    <span className="text-xs" style={{ color: 'var(--ink-soft)' }}>
-                      +{ev.transaction_refs.length - 2}
-                    </span>
+                      {ev.transaction_refs.length} 笔交易 →
+                    </a>
+                  ) : (
+                    ev.transaction_refs.map((tid) => (
+                      <a
+                        key={tid}
+                        href={silverHref(bookSlug, tid)}
+                        className="text-xs hover:underline"
+                        style={{ color: 'var(--accent)' }}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {tid}
+                      </a>
+                    ))
                   )}
                 </div>
               )}

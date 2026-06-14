@@ -30,7 +30,7 @@ const stanceClass = (s: string) =>
   s === '主流' ? 'stance-main' : s === '少数' ? 'stance-minor' : s === '已弃' ? 'stance-dropped' : 'stance-doubt';
 ---
 
-<Base title={`${meta.book} · 考证台`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+<Base title={`${meta.book} · 考证台`} bookSlug={meta.slug} bookName={meta.book} features={meta.features} moduleContext={false}>
   <a href={`/${meta.slug}`} class="text-sm hover:underline" style="color: var(--ink-soft)">← {meta.book}</a>
 
   <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">

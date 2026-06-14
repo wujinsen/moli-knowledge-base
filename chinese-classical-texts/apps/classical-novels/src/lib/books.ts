@@ -49,6 +49,27 @@ export function themeFor(slug: string | undefined): ThemeKey | undefined {
   return slug ? THEME_BY_SLUG[slug]?.theme : undefined;
 }
 
+/** 当前路径是否落在某功能模块下（顶栏高亮 / 上下文条） */
+export function moduleIsActive(path: string, bookSlug: string, m: BookModule): boolean {
+  const href = m.href;
+  if (!href) return false;
+  const norm = path.replace(/\/$/, '') || '/';
+  const base = href.replace(/\/$/, '');
+  if (norm === base) return true;
+  if (m.key === 'read') return norm.startsWith(`/${bookSlug}/read`);
+  if (m.key === 'edition') return norm.startsWith(`/${bookSlug}/compare`);
+  if (base !== `/${bookSlug}` && norm.startsWith(`${base}/`)) return true;
+  return false;
+}
+
+export function activeModule(
+  path: string,
+  bookSlug: string,
+  modules: BookModule[],
+): BookModule | undefined {
+  return modules.find((m) => m.status === 'live' && moduleIsActive(path, bookSlug, m));
+}
+
 function live(ok: boolean, slug: string, key: string, real: string): Pick<BookModule, 'status' | 'href'> {
   return ok ? { status: 'live', href: real } : { status: 'planned', href: `/${slug}/m/${key}` };
 }
@@ -182,8 +203,8 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
             ],
             phases: [
               'P2 chain 时间轴 UI（本页）',
-              'P3 增补 event + transaction_refs 自动链接',
-              'P4 与 SNA / 白银桑基图联动高亮',
+              'P3 每笔 transaction_refs 芯片 + ?event= 白银高亮',
+              'P4 chain ↔ 白银 / SNA / 图谱 ?focus= 联动',
               'J6 financial_event 专题轨 · build_financial.json · 药铺与放债链 topic',
               'J7 金红跨书 topic · 世情与贵族衰败对比',
             ],

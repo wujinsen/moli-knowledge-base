@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import CharacterCard from '../../components/CharacterCard.astro';
-import JpmModuleNav from '../../components/JpmModuleNav.astro';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -49,10 +48,9 @@ const withOutcome = characters.filter((c) => c.data.结局).length;
 ---
 
 <Base title={`${meta.book} 图鉴`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
-  <h1 class="brand mb-1 text-3xl" style="color: var(--primary)">{meta.book} · 图鉴</h1>
   {
     isJpm ? (
-      <p class="mb-4 text-sm" style="color: var(--ink-soft)">
+      <p slot="module-extra" class="mt-2 text-sm" style="color: var(--ink-soft)">
         妻妾 · 帮闲 · 政商群像 · {characters.length} 人
         <span class="mx-1">·</span>
         {withBacking} 有靠山 · {withOutcome} 有结局
@@ -64,7 +62,10 @@ const withOutcome = characters.filter((c) => c.data.结局).length;
         </a>
       </p>
     ) : (
-      <p class="mb-6 text-sm" style="color: var(--ink-soft)">登场人物与妖怪群像</p>
+      <p slot="module-extra" class="mt-2 text-sm" style="color: var(--ink-soft)">
+        登场人物与妖怪群像 · {characters.length} 人物
+        {monsters.length > 0 && ` · ${monsters.length} 妖怪`}
+      </p>
     )
   }
 
@@ -78,8 +79,6 @@ const withOutcome = characters.filter((c) => c.data.结局).length;
       </div>
     )
   }
-
-  {isJpm && <JpmModuleNav bookSlug={meta.slug} features={meta.features} current="bestiary" />}
 
   {
     isJpm ? (

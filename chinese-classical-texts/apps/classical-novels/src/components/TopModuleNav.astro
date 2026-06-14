@@ -1,0 +1,29 @@
+---
+import { moduleIsActive, type BookModule } from '../lib/books';
+
+interface Props {
+  bookSlug: string;
+  modules: BookModule[];
+  path: string;
+}
+
+const { bookSlug, modules, path } = Astro.props;
+---
+
+<nav class="topbar-modules" aria-label="探索模块">
+  {
+    modules.map((m) => {
+      const active = moduleIsActive(path, bookSlug, m);
+      return (
+        <a
+          href={m.href}
+          class:list={['nav-module-card', active && 'is-active']}
+          aria-current={active ? 'page' : undefined}
+        >
+          <span class="nav-module-glyph">{m.glyph}</span>
+          <span class="nav-module-title">{m.title}</span>
+        </a>
+      );
+    })
+  }
+</nav>

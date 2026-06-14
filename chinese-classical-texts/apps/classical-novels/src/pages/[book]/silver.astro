@@ -43,6 +43,8 @@ const txRows = txs.map((t) => ({
 const finEvents = (await getCollection('events'))
   .filter((e) => e.data.book === meta.book && e.data.subtype === 'financial')
   .sort((a, b) => (a.data.chapters[0] ?? 0) - (b.data.chapters[0] ?? 0));
+
+const eventTxMap = Object.fromEntries(finEvents.map((e) => [e.data.id, e.data.transaction_refs]));
 ---
 
 <Base title={`${meta.book} · 白银流`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
@@ -84,7 +86,7 @@ const finEvents = (await getCollection('events'))
       <>
         <h2 class="section-title mb-4 text-lg">白银流向</h2>
         <div class="surface mb-10 p-4 sm:p-6">
-          <SilverDashboard data={silverData} bookSlug={meta.slug} txRows={txRows} client:only="react" />
+          <SilverDashboard data={silverData} bookSlug={meta.slug} txRows={txRows} eventTxMap={eventTxMap} client:only="react" />
         </div>
 
         <h2 class="section-title mb-4 text-lg">交易清单</h2>
@@ -151,7 +153,11 @@ const finEvents = (await getCollection('events'))
                           <span style="color: var(--primary)">{formatLiang(e.data.amount_liang)}</span>
                         )}
                       </div>
-                      <p class="font-medium" style="color: var(--ink)">{e.data.title}</p>
+                      <p class="font-medium">
+                        <a href={`/${meta.slug}/chain?focus=${e.data.id}`} class="hover:underline" style="color: var(--ink)">
+                          {e.data.title}
+                        </a>
+                      </p>
                       <p class="mt-1" style="color: var(--ink-soft)">{e.data.summary}</p>
                       <p class="mt-2 text-xs">
                         第 {e.data.chapters.join('、')} 回

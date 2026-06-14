@@ -1,0 +1,20 @@
+---
+import type { BookModule } from '../lib/books';
+
+interface Props {
+  module: BookModule;
+  bookName: string;
+}
+
+const { module: mod, bookName } = Astro.props;
+---
+
+<section class="module-context surface" aria-label="当前模块">
+  <span class="glyph module-context-glyph">{mod.glyph}</span>
+  <div class="min-w-0 flex-1">
+    <p class="text-xs tracking-wide" style="color: var(--ink-soft)">{bookName}</p>
+    <h1 class="brand text-2xl sm:text-3xl" style="color: var(--primary)">{mod.title}</h1>
+    <p class="mt-1 text-sm leading-relaxed" style="color: var(--ink-soft)">{mod.desc}</p>
+    <slot />
+  </div>
+</section>

@@ -8,6 +8,9 @@ import {
   eventSubtypeLabel,
   formatLiangAmount,
 } from '../../../lib/events';
+import { chainEventLinks, chainEventHref, silverEventHref } from '../../../lib/chain';
+import { graphFocusHref } from '../../../lib/sna';
+import jpmSna from '../../../data/jinpingmei.sna.json';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -41,6 +44,14 @@ const prevLabel = isNan ? '← 上一难' : '← 上一节点';
 const nextLabel = isNan ? '下一难 →' : '下一节点 →';
 const amount = formatLiangAmount(d.amount_liang);
 const subtype = eventSubtypeLabel(d.subtype, d.financial_kind);
+const snaMeta = meta.slug === 'jinpingmei' ? (jpmSna as { hubs?: string[]; bangxian_hubs?: string[] }) : {};
+const moduleLinks = isChain
+  ? chainEventLinks(d.characters, d.transaction_refs ?? [], {
+      hubs: snaMeta.hubs ?? [],
+      bangxianHubs: snaMeta.bangxian_hubs ?? [],
+      features: meta.features,
+    })
+  : null;
 const { Content } = await render(ev);
 ---
 
@@ -169,7 +180,39 @@ const { Content } = await render(ev);
       {d.next && (
         <a href={`/${meta.slug}/e/${d.next}`} class="btn btn-ghost">{nextLabel}</a>
       )}
+      {isChain && (
+        <a href={chainEventHref(meta.slug, d.id)} class="btn btn-ghost">时间轴定位</a>
+      )}
     </div>
+
+    {
+      moduleLinks && (moduleLinks.hasSilver || moduleLinks.hasSna || moduleLinks.graphFocus) && (
+        <div class="mt-4 flex flex-wrap gap-2 text-xs">
+          <span class="chip">模块联动</span>
+          {
+            moduleLinks.hasSilver && (
+              <a href={silverEventHref(meta.slug, d.id)} class="chip hover:opacity-80" style="color:var(--accent)">
+                白银流 · {d.transaction_refs.length} 笔
+              </a>
+            )
+          }
+          {
+            moduleLinks.graphFocus && meta.features.includes('graph') && (
+              <a href={graphFocusHref(meta.slug, moduleLinks.graphFocus)} class="chip hover:opacity-80" style="color:var(--accent)">
+                图谱 · {moduleLinks.graphFocus}
+              </a>
+            )
+          }
+          {
+            moduleLinks.hasSna && moduleLinks.graphFocus && (
+              <a href={`/${meta.slug}/sna?focus=${encodeURIComponent(moduleLinks.graphFocus)}`} class="chip hover:opacity-80" style="color:var(--accent)">
+                SNA
+              </a>
+            )
+          }
+        </div>
+      )
+    }
   </section>
 
   {

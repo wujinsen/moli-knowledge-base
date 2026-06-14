@@ -25,6 +25,8 @@ interface Props {
   txRows: TxRow[];
   initialChapter?: number;
   highlightTx?: string;
+  /** event id → transaction_refs（chain P4 互链） */
+  eventTxMap?: Record<string, string[]>;
 }
 
 function scrollToTx(id: string) {
@@ -35,7 +37,7 @@ function scrollToTx(id: string) {
   window.setTimeout(() => el.classList.remove('silver-row-active'), 2400);
 }
 
-export default function SilverDashboard({ data, bookSlug, txRows, initialChapter, highlightTx }: Props) {
+export default function SilverDashboard({ data, bookSlug, txRows, initialChapter, highlightTx, eventTxMap = {} }: Props) {
   const sankeyRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   const sankeyInst = useRef<echarts.ECharts | null>(null);
@@ -43,6 +45,7 @@ export default function SilverDashboard({ data, bookSlug, txRows, initialChapter
 
   const [maxChapter, setMaxChapter] = useState(initialChapter ?? data.chapter_max);
   const [activeTxs, setActiveTxs] = useState<string[]>(highlightTx ? [highlightTx] : []);
+  const [linkedEvent, setLinkedEvent] = useState<string | null>(null);
 
   const filtered = useMemo(() => filterSilverByChapter(data, maxChapter), [data, maxChapter]);
   const sankey = useMemo(() => toSankey(filtered), [filtered]);
@@ -55,7 +58,19 @@ export default function SilverDashboard({ data, bookSlug, txRows, initialChapter
         scrollToTx(id);
       }
     };
+    const fromQuery = () => {
+      const eventId = new URLSearchParams(window.location.search).get('event');
+      if (eventId && eventTxMap[eventId]?.length) {
+        const txs = eventTxMap[eventId];
+        setLinkedEvent(eventId);
+        setActiveTxs(txs);
+        scrollToTx(txs[0]!);
+      } else {
+        setLinkedEvent(null);
+      }
+    };
     fromHash();
+    fromQuery();
     const onHash = () => fromHash();
     const onEvent = (e: Event) => {
       const id = (e as CustomEvent<string>).detail;
@@ -70,7 +85,7 @@ export default function SilverDashboard({ data, bookSlug, txRows, initialChapter
       window.removeEventListener('hashchange', onHash);
       window.removeEventListener('silver-highlight', onEvent);
     };
-  }, []);
+  }, [eventTxMap]);
 
   useEffect(() => {
     if (highlightTx) {
@@ -312,6 +327,17 @@ export default function SilverDashboard({ data, bookSlug, txRows, initialChapter
       {activeTxs.length > 0 && (
         <p className="mt-3 text-xs" style={{ color: 'var(--accent)' }}>
           高亮 {activeTxs.length} 笔关联交易：{activeTxs.join(' · ')}
+          {linkedEvent && (
+            <>
+              {' · '}
+              <a
+                href={`/${bookSlug}/chain?focus=${encodeURIComponent(linkedEvent)}`}
+                className="hover:underline"
+              >
+                衰败链节点
+              </a>
+            </>
+          )}
         </p>
       )}
 

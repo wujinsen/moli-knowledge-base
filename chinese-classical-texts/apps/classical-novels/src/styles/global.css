@@ -129,6 +129,85 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
   .topbar a:hover { color: #fff; }
   .topbar .brand-link { color: #fff; text-shadow: 0 1px 8px color-mix(in srgb, var(--gold) 40%, transparent); }
 
+  /* 顶栏模块卡片（与书目页 module-card 同语汇，紧凑横滑） */
+  .topbar-modules {
+    display: flex;
+    gap: 0.45rem;
+    overflow-x: auto;
+    padding-bottom: 0.65rem;
+    margin-bottom: 0.05rem;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--gold) 45%, transparent) transparent;
+    -webkit-overflow-scrolling: touch;
+  }
+  .topbar-modules::-webkit-scrollbar { height: 4px; }
+  .topbar-modules::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--gold) 50%, transparent);
+    border-radius: 4px;
+  }
+  .nav-module-card {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-shrink: 0;
+    padding: 0.32rem 0.7rem 0.32rem 0.35rem;
+    border-radius: 9px;
+    border: 1px solid color-mix(in srgb, var(--gold) 32%, transparent);
+    background: color-mix(in srgb, #fdf7ec 8%, transparent);
+    color: color-mix(in srgb, #fdf7ec 88%, transparent);
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  }
+  .nav-module-card:hover {
+    color: #fff;
+    border-color: color-mix(in srgb, var(--gold) 55%, transparent);
+    background: color-mix(in srgb, #fdf7ec 14%, transparent);
+    transform: translateY(-1px);
+  }
+  .nav-module-card.is-active {
+    background: var(--paper-2);
+    color: var(--primary);
+    border-color: var(--gold);
+    box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.45);
+  }
+  .nav-module-card.is-active:hover { color: var(--primary); transform: none; }
+  .nav-module-glyph {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 1.65rem;
+    height: 1.65rem;
+    border-radius: 6px;
+    font-family: var(--font-brush);
+    font-size: 0.9rem;
+    color: #fff;
+    background: linear-gradient(135deg, var(--primary), var(--primary-soft));
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 40%, transparent);
+  }
+  .nav-module-card.is-active .nav-module-glyph {
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 55%, transparent),
+      0 2px 8px -4px color-mix(in srgb, var(--primary) 50%, transparent);
+  }
+  .nav-module-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
+
+  /* 子页模块上下文（承接首页探索卡片） */
+  .module-context {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+    padding: 1.1rem 1.25rem;
+  }
+  .module-context-glyph {
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.35rem;
+  }
+
   /* 卡片表面 */
   .surface {
     background: var(--paper-2);

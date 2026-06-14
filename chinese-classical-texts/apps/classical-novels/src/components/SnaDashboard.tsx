@@ -22,6 +22,22 @@ export default function SnaDashboard({ data, bookSlug }: Props) {
   const chartRef = useRef<HTMLDivElement>(null);
   const inst = useRef<echarts.ECharts | null>(null);
   const [faction, setFaction] = useState<string | undefined>(undefined);
+  const [focusId, setFocusId] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    const apply = () => {
+      const q = new URLSearchParams(window.location.search).get('focus');
+      setFocusId(q ?? undefined);
+      if (q) {
+        window.setTimeout(() => {
+          document.querySelector('[data-sna-focus="true"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 120);
+      }
+    };
+    apply();
+    window.addEventListener('popstate', apply);
+    return () => window.removeEventListener('popstate', apply);
+  }, []);
 
   const rows = useMemo(() => filterMetrics(data, faction).slice(0, 14), [data, faction]);
   const factionKeys = useMemo(
@@ -156,12 +172,16 @@ export default function SnaDashboard({ data, bookSlug }: Props) {
 
       <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-soft)' }}>
         无向图近似 · Brandes 介数中心性 · {data.node_count ?? data.metrics.length} 节点
-        {data.generated && ` · ${data.generated}`}。点击人物跳转
+        {data.generated && ` · ${data.generated}`}。        点击人物跳转
         <strong style={{ color: 'var(--ink)' }}> 关系图谱高亮</strong>；有白银记录者链至
         <a href={`/${bookSlug}/silver`} className="mx-1 hover:underline" style={{ color: 'var(--accent)' }}>
           白银流
         </a>
-        。
+        ，与
+        <a href={`/${bookSlug}/chain`} className="mx-1 hover:underline" style={{ color: 'var(--accent)' }}>
+          衰败链
+        </a>
+        互证。URL 加 <code>?focus=人物</code> 可高亮表格行。
       </p>
 
       <div className="overflow-x-auto">
@@ -181,8 +201,16 @@ export default function SnaDashboard({ data, bookSlug }: Props) {
           <tbody>
             {rows.map((m, i) => {
               const txs = silverLinks[m.id] ?? [];
+              const isFocus = focusId === m.id;
               return (
-                <tr key={m.id} style={{ borderBottom: '1px solid var(--line)' }}>
+                <tr
+                  key={m.id}
+                  data-sna-focus={isFocus ? 'true' : undefined}
+                  style={{
+                    borderBottom: '1px solid var(--line)',
+                    background: isFocus ? 'color-mix(in srgb, var(--accent) 8%, transparent)' : undefined,
+                  }}
+                >
                   <td className="px-3 py-2.5" style={{ color: 'var(--ink-soft)' }}>
                     {i + 1}
                   </td>
@@ -207,10 +235,13 @@ export default function SnaDashboard({ data, bookSlug }: Props) {
                       图谱
                     </a>
                     {txs.length > 0 && (
-                      <a href={silverHref(bookSlug, txs[0]!)} className="hover:underline" style={{ color: 'var(--accent)' }}>
+                      <a href={silverHref(bookSlug, txs[0]!)} className="mr-2 hover:underline" style={{ color: 'var(--accent)' }}>
                         银 {txs.length} 笔
                       </a>
                     )}
+                    <a href={`/${bookSlug}/chain`} className="hover:underline" style={{ color: 'var(--accent)' }}>
+                      链
+                    </a>
                   </td>
                 </tr>
               );

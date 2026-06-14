@@ -33,8 +33,7 @@ const sections: { key: keyof typeof grouped; anchor: string }[] = isXiyouji
 ---
 
 <Base title={`${meta.book} · ${indexTitle}`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
-  <h1 class="brand mb-1 text-3xl" style="color: var(--primary)">{meta.book} · {indexTitle}</h1>
-  <p class="mb-6 text-sm" style="color: var(--ink-soft)">
+  <p slot="module-extra" class="mt-2 text-sm" style="color: var(--ink-soft)">
     {
       isXiyouji
         ? `兵器、容器、符咒类法宝实体（共 ${items.length} 条）`

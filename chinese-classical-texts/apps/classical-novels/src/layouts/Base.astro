@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
-import { themeFor, modulesFor } from '../lib/books';
+import TopModuleNav from '../components/TopModuleNav.astro';
+import ModuleContext from '../components/ModuleContext.astro';
+import { themeFor, modulesFor, activeModule } from '../lib/books';
 
 interface Props {
   title: string;
@@ -9,14 +11,26 @@ interface Props {
   features?: string[];
   /** 阅读页双栏时放宽主栏宽度 */
   readerWide?: boolean;
+  /** 子页自动渲染模块上下文条（与首页卡片呼应）；有独立 hero 的页设 false */
+  moduleContext?: boolean;
 }
-const { title, bookSlug, bookName, features = [], readerWide = false } = Astro.props;
+const {
+  title,
+  bookSlug,
+  bookName,
+  features = [],
+  readerWide = false,
+  moduleContext = true,
+} = Astro.props;
 const theme = themeFor(bookSlug);
 const navModules =
   bookSlug && bookName ? modulesFor(bookSlug, features).filter((m) => m.status === 'live') : [];
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-/** 书目首页已有「探索模块」卡片，顶栏不再重复列模块 */
-const showNavModules = Boolean(bookSlug && path !== `/${bookSlug}`);
+const currentModule =
+  bookSlug && bookName ? activeModule(path, bookSlug, modulesFor(bookSlug, features)) : undefined;
+const showModuleContext = Boolean(
+  moduleContext && bookSlug && bookName && currentModule && path !== `/${bookSlug}`,
+);
 ---
 
 <!doctype html>
@@ -34,45 +48,38 @@ const showNavModules = Boolean(bookSlug && path !== `/${bookSlug}`);
   </head>
   <body class="min-h-screen">
     <header class="topbar sticky top-0 z-30">
-      <nav class="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2.5">
+      <div class="topbar-inner mx-auto max-w-6xl px-4">
+        <nav class="flex items-center gap-3 py-2.5" aria-label="站点导航">
+          {
+            bookSlug && bookName ? (
+              <>
+                <a href="/" class="text-sm opacity-80 hover:opacity-100">典籍</a>
+                <span class="opacity-40">·</span>
+                <a href={`/${bookSlug}`} class="brand-link brand text-xl">
+                  {bookName}
+                </a>
+                <a href="/search" class="ml-auto rounded px-2.5 py-1 text-sm hover:bg-white/10">
+                  检索
+                </a>
+              </>
+            ) : (
+              <>
+                <a href="/" class="brand-link brand text-xl">
+                  古典名著知识库
+                </a>
+                <a href="/search" class="ml-auto rounded px-2.5 py-1 text-sm hover:bg-white/10">
+                  检索
+                </a>
+              </>
+            )
+          }
+        </nav>
         {
-          bookSlug && bookName ? (
-            <>
-              <a href="/" class="text-sm opacity-80 hover:opacity-100">典籍</a>
-              <span class="opacity-40">·</span>
-              <a href={`/${bookSlug}`} class="brand-link brand text-xl">
-                {bookName}
-              </a>
-              {
-                showNavModules && (
-                  <div class="ml-2 hidden items-center gap-1 overflow-x-auto md:flex">
-                    {navModules.map((m) => (
-                      <a
-                        href={m.href}
-                        class="whitespace-nowrap rounded px-2.5 py-1 text-sm hover:bg-white/10"
-                      >
-                        {m.title}
-                      </a>
-                    ))}
-                  </div>
-                )
-              }
-              <a href="/search" class="ml-auto rounded px-2.5 py-1 text-sm hover:bg-white/10">
-                检索
-              </a>
-            </>
-          ) : (
-            <>
-              <a href="/" class="brand-link brand text-xl">
-                古典名著知识库
-              </a>
-              <a href="/search" class="ml-auto rounded px-2.5 py-1 text-sm hover:bg-white/10">
-                检索
-              </a>
-            </>
+          bookSlug && navModules.length > 0 && (
+            <TopModuleNav bookSlug={bookSlug} modules={navModules} path={path} />
           )
         }
-      </nav>
+      </div>
     </header>
 
     <div class:list={['page-below-nav', readerWide && 'page-below-nav--reader']}>
@@ -82,6 +89,13 @@ const showNavModules = Boolean(bookSlug && path !== `/${bookSlug}`);
           readerWide ? 'reader-main w-full max-w-none' : 'max-w-6xl px-4 py-8',
         ]}
       >
+        {
+          showModuleContext && currentModule && bookName && (
+            <ModuleContext module={currentModule} bookName={bookName}>
+              <slot name="module-extra" />
+            </ModuleContext>
+          )
+        }
         <slot />
       </main>
 

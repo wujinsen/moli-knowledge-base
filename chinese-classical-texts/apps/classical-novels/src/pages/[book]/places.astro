@@ -32,10 +32,7 @@ const rootEntry = root ? places.find((p) => p.data.id === root.id) : undefined;
 ---
 
 <Base title={`${meta.book} · 建筑居所`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
-  <h1 class="brand mb-1 text-3xl" style="color: var(--primary)">
-    {meta.book} · {root?.pageTitle ?? '建筑居所'}
-  </h1>
-  <p class="mb-6 text-sm" style="color: var(--ink-soft)">
+  <p slot="module-extra" class="mt-2 text-sm" style="color: var(--ink-soft)">
     {root?.blurb ?? '府邸、园林、亭榭堂馆'}（共 {places.length} 处）
     {
       meta.features.includes('town') && (

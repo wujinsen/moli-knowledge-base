@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import GraphLayout from '../../layouts/GraphLayout.astro';
-import JpmModuleNav from '../../components/JpmModuleNav.astro';
 import TownMap from '../../components/TownMap.tsx';
 import crosslinks from '../../data/jinpingmei.crosslinks.json';
 import { buildTownEdges, type TownEventRef, type TownMapNode } from '../../lib/townMap';
@@ -80,6 +79,7 @@ const zoneCounts = Object.fromEntries(
   title={`${meta.book} 市井地图`}
   bookSlug={meta.slug}
   bookName={meta.book}
+  features={meta.features}
   moduleLabel="市井地图"
 >
   {
@@ -104,9 +104,6 @@ const zoneCounts = Object.fromEntries(
             府内 {zoneCounts['府内']} · 市井 {zoneCounts['市井']} · 寺观 {zoneCounts['寺观']} · 城外{' '}
             {zoneCounts['城外']}
           </span>
-        </div>
-        <div class="pointer-events-auto absolute left-3 top-14 z-30 max-w-[calc(100%-1.5rem)]">
-          <JpmModuleNav bookSlug={meta.slug} features={meta.features} current="town" />
         </div>
         <TownMap data={townData} bookSlug={meta.slug} client:only="react" />
       </>

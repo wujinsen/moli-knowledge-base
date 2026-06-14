@@ -13,8 +13,16 @@ import {
   formatLiangAmount,
   sortChainEvents,
 } from '../../lib/events';
+import {
+  chainEventLinks,
+  silverEventHref,
+  silverTxHref,
+} from '../../lib/chain';
+import { graphFocusHref } from '../../lib/sna';
 import type { FinancialData } from '../../lib/financial';
+import ChainFocus from '../../components/ChainFocus.tsx';
 import jpmFinancial from '../../data/jinpingmei.financial.json';
+import jpmSna from '../../data/jinpingmei.sna.json';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -50,6 +58,10 @@ const financialBySlug: Record<string, FinancialData> = {
   jinpingmei: jpmFinancial as FinancialData,
 };
 const financialData = financialBySlug[meta.slug];
+
+const snaHubs = meta.slug === 'jinpingmei' ? (jpmSna as { hubs?: string[]; bangxian_hubs?: string[] }) : {};
+const graphHubs = snaHubs.hubs ?? [];
+const bangxianHubs = snaHubs.bangxian_hubs ?? [];
 ---
 
 <Base title={`${meta.book} · 发家衰败链`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
@@ -75,6 +87,8 @@ const financialData = financialBySlug[meta.slug];
   </section>
 
   {meta.slug === 'jinpingmei' && <JpmModuleNav bookSlug={meta.slug} features={meta.features} current="chain" />}
+
+  {meta.slug === 'jinpingmei' && <ChainFocus client:only="react" />}
 
   <div class="mb-8 flex flex-wrap gap-2">
     {
@@ -106,6 +120,11 @@ const financialData = financialBySlug[meta.slug];
         const phase = ch != null ? chainPhaseFor(ch) : JPM_CHAIN_PHASES[0];
         const amount = formatLiangAmount(d.amount_liang);
         const subtype = eventSubtypeLabel(d.subtype, d.financial_kind);
+        const links = chainEventLinks(d.characters, d.transaction_refs, {
+          hubs: graphHubs,
+          bangxianHubs,
+          features: meta.features,
+        });
         return (
           <article class="timeline-item surface" id={`chain-${d.id}`}>
             <div class="timeline-marker">
@@ -138,13 +157,41 @@ const financialData = financialBySlug[meta.slug];
                   <a href={`/${meta.slug}/l/${l}`} class="chip hover:opacity-80">{l}</a>
                 ))}
                 {
-                  d.transaction_refs.length > 0 && (
-                    <a href={`/${meta.slug}/silver#${d.transaction_refs[0]}`} class="chip hover:opacity-80">
-                      {d.transaction_refs.length} 笔交易
+                  d.transaction_refs.map((tid) => (
+                    <a href={silverTxHref(meta.slug, tid)} class="chip hover:opacity-80" title="跳转白银流明细">
+                      {tid}
                     </a>
-                  )
+                  ))
                 }
               </div>
+              {
+                (links.hasSilver || links.hasSna || links.graphFocus) && (
+                  <div class="mt-2 flex flex-wrap gap-2 text-xs">
+                    <span class="chip" style="font-size:0.65rem">联动</span>
+                    {
+                      links.hasSilver && (
+                        <a href={silverEventHref(meta.slug, d.id)} class="chip hover:opacity-80" style="color:var(--accent)">
+                          白银流 · {d.transaction_refs.length} 笔
+                        </a>
+                      )
+                    }
+                    {
+                      links.graphFocus && meta.features.includes('graph') && (
+                        <a href={graphFocusHref(meta.slug, links.graphFocus)} class="chip hover:opacity-80" style="color:var(--accent)">
+                          图谱 · {links.graphFocus}
+                        </a>
+                      )
+                    }
+                    {
+                      links.hasSna && links.graphFocus && (
+                        <a href={`/${meta.slug}/sna?focus=${encodeURIComponent(links.graphFocus)}`} class="chip hover:opacity-80" style="color:var(--accent)">
+                          SNA
+                        </a>
+                      )
+                    }
+                  </div>
+                )
+              }
               <div class="mt-2 flex gap-3 text-xs" style="color: var(--accent)">
                 {d.prev && (
                   <a href={`/${meta.slug}/e/${d.prev}`} class="hover:underline">← 上一节点</a>
@@ -164,6 +211,18 @@ const financialData = financialBySlug[meta.slug];
     <span class="chip">数据源</span>
     financial_event + plot ·
     <a href={`/${meta.slug}/silver`} class="hover:underline" style="color: var(--accent)">白银流</a>
+    {meta.features.includes('sna') && (
+      <>
+        {' · '}
+        <a href={`/${meta.slug}/sna`} class="hover:underline" style="color: var(--accent)">社会网络</a>
+      </>
+    )}
+    {meta.features.includes('graph') && (
+      <>
+        {' · '}
+        <a href={`/${meta.slug}/graph`} class="hover:underline" style="color: var(--accent)">关系图谱</a>
+      </>
+    )}
     {meta.features.includes('town') && (
       <>
         {' · '}

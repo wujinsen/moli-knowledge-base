@@ -90,8 +90,11 @@ const modules = modulesFor(meta.slug, meta.features);
     </div>
   </section>
 
-  {/* 功能模块（书目页唯一入口；子页见顶栏快捷导航） */}
+  {/* 探索模块：与顶栏模块卡片同语汇，首页作详细入口 */}
   <h2 class="section-title mb-4 text-lg">探索模块</h2>
+  <p class="mb-4 text-sm" style="color: var(--ink-soft)">
+    顶栏可快速切换；下方卡片含各模块简介。
+  </p>
   <div class="mb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
     {
       modules.map((m) => (
