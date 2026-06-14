@@ -86,7 +86,7 @@ const books = defineCollection({
     author: z.string(),
     chapter_count: z.number(),
     features: z.array(
-      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'sna', 'nan', 'route'])
+      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'sna', 'compare', 'nan', 'route'])
     ),
     summary: z.string().optional(),
   }),
@@ -256,7 +256,9 @@ const imagery = defineCollection({
   }),
 });
 
-const EVENT_SUBTYPES = ['tribulation', 'plot'] as const;
+const EVENT_SUBTYPES = ['tribulation', 'plot', 'financial'] as const;
+
+const FINANCIAL_KINDS = ['药铺', '放债', '贿赂', '遗产', '经营', '买卖'] as const;
 
 const scopedRelation = z.object({
   subject: z.string(),
@@ -275,6 +277,10 @@ const events = defineCollection({
     book: z.enum(BOOKS),
     subtype: z.enum(EVENT_SUBTYPES).default('tribulation'),
     tribulation_no: z.number().optional(),
+    // 金瓶梅 · 经济事件
+    financial_kind: z.enum(FINANCIAL_KINDS).optional(),
+    amount_liang: z.number().optional(),
+    transaction_refs: z.array(z.string()).default([]),
     title: z.string(),
     aliases: z.array(z.string()).default([]),
     chapters: z.array(z.number()).default([]),
@@ -324,6 +330,26 @@ const transactions = defineCollection({
   }),
 });
 
+const VARIANT_CATEGORIES = ['回目', '删润', '物价', '措辞', '情节', '批语'] as const;
+
+const textVariants = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/variants' }),
+  schema: z.object({
+    id: z.string(),
+    type: z.literal('variant'),
+    book: z.enum(BOOKS),
+    chapter: z.number(),
+    category: z.enum(VARIANT_CATEGORIES),
+    edition_a: z.string(),
+    edition_b: z.string(),
+    text_a: z.string().optional(),
+    text_b: z.string().optional(),
+    note: z.string().optional(),
+    tags: z.array(z.string()).default([]),
+    summary: z.string(),
+  }),
+});
+
 export const collections = {
   characters,
   chapters,
@@ -335,5 +361,6 @@ export const collections = {
   customs,
   transactions,
   events,
+  variants: textVariants,
   imagery,
 };

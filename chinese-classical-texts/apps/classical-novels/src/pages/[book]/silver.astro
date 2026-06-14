@@ -27,8 +27,11 @@ const txRows = txs.map((t) => ({
   parties: [t.data.buyer, t.data.seller, t.data.payee].filter(Boolean).join(' · '),
   summary: t.data.summary ?? '—',
   disputed: t.data.conversion_disputed,
-  href: `/${meta.slug}/read/${t.data.chapter}`,
+  href: `/${meta.slug}/read/cihua/${t.data.chapter}`,
 }));
+const finEvents = (await getCollection('events'))
+  .filter((e) => e.data.book === meta.book && e.data.subtype === 'financial')
+  .sort((a, b) => (a.data.chapters[0] ?? 0) - (b.data.chapters[0] ?? 0));
 ---
 
 <Base title={`${meta.book} · 白银流`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
@@ -102,6 +105,36 @@ const txRows = txs.map((t) => ({
           <strong style="color: var(--primary)">{formatLiang(totalLiang)}</strong>
           <span class="ml-2">· 资金池：西门庆府 → 妻妾奴婢 / 经营投资 / 政商贿赂 / 帮闲圈 等</span>
         </div>
+
+        {
+          finEvents.length > 0 && (
+            <>
+              <h2 class="section-title mb-4 mt-10 text-lg">经济事件链</h2>
+              <div class="grid gap-3 sm:grid-cols-2">
+                {
+                  finEvents.map((e) => (
+                    <div class="surface p-4 text-sm">
+                      <div class="mb-1 flex flex-wrap items-center gap-2">
+                        <span class="chip text-xs">{e.data.financial_kind ?? '经济'}</span>
+                        {e.data.amount_liang != null && (
+                          <span style="color: var(--primary)">{formatLiang(e.data.amount_liang)}</span>
+                        )}
+                      </div>
+                      <p class="font-medium" style="color: var(--ink)">{e.data.title}</p>
+                      <p class="mt-1" style="color: var(--ink-soft)">{e.data.summary}</p>
+                      <p class="mt-2 text-xs">
+                        第 {e.data.chapters.join('、')} 回
+                        {e.data.transaction_refs.length > 0 && (
+                          <span> · 关联交易 {e.data.transaction_refs.length} 笔</span>
+                        )}
+                      </p>
+                    </div>
+                  ))
+                }
+              </div>
+            </>
+          )
+        }
       </>
     )
   }

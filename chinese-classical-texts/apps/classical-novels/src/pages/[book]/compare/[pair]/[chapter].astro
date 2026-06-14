@@ -1,0 +1,213 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../../../layouts/Base.astro';
+import {
+  COMPARE_PAIR_SLUGS,
+  COMPARE_PAIRS,
+  compareChapterPath,
+  editionLabel,
+  editionSlug,
+  type ComparePairSlug,
+} from '../../../../lib/editions';
+import { variantsForChapter } from '../../../../lib/variants';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  const chapters = await getCollection('chapters');
+  const paths: {
+    params: { book: string; pair: string; chapter: string };
+    props: Record<string, unknown>;
+  }[] = [];
+
+  for (const b of books.filter((bk) => bk.data.features.includes('compare'))) {
+    const slug = b.data.slug;
+    const book = b.data.book;
+    for (const pairSlug of COMPARE_PAIR_SLUGS) {
+      const pair = COMPARE_PAIRS[pairSlug];
+      for (let n = 1; n <= b.data.chapter_count; n++) {
+        const left = chapters.find(
+          (c) => c.data.book === book && c.data.number === n && c.data.edition === pair.left,
+        );
+        const right = chapters.find(
+          (c) => c.data.book === book && c.data.number === n && c.data.edition === pair.right,
+        );
+        if (!left || !right) continue;
+        paths.push({
+          params: { book: slug, pair: pairSlug, chapter: String(n) },
+          props: {
+            bookMeta: b,
+            leftEntry: left,
+            rightEntry: right,
+            pairSlug,
+            chapter: n,
+          },
+        });
+      }
+    }
+  }
+  return paths;
+}
+
+const {
+  bookMeta,
+  leftEntry,
+  rightEntry,
+  pairSlug,
+  chapter,
+} = Astro.props as {
+  bookMeta: Awaited<ReturnType<typeof getCollection<'books'>>>[0];
+  leftEntry: Awaited<ReturnType<typeof getCollection<'chapters'>>>[0];
+  rightEntry: Awaited<ReturnType<typeof getCollection<'chapters'>>>[0];
+  pairSlug: ComparePairSlug;
+  chapter: number;
+};
+
+const meta = bookMeta.data;
+const pair = COMPARE_PAIRS[pairSlug];
+const variants = await variantsForChapter(meta.book, chapter);
+const relevantVariants = variants.filter(
+  (v) =>
+    (v.data.edition_a === pair.left && v.data.edition_b === pair.right) ||
+    (v.data.edition_a === pair.right && v.data.edition_b === pair.left),
+);
+
+const { Content: LeftContent } = await render(leftEntry);
+const { Content: RightContent } = await render(rightEntry);
+
+const titleDiff = leftEntry.data.title.trim() !== rightEntry.data.title.trim();
+const prev = chapter > 1 ? chapter - 1 : undefined;
+const next = chapter < meta.chapter_count ? chapter + 1 : undefined;
+---
+
+<Base
+  title={`${meta.book} · 第${chapter}回对勘`}
+  bookSlug={meta.slug}
+  bookName={meta.book}
+  features={meta.features}
+>
+  <a href={`/${meta.slug}/compare`} class="text-sm hover:underline" style="color: var(--ink-soft)">
+    ← 对勘目录
+  </a>
+
+  <section class="surface mt-3 mb-4 px-4 py-5 sm:px-6">
+    <h1 class="brand text-2xl sm:text-3xl" style="color: var(--primary)">
+      第 {chapter} 回 · {pair.label}
+    </h1>
+    {
+      titleDiff && (
+        <div class="mt-3 grid gap-2 text-sm sm:grid-cols-2">
+          <p>
+            <span class="chip text-xs">{editionLabel(pair.left)}</span>
+            {leftEntry.data.title}
+          </p>
+          <p>
+            <span class="chip text-xs">{editionLabel(pair.right)}</span>
+            {rightEntry.data.title}
+          </p>
+        </div>
+      )
+    }
+    <nav class="mt-4 flex flex-wrap gap-2 text-sm">
+      {
+        COMPARE_PAIR_SLUGS.map((slug) => (
+          <a
+            href={compareChapterPath(meta.slug, slug, chapter)}
+            class:list={['chip', slug === pairSlug && 'ring-1 ring-[var(--accent)]']}
+          >
+            {COMPARE_PAIRS[slug].label}
+          </a>
+        ))
+      }
+    </nav>
+  </section>
+
+  {
+    relevantVariants.length > 0 && (
+      <section class="surface mb-4 px-4 py-4 sm:px-6">
+        <h2 class="section-title mb-2 text-sm">本回异文锚点（{relevantVariants.length}）</h2>
+        <ul class="space-y-2 text-sm" style="color: var(--ink-soft)">
+          {
+            relevantVariants.map((v) => (
+              <li class="border-l-2 pl-3" style="border-color: var(--accent)">
+                <span class="chip mr-1 text-xs">{v.data.category}</span>
+                {v.data.summary}
+                {
+                  v.data.text_a && v.data.text_b && (
+                    <div class="mt-1 text-xs opacity-90">
+                      「{v.data.text_a}」↔「{v.data.text_b}」
+                    </div>
+                  )
+                }
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    )
+  }
+
+  <div class="edition-compare-shell" data-edition-compare>
+    <div class="edition-compare-col">
+      <header class="edition-compare-head">
+        <span class="chip">{editionLabel(pair.left)}</span>
+        {!titleDiff && <span class="ml-2 text-sm">{leftEntry.data.title}</span>}
+      </header>
+      <div class="edition-compare-body prose-cn" data-compare-scroll="left">
+        <LeftContent />
+      </div>
+    </div>
+    <div class="edition-compare-col">
+      <header class="edition-compare-head">
+        <span class="chip">{editionLabel(pair.right)}</span>
+        {!titleDiff && <span class="ml-2 text-sm">{rightEntry.data.title}</span>}
+      </header>
+      <div class="edition-compare-body prose-cn" data-compare-scroll="right">
+        <RightContent />
+      </div>
+    </div>
+  </div>
+
+  <nav class="mt-6 flex justify-between text-sm">
+    {
+      prev ? (
+        <a href={compareChapterPath(meta.slug, pairSlug, prev)} class="hover:underline" style="color: var(--accent)">
+          ← 第 {prev} 回
+        </a>
+      ) : (
+        <span />
+      )
+    }
+    <a href={`/${meta.slug}/read/${editionSlug(pair.left)}/${chapter}`} class="hover:underline" style="color: var(--ink-soft)">
+      单栏阅读
+    </a>
+    {
+      next ? (
+        <a href={compareChapterPath(meta.slug, pairSlug, next)} class="hover:underline" style="color: var(--accent)">
+          第 {next} 回 →
+        </a>
+      ) : (
+        <span />
+      )
+    }
+  </nav>
+</Base>
+
+<script>
+  const root = document.querySelector('[data-edition-compare]');
+  if (root) {
+    const left = root.querySelector('[data-compare-scroll="left"]');
+    const right = root.querySelector('[data-compare-scroll="right"]');
+    if (left && right) {
+      let syncing = false;
+      const sync = (src, dst) => {
+        if (syncing) return;
+        syncing = true;
+        const ratio = src.scrollTop / Math.max(1, src.scrollHeight - src.clientHeight);
+        dst.scrollTop = ratio * Math.max(0, dst.scrollHeight - dst.clientHeight);
+        syncing = false;
+      };
+      left.addEventListener('scroll', () => sync(left, right), { passive: true });
+      right.addEventListener('scroll', () => sync(right, left), { passive: true });
+    }
+  }
+</script>

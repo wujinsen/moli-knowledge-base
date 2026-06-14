@@ -180,7 +180,7 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
           },
         },
         {
-          key: 'edition', glyph: '勘', title: '版本对勘', desc: '词话本 vs 崇祯本异文', ...plan(slug, 'edition'),
+          key: 'edition', glyph: '勘', title: '版本对勘', desc: '词话本 vs 崇祯本异文', ...live(has('compare'), slug, 'edition', `/${slug}/compare`),
           preview: {
             intro:
               '《金瓶梅》是部禁书，在地下秘密流传中被不断修改。本模块对勘三大版本系统的异文，追踪情节的删减与润色。',

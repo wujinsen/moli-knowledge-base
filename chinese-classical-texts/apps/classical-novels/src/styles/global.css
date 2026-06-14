@@ -886,3 +886,56 @@ a.edition-tab:hover {
   border-color: color-mix(in srgb, #d4a574 45%, #2e2b28);
   background: color-mix(in srgb, #d4a574 12%, #1a1816);
 }
+
+/* ============ 版本对勘双栏 ============ */
+.edition-compare-shell {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--paper-2);
+}
+
+.edition-compare-col {
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+  max-height: min(72vh, 720px);
+  border-right: 1px solid var(--line);
+}
+
+.edition-compare-col:last-child {
+  border-right: none;
+}
+
+.edition-compare-head {
+  flex-shrink: 0;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--primary) 5%, var(--paper));
+  font-size: 0.875rem;
+}
+
+.edition-compare-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 1.1rem 1.25rem;
+  font-size: 0.92rem;
+  line-height: 1.85;
+}
+
+@media (max-width: 768px) {
+  .edition-compare-shell {
+    grid-template-columns: 1fr;
+  }
+  .edition-compare-col {
+    max-height: 50vh;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .edition-compare-col:last-child {
+    border-bottom: none;
+  }
+}
