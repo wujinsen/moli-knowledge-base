@@ -9,7 +9,7 @@ chapters: [16, 17]
 characters: [西门庆, 李瓶儿]
 locations: [李瓶儿房]
 amount_liang: 380
-transaction_refs: []
+transaction_refs: [jpm-tx-021]
 prev: jpm-fe-003
 next: jpm-fe-007
 tags: [李瓶儿, 经营投资]

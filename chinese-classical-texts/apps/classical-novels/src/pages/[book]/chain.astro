@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
+import JpmModuleNav from '../../components/JpmModuleNav.astro';
 import {
   JPM_CHAIN_PHASES,
   chainPhaseFor,
@@ -65,6 +66,8 @@ const phaseCounts = JPM_CHAIN_PHASES.map((p) => ({
     </p>
   </section>
 
+  {meta.slug === 'jinpingmei' && <JpmModuleNav bookSlug={meta.slug} features={meta.features} current="chain" />}
+
   <div class="mb-8 flex flex-wrap gap-2">
     {
       phaseCounts.map((p) => (
@@ -116,7 +119,7 @@ const phaseCounts = JPM_CHAIN_PHASES.map((p) => ({
                 ))}
                 {
                   d.transaction_refs.length > 0 && (
-                    <a href={`/${meta.slug}/silver`} class="chip hover:opacity-80">
+                    <a href={`/${meta.slug}/silver#${d.transaction_refs[0]}`} class="chip hover:opacity-80">
                       {d.transaction_refs.length} 笔交易
                     </a>
                   )
@@ -141,6 +144,12 @@ const phaseCounts = JPM_CHAIN_PHASES.map((p) => ({
     <span class="chip">数据源</span>
     financial_event + plot ·
     <a href={`/${meta.slug}/silver`} class="hover:underline" style="color: var(--accent)">白银流</a>
+    {meta.features.includes('town') && (
+      <>
+        {' · '}
+        <a href={`/${meta.slug}/town`} class="hover:underline" style="color: var(--accent)">市井地图</a>
+      </>
+    )}
     · 增补事件后更新 frontmatter 中 prev/next 链
   </div>
 </Base>

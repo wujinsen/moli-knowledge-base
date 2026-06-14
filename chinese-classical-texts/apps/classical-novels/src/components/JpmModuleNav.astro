@@ -1,0 +1,24 @@
+---
+import { jpmModulesFor } from '../lib/jpmModules';
+
+interface Props {
+  bookSlug: string;
+  features: string[];
+  current?: string;
+}
+
+const { bookSlug, features, current } = Astro.props;
+const links = jpmModulesFor(features, current);
+---
+
+{
+  links.length > 0 && (
+    <nav class="mb-6 flex flex-wrap gap-2 text-sm" aria-label="金瓶梅模块互链">
+      {links.map((m) => (
+        <a href={`/${bookSlug}/${m.slug}`} class="chip hover:underline">
+          {m.label}
+        </a>
+      ))}
+    </nav>
+  )
+}

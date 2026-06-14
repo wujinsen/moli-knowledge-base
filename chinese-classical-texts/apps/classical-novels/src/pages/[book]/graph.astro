@@ -1,6 +1,7 @@
 ---
 import { getBooks } from '../../lib/getBooks';
 import GraphLayout from '../../layouts/GraphLayout.astro';
+import JpmModuleNav from '../../components/JpmModuleNav.astro';
 import RelationGraph from '../../components/RelationGraph.tsx';
 import { graphTheme } from '../../lib/graphTheme';
 import { relationGraphForSlug } from '../../lib/relations';
@@ -41,7 +42,13 @@ const data = relationGraphForSlug(meta.slug);
         </a>
       </div>
     ) : (
-      <RelationGraph data={data} bookSlug={meta.slug} client:only="react">
+      <>
+        {meta.slug === 'jinpingmei' && (
+          <div class="pointer-events-auto absolute left-3 top-14 z-30 max-w-[calc(100%-1.5rem)]">
+            <JpmModuleNav bookSlug={meta.slug} features={meta.features} current="graph" />
+          </div>
+        )}
+        <RelationGraph data={data} bookSlug={meta.slug} client:only="react">
         <div
           slot="fallback"
           class="flex min-h-[70vh] flex-col items-center justify-center gap-3 px-4 text-center text-slate-400"
@@ -52,7 +59,8 @@ const data = relationGraphForSlug(meta.slug);
           />
           <p class="text-sm">加载关系图谱…</p>
         </div>
-      </RelationGraph>
+        </RelationGraph>
+      </>
     )
   }
 </GraphLayout>

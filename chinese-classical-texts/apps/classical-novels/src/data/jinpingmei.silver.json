@@ -1,0 +1,675 @@
+{
+  "book": "金瓶梅",
+  "generated": "2026-06-15",
+  "transaction_count": 25,
+  "disputed_count": 1,
+  "total_liang": 3948.7,
+  "chapter_min": 1,
+  "chapter_max": 87,
+  "hub": {
+    "name": "西门庆府",
+    "inflow": 16.0,
+    "outflow": 3462.7,
+    "net": -3446.7
+  },
+  "pools": [
+    {
+      "name": "外室",
+      "inflow": 140.0,
+      "outflow": 0.0,
+      "net": 140.0,
+      "depth": 2,
+      "color": "#6c8576"
+    },
+    {
+      "name": "外部",
+      "inflow": 130.0,
+      "outflow": 10.0,
+      "net": 120.0,
+      "depth": 2,
+      "color": "#9c8450"
+    },
+    {
+      "name": "妻妾奴婢",
+      "inflow": 67.7,
+      "outflow": 385.0,
+      "net": -317.3,
+      "depth": 2,
+      "color": "#74332c"
+    },
+    {
+      "name": "官场打点",
+      "inflow": 201.0,
+      "outflow": 0.0,
+      "net": 201.0,
+      "depth": 2,
+      "color": "#8a6a3b"
+    },
+    {
+      "name": "官府",
+      "inflow": 0.0,
+      "outflow": 50.0,
+      "net": -50.0,
+      "depth": 2,
+      "color": "#4a5568"
+    },
+    {
+      "name": "帮闲圈",
+      "inflow": 1350.0,
+      "outflow": 41.0,
+      "net": 1309.0,
+      "depth": 2,
+      "color": "#5c6359"
+    },
+    {
+      "name": "清河县",
+      "inflow": 10.0,
+      "outflow": 0.0,
+      "net": 10.0,
+      "depth": 2,
+      "color": "#7a6a5a"
+    },
+    {
+      "name": "玉皇庙",
+      "inflow": 4.0,
+      "outflow": 0.0,
+      "net": 4.0,
+      "depth": 2,
+      "color": "#5a7a6a"
+    },
+    {
+      "name": "经营投资",
+      "inflow": 1130.0,
+      "outflow": 0.0,
+      "net": 1130.0,
+      "depth": 2,
+      "color": "#33493c"
+    },
+    {
+      "name": "蔡太师府",
+      "inflow": 900.0,
+      "outflow": 0.0,
+      "net": 900.0,
+      "depth": 2,
+      "color": "#8a6532"
+    },
+    {
+      "name": "西门庆府",
+      "inflow": 16.0,
+      "outflow": 3462.7,
+      "net": -3446.7,
+      "depth": 1,
+      "color": "#607a67"
+    }
+  ],
+  "links": [
+    {
+      "source": "外部",
+      "target": "西门庆府",
+      "value": 10.0,
+      "txs": [
+        "jpm-tx-008"
+      ]
+    },
+    {
+      "source": "妻妾奴婢",
+      "target": "经营投资",
+      "value": 380.0,
+      "txs": [
+        "jpm-tx-021"
+      ]
+    },
+    {
+      "source": "妻妾奴婢",
+      "target": "西门庆府",
+      "value": 5.0,
+      "txs": [
+        "jpm-tx-014"
+      ]
+    },
+    {
+      "source": "官府",
+      "target": "帮闲圈",
+      "value": 50.0,
+      "txs": [
+        "jpm-tx-016"
+      ]
+    },
+    {
+      "source": "帮闲圈",
+      "target": "妻妾奴婢",
+      "value": 30.0,
+      "txs": [
+        "jpm-tx-020"
+      ]
+    },
+    {
+      "source": "帮闲圈",
+      "target": "清河县",
+      "value": 10.0,
+      "txs": [
+        "jpm-tx-017"
+      ]
+    },
+    {
+      "source": "帮闲圈",
+      "target": "西门庆府",
+      "value": 1.0,
+      "txs": [
+        "jpm-tx-015"
+      ]
+    },
+    {
+      "source": "西门庆府",
+      "target": "外室",
+      "value": 140.0,
+      "txs": [
+        "jpm-tx-007",
+        "jpm-tx-009"
+      ]
+    },
+    {
+      "source": "西门庆府",
+      "target": "外部",
+      "value": 130.0,
+      "txs": [
+        "jpm-tx-005",
+        "jpm-tx-025"
+      ]
+    },
+    {
+      "source": "西门庆府",
+      "target": "妻妾奴婢",
+      "value": 37.7,
+      "txs": [
+        "jpm-tx-012",
+        "jpm-tx-013",
+        "jpm-tx-001"
+      ]
+    },
+    {
+      "source": "西门庆府",
+      "target": "官场打点",
+      "value": 201.0,
+      "txs": [
+        "jpm-tx-011",
+        "jpm-tx-023"
+      ]
+    },
+    {
+      "source": "西门庆府",
+      "target": "帮闲圈",
+      "value": 1300.0,
+      "txs": [
+        "jpm-tx-006",
+        "jpm-tx-010",
+        "jpm-tx-024"
+      ]
+    },
+    {
+      "source": "西门庆府",
+      "target": "玉皇庙",
+      "value": 4.0,
+      "txs": [
+        "jpm-tx-019"
+      ]
+    },
+    {
+      "source": "西门庆府",
+      "target": "经营投资",
+      "value": 750.0,
+      "txs": [
+        "jpm-tx-002",
+        "jpm-tx-004"
+      ]
+    },
+    {
+      "source": "西门庆府",
+      "target": "蔡太师府",
+      "value": 900.0,
+      "txs": [
+        "jpm-tx-018",
+        "jpm-tx-003",
+        "jpm-tx-022"
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "chapter": 1,
+      "delta": 95.0,
+      "cumulative": 95.0,
+      "tx_ids": [
+        "jpm-tx-015",
+        "jpm-tx-016",
+        "jpm-tx-017",
+        "jpm-tx-019",
+        "jpm-tx-020"
+      ]
+    },
+    {
+      "chapter": 16,
+      "delta": 30.2,
+      "cumulative": 125.2,
+      "tx_ids": [
+        "jpm-tx-012",
+        "jpm-tx-013"
+      ]
+    },
+    {
+      "chapter": 17,
+      "delta": 380.0,
+      "cumulative": 505.2,
+      "tx_ids": [
+        "jpm-tx-021"
+      ]
+    },
+    {
+      "chapter": 18,
+      "delta": 1.0,
+      "cumulative": 506.2,
+      "tx_ids": [
+        "jpm-tx-011"
+      ]
+    },
+    {
+      "chapter": 23,
+      "delta": 100.0,
+      "cumulative": 606.2,
+      "tx_ids": [
+        "jpm-tx-018"
+      ]
+    },
+    {
+      "chapter": 26,
+      "delta": 300.0,
+      "cumulative": 906.2,
+      "tx_ids": [
+        "jpm-tx-002"
+      ]
+    },
+    {
+      "chapter": 27,
+      "delta": 300.0,
+      "cumulative": 1206.2,
+      "tx_ids": [
+        "jpm-tx-003"
+      ]
+    },
+    {
+      "chapter": 30,
+      "delta": 7.5,
+      "cumulative": 1213.7,
+      "tx_ids": [
+        "jpm-tx-001"
+      ]
+    },
+    {
+      "chapter": 31,
+      "delta": 170.0,
+      "cumulative": 1383.7,
+      "tx_ids": [
+        "jpm-tx-005",
+        "jpm-tx-006"
+      ]
+    },
+    {
+      "chapter": 33,
+      "delta": 450.0,
+      "cumulative": 1833.7,
+      "tx_ids": [
+        "jpm-tx-004"
+      ]
+    },
+    {
+      "chapter": 36,
+      "delta": 10.0,
+      "cumulative": 1843.7,
+      "tx_ids": [
+        "jpm-tx-008"
+      ]
+    },
+    {
+      "chapter": 37,
+      "delta": 20.0,
+      "cumulative": 1863.7,
+      "tx_ids": [
+        "jpm-tx-007"
+      ]
+    },
+    {
+      "chapter": 38,
+      "delta": 1000.0,
+      "cumulative": 2863.7,
+      "tx_ids": [
+        "jpm-tx-010"
+      ]
+    },
+    {
+      "chapter": 39,
+      "delta": 120.0,
+      "cumulative": 2983.7,
+      "tx_ids": [
+        "jpm-tx-009"
+      ]
+    },
+    {
+      "chapter": 48,
+      "delta": 200.0,
+      "cumulative": 3183.7,
+      "tx_ids": [
+        "jpm-tx-023"
+      ]
+    },
+    {
+      "chapter": 75,
+      "delta": 500.0,
+      "cumulative": 3683.7,
+      "tx_ids": [
+        "jpm-tx-022"
+      ]
+    },
+    {
+      "chapter": 79,
+      "delta": 200.0,
+      "cumulative": 3883.7,
+      "tx_ids": [
+        "jpm-tx-024"
+      ]
+    },
+    {
+      "chapter": 85,
+      "delta": 60.0,
+      "cumulative": 3943.7,
+      "tx_ids": [
+        "jpm-tx-025"
+      ]
+    },
+    {
+      "chapter": 87,
+      "delta": 5.0,
+      "cumulative": 3948.7,
+      "tx_ids": [
+        "jpm-tx-014"
+      ]
+    }
+  ],
+  "transactions": [
+    {
+      "id": "jpm-tx-015",
+      "chapter": 1,
+      "subtype": "财礼",
+      "liang": 1.0,
+      "pool_from": "帮闲圈",
+      "pool_to": "西门庆府",
+      "disputed": false,
+      "summary": "花子虚先送一两分资，结拜十弟兄预备。",
+      "source": "chapters/金瓶梅/001.md"
+    },
+    {
+      "id": "jpm-tx-016",
+      "chapter": 1,
+      "subtype": "馈赠",
+      "liang": 50.0,
+      "pool_from": "官府",
+      "pool_to": "帮闲圈",
+      "disputed": false,
+      "summary": "知县赐武松打虎赏银五十两，散与众猎户。",
+      "source": "chapters/金瓶梅/001.md"
+    },
+    {
+      "id": "jpm-tx-017",
+      "chapter": 1,
+      "subtype": "买卖",
+      "liang": 10.0,
+      "pool_from": "帮闲圈",
+      "pool_to": "清河县",
+      "disputed": false,
+      "summary": "武大凑十数两银子，典县前楼上下两层四间。",
+      "source": "chapters/金瓶梅/001.md"
+    },
+    {
+      "id": "jpm-tx-019",
+      "chapter": 1,
+      "subtype": "酒席宴请",
+      "liang": 4.0,
+      "pool_from": "西门庆府",
+      "pool_to": "玉皇庙",
+      "disputed": false,
+      "summary": "初二买办猪羊金华酒等四两，预备初三结拜。",
+      "source": "chapters/金瓶梅/001.md"
+    },
+    {
+      "id": "jpm-tx-020",
+      "chapter": 1,
+      "subtype": "奴婢买卖",
+      "liang": 30.0,
+      "pool_from": "帮闲圈",
+      "pool_to": "妻妾奴婢",
+      "disputed": false,
+      "summary": "潘妈妈将潘金莲三十两转卖张大户家。",
+      "source": "chapters/金瓶梅/001.md"
+    },
+    {
+      "id": "jpm-tx-012",
+      "chapter": 16,
+      "subtype": "奴婢买卖",
+      "liang": 30.0,
+      "pool_from": "西门庆府",
+      "pool_to": "妻妾奴婢",
+      "disputed": true,
+      "summary": "买春梅身契三十两（架构文档 §7.1 示例，词话本回目待对勘）。",
+      "source": "docs/金瓶梅-知识图谱架构.md"
+    },
+    {
+      "id": "jpm-tx-013",
+      "chapter": 16,
+      "subtype": "馈赠",
+      "liang": 0.2,
+      "pool_from": "西门庆府",
+      "pool_to": "妻妾奴婢",
+      "disputed": false,
+      "summary": "李瓶儿寿日，西门庆吩咐拿二钱银子与玳安买瓜子。",
+      "source": "chapters/金瓶梅/016.md"
+    },
+    {
+      "id": "jpm-tx-021",
+      "chapter": 17,
+      "subtype": "买卖",
+      "liang": 380.0,
+      "pool_from": "妻妾奴婢",
+      "pool_to": "经营投资",
+      "disputed": false,
+      "summary": "李瓶儿箱藏香蜡水银等变卖三百八十两，盖房过门用。",
+      "source": "chapters/金瓶梅/017.md"
+    },
+    {
+      "id": "jpm-tx-011",
+      "chapter": 18,
+      "subtype": "贿赂",
+      "liang": 1.0,
+      "pool_from": "西门庆府",
+      "pool_to": "官场打点",
+      "disputed": false,
+      "summary": "来保往蔡府送礼，一两银子打点管事。",
+      "source": "chapters/金瓶梅/018.md"
+    },
+    {
+      "id": "jpm-tx-018",
+      "chapter": 23,
+      "subtype": "贿赂",
+      "liang": 100.0,
+      "pool_from": "西门庆府",
+      "pool_to": "蔡太师府",
+      "disputed": false,
+      "summary": "西门庆认翟管家为干爹，初次进百两礼银。",
+      "source": "chapters/金瓶梅/023.md"
+    },
+    {
+      "id": "jpm-tx-002",
+      "chapter": 26,
+      "subtype": "经营投资",
+      "liang": 300.0,
+      "pool_from": "西门庆府",
+      "pool_to": "经营投资",
+      "disputed": false,
+      "summary": "付来旺三百两银子作酒店本钱。",
+      "source": "chapters/金瓶梅/026.md"
+    },
+    {
+      "id": "jpm-tx-003",
+      "chapter": 27,
+      "subtype": "贿赂",
+      "liang": 300.0,
+      "pool_from": "西门庆府",
+      "pool_to": "蔡太师府",
+      "disputed": false,
+      "summary": "蔡太师寿辰，西门庆差人送三百两寿礼银人。",
+      "source": "chapters/金瓶梅/027.md"
+    },
+    {
+      "id": "jpm-tx-001",
+      "chapter": 30,
+      "subtype": "奴婢买卖",
+      "liang": 7.5,
+      "pool_from": "西门庆府",
+      "pool_to": "妻妾奴婢",
+      "disputed": false,
+      "summary": "买丫鬟夏花儿，七两五钱银子。",
+      "source": "chapters/金瓶梅/030.md"
+    },
+    {
+      "id": "jpm-tx-005",
+      "chapter": 31,
+      "subtype": "买卖",
+      "liang": 70.0,
+      "pool_from": "西门庆府",
+      "pool_to": "外部",
+      "disputed": false,
+      "summary": "买王昭宣犀角带一条，七十两银子。",
+      "source": "chapters/金瓶梅/031.md"
+    },
+    {
+      "id": "jpm-tx-006",
+      "chapter": 31,
+      "subtype": "借贷",
+      "liang": 100.0,
+      "pool_from": "西门庆府",
+      "pool_to": "帮闲圈",
+      "disputed": false,
+      "summary": "吴典恩借西门庆一百两银子，约期归还。",
+      "source": "chapters/金瓶梅/031.md"
+    },
+    {
+      "id": "jpm-tx-004",
+      "chapter": 33,
+      "subtype": "经营投资",
+      "liang": 450.0,
+      "pool_from": "西门庆府",
+      "pool_to": "经营投资",
+      "disputed": false,
+      "summary": "绒线铺开张，本钱四百五十两。",
+      "source": "chapters/金瓶梅/033.md"
+    },
+    {
+      "id": "jpm-tx-008",
+      "chapter": 36,
+      "subtype": "收礼",
+      "liang": 10.0,
+      "pool_from": "外部",
+      "pool_to": "西门庆府",
+      "disputed": false,
+      "summary": "翟管家贺礼，西门庆回赠十两银子。",
+      "source": "chapters/金瓶梅/036.md"
+    },
+    {
+      "id": "jpm-tx-007",
+      "chapter": 37,
+      "subtype": "财礼",
+      "liang": 20.0,
+      "pool_from": "西门庆府",
+      "pool_to": "外室",
+      "disputed": false,
+      "summary": "韩爱姐认干亲，西门庆送二十两财礼。",
+      "source": "chapters/金瓶梅/037.md"
+    },
+    {
+      "id": "jpm-tx-010",
+      "chapter": 38,
+      "subtype": "借贷",
+      "liang": 1000.0,
+      "pool_from": "西门庆府",
+      "pool_to": "帮闲圈",
+      "disputed": false,
+      "summary": "应伯爵牵线，西门庆借出一千两与李智、黄四。",
+      "source": "chapters/金瓶梅/038.md"
+    },
+    {
+      "id": "jpm-tx-009",
+      "chapter": 39,
+      "subtype": "买卖",
+      "liang": 120.0,
+      "pool_from": "西门庆府",
+      "pool_to": "外室",
+      "disputed": false,
+      "summary": "为王六儿买房屋，一百二十两银子。",
+      "source": "chapters/金瓶梅/039.md"
+    },
+    {
+      "id": "jpm-tx-023",
+      "chapter": 48,
+      "subtype": "经营投资",
+      "liang": 200.0,
+      "pool_from": "西门庆府",
+      "pool_to": "官场打点",
+      "disputed": false,
+      "summary": "提刑所官买办，西门庆垫二百两银子。",
+      "source": "chapters/金瓶梅/048.md"
+    },
+    {
+      "id": "jpm-tx-022",
+      "chapter": 75,
+      "subtype": "贿赂",
+      "liang": 500.0,
+      "pool_from": "西门庆府",
+      "pool_to": "蔡太师府",
+      "disputed": false,
+      "summary": "蔡京寿辰，西门庆再送五百两寿礼银。",
+      "source": "chapters/金瓶梅/075.md"
+    },
+    {
+      "id": "jpm-tx-024",
+      "chapter": 79,
+      "subtype": "酒席宴请",
+      "liang": 200.0,
+      "pool_from": "西门庆府",
+      "pool_to": "帮闲圈",
+      "disputed": false,
+      "summary": "西门庆亡故，吴月娘办丧事开销（摘记一笔）。",
+      "source": "chapters/金瓶梅/079.md"
+    },
+    {
+      "id": "jpm-tx-025",
+      "chapter": 85,
+      "subtype": "买卖",
+      "liang": 60.0,
+      "pool_from": "西门庆府",
+      "pool_to": "外部",
+      "disputed": false,
+      "summary": "家道渐落，变卖家当得银六十两。",
+      "source": "chapters/金瓶梅/085.md"
+    },
+    {
+      "id": "jpm-tx-014",
+      "chapter": 87,
+      "subtype": "奴婢买卖",
+      "liang": 5.0,
+      "pool_from": "妻妾奴婢",
+      "pool_to": "西门庆府",
+      "disputed": false,
+      "summary": "潘金莲出府后，秋菊变卖得五两银子交月娘（府内回流）。",
+      "source": "chapters/金瓶梅/087.md"
+    }
+  ],
+  "verify_issues": []
+}

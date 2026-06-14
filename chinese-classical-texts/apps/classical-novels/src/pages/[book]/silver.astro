@@ -2,9 +2,12 @@
 import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
-import SilverFlow from '../../components/SilverFlow.tsx';
+import JpmModuleNav from '../../components/JpmModuleNav.astro';
+import SilverDashboard from '../../components/SilverDashboard.tsx';
 import { formatLiang } from '../../lib/currency';
-import { amountDisplay, buildSankey, effectiveLiang } from '../../lib/transactions';
+import { amountDisplay } from '../../lib/transactions';
+import type { SilverData } from '../../lib/silver';
+import jpmSilver from '../../data/jinpingmei.silver.json';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -18,8 +21,14 @@ const meta = book.data;
 const txs = (await getCollection('transactions'))
   .filter((t) => t.data.book === meta.book)
   .sort((a, b) => a.data.chapter - b.data.chapter);
-const sankey = buildSankey(txs);
-const totalLiang = txs.reduce((s, t) => s + effectiveLiang(t.data), 0);
+
+const silverBySlug: Record<string, SilverData> = {
+  jinpingmei: jpmSilver as SilverData,
+};
+
+const silverData = silverBySlug[meta.slug];
+const totalLiang = silverData?.total_liang ?? txs.reduce((s, t) => s + (t.data.amount_normalized ?? 0), 0);
+
 const txRows = txs.map((t) => ({
   id: t.data.id,
   chapter: t.data.chapter,
@@ -27,9 +36,10 @@ const txRows = txs.map((t) => ({
   amount: amountDisplay(t.data),
   parties: [t.data.buyer, t.data.seller, t.data.payee].filter(Boolean).join(' · '),
   summary: t.data.summary ?? '—',
-  disputed: t.data.conversion_disputed,
+  disputed: t.data.conversion_disputed ?? false,
   href: `/${meta.slug}/read/cihua/${t.data.chapter}`,
 }));
+
 const finEvents = (await getCollection('events'))
   .filter((e) => e.data.book === meta.book && e.data.subtype === 'financial')
   .sort((a, b) => (a.data.chapters[0] ?? 0) - (b.data.chapters[0] ?? 0));
@@ -44,26 +54,37 @@ const finEvents = (await getCollection('events'))
       <div>
         <h1 class="brand text-4xl" style="color: var(--primary)">物价 · 白银流</h1>
         <p class="mt-2 text-sm" style="color: var(--ink-soft)">
-          交易记录 · 银两换算 · 资金池桑基图 · {txs.length} 笔首批数据
+          交易记录 · 银两换算 · 资金池桑基图 · {txs.length} 笔
+          {silverData && ` · 构建期 JSON ${silverData.generated}`}
         </p>
       </div>
     </div>
     <p class="mt-5 max-w-2xl leading-relaxed text-sm" style="color: var(--ink)">
       以「两银」为统一口径归一化词话本中的银、钱、贯、文；每条交易可溯源至章回原文。
-      晚明「1000 文 ≈ 1 两」为简化换算，存疑处已标注。
+      晚明「1000 文 ≈ 1 两」为简化换算，存疑处已标注。运行
+      <code class="mx-1 rounded px-1.5 py-0.5 text-xs" style="background: var(--base)">python scripts/build_silver.py 金瓶梅</code>
+      重建桑基数据。
     </p>
   </section>
 
+  {meta.slug === 'jinpingmei' && <JpmModuleNav bookSlug={meta.slug} features={meta.features} current="silver" />}
+
   {
-    txs.length === 0 ? (
+    txs.length === 0 || !silverData ? (
       <div class="surface p-8 text-center" style="color: var(--ink-soft)">
-        尚无交易记录，请向 <code>src/content/transactions/{meta.book}/</code> 录入数据。
+        {txs.length === 0 ? (
+          <>
+            尚无交易记录，请向 <code>src/content/transactions/{meta.book}/</code> 录入数据。
+          </>
+        ) : (
+          <>缺少 <code>src/data/{meta.slug}.silver.json</code>，请运行 build_silver.py。</>
+        )}
       </div>
     ) : (
       <>
         <h2 class="section-title mb-4 text-lg">白银流向</h2>
         <div class="surface mb-10 p-4 sm:p-6">
-          <SilverFlow sankey={sankey} totalLiang={totalLiang} client:only="react" />
+          <SilverDashboard data={silverData} bookSlug={meta.slug} txRows={txRows} client:only="react" />
         </div>
 
         <h2 class="section-title mb-4 text-lg">交易清单</h2>
@@ -126,7 +147,15 @@ const finEvents = (await getCollection('events'))
                       <p class="mt-2 text-xs">
                         第 {e.data.chapters.join('、')} 回
                         {e.data.transaction_refs.length > 0 && (
-                          <span> · 关联交易 {e.data.transaction_refs.length} 笔</span>
+                          <span>
+                            {' · '}
+                            {e.data.transaction_refs.map((tid, i) => (
+                              <>
+                                {i > 0 && ' · '}
+                                <a href={`#${tid}`} class="hover:underline" style="color: var(--accent)">{tid}</a>
+                              </>
+                            ))}
+                          </span>
                         )}
                       </p>
                     </div>
@@ -140,3 +169,15 @@ const finEvents = (await getCollection('events'))
     )
   }
 </Base>
+
+<script>
+  /** 静态页 hash 定位：#jpm-tx-001 → 通知 React 仪表盘 */
+  const hash = window.location.hash.replace('#', '');
+  if (hash && hash.startsWith('jpm-tx')) {
+    window.dispatchEvent(new CustomEvent('silver-highlight', { detail: hash }));
+  }
+  window.addEventListener('hashchange', () => {
+    const id = window.location.hash.replace('#', '');
+    if (id) window.dispatchEvent(new CustomEvent('silver-highlight', { detail: id }));
+  });
+</script>

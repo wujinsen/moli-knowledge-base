@@ -28,6 +28,9 @@ export const POOL_COLORS: Record<string, string> = {
   外室: '#6c8576',
   宗教布施: '#266c7c',
   官场打点: '#8a6a3b',
+  官府: '#4a5568',
+  玉皇庙: '#5a7a6a',
+  清河县: '#7a6a5a',
 };
 
 export function effectiveLiang(d: TxData): number {
@@ -35,7 +38,7 @@ export function effectiveLiang(d: TxData): number {
 }
 
 export interface SankeyData {
-  nodes: { name: string }[];
+  nodes: { name: string; depth?: number; value?: number }[];
   links: { source: string; target: string; value: number; txs: string[] }[];
 }
 

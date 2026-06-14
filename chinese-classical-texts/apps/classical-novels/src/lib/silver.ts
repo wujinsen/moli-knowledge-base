@@ -1,0 +1,136 @@
+import type { SankeyData } from './transactions';
+import { POOL_COLORS } from './transactions';
+
+export interface SilverTransaction {
+  id: string;
+  chapter: number;
+  subtype: string;
+  liang: number;
+  pool_from: string;
+  pool_to: string;
+  disputed: boolean;
+  summary: string;
+}
+
+export interface SilverPoolStat {
+  name: string;
+  inflow: number;
+  outflow: number;
+  net: number;
+  depth: number;
+  color: string;
+}
+
+export interface SilverTimelinePoint {
+  chapter: number;
+  delta: number;
+  cumulative: number;
+  tx_ids: string[];
+}
+
+export interface SilverData {
+  book: string;
+  generated: string;
+  transaction_count: number;
+  disputed_count: number;
+  total_liang: number;
+  chapter_min: number;
+  chapter_max: number;
+  hub: { name: string; inflow: number; outflow: number; net: number };
+  pools: SilverPoolStat[];
+  links: { source: string; target: string; value: number; txs: string[] }[];
+  timeline: SilverTimelinePoint[];
+  transactions: SilverTransaction[];
+}
+
+export { POOL_COLORS };
+
+export function filterSilverByChapter(data: SilverData, maxChapter: number): SilverData {
+  const txs = data.transactions.filter((t) => t.chapter <= maxChapter && t.liang > 0);
+  const linkMap = new Map<string, { value: number; txs: string[] }>();
+
+  for (const t of txs) {
+    const key = `${t.pool_from}→${t.pool_to}`;
+    const prev = linkMap.get(key) ?? { value: 0, txs: [] };
+    prev.value += t.liang;
+    prev.txs.push(t.id);
+    linkMap.set(key, prev);
+  }
+
+  const poolOut = new Map<string, number>();
+  const poolIn = new Map<string, number>();
+  const hubIn = new Map<string, number>();
+  const hubOut = new Map<string, number>();
+  const hub = data.hub.name;
+
+  for (const t of txs) {
+    poolOut.set(t.pool_from, (poolOut.get(t.pool_from) ?? 0) + t.liang);
+    poolIn.set(t.pool_to, (poolIn.get(t.pool_to) ?? 0) + t.liang);
+    if (t.pool_to === hub) hubIn.set(t.pool_from, (hubIn.get(t.pool_from) ?? 0) + t.liang);
+    if (t.pool_from === hub) hubOut.set(t.pool_to, (hubOut.get(t.pool_to) ?? 0) + t.liang);
+  }
+
+  const poolNames = new Set([...poolOut.keys(), ...poolIn.keys()]);
+  const pools = [...poolNames].map((name) => {
+    const base = data.pools.find((p) => p.name === name);
+    const inf = Math.round((poolIn.get(name) ?? 0) * 100) / 100;
+    const outf = Math.round((poolOut.get(name) ?? 0) * 100) / 100;
+    return {
+      name,
+      inflow: inf,
+      outflow: outf,
+      net: Math.round((inf - outf) * 100) / 100,
+      depth: base?.depth ?? (name === hub ? 1 : 2),
+      color: base?.color ?? POOL_COLORS[name] ?? '#607a67',
+    };
+  });
+
+  const links = [...linkMap.entries()].map(([key, v]) => {
+    const [source, target] = key.split('→');
+    return { source, target, value: Math.round(v.value * 100) / 100, txs: v.txs };
+  });
+
+  const timeline = data.timeline.filter((p) => p.chapter <= maxChapter);
+  const cumulative = timeline.length ? timeline[timeline.length - 1].cumulative : 0;
+
+  return {
+    ...data,
+    transaction_count: txs.length,
+    disputed_count: txs.filter((t) => t.disputed).length,
+    total_liang: Math.round(cumulative * 100) / 100,
+    pools,
+    links,
+    timeline,
+    transactions: txs,
+    hub: {
+      name: hub,
+      inflow: Math.round([...hubIn.values()].reduce((s, v) => s + v, 0) * 100) / 100,
+      outflow: Math.round([...hubOut.values()].reduce((s, v) => s + v, 0) * 100) / 100,
+      net: Math.round(
+        ([...hubIn.values()].reduce((s, v) => s + v, 0) -
+          [...hubOut.values()].reduce((s, v) => s + v, 0)) *
+          100,
+      ) / 100,
+    },
+  };
+}
+
+export function toSankey(data: SilverData): SankeyData {
+  const depthByPool = new Map(data.pools.map((p) => [p.name, p.depth]));
+  return {
+    nodes: data.pools.map((p) => ({
+      name: p.name,
+      depth: p.depth,
+      value: Math.max(p.inflow, p.outflow),
+    })),
+    links: data.links.map((l) => ({
+      source: l.source,
+      target: l.target,
+      value: l.value,
+      txs: l.txs,
+    })),
+  };
+}
+
+/** Re-export depth on nodes for ECharts — SankeyData nodes extended at runtime */
+export type SankeyNodeWithDepth = { name: string; depth?: number; value?: number };

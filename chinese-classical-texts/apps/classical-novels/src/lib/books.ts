@@ -200,6 +200,7 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
               'J1 transaction / financial_event schema 落地',
               'J2 /ingest 货币换算标准化（amount_normalized）',
               'J3 白银流向桑基图 / 资金池可视化',
+              'J4 构建期 silver.json · 回目筛选 · 累计曲线 · 衰败链互链',
             ],
             relatedDoc: '金瓶梅-知识图谱架构.md（§四–§六）',
           },

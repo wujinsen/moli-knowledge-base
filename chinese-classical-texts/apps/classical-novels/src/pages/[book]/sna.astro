@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
+import JpmModuleNav from '../../components/JpmModuleNav.astro';
 import SnaPanel from '../../components/SnaPanel.tsx';
 import type { SnaData } from '../../lib/sna';
 
@@ -39,6 +40,8 @@ const data: SnaData = key
       把西门府人际勾连作为社会网络，定位把控信息与白银流动的关键掮客——《金瓶梅》作为「社会人类学报告」的核心研究工具。
     </p>
   </section>
+
+  {meta.slug === 'jinpingmei' && <JpmModuleNav bookSlug={meta.slug} features={meta.features} current="sna" />}
 
   {
     data.metrics.length === 0 ? (

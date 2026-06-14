@@ -60,6 +60,46 @@ TXS: list[dict] = [
         summary="潘妈妈将潘金莲三十两转卖张大户家。",
         body="第一回，潘金莲十五岁由王招宣府转出，三十两卖与张大户。",
     ),
+    dict(
+        id="jpm-tx-021", subtype="买卖", chapter=17, amount=380, currency="银",
+        amount_normalized=380, conversion_note="三百八十两变卖，直接计",
+        seller="李瓶儿", buyer="经纪", item_ref="香蜡水银等",
+        pool_from="妻妾奴婢", pool_to="经营投资", tags=["李瓶儿", "遗产"],
+        summary="李瓶儿箱藏香蜡水银等变卖三百八十两，盖房过门用。",
+        body="第十七回，李瓶儿私房物资经经纪变卖，得银三百八十两凑盖房与过门。",
+    ),
+    dict(
+        id="jpm-tx-022", subtype="贿赂", chapter=75, amount=500, currency="银",
+        amount_normalized=500, conversion_note="五百两寿礼，直接计",
+        buyer="西门庆", payee="蔡京", item_ref="蔡府寿礼",
+        pool_from="西门庆府", pool_to="蔡太师府", tags=["蔡京", "寿礼"],
+        summary="蔡京寿辰，西门庆再送五百两寿礼银。",
+        body="第七十五回，西门庆差人送蔡太师寿礼银五百两，巩固政商关系。",
+    ),
+    dict(
+        id="jpm-tx-023", subtype="经营投资", chapter=48, amount=200, currency="银",
+        amount_normalized=200, conversion_note="二百两垫办，直接计",
+        buyer="提刑所", payee="西门庆", item_ref="官买办垫款",
+        pool_from="西门庆府", pool_to="官场打点", tags=["提刑所", "垫款"],
+        summary="提刑所官买办，西门庆垫二百两银子。",
+        body="第四十八回，西门庆为提刑所买办垫银二百两，换取官场便利。",
+    ),
+    dict(
+        id="jpm-tx-024", subtype="酒席宴请", chapter=79, amount=200, currency="银",
+        amount_normalized=200, conversion_note="丧礼开销摘记，取整二百两",
+        buyer="吴月娘", item_ref="西门庆丧礼",
+        pool_from="西门庆府", pool_to="帮闲圈", tags=["丧礼", "吴月娘"],
+        summary="西门庆亡故，吴月娘办丧事开销（摘记一笔）。",
+        body="第七十九回，西门庆暴亡，吴月娘治丧，应伯爵等帮闲张罗，耗费甚巨。",
+    ),
+    dict(
+        id="jpm-tx-025", subtype="买卖", chapter=85, amount=60, currency="银",
+        amount_normalized=60, conversion_note="六十两变卖家当，直接计",
+        seller="吴月娘", item_ref="家当",
+        pool_from="西门庆府", pool_to="外部", tags=["散府", "变卖"],
+        summary="家道渐落，变卖家当得银六十两。",
+        body="第八十五回，吴月娘变卖家当换银六十两，西门府衰败之兆。",
+    ),
 ]
 
 
@@ -97,7 +137,7 @@ summary: {t['summary']}
 def main() -> None:
     for t in TXS:
         write(t)
-    print(f"[金瓶梅] {len(TXS)} transactions (015+) → {OUT.relative_to(ROOT)}")
+    print(f"[金瓶梅] {len(TXS)} transactions (015–025) → {OUT.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

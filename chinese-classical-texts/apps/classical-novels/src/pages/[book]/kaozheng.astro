@@ -1,6 +1,7 @@
 ---
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
+import JpmModuleNav from '../../components/JpmModuleNav.astro';
 import {
   loadTopics,
   byCategory,
@@ -47,6 +48,8 @@ const stanceClass = (s: string) =>
       <span class="chip">诠释 / 假说</span>呈现，挂证据链、标可信度，绝不写成事实。
     </p>
   </section>
+
+  {meta.slug === 'jinpingmei' && <JpmModuleNav bookSlug={meta.slug} features={meta.features} current="kaozheng" />}
 
   {
     topics.length === 0 ? (

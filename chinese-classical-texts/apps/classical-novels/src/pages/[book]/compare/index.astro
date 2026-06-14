@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
+import JpmModuleNav from '../../../components/JpmModuleNav.astro';
 import {
   COMPARE_PAIR_SLUGS,
   COMPARE_PAIRS,
@@ -64,6 +65,8 @@ const jumpMarks = [1, 10, 20, 30, 50, 80, 100].filter((n) => n <= meta.chapter_c
       }
     </nav>
   </section>
+
+  {meta.slug === 'jinpingmei' && <JpmModuleNav bookSlug={meta.slug} features={meta.features} current="compare" />}
 
   <div class="mb-4 flex flex-wrap items-center gap-2 text-sm" style="color: var(--ink-soft)">
     <span>跳至回目：</span>

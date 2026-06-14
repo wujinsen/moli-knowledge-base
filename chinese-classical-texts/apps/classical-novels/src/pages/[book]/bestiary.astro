@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import CharacterCard from '../../components/CharacterCard.astro';
+import JpmModuleNav from '../../components/JpmModuleNav.astro';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -77,6 +78,8 @@ const withOutcome = characters.filter((c) => c.data.结局).length;
       </div>
     )
   }
+
+  {isJpm && <JpmModuleNav bookSlug={meta.slug} features={meta.features} current="bestiary" />}
 
   {
     isJpm ? (
