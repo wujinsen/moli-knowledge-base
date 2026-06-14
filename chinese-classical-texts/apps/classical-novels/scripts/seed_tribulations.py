@@ -102,8 +102,14 @@ ALIASES: dict[int, list[str]] = {
 }
 
 EXTRA: dict[int, dict] = {
+    11: {
+        "characters": ["唐僧", "孙悟空", "黑熊精", "观音菩萨"],
+        "monsters": ["黑熊精"],
+        "locations": ["黑风山", "观音院"],
+        "summary": "观音院失火，黑熊精盗锦襕袈裟；观音收为守山大神。",
+    },
     13: {
-        "characters": ["唐僧", "孙悟空", "黄风怪"],
+        "characters": ["唐僧", "孙悟空", "黄风怪", "灵吉菩萨"],
         "locations": ["黄风岭"],
         "summary": "黄风岭黄风怪三昧神风伤悟空眼，灵吉菩萨降伏。",
     },
