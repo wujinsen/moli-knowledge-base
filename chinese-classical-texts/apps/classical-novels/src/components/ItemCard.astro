@@ -2,7 +2,7 @@
 interface Props {
   href: string;
   name: string;
-  kind: 'medicine' | 'dish' | 'costume' | 'custom';
+  kind: 'medicine' | 'dish' | 'costume' | 'custom' | 'artifact';
   subtype?: string;
   summary?: string;
   tags?: string[];
@@ -15,6 +15,7 @@ const kindLabel: Record<Props['kind'], string> = {
   dish: '饮食',
   costume: '服饰',
   custom: '民俗',
+  artifact: '法宝',
 };
 
 const kindColor: Record<Props['kind'], string> = {
@@ -22,6 +23,7 @@ const kindColor: Record<Props['kind'], string> = {
   dish: 'bg-orange-100 text-orange-800',
   costume: 'bg-violet-100 text-violet-800',
   custom: 'bg-amber-100 text-amber-800',
+  artifact: 'bg-sky-100 text-sky-800',
 };
 ---
 

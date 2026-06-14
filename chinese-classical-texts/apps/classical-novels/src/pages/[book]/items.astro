@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import ItemCard from '../../components/ItemCard.astro';
-import { groupByKind, kindLabel, loadBookItems } from '../../lib/items';
+import { groupByKind, itemsIndexTitle, kindLabel, loadBookItems } from '../../lib/items';
 
 export async function getStaticPaths() {
   const books = await getCollection('books');
@@ -18,19 +18,27 @@ const { book } = Astro.props;
 const meta = book.data;
 const items = await loadBookItems(meta.book);
 const grouped = groupByKind(items);
+const indexTitle = itemsIndexTitle(meta.book);
+const isXiyouji = meta.book === '西游记';
 
-const sections: { key: keyof typeof grouped; anchor: string }[] = [
-  { key: 'medicine', anchor: 'medicine' },
-  { key: 'dish', anchor: 'dish' },
-  { key: 'costume', anchor: 'costume' },
-  { key: 'custom', anchor: 'custom' },
-];
+const sections: { key: keyof typeof grouped; anchor: string }[] = isXiyouji
+  ? [{ key: 'artifact', anchor: 'artifact' }]
+  : [
+      { key: 'medicine', anchor: 'medicine' },
+      { key: 'dish', anchor: 'dish' },
+      { key: 'costume', anchor: 'costume' },
+      { key: 'custom', anchor: 'custom' },
+    ];
 ---
 
-<Base title={`${meta.book} · 名物索引`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
-  <h1 class="brand mb-1 text-3xl" style="color: var(--primary)">{meta.book} · 名物百科</h1>
+<Base title={`${meta.book} · ${indexTitle}`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  <h1 class="brand mb-1 text-3xl" style="color: var(--primary)">{meta.book} · {indexTitle}</h1>
   <p class="mb-6 text-sm" style="color: var(--ink-soft)">
-    医药、饮食、服饰、民俗规章实体（共 {items.length} 条）
+    {
+      isXiyouji
+        ? `兵器、容器、符咒类法宝实体（共 ${items.length} 条）`
+        : `医药、饮食、服饰、民俗规章实体（共 ${items.length} 条）`
+    }
   </p>
 
   <nav class="mb-8 flex flex-wrap gap-2 text-sm">
@@ -69,7 +77,9 @@ const sections: { key: keyof typeof grouped; anchor: string }[] = [
 
   {
     items.length === 0 && (
-      <p class="text-sm" style="color: var(--ink-soft)">本书暂无名物实体页。</p>
+      <p class="text-sm" style="color: var(--ink-soft)">
+        {isXiyouji ? '本书暂无法宝实体页。' : '本书暂无名物实体页。'}
+      </p>
     )
   }
 </Base>

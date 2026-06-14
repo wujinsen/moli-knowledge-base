@@ -38,6 +38,26 @@ LOCATION_EXTRA: dict[str, str] = {
     "内书房": "荣国府",
 }
 
+BOOK_ITEM_EXTRA: dict[str, dict[str, str]] = {
+    "西游记": {
+        "如意金箍棒": "金箍棒",
+        "铁棒": "金箍棒",
+        "九齿渗金钉钯": "九齿钉钯",
+        "钉钯": "九齿钉钯",
+        "降妖杖": "降妖宝杖",
+        "紧箍儿": "紧箍",
+        "紧箍咒": "紧箍",
+        "铁扇": "芭蕉扇",
+        "罗扇": "芭蕉扇",
+        "紫金葫芦": "紫金红葫芦",
+        "红葫芦": "紫金红葫芦",
+        "幌金绳": "幌金绳",
+        "金刚圈": "金刚琢",
+        "人种袋": "人种袋",
+        "定风丹": "定风丹",
+    },
+}
+
 BOOK_LOCATION_EXTRA: dict[str, dict[str, str]] = {
     "金瓶梅": {
         "西门大官人家": "西门府",
@@ -93,7 +113,7 @@ def load_location_pairs(book: str) -> list[tuple[str, str]]:
 
 def load_item_pairs(book: str) -> list[tuple[str, str]]:
     pairs: dict[str, str] = {}
-    for kind in ("dishes", "medicines", "costumes", "customs"):
+    for kind in ("artifacts", "dishes", "medicines", "costumes", "customs"):
         d = CONTENT / kind / book
         if not d.exists():
             continue
@@ -134,6 +154,8 @@ def load_item_pairs(book: str) -> list[tuple[str, str]]:
     pairs.setdefault("通灵宝玉", "通灵宝玉")
     pairs.setdefault("通灵玉", "通灵宝玉")
     pairs.setdefault("金锁", "金锁")
+    for alias, iid in BOOK_ITEM_EXTRA.get(book, {}).items():
+        pairs.setdefault(alias, iid)
     return sorted(pairs.items(), key=lambda x: (-len(x[0]), x[0]))
 
 

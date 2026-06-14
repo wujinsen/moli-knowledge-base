@@ -1,13 +1,23 @@
-import crosslinksData from '../data/红楼梦.crosslinks.json';
+import hlmCrosslinks from '../data/红楼梦.crosslinks.json';
+import xyjCrosslinks from '../data/西游记.crosslinks.json';
 import { loadBookItems, type ItemEntry } from './items';
 
 export type ItemRef = { id: string; name: string; kind: ItemEntry['kind'] };
 
-const crosslinks = crosslinksData as {
+type CrosslinksFile = {
   book: string;
   location_items: Record<string, string[]>;
   occupant_items: Record<string, string[]>;
 };
+
+const CROSSLINKS: Record<string, CrosslinksFile> = {
+  红楼梦: hlmCrosslinks as CrosslinksFile,
+  西游记: xyjCrosslinks as CrosslinksFile,
+};
+
+function crosslinksFor(book: string): CrosslinksFile | undefined {
+  return CROSSLINKS[book];
+}
 
 export function parseChapterNumber(text: string): number | null {
   const m = text.match(/第(\d+)回/);
@@ -48,12 +58,13 @@ export async function relatedItemsForPlace(
   placeId: string,
   occupants: string[] = []
 ): Promise<ItemRef[]> {
-  if (book !== crosslinks.book) return [];
+  const cl = crosslinksFor(book);
+  if (!cl) return [];
 
   const index = await itemIndex(book);
   const ids = new Set<string>();
 
-  for (const id of crosslinks.location_items[placeId] ?? []) ids.add(id);
+  for (const id of cl.location_items[placeId] ?? []) ids.add(id);
 
   const all = await loadBookItems(book);
   for (const { entry } of all) {
@@ -62,7 +73,7 @@ export async function relatedItemsForPlace(
   }
 
   for (const person of occupants) {
-    for (const id of crosslinks.occupant_items[person] ?? []) ids.add(id);
+    for (const id of cl.occupant_items[person] ?? []) ids.add(id);
   }
 
   return resolveIds([...ids], index);
@@ -74,7 +85,7 @@ export async function relatedItemsAtSameLocation(
   locationId: string | undefined,
   excludeId: string
 ): Promise<ItemRef[]> {
-  if (!locationId || book !== crosslinks.book) return [];
+  if (!locationId || !crosslinksFor(book)) return [];
   const all = await relatedItemsForPlace(book, locationId, []);
   return all.filter((r) => r.id !== excludeId);
 }

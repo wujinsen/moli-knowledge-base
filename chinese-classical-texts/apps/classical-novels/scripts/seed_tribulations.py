@@ -147,6 +147,7 @@ EXTRA: dict[int, dict] = {
     24: {
         "characters": ["唐僧", "孙悟空", "猪八戒", "沙僧", "金角大王", "银角大王"],
         "locations": ["平顶山"],
+        "artifacts": ["紫金红葫芦", "幌金绳"],
         "summary": "平顶山莲花洞金角银角，五件宝贝斗悟空。",
     },
     26: {
@@ -192,6 +193,7 @@ EXTRA: dict[int, dict] = {
     53: {
         "characters": ["唐僧", "孙悟空", "猪八戒", "沙僧", "黄眉怪"],
         "locations": ["小雷音寺"],
+        "artifacts": ["人种袋"],
         "summary": "小雷音寺黄眉怪人种袋困悟空，弥勒收之。",
     },
     65: {
@@ -228,7 +230,7 @@ EXTRA: dict[int, dict] = {
         "characters": ["孙悟空", "铁扇公主", "牛魔王", "唐僧", "猪八戒", "沙僧"],
         "locations": ["火焰山"],
         "monsters": [],
-        "artifacts": ["芭蕉扇"],
+        "artifacts": ["芭蕉扇", "定风丹"],
         "summary": "火焰山阻路，悟空三借芭蕉扇，天兵降伏牛魔王。",
     },
     81: {

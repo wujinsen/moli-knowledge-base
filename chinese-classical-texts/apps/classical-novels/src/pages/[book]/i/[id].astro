@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
-import { kindLabel, loadBookItems, type ItemKind } from '../../../lib/items';
+import { itemsIndexTitle, kindLabel, loadBookItems, type ItemKind } from '../../../lib/items';
 import {
   chaptersFromAppearIn,
   itemLocationId,
@@ -30,7 +30,15 @@ const d = entry.data;
 const { Content } = await render(entry);
 
 const metaRows: [string, string | undefined][] = [];
-if (kind === 'medicine') {
+if (kind === 'artifact') {
+  metaRows.push(
+    ['类别', d.category ?? d.type],
+    ['制造', d.maker],
+    ['持有', d.owner],
+    ['重量', d.weight],
+    ['首现', d.first_appear],
+  );
+} else if (kind === 'medicine') {
   metaRows.push(
     ['类别', d.category],
     ['对象', d.patient],
@@ -66,11 +74,15 @@ if (kind === 'medicine') {
 const locationId = itemLocationId(entry);
 const samePlace = await relatedItemsAtSameLocation(d.book, locationId, d.id);
 const chapterNums = chaptersFromAppearIn(d.appear_in ?? []);
+const indexTitle = itemsIndexTitle(d.book);
+const artifactData = kind === 'artifact' ? (d as typeof d & { abilities?: string[]; counters?: string[]; relations?: { target: string; type: string; note?: string }[] }) : null;
+const allItems = await loadBookItems(d.book);
+const counterRefs = artifactData?.counters?.map((id) => allItems.find((i) => i.entry.data.id === id)).filter(Boolean) ?? [];
 ---
 
 <Base title={d.name} bookSlug={slug} bookName={d.book} features={features}>
   <a href={`/${slug}/items`} class="text-sm hover:underline" style="color: var(--ink-soft)" data-pagefind-ignore>
-    ← 名物百科
+    ← {indexTitle}
   </a>
   <div
     data-pagefind-body
@@ -106,6 +118,11 @@ const chapterNums = chaptersFromAppearIn(d.appear_in ?? []);
         d.participants?.length > 0 && <div>参与者：{d.participants.join('、')}</div>
       }
       {
+        artifactData?.abilities && artifactData.abilities.length > 0 && (
+          <div>能力：{artifactData.abilities.join('、')}</div>
+        )
+      }
+      {
         locationId && (
           <div>
             地点：<a class="hover:underline" style="color: var(--primary)" href={`/${slug}/l/${locationId}`}>{locationId}</a>
@@ -113,6 +130,40 @@ const chapterNums = chaptersFromAppearIn(d.appear_in ?? []);
         )
       }
     </div>
+
+    {
+      counterRefs.length > 0 && (
+        <div class="mt-6">
+          <h2 class="section-title mb-2 text-sm">克制关系</h2>
+          <div class="flex flex-wrap gap-2">
+            {counterRefs.map((item) => item && (
+              <a href={`/${slug}/i/${item.entry.data.id}`} class="chip hover:underline">
+                {item.entry.data.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    {
+      artifactData?.relations && artifactData.relations.length > 0 && (
+        <div class="mt-6">
+          <h2 class="section-title mb-2 text-sm">谱系关系</h2>
+          <ul class="space-y-1 text-sm" style="color: var(--ink)">
+            {artifactData.relations.map((rel) => (
+              <li>
+                {rel.type}：
+                <a class="hover:underline" style="color: var(--primary)" href={`/${slug}/c/${rel.target}`}>
+                  {rel.target}
+                </a>
+                {rel.note ? `（${rel.note}）` : ''}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
 
     {
       samePlace.length > 0 && (

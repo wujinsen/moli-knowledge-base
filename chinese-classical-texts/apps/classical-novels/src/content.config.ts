@@ -203,6 +203,35 @@ const costumes = defineCollection({
   }),
 });
 
+const ARTIFACT_RELATION_TYPES = ['制造', '拥有', '克制', '赠与', '盗取'] as const;
+
+const artifactRelation = z.object({
+  target: z.string(),
+  type: z.enum(ARTIFACT_RELATION_TYPES),
+  note: z.string().optional(),
+});
+
+const artifacts = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/artifacts' }),
+  schema: z.object({
+    id: z.string(),
+    type: z.enum(['weapon', 'container', 'talisman', 'implement']),
+    name: z.string(),
+    book: z.enum(BOOKS),
+    category: z.string().optional(),
+    maker: z.string().optional(),
+    owner: z.string().optional(),
+    weight: z.string().optional(),
+    abilities: z.array(z.string()).default([]),
+    counters: z.array(z.string()).default([]),
+    relations: z.array(artifactRelation).default([]),
+    first_appear: z.string().optional(),
+    appear_in: z.array(z.string()).default([]),
+    tags: z.array(z.string()).default([]),
+    summary: z.string().optional(),
+  }),
+});
+
 const customs = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/customs' }),
   schema: z.object({
@@ -355,6 +384,7 @@ export const collections = {
   chapters,
   books,
   locations,
+  artifacts,
   medicines,
   dishes,
   costumes,
