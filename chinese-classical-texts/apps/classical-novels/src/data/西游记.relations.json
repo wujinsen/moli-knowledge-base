@@ -50,6 +50,18 @@
       "weight": 64
     },
     {
+      "id": "奎木狼",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 64
+    },
+    {
+      "id": "女儿国国王",
+      "type": "character",
+      "faction": "西梁女国",
+      "weight": 32
+    },
+    {
       "id": "如意真仙",
       "type": "monster",
       "faction": "妖魔",
@@ -101,7 +113,7 @@
       "id": "牛魔王",
       "type": "monster",
       "faction": "妖魔",
-      "weight": 70
+      "weight": 76
     },
     {
       "id": "狮猁怪",
@@ -120,6 +132,12 @@
       "type": "character",
       "faction": "天界",
       "weight": 70
+    },
+    {
+      "id": "玉面公主",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 44
     },
     {
       "id": "白象精",
@@ -152,7 +170,25 @@
       "weight": 70
     },
     {
+      "id": "羊力大仙",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 38
+    },
+    {
+      "id": "虎力大仙",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 44
+    },
+    {
       "id": "蜘蛛精",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 38
+    },
+    {
+      "id": "蝎子精",
       "type": "monster",
       "faction": "妖魔",
       "weight": 38
@@ -206,6 +242,12 @@
       "weight": 58
     },
     {
+      "id": "鹿力大仙",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 38
+    },
+    {
       "id": "黄眉怪",
       "type": "monster",
       "faction": "妖魔",
@@ -222,6 +264,12 @@
       "type": "monster",
       "faction": "妖魔",
       "weight": 58
+    },
+    {
+      "id": "鼍龙",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 38
     }
   ],
   "edges": [
@@ -376,6 +424,48 @@
       "contradiction": false
     },
     {
+      "source": "唐僧",
+      "target": "奎木狼",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
+      "target": "金角大王",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
+      "target": "银角大王",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
+      "target": "灵感大王",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
+      "target": "青牛精",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
+      "target": "蝎子精",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
+      "target": "女儿国国王",
+      "type": "恋慕",
+      "contradiction": false
+    },
+    {
       "source": "唐太宗",
       "target": "唐僧",
       "type": "主仆",
@@ -433,6 +523,36 @@
       "source": "太上老君",
       "target": "孙悟空",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "奎木狼",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "奎木狼",
+      "target": "猪八戒",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "奎木狼",
+      "target": "沙僧",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "女儿国国王",
+      "target": "唐僧",
+      "type": "恋慕",
+      "contradiction": false
+    },
+    {
+      "source": "女儿国国王",
+      "target": "孙悟空",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -568,6 +688,60 @@
       "contradiction": false
     },
     {
+      "source": "孙悟空",
+      "target": "金角大王",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "银角大王",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "灵感大王",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "青牛精",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "蝎子精",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "虎力大仙",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "鹿力大仙",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "羊力大仙",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "鼍龙",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "李靖",
       "target": "哪吒",
       "type": "父子",
@@ -635,18 +809,6 @@
     },
     {
       "source": "灵感大王",
-      "target": "孙悟空",
-      "type": "敌对",
-      "contradiction": false
-    },
-    {
-      "source": "灵感大王",
-      "target": "唐僧",
-      "type": "敌对",
-      "contradiction": false
-    },
-    {
-      "source": "灵感大王",
       "target": "观音菩萨",
       "type": "主仆",
       "contradiction": false
@@ -661,6 +823,12 @@
       "source": "牛魔王",
       "target": "红孩儿",
       "type": "父子",
+      "contradiction": false
+    },
+    {
+      "source": "牛魔王",
+      "target": "玉面公主",
+      "type": "夫妻",
       "contradiction": false
     },
     {
@@ -721,6 +889,24 @@
       "source": "玉皇大帝",
       "target": "二郎神",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉面公主",
+      "target": "铁扇公主",
+      "type": "仇敌",
+      "contradiction": false
+    },
+    {
+      "source": "玉面公主",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "玉面公主",
+      "target": "猪八戒",
+      "type": "敌对",
       "contradiction": false
     },
     {
@@ -790,6 +976,30 @@
       "contradiction": false
     },
     {
+      "source": "羊力大仙",
+      "target": "虎力大仙",
+      "type": "兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "羊力大仙",
+      "target": "鹿力大仙",
+      "type": "兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "虎力大仙",
+      "target": "鹿力大仙",
+      "type": "兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "虎力大仙",
+      "target": "唐僧",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "蜘蛛精",
       "target": "孙悟空",
       "type": "敌对",
@@ -805,6 +1015,12 @@
       "source": "蜘蛛精",
       "target": "百眼魔君",
       "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "蝎子精",
+      "target": "猪八戒",
+      "type": "敌对",
       "contradiction": false
     },
     {
@@ -899,18 +1115,6 @@
     },
     {
       "source": "金角大王",
-      "target": "孙悟空",
-      "type": "敌对",
-      "contradiction": false
-    },
-    {
-      "source": "金角大王",
-      "target": "唐僧",
-      "type": "敌对",
-      "contradiction": false
-    },
-    {
-      "source": "金角大王",
       "target": "太上老君",
       "type": "主仆",
       "contradiction": false
@@ -929,12 +1133,6 @@
     },
     {
       "source": "银角大王",
-      "target": "孙悟空",
-      "type": "敌对",
-      "contradiction": false
-    },
-    {
-      "source": "银角大王",
       "target": "太上老君",
       "type": "主仆",
       "contradiction": false
@@ -949,18 +1147,6 @@
       "source": "镇元子",
       "target": "观音菩萨",
       "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "青牛精",
-      "target": "孙悟空",
-      "type": "敌对",
-      "contradiction": false
-    },
-    {
-      "source": "青牛精",
-      "target": "唐僧",
-      "type": "敌对",
       "contradiction": false
     },
     {
@@ -997,6 +1183,18 @@
       "source": "黑熊精",
       "target": "观音菩萨",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "鼍龙",
+      "target": "唐僧",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "鼍龙",
+      "target": "东海龙王",
+      "type": "朋友",
       "contradiction": false
     }
   ]

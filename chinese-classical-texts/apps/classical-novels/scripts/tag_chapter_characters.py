@@ -154,6 +154,26 @@ BOOK_EXTRA_ALIASES: dict[str, dict[str, str]] = {
         "灵吉菩萨": "灵吉菩萨",
         "六耳猕猴": "六耳猕猴",
         "假悟空": "六耳猕猴",
+        "黄袍怪": "奎木狼",
+        "黄袍": "奎木狼",
+        "黄袍郎": "奎木狼",
+        "奎木狼": "奎木狼",
+        "奎星": "奎木狼",
+        "蝎子精": "蝎子精",
+        "女儿国国王": "女儿国国王",
+        "西梁女王": "女儿国国王",
+        "女王陛下": "女儿国国王",
+        "女王": "女儿国国王",
+        "鼍龙": "鼍龙",
+        "鼍怪": "鼍龙",
+        "虎力大仙": "虎力大仙",
+        "鹿力大仙": "鹿力大仙",
+        "羊力大仙": "羊力大仙",
+        "虎力": "虎力大仙",
+        "鹿力": "鹿力大仙",
+        "羊力": "羊力大仙",
+        "玉面公主": "玉面公主",
+        "玉面狐狸": "玉面公主",
     },
     "金瓶梅": {
         "西门大官人": "西门庆",
@@ -258,6 +278,7 @@ def strip_html(body: str) -> str:
 ALIAS_BLOCK: dict[str, list[str]] = {
     "宝玉": ["通灵宝玉"],
     "鸳鸯": ["卧鸳鸯"],
+    "黄袍": ["赭黄袍", "飞龙舞凤赭黄袍", "淡黄袍"],
 }
 
 
@@ -331,6 +352,7 @@ def main() -> int:
     ap.add_argument("--force", action="store_true", help="Overwrite existing non-empty characters[]")
     ap.add_argument("--files", nargs="*", help="Only process these basenames (e.g. 001.md)")
     ap.add_argument("--to-chapter", type=int, default=0, help="Only process NNN.md where number <= this")
+    ap.add_argument("--from-chapter", type=int, default=0, help="Only process NNN.md where number >= this")
     ap.add_argument("--min-chars", type=int, default=1, help="Min matches to write (default 1)")
     args = ap.parse_args()
 
@@ -344,6 +366,12 @@ def main() -> int:
         if args.to_chapter:
             try:
                 if int(path.stem) > args.to_chapter:
+                    continue
+            except ValueError:
+                pass
+        if args.from_chapter:
+            try:
+                if int(path.stem) < args.from_chapter:
                     continue
             except ValueError:
                 pass
