@@ -4,8 +4,8 @@ import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
 import JpmModuleNav from '../../../components/JpmModuleNav.astro';
 import {
-  COMPARE_PAIR_SLUGS,
-  COMPARE_PAIRS,
+  comparePairSlugs,
+  comparePairsFor,
   compareChapterPath,
   defaultComparePair,
   editionLabel,
@@ -21,8 +21,12 @@ export async function getStaticPaths() {
 
 const { book } = Astro.props;
 const meta = book.data;
-const pairSlug = defaultComparePair();
-const pair = COMPARE_PAIRS[pairSlug];
+const pairSlug = defaultComparePair(meta.slug);
+const pair = comparePairsFor(meta.slug)[pairSlug];
+const compareIntro =
+  meta.slug === 'xiyouji'
+    ? '世德堂 · 通本双版本双栏并排'
+    : '词话 · 崇祯 · 竹坡三版本双栏并排';
 const variantMap = await variantCountByChapter(meta.book);
 
 const chapters = Array.from({ length: meta.chapter_count }, (_, i) => i + 1);
@@ -38,7 +42,7 @@ const jumpMarks = [1, 10, 20, 30, 50, 80, 100].filter((n) => n <= meta.chapter_c
       <div>
         <h1 class="brand text-4xl" style="color: var(--primary)">版本对勘</h1>
         <p class="mt-2 text-sm" style="color: var(--ink-soft)">
-          词话 · 崇祯 · 竹坡三版本双栏并排 · {variantMap.size} 回已标异文锚点
+          {compareIntro} · {variantMap.size} 回已标异文锚点
         </p>
       </div>
     </div>
@@ -47,12 +51,12 @@ const jumpMarks = [1, 10, 20, 30, 50, 80, 100].filter((n) => n <= meta.chapter_c
     </p>
     <nav class="mt-4 flex flex-wrap gap-2 text-sm">
       {
-        COMPARE_PAIR_SLUGS.map((slug) => (
+        comparePairSlugs(meta.slug).map((slug) => (
           <a
             href={`/${meta.slug}/compare/${slug}/1`}
             class:list={['chip', slug === pairSlug && 'ring-1 ring-[var(--accent)]']}
           >
-            {COMPARE_PAIRS[slug].label}
+            {comparePairsFor(meta.slug)[slug].label}
           </a>
         ))
       }
@@ -60,6 +64,13 @@ const jumpMarks = [1, 10, 20, 30, 50, 80, 100].filter((n) => n <= meta.chapter_c
         meta.features.includes('graph') && (
           <a href={`/${meta.slug}/graph`} class="chip" style="color: var(--accent)">
             关系图谱 · 版本议题
+          </a>
+        )
+      }
+      {
+        meta.slug === 'xiyouji' && meta.features.includes('kaozheng') && (
+          <a href={`/${meta.slug}/kaozheng`} class="chip" style="color: var(--accent)">
+            考证台 · 版本学
           </a>
         )
       }

@@ -10,7 +10,7 @@ import re
 import sys
 from pathlib import Path
 
-from _common import CHAPTER_DIR, CONTENT, DATA_DIR, iter_characters, parse_frontmatter
+from _common import BOOKS, CHAPTER_DIR, CONTENT, DATA_DIR, iter_characters, parse_frontmatter
 from tag_chapter_meta import load_location_ids, load_location_pairs, parse_list_field
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,13 +39,26 @@ def lint_items_location_dup(book: str) -> list[str]:
     return issues
 
 
+def chapter_count(book: str) -> int:
+    p = CONTENT / "books" / f"{book}.md"
+    if p.exists():
+        fm, _ = parse_frontmatter(p)
+        if fm.get("chapter_count"):
+            return int(fm["chapter_count"])
+    base = CHAPTER_DIR / book
+    if base.exists():
+        return len(list(base.glob("*.md")))
+    return 120
+
+
 def lint_summary_keys(book: str) -> list[str]:
     p = DATA_DIR / f"{book}.chapter_summaries.json"
     if not p.exists():
         return [f"missing {p.name}"]
     data = json.loads(p.read_text(encoding="utf-8-sig"))
     summaries = data.get("summaries") or {}
-    missing = [str(i) for i in range(1, 121) if str(i) not in summaries]
+    n = chapter_count(book)
+    missing = [str(i) for i in range(1, n + 1) if str(i) not in summaries]
     return [f"chapter_summaries missing keys: {missing}"] if missing else []
 
 

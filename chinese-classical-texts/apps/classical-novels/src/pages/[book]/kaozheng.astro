@@ -52,6 +52,19 @@ const stanceClass = (s: string) =>
   {meta.slug === 'jinpingmei' && <JpmModuleNav bookSlug={meta.slug} features={meta.features} current="kaozheng" />}
 
   {
+    meta.slug === 'xiyouji' && meta.features.includes('compare') && (
+      <div class="mb-6 flex flex-wrap gap-2">
+        <a href={`/${meta.slug}/compare`} class="chip" style="color: var(--accent)">
+          版本对勘 · 世德堂 vs 通本
+        </a>
+        <a href={`/${meta.slug}/topics/世德堂与通本异文`} class="chip" style="color: var(--primary)">
+          版本学专题 →
+        </a>
+      </div>
+    )
+  }
+
+  {
     topics.length === 0 ? (
       <div class="surface p-8 text-center text-sm" style="color: var(--ink-soft)">
         尚无考证专题。请在

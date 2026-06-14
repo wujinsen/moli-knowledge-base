@@ -62,6 +62,15 @@ export default function RelationGraph({ data, bookSlug }: Props) {
   const [hiddenFactions, setHiddenFactions] = useState<Set<string>>(new Set());
   const [physics, setPhysics] = useState(true);
 
+  useEffect(() => {
+    const focus = new URLSearchParams(window.location.search).get('focus');
+    if (focus && data.nodes.some((n) => n.id === focus)) {
+      setSelectedId(focus);
+      setQuery(focus);
+      setHiddenFactions(new Set());
+    }
+  }, [data.nodes]);
+
   const factions = useMemo(
     () => [...new Set(data.nodes.map((n) => n.faction))],
     [data.nodes],

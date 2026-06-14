@@ -172,7 +172,46 @@ const { Content } = await render(ev);
     </div>
   </section>
 
+  {
+    d.scoped_relations.length > 0 && (
+      <section class="surface mt-4 px-6 py-5 sm:px-8">
+        <h2 class="mb-1 font-bold" style="color: var(--primary)">情境边 · 本节临时关系</h2>
+        <p class="mb-3 text-sm" style="color: var(--ink-soft)">
+          仅在本情节内成立（变身 / 伪装 / 化身），不进入稳定关系图谱。
+        </p>
+        <ul class="space-y-1.5 text-sm">
+          {d.scoped_relations.map((r) => (
+            <li class="flex flex-wrap items-center gap-1.5">
+              <span class="font-bold" style="color: var(--accent)">{r.subject}</span>
+              <span class="scoped-pred">{r.predicate}</span>
+              <span style="color: var(--ink)">{r.object}</span>
+              {r.ephemeral && <span class="chip" style="font-size:0.6rem">临时</span>}
+              {r.chapter && <span class="text-xs" style="color: var(--ink-soft)">（第{r.chapter}回）</span>}
+            </li>
+          ))}
+        </ul>
+        {meta.features.includes('quanshi') && (
+          <a href={`/${meta.slug}/quanshi`} class="mt-3 inline-block text-sm hover:underline" style="color: var(--ink-soft)">
+            查看全部情境边 →
+          </a>
+        )}
+      </section>
+    )
+  }
+
   <div class="prose-cn surface mt-4 px-6 py-5 text-sm leading-relaxed sm:px-8" style="color: var(--ink-soft)">
     <Content />
   </div>
+
+  <style is:global>
+    .scoped-pred {
+      display: inline-block;
+      padding: 0.05rem 0.5rem;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--seal) 12%, transparent);
+      color: var(--seal);
+      border: 1px dashed color-mix(in srgb, var(--seal) 45%, transparent);
+      font-size: 0.72rem;
+    }
+  </style>
 </Base>

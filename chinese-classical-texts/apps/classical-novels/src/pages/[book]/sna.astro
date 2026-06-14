@@ -1,10 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import JpmModuleNav from '../../components/JpmModuleNav.astro';
-import SnaPanel from '../../components/SnaPanel.tsx';
+import SnaDashboard from '../../components/SnaDashboard.tsx';
 import type { SnaData } from '../../lib/sna';
+import jpmSna from '../../data/jinpingmei.sna.json';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -16,11 +16,11 @@ export async function getStaticPaths() {
 const { book } = Astro.props;
 const meta = book.data;
 
-const files = import.meta.glob('../../data/*.sna.json', { eager: true });
-const key = Object.keys(files).find((k) => k.includes(meta.book));
-const data: SnaData = key
-  ? ((files[key] as { default?: SnaData }).default ?? (files[key] as SnaData))
-  : { book: meta.book, metrics: [], hubs: [] };
+const snaBySlug: Record<string, SnaData> = {
+  jinpingmei: jpmSna as SnaData,
+};
+
+const data = snaBySlug[meta.slug] ?? { book: meta.book, metrics: [], hubs: [] };
 ---
 
 <Base title={`${meta.book} · 社会网络分析`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
@@ -32,12 +32,15 @@ const data: SnaData = key
       <div>
         <h1 class="brand text-4xl" style="color: var(--primary)">社会网络分析</h1>
         <p class="mt-2 text-sm" style="color: var(--ink-soft)">
-          帮闲圈介数中心性 · 西门府利益距离 · {data.metrics.length} 节点
+          帮闲圈介数中心性 · 西门府利益距离 · {data.node_count ?? data.metrics.length} 节点
+          {data.bangxian_hubs?.length ? ` · 帮闲 Top ${data.bangxian_hubs.slice(0, 2).join('、')}` : ''}
         </p>
       </div>
     </div>
     <p class="mt-5 max-w-2xl leading-relaxed text-sm" style="color: var(--ink)">
-      把西门府人际勾连作为社会网络，定位把控信息与白银流动的关键掮客——《金瓶梅》作为「社会人类学报告」的核心研究工具。
+      把西门府人际勾连作为社会网络，定位把控信息与白银流动的关键掮客。点击节点可跳转关系图谱高亮，并与
+      <a href={`/${meta.slug}/silver`} class="hover:underline" style="color: var(--accent)">白银流</a>
+      互证。
     </p>
   </section>
 
@@ -48,12 +51,12 @@ const data: SnaData = key
       <div class="surface p-8 text-center" style="color: var(--ink-soft)">
         尚无 SNA 数据。请先录入人物并运行
         <code class="mx-1 rounded px-2 py-0.5" style="background: var(--base)">
-          python scripts/build_relations.py {meta.book} --sna
+          python scripts/build_sna.py {meta.book}
         </code>
       </div>
     ) : (
       <div class="surface mb-10 p-4 sm:p-6">
-        <SnaPanel data={data} graphHref={`/${meta.slug}/graph`} client:only="react" />
+        <SnaDashboard data={data} bookSlug={meta.slug} client:only="react" />
       </div>
     )
   }

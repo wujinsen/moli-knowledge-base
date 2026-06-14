@@ -8,8 +8,9 @@
   金瓶梅崇祯本: editions/jinpingmei/JingPingMei-ZhCN/chapters/JPM*.tex（100 回）
   金瓶梅张竹坡评本: editions/jinpingmei/JPM_Congzhen/html_ori/part*.html（100 回，含眉批旁批）
   西游记: editions/xiyouji/明代金陵世德堂本 简体版/*.txt（100 回）
+  西游记通本: daizhige/集藏/小说/西游记.txt（殆知阁通本 100 回，与世德堂对勘）
 
-用法: python scripts/import_chapters.py [红楼梦|…|金瓶梅|金瓶梅崇祯本|金瓶梅张竹坡评本|all|金瓶梅全部]
+用法: python scripts/import_chapters.py [红楼梦|…|西游记通本|all|金瓶梅全部]
 """
 from __future__ import annotations
 
@@ -63,6 +64,13 @@ SOURCES: dict[str, dict] = {
         "edition": "世德堂本",
         "kind": "txt_dir",
         "book": "西游记",
+    },
+    "西游记通本": {
+        "path": CCT_ROOT / "raw" / "daizhige" / "集藏" / "小说" / "西游记.txt",
+        "edition": "通本",
+        "kind": "daizhige_txt",
+        "book": "西游记",
+        "out_subdir": "通本",
     },
 }
 

@@ -9,6 +9,7 @@ export const EDITION_SHORT: Record<string, string> = {
   崇祯本: '崇祯本',
   张竹坡评本: '竹坡本',
   世德堂本: '世德堂本',
+  通本: '通本',
 };
 
 /** 版本名 → URL 段 */
@@ -19,6 +20,7 @@ export const EDITION_SLUG: Record<string, string> = {
   崇祯本: 'chongzhen',
   张竹坡评本: 'zhupo',
   世德堂本: 'shide',
+  通本: 'tongben',
 };
 
 export const SLUG_TO_EDITION: Record<string, string> = Object.fromEntries(
@@ -30,6 +32,7 @@ export const ZHIBEN_MAX = 80;
 export function readerEditions(book: string): string[] {
   if (book === '红楼梦') return ['脂砚斋本', '程高本'];
   if (book === '金瓶梅') return ['词话本', '崇祯本', '张竹坡评本'];
+  if (book === '西游记') return ['世德堂本', '通本'];
   return [DEFAULT_EDITION];
 }
 
@@ -107,28 +110,47 @@ export function editionTabMeta(book: string, edition: string): string | undefine
     if (edition === '崇祯本') return '100 回 · 文学加工版';
     if (edition === '张竹坡评本') return '100 回 · 含批语 · 影响最大';
   }
+  if (book === '西游记') {
+    if (edition === '世德堂本') return '100 回 · 万历金陵最早百回足本 · 默认';
+    if (edition === '通本') return '100 回 · 殆知阁通行本 · 署吴承恩';
+  }
   return undefined;
 }
 
-/** 版本对勘：slug → [左版, 右版] */
-export const COMPARE_PAIR_SLUGS = ['cihua-chongzhen', 'cihua-zhupo', 'chongzhen-zhupo'] as const;
-export type ComparePairSlug = (typeof COMPARE_PAIR_SLUGS)[number];
-
-export const COMPARE_PAIRS: Record<ComparePairSlug, { left: string; right: string; label: string }> = {
-  'cihua-chongzhen': { left: '词话本', right: '崇祯本', label: '词话 ↔ 崇祯' },
-  'cihua-zhupo': { left: '词话本', right: '张竹坡评本', label: '词话 ↔ 竹坡' },
-  'chongzhen-zhupo': { left: '崇祯本', right: '张竹坡评本', label: '崇祯 ↔ 竹坡' },
+/** 版本对勘：按书分 slug → [左版, 右版] */
+export const COMPARE_PAIRS_BY_BOOK: Record<string, Record<string, { left: string; right: string; label: string }>> = {
+  jinpingmei: {
+    'cihua-chongzhen': { left: '词话本', right: '崇祯本', label: '词话 ↔ 崇祯' },
+    'cihua-zhupo': { left: '词话本', right: '张竹坡评本', label: '词话 ↔ 竹坡' },
+    'chongzhen-zhupo': { left: '崇祯本', right: '张竹坡评本', label: '崇祯 ↔ 竹坡' },
+  },
+  xiyouji: {
+    'shide-tongben': { left: '世德堂本', right: '通本', label: '世德堂 ↔ 通本' },
+  },
 };
 
-export function comparePairFromSlug(slug: string): (typeof COMPARE_PAIRS)[ComparePairSlug] | undefined {
-  return COMPARE_PAIRS[slug as ComparePairSlug];
+/** 金瓶梅对勘组合（兼容旧引用） */
+export const COMPARE_PAIRS = COMPARE_PAIRS_BY_BOOK.jinpingmei;
+export type ComparePairSlug = string;
+
+export function comparePairsFor(bookSlug: string): Record<string, { left: string; right: string; label: string }> {
+  return COMPARE_PAIRS_BY_BOOK[bookSlug] ?? {};
 }
 
-export function compareChapterPath(bookSlug: string, pairSlug: ComparePairSlug, chapter: number): string {
+export function comparePairSlugs(bookSlug: string): string[] {
+  return Object.keys(comparePairsFor(bookSlug));
+}
+
+export function comparePairFromSlug(bookSlug: string, slug: string) {
+  return comparePairsFor(bookSlug)[slug];
+}
+
+export function compareChapterPath(bookSlug: string, pairSlug: string, chapter: number): string {
   return `/${bookSlug}/compare/${pairSlug}/${chapter}`;
 }
 
-export function defaultComparePair(): ComparePairSlug {
-  return 'cihua-chongzhen';
+export function defaultComparePair(bookSlug: string): string {
+  const slugs = comparePairSlugs(bookSlug);
+  return slugs[0] ?? 'cihua-chongzhen';
 }
-
+

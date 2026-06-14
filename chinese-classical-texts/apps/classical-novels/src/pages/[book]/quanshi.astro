@@ -1,0 +1,141 @@
+---
+import { getCollection } from 'astro:content';
+import { getBooks } from '../../lib/getBooks';
+import Base from '../../layouts/Base.astro';
+import { loadTopics, byCategory, groupByLens, topicHref, LENS_GLYPH } from '../../lib/topics';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  return books
+    .filter((b) => b.data.features.includes('quanshi'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+const topics = byCategory(await loadTopics(meta.book), '诠释');
+const groups = groupByLens(topics);
+
+// 情境边（X4）：从事件 scoped_relations 汇总变身 / 伪装等 ephemeral 关系
+const events = (await getCollection('events')).filter((e) => e.data.book === meta.book);
+type Edge = { subject: string; predicate: string; object: string; chapter?: number; ephemeral?: boolean; eventId: string; eventTitle: string };
+const scopedEdges: Edge[] = [];
+for (const e of events) {
+  for (const r of e.data.scoped_relations) {
+    scopedEdges.push({ ...r, eventId: e.data.id, eventTitle: e.data.title });
+  }
+}
+scopedEdges.sort((a, b) => (a.chapter ?? 0) - (b.chapter ?? 0));
+const lensCount = groups.reduce((n, g) => n + g.items.length, 0);
+---
+
+<Base title={`${meta.book} · 诠释专题`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  <a href={`/${meta.slug}`} class="text-sm hover:underline" style="color: var(--ink-soft)">← {meta.book}</a>
+
+  <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
+    <div class="flex items-start gap-4">
+      <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">诠</span>
+      <div>
+        <h1 class="brand text-4xl" style="color: var(--primary)">诠释专题</h1>
+        <p class="mt-2 text-sm" style="color: var(--ink-soft)">
+          内丹心性 · 政治隐喻 · 原型源流 · {lensCount} 个专题 · {scopedEdges.length} 条情境边
+        </p>
+      </div>
+    </div>
+    <p class="mt-5 max-w-2xl text-sm leading-relaxed" style="color: var(--ink)">
+      《西游记》自明清以来被反复诠释：道家读作内丹修炼，士人读作官场讽喻，学者考其原型源流。
+      这些读法都是分层的 <span class="chip">诠释（inference）</span>，与原文事实分开；并叠加「情境边」——变身、伪装等临时关系。
+    </p>
+  </section>
+
+  {/* 按视角列诠释专题 */}
+  {
+    groups.length === 0 ? (
+      <div class="surface mb-10 p-8 text-center text-sm" style="color: var(--ink-soft)">
+        尚无诠释专题。请在
+        <code class="mx-1 rounded px-2 py-0.5" style="background: var(--base)">src/content/topics/{meta.book}/</code>
+        新建 category: 诠释 的 topic（lens: 内丹 / 政治 / 原型…）。
+      </div>
+    ) : (
+      groups.map((g) => (
+        <section class="mb-10">
+          <div class="mb-3 flex items-center gap-2">
+            <span class="glyph" style="width:2.2rem;height:2.2rem;font-size:1.1rem">{LENS_GLYPH[g.lens] ?? '诠'}</span>
+            <h2 class="brand text-2xl" style="color: var(--primary)">{g.lens}</h2>
+          </div>
+          <div class="grid gap-3 sm:grid-cols-2">
+            {g.items.map((t) => (
+              <a href={topicHref(meta.slug, t)} class="surface block p-4 transition hover:-translate-y-0.5">
+                <div class="flex items-center gap-2">
+                  <h3 class="font-bold" style="color: var(--accent)">{t.data.title}</h3>
+                  {t.data.readings.length > 0 && <span class="chip" style="font-size:0.62rem">{t.data.readings.length} 解读</span>}
+                </div>
+                {t.data.summary && (
+                  <p class="mt-1 text-sm leading-snug" style="color: var(--ink-soft)">{t.data.summary}</p>
+                )}
+              </a>
+            ))}
+          </div>
+        </section>
+      ))
+    )
+  }
+
+  {/* 情境边：变身 / 伪装等 ephemeral 关系 */}
+  <section class="mb-10">
+    <h2 class="section-title mb-1 text-lg">情境边 · 变身与伪装</h2>
+    <p class="mb-4 text-sm" style="color: var(--ink-soft)">
+      「情境边」只在特定情节内成立（ephemeral）：妖魔变作他人、神佛化身考验。它们不进入稳定关系图谱，单列于此。
+    </p>
+    {
+      scopedEdges.length === 0 ? (
+        <div class="surface p-6 text-center text-sm" style="color: var(--ink-soft)">
+          暂无情境边数据。可在 events 的 <code class="rounded px-1" style="background: var(--base)">scoped_relations</code> 中录入。
+        </div>
+      ) : (
+        <div class="overflow-x-auto">
+          <table class="scoped-table w-full text-sm">
+            <thead>
+              <tr><th>主体</th><th>情境关系</th><th>对象</th><th>回</th><th>出处事件</th></tr>
+            </thead>
+            <tbody>
+              {scopedEdges.map((e) => (
+                <tr>
+                  <td class="font-bold" style="color: var(--accent)">{e.subject}</td>
+                  <td>
+                    <span class="scoped-pred">{e.predicate}</span>
+                    {e.ephemeral && <span class="ml-1 chip" style="font-size:0.6rem">临时</span>}
+                  </td>
+                  <td style="color: var(--ink)">{e.object}</td>
+                  <td style="color: var(--ink-soft)">{e.chapter ? `第${e.chapter}回` : '—'}</td>
+                  <td>
+                    <a href={`/${meta.slug}/e/${e.eventId}`} class="hover:underline" style="color: var(--primary)">{e.eventTitle}</a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )
+    }
+  </section>
+</Base>
+
+<style is:global>
+  .scoped-table th, .scoped-table td {
+    text-align: left;
+    padding: 0.5rem 0.7rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--ink-soft) 18%, transparent);
+    vertical-align: top;
+  }
+  .scoped-table th { color: var(--ink-soft); font-weight: 600; }
+  .scoped-pred {
+    display: inline-block;
+    padding: 0.05rem 0.5rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--seal) 12%, transparent);
+    color: var(--seal);
+    border: 1px dashed color-mix(in srgb, var(--seal) 45%, transparent);
+    font-size: 0.72rem;
+  }
+</style>

@@ -17,7 +17,7 @@ export const BOOKS_CATALOG: BookData[] = [
     slug: 'xiyouji',
     author: '吴承恩',
     chapter_count: 100,
-    features: ['reader', 'graph', 'bestiary', 'items', 'nan', 'route', 'quanshi', 'kaozheng'],
+    features: ['reader', 'graph', 'bestiary', 'items', 'nan', 'route', 'quanshi', 'kaozheng', 'compare'],
     summary: '唐僧师徒四人西天取经，历经九九八十一难的神魔小说。',
   },
   {

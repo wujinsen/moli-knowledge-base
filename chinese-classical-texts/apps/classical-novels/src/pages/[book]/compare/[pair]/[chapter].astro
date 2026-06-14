@@ -3,12 +3,11 @@ import { getCollection, render } from 'astro:content';
 import { getBooks } from '../../../../lib/getBooks';
 import Base from '../../../../layouts/Base.astro';
 import {
-  COMPARE_PAIR_SLUGS,
-  COMPARE_PAIRS,
+  comparePairSlugs,
+  comparePairsFor,
   compareChapterPath,
   editionLabel,
   editionSlug,
-  type ComparePairSlug,
 } from '../../../../lib/editions';
 import { variantsForChapter } from '../../../../lib/variants';
 
@@ -23,8 +22,8 @@ export async function getStaticPaths() {
   for (const b of books.filter((bk) => bk.data.features.includes('compare'))) {
     const slug = b.data.slug;
     const book = b.data.book;
-    for (const pairSlug of COMPARE_PAIR_SLUGS) {
-      const pair = COMPARE_PAIRS[pairSlug];
+    for (const pairSlug of comparePairSlugs(slug)) {
+      const pair = comparePairsFor(slug)[pairSlug];
       for (let n = 1; n <= b.data.chapter_count; n++) {
         const left = chapters.find(
           (c) => c.data.book === book && c.data.number === n && c.data.edition === pair.left,
@@ -59,12 +58,12 @@ const {
   bookMeta: Awaited<ReturnType<typeof getCollection<'books'>>>[0];
   leftEntry: Awaited<ReturnType<typeof getCollection<'chapters'>>>[0];
   rightEntry: Awaited<ReturnType<typeof getCollection<'chapters'>>>[0];
-  pairSlug: ComparePairSlug;
+  pairSlug: string;
   chapter: number;
 };
 
 const meta = bookMeta.data;
-const pair = COMPARE_PAIRS[pairSlug];
+const pair = comparePairsFor(meta.slug)[pairSlug];
 const variants = await variantsForChapter(meta.book, chapter);
 const relevantVariants = variants.filter(
   (v) =>
@@ -110,12 +109,12 @@ const next = chapter < meta.chapter_count ? chapter + 1 : undefined;
     }
     <nav class="mt-4 flex flex-wrap gap-2 text-sm">
       {
-        COMPARE_PAIR_SLUGS.map((slug) => (
+        comparePairSlugs(meta.slug).map((slug) => (
           <a
             href={compareChapterPath(meta.slug, slug, chapter)}
             class:list={['chip', slug === pairSlug && 'ring-1 ring-[var(--accent)]']}
           >
-            {COMPARE_PAIRS[slug].label}
+            {comparePairsFor(meta.slug)[slug].label}
           </a>
         ))
       }

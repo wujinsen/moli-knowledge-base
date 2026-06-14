@@ -96,7 +96,7 @@ const books = defineCollection({
 });
 
 const LOCATION_CATEGORIES = [
-  '府邸', '花园', '院落', '亭', '楼', '阁', '榭', '堂', '馆', '庵', '祠', '闸', '幻境', '市街',
+  '府邸', '花园', '院落', '亭', '楼', '阁', '榭', '堂', '馆', '庵', '祠', '闸', '桥', '幻境', '市街',
   // 西游记 · 取经地理
   '国度', '山岭', '洞府', '水域', '天界', '地府', '仙山', '城关', '寺观',
   '其他',
@@ -114,7 +114,7 @@ const locations = defineCollection({
     aliases: z.array(z.string()).default([]),
     book: z.enum(BOOKS),
     category: z.enum(LOCATION_CATEGORIES).optional(),
-    parent: z.string().optional(),
+    parent: z.string().nullish(),
     occupants: z.array(z.string()).default([]),
     nearby: z.array(z.string()).default([]),
     plaque: z.string().optional(),

@@ -110,6 +110,12 @@
       "weight": 100
     },
     {
+      "id": "文殊菩萨",
+      "type": "character",
+      "faction": "佛界",
+      "weight": 32
+    },
+    {
       "id": "李靖",
       "type": "character",
       "faction": "天界",
@@ -149,7 +155,7 @@
       "id": "狮猁怪",
       "type": "monster",
       "faction": "妖魔",
-      "weight": 52
+      "weight": 58
     },
     {
       "id": "猪八戒",
@@ -934,6 +940,18 @@
       "contradiction": false
     },
     {
+      "source": "文殊菩萨",
+      "target": "狮猁怪",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "文殊菩萨",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "李靖",
       "target": "哪吒",
       "type": "父子",
@@ -1039,6 +1057,12 @@
       "source": "狮猁怪",
       "target": "唐僧",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "狮猁怪",
+      "target": "文殊菩萨",
+      "type": "主仆",
       "contradiction": false
     },
     {

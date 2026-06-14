@@ -95,7 +95,7 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
       ];
     case 'xiyouji':
       return [
-        { key: 'read', glyph: '读', title: '逐回精读', desc: '100 回世德堂本', status: 'live', href: `/${slug}/read/1` },
+        { key: 'read', glyph: '读', title: '逐回精读', desc: '世德堂本 · 通本双版本', status: 'live', href: `/${slug}/read/1` },
         { key: 'graph', glyph: '谱', title: '取经关系', desc: '师徒 · 神魔 · 降服与求援', ...live(has('graph'), slug, 'graph', `/${slug}/graph`) },
         { key: 'bestiary', glyph: '妖', title: '妖怪图鉴', desc: '本相 · 靠山 · 结局（背景论）', ...live(has('bestiary'), slug, 'bestiary', `/${slug}/bestiary`) },
         { key: 'items', glyph: '宝', title: '法宝谱系', desc: '制造 · 拥有 · 克制关系', ...live(has('items'), slug, 'items', `/${slug}/items`) },
@@ -158,6 +158,9 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
           },
         },
         kaozhengModule(slug, has),
+        {
+          key: 'edition', glyph: '勘', title: '版本对勘', desc: '世德堂本 vs 通本异文双栏', ...live(has('compare'), slug, 'edition', `/${slug}/compare`),
+        },
       ];
     case 'jinpingmei':
       return [
@@ -258,6 +261,7 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
               'J1 关系受控词表扩展（贿赂 / 帮闲 / 借贷 / 认干亲…）',
               'J2 SNA 指标计算（介数 / 度中心性）',
               'J3 中心性叠加到关系图谱',
+              'J5 build_sna.json · 帮闲圈 topic · 图谱/白银联动',
             ],
             relatedDoc: '金瓶梅-知识图谱架构.md（§五 SNA）',
           },

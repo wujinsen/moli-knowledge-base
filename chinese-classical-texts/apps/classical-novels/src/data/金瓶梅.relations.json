@@ -5,140 +5,140 @@
       "id": "吴月娘",
       "type": "character",
       "faction": "西门府",
-      "weight": 30,
+      "weight": 70,
       "ximen_proximity": "亲缘"
     },
     {
       "id": "孙雪娥",
       "type": "character",
       "faction": "西门府",
-      "weight": 30,
+      "weight": 32,
       "ximen_proximity": "亲缘"
     },
     {
       "id": "孟玉楼",
       "type": "character",
       "faction": "西门府",
-      "weight": 30,
+      "weight": 26,
       "ximen_proximity": "亲缘"
     },
     {
       "id": "应伯爵",
       "type": "character",
       "faction": "帮闲圈",
-      "weight": 30,
+      "weight": 64,
       "ximen_proximity": "利益交换"
     },
     {
       "id": "庞春梅",
       "type": "character",
       "faction": "西门府",
-      "weight": 30,
+      "weight": 64,
       "ximen_proximity": "雇佣"
     },
     {
       "id": "李娇儿",
       "type": "character",
       "faction": "清河县",
-      "weight": 30,
+      "weight": 32,
       "ximen_proximity": "利益交换"
     },
     {
       "id": "李智",
       "type": "character",
       "faction": "帮闲圈",
-      "weight": 30,
+      "weight": 32,
       "ximen_proximity": "利益交换"
     },
     {
       "id": "李瓶儿",
       "type": "character",
       "faction": "西门府",
-      "weight": 30,
+      "weight": 64,
       "ximen_proximity": "亲缘"
     },
     {
       "id": "来旺",
       "type": "character",
       "faction": "西门府",
-      "weight": 30,
+      "weight": 26,
       "ximen_proximity": "雇佣"
     },
     {
       "id": "武大郎",
       "type": "character",
       "faction": "清河县",
-      "weight": 30,
+      "weight": 38,
       "ximen_proximity": "外人"
     },
     {
       "id": "武松",
       "type": "character",
       "faction": "清河县",
-      "weight": 30,
+      "weight": 58,
       "ximen_proximity": "外人"
     },
     {
       "id": "潘金莲",
       "type": "character",
       "faction": "西门府",
-      "weight": 30,
+      "weight": 64,
       "ximen_proximity": "亲缘"
     },
     {
       "id": "玳安",
       "type": "character",
       "faction": "西门府",
-      "weight": 30,
+      "weight": 26,
       "ximen_proximity": "雇佣"
     },
     {
       "id": "翟管家",
       "type": "character",
       "faction": "帮闲圈",
-      "weight": 30,
+      "weight": 32,
       "ximen_proximity": "利益交换"
     },
     {
       "id": "花子虚",
       "type": "character",
       "faction": "清河县",
-      "weight": 30,
+      "weight": 32,
       "ximen_proximity": "利益交换"
     },
     {
       "id": "蔡京",
       "type": "character",
       "faction": "朝廷",
-      "weight": 30,
+      "weight": 32,
       "ximen_proximity": "外人"
     },
     {
       "id": "西门庆",
       "type": "character",
       "faction": "西门府",
-      "weight": 30,
+      "weight": 100,
       "ximen_proximity": "亲缘"
     },
     {
       "id": "谢希大",
       "type": "character",
       "faction": "帮闲圈",
-      "weight": 30,
+      "weight": 32,
       "ximen_proximity": "利益交换"
     },
     {
       "id": "陈经济",
       "type": "character",
       "faction": "西门府",
-      "weight": 30,
+      "weight": 38,
       "ximen_proximity": "亲缘"
     },
     {
       "id": "韩道国",
       "type": "character",
       "faction": "帮闲圈",
-      "weight": 30,
+      "weight": 32,
       "ximen_proximity": "利益交换"
     },
     {
