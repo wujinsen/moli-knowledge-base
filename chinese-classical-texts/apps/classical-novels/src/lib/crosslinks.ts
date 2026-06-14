@@ -1,5 +1,5 @@
-import hlmCrosslinks from '../data/红楼梦.crosslinks.json';
-import xyjCrosslinks from '../data/西游记.crosslinks.json';
+import hlmCrosslinks from '../data/hongloumeng.crosslinks.json';
+import xyjCrosslinks from '../data/xiyouji.crosslinks.json';
 import { loadBookItems, type ItemEntry } from './items';
 
 export type ItemRef = { id: string; name: string; kind: ItemEntry['kind'] };

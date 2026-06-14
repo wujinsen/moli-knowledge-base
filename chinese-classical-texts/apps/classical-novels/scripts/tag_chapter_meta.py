@@ -82,6 +82,21 @@ LOCATION_BLOCK: dict[str, list[str]] = {
     "大观园": ["小大观园"],
 }
 
+# Vite SSR 对中文文件名 import 不稳，crosslinks 用 slug 文件名
+CROSSLINKS_SLUG: dict[str, str] = {
+    "红楼梦": "hongloumeng",
+    "西游记": "xiyouji",
+}
+
+
+def crosslinks_path(book: str) -> Path:
+    slug = CROSSLINKS_SLUG.get(book)
+    if slug:
+        p = DATA_DIR / f"{slug}.crosslinks.json"
+        if p.exists():
+            return p
+    return DATA_DIR / f"{book}.crosslinks.json"
+
 
 def load_location_pairs(book: str) -> list[tuple[str, str]]:
     pairs: dict[str, str] = {}
@@ -140,7 +155,7 @@ def load_item_pairs(book: str) -> list[tuple[str, str]]:
                     pairs[row["id"]] = row["id"]
                     if row.get("name") and row["name"] != row["id"]:
                         pairs[row["name"]] = row["id"]
-    cl_path = DATA_DIR / f"{book}.crosslinks.json"
+    cl_path = crosslinks_path(book)
     if cl_path.exists():
         try:
             cl = json.loads(cl_path.read_text(encoding="utf-8"))
@@ -160,7 +175,7 @@ def load_item_pairs(book: str) -> list[tuple[str, str]]:
 
 
 def load_occupant_items(book: str) -> dict[str, list[str]]:
-    cl_path = DATA_DIR / f"{book}.crosslinks.json"
+    cl_path = crosslinks_path(book)
     if not cl_path.exists():
         return {}
     try:
