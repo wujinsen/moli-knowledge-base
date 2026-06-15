@@ -1,12 +1,12 @@
 {
   "generated": "2026-06-15",
-  "paged_count": 162,
-  "bestiary_count": 162,
+  "paged_count": 172,
+  "bestiary_count": 172,
   "edition": {
     "程高本_chapters": 120,
     "脂砚斋本_chapters": 80,
-    "程高本_detected_known": 159,
-    "脂砚斋本_detected_known": 158,
+    "程高本_detected_known": 169,
+    "脂砚斋本_detected_known": 168,
     "only_in_程高本_120回": [
       "包勇",
       "王尔调"
@@ -16,7 +16,7 @@
     ]
   },
   "frontmatter": {
-    "程高本_fm_unique": 131,
+    "程高本_fm_unique": 146,
     "脂砚斋本_fm_unique": 126
   },
   "roster_extracted_pending": 40,
@@ -46,16 +46,6 @@
       "mentions": 4
     },
     {
-      "name": "同喜",
-      "note": "第71回",
-      "chapters": [
-        29,
-        67,
-        68
-      ],
-      "mentions": 3
-    },
-    {
       "name": "锦乡侯",
       "note": "第71回",
       "chapters": [
@@ -76,24 +66,6 @@
       "mentions": 3
     },
     {
-      "name": "单大良",
-      "note": "第71回",
-      "chapters": [
-        54,
-        57
-      ],
-      "mentions": 2
-    },
-    {
-      "name": "同贵",
-      "note": "第71回",
-      "chapters": [
-        29,
-        91
-      ],
-      "mentions": 2
-    },
-    {
       "name": "守备",
       "note": "张金哥案，第15回",
       "chapters": [
@@ -103,47 +75,11 @@
       "mentions": 2
     },
     {
-      "name": "小蝉",
-      "note": "第44/60/69回",
-      "chapters": [
-        60,
-        61
-      ],
-      "mentions": 2
-    },
-    {
-      "name": "扫花",
-      "note": "宝玉小厮",
-      "chapters": [
-        24,
-        37
-      ],
-      "mentions": 2
-    },
-    {
       "name": "碧桃",
       "note": "第26/57/58回",
       "chapters": [
         17,
         63
-      ],
-      "mentions": 2
-    },
-    {
-      "name": "绣凤",
-      "note": "第71回",
-      "chapters": [
-        18,
-        23
-      ],
-      "mentions": 2
-    },
-    {
-      "name": "绣鸾",
-      "note": "第71回",
-      "chapters": [
-        23,
-        62
       ],
       "mentions": 2
     },
@@ -173,22 +109,6 @@
       "mentions": 1
     },
     {
-      "name": "双寿",
-      "note": "宝玉小厮",
-      "chapters": [
-        28
-      ],
-      "mentions": 1
-    },
-    {
-      "name": "双瑞",
-      "note": "宝玉小厮",
-      "chapters": [
-        28
-      ],
-      "mentions": 1
-    },
-    {
       "name": "小吉祥",
       "note": "已有小吉祥儿",
       "chapters": [
@@ -201,14 +121,6 @@
       "note": "第71回",
       "chapters": [
         18
-      ],
-      "mentions": 1
-    },
-    {
-      "name": "彩鸾",
-      "note": "第71回",
-      "chapters": [
-        62
       ],
       "mentions": 1
     },
