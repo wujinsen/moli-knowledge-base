@@ -1,56 +1,50 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 74,
-  "pending_count": 5,
+  "paged_count": 79,
+  "pending_count": 4,
   "pending": [
     {
-      "name": "白面狐狸",
-      "mentions": 1,
+      "name": "天竺国国王",
+      "mentions": 2,
       "chapters": [
-        79
+        93,
+        95
       ],
       "appear_in": [
-        "第79回"
+        "第93回",
+        "第95回"
       ],
       "source": "seed",
-      "note": "比丘国美后，白鹿精同党；第78–79回"
+      "note": "玉兔精招亲；第95–96回"
     },
     {
-      "name": "百花羞",
+      "name": "袁守诚",
       "mentions": 1,
       "chapters": [
-        29
+        10
       ],
       "appear_in": [
-        "第29回"
+        "第10回"
       ],
       "source": "seed",
-      "note": "宝象国公主，奎木狼妻；第29–31回"
+      "note": "长安渔樵，与泾河龙王赌雨；第9回"
     },
     {
-      "name": "南极寿星",
+      "name": "陈家庄老妪",
       "mentions": 0,
       "chapters": [],
       "appear_in": [],
       "source": "seed",
-      "note": "收白鹿精；第79回"
+      "note": "灵感大王童男童女；第47–48回"
     },
     {
-      "name": "灭法国国王",
+      "name": "黑水河渔翁",
       "mentions": 0,
       "chapters": [],
       "appear_in": [],
       "source": "seed",
-      "note": "万僧之愿，后改钦法国；第84–85回"
-    },
-    {
-      "name": "镇海寺方丈",
-      "mentions": 0,
-      "chapters": [],
-      "appear_in": [],
-      "source": "seed",
-      "note": "僧房病；第81–82回"
+      "note": "渡鼍龙难；第47回"
     }
   ]
 }

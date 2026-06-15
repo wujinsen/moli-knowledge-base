@@ -68,6 +68,12 @@
       "weight": 38
     },
     {
+      "id": "南极寿星",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 40
+    },
+    {
       "id": "哪吒",
       "type": "character",
       "faction": "天界",
@@ -200,6 +206,12 @@
       "weight": 26
     },
     {
+      "id": "灭法国国王",
+      "type": "character",
+      "faction": "灭法国",
+      "weight": 34
+    },
+    {
       "id": "灵吉菩萨",
       "type": "character",
       "faction": "佛界",
@@ -254,6 +266,12 @@
       "weight": 58
     },
     {
+      "id": "白面狐狸",
+      "type": "monster",
+      "faction": "比丘国",
+      "weight": 30
+    },
+    {
       "id": "白骨精",
       "type": "monster",
       "faction": "妖魔",
@@ -276,6 +294,12 @@
       "type": "monster",
       "faction": "妖魔",
       "weight": 32
+    },
+    {
+      "id": "百花羞",
+      "type": "character",
+      "faction": "宝象国",
+      "weight": 36
     },
     {
       "id": "祭赛国国王",
@@ -372,6 +396,12 @@
       "type": "character",
       "faction": "仙界",
       "weight": 58
+    },
+    {
+      "id": "镇海寺方丈",
+      "type": "character",
+      "faction": "镇海禅林寺",
+      "weight": 28
     },
     {
       "id": "陈光蕊",
@@ -640,6 +670,24 @@
       "contradiction": false
     },
     {
+      "source": "南极寿星",
+      "target": "白鹿精",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "南极寿星",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "南极寿星",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "哪吒",
       "target": "李靖",
       "type": "父子",
@@ -838,6 +886,12 @@
       "contradiction": false
     },
     {
+      "source": "地涌夫人",
+      "target": "镇海寺方丈",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "大鹏精",
       "target": "青狮精",
       "type": "兄弟",
@@ -907,6 +961,12 @@
       "source": "奎木狼",
       "target": "宝象国国王",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "奎木狼",
+      "target": "百花羞",
+      "type": "夫妻",
       "contradiction": false
     },
     {
@@ -1156,6 +1216,12 @@
       "contradiction": false
     },
     {
+      "source": "宝象国国王",
+      "target": "百花羞",
+      "type": "父子",
+      "contradiction": false
+    },
+    {
       "source": "寇员外",
       "target": "唐僧",
       "type": "朋友",
@@ -1294,6 +1360,12 @@
       "contradiction": false
     },
     {
+      "source": "比丘国国王",
+      "target": "白面狐狸",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "沙僧",
       "target": "唐僧",
       "type": "师徒",
@@ -1339,6 +1411,18 @@
       "source": "泾河龙王",
       "target": "东海龙王",
       "type": "兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "灭法国国王",
+      "target": "唐僧",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "灭法国国王",
+      "target": "孙悟空",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -1486,9 +1570,27 @@
       "contradiction": false
     },
     {
+      "source": "白面狐狸",
+      "target": "白鹿精",
+      "type": "情人",
+      "contradiction": false
+    },
+    {
+      "source": "白面狐狸",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "白鹿精",
       "target": "唐僧",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "白鹿精",
+      "target": "南极寿星",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -1519,6 +1621,18 @@
       "source": "百眼魔君",
       "target": "孙悟空",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "百花羞",
+      "target": "宝象国国王",
+      "type": "父子",
+      "contradiction": false
+    },
+    {
+      "source": "百花羞",
+      "target": "唐僧",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -1788,6 +1902,18 @@
     {
       "source": "镇元子",
       "target": "观音菩萨",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "镇海寺方丈",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "镇海寺方丈",
+      "target": "孙悟空",
       "type": "朋友",
       "contradiction": false
     },
