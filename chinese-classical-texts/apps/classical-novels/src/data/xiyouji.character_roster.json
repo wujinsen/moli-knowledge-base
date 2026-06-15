@@ -1,102 +1,48 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 270,
+  "paged_count": 275,
   "pending_count": 5,
   "pending": [
     {
-      "name": "黄门官",
-      "mentions": 11,
-      "chapters": [
-        12,
-        39,
-        40,
-        45,
-        54,
-        62,
-        68,
-        78,
-        79,
-        93,
-        94
-      ],
-      "appear_in": [
-        "第12回",
-        "第39回",
-        "第40回",
-        "第45回",
-        "第54回",
-        "第62回",
-        "第68回",
-        "第78回",
-        "第79回",
-        "第93回",
-        "第94回"
-      ],
+      "name": "乌鸡国太子",
+      "mentions": 0,
+      "chapters": [],
+      "appear_in": [],
       "source": "seed",
-      "note": "天竺国黄门；第95回"
+      "note": "乌鸡国储君；第37–38回"
     },
     {
-      "name": "驿丞",
-      "mentions": 5,
-      "chapters": [
-        29,
-        54,
-        78,
-        93,
-        94
-      ],
-      "appear_in": [
-        "第29回",
-        "第54回",
-        "第78回",
-        "第93回",
-        "第94回"
-      ],
+      "name": "慈云寺院主",
+      "mentions": 0,
+      "chapters": [],
+      "appear_in": [],
       "source": "seed",
-      "note": "驿站官员；取经途多次"
+      "note": "金平府慈云寺；第91回"
     },
     {
-      "name": "太宰",
-      "mentions": 3,
-      "chapters": [
-        10,
-        70,
-        79
-      ],
-      "appear_in": [
-        "第10回",
-        "第70回",
-        "第79回"
-      ],
+      "name": "比丘国国丈",
+      "mentions": 0,
+      "chapters": [],
+      "appear_in": [],
       "source": "seed",
-      "note": "祭赛国太宰；第62回"
+      "note": "白鹿精化身；第78–79回"
     },
     {
-      "name": "总兵官",
-      "mentions": 2,
-      "chapters": [
-        84,
-        85
-      ],
-      "appear_in": [
-        "第84回",
-        "第85回"
-      ],
+      "name": "赛太岁先锋",
+      "mentions": 0,
+      "chapters": [],
+      "appear_in": [],
       "source": "seed",
-      "note": "朱紫国总兵；第70回"
+      "note": "朱紫取宫女先锋；第70回"
     },
     {
-      "name": "金平府刺史",
-      "mentions": 1,
-      "chapters": [
-        92
-      ],
-      "appear_in": [
-        "第92回"
-      ],
+      "name": "金光寺方丈",
+      "mentions": 0,
+      "chapters": [],
+      "appear_in": [],
       "source": "seed",
-      "note": "金平府慈云寺；第91–92回"
+      "note": "祭赛国金光寺；第62回"
     }
   ]
 }

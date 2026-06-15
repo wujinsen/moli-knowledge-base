@@ -362,6 +362,12 @@
       "weight": 48
     },
     {
+      "id": "太宰",
+      "type": "character",
+      "faction": "人间",
+      "weight": 26
+    },
+    {
       "id": "太白金星",
       "type": "character",
       "faction": "天庭",
@@ -636,6 +642,12 @@
       "type": "monster",
       "faction": "妖魔",
       "weight": 22
+    },
+    {
+      "id": "总兵官",
+      "type": "character",
+      "faction": "人间",
+      "weight": 28
     },
     {
       "id": "房日兔",
@@ -1382,6 +1394,12 @@
       "weight": 44
     },
     {
+      "id": "金平府刺史",
+      "type": "character",
+      "faction": "人间",
+      "weight": 28
+    },
+    {
       "id": "金池长老",
       "type": "character",
       "faction": "人间",
@@ -1532,6 +1550,12 @@
       "weight": 38
     },
     {
+      "id": "驿丞",
+      "type": "character",
+      "faction": "人间",
+      "weight": 30
+    },
+    {
       "id": "高士廉",
       "type": "character",
       "faction": "大唐",
@@ -1590,6 +1614,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 32
+    },
+    {
+      "id": "黄门官",
+      "type": "character",
+      "faction": "人间",
+      "weight": 28
     },
     {
       "id": "黄风怪",
@@ -4042,6 +4072,12 @@
       "contradiction": false
     },
     {
+      "source": "天竺国国王",
+      "target": "黄门官",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
       "source": "太上老君",
       "target": "金角大王",
       "type": "主仆",
@@ -4098,6 +4134,18 @@
     {
       "source": "太乙救苦天尊",
       "target": "广目天王",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "太宰",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "太宰",
+      "target": "孙悟空",
       "type": "朋友",
       "contradiction": false
     },
@@ -6226,6 +6274,24 @@
       "contradiction": false
     },
     {
+      "source": "总兵官",
+      "target": "灭法国国王",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "总兵官",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "总兵官",
+      "target": "猪八戒",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "房日兔",
       "target": "箕水豹",
       "type": "同僚",
@@ -7603,6 +7669,12 @@
       "source": "灭法国国王",
       "target": "孙悟空",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "灭法国国王",
+      "target": "总兵官",
+      "type": "君臣",
       "contradiction": false
     },
     {
@@ -9538,6 +9610,24 @@
       "contradiction": false
     },
     {
+      "source": "金平府刺史",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "金平府刺史",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "金平府刺史",
+      "target": "辟寒大王",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "金池长老",
       "target": "黑熊精",
       "type": "朋友",
@@ -9856,6 +9946,24 @@
       "contradiction": false
     },
     {
+      "source": "驿丞",
+      "target": "黄门官",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "驿丞",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "驿丞",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "高士廉",
       "target": "唐太宗",
       "type": "君臣",
@@ -9996,6 +10104,18 @@
     {
       "source": "黄角大仙",
       "target": "王母娘娘",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "黄门官",
+      "target": "天竺国国王",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "黄门官",
+      "target": "唐僧",
       "type": "朋友",
       "contradiction": false
     },
