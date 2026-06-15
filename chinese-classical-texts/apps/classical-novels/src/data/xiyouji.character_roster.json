@@ -1,68 +1,46 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 157,
+  "paged_count": 162,
   "pending_count": 5,
   "pending": [
     {
-      "name": "虚日鼠",
-      "mentions": 2,
-      "chapters": [
-        6,
-        65
-      ],
-      "appear_in": [
-        "第6回",
-        "第65回"
-      ],
+      "name": "女土貉",
+      "mentions": 1,
+      "chapters": [65],
+      "appear_in": ["第65回"],
       "source": "seed",
       "note": "二十八宿；小雷音夜战；第65回"
     },
     {
-      "name": "危月燕",
+      "name": "壁水貐",
       "mentions": 1,
-      "chapters": [
-        65
-      ],
-      "appear_in": [
-        "第65回"
-      ],
+      "chapters": [65],
+      "appear_in": ["第65回"],
       "source": "seed",
       "note": "二十八宿；小雷音夜战；第65回"
     },
     {
-      "name": "室火猪",
+      "name": "娄金狗",
       "mentions": 1,
-      "chapters": [
-        65
-      ],
-      "appear_in": [
-        "第65回"
-      ],
+      "chapters": [65],
+      "appear_in": ["第65回"],
       "source": "seed",
       "note": "二十八宿；小雷音夜战；第65回"
     },
     {
-      "name": "氐土蝠",
+      "name": "胃土彘",
       "mentions": 1,
-      "chapters": [
-        65
-      ],
-      "appear_in": [
-        "第65回"
-      ],
+      "chapters": [65],
+      "appear_in": ["第65回"],
       "source": "seed",
       "note": "二十八宿；小雷音夜战；第65回"
     },
     {
-      "name": "牛金牛",
+      "name": "毕月乌",
       "mentions": 1,
-      "chapters": [
-        65
-      ],
-      "appear_in": [
-        "第65回"
-      ],
+      "chapters": [65],
+      "appear_in": ["第65回"],
       "source": "seed",
       "note": "二十八宿；小雷音夜战；第65回"
     }
