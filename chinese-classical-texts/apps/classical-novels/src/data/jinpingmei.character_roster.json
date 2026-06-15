@@ -1,0 +1,90 @@
+{
+  "book": "金瓶梅",
+  "generated": "2026-06-15",
+  "paged_count": 40,
+  "pending_count": 5,
+  "pending": [
+    {
+      "name": "胡僧",
+      "mentions": 7,
+      "chapters": [
+        49,
+        50,
+        51,
+        52,
+        69,
+        78,
+        79
+      ],
+      "appear_in": [
+        "第49回",
+        "第50回",
+        "第51回",
+        "第52回",
+        "第69回",
+        "第78回",
+        "第79回"
+      ],
+      "source": "seed",
+      "note": "赠西门庆春药；第49回"
+    },
+    {
+      "name": "何九",
+      "mentions": 6,
+      "chapters": [
+        5,
+        6,
+        9,
+        10,
+        76,
+        77
+      ],
+      "appear_in": [
+        "第5回",
+        "第6回",
+        "第9回",
+        "第10回",
+        "第76回",
+        "第77回"
+      ],
+      "source": "seed",
+      "note": "帮闲；第25回"
+    },
+    {
+      "name": "陈洪",
+      "mentions": 5,
+      "chapters": [
+        1,
+        17,
+        18,
+        88,
+        93
+      ],
+      "appear_in": [
+        "第1回",
+        "第17回",
+        "第18回",
+        "第88回",
+        "第93回"
+      ],
+      "source": "seed",
+      "note": "陈经济之父；第85回前后"
+    },
+    {
+      "name": "冯神仙",
+      "mentions": 0,
+      "chapters": [],
+      "appear_in": [],
+      "source": "seed",
+      "note": "算命术士；第29回"
+    },
+    {
+      "name": "叶番僧",
+      "mentions": 0,
+      "chapters": [],
+      "appear_in": [],
+      "source": "seed",
+      "note": "番僧，与胡僧并提"
+    }
+  ]
+}
