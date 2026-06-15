@@ -164,6 +164,12 @@
       "weight": 32
     },
     {
+      "id": "弥勒佛祖",
+      "type": "character",
+      "faction": "西天",
+      "weight": 44
+    },
+    {
       "id": "文殊菩萨",
       "type": "character",
       "faction": "佛界",
@@ -314,6 +320,12 @@
       "weight": 32
     },
     {
+      "id": "精细鬼",
+      "type": "monster",
+      "faction": "平顶山",
+      "weight": 28
+    },
+    {
       "id": "红孩儿",
       "type": "monster",
       "faction": "妖魔",
@@ -324,6 +336,12 @@
       "type": "monster",
       "faction": "妖魔",
       "weight": 38
+    },
+    {
+      "id": "老鼋",
+      "type": "character",
+      "faction": "通天河",
+      "weight": 36
     },
     {
       "id": "虎力大仙",
@@ -422,10 +440,22 @@
       "weight": 28
     },
     {
+      "id": "陈关",
+      "type": "character",
+      "faction": "陈家庄",
+      "weight": 24
+    },
+    {
       "id": "陈家庄老妪",
       "type": "character",
       "faction": "陈家庄",
       "weight": 26
+    },
+    {
+      "id": "陈清",
+      "type": "character",
+      "faction": "陈家庄",
+      "weight": 24
     },
     {
       "id": "青牛精",
@@ -1300,6 +1330,24 @@
       "contradiction": false
     },
     {
+      "source": "弥勒佛祖",
+      "target": "黄眉怪",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "弥勒佛祖",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "弥勒佛祖",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "文殊菩萨",
       "target": "狮猁怪",
       "type": "主仆",
@@ -1482,6 +1530,18 @@
     {
       "source": "灵感大王",
       "target": "陈家庄老妪",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "灵感大王",
+      "target": "陈清",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "灵感大王",
+      "target": "陈关",
       "type": "敌对",
       "contradiction": false
     },
@@ -1714,6 +1774,24 @@
       "contradiction": false
     },
     {
+      "source": "精细鬼",
+      "target": "金角大王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "精细鬼",
+      "target": "银角大王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "精细鬼",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "红孩儿",
       "target": "牛魔王",
       "type": "父子",
@@ -1747,6 +1825,24 @@
       "source": "羊力大仙",
       "target": "鹿力大仙",
       "type": "兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "老鼋",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "老鼋",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "老鼋",
+      "target": "灵感大王",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -1931,6 +2027,12 @@
     },
     {
       "source": "金角大王",
+      "target": "精细鬼",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "金角大王",
       "target": "太上老君",
       "type": "主仆",
       "contradiction": false
@@ -1984,6 +2086,24 @@
       "contradiction": false
     },
     {
+      "source": "陈关",
+      "target": "陈清",
+      "type": "兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "陈关",
+      "target": "陈家庄老妪",
+      "type": "母子",
+      "contradiction": false
+    },
+    {
+      "source": "陈关",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "陈家庄老妪",
       "target": "灵感大王",
       "type": "仇敌",
@@ -1998,6 +2118,30 @@
     {
       "source": "陈家庄老妪",
       "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "陈家庄老妪",
+      "target": "陈清",
+      "type": "母子",
+      "contradiction": false
+    },
+    {
+      "source": "陈家庄老妪",
+      "target": "陈关",
+      "type": "母子",
+      "contradiction": false
+    },
+    {
+      "source": "陈清",
+      "target": "陈家庄老妪",
+      "type": "母子",
+      "contradiction": false
+    },
+    {
+      "source": "陈清",
+      "target": "唐僧",
       "type": "朋友",
       "contradiction": false
     },
@@ -2053,6 +2197,12 @@
       "source": "黄眉怪",
       "target": "唐僧",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "黄眉怪",
+      "target": "弥勒佛祖",
+      "type": "主仆",
       "contradiction": false
     },
     {

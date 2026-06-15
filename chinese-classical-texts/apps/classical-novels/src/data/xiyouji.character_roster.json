@@ -1,45 +1,27 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 83,
+  "paged_count": 88,
   "pending_count": 5,
   "pending": [
     {
-      "name": "陈清",
-      "mentions": 4,
-      "chapters": [
-        47,
-        48,
-        49,
-        99
-      ],
-      "appear_in": [
-        "第47回",
-        "第48回",
-        "第49回",
-        "第99回"
-      ],
-      "source": "seed",
-      "note": "陈家庄献祭童男；第47–48回"
-    },
-    {
-      "name": "陈关",
+      "name": "赤脚大仙",
       "mentions": 3,
       "chapters": [
-        47,
-        48,
-        99
+        5,
+        6,
+        7
       ],
       "appear_in": [
-        "第47回",
-        "第48回",
-        "第99回"
+        "第5回",
+        "第6回",
+        "第7回"
       ],
       "source": "seed",
-      "note": "陈家庄献祭童女；第47–48回"
+      "note": "悟空旧识，蟠桃会等；第5回起"
     },
     {
-      "name": "精细鬼",
+      "name": "伶俐虫",
       "mentions": 2,
       "chapters": [
         33,
@@ -50,29 +32,43 @@
         "第34回"
       ],
       "source": "seed",
-      "note": "平顶山小妖；第32回"
+      "note": "平顶山巡山小妖，精细鬼之伴；第32回"
     },
     {
-      "name": "老鼋",
-      "mentions": 2,
+      "name": "太阴星君",
+      "mentions": 1,
       "chapters": [
-        49,
-        99
+        95
       ],
       "appear_in": [
-        "第49回",
-        "第99回"
+        "第95回"
       ],
       "source": "seed",
-      "note": "通天河渡唐僧，湿经之由；第81、98回"
+      "note": "收玉兔精；第95回"
     },
     {
-      "name": "弥勒佛祖",
-      "mentions": 0,
-      "chapters": [],
-      "appear_in": [],
+      "name": "木吒",
+      "mentions": 1,
+      "chapters": [
+        6
+      ],
+      "appear_in": [
+        "第6回"
+      ],
       "source": "seed",
-      "note": "收黄眉童子；第66回"
+      "note": "李靖长子，观音护法；第22回起"
+    },
+    {
+      "name": "杏仙",
+      "mentions": 1,
+      "chapters": [
+        64
+      ],
+      "appear_in": [
+        "第64回"
+      ],
+      "source": "seed",
+      "note": "荆棘岭木仙庵树精；第64回"
     }
   ]
 }
