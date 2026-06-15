@@ -1,0 +1,34 @@
+---
+interface Props {
+  label?: string;
+}
+
+const { label = '分组列表' } = Astro.props;
+---
+
+<div class="catalog-fold-bar bestiary-controls mb-6">
+  <span class="bestiary-controls-label">{label}</span>
+  <div class="bestiary-controls-btns">
+    <button type="button" class="bestiary-control-btn" data-catalog-fold="all">全部展开</button>
+    <button type="button" class="bestiary-control-btn" data-catalog-fold="none">全部折叠</button>
+  </div>
+</div>
+
+<script>
+  function bindCatalogFold(root: ParentNode) {
+    const scope = root.querySelector('.catalog-fold-page') ?? root;
+    root.querySelectorAll('[data-catalog-fold]').forEach((btn) => {
+      if (btn.getAttribute('data-bound') === '1') return;
+      btn.setAttribute('data-bound', '1');
+      btn.addEventListener('click', () => {
+        const open = btn.getAttribute('data-catalog-fold') === 'all';
+        scope.querySelectorAll('details.catalog-fold-group').forEach((d) => {
+          (d as HTMLDetailsElement).open = open;
+        });
+      });
+    });
+  }
+
+  bindCatalogFold(document);
+  document.addEventListener('astro:page-load', () => bindCatalogFold(document));
+</script>

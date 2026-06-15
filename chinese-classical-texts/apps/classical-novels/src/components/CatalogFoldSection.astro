@@ -1,0 +1,20 @@
+---
+interface Props {
+  id?: string;
+  title: string;
+  count: number;
+  open?: boolean;
+}
+
+const { id, title, count, open = true } = Astro.props;
+---
+
+<details class="catalog-fold-group bestiary-group surface mb-6" open={open} {...id ? { id } : {}}>
+  <summary class="bestiary-group-summary">
+    <span class="bestiary-group-title">{title}</span>
+    <span class="bestiary-group-count">{count}</span>
+  </summary>
+  <div class="catalog-fold-body">
+    <slot />
+  </div>
+</details>

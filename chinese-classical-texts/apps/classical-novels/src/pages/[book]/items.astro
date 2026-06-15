@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import ItemCard from '../../components/ItemCard.astro';
+import CatalogFoldBar from '../../components/CatalogFoldBar.astro';
+import CatalogFoldSection from '../../components/CatalogFoldSection.astro';
 import { groupByKind, itemsIndexTitle, kindLabel, loadBookItems } from '../../lib/items';
 
 export async function getStaticPaths() {
@@ -30,6 +32,8 @@ const sections: { key: keyof typeof grouped; anchor: string }[] = isXiyouji
       { key: 'costume', anchor: 'costume' },
       { key: 'custom', anchor: 'custom' },
     ];
+
+const activeSections = sections.filter(({ key }) => grouped[key].length > 0);
 ---
 
 <Base title={`${meta.book} · ${indexTitle}`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
@@ -41,24 +45,22 @@ const sections: { key: keyof typeof grouped; anchor: string }[] = isXiyouji
     }
   </p>
 
-  <div class="content-page">
-  <nav class="mb-8 flex flex-wrap gap-2 text-sm">
-    {
-      sections.map(({ key, anchor }) =>
-        grouped[key].length > 0 ? (
+  <div class="content-page catalog-fold-page">
+    {activeSections.length > 0 && <CatalogFoldBar label="名物分类" />}
+
+    <nav class="mb-6 flex flex-wrap gap-2 text-sm">
+      {
+        activeSections.map(({ key, anchor }) => (
           <a href={`#${anchor}`} class="chip">
             {kindLabel(key)}（{grouped[key].length}）
           </a>
-        ) : null
-      )
-    }
-  </nav>
+        ))
+      }
+    </nav>
 
-  {
-    sections.map(({ key, anchor }) =>
-      grouped[key].length > 0 ? (
-        <section id={anchor} class="mb-10">
-          <h2 class="section-title mb-3 text-lg">{kindLabel(key)}（{grouped[key].length}）</h2>
+    {
+      activeSections.map(({ key, anchor }) => (
+        <CatalogFoldSection id={anchor} title={kindLabel(key)} count={grouped[key].length}>
           <div class="grid items-stretch gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
             {grouped[key].map(({ kind, entry }) => (
               <ItemCard
@@ -71,17 +73,16 @@ const sections: { key: keyof typeof grouped; anchor: string }[] = isXiyouji
               />
             ))}
           </div>
-        </section>
-      ) : null
-    )
-  }
+        </CatalogFoldSection>
+      ))
+    }
 
-  {
-    items.length === 0 && (
-      <p class="text-sm text-muted">
-        {isXiyouji ? '本书暂无法宝实体页。' : '本书暂无名物实体页。'}
-      </p>
-    )
-  }
+    {
+      items.length === 0 && (
+        <p class="text-sm text-muted">
+          {isXiyouji ? '本书暂无法宝实体页。' : '本书暂无名物实体页。'}
+        </p>
+      )
+    }
   </div>
 </Base>

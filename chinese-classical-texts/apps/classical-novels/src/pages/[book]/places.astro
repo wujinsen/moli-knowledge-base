@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
+import CatalogFoldBar from '../../components/CatalogFoldBar.astro';
+import CatalogFoldSection from '../../components/CatalogFoldSection.astro';
 import {
   gardenChildren,
   groupByCategory,
@@ -29,6 +31,20 @@ const categories = sortedCategories(grouped);
 const root = placeRootFor(meta.book);
 const rootChildren = root ? gardenChildren(places, root.id) : [];
 const rootEntry = root ? places.find((p) => p.data.id === root.id) : undefined;
+const rootCount = rootChildren.length + (rootEntry ? 1 : 0);
+const hasRootSection = Boolean(root && rootCount > 0);
+
+const categorySections = categories
+  .map((cat) => {
+    const list = grouped.get(cat)!;
+    const rest = root
+      ? list.filter((p) => p.data.id !== root.id && p.data.parent !== root.id)
+      : list;
+    return { cat, rest };
+  })
+  .filter(({ rest }) => rest.length > 0);
+
+const foldLabel = meta.book === '红楼梦' ? '建筑分组' : '地点分组';
 ---
 
 <Base title={`${meta.book} · 建筑居所`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
@@ -50,50 +66,44 @@ const rootEntry = root ? places.find((p) => p.data.id === root.id) : undefined;
     }
   </p>
 
-  <div class="content-page">
-  {
-    root && (rootChildren.length > 0 || rootEntry) && (
-      <section id={root.id} class="mb-10">
-        <h2 class="section-title mb-3 text-lg">
-          {root.title}（{rootChildren.length + (rootEntry ? 1 : 0)}）
-        </h2>
-        <div class="mb-4 grid items-stretch gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
-          {rootEntry && (
-            <PlaceCard
-              href={`/${meta.slug}/l/${rootEntry.data.id}`}
-              name={rootEntry.data.name}
-              type={rootEntry.data.type}
-              category={rootEntry.data.category}
-              summary={rootEntry.data.summary}
-              tags={rootEntry.data.tags}
-            />
-          )}
-          {rootChildren.map((entry) => (
-            <PlaceCard
-              href={`/${meta.slug}/l/${entry.data.id}`}
-              name={entry.data.name}
-              type={entry.data.type}
-              category={entry.data.category}
-              plaque={entry.data.plaque}
-              summary={entry.data.summary}
-              tags={entry.data.tags}
-            />
-          ))}
-        </div>
-      </section>
-    )
-  }
+  <div class="content-page catalog-fold-page">
+    {(hasRootSection || categorySections.length > 0) && (
+      <CatalogFoldBar label={foldLabel} />
+    )}
 
-  {
-    categories.map((cat) => {
-      const list = grouped.get(cat)!;
-      const rest = root
-        ? list.filter((p) => p.data.id !== root.id && p.data.parent !== root.id)
-        : list;
-      if (rest.length === 0) return null;
-      return (
-        <section id={cat} class="mb-10">
-          <h2 class="section-title mb-3 text-lg">{cat}（{rest.length}）</h2>
+    {
+      hasRootSection && (
+        <CatalogFoldSection id={root!.id} title={root!.title} count={rootCount}>
+          <div class="grid items-stretch gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+            {rootEntry && (
+              <PlaceCard
+                href={`/${meta.slug}/l/${rootEntry.data.id}`}
+                name={rootEntry.data.name}
+                type={rootEntry.data.type}
+                category={rootEntry.data.category}
+                summary={rootEntry.data.summary}
+                tags={rootEntry.data.tags}
+              />
+            )}
+            {rootChildren.map((entry) => (
+              <PlaceCard
+                href={`/${meta.slug}/l/${entry.data.id}`}
+                name={entry.data.name}
+                type={entry.data.type}
+                category={entry.data.category}
+                plaque={entry.data.plaque}
+                summary={entry.data.summary}
+                tags={entry.data.tags}
+              />
+            ))}
+          </div>
+        </CatalogFoldSection>
+      )
+    }
+
+    {
+      categorySections.map(({ cat, rest }) => (
+        <CatalogFoldSection id={cat} title={cat} count={rest.length}>
           <div class="grid items-stretch gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
             {rest.map((entry) => (
               <PlaceCard
@@ -108,9 +118,8 @@ const rootEntry = root ? places.find((p) => p.data.id === root.id) : undefined;
               />
             ))}
           </div>
-        </section>
-      );
-    })
-  }
+        </CatalogFoldSection>
+      ))
+    }
   </div>
 </Base>

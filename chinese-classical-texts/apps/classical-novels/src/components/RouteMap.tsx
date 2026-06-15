@@ -17,6 +17,15 @@ interface Props {
 
 type LayerFilter = 'all' | RouteLayer;
 
+type PathLabelOverlay = {
+  key: string;
+  x: number;
+  y: number;
+  bearing: string;
+  distanceLi: number;
+  active: boolean;
+};
+
 export default function RouteMap({ data, bookSlug }: Props) {
   const gt = useMemo(() => graphTheme(bookSlug), [bookSlug]);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -87,6 +96,11 @@ export default function RouteMap({ data, bookSlug }: Props) {
   );
 
   const [activeLegKey, setActiveLegKey] = useState<string | null>(null);
+  const [hoverLegKey, setHoverLegKey] = useState<string | null>(null);
+  const [pathLabels, setPathLabels] = useState<PathLabelOverlay[]>([]);
+
+  /** 地图上只显示一条路段标签，避免密集区叠字 */
+  const mapLabelLegKey = activeLegKey ?? hoverLegKey;
 
   /** 仅高亮当前选中的一条路段（避免多段同时亮 + 地图飘字） */
   const highlightedLegKeys = useMemo(() => {
@@ -101,12 +115,70 @@ export default function RouteMap({ data, bookSlug }: Props) {
   );
   const activeLeg = activeLegEntry?.edge;
 
+  /** 路径标签：仅当前选中/悬停路段，叠层跟漫游同步 */
+  const syncPathLabels = useCallback(() => {
+    const chart = chartInstance.current;
+    const el = chartRef.current;
+    if (!chart || !el || !mapLabelLegKey) {
+      setPathLabels([]);
+      return;
+    }
+    if (layer !== 'all' && layer !== 'real') {
+      setPathLabels([]);
+      return;
+    }
+    const leg = routeLegs.find((l) => l.key === mapLabelLegKey);
+    if (!leg?.edge?.bearing || leg.edge.distanceLi == null) {
+      setPathLabels([]);
+      return;
+    }
+    const w = el.clientWidth;
+    const h = el.clientHeight;
+    const legIdx = routeLegOrder.get(leg.key) ?? 0;
+    try {
+      const p1 = chart.convertToPixel({ seriesIndex: 0 }, [leg.from.x, leg.from.y]) as
+        | number[]
+        | undefined;
+      const p2 = chart.convertToPixel({ seriesIndex: 0 }, [leg.to.x, leg.to.y]) as
+        | number[]
+        | undefined;
+      if (!p1 || !p2 || p1.length < 2 || p2.length < 2) {
+        setPathLabels([]);
+        return;
+      }
+      const mx = (p1[0] + p2[0]) / 2;
+      const my = (p1[1] + p2[1]) / 2;
+      const dx = p2[0] - p1[0];
+      const dy = p2[1] - p1[1];
+      const len = Math.hypot(dx, dy) || 1;
+      const nx = -dy / len;
+      const ny = dx / len;
+      const side = legIdx % 2 === 0 ? 1 : -1;
+      const x = mx + nx * 36 * side;
+      const y = my + ny * 36 * side;
+      if (!Number.isFinite(x) || !Number.isFinite(y) || x < -40 || y < -40 || x > w + 40 || y > h + 40) {
+        setPathLabels([]);
+        return;
+      }
+      setPathLabels([
+        {
+          key: leg.key,
+          x,
+          y,
+          bearing: leg.edge.bearing,
+          distanceLi: leg.edge.distanceLi,
+          active: activeLegKey === leg.key,
+        },
+      ]);
+    } catch {
+      setPathLabels([]);
+    }
+  }, [routeLegs, routeLegOrder, layer, mapLabelLegKey, activeLegKey]);
+
   const buildOption = useCallback((): EChartsOption => {
     return {
       backgroundColor: 'transparent',
-      animation: true,
-      animationDuration: 900,
-      animationEasing: 'cubicOut',
+      animation: false,
       tooltip: {
         trigger: 'item',
         backgroundColor: 'rgba(15, 23, 42, 0.92)',
@@ -126,7 +198,7 @@ export default function RouteMap({ data, bookSlug }: Props) {
             const from = nodeById.get(src)?.name ?? src;
             const to = nodeById.get(tgt)?.name ?? tgt;
             if (!meta?.bearing) return `<strong>${from}</strong> → ${to}`;
-            return `<strong>${from}</strong> → ${to}<br/><span style="color:${gt.accent};font-size:15px">${meta.bearing} · ${meta.distanceLi ?? '?'} 里</span>${meta.distanceKm != null ? `<span style="color:#94a3b8">（约 ${meta.distanceKm} km）</span>` : ''}`;
+            return `<strong>${from}</strong> → ${to}<br/><span style="color:${gt.accent};font-size:17px;font-weight:700">${meta.bearing} · ${meta.distanceLi ?? '?'} 里</span>${meta.distanceKm != null ? `<span style="color:#94a3b8;font-size:14px">（约 ${meta.distanceKm} km）</span>` : ''}`;
           }
           const d = params.data ?? {};
           const node = nodeById.get((d.id as string) ?? '');
@@ -142,7 +214,8 @@ export default function RouteMap({ data, bookSlug }: Props) {
           layout: 'none',
           roam: true,
           draggable: false,
-          labelLayout: { hideOverlap: true, moveOverlap: 'shiftY' },
+          labelLayout: { hideOverlap: true },
+          edgeLabel: { show: false },
           data: visibleNodes.map((n) => {
             const color = realmColor(n.realm);
             const isReal = n.layer === 'real';
@@ -181,16 +254,16 @@ export default function RouteMap({ data, bookSlug }: Props) {
               source: e.source,
               target: e.target,
               symbol: ['none', 'arrow'],
-              symbolSize: [0, isHighlight ? 9 : 7],
+              symbolSize: [0, isHighlight ? 10 : 7],
               label: { show: false },
               lineStyle: {
                 color: isHighlight ? gt.accentSoft : gt.accent,
-                width: isHighlight ? 3.5 : 2,
-                opacity: isHighlight ? 1 : 0.55,
+                width: isHighlight ? 4 : 2.5,
+                opacity: isHighlight ? 1 : 0.65,
                 curveness: legIdx != null ? (legIdx % 2 === 0 ? 0.16 : -0.16) : 0.04,
               },
               emphasis: {
-                lineStyle: { width: 4, opacity: 1, color: gt.accentSoft },
+                lineStyle: { width: 4.5, opacity: 1, color: gt.accentSoft },
                 label: { show: false },
               },
             };
@@ -221,29 +294,57 @@ export default function RouteMap({ data, bookSlug }: Props) {
         if (src && tgt) setActiveLegKey(`${src}→${tgt}`);
       }
     });
+    chart.on('mouseover', (params) => {
+      if (params.dataType === 'edge' && params.data && typeof params.data === 'object') {
+        const src = (params.data as { source?: string }).source;
+        const tgt = (params.data as { target?: string }).target;
+        if (src && tgt && routeLegOrder.has(`${src}→${tgt}`)) {
+          setHoverLegKey(`${src}→${tgt}`);
+        }
+      }
+    });
+    chart.on('mouseout', (params) => {
+      if (params.dataType === 'edge') setHoverLegKey(null);
+    });
     chart.getZr().on('click', (e) => {
       if (!e.target) {
         setSelectedId(null);
         setActiveLegKey(null);
+        setHoverLegKey(null);
       }
     });
 
-    const onResize = () => chart.resize();
+    const onResize = () => {
+      chart.resize();
+      syncPathLabels();
+    };
+    const onRoam = () => syncPathLabels();
+    const onFinished = () => syncPathLabels();
+    chart.on('graphRoam', onRoam);
+    chart.on('finished', onFinished);
     window.addEventListener('resize', onResize);
     return () => {
       window.removeEventListener('resize', onResize);
+      chart.off('graphRoam', onRoam);
+      chart.off('finished', onFinished);
       chart.dispose();
       chartInstance.current = null;
     };
-  }, []);
+  }, [syncPathLabels, routePath, routeLegOrder]);
+
+  useEffect(() => {
+    requestAnimationFrame(() => syncPathLabels());
+  }, [mapLabelLegKey, syncPathLabels]);
 
   useEffect(() => {
     chartInstance.current?.setOption(buildOption(), { notMerge: true });
-  }, [buildOption]);
+    requestAnimationFrame(() => syncPathLabels());
+  }, [buildOption, syncPathLabels]);
 
   const resetView = () => {
     setSelectedId(null);
     setActiveLegKey(null);
+    setHoverLegKey(null);
     setLayer('all');
     chartInstance.current?.dispatchAction({ type: 'restore' });
   };
@@ -324,7 +425,7 @@ export default function RouteMap({ data, bookSlug }: Props) {
         <aside className="absolute bottom-4 right-3 top-14 z-10 flex w-[22rem] flex-col overflow-hidden rounded-xl border border-white/10 bg-slate-900/94 shadow-xl backdrop-blur-md">
           <div className="shrink-0 border-b border-white/10 px-3 py-2.5">
             <div className="text-sm font-semibold text-slate-100">路段一览</div>
-            <div className="text-xs text-slate-400">点击行高亮该段路线 · 悬停地图连线可看距离</div>
+            <div className="text-xs text-slate-400">点击行高亮该段 · 悬停连线显示距离</div>
           </div>
 
           {activeLegEntry && activeLeg && (
@@ -438,8 +539,31 @@ export default function RouteMap({ data, bookSlug }: Props) {
 
       <div ref={chartRef} className="absolute inset-0 h-full w-full" style={{ minHeight: 'calc(100vh - 3rem)' }} />
 
+      {/* 路径方位·距离（叠在连线中点，随缩放平移） */}
+      {(layer === 'all' || layer === 'real') && pathLabels.length > 0 && (
+        <div className="pointer-events-none absolute inset-0 z-[5] overflow-hidden">
+          {pathLabels.map((l) => (
+            <div
+              key={l.key}
+              className="absolute whitespace-nowrap rounded-lg border px-3 py-1.5 text-[17px] font-bold leading-none text-white shadow-md"
+              style={{
+                left: l.x,
+                top: l.y,
+                transform: 'translate(-50%, -50%)',
+                borderColor: gt.accent,
+                backgroundColor: l.active ? 'rgba(15, 23, 42, 0.98)' : 'rgba(15, 23, 42, 0.93)',
+                boxShadow: l.active ? `0 0 14px ${gt.accent}55` : undefined,
+              }}
+            >
+              <span style={{ color: gt.accentSoft }}>{l.bearing}</span>
+              <span className="ml-2">{l.distanceLi}里</span>
+            </div>
+          ))}
+        </div>
+      )}
+
       <p className="pointer-events-none absolute bottom-4 left-1/2 z-0 -translate-x-1/2 select-none text-center text-xs text-slate-600/70">
-        右栏查路段 · 悬停连线看距离 · 滚轮缩放 · 点击地点
+        右栏查全路段 · 悬停/选中连线显示距离 · 滚轮缩放
       </p>
     </div>
   );

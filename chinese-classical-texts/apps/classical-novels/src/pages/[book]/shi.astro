@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import BackLink from '../../components/BackLink.astro';
+import CatalogFoldBar from '../../components/CatalogFoldBar.astro';
+import CatalogFoldSection from '../../components/CatalogFoldSection.astro';
 import ImageryGraph from '../../components/ImageryGraph.tsx';
 import {
   buildImageryGraph,
@@ -94,46 +96,49 @@ const isXyj = meta.slug === 'xiyouji';
     />
   </div>
 
-  {
-    presentSubtypes.map((st) => {
-      const group = bySubtype(st);
-      if (group.length === 0) return null;
-      return (
-        <div class="mb-2">
-          <h2 class="section-title mb-4 text-lg">{subtypeLabel(st)}</h2>
-          <div class="mb-10 grid gap-3 sm:grid-cols-2">
-            {
-              group.map((item) => {
-                const d = item.data;
-                const infCount = d.links.filter((l) => l.inference).length;
-                return (
-                  <a href={`/${meta.slug}/imagery/${d.id}`} class="module-card">
-                    <span class="glyph" style="font-size:1.2rem;width:2.6rem;height:2.6rem">
-                      {SUBTYPE_GLYPH[st] ?? '象'}
-                    </span>
-                    <div class="min-w-0">
-                      <h3 class="font-bold" style="color: var(--primary)">{d.title}</h3>
-                      {d.text && (
-                        <p class="mt-1 line-clamp-2 text-sm text-muted">{d.text}</p>
-                      )}
-                      <div class="mt-2 flex flex-wrap gap-2 text-xs">
-                        {d.chapters[0] != null && (
-                          <span class="chip">{chapterLabel(d.chapters)}</span>
+  <div class="catalog-fold-page">
+    {presentSubtypes.length > 0 && <CatalogFoldBar label="意象分类" />}
+
+    {
+      presentSubtypes.map((st) => {
+        const group = bySubtype(st);
+        if (group.length === 0) return null;
+        return (
+          <CatalogFoldSection id={st} title={subtypeLabel(st)} count={group.length}>
+            <div class="grid gap-3 sm:grid-cols-2">
+              {
+                group.map((item) => {
+                  const d = item.data;
+                  const infCount = d.links.filter((l) => l.inference).length;
+                  return (
+                    <a href={`/${meta.slug}/imagery/${d.id}`} class="module-card">
+                      <span class="glyph" style="font-size:1.2rem;width:2.6rem;height:2.6rem">
+                        {SUBTYPE_GLYPH[st] ?? '象'}
+                      </span>
+                      <div class="min-w-0">
+                        <h3 class="font-bold" style="color: var(--primary)">{d.title}</h3>
+                        {d.text && (
+                          <p class="mt-1 line-clamp-2 text-sm text-muted">{d.text}</p>
                         )}
-                        {d.characters.map((c) => <span class="chip">{c}</span>)}
-                        {infCount > 0 && (
-                          <span class="chip" title="推论边">推论 ×{infCount}</span>
-                        )}
+                        <div class="mt-2 flex flex-wrap gap-2 text-xs">
+                          {d.chapters[0] != null && (
+                            <span class="chip">{chapterLabel(d.chapters)}</span>
+                          )}
+                          {d.characters.map((c) => <span class="chip">{c}</span>)}
+                          {infCount > 0 && (
+                            <span class="chip" title="推论边">推论 ×{infCount}</span>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  </a>
-                );
-              })
-            }
-          </div>
-        </div>
-      );
-    })
-  }
+                    </a>
+                  );
+                })
+              }
+            </div>
+          </CatalogFoldSection>
+        );
+      })
+    }
+  </div>
   </div>
 </Base>
