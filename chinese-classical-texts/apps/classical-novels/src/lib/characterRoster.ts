@@ -3,6 +3,7 @@
 import hlmRoster from '../data/honglou.character_roster.json';
 import jpmRoster from '../data/jinpingmei.character_roster.json';
 import xyjRoster from '../data/xiyouji.character_roster.json';
+import hlmScope from '../data/honglou.character_scope.json';
 import xyjScope from '../data/xiyouji.character_scope.json';
 
 export type PendingCharacter = {
@@ -31,6 +32,7 @@ export type CharacterScopeData = {
 };
 
 const SCOPES: Record<string, CharacterScopeData> = {
+  honglou: hlmScope as CharacterScopeData,
   xiyouji: xyjScope as CharacterScopeData,
 };
 

@@ -30,16 +30,12 @@ def main() -> None:
     char_dir = CHAR_DIR / BOOK
     for cid in char_ids:
         entry = dict(FIELDS[cid])
-        if not entry.get("结局"):
-            path = char_dir / f"{cid}.md"
-            if path.is_file():
-                fm, body = parse_frontmatter(path)
-                if fm.get("结局"):
-                    entry["结局"] = fm["结局"]
-                else:
-                    o = extract_outcome(fm, body)
-                    if o:
-                        entry["结局"] = o
+        path = char_dir / f"{cid}.md"
+        if path.is_file():
+            fm, body = parse_frontmatter(path)
+            o = extract_outcome(fm, body)
+            if o:
+                entry["结局"] = o
         payload_fields[cid] = entry
 
     payload = {"book": BOOK, "groups": GROUPS, "fields": payload_fields}

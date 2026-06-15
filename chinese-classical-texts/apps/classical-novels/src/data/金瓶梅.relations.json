@@ -9,10 +9,24 @@
       "ximen_proximity": "利益交换"
     },
     {
+      "id": "于春儿",
+      "type": "character",
+      "faction": "帮闲圈",
+      "weight": 14,
+      "ximen_proximity": "利益交换"
+    },
+    {
       "id": "何九",
       "type": "character",
       "faction": "清河市井",
       "weight": 22,
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "冯妈妈",
+      "type": "character",
+      "faction": "牙婆",
+      "weight": 26,
       "ximen_proximity": "利益交换"
     },
     {
@@ -70,6 +84,20 @@
       "faction": "西门府",
       "weight": 26,
       "ximen_proximity": "雇佣"
+    },
+    {
+      "id": "妙凤",
+      "type": "character",
+      "faction": "方外",
+      "weight": 12,
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "妙趣",
+      "type": "character",
+      "faction": "方外",
+      "weight": 12,
+      "ximen_proximity": "外人"
     },
     {
       "id": "孙天化",
@@ -212,6 +240,13 @@
       "ximen_proximity": "外人"
     },
     {
+      "id": "段绵纱",
+      "type": "character",
+      "faction": "帮闲圈",
+      "weight": 14,
+      "ximen_proximity": "利益交换"
+    },
+    {
       "id": "潘金莲",
       "type": "character",
       "faction": "西门府",
@@ -231,6 +266,13 @@
       "faction": "情妇圈",
       "weight": 40,
       "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "王和尚",
+      "type": "character",
+      "faction": "方外",
+      "weight": 14,
+      "ximen_proximity": "外人"
     },
     {
       "id": "王姑子",
@@ -258,6 +300,13 @@
       "type": "character",
       "faction": "帮闲圈",
       "weight": 16,
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "白秃子",
+      "type": "character",
+      "faction": "帮闲圈",
+      "weight": 14,
       "ximen_proximity": "利益交换"
     },
     {
@@ -289,6 +338,13 @@
       "ximen_proximity": "利益交换"
     },
     {
+      "id": "罗回子",
+      "type": "character",
+      "faction": "帮闲圈",
+      "weight": 14,
+      "ximen_proximity": "利益交换"
+    },
+    {
       "id": "翟管家",
       "type": "character",
       "faction": "帮闲圈",
@@ -299,7 +355,7 @@
       "id": "聂钺儿",
       "type": "character",
       "faction": "帮闲圈",
-      "weight": 16,
+      "weight": 18,
       "ximen_proximity": "利益交换"
     },
     {
@@ -517,6 +573,54 @@
       "contradiction": false
     },
     {
+      "source": "于春儿",
+      "target": "西门庆",
+      "type": "帮闲",
+      "contradiction": false
+    },
+    {
+      "source": "于春儿",
+      "target": "段绵纱",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "于春儿",
+      "target": "聂钺儿",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "于春儿",
+      "target": "李桂姐",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "冯妈妈",
+      "target": "李瓶儿",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "冯妈妈",
+      "target": "西门庆",
+      "type": "帮闲",
+      "contradiction": false
+    },
+    {
+      "source": "冯妈妈",
+      "target": "王六儿",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "冯妈妈",
+      "target": "韩道国",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "冯神仙",
       "target": "西门庆",
       "type": "朋友",
@@ -661,6 +765,36 @@
       "contradiction": false
     },
     {
+      "source": "妙凤",
+      "target": "薛姑子",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "妙凤",
+      "target": "妙趣",
+      "type": "姐妹",
+      "contradiction": false
+    },
+    {
+      "source": "妙凤",
+      "target": "吴月娘",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "妙趣",
+      "target": "薛姑子",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "妙趣",
+      "target": "吴月娘",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "孙天化",
       "target": "西门庆",
       "type": "帮闲",
@@ -789,6 +923,30 @@
     {
       "source": "小张闲",
       "target": "白回子",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "小张闲",
+      "target": "白秃子",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "小张闲",
+      "target": "罗回子",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "小张闲",
+      "target": "谢希大",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "小张闲",
+      "target": "李桂姐",
       "type": "朋友",
       "contradiction": false
     },
@@ -968,6 +1126,12 @@
     },
     {
       "source": "李瓶儿",
+      "target": "冯妈妈",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "李瓶儿",
       "target": "版本-李瓶儿私房",
       "type": "矛盾",
       "contradiction": true
@@ -1039,6 +1203,24 @@
       "contradiction": true
     },
     {
+      "source": "段绵纱",
+      "target": "西门庆",
+      "type": "帮闲",
+      "contradiction": false
+    },
+    {
+      "source": "段绵纱",
+      "target": "聂钺儿",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "段绵纱",
+      "target": "应伯爵",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "潘金莲",
       "target": "西门庆",
       "type": "情人",
@@ -1105,6 +1287,18 @@
       "contradiction": false
     },
     {
+      "source": "王和尚",
+      "target": "薛姑子",
+      "type": "嫉妒",
+      "contradiction": false
+    },
+    {
+      "source": "王和尚",
+      "target": "李瓶儿",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "王姑子",
       "target": "薛姑子",
       "type": "嫉妒",
@@ -1153,6 +1347,24 @@
       "contradiction": false
     },
     {
+      "source": "白秃子",
+      "target": "西门庆",
+      "type": "帮闲",
+      "contradiction": false
+    },
+    {
+      "source": "白秃子",
+      "target": "罗回子",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "白秃子",
+      "target": "李桂姐",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "白赉光",
       "target": "西门庆",
       "type": "帮闲",
@@ -1195,6 +1407,18 @@
       "contradiction": false
     },
     {
+      "source": "罗回子",
+      "target": "西门庆",
+      "type": "帮闲",
+      "contradiction": false
+    },
+    {
+      "source": "罗回子",
+      "target": "李桂姐",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "翟管家",
       "target": "西门庆",
       "type": "朋友",
@@ -1221,6 +1445,12 @@
     {
       "source": "聂钺儿",
       "target": "王三官",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "聂钺儿",
+      "target": "李桂姐",
       "type": "朋友",
       "contradiction": false
     },
@@ -1285,6 +1515,24 @@
       "contradiction": false
     },
     {
+      "source": "薛姑子",
+      "target": "妙趣",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "薛姑子",
+      "target": "妙凤",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "薛姑子",
+      "target": "王和尚",
+      "type": "嫉妒",
+      "contradiction": false
+    },
+    {
       "source": "西门大姐",
       "target": "陈经济",
       "type": "夫妻",
@@ -1317,6 +1565,30 @@
     {
       "source": "西门庆",
       "target": "文嫂",
+      "type": "帮闲",
+      "contradiction": false
+    },
+    {
+      "source": "西门庆",
+      "target": "冯妈妈",
+      "type": "帮闲",
+      "contradiction": false
+    },
+    {
+      "source": "西门庆",
+      "target": "于春儿",
+      "type": "帮闲",
+      "contradiction": false
+    },
+    {
+      "source": "西门庆",
+      "target": "白秃子",
+      "type": "帮闲",
+      "contradiction": false
+    },
+    {
+      "source": "西门庆",
+      "target": "罗回子",
       "type": "帮闲",
       "contradiction": false
     },
