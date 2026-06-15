@@ -68,6 +68,12 @@
       "weight": 58
     },
     {
+      "id": "云里雾",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 22
+    },
+    {
       "id": "五方揭谛",
       "type": "character",
       "faction": "佛界",
@@ -132,6 +138,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 38
+    },
+    {
+      "id": "兴烘掀",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 22
     },
     {
       "id": "凌空子",
@@ -600,6 +612,18 @@
       "type": "character",
       "faction": "天庭",
       "weight": 38
+    },
+    {
+      "id": "快如风",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 22
+    },
+    {
+      "id": "急如火",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 22
     },
     {
       "id": "房日兔",
@@ -1436,6 +1460,12 @@
       "weight": 44
     },
     {
+      "id": "雾里云",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 22
+    },
+    {
       "id": "青牛精",
       "type": "monster",
       "faction": "妖魔",
@@ -1914,6 +1944,42 @@
     {
       "source": "二郎神",
       "target": "哪吒",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "云里雾",
+      "target": "红孩儿",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "云里雾",
+      "target": "雾里云",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "云里雾",
+      "target": "急如火",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "云里雾",
+      "target": "快如风",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "云里雾",
+      "target": "兴烘掀",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "云里雾",
+      "target": "牛魔王",
       "type": "朋友",
       "contradiction": false
     },
@@ -2472,6 +2538,24 @@
     {
       "source": "关元帅",
       "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "兴烘掀",
+      "target": "红孩儿",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "兴烘掀",
+      "target": "急如火",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "兴烘掀",
+      "target": "牛魔王",
       "type": "朋友",
       "contradiction": false
     },
@@ -5998,6 +6082,30 @@
       "contradiction": false
     },
     {
+      "source": "快如风",
+      "target": "红孩儿",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "快如风",
+      "target": "急如火",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "快如风",
+      "target": "兴烘掀",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "急如火",
+      "target": "红孩儿",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "房日兔",
       "target": "箕水豹",
       "type": "同僚",
@@ -8380,6 +8488,36 @@
       "contradiction": false
     },
     {
+      "source": "红孩儿",
+      "target": "云里雾",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "红孩儿",
+      "target": "雾里云",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "红孩儿",
+      "target": "急如火",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "红孩儿",
+      "target": "快如风",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "红孩儿",
+      "target": "兴烘掀",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "羊力大仙",
       "target": "虎力大仙",
       "type": "兄弟",
@@ -9439,6 +9577,30 @@
       "source": "雷公",
       "target": "玉皇大帝",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "雾里云",
+      "target": "红孩儿",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "雾里云",
+      "target": "急如火",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "雾里云",
+      "target": "快如风",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "雾里云",
+      "target": "兴烘掀",
+      "type": "同僚",
       "contradiction": false
     },
     {
