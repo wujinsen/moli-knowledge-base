@@ -692,6 +692,12 @@
       "weight": 32
     },
     {
+      "id": "杜如晦",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 26
+    },
+    {
       "id": "柳土獐",
       "type": "character",
       "faction": "天庭",
@@ -702,6 +708,12 @@
       "type": "character",
       "faction": "灌江口",
       "weight": 38
+    },
+    {
+      "id": "段志玄",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 24
     },
     {
       "id": "殷温娇",
@@ -914,6 +926,12 @@
       "weight": 52
     },
     {
+      "id": "王灵官",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 36
+    },
+    {
       "id": "电母",
       "type": "character",
       "faction": "天庭",
@@ -1080,6 +1098,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 40
+    },
+    {
+      "id": "薛仁贵",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 24
     },
     {
       "id": "虎力大仙",
@@ -1350,6 +1374,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 40
+    },
+    {
+      "id": "马三宝",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 24
     },
     {
       "id": "马元帅",
@@ -2179,6 +2209,12 @@
       "source": "佑圣真君",
       "target": "孙悟空",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "佑圣真君",
+      "target": "王灵官",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -3216,6 +3252,30 @@
     {
       "source": "唐太宗",
       "target": "刘洪基",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "杜如晦",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "段志玄",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "马三宝",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "薛仁贵",
       "type": "君臣",
       "contradiction": false
     },
@@ -4630,6 +4690,12 @@
       "contradiction": false
     },
     {
+      "source": "孙悟空",
+      "target": "王灵官",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "孤直公",
       "target": "唐僧",
       "type": "敌对",
@@ -5518,6 +5584,24 @@
       "contradiction": false
     },
     {
+      "source": "徐茂功",
+      "target": "段志玄",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "徐茂功",
+      "target": "马三宝",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "徐茂功",
+      "target": "薛仁贵",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "心月狐",
       "target": "角木蛟",
       "type": "同僚",
@@ -5778,6 +5862,12 @@
     {
       "source": "房玄龄",
       "target": "魏征",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "房玄龄",
+      "target": "杜如晦",
       "type": "同僚",
       "contradiction": false
     },
@@ -6298,6 +6388,18 @@
       "contradiction": false
     },
     {
+      "source": "杜如晦",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "杜如晦",
+      "target": "魏征",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "柳土獐",
       "target": "角木蛟",
       "type": "同僚",
@@ -6367,6 +6469,24 @@
       "source": "梅山六兄弟",
       "target": "九头虫",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "段志玄",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "段志玄",
+      "target": "秦叔宝",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "段志玄",
+      "target": "程咬金",
+      "type": "同僚",
       "contradiction": false
     },
     {
@@ -7259,6 +7379,12 @@
     },
     {
       "source": "玉皇大帝",
+      "target": "王灵官",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
       "target": "李靖",
       "type": "主仆",
       "contradiction": false
@@ -7446,6 +7572,18 @@
     {
       "source": "王母娘娘",
       "target": "七衣仙女",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "王灵官",
+      "target": "佑圣真君",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "王灵官",
+      "target": "玉皇大帝",
       "type": "主仆",
       "contradiction": false
     },
@@ -7656,6 +7794,18 @@
     {
       "source": "秦叔宝",
       "target": "程咬金",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "秦叔宝",
+      "target": "马三宝",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "秦叔宝",
+      "target": "薛仁贵",
       "type": "同僚",
       "contradiction": false
     },
@@ -8035,6 +8185,12 @@
       "source": "葛仙翁",
       "target": "许旌阳",
       "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "薛仁贵",
+      "target": "唐太宗",
+      "type": "君臣",
       "contradiction": false
     },
     {
@@ -8839,6 +8995,18 @@
       "source": "青脸儿怪",
       "target": "九灵元圣",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "马三宝",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "马三宝",
+      "target": "段志玄",
+      "type": "同僚",
       "contradiction": false
     },
     {
