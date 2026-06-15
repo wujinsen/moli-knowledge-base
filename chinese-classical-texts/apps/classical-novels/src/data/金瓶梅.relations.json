@@ -114,6 +114,13 @@
       "ximen_proximity": "外人"
     },
     {
+      "id": "文嫂",
+      "type": "character",
+      "faction": "清河市井",
+      "weight": 28,
+      "ximen_proximity": "利益交换"
+    },
+    {
       "id": "李娇儿",
       "type": "character",
       "faction": "清河县",
@@ -182,6 +189,13 @@
       "faction": "西门府",
       "weight": 64,
       "ximen_proximity": "亲缘"
+    },
+    {
+      "id": "王三官",
+      "type": "character",
+      "faction": "招宣府",
+      "weight": 30,
+      "ximen_proximity": "外人"
     },
     {
       "id": "王六儿",
@@ -286,6 +300,13 @@
       "type": "character",
       "faction": "勾栏",
       "weight": 28,
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "郑爱香",
+      "type": "character",
+      "faction": "勾栏",
+      "weight": 22,
       "ximen_proximity": "利益交换"
     },
     {
@@ -655,6 +676,24 @@
       "contradiction": false
     },
     {
+      "source": "文嫂",
+      "target": "西门庆",
+      "type": "帮闲",
+      "contradiction": false
+    },
+    {
+      "source": "文嫂",
+      "target": "林太太",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "文嫂",
+      "target": "王三官",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "李娇儿",
       "target": "西门庆",
       "type": "情人",
@@ -682,6 +721,12 @@
       "source": "李桂姐",
       "target": "李娇儿",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "李桂姐",
+      "target": "王三官",
+      "type": "情人",
       "contradiction": false
     },
     {
@@ -736,6 +781,12 @@
       "source": "林太太",
       "target": "西门庆",
       "type": "情人",
+      "contradiction": false
+    },
+    {
+      "source": "林太太",
+      "target": "王三官",
+      "type": "母子",
       "contradiction": false
     },
     {
@@ -803,6 +854,18 @@
       "target": "版本-买春梅银价",
       "type": "矛盾",
       "contradiction": true
+    },
+    {
+      "source": "王三官",
+      "target": "林太太",
+      "type": "母子",
+      "contradiction": false
+    },
+    {
+      "source": "王三官",
+      "target": "西门庆",
+      "type": "朋友",
+      "contradiction": false
     },
     {
       "source": "王六儿",
@@ -968,6 +1031,12 @@
     },
     {
       "source": "西门庆",
+      "target": "文嫂",
+      "type": "帮闲",
+      "contradiction": false
+    },
+    {
+      "source": "西门庆",
       "target": "蔡京",
       "type": "贿赂",
       "contradiction": false
@@ -1040,6 +1109,18 @@
     },
     {
       "source": "郑爱月儿",
+      "target": "西门庆",
+      "type": "情人",
+      "contradiction": false
+    },
+    {
+      "source": "郑爱月儿",
+      "target": "郑爱香",
+      "type": "姐妹",
+      "contradiction": false
+    },
+    {
+      "source": "郑爱香",
       "target": "西门庆",
       "type": "情人",
       "contradiction": false

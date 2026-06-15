@@ -50,6 +50,12 @@
       "weight": 58
     },
     {
+      "id": "凌空子",
+      "type": "monster",
+      "faction": "荆棘岭",
+      "weight": 32
+    },
+    {
       "id": "凤仙郡郡侯",
       "type": "character",
       "faction": "凤仙郡",
@@ -66,6 +72,12 @@
       "type": "character",
       "faction": "江州",
       "weight": 22
+    },
+    {
+      "id": "十八公",
+      "type": "monster",
+      "faction": "荆棘岭",
+      "weight": 34
     },
     {
       "id": "南山大王",
@@ -158,6 +170,12 @@
       "weight": 100
     },
     {
+      "id": "孤直公",
+      "type": "monster",
+      "faction": "荆棘岭",
+      "weight": 32
+    },
+    {
       "id": "宝象国国王",
       "type": "character",
       "faction": "宝象国",
@@ -180,6 +198,12 @@
       "type": "character",
       "faction": "西天",
       "weight": 44
+    },
+    {
+      "id": "拂云叟",
+      "type": "monster",
+      "faction": "荆棘岭",
+      "weight": 32
     },
     {
       "id": "文殊菩萨",
@@ -408,6 +432,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 38
+    },
+    {
+      "id": "赤身鬼",
+      "type": "monster",
+      "faction": "荆棘岭",
+      "weight": 30
     },
     {
       "id": "辟寒大王",
@@ -712,6 +742,48 @@
       "contradiction": false
     },
     {
+      "source": "凌空子",
+      "target": "唐僧",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "凌空子",
+      "target": "十八公",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "凌空子",
+      "target": "孤直公",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "凌空子",
+      "target": "拂云叟",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "凌空子",
+      "target": "杏仙",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "凌空子",
+      "target": "猪八戒",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "凌空子",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "凤仙郡郡侯",
       "target": "孙悟空",
       "type": "朋友",
@@ -756,6 +828,48 @@
     {
       "source": "刘洪",
       "target": "唐僧",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "十八公",
+      "target": "唐僧",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "十八公",
+      "target": "孤直公",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "十八公",
+      "target": "拂云叟",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "十八公",
+      "target": "杏仙",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "十八公",
+      "target": "赤身鬼",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "十八公",
+      "target": "猪八戒",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "十八公",
+      "target": "孙悟空",
       "type": "敌对",
       "contradiction": false
     },
@@ -1354,6 +1468,36 @@
       "contradiction": false
     },
     {
+      "source": "孤直公",
+      "target": "唐僧",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孤直公",
+      "target": "拂云叟",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孤直公",
+      "target": "杏仙",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孤直公",
+      "target": "猪八戒",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孤直公",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "宝象国国王",
       "target": "唐僧",
       "type": "朋友",
@@ -1423,6 +1567,30 @@
       "source": "弥勒佛祖",
       "target": "唐僧",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "拂云叟",
+      "target": "唐僧",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "拂云叟",
+      "target": "杏仙",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "拂云叟",
+      "target": "猪八戒",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "拂云叟",
+      "target": "孙悟空",
+      "type": "敌对",
       "contradiction": false
     },
     {
@@ -1525,6 +1693,12 @@
       "source": "杏仙",
       "target": "唐僧",
       "type": "恋慕",
+      "contradiction": false
+    },
+    {
+      "source": "杏仙",
+      "target": "赤身鬼",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -2137,6 +2311,24 @@
       "source": "赤脚大仙",
       "target": "如来佛祖",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "赤身鬼",
+      "target": "唐僧",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "赤身鬼",
+      "target": "猪八戒",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "赤身鬼",
+      "target": "孙悟空",
+      "type": "敌对",
       "contradiction": false
     },
     {
