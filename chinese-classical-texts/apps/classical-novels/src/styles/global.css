@@ -2129,17 +2129,21 @@ a.edition-tab:hover {
   min-height: 0;
   overflow: hidden;
   position: relative;
+  height: calc(100vh - var(--graph-chrome, 10.5rem));
   height: calc(100dvh - var(--graph-chrome, 10.5rem));
 }
 
 .graph-main {
+  min-height: calc(100vh - var(--graph-chrome, 10.5rem));
   min-height: calc(100dvh - var(--graph-chrome, 10.5rem));
 }
 
 .graph-explorer {
   position: relative;
   width: 100%;
+  height: calc(100vh - var(--graph-chrome, 10.5rem));
   height: calc(100dvh - var(--graph-chrome, 10.5rem));
+  min-height: calc(100vh - var(--graph-chrome, 10.5rem));
   min-height: calc(100dvh - var(--graph-chrome, 10.5rem));
   overflow: hidden;
 }

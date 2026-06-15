@@ -46,8 +46,13 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
         }
         syncGraphChrome();
         window.addEventListener('resize', syncGraphChrome);
+        window.addEventListener('load', syncGraphChrome);
         if (document.fonts && document.fonts.ready) {
           document.fonts.ready.then(syncGraphChrome);
+        }
+        var topbar = document.querySelector('.graph-topbar');
+        if (topbar && typeof ResizeObserver !== 'undefined') {
+          new ResizeObserver(syncGraphChrome).observe(topbar);
         }
       })();
     </script>

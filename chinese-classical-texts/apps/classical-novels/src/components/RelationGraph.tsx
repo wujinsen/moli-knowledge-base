@@ -321,6 +321,7 @@ export default function RelationGraph({ bookSlug }: Props) {
         return;
       }
       try {
+        setChartError(null);
         chart = echarts.init(el, undefined, { renderer: 'canvas' });
       } catch (err) {
         setChartError(err instanceof Error ? err.message : '图谱初始化失败');
@@ -344,8 +345,11 @@ export default function RelationGraph({ bookSlug }: Props) {
     };
 
     const onLayoutChange = () => {
-      if (!chart) mountChart();
-      else chart.resize();
+      if (!chart) {
+        attempts = 0;
+        setChartError(null);
+        mountChart();
+      } else chart.resize();
     };
 
     const ro = new ResizeObserver(onLayoutChange);
