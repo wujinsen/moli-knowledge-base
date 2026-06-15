@@ -3,6 +3,7 @@
 import hlmRoster from '../data/honglou.character_roster.json';
 import jpmRoster from '../data/jinpingmei.character_roster.json';
 import xyjRoster from '../data/xiyouji.character_roster.json';
+import xyjScope from '../data/xiyouji.character_scope.json';
 
 export type PendingCharacter = {
   name: string;
@@ -12,6 +13,30 @@ export type PendingCharacter = {
   source: string;
   note?: string;
 };
+
+export type CharacterScopeLayer = {
+  name: string;
+  count: number;
+  members: string;
+  role: string;
+};
+
+export type CharacterScopeData = {
+  book: string;
+  summary: string;
+  estimates: { label: string; count: string; note: string }[];
+  layers: CharacterScopeLayer[];
+  sources: string[];
+  topic_slug?: string;
+};
+
+const SCOPES: Record<string, CharacterScopeData> = {
+  xiyouji: xyjScope as CharacterScopeData,
+};
+
+export function loadCharacterScope(bookSlug: string): CharacterScopeData | null {
+  return SCOPES[bookSlug] ?? null;
+}
 
 export type CharacterRosterData = {
   book: string;

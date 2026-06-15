@@ -4,7 +4,7 @@ import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import CharacterCard from '../../components/CharacterCard.astro';
 import { bestiaryStatsFor, resolveBestiarySections } from '../../lib/bestiaryGroups';
-import { buildFullRosterList, loadCharacterRoster } from '../../lib/characterRoster';
+import { buildFullRosterList, loadCharacterRoster, loadCharacterScope } from '../../lib/characterRoster';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -31,6 +31,7 @@ const sections = resolveBestiarySections(slug, groupList);
 const stats = bestiaryStatsFor(slug, entries);
 
 const rosterData = loadCharacterRoster(slug);
+const characterScope = loadCharacterScope(slug);
 const pendingList = rosterData?.pending ?? [];
 const fullRoster = buildFullRosterList(slug, entries, pendingList);
 const totalMentioned = stats.total + pendingList.length;
@@ -90,6 +91,8 @@ function cardProps(c: (typeof entries)[number]) {
       <p slot="module-extra" class="text-muted mt-2 text-sm">
         {stats.groupCount} 组 · {stats.characterCount} 人物 · {stats.monsterCount} 妖怪
         <span class="mx-1">·</span>
+        本库 {stats.total} 页 · 学界具名约 1200
+        <span class="mx-1">·</span>
         {stats.withPersonality} 有性格 · {stats.withLikes} 有喜好
         <a href={`/${slug}/graph`} class="ml-2 hover:underline" style="color: var(--accent)">
           关系网 →
@@ -114,6 +117,46 @@ function cardProps(c: (typeof entries)[number]) {
       </span>
       <span class="bestiary-roster-hint">已建页可点击追溯 · 灰色为待补建</span>
     </summary>
+    {
+      characterScope && (
+        <div class="bestiary-scope mb-4">
+          <p class="bestiary-scope-lead">{characterScope.summary}</p>
+          <div class="bestiary-scope-estimates">
+            {characterScope.estimates.map((e) => (
+              <div class="bestiary-scope-estimate">
+                <span class="bestiary-scope-estimate-label">{e.label}</span>
+                <span class="bestiary-scope-estimate-count">{e.count}</span>
+                <span class="bestiary-scope-estimate-note">{e.note}</span>
+              </div>
+            ))}
+          </div>
+          <p class="bestiary-scope-kb-note">
+            本库当前收录 <strong>{totalMentioned}</strong> 位（{rosterBreakdown}），持续 ingest 补页；下表为图谱圈层参考（学界估计，inference）。
+          </p>
+          <div class="bestiary-scope-layers">
+            {characterScope.layers.map((layer) => (
+              <div class="bestiary-scope-layer">
+                <div class="bestiary-scope-layer-head">
+                  <span class="bestiary-scope-layer-name">{layer.name}</span>
+                  <span class="bestiary-scope-layer-count">约 {layer.count} 人</span>
+                </div>
+                <p class="bestiary-scope-layer-members">{layer.members}</p>
+                <p class="bestiary-scope-layer-role">{layer.role}</p>
+              </div>
+            ))}
+          </div>
+          <p class="bestiary-scope-sources text-muted">
+            出处：{characterScope.sources.join(' · ')}
+            {characterScope.topic_slug && (
+              <>
+                {' · '}
+                <a href={`/${slug}/topics/${characterScope.topic_slug}`}>详述 →</a>
+              </>
+            )}
+          </p>
+        </div>
+      )
+    }
     <div class="bestiary-roster-list">
       {fullRoster.map((item) =>
         item.kind === 'paged' ? (

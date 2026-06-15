@@ -534,6 +534,108 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
     border-color: color-mix(in srgb, var(--primary) 45%, transparent);
     background: color-mix(in srgb, var(--primary) 14%, var(--paper-2));
   }
+
+  .bestiary-scope {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid color-mix(in srgb, var(--line) 85%, transparent);
+  }
+  .bestiary-scope-lead {
+    font-size: var(--type-sm);
+    line-height: 1.75;
+    color: var(--ink);
+    margin-bottom: 0.85rem;
+  }
+  .bestiary-scope-estimates {
+    display: grid;
+    gap: 0.65rem;
+    margin-bottom: 0.85rem;
+  }
+  @media (min-width: 640px) {
+    .bestiary-scope-estimates {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .bestiary-scope-estimate {
+    padding: 0.65rem 0.85rem;
+    border-radius: 0.5rem;
+    background: color-mix(in srgb, var(--primary) 5%, var(--paper-2));
+    border: 1px solid color-mix(in srgb, var(--primary) 14%, transparent);
+  }
+  .bestiary-scope-estimate-label {
+    display: block;
+    font-size: var(--type-xs);
+    font-weight: var(--type-label-weight);
+    color: var(--primary);
+  }
+  .bestiary-scope-estimate-count {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0.15rem 0;
+  }
+  .bestiary-scope-estimate-note {
+    display: block;
+    font-size: var(--type-xs);
+    line-height: 1.55;
+    color: color-mix(in srgb, var(--ink) 52%, var(--ink-soft));
+  }
+  .bestiary-scope-kb-note {
+    font-size: var(--type-sm);
+    line-height: 1.7;
+    color: var(--ink);
+    margin-bottom: 0.85rem;
+  }
+  .bestiary-scope-layers {
+    display: grid;
+    gap: 0.55rem;
+    margin-bottom: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .bestiary-scope-layers {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .bestiary-scope-layer {
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.45rem;
+    border: 1px solid color-mix(in srgb, var(--line) 90%, transparent);
+    background: var(--paper-2);
+  }
+  .bestiary-scope-layer-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.35rem;
+    margin-bottom: 0.25rem;
+  }
+  .bestiary-scope-layer-name {
+    font-weight: 700;
+    font-size: var(--type-sm);
+    color: var(--primary);
+  }
+  .bestiary-scope-layer-count {
+    font-size: var(--type-xs);
+    font-weight: var(--type-label-weight);
+    color: var(--ink);
+  }
+  .bestiary-scope-layer-members,
+  .bestiary-scope-layer-role {
+    font-size: var(--type-xs);
+    line-height: 1.55;
+    color: color-mix(in srgb, var(--ink) 58%, var(--ink-soft));
+    margin: 0;
+  }
+  .bestiary-scope-layer-role {
+    margin-top: 0.2rem;
+  }
+  .bestiary-scope-sources {
+    font-size: var(--type-xs);
+    line-height: 1.55;
+  }
+
   .chip-monster {
     background: color-mix(in srgb, var(--seal) 9%, var(--paper-2));
     color: var(--seal);

@@ -2,10 +2,22 @@
   "book": "红楼梦",
   "nodes": [
     {
+      "id": "东平郡王",
+      "type": "character",
+      "faction": "王府",
+      "weight": 34
+    },
+    {
       "id": "乌进孝",
       "type": "character",
       "faction": "宁国府",
       "weight": 32
+    },
+    {
+      "id": "云光",
+      "type": "character",
+      "faction": "长安",
+      "weight": 30
     },
     {
       "id": "五儿",
@@ -122,6 +134,12 @@
       "weight": 38
     },
     {
+      "id": "卜世仁",
+      "type": "character",
+      "faction": "都中",
+      "weight": 26
+    },
+    {
       "id": "卫若兰",
       "type": "character",
       "faction": "神武将军府",
@@ -168,6 +186,12 @@
       "type": "character",
       "faction": "荣国府",
       "weight": 50
+    },
+    {
+      "id": "吴良",
+      "type": "character",
+      "faction": "都中",
+      "weight": 22
     },
     {
       "id": "周姨娘",
@@ -266,6 +290,12 @@
       "weight": 52
     },
     {
+      "id": "守备",
+      "type": "character",
+      "faction": "长安",
+      "weight": 26
+    },
+    {
       "id": "宝官",
       "type": "character",
       "faction": "荣国府",
@@ -338,6 +368,18 @@
       "weight": 70
     },
     {
+      "id": "引泉",
+      "type": "character",
+      "faction": "荣国府",
+      "weight": 22
+    },
+    {
+      "id": "张三",
+      "type": "character",
+      "faction": "都中",
+      "weight": 24
+    },
+    {
       "id": "张华",
       "type": "character",
       "faction": "村野",
@@ -386,6 +428,18 @@
       "weight": 26
     },
     {
+      "id": "忠顺亲王",
+      "type": "character",
+      "faction": "王府",
+      "weight": 42
+    },
+    {
+      "id": "戴权",
+      "type": "character",
+      "faction": "大明宫",
+      "weight": 32
+    },
+    {
       "id": "戴良",
       "type": "character",
       "faction": "荣国府",
@@ -402,6 +456,12 @@
       "type": "character",
       "faction": "荣国府",
       "weight": 24
+    },
+    {
+      "id": "挑云",
+      "type": "character",
+      "faction": "荣国府",
+      "weight": 22
     },
     {
       "id": "文官",
@@ -494,6 +554,12 @@
       "weight": 58
     },
     {
+      "id": "林四娘",
+      "type": "character",
+      "faction": "青州",
+      "weight": 30
+    },
+    {
       "id": "林黛玉",
       "type": "character",
       "faction": "荣国府",
@@ -504,6 +570,12 @@
       "type": "character",
       "faction": "他者",
       "weight": 58
+    },
+    {
+      "id": "渺渺真人",
+      "type": "character",
+      "faction": "太虚幻境",
+      "weight": 38
     },
     {
       "id": "潘又安",
@@ -522,6 +594,12 @@
       "type": "character",
       "faction": "荣国府",
       "weight": 28
+    },
+    {
+      "id": "玉爱",
+      "type": "character",
+      "faction": "贾府家塾",
+      "weight": 22
     },
     {
       "id": "玉钏儿",
@@ -560,6 +638,12 @@
       "weight": 32
     },
     {
+      "id": "王成",
+      "type": "character",
+      "faction": "乡野",
+      "weight": 28
+    },
+    {
       "id": "王熙凤",
       "type": "character",
       "faction": "荣国府",
@@ -576,6 +660,12 @@
       "type": "character",
       "faction": "荣国府",
       "weight": 44
+    },
+    {
+      "id": "珍珠",
+      "type": "character",
+      "faction": "贾母房",
+      "weight": 30
     },
     {
       "id": "琥珀",
@@ -602,6 +692,18 @@
       "weight": 55
     },
     {
+      "id": "甄应嘉",
+      "type": "character",
+      "faction": "江南甄家",
+      "weight": 32
+    },
+    {
+      "id": "石呆子",
+      "type": "character",
+      "faction": "都中",
+      "weight": 32
+    },
+    {
       "id": "碧月",
       "type": "character",
       "faction": "荣国府",
@@ -612,6 +714,12 @@
       "type": "character",
       "faction": "荣国府",
       "weight": 42
+    },
+    {
+      "id": "神瑛侍者",
+      "type": "character",
+      "faction": "赤瑕宫",
+      "weight": 50
     },
     {
       "id": "秋桐",
@@ -656,6 +764,12 @@
       "weight": 64
     },
     {
+      "id": "绛珠仙子",
+      "type": "character",
+      "faction": "太虚幻境",
+      "weight": 48
+    },
+    {
       "id": "绣凤",
       "type": "character",
       "faction": "荣国府",
@@ -686,6 +800,12 @@
       "weight": 38
     },
     {
+      "id": "色空和尚",
+      "type": "character",
+      "faction": "太虚幻境",
+      "weight": 36
+    },
+    {
       "id": "艾官",
       "type": "character",
       "faction": "荣国府",
@@ -698,10 +818,22 @@
       "weight": 82
     },
     {
+      "id": "茄官",
+      "type": "character",
+      "faction": "梨香院",
+      "weight": 26
+    },
+    {
       "id": "茗烟",
       "type": "character",
       "faction": "荣国府",
       "weight": 26
+    },
+    {
+      "id": "茫茫大士",
+      "type": "character",
+      "faction": "太虚幻境",
+      "weight": 38
     },
     {
       "id": "莺儿",
@@ -714,6 +846,12 @@
       "type": "character",
       "faction": "荣国府",
       "weight": 36
+    },
+    {
+      "id": "葫芦僧",
+      "type": "character",
+      "faction": "葫芦庙",
+      "weight": 34
     },
     {
       "id": "葵官",
@@ -788,6 +926,12 @@
       "weight": 44
     },
     {
+      "id": "警幻仙子",
+      "type": "character",
+      "faction": "太虚幻境",
+      "weight": 55
+    },
+    {
       "id": "豆官",
       "type": "character",
       "faction": "荣国府",
@@ -795,6 +939,12 @@
     },
     {
       "id": "贾代儒",
+      "type": "character",
+      "faction": "荣国府",
+      "weight": 38
+    },
+    {
+      "id": "贾代善",
       "type": "character",
       "faction": "荣国府",
       "weight": 38
@@ -836,16 +986,40 @@
       "weight": 100
     },
     {
+      "id": "贾敏",
+      "type": "character",
+      "faction": "荣国府",
+      "weight": 45
+    },
+    {
       "id": "贾敬",
       "type": "character",
       "faction": "宁国府",
       "weight": 62
     },
     {
+      "id": "贾敷",
+      "type": "character",
+      "faction": "宁国府",
+      "weight": 24
+    },
+    {
       "id": "贾母",
       "type": "character",
       "faction": "荣国府",
       "weight": 100
+    },
+    {
+      "id": "贾源",
+      "type": "character",
+      "faction": "荣国府",
+      "weight": 40
+    },
+    {
+      "id": "贾演",
+      "type": "character",
+      "faction": "宁国府",
+      "weight": 40
     },
     {
       "id": "贾环",
@@ -876,6 +1050,12 @@
       "type": "character",
       "faction": "荣国府",
       "weight": 38
+    },
+    {
+      "id": "贾璜",
+      "type": "character",
+      "faction": "金陵贾氏",
+      "weight": 28
     },
     {
       "id": "贾芸",
@@ -932,6 +1112,12 @@
       "weight": 70
     },
     {
+      "id": "赵亦华",
+      "type": "character",
+      "faction": "都中",
+      "weight": 24
+    },
+    {
       "id": "赵姨娘",
       "type": "character",
       "faction": "荣国府",
@@ -968,10 +1154,34 @@
       "weight": 38
     },
     {
+      "id": "钱槐",
+      "type": "character",
+      "faction": "赵姨娘房",
+      "weight": 26
+    },
+    {
       "id": "锄药",
       "type": "character",
       "faction": "荣国府",
       "weight": 28
+    },
+    {
+      "id": "锦乡侯",
+      "type": "character",
+      "faction": "王府",
+      "weight": 35
+    },
+    {
+      "id": "镇国公",
+      "type": "character",
+      "faction": "王府",
+      "weight": 35
+    },
+    {
+      "id": "门子",
+      "type": "character",
+      "faction": "应天府",
+      "weight": 42
     },
     {
       "id": "雪雁",
@@ -990,6 +1200,12 @@
       "type": "character",
       "faction": "村野",
       "weight": 44
+    },
+    {
+      "id": "香怜",
+      "type": "character",
+      "faction": "贾府家塾",
+      "weight": 22
     },
     {
       "id": "香菱",
@@ -1020,6 +1236,12 @@
       "type": "character",
       "faction": "荣国府",
       "weight": 64
+    },
+    {
+      "id": "鹦哥",
+      "type": "character",
+      "faction": "贾母房",
+      "weight": 28
     },
     {
       "id": "麝月",
@@ -1096,6 +1318,18 @@
   ],
   "edges": [
     {
+      "source": "东平郡王",
+      "target": "北静王",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "东平郡王",
+      "target": "南安郡王",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "乌进孝",
       "target": "贾珍",
       "type": "主仆",
@@ -1105,6 +1339,12 @@
       "source": "乌进孝",
       "target": "贾蓉",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "云光",
+      "target": "王熙凤",
+      "type": "同僚",
       "contradiction": false
     },
     {
@@ -1444,6 +1684,12 @@
       "contradiction": false
     },
     {
+      "source": "卜世仁",
+      "target": "贾芸",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "卫若兰",
       "target": "史湘云",
       "type": "朋友",
@@ -1596,6 +1842,12 @@
     {
       "source": "吴新登",
       "target": "钱华",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "吴良",
+      "target": "薛蟠",
       "type": "同僚",
       "contradiction": false
     },
@@ -1900,6 +2152,18 @@
       "contradiction": false
     },
     {
+      "source": "守备",
+      "target": "张金哥",
+      "type": "父子",
+      "contradiction": false
+    },
+    {
+      "source": "守备",
+      "target": "王熙凤",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "宝官",
       "target": "薛宝钗",
       "type": "主仆",
@@ -2164,6 +2428,18 @@
       "contradiction": false
     },
     {
+      "source": "引泉",
+      "target": "贾宝玉",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "张三",
+      "target": "薛蟠",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "张华",
       "target": "王熙凤",
       "type": "主仆",
@@ -2266,6 +2542,18 @@
       "contradiction": false
     },
     {
+      "source": "忠顺亲王",
+      "target": "贾宝玉",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "戴权",
+      "target": "贾珍",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "戴良",
       "target": "贾政",
       "type": "主仆",
@@ -2335,6 +2623,12 @@
       "source": "扫花",
       "target": "锄药",
       "type": "兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "挑云",
+      "target": "贾宝玉",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -2638,6 +2932,12 @@
       "contradiction": false
     },
     {
+      "source": "林四娘",
+      "target": "贾宝玉",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "林黛玉",
       "target": "贾宝玉",
       "type": "情人",
@@ -2698,6 +2998,12 @@
       "contradiction": false
     },
     {
+      "source": "渺渺真人",
+      "target": "茫茫大士",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "潘又安",
       "target": "贾迎春",
       "type": "主仆",
@@ -2731,6 +3037,12 @@
       "source": "玉官",
       "target": "芳官",
       "type": "姐妹",
+      "contradiction": false
+    },
+    {
+      "source": "玉爱",
+      "target": "香怜",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -2944,6 +3256,18 @@
       "contradiction": false
     },
     {
+      "source": "王成",
+      "target": "王狗儿",
+      "type": "父子",
+      "contradiction": false
+    },
+    {
+      "source": "王成",
+      "target": "刘姥姥",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "王熙凤",
       "target": "贾宝玉",
       "type": "妯娌",
@@ -3112,6 +3436,12 @@
       "contradiction": false
     },
     {
+      "source": "珍珠",
+      "target": "贾母",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "琥珀",
       "target": "贾母",
       "type": "主仆",
@@ -3184,6 +3514,18 @@
       "contradiction": true
     },
     {
+      "source": "甄应嘉",
+      "target": "贾政",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "石呆子",
+      "target": "贾赦",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "碧月",
       "target": "李纨",
       "type": "主仆",
@@ -3211,6 +3553,18 @@
       "source": "碧痕",
       "target": "麝月",
       "type": "姐妹",
+      "contradiction": false
+    },
+    {
+      "source": "神瑛侍者",
+      "target": "绛珠仙子",
+      "type": "情人",
+      "contradiction": false
+    },
+    {
+      "source": "神瑛侍者",
+      "target": "贾宝玉",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -3352,6 +3706,12 @@
       "contradiction": false
     },
     {
+      "source": "绛珠仙子",
+      "target": "林黛玉",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "绣凤",
       "target": "王夫人",
       "type": "主仆",
@@ -3430,6 +3790,12 @@
       "contradiction": false
     },
     {
+      "source": "色空和尚",
+      "target": "甄士隐",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
       "source": "艾官",
       "target": "贾探春",
       "type": "主仆",
@@ -3478,6 +3844,12 @@
       "contradiction": false
     },
     {
+      "source": "茄官",
+      "target": "芳官",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "茗烟",
       "target": "贾宝玉",
       "type": "主仆",
@@ -3517,6 +3889,12 @@
       "source": "菂官",
       "target": "芳官",
       "type": "姐妹",
+      "contradiction": false
+    },
+    {
+      "source": "葫芦僧",
+      "target": "门子",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -3826,6 +4204,12 @@
       "contradiction": false
     },
     {
+      "source": "警幻仙子",
+      "target": "贾宝玉",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
       "source": "豆官",
       "target": "薛宝琴",
       "type": "主仆",
@@ -3859,6 +4243,18 @@
       "source": "贾代儒",
       "target": "贾菌",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "贾代善",
+      "target": "贾母",
+      "type": "夫妻",
+      "contradiction": false
+    },
+    {
+      "source": "贾代善",
+      "target": "贾源",
+      "type": "父子",
       "contradiction": false
     },
     {
@@ -4216,6 +4612,30 @@
       "contradiction": false
     },
     {
+      "source": "贾敏",
+      "target": "贾母",
+      "type": "母子",
+      "contradiction": false
+    },
+    {
+      "source": "贾敏",
+      "target": "林黛玉",
+      "type": "母子",
+      "contradiction": false
+    },
+    {
+      "source": "贾敏",
+      "target": "贾政",
+      "type": "兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "贾敏",
+      "target": "王夫人",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "贾敬",
       "target": "贾珍",
       "type": "父子",
@@ -4237,6 +4657,18 @@
       "source": "贾敬",
       "target": "焦大",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "贾敷",
+      "target": "贾珍",
+      "type": "兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "贾敷",
+      "target": "贾蓉",
+      "type": "父子",
       "contradiction": false
     },
     {
@@ -4327,6 +4759,18 @@
       "source": "贾母",
       "target": "林之孝",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "贾源",
+      "target": "贾演",
+      "type": "兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "贾源",
+      "target": "贾代善",
+      "type": "父子",
       "contradiction": false
     },
     {
@@ -4498,6 +4942,18 @@
       "contradiction": false
     },
     {
+      "source": "贾璜",
+      "target": "贾珍",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "贾璜",
+      "target": "金荣",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "贾芸",
       "target": "王熙凤",
       "type": "主仆",
@@ -4642,6 +5098,12 @@
       "contradiction": false
     },
     {
+      "source": "赵亦华",
+      "target": "单聘仁",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "赵姨娘",
       "target": "贾环",
       "type": "母子",
@@ -4774,8 +5236,38 @@
       "contradiction": false
     },
     {
+      "source": "钱槐",
+      "target": "赵姨娘",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "钱槐",
+      "target": "贾环",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "锄药",
       "target": "贾宝玉",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "锦乡侯",
+      "target": "贾母",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "镇国公",
+      "target": "秦可卿",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "门子",
+      "target": "贾雨村",
       "type": "主仆",
       "contradiction": false
     },
@@ -4903,6 +5395,12 @@
       "source": "鸳鸯",
       "target": "王熙凤",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "鹦哥",
+      "target": "贾母",
+      "type": "主仆",
       "contradiction": false
     },
     {
