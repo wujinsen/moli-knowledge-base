@@ -50,6 +50,12 @@
       "weight": 58
     },
     {
+      "id": "亢金龙",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 50
+    },
+    {
       "id": "伶俐虫",
       "type": "monster",
       "faction": "平顶山",
@@ -290,6 +296,18 @@
       "weight": 26
     },
     {
+      "id": "巽二郎",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 36
+    },
+    {
+      "id": "布雾郎君",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 36
+    },
+    {
       "id": "广目天王",
       "type": "character",
       "faction": "天庭",
@@ -384,6 +402,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 38
+    },
+    {
+      "id": "毗蓝婆",
+      "type": "character",
+      "faction": "紫云山",
+      "weight": 48
     },
     {
       "id": "水德星君",
@@ -618,6 +642,12 @@
       "type": "character",
       "faction": "佛界",
       "weight": 100
+    },
+    {
+      "id": "角木蛟",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 46
     },
     {
       "id": "许旌阳",
@@ -1003,6 +1033,30 @@
       "source": "二郎神",
       "target": "哪吒",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "亢金龙",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "亢金龙",
+      "target": "角木蛟",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "亢金龙",
+      "target": "黄眉怪",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "亢金龙",
+      "target": "玉皇大帝",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -1846,6 +1900,12 @@
       "contradiction": false
     },
     {
+      "source": "奎木狼",
+      "target": "角木蛟",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "女儿国国王",
       "target": "唐僧",
       "type": "恋慕",
@@ -2236,6 +2296,30 @@
       "contradiction": false
     },
     {
+      "source": "孙悟空",
+      "target": "布雾郎君",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "巽二郎",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "毗蓝婆",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "角木蛟",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "孤直公",
       "target": "唐僧",
       "type": "敌对",
@@ -2359,6 +2443,18 @@
       "source": "巴山虎",
       "target": "孙悟空",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "巽二郎",
+      "target": "风婆婆",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "布雾郎君",
+      "target": "推云童子",
+      "type": "同僚",
       "contradiction": false
     },
     {
@@ -2743,6 +2839,24 @@
       "source": "毕元帅",
       "target": "护国天王",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "毗蓝婆",
+      "target": "昴日星官",
+      "type": "母子",
+      "contradiction": false
+    },
+    {
+      "source": "毗蓝婆",
+      "target": "百眼魔君",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "毗蓝婆",
+      "target": "唐僧",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -3547,6 +3661,18 @@
       "source": "观音菩萨",
       "target": "赛太岁",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "角木蛟",
+      "target": "黄眉怪",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "角木蛟",
+      "target": "辟暑大王",
+      "type": "敌对",
       "contradiction": false
     },
     {

@@ -1,25 +1,11 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 142,
+  "paged_count": 147,
   "pending_count": 5,
   "pending": [
     {
-      "name": "亢金龙",
-      "mentions": 2,
-      "chapters": [
-        65,
-        66
-      ],
-      "appear_in": [
-        "第65回",
-        "第66回"
-      ],
-      "source": "seed",
-      "note": "二十八宿；小雷音金铙；第65–66回"
-    },
-    {
-      "name": "角木蛟",
+      "name": "井木犴",
       "mentions": 2,
       "chapters": [
         65,
@@ -30,34 +16,50 @@
         "第92回"
       ],
       "source": "seed",
-      "note": "四木禽星；青龙山犀牛；第92回"
+      "note": "四木禽星；擒犀牛；第92回"
     },
     {
-      "name": "巽二郎",
-      "mentions": 1,
+      "name": "斗木獬",
+      "mentions": 2,
       "chapters": [
-        45
+        65,
+        92
       ],
       "appear_in": [
-        "第45回"
+        "第65回",
+        "第92回"
       ],
       "source": "seed",
-      "note": "风部；第45回与风婆婆"
+      "note": "四木禽星；青龙山；第92回"
     },
     {
-      "name": "布雾郎君",
-      "mentions": 1,
+      "name": "荡魔天尊",
+      "mentions": 2,
       "chapters": [
-        45
+        65,
+        66
       ],
       "appear_in": [
-        "第45回"
+        "第65回",
+        "第66回"
       ],
       "source": "seed",
-      "note": "云部；第45回与推云童子"
+      "note": "武当山真武；助破黄眉；第66回"
     },
     {
-      "name": "毗蓝婆",
+      "name": "心月狐",
+      "mentions": 1,
+      "chapters": [
+        65
+      ],
+      "appear_in": [
+        "第65回"
+      ],
+      "source": "seed",
+      "note": "二十八宿；小雷音夜战；第65回"
+    },
+    {
+      "name": "黎山老姆",
       "mentions": 1,
       "chapters": [
         73
@@ -66,7 +68,7 @@
         "第73回"
       ],
       "source": "seed",
-      "note": "千花洞；昴日之母，收百眼魔君；第73回"
+      "note": "指路毗蓝婆；第73回"
     }
   ]
 }
