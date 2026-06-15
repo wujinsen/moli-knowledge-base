@@ -1,37 +1,47 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 205,
+  "paged_count": 210,
   "pending_count": 5,
   "pending": [
     {
-      "name": "梅山六兄弟",
-      "mentions": 2,
-      "chapters": [
-        6,
-        63
-      ],
-      "appear_in": [
-        "第6回",
-        "第63回"
-      ],
-      "source": "seed",
-      "note": "二郎神麾下；祭赛国助战九头虫；第6、63回"
-    },
-    {
-      "name": "浪荡游神",
+      "name": "张太尉",
       "mentions": 1,
       "chapters": [
-        97
+        6
       ],
       "appear_in": [
-        "第97回"
+        "第6回"
       ],
       "source": "seed",
-      "note": "玉帝差神；铜台府催释唐僧；第97回"
+      "note": "梅山六兄弟；第6、63回"
     },
     {
-      "name": "白花蛇怪",
+      "name": "直健",
+      "mentions": 1,
+      "chapters": [
+        6
+      ],
+      "appear_in": [
+        "第6回"
+      ],
+      "source": "seed",
+      "note": "梅山六兄弟，直健将军；第6、63回"
+    },
+    {
+      "name": "郭申",
+      "mentions": 1,
+      "chapters": [
+        6
+      ],
+      "appear_in": [
+        "第6回"
+      ],
+      "source": "seed",
+      "note": "梅山六兄弟，郭申将军；第6、63回"
+    },
+    {
+      "name": "金池长老",
       "mentions": 1,
       "chapters": [
         17
@@ -40,23 +50,15 @@
         "第17回"
       ],
       "source": "seed",
-      "note": "黑风山白衣秀士，蛇精；佛衣会；第17回"
+      "note": "观音院长老，贪袈裟；第16–17回"
     },
     {
-      "name": "姚公麟",
+      "name": "李太尉",
       "mentions": 0,
       "chapters": [],
       "appear_in": [],
       "source": "seed",
-      "note": "二郎神部将；梅山七圣之一；第6、63回"
-    },
-    {
-      "name": "康张太尉",
-      "mentions": 0,
-      "chapters": [],
-      "appear_in": [],
-      "source": "seed",
-      "note": "二郎神部将；大闹天宫助战；第6回"
+      "note": "梅山六兄弟，李四太尉；第6、63回"
     }
   ]
 }

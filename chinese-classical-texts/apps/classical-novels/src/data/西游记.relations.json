@@ -272,6 +272,12 @@
       "weight": 34
     },
     {
+      "id": "大力鬼王",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 28
+    },
+    {
       "id": "大鹏精",
       "type": "monster",
       "faction": "妖魔",
@@ -342,6 +348,12 @@
       "type": "character",
       "faction": "佛界",
       "weight": 64
+    },
+    {
+      "id": "姚公麟",
+      "type": "character",
+      "faction": "灌江口",
+      "weight": 26
     },
     {
       "id": "娄金狗",
@@ -458,6 +470,18 @@
       "weight": 40
     },
     {
+      "id": "康太尉",
+      "type": "character",
+      "faction": "灌江口",
+      "weight": 26
+    },
+    {
+      "id": "张太尉",
+      "type": "character",
+      "faction": "灌江口",
+      "weight": 24
+    },
+    {
       "id": "张月鹿",
       "type": "character",
       "faction": "天庭",
@@ -560,6 +584,12 @@
       "weight": 34
     },
     {
+      "id": "李太尉",
+      "type": "character",
+      "faction": "灌江口",
+      "weight": 24
+    },
+    {
       "id": "李靖",
       "type": "character",
       "faction": "天界",
@@ -576,6 +606,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 36
+    },
+    {
+      "id": "梅山六兄弟",
+      "type": "character",
+      "faction": "灌江口",
+      "weight": 38
     },
     {
       "id": "殷温娇",
@@ -630,6 +666,12 @@
       "type": "character",
       "faction": "泾河",
       "weight": 40
+    },
+    {
+      "id": "浪荡游神",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 22
     },
     {
       "id": "混世魔王",
@@ -788,6 +830,12 @@
       "weight": 28
     },
     {
+      "id": "白花蛇怪",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 24
+    },
+    {
       "id": "白象精",
       "type": "monster",
       "faction": "妖魔",
@@ -828,6 +876,12 @@
       "type": "character",
       "faction": "宝象国",
       "weight": 36
+    },
+    {
+      "id": "直健将军",
+      "type": "character",
+      "faction": "灌江口",
+      "weight": 24
     },
     {
       "id": "祭赛国国王",
@@ -1014,6 +1068,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 42
+    },
+    {
+      "id": "郭申将军",
+      "type": "character",
+      "faction": "灌江口",
+      "weight": 24
     },
     {
       "id": "金圣宫娘娘",
@@ -1489,6 +1549,54 @@
       "source": "九灵元圣",
       "target": "玉华王",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "二郎神",
+      "target": "张太尉",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "二郎神",
+      "target": "李太尉",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "二郎神",
+      "target": "郭申将军",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "二郎神",
+      "target": "直健将军",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "二郎神",
+      "target": "大力鬼王",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "二郎神",
+      "target": "梅山六兄弟",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "二郎神",
+      "target": "康太尉",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "二郎神",
+      "target": "姚公麟",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -2065,6 +2173,12 @@
       "source": "凌空子",
       "target": "孙悟空",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "凌虚子",
+      "target": "白花蛇怪",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -3106,6 +3220,24 @@
       "contradiction": false
     },
     {
+      "source": "大力鬼王",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "大力鬼王",
+      "target": "木吒",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "大力鬼王",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "大鹏精",
       "target": "青狮精",
       "type": "兄弟",
@@ -3532,6 +3664,48 @@
       "contradiction": false
     },
     {
+      "source": "姚公麟",
+      "target": "张太尉",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "姚公麟",
+      "target": "李太尉",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "姚公麟",
+      "target": "郭申将军",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "姚公麟",
+      "target": "直健将军",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "姚公麟",
+      "target": "二郎神",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "姚公麟",
+      "target": "梅山六兄弟",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "姚公麟",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "娄金狗",
       "target": "孙悟空",
       "type": "朋友",
@@ -3601,6 +3775,30 @@
       "source": "娄金狗",
       "target": "玉皇大帝",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "张太尉",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "李太尉",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "郭申将军",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "直健将军",
+      "type": "敌对",
       "contradiction": false
     },
     {
@@ -4738,6 +4936,60 @@
       "contradiction": false
     },
     {
+      "source": "康太尉",
+      "target": "张太尉",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "康太尉",
+      "target": "李太尉",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "康太尉",
+      "target": "郭申将军",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "康太尉",
+      "target": "直健将军",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "康太尉",
+      "target": "二郎神",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "康太尉",
+      "target": "梅山六兄弟",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "康太尉",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "张太尉",
+      "target": "二郎神",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "张太尉",
+      "target": "梅山六兄弟",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "张月鹿",
       "target": "角木蛟",
       "type": "同僚",
@@ -5482,6 +5734,18 @@
       "contradiction": false
     },
     {
+      "source": "李太尉",
+      "target": "二郎神",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "李太尉",
+      "target": "梅山六兄弟",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "李靖",
       "target": "哪吒",
       "type": "父子",
@@ -5587,6 +5851,36 @@
       "source": "柳土獐",
       "target": "玉皇大帝",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "梅山六兄弟",
+      "target": "郭申将军",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "梅山六兄弟",
+      "target": "直健将军",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "梅山六兄弟",
+      "target": "二郎神",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "梅山六兄弟",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "梅山六兄弟",
+      "target": "九头虫",
+      "type": "敌对",
       "contradiction": false
     },
     {
@@ -5935,6 +6229,24 @@
       "source": "泾河龙王",
       "target": "袁守诚",
       "type": "仇敌",
+      "contradiction": false
+    },
+    {
+      "source": "浪荡游神",
+      "target": "铜台府刺史",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "浪荡游神",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "浪荡游神",
+      "target": "唐僧",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -6425,6 +6737,12 @@
     },
     {
       "source": "玉皇大帝",
+      "target": "大力鬼王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
       "target": "李靖",
       "type": "主仆",
       "contradiction": false
@@ -6658,6 +6976,18 @@
       "contradiction": false
     },
     {
+      "source": "白花蛇怪",
+      "target": "黑熊精",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "白花蛇怪",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "白象精",
       "target": "青狮精",
       "type": "兄弟",
@@ -6732,6 +7062,18 @@
     {
       "source": "百花羞",
       "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "直健将军",
+      "target": "二郎神",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "直健将军",
+      "target": "郭申将军",
       "type": "朋友",
       "contradiction": false
     },
@@ -7584,6 +7926,12 @@
     {
       "source": "邓天君",
       "target": "电母",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "郭申将军",
+      "target": "二郎神",
       "type": "主仆",
       "contradiction": false
     },
