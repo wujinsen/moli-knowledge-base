@@ -44,6 +44,12 @@
       "weight": 28
     },
     {
+      "id": "倚海龙",
+      "type": "monster",
+      "faction": "平顶山",
+      "weight": 26
+    },
+    {
       "id": "六耳猕猴",
       "type": "monster",
       "faction": "妖魔",
@@ -90,6 +96,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 40
+    },
+    {
+      "id": "压龙洞老母",
+      "type": "monster",
+      "faction": "压龙洞",
+      "weight": 44
     },
     {
       "id": "哪吒",
@@ -194,6 +206,12 @@
       "weight": 32
     },
     {
+      "id": "巴山虎",
+      "type": "monster",
+      "faction": "平顶山",
+      "weight": 26
+    },
+    {
       "id": "弥勒佛祖",
       "type": "character",
       "faction": "西天",
@@ -288,6 +306,12 @@
       "type": "monster",
       "faction": "妖魔",
       "weight": 76
+    },
+    {
+      "id": "狐阿七大王",
+      "type": "monster",
+      "faction": "压龙洞",
+      "weight": 36
     },
     {
       "id": "狮猁怪",
@@ -724,6 +748,30 @@
       "contradiction": false
     },
     {
+      "source": "倚海龙",
+      "target": "银角大王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "倚海龙",
+      "target": "巴山虎",
+      "type": "兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "倚海龙",
+      "target": "压龙洞老母",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "倚海龙",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "六耳猕猴",
       "target": "孙悟空",
       "type": "敌对",
@@ -907,6 +955,42 @@
       "source": "南极寿星",
       "target": "唐僧",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "压龙洞老母",
+      "target": "金角大王",
+      "type": "母子",
+      "contradiction": false
+    },
+    {
+      "source": "压龙洞老母",
+      "target": "银角大王",
+      "type": "母子",
+      "contradiction": false
+    },
+    {
+      "source": "压龙洞老母",
+      "target": "狐阿七大王",
+      "type": "兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "压龙洞老母",
+      "target": "巴山虎",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "压龙洞老母",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "压龙洞老母",
+      "target": "唐僧",
+      "type": "敌对",
       "contradiction": false
     },
     {
@@ -1552,6 +1636,24 @@
       "contradiction": false
     },
     {
+      "source": "巴山虎",
+      "target": "银角大王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "巴山虎",
+      "target": "压龙洞老母",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "巴山虎",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "弥勒佛祖",
       "target": "黄眉怪",
       "type": "主仆",
@@ -1867,6 +1969,30 @@
       "source": "牛魔王",
       "target": "玉面公主",
       "type": "夫妻",
+      "contradiction": false
+    },
+    {
+      "source": "狐阿七大王",
+      "target": "金角大王",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "狐阿七大王",
+      "target": "银角大王",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "狐阿七大王",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "狐阿七大王",
+      "target": "猪八戒",
+      "type": "敌对",
       "contradiction": false
     },
     {
@@ -2381,6 +2507,12 @@
     },
     {
       "source": "金角大王",
+      "target": "压龙洞老母",
+      "type": "母子",
+      "contradiction": false
+    },
+    {
+      "source": "金角大王",
       "target": "太上老君",
       "type": "主仆",
       "contradiction": false
@@ -2395,6 +2527,24 @@
       "source": "铁扇公主",
       "target": "观音菩萨",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "银角大王",
+      "target": "压龙洞老母",
+      "type": "母子",
+      "contradiction": false
+    },
+    {
+      "source": "银角大王",
+      "target": "巴山虎",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "银角大王",
+      "target": "倚海龙",
+      "type": "主仆",
       "contradiction": false
     },
     {
