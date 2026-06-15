@@ -412,7 +412,7 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
   .chip-like {
     background: color-mix(in srgb, var(--primary) 10%, var(--paper-2));
     color: var(--primary);
-    border-color: color-mix(in srgb, var(--primary) 28%, transparent);
+    border-color: color-mix(in srgb, var(--primary) 24%, transparent);
   }
   .chip-foot {
     background: color-mix(in srgb, var(--ink-soft) 8%, var(--paper-2));
@@ -423,6 +423,62 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
     font-size: 0.82rem;
     padding: 0.22rem 0.75rem;
     font-weight: 600;
+  }
+
+  /* 图鉴人物卡 */
+  .bestiary-card {
+    background: var(--paper-2);
+    border-color: var(--line);
+    font-weight: 400;
+  }
+  .bestiary-card:hover {
+    border-color: color-mix(in srgb, var(--primary) 32%, var(--line));
+    box-shadow: 0 8px 24px -12px color-mix(in srgb, var(--primary) 35%, transparent);
+  }
+  .bestiary-badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 6px;
+    padding: 0.15rem 0.55rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+  .bestiary-badge--char {
+    background: color-mix(in srgb, var(--accent) 14%, var(--paper-2));
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  }
+  .bestiary-badge--monster {
+    background: color-mix(in srgb, var(--seal) 12%, var(--paper-2));
+    color: var(--seal);
+    border: 1px solid color-mix(in srgb, var(--seal) 28%, transparent);
+  }
+  .bestiary-card-sub {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: color-mix(in srgb, var(--ink) 48%, var(--ink-soft));
+  }
+  .bestiary-card-summary {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: var(--ink);
+  }
+  .bestiary-card-meta {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .bestiary-card-meta dt {
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .bestiary-card-meta dd {
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .bestiary-card-tags {
+    border-color: color-mix(in srgb, var(--line) 88%, transparent);
   }
 
   /* 按钮 */
@@ -724,8 +780,8 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
   line-height: 1.7;
 }
 
-.page-below-nav:not(.page-below-nav--reader) main.site-main [style*="ink-soft"] {
-  color: color-mix(in srgb, var(--ink) 38%, var(--ink-soft)) !important;
+.page-below-nav:not(.page-below-nav--reader) main.site-main :where(.text-muted) {
+  color: color-mix(in srgb, var(--ink) 42%, var(--ink-soft));
   font-weight: 500;
 }
 
@@ -1375,8 +1431,30 @@ a.edition-tab:hover {
 }
 
 /* ============ 关系图谱 ============ */
+.graph-shell {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.graph-shell .graph-main {
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+}
+
 .graph-main {
   min-height: calc(100vh - var(--graph-chrome, 7.5rem));
+}
+
+.graph-explorer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .graph-topbar .topbar-modules {

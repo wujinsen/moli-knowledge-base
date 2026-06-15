@@ -36,57 +36,44 @@ const hasHlmMeta = !!(personality || likes.length > 0);
 const hasItemLinks = likes.some((like) => bookSlug && likeItemHref(bookSlug, like));
 ---
 
-<div
-  class="bestiary-card relative flex h-full min-h-[15.5rem] flex-col rounded-lg border p-4 transition hover:shadow-md sm:p-5"
-  style="border-color: var(--line); background: var(--surface)"
->
+<div class="bestiary-card relative flex h-full flex-col rounded-lg border p-4 transition sm:p-5">
   <a href={href} class="absolute inset-0 z-0 rounded-lg" aria-label={name}></a>
   <div class={`relative flex min-h-0 flex-1 flex-col ${hasItemLinks ? 'z-10' : 'pointer-events-none'}`}>
     <header class="shrink-0">
       <div class="flex items-start justify-between gap-2">
         <h3 class="text-lg font-bold leading-tight" style="color: var(--primary)">{name}</h3>
-        <span
-          class={`shrink-0 rounded px-2 py-0.5 text-xs font-medium ${
-            type === 'monster' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'
-          }`}
-        >
+        <span class={`bestiary-badge shrink-0 ${type === 'monster' ? 'bestiary-badge--monster' : 'bestiary-badge--char'}`}>
           {type === 'monster' ? '妖怪' : '人物'}
         </span>
       </div>
       {(faction || proximity) && (
-        <p class="mt-1 text-xs leading-relaxed" style="color: color-mix(in srgb, var(--ink) 50%, var(--ink-soft))">
-          {[faction, proximity].filter(Boolean).join(' · ')}
-        </p>
+        <p class="bestiary-card-sub mt-1">{[faction, proximity].filter(Boolean).join(' · ')}</p>
       )}
     </header>
 
-    {summary && (
-      <p class="mt-2.5 line-clamp-2 text-sm leading-relaxed" style="color: var(--ink)">
-        {summary}
-      </p>
-    )}
+    {summary && <p class="bestiary-card-summary mt-2 line-clamp-2">{summary}</p>}
 
     {
       hasHlmMeta && (
-        <dl class="mt-3 space-y-2.5 text-sm leading-relaxed" style="color: var(--ink)">
+        <dl class="bestiary-card-meta mt-3 space-y-2">
           {personality && (
-            <div class="grid grid-cols-[2.75rem_minmax(0,1fr)] items-start gap-x-2">
-              <dt class="pt-0.5 font-medium" style="color: var(--accent)">性格</dt>
+            <div class="grid grid-cols-[3rem_minmax(0,1fr)] items-start gap-x-2">
+              <dt class="pt-0.5">性格</dt>
               <dd class="line-clamp-2 min-w-0">{personality}</dd>
             </div>
           )}
           {likes.length > 0 && (
             <div>
-              <dt class="font-medium" style="color: var(--accent)">喜好</dt>
-              <dd class="mt-1.5 flex flex-wrap gap-1.5">
+              <dt>喜好</dt>
+              <dd class="mt-1 flex flex-wrap gap-1.5">
                 {likes.map((like) => {
                   const itemHref = bookSlug ? likeItemHref(bookSlug, like) : null;
                   return itemHref ? (
-                    <a class="chip chip-like pointer-events-auto text-xs hover:underline" href={itemHref}>
+                    <a class="chip chip-like pointer-events-auto hover:underline" href={itemHref}>
                       {like}
                     </a>
                   ) : (
-                    <span class="chip chip-like text-xs">{like}</span>
+                    <span class="chip chip-like">{like}</span>
                   );
                 })}
               </dd>
@@ -97,22 +84,22 @@ const hasItemLinks = likes.some((like) => bookSlug && likeItemHref(bookSlug, lik
     }
     {
       hasJpmMeta && (
-        <dl class="mt-3 space-y-2.5 text-sm leading-relaxed" style="color: var(--ink)">
+        <dl class="bestiary-card-meta mt-3 space-y-2">
           {backing && (
-            <div class="grid grid-cols-[2.75rem_minmax(0,1fr)] items-start gap-x-2">
-              <dt class="pt-0.5 font-medium" style="color: var(--accent)">靠山</dt>
+            <div class="grid grid-cols-[3rem_minmax(0,1fr)] items-start gap-x-2">
+              <dt class="pt-0.5">靠山</dt>
               <dd class="line-clamp-2 min-w-0">{backing}</dd>
             </div>
           )}
           {attach && (
-            <div class="grid grid-cols-[2.75rem_minmax(0,1fr)] items-start gap-x-2">
-              <dt class="pt-0.5 font-medium" style="color: var(--accent)">依附</dt>
+            <div class="grid grid-cols-[3rem_minmax(0,1fr)] items-start gap-x-2">
+              <dt class="pt-0.5">依附</dt>
               <dd class="line-clamp-2 min-w-0">{attach}</dd>
             </div>
           )}
           {outcome && (
-            <div class="grid grid-cols-[2.75rem_minmax(0,1fr)] items-start gap-x-2">
-              <dt class="pt-0.5 font-medium" style="color: var(--accent)">结局</dt>
+            <div class="grid grid-cols-[3rem_minmax(0,1fr)] items-start gap-x-2">
+              <dt class="pt-0.5">结局</dt>
               <dd class="line-clamp-2 min-w-0">{outcome}</dd>
             </div>
           )}
@@ -122,13 +109,10 @@ const hasItemLinks = likes.some((like) => bookSlug && likeItemHref(bookSlug, lik
 
     {
       tags.length > 0 && (
-        <div
-          class="mt-auto shrink-0 border-t pt-3"
-          style="border-color: color-mix(in srgb, var(--line) 85%, transparent)"
-        >
+        <div class="bestiary-card-tags mt-auto shrink-0 border-t pt-3">
           <div class="flex flex-wrap gap-1.5">
             {tags.map((t) => (
-              <span class="chip chip-foot text-xs">{t}</span>
+              <span class="chip chip-foot">{t}</span>
             ))}
           </div>
         </div>

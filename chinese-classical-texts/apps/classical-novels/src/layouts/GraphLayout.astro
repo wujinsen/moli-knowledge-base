@@ -32,11 +32,11 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     />
   </head>
   <body
-    class="min-h-screen text-slate-100"
-    style={`background-color:${gt.base};--graph-chrome:7.5rem`}
+    class="graph-shell min-h-screen text-slate-100"
+    style={`background-color:${gt.base}`}
   >
     <header
-      class="graph-topbar sticky top-0 z-30 border-b backdrop-blur-md"
+      class="graph-topbar z-30 border-b backdrop-blur-md"
       style={`background-color:${gt.base}f2;border-color:${gt.accentLine}`}
     >
       <div class="mx-auto max-w-6xl px-4">

@@ -298,42 +298,58 @@ export default function RelationGraph({ bookSlug }: Props) {
   }, [factions, physics, query, selectedId, visibleEdges, visibleNodes, gt]);
 
   useEffect(() => {
-    if (!chartRef.current) return;
+    const el = chartRef.current;
+    if (!el) return;
+
+    let chart: echarts.ECharts | null = null;
+    let cancelled = false;
     setChartError(null);
-    let chart: echarts.ECharts;
-    try {
-      chart = echarts.init(chartRef.current, undefined, { renderer: 'canvas' });
-    } catch (err) {
-      setChartError(err instanceof Error ? err.message : '图谱初始化失败');
-      return;
-    }
-    chartInstance.current = chart;
 
-    chart.on('click', (params) => {
-      if (params.dataType === 'node' && params.data && typeof params.data === 'object') {
-        const id = (params.data as { id?: string; name?: string }).id ?? (params.data as { name?: string }).name;
-        if (id) setSelectedId((prev) => (prev === id ? null : id));
+    const mountChart = () => {
+      if (cancelled) return;
+      if (el.clientWidth < 16 || el.clientHeight < 16) {
+        window.requestAnimationFrame(mountChart);
+        return;
       }
-    });
-    chart.getZr().on('click', (e) => {
-      if (!e.target) setSelectedId(null);
-    });
+      try {
+        chart = echarts.init(el, undefined, { renderer: 'canvas' });
+      } catch (err) {
+        setChartError(err instanceof Error ? err.message : '图谱初始化失败');
+        return;
+      }
+      chartInstance.current = chart;
 
-    chart.setOption(buildOption(), { notMerge: true });
-    setChartReady(true);
+      chart.on('click', (params) => {
+        if (params.dataType === 'node' && params.data && typeof params.data === 'object') {
+          const id = (params.data as { id?: string; name?: string }).id ?? (params.data as { name?: string }).name;
+          if (id) setSelectedId((prev) => (prev === id ? null : id));
+        }
+      });
+      chart.getZr().on('click', (e) => {
+        if (!e.target) setSelectedId(null);
+      });
 
-    const onResize = () => chart.resize();
+      chart.setOption(buildOption(), { notMerge: true });
+      setChartReady(true);
+      window.setTimeout(() => chart?.resize(), 0);
+    };
+
+    mountChart();
+
+    const onResize = () => chart?.resize();
     window.addEventListener('resize', onResize);
-    const ro = new ResizeObserver(() => chart.resize());
-    ro.observe(chartRef.current);
+    const ro = new ResizeObserver(() => chart?.resize());
+    ro.observe(el);
 
     return () => {
+      cancelled = true;
       ro.disconnect();
       window.removeEventListener('resize', onResize);
-      chart.dispose();
+      chart?.dispose();
       chartInstance.current = null;
       setChartReady(false);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- mount once; data updates via effect below
   }, []);
 
   useEffect(() => {
@@ -405,14 +421,9 @@ export default function RelationGraph({ bookSlug }: Props) {
 
   const relationTypes = [...new Set(visibleEdges.map((e) => e.type))];
 
-  const graphHeight = 'calc(100vh - var(--graph-chrome, 7.5rem))';
-
   if (data.nodes.length === 0) {
     return (
-      <div
-        className="flex flex-col items-center justify-center px-4 text-center text-slate-400"
-        style={{ minHeight: graphHeight }}
-      >
+      <div className="flex h-full min-h-[50vh] flex-col items-center justify-center px-4 text-center text-slate-400">
         <p className="mb-2 text-lg" style={{ color: gt.accentSoft }}>
           关系图谱待生成
         </p>
@@ -425,11 +436,7 @@ export default function RelationGraph({ bookSlug }: Props) {
   }
 
   return (
-    <div
-      ref={containerRef}
-      className="graph-explorer relative overflow-hidden"
-      style={{ height: graphHeight, minHeight: graphHeight }}
-    >
+    <div ref={containerRef} className="graph-explorer">
       {/* 背景装饰 */}
       <div
         className="pointer-events-none absolute inset-0"
@@ -532,7 +539,7 @@ export default function RelationGraph({ bookSlug }: Props) {
         </div>
       )}
 
-      <div ref={chartRef} className="absolute inset-0 z-0 h-full w-full" />
+      <div ref={chartRef} className="absolute inset-0 z-[1] h-full w-full" />
 
       {/* 选中详情（置于 canvas 之后，确保可点击） */}
       {selectedNode && (
