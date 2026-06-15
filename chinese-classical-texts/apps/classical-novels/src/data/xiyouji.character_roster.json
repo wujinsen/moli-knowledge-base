@@ -1,55 +1,57 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 112,
+  "paged_count": 117,
   "pending_count": 5,
   "pending": [
     {
-      "name": "广目天王",
+      "name": "葛仙翁",
       "mentions": 4,
       "chapters": [
-        16,
+        3,
         51,
-        58,
-        90
+        83,
+        87
       ],
       "appear_in": [
-        "第16回",
+        "第3回",
         "第51回",
-        "第58回",
-        "第90回"
+        "第83回",
+        "第87回"
       ],
       "source": "seed",
-      "note": "四大天王之西；第16回等"
+      "note": "四天师之一；第51回等"
     },
     {
-      "name": "燃灯古佛",
+      "name": "水德星君",
       "mentions": 2,
       "chapters": [
-        5,
-        98
+        51,
+        52
       ],
       "appear_in": [
-        "第5回",
-        "第98回"
+        "第51回",
+        "第52回"
       ],
       "source": "seed",
-      "note": "蟠桃会上宾；第5、98回"
+      "note": "乌浩宫水部；第51–52回"
     },
     {
-      "name": "多闻天王",
-      "mentions": 1,
+      "name": "火德星君",
+      "mentions": 2,
       "chapters": [
-        51
+        51,
+        52
       ],
       "appear_in": [
-        "第51回"
+        "第51回",
+        "第52回"
       ],
       "source": "seed",
-      "note": "四大天王之北；第51回"
+      "note": "彤华宫火部；第51–52回"
     },
     {
-      "name": "崇恩圣帝",
+      "name": "北极玄灵",
       "mentions": 1,
       "chapters": [
         5
@@ -58,19 +60,19 @@
         "第5回"
       ],
       "source": "seed",
-      "note": "五方五老之东；第5回"
+      "note": "五方五老之北；第5回"
     },
     {
-      "name": "菩提祖师",
+      "name": "可韩丈人",
       "mentions": 1,
       "chapters": [
-        1
+        51
       ],
       "appear_in": [
-        "第1回"
+        "第51回"
       ],
       "source": "seed",
-      "note": "悟空授业之师；第1–2回"
+      "note": "可韩司查勘思凡；第51回"
     }
   ]
 }

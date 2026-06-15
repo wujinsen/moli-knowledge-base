@@ -146,6 +146,12 @@
       "weight": 40
     },
     {
+      "id": "多闻天王",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 40
+    },
+    {
       "id": "大鹏精",
       "type": "monster",
       "faction": "妖魔",
@@ -230,6 +236,12 @@
       "weight": 32
     },
     {
+      "id": "崇恩圣帝",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 32
+    },
+    {
       "id": "巨灵神",
       "type": "character",
       "faction": "天庭",
@@ -240,6 +252,12 @@
       "type": "monster",
       "faction": "平顶山",
       "weight": 26
+    },
+    {
+      "id": "广目天王",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 42
     },
     {
       "id": "弥勒佛祖",
@@ -330,6 +348,12 @@
       "type": "monster",
       "faction": "妖魔",
       "weight": 58
+    },
+    {
+      "id": "燃灯古佛",
+      "type": "character",
+      "faction": "佛界",
+      "weight": 46
     },
     {
       "id": "牛魔王",
@@ -450,6 +474,12 @@
       "type": "character",
       "faction": "通天河",
       "weight": 36
+    },
+    {
+      "id": "菩提祖师",
+      "type": "character",
+      "faction": "仙界",
+      "weight": 72
     },
     {
       "id": "虎力大仙",
@@ -1313,8 +1343,44 @@
     },
     {
       "source": "增长天王",
+      "target": "广目天王",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "增长天王",
+      "target": "多闻天王",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "增长天王",
       "target": "孙悟空",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "多闻天王",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "多闻天王",
+      "target": "广目天王",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "多闻天王",
+      "target": "李靖",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "多闻天王",
+      "target": "孙悟空",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -1381,6 +1447,12 @@
       "source": "太上老君",
       "target": "孙悟空",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "太上老君",
+      "target": "燃灯古佛",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -1489,6 +1561,12 @@
       "source": "如来佛祖",
       "target": "唐僧",
       "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "如来佛祖",
+      "target": "燃灯古佛",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -1696,6 +1774,24 @@
       "contradiction": false
     },
     {
+      "source": "孙悟空",
+      "target": "广目天王",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "燃灯古佛",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "菩提祖师",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
       "source": "孤直公",
       "target": "唐僧",
       "type": "敌对",
@@ -1780,6 +1876,24 @@
       "contradiction": false
     },
     {
+      "source": "崇恩圣帝",
+      "target": "黄角大仙",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "崇恩圣帝",
+      "target": "王母娘娘",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "崇恩圣帝",
+      "target": "玉皇大帝",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "巨灵神",
       "target": "玉皇大帝",
       "type": "主仆",
@@ -1801,6 +1915,18 @@
       "source": "巴山虎",
       "target": "孙悟空",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "广目天王",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "广目天王",
+      "target": "李靖",
+      "type": "同僚",
       "contradiction": false
     },
     {
@@ -2467,6 +2593,12 @@
       "source": "老鼋",
       "target": "灵感大王",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "菩提祖师",
+      "target": "孙悟空",
+      "type": "师徒",
       "contradiction": false
     },
     {
