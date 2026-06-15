@@ -1,0 +1,78 @@
+---
+import { getBooks } from '../../lib/getBooks';
+import GraphLayout from '../../layouts/GraphLayout.astro';
+import BackLink from '../../components/BackLink.astro';
+import { bookHasLiveMaps, bookMapEntries } from '../../lib/bookMaps';
+import { graphTheme } from '../../lib/graphTheme';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  return books
+    .filter((b) => b.data.slug === 'honglou' && bookHasLiveMaps(b.data.slug, b.data.features))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+const gt = graphTheme(meta.slug);
+const entries = bookMapEntries(meta.slug, meta.features);
+const liveCount = entries.filter((e) => e.status === 'live').length;
+---
+
+<GraphLayout
+  title={`${meta.book} 空间地图`}
+  bookSlug={meta.slug}
+  bookName={meta.book}
+  features={meta.features}
+  moduleLabel="空间地图"
+>
+  <div class="mx-auto max-w-3xl px-4 py-10">
+    <p class="mb-8 text-sm leading-relaxed text-slate-400">
+      逻辑拓扑示意（非测绘定稿）。各子地图独立维护坐标与导览线；后续都外、王府等图层在此汇总，不再占用顶栏位。
+    </p>
+
+    <div class="grid gap-4 sm:grid-cols-2">
+      {
+        entries.map((entry) =>
+          entry.status === 'live' && entry.href ? (
+            <a
+              href={entry.href}
+              class="group rounded-xl border border-white/10 bg-slate-900/60 p-5 transition hover:border-white/25 hover:bg-slate-900/80"
+              style={{ borderColor: undefined }}
+            >
+              <div class="mb-2 flex items-center justify-between gap-2">
+                <h2 class="text-lg font-semibold text-slate-100 group-hover:text-white">{entry.title}</h2>
+                {entry.badge && (
+                  <span
+                    class="shrink-0 rounded px-2 py-0.5 text-xs"
+                    style={{ backgroundColor: `${gt.accent}22`, color: gt.accentSoft }}
+                  >
+                    {entry.badge}
+                  </span>
+                )}
+              </div>
+              <p class="text-sm leading-relaxed text-slate-400">{entry.desc}</p>
+              <span class="mt-3 inline-block text-sm font-medium" style={{ color: gt.accent }}>
+                进入地图 →
+              </span>
+            </a>
+          ) : (
+            <div class="rounded-xl border border-dashed border-white/10 bg-slate-900/30 p-5 opacity-70">
+              <div class="mb-2 flex items-center justify-between gap-2">
+                <h2 class="text-lg font-semibold text-slate-400">{entry.title}</h2>
+                <span class="seal seal-planned shrink-0 text-xs">规划中</span>
+              </div>
+              <p class="text-sm leading-relaxed text-slate-500">{entry.desc}</p>
+            </div>
+          ),
+        )
+      }
+    </div>
+
+    <p class="mt-8 text-center text-xs text-slate-600">
+      已上线 {liveCount} 张 · 坐标脚本见各书 log / index
+    </p>
+
+    <BackLink href={`/${meta.slug}`} label={meta.book} variant="dark" class="mt-8" />
+  </div>
+</GraphLayout>

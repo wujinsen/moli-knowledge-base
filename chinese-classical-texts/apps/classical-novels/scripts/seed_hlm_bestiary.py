@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""从 hongloumeng.bestiary.json 同步人物 frontmatter 的 性格/喜好。
+"""从 hongloumeng.bestiary.json 同步人物 frontmatter 的 性格/喜好/服饰/关键物品/结局。
 
 编辑 scripts/hlm_bestiary_fields.py 后先运行:
   python scripts/build_hlm_bestiary_json.py
@@ -16,7 +16,8 @@ from _common import CHAR_DIR, DATA_DIR, parse_frontmatter
 
 BOOK = "红楼梦"
 DATA_PATH = DATA_DIR / "hongloumeng.bestiary.json"
-FIELDS = ("性格", "喜好", "结局")
+FIELDS = ("性格", "喜好", "服饰", "关键物品", "结局")
+ARRAY_FIELDS = frozenset({"喜好", "服饰", "关键物品"})
 
 
 def write_frontmatter(path, fm: dict, body: str) -> None:
@@ -37,7 +38,7 @@ def main() -> None:
         changed = False
         for key in FIELDS:
             val = expected.get(key)
-            if key == "喜好":
+            if key in ARRAY_FIELDS:
                 val = val if val else []
             if val:
                 if fm.get(key) != val:
@@ -50,7 +51,12 @@ def main() -> None:
             continue
         write_frontmatter(path, fm, body)
         likes = fm.get("喜好") or []
-        print(f"  {cid}: 性格={'有' if fm.get('性格') else '—'} · 喜好 {len(likes)} 项")
+        costumes = fm.get("服饰") or []
+        keys = fm.get("关键物品") or []
+        print(
+            f"  {cid}: 性格={'有' if fm.get('性格') else '—'}"
+            f" · 喜好 {len(likes)} · 服饰 {len(costumes)} · 关键物品 {len(keys)}"
+        )
         updated += 1
 
     missing = sorted(set(field_map) - {p.stem for p in char_dir.glob("*.md")})

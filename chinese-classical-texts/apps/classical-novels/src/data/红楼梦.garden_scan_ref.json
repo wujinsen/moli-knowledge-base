@@ -1,0 +1,30 @@
+{
+  "source": "chinese-classical-texts/raw/scan/ChatGPT Image 2026年6月16日 02_23_42.png",
+  "note": "AI 生成等距示意图，23 处编号。方位与程高本/本库 inference 坐标均有偏差，仅作视觉与名录对照。",
+  "coord_authority": "src/content/locations/红楼梦/*.md · coord + garden_zone",
+  "landmarks": [
+    { "scan_no": 1, "scan_label": "正门/大门", "wiki_id": "曲径通幽", "match": "partial", "comment": "scan 南门入口；本库入口节点为曲径通幽（南）" },
+    { "scan_no": 2, "scan_label": "仪门", "wiki_id": null, "match": "wrong_scope", "comment": "仪门属荣国府，不在大观园内" },
+    { "scan_no": 3, "scan_label": "大草厅", "wiki_id": "省亲别墅", "match": "partial", "comment": "可能指省亲仪典区，名称异文" },
+    { "scan_no": 4, "scan_label": "荣禧堂", "wiki_id": null, "match": "wrong_scope", "comment": "荣府正堂，非园建筑" },
+    { "scan_no": 5, "scan_label": "薛芳斋", "wiki_id": "蘅芜苑", "match": "alias", "comment": "图内误写/别名，对应薛宝钗院" },
+    { "scan_no": 6, "scan_label": "潇湘馆", "wiki_id": "潇湘馆", "match": "ok", "comment": "西南竹馆，与坐标一致" },
+    { "scan_no": 7, "scan_label": "蘅芜苑", "wiki_id": "蘅芜苑", "match": "ok", "comment": "与 5 重复标注" },
+    { "scan_no": 8, "scan_label": "秋爽斋", "wiki_id": "秋爽斋", "match": "ok", "comment": "东偏北" },
+    { "scan_no": 9, "scan_label": "稻香村", "wiki_id": "稻香村", "match": "ok", "comment": "西北村居" },
+    { "scan_no": 10, "scan_label": "缀锦楼", "wiki_id": "缀锦楼", "match": "ok", "comment": "紫菱洲上" },
+    { "scan_no": 11, "scan_label": "怡红院", "wiki_id": "怡红院", "match": "ok", "comment": "沁芳南" },
+    { "scan_no": 12, "scan_label": "凸碧山庄", "wiki_id": "凸碧堂", "match": "alias", "comment": "本库实体为凸碧堂" },
+    { "scan_no": 13, "scan_label": "藕香榭", "wiki_id": "藕香榭", "match": "ok", "comment": "" },
+    { "scan_no": 14, "scan_label": "暖香坞", "wiki_id": "暖香坞", "match": "ok", "comment": "" },
+    { "scan_no": 15, "scan_label": "水月庵", "wiki_id": null, "match": "wrong_scope", "comment": "园外馒头庵系，非园内实体" },
+    { "scan_no": 16, "scan_label": "时恩院", "wiki_id": "栊翠庵", "match": "partial", "comment": "可能指栊翠庵，待考证" },
+    { "scan_no": 17, "scan_label": "澄瑞阁", "wiki_id": "缀锦阁", "match": "partial", "comment": "水心阁类，近缀锦阁/嘉荫堂" },
+    { "scan_no": 18, "scan_label": "放鹤亭", "wiki_id": "滴翠亭", "match": "partial", "comment": "或沁芳亭，图内水亭" },
+    { "scan_no": 19, "scan_label": "芳官建", "wiki_id": "红香圃", "match": "partial", "comment": "怡红院外夜宴区" },
+    { "scan_no": 20, "scan_label": "花溆", "wiki_id": "蓼溆", "match": "alias", "comment": "蓼溆/花溆异名" },
+    { "scan_no": 21, "scan_label": "曲径通幽", "wiki_id": "曲径通幽", "match": "ok", "comment": "南入口" },
+    { "scan_no": 22, "scan_label": "柳堤", "wiki_id": null, "match": "missing", "comment": "本库未单列堤岸节点" },
+    { "scan_no": 23, "scan_label": "夹道", "wiki_id": null, "match": "wrong_scope", "comment": "夹道属荣府连接，园图误收" }
+  ]
+}

@@ -481,8 +481,11 @@ export default function GardenMap({ data, bookSlug }: Props) {
             >
               第17回游线考证
             </a>
+            <a href={`/${bookSlug}/maps`} className="text-sm text-slate-400 hover:text-slate-200">
+              全部空间地图 →
+            </a>
             <a href={`/${bookSlug}/places`} className="text-sm text-slate-400 hover:text-slate-200">
-              建筑居所目录
+              建筑图鉴
             </a>
           </div>
         </aside>

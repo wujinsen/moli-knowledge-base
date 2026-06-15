@@ -3,7 +3,7 @@ import { getBooks } from '../../lib/getBooks';
 import GraphLayout from '../../layouts/GraphLayout.astro';
 import BackLink from '../../components/BackLink.astro';
 import GardenScene from '../../components/GardenScene.tsx';
-import sceneData from '../../data/红楼梦.garden_scene.json';
+import sceneData from '../../data/红楼梦.garden_scene_full.json';
 import dialogues from '../../data/红楼梦.dialogues.json';
 
 export async function getStaticPaths() {
@@ -31,7 +31,15 @@ const pools = dialogues.pools as Record<
 >
   {
     hasScene ? (
-      <GardenScene scene={sceneData} pools={pools} bookSlug={meta.slug} client:only="react" />
+      <>
+        <div
+          class="scene-shell-fallback graph-explorer flex items-center justify-center text-sm text-slate-400"
+          aria-live="polite"
+        >
+          加载大观园实景…
+        </div>
+        <GardenScene scene={sceneData} pools={pools} bookSlug={meta.slug} client:only="react" />
+      </>
     ) : (
       <div class="flex min-h-[70vh] flex-col items-center justify-center px-4 text-center text-slate-300">
         <p class="mb-2 text-lg">该书实景场景待制作</p>

@@ -75,6 +75,50 @@ const keyEvents = features.includes('saga')
     {d.收服者 && <div>收服者：{d.收服者}</div>}
     {d.性格 && <div class="sm:col-span-2">性格：{d.性格}</div>}
     {
+      d.服饰.length > 0 && (
+        <div class="sm:col-span-2">
+          服饰：
+          {d.服饰.map((item, i) => {
+            const itemHref = likeItemHref(slug, item);
+            return (
+              <>
+                {i > 0 && '、'}
+                {itemHref ? (
+                  <a class="hover:underline" style="color: var(--accent)" href={itemHref}>
+                    {item}
+                  </a>
+                ) : (
+                  item
+                )}
+              </>
+            );
+          })}
+        </div>
+      )
+    }
+    {
+      d.关键物品.length > 0 && (
+        <div class="sm:col-span-2">
+          关键物品：
+          {d.关键物品.map((item, i) => {
+            const itemHref = likeItemHref(slug, item);
+            return (
+              <>
+                {i > 0 && '、'}
+                {itemHref ? (
+                  <a class="hover:underline" style="color: var(--accent)" href={itemHref}>
+                    {item}
+                  </a>
+                ) : (
+                  item
+                )}
+              </>
+            );
+          })}
+        </div>
+      )
+    }
+    {
       d.喜好.length > 0 && (
         <div class="sm:col-span-2">
           喜好：

@@ -8,7 +8,7 @@ title: 秦可卿之死与凤姐协理
 aliases: [秦可卿死封龙禁尉, 王熙凤协理宁国府]
 chapters: [13]
 characters: [秦可卿, 王熙凤, 贾珍]
-locations: [宁国府, 会芳园]
+locations: [宁国府, 会芳园, 天香楼]
 prev: hlm-e-001
 next: hlm-e-002
 tags: [丧礼, 协理宁国府, 盛极前奏]

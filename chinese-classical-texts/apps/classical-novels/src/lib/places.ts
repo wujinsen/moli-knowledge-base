@@ -76,8 +76,8 @@ export const BOOK_PLACE_ROOT: Partial<
   红楼梦: {
     id: '大观园',
     title: '大观园',
-    pageTitle: '大观园 · 建筑居所',
-    blurb: '府邸、园林、亭榭堂馆',
+    pageTitle: '红楼梦 · 建筑图鉴',
+    blurb: '宁荣两府、大观园及都外建筑',
   },
   金瓶梅: {
     id: '西门府',

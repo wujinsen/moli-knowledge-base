@@ -38,13 +38,87 @@ function circularCoords(index: number, total: number, radius = 280): { x: number
   return { x: Math.cos(angle) * radius, y: Math.sin(angle) * radius };
 }
 
-function forceSettings(nodeCount: number) {
+/** 阵营聚类布局系数 */
+const CLUSTER_RING_RADIUS = 560;
+const CLUSTER_INNER_MIN = 44;
+const CLUSTER_INNER_SCALE = 18;
+/** ≤此人数的阵营并入「其他地点」，避免 40+ 单点占满外环 */
+const MINOR_FACTION_MAX = 3;
+const OTHER_FACTION_BUCKET = '其他地点';
+/** 默认显示标签的 weight 阈值 */
+const LABEL_WEIGHT_MIN = 60;
+
+function factionLayoutKey(faction: string, memberCount: number): string {
+  return memberCount <= MINOR_FACTION_MAX ? OTHER_FACTION_BUCKET : faction;
+}
+
+/**
+ * 阵营聚类：小阵营合并；扇区宽度按 √人数 分配；簇半径受弧长约束。
+ */
+function clusterLayout(nodes: Node[]): Map<string, { x: number; y: number }> {
+  const rawCounts = new Map<string, number>();
+  for (const n of nodes) rawCounts.set(n.faction, (rawCounts.get(n.faction) ?? 0) + 1);
+
+  const byFaction = new Map<string, Node[]>();
+  for (const n of nodes) {
+    const key = factionLayoutKey(n.faction, rawCounts.get(n.faction) ?? 1);
+    if (!byFaction.has(key)) byFaction.set(key, []);
+    byFaction.get(key)!.push(n);
+  }
+
+  const groups = [...byFaction.entries()].sort((a, b) => b[1].length - a[1].length);
+  const totalArcWeight = groups.reduce((s, [, arr]) => s + Math.sqrt(arr.length), 0);
+  const golden = 2.399963229728653;
+  const map = new Map<string, { x: number; y: number }>();
+  let angleCursor = -Math.PI / 2;
+
+  for (const [, arr] of groups) {
+    const wedge = (2 * Math.PI * Math.sqrt(arr.length)) / Math.max(totalArcWeight, 1);
+    const midAngle = angleCursor + wedge / 2;
+    angleCursor += wedge;
+
+    const cx = Math.cos(midAngle) * CLUSTER_RING_RADIUS;
+    const cy = Math.sin(midAngle) * CLUSTER_RING_RADIUS;
+    const sorted = [...arr].sort((a, b) => (b.weight ?? 0) - (a.weight ?? 0));
+    const arcBudget = wedge * CLUSTER_RING_RADIUS * 0.38;
+    const innerR = Math.min(
+      arcBudget,
+      Math.max(CLUSTER_INNER_MIN, Math.sqrt(sorted.length) * CLUSTER_INNER_SCALE),
+    );
+
+    sorted.forEach((n, i) => {
+      const r = i === 0 ? 0 : innerR * Math.sqrt(i / sorted.length);
+      const a = i * golden;
+      map.set(n.id, { x: cx + Math.cos(a) * r, y: cy + Math.sin(a) * r });
+    });
+  }
+  return map;
+}
+
+/** 各阵营 weight 最高者，用于默认显示簇心标签 */
+function factionLeaderIds(nodes: Node[]): Set<string> {
+  const byFaction = new Map<string, Node[]>();
+  for (const n of nodes) {
+    if (!byFaction.has(n.faction)) byFaction.set(n.faction, []);
+    byFaction.get(n.faction)!.push(n);
+  }
+  const leaders = new Set<string>();
+  for (const arr of byFaction.values()) {
+    const top = [...arr].sort((a, b) => (b.weight ?? 0) - (a.weight ?? 0))[0];
+    if (top) leaders.add(top.id);
+  }
+  return leaders;
+}
+
+function forceSettings(nodeCount: number, edgeCount: number) {
+  const avgDegree = edgeCount / Math.max(nodeCount, 1);
+  // 边多的大图需要更强斥力、更弱引力，否则切回力导向会塌缩到中心
+  const repulsion = Math.min(900, Math.max(220, nodeCount * (avgDegree > 4 ? 2.8 : 2)));
   return {
-    initLayout: 'circular' as const,
-    repulsion: Math.min(420, Math.max(100, 6500 / nodeCount)),
-    gravity: 0.14,
-    edgeLength: nodeCount > 80 ? [45, 110] : [70, 150],
-    friction: 0.42,
+    repulsion,
+    gravity: 0.03,
+    edgeLength: nodeCount > 80 ? [90, 200] : [70, 150],
+    friction: 0.55,
   };
 }
 
@@ -55,14 +129,15 @@ export default function RelationGraph({ bookSlug }: Props) {
   const chartRef = useRef<HTMLDivElement>(null);
   const chartInstance = useRef<echarts.ECharts | null>(null);
   const layoutPositionsRef = useRef<Map<string, { x: number; y: number }>>(new Map());
-  const prevPhysicsRef = useRef(true);
+  /** 区分点击与拖拽/平移，避免松手时误触节点选中 */
+  const pointerRef = useRef({ moved: false, x: 0, y: 0 });
 
   const [chartReady, setChartReady] = useState(false);
   const [chartError, setChartError] = useState<string | null>(null);
   const [query, setQuery] = useState('');
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [hiddenFactions, setHiddenFactions] = useState<Set<string>>(new Set());
-  const [physics, setPhysics] = useState(true);
+  const [physics, setPhysics] = useState(false);
   const [expandedEdgeTypes, setExpandedEdgeTypes] = useState<Set<string>>(new Set());
 
   useEffect(() => {
@@ -88,6 +163,9 @@ export default function RelationGraph({ bookSlug }: Props) {
     () => data.edges.filter((e) => visibleIds.has(e.source) && visibleIds.has(e.target)),
     [data.edges, visibleIds],
   );
+
+  const clusterPositions = useMemo(() => clusterLayout(visibleNodes), [visibleNodes]);
+  const factionLeaders = useMemo(() => factionLeaderIds(visibleNodes), [visibleNodes]);
 
   const selectedNode = selectedId ? data.nodes.find((n) => n.id === selectedId) : null;
   const selectedEdges = useMemo(
@@ -162,8 +240,8 @@ export default function RelationGraph({ bookSlug }: Props) {
 
     return {
       backgroundColor: 'transparent',
-      animation: true,
-      animationDuration: 1200,
+      animation: !physics,
+      animationDuration: physics ? 0 : 1200,
       animationEasing: 'cubicOut',
       tooltip: {
         trigger: 'item',
@@ -175,10 +253,11 @@ export default function RelationGraph({ bookSlug }: Props) {
           const params = p as { dataType?: string; data?: Record<string, unknown> };
           if (params.dataType === 'edge') {
             const d = params.data ?? {};
+            const relType = typeof d.type === 'string' ? d.type : '关系';
             const tags = [d.inference ? '推论' : null, d.contradiction ? '矛盾' : null]
               .filter(Boolean)
               .join(' · ');
-            return `<strong>${d.source}</strong> — ${d.label ?? d.type} — <strong>${d.target}</strong>${tags ? `<br/><span style="color:${gt.accent}">${tags}</span>` : ''}`;
+            return `<strong>${d.source}</strong> — ${relType} — <strong>${d.target}</strong>${tags ? `<br/><span style="color:${gt.accent}">${tags}</span>` : ''}`;
           }
           const d = params.data ?? {};
           if (d.nodeType === 'topic') {
@@ -201,16 +280,25 @@ export default function RelationGraph({ bookSlug }: Props) {
           layout: physics ? 'force' : 'none',
           roam: true,
           draggable: true,
-          zoom: 1.1,
-          focusNodeAdjacency: true,
-          emphasis: {
-            focus: 'adjacency',
-            scale: 1.15,
-            lineStyle: { width: 3, opacity: 1 },
-            itemStyle: { shadowBlur: 28 },
+          zoom: 0.88,
+          focusNodeAdjacency: false,
+          selectedMode: false,
+          labelLayout: { hideOverlap: true },
+          emphasis: selectedId
+            ? { disabled: true }
+            : {
+                focus: 'self',
+                scale: 1.12,
+                lineStyle: { width: 2, opacity: 0.75 },
+                itemStyle: { shadowBlur: 20 },
+              },
+          blur: {
+            itemStyle: { opacity: 1 },
+            lineStyle: { opacity: 0.75 },
+            label: { opacity: 1 },
           },
           force: physics
-            ? { ...forceSettings(visibleNodes.length), layoutAnimation: true }
+            ? { ...forceSettings(visibleNodes.length, visibleEdges.length), layoutAnimation: true }
             : { layoutAnimation: false },
           categories,
           data: visibleNodes.map((n, idx) => {
@@ -221,11 +309,24 @@ export default function RelationGraph({ bookSlug }: Props) {
               (focusNeighbors && !focusNeighbors.has(n.id)) ||
               (q && !matched);
             const highlighted = q && matched;
+            const isSelected = selectedId === n.id;
+            const inFocus = focusNeighbors?.has(n.id) ?? false;
+            const showLabel =
+              !dimmed &&
+              (highlighted ||
+                isSelected ||
+                inFocus ||
+                (n.weight ?? 0) >= LABEL_WEIGHT_MIN ||
+                factionLeaders.has(n.id));
             const size = 22 + (n.weight ?? 30) * 0.45;
 
             const saved = layoutPositionsRef.current.get(n.id);
+            const clusterPos = clusterPositions.get(n.id);
             const fixedPos = !physics
-              ? (saved ?? circularCoords(idx, visibleNodes.length))
+              ? (saved ?? clusterPos ?? circularCoords(idx, visibleNodes.length))
+              : null;
+            const forceSeed = physics
+              ? (clusterPos ?? circularCoords(idx, visibleNodes.length))
               : null;
 
             return {
@@ -236,7 +337,11 @@ export default function RelationGraph({ bookSlug }: Props) {
               nodeType: n.type,
               summary: n.summary,
               chapter: n.chapter,
-              ...(fixedPos ? { x: fixedPos.x, y: fixedPos.y, fixed: true } : {}),
+              ...(physics && forceSeed
+                ? { x: forceSeed.x, y: forceSeed.y, fixed: false }
+                : fixedPos
+                  ? { x: fixedPos.x, y: fixedPos.y, fixed: true }
+                  : {}),
               symbol:
                 n.type === 'monster' ? 'diamond' : n.type === 'topic' ? 'roundRect' : 'circle',
               symbolSize: highlighted ? size * 1.2 : size,
@@ -249,12 +354,12 @@ export default function RelationGraph({ bookSlug }: Props) {
                 opacity: dimmed ? 0.22 : 1,
               },
               label: {
-                show: true,
+                show: showLabel,
                 position: 'bottom',
                 distance: 6,
                 color: dimmed ? 'rgba(148,163,184,0.5)' : '#f1f5f9',
-                fontSize: highlighted ? 14 : 12,
-                fontWeight: highlighted ? 600 : 400,
+                fontSize: highlighted || isSelected ? 14 : 11,
+                fontWeight: highlighted || isSelected || factionLeaders.has(n.id) ? 600 : 400,
               },
             };
           }),
@@ -295,7 +400,7 @@ export default function RelationGraph({ bookSlug }: Props) {
         },
       ],
     };
-  }, [factions, physics, query, selectedId, visibleEdges, visibleNodes, gt]);
+  }, [factions, physics, query, selectedId, visibleEdges, visibleNodes, clusterPositions, factionLeaders, gt]);
 
   useEffect(() => {
     const el = chartRef.current;
@@ -329,13 +434,36 @@ export default function RelationGraph({ bookSlug }: Props) {
       }
       chartInstance.current = chart;
 
+      const DRAG_THRESHOLD = 6;
+      const zr = chart.getZr();
+      zr.on('mousedown', (e) => {
+        pointerRef.current.moved = false;
+        pointerRef.current.x = e.offsetX;
+        pointerRef.current.y = e.offsetY;
+      });
+      zr.on('mousemove', (e) => {
+        const dx = e.offsetX - pointerRef.current.x;
+        const dy = e.offsetY - pointerRef.current.y;
+        if (dx * dx + dy * dy > DRAG_THRESHOLD * DRAG_THRESHOLD) {
+          pointerRef.current.moved = true;
+        }
+      });
+
       chart.on('click', (params) => {
+        if (pointerRef.current.moved) {
+          pointerRef.current.moved = false;
+          return;
+        }
         if (params.dataType === 'node' && params.data && typeof params.data === 'object') {
           const id = (params.data as { id?: string; name?: string }).id ?? (params.data as { name?: string }).name;
           if (id) setSelectedId((prev) => (prev === id ? null : id));
         }
       });
-      chart.getZr().on('click', (e) => {
+      zr.on('click', (e) => {
+        if (pointerRef.current.moved) {
+          pointerRef.current.moved = false;
+          return;
+        }
         if (!e.target) setSelectedId(null);
       });
 
@@ -377,43 +505,28 @@ export default function RelationGraph({ bookSlug }: Props) {
   useEffect(() => {
     if (!chartReady || !chartInstance.current) return;
     const chart = chartInstance.current;
-    const switchedToForce = !prevPhysicsRef.current && physics;
-    prevPhysicsRef.current = physics;
 
-    if (switchedToForce) chart.clear();
+    // 两种布局切换时都清空画布，避免力导向引擎残留 fixed 状态
+    chart.clear();
     chart.setOption(buildOption(), { notMerge: true });
 
-    const timer = window.setTimeout(() => chart.resize(), switchedToForce ? 150 : 0);
-    return () => clearTimeout(timer);
+    const t1 = window.setTimeout(() => chart.resize(), 0);
+    const t2 = physics ? window.setTimeout(() => chart.resize(), 180) : undefined;
+    return () => {
+      clearTimeout(t1);
+      if (t2) clearTimeout(t2);
+    };
   }, [chartReady, buildOption, physics]);
-
-  const captureLayoutPositions = () => {
-    const chart = chartInstance.current;
-    if (!chart) return;
-    try {
-      const seriesModel = chart.getModel().getSeriesByIndex(0);
-      if (!seriesModel) return;
-      const graphData = seriesModel.getData();
-      const next = new Map<string, { x: number; y: number }>();
-      for (let i = 0; i < graphData.count(); i++) {
-        const layout = graphData.getItemLayout(i);
-        if (layout && Number.isFinite(layout[0]) && Number.isFinite(layout[1])) {
-          next.set(String(graphData.getName(i)), { x: layout[0], y: layout[1] });
-        }
-      }
-      if (next.size > 0) layoutPositionsRef.current = next;
-    } catch {
-      /* chart mid-update */
-    }
-  };
 
   const togglePhysics = () => {
     if (physics) {
-      captureLayoutPositions();
+      // 固定布局用阵营聚类坐标，不冻结力导向结果
+      layoutPositionsRef.current.clear();
       setPhysics(false);
       return;
     }
     layoutPositionsRef.current.clear();
+    setSelectedId(null);
     setPhysics(true);
   };
 
@@ -715,7 +828,7 @@ export default function RelationGraph({ bookSlug }: Props) {
       )}
 
       <p className="pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 select-none text-center text-slate-700/40 text-sm">
-        拖拽节点 · 滚轮缩放 · 点击高亮邻接
+        按阵营分簇 · 点击节点点亮关系 · 仅核心人物显示名
       </p>
     </div>
   );

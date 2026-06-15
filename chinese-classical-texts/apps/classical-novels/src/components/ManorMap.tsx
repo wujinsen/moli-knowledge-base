@@ -3,6 +3,8 @@ import * as echarts from 'echarts';
 import type { EChartsOption } from 'echarts';
 import { graphTheme } from '../lib/graphTheme';
 import {
+  MANOR_CHAPTER_PRESETS,
+  MANOR_GUIDES,
   MANOR_ZONE_COLORS,
   MANOR_ZONE_LABELS,
   MANOR_ZONE_ORDER,
@@ -27,9 +29,17 @@ export default function ManorMap({ data, bookSlug }: Props) {
   const chartInstance = useRef<echarts.ECharts | null>(null);
 
   const [zone, setZone] = useState<ZoneFilter>('all');
-  const [showAxis, setShowAxis] = useState(true);
+  const [showRongAxis, setShowRongAxis] = useState(true);
+  const [showNingAxis, setShowNingAxis] = useState(true);
   const [showCatalog, setShowCatalog] = useState(true);
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [chapterFilter, setChapterFilter] = useState<number | null>(null);
+  const [activeGuide, setActiveGuide] = useState<string | null>(null);
+
+  const guidePath = useMemo(() => {
+    if (!activeGuide) return null;
+    return MANOR_GUIDES.find((g) => g.key === activeGuide)?.path ?? null;
+  }, [activeGuide]);
 
   const nodeById = useMemo(
     () => new Map(data.nodes.map((n) => [n.id, n])),
@@ -49,15 +59,22 @@ export default function ManorMap({ data, bookSlug }: Props) {
     () => new Set(visibleNodes.map((n) => n.id)),
     [visibleNodes],
   );
-  const allEdges = useMemo(() => buildManorEdges(data.nodes), [data.nodes]);
+
+  const allEdges = useMemo(
+    () => buildManorEdges(data.nodes, guidePath),
+    [data.nodes, guidePath],
+  );
+
   const visibleEdges = useMemo(
     () =>
       allEdges.filter((e) => {
         if (!visibleIds.has(e.source) || !visibleIds.has(e.target)) return false;
-        if (e.kind === 'axis' && !showAxis) return false;
+        if (e.kind === 'axis' && !showRongAxis) return false;
+        if (e.kind === 'ningAxis' && !showNingAxis) return false;
+        if (e.kind === 'guide' && !activeGuide) return false;
         return true;
       }),
-    [allEdges, visibleIds, showAxis],
+    [allEdges, visibleIds, showRongAxis, showNingAxis, activeGuide],
   );
 
   const selectedNode = selectedId ? nodeById.get(selectedId) ?? null : null;
@@ -66,21 +83,22 @@ export default function ManorMap({ data, bookSlug }: Props) {
     return {
       backgroundColor: 'transparent',
       animation: true,
+      animationDuration: 700,
       tooltip: {
         trigger: 'item',
         backgroundColor: 'rgba(15, 23, 42, 0.92)',
         borderColor: gt.accentLine,
         borderWidth: 1,
-        textStyle: { color: '#e2e8f0', fontSize: 13 },
+        textStyle: { color: '#e2e8f0', fontSize: 14, fontFamily: '"Noto Serif SC", serif' },
         formatter: (p: unknown) => {
           const params = p as { dataType?: string; data?: Record<string, unknown> };
           if (params.dataType === 'edge') return '';
           const node = nodeById.get((params.data?.id as string) ?? '');
           if (!node) return '';
           const ch = node.chapters.length
-            ? `<br/><span style="color:${gt.accent}">第${node.chapters.slice(0, 3).join('、')}回</span>`
+            ? `<br/><span style="color:${gt.accent}">第${node.chapters.slice(0, 3).join('、')}${node.chapters.length > 3 ? '…' : ''}回</span>`
             : '';
-          return `<strong style="font-size:15px">${node.name}</strong><br/>${MANOR_ZONE_LABELS[node.zone]}${ch}`;
+          return `<strong style="font-size:16px">${node.name}</strong><br/>${MANOR_ZONE_LABELS[node.zone]}${ch}`;
         },
       },
       series: [
@@ -92,6 +110,12 @@ export default function ManorMap({ data, bookSlug }: Props) {
           data: visibleNodes.map((n) => {
             const color = manorZoneColor(n.zone);
             const selected = n.id === selectedId;
+            const dimmed =
+              chapterFilter != null && !n.chapters.includes(chapterFilter);
+            const hasEvent =
+              chapterFilter != null &&
+              n.events.some((ev) => ev.chapters.includes(chapterFilter));
+            const onGuide = guidePath?.includes(n.id) ?? false;
             const size = n.zone === '连接' ? 18 : n.zone === '外联' ? 20 : 24;
             return {
               id: n.id,
@@ -99,38 +123,51 @@ export default function ManorMap({ data, bookSlug }: Props) {
               x: n.x,
               y: n.y,
               symbol: n.zone === '连接' ? 'circle' : 'roundRect',
-              symbolSize: selected ? size * 1.3 : size,
+              symbolSize: selected ? size * 1.35 : onGuide && activeGuide ? size * 1.15 : size,
               itemStyle: {
                 color,
-                borderColor: selected ? '#fff' : 'rgba(255,255,255,0.35)',
-                borderWidth: selected ? 2.5 : 1.2,
+                opacity: dimmed && !onGuide ? 0.28 : 1,
+                borderColor: selected
+                  ? '#fff'
+                  : hasEvent || (onGuide && activeGuide)
+                    ? '#fcd34d'
+                    : 'rgba(255,255,255,0.35)',
+                borderWidth: selected ? 2.5 : hasEvent || onGuide ? 2 : 1.2,
               },
               label: {
                 show: true,
                 position: 'bottom',
                 distance: 6,
-                color: selected ? '#fff' : '#e8eef7',
-                fontSize: selected ? 13 : 11,
+                color: selected ? '#fff' : dimmed && !onGuide ? 'rgba(241,245,249,0.45)' : '#e8eef7',
+                fontSize: selected ? 14 : 12,
+                fontWeight: selected ? 700 : 500,
               },
             };
           }),
           edges: visibleEdges.map((e) => ({
             source: e.source,
             target: e.target,
-            symbol: e.kind === 'axis' ? ['none', 'arrow'] : ['none', 'none'],
-            symbolSize: e.kind === 'axis' ? [0, 8] : 0,
+            symbol: e.kind !== 'nearby' ? ['none', 'arrow'] : ['none', 'none'],
+            symbolSize: e.kind === 'nearby' ? 0 : e.kind === 'guide' ? [0, 9] : [0, 8],
             lineStyle: {
-              color: e.kind === 'axis' ? '#fbbf24' : 'rgba(148,163,184,0.55)',
-              width: e.kind === 'axis' ? 2.5 : 1.2,
-              type: e.kind === 'axis' ? 'dashed' : 'solid',
-              opacity: e.kind === 'axis' ? 0.85 : 0.5,
-              curveness: 0.08,
+              color:
+                e.kind === 'guide'
+                  ? '#4ade80'
+                  : e.kind === 'axis' || e.kind === 'ningAxis'
+                    ? e.kind === 'ningAxis'
+                      ? '#38bdf8'
+                      : '#fbbf24'
+                    : 'rgba(148,163,184,0.55)',
+              width: e.kind === 'guide' ? 3 : e.kind === 'axis' || e.kind === 'ningAxis' ? 2.5 : 1.2,
+              type: e.kind === 'nearby' ? 'solid' : 'dashed',
+              opacity: e.kind === 'nearby' ? 0.45 : 0.88,
+              curveness: e.kind === 'guide' ? 0.02 : 0.08,
             },
           })),
         },
       ],
     };
-  }, [visibleNodes, visibleEdges, selectedId, nodeById, gt]);
+  }, [visibleNodes, visibleEdges, selectedId, nodeById, gt, chapterFilter, guidePath, activeGuide]);
 
   useEffect(() => {
     if (!chartRef.current) return;
@@ -161,8 +198,20 @@ export default function ManorMap({ data, bookSlug }: Props) {
   const resetView = () => {
     setSelectedId(null);
     setZone('all');
-    setShowAxis(true);
+    setShowRongAxis(true);
+    setShowNingAxis(true);
+    setChapterFilter(null);
+    setActiveGuide(null);
     chartInstance.current?.dispatchAction({ type: 'restore' });
+  };
+
+  const activateGuide = (key: string) => {
+    const g = MANOR_GUIDES.find((x) => x.key === key);
+    if (!g) return;
+    setActiveGuide((prev) => (prev === key ? null : key));
+    setChapterFilter(g.chapter);
+    if (key === 'ch3') setShowRongAxis(true);
+    if (key === 'ch13' || key === 'ch53') setShowNingAxis(true);
   };
 
   const zoneButtons: { key: ZoneFilter; label: string }[] = [
@@ -191,6 +240,38 @@ export default function ManorMap({ data, bookSlug }: Props) {
             </button>
           ))}
         </div>
+        <label className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-slate-900/80 px-2 py-1 backdrop-blur-sm">
+          <span className="text-xs text-slate-400">回目</span>
+          <select
+            value={chapterFilter ?? ''}
+            onChange={(e) => {
+              const v = e.target.value;
+              setChapterFilter(v === '' ? null : Number(v));
+              setActiveGuide(null);
+            }}
+            className="max-w-[10rem] rounded-md border-0 bg-transparent py-1 text-xs text-slate-100 outline-none"
+          >
+            {MANOR_CHAPTER_PRESETS.map((p) => (
+              <option key={p.label} value={p.chapter ?? ''} className="bg-slate-900">
+                {p.label}
+              </option>
+            ))}
+          </select>
+        </label>
+        {MANOR_GUIDES.map((g) => (
+          <button
+            key={g.key}
+            type="button"
+            onClick={() => activateGuide(g.key)}
+            className="rounded-lg border border-white/10 bg-slate-900/80 px-2.5 py-1.5 text-xs backdrop-blur-sm"
+            style={{
+              borderColor: activeGuide === g.key ? 'rgba(74,222,128,0.55)' : undefined,
+              color: activeGuide === g.key ? '#86efac' : '#cbd5e1',
+            }}
+          >
+            {g.label}
+          </button>
+        ))}
         <button
           type="button"
           onClick={() => setShowCatalog((v) => !v)}
@@ -204,14 +285,25 @@ export default function ManorMap({ data, bookSlug }: Props) {
         </button>
         <button
           type="button"
-          onClick={() => setShowAxis((v) => !v)}
+          onClick={() => setShowRongAxis((v) => !v)}
           className="rounded-lg border border-white/10 bg-slate-900/80 px-3 py-1.5 text-xs text-slate-300 backdrop-blur-sm"
           style={{
-            borderColor: showAxis ? 'rgba(251,191,36,0.5)' : undefined,
-            color: showAxis ? '#fcd34d' : undefined,
+            borderColor: showRongAxis ? 'rgba(251,191,36,0.5)' : undefined,
+            color: showRongAxis ? '#fcd34d' : undefined,
           }}
         >
-          {showAxis ? '隐藏中轴' : '荣府中轴'}
+          {showRongAxis ? '隐藏荣轴' : '荣府礼制轴'}
+        </button>
+        <button
+          type="button"
+          onClick={() => setShowNingAxis((v) => !v)}
+          className="rounded-lg border border-white/10 bg-slate-900/80 px-3 py-1.5 text-xs text-slate-300 backdrop-blur-sm"
+          style={{
+            borderColor: showNingAxis ? 'rgba(56,189,248,0.5)' : undefined,
+            color: showNingAxis ? '#7dd3fc' : undefined,
+          }}
+        >
+          {showNingAxis ? '隐藏宁轴' : '宁府丧祭轴'}
         </button>
         <button
           type="button"
@@ -222,10 +314,11 @@ export default function ManorMap({ data, bookSlug }: Props) {
         </button>
         <div className="ml-auto flex gap-3 text-xs text-slate-400">
           <span>{visibleNodes.length} 处</span>
+          <span>{visibleEdges.length} 条边</span>
         </div>
       </div>
 
-      <div className="absolute bottom-4 left-3 z-10 max-w-md flex flex-wrap gap-x-3 gap-y-1.5 rounded-lg border border-white/10 bg-slate-900/85 p-2.5 backdrop-blur-md">
+      <div className="absolute bottom-4 left-3 z-10 max-w-xl flex flex-wrap gap-x-3 gap-y-1.5 rounded-lg border border-white/10 bg-slate-900/85 p-2.5 backdrop-blur-md">
         {zones.map((z) => (
           <span key={z} className="flex items-center gap-1.5 text-xs text-slate-300">
             <span
@@ -235,7 +328,10 @@ export default function ManorMap({ data, bookSlug }: Props) {
             {MANOR_ZONE_LABELS[z]}
           </span>
         ))}
-        <span className="text-xs text-slate-500">虚线箭头 = 第3回荣府中轴示意 · 实线 = 邻近</span>
+        <span className="text-xs text-slate-500">
+          黄虚线 = 荣府礼制轴 · 蓝虚线 = 宁府轴 · 绿虚线 = 导览 · 实线 = 邻近
+          {chapterFilter != null && ' · 淡色 = 该回未出场'}
+        </span>
       </div>
 
       {showCatalog && (
@@ -272,6 +368,25 @@ export default function ManorMap({ data, bookSlug }: Props) {
             </div>
           )}
           <p className="mb-3 text-sm leading-snug text-slate-300">{selectedNode.summary}</p>
+
+          {selectedNode.events.length > 0 && (
+            <div className="mb-3">
+              <div className="mb-1 text-xs font-semibold text-slate-500">关联大事</div>
+              <div className="flex flex-col gap-1">
+                {selectedNode.events.map((ev) => (
+                  <a
+                    key={ev.id}
+                    href={`/${bookSlug}/e/${ev.id}`}
+                    className="rounded border border-white/10 px-2 py-1 text-xs text-slate-300 hover:border-white/25"
+                  >
+                    {ev.title}
+                    <span className="ml-1 text-slate-500">第{ev.chapters.join('、')}回</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
           {selectedNode.occupants.length > 0 && (
             <div className="mb-3 flex flex-wrap gap-1">
               {selectedNode.occupants.map((o) => (
@@ -313,7 +428,15 @@ export default function ManorMap({ data, bookSlug }: Props) {
             >
               两府间数考证
             </a>
+            <a href={`/${bookSlug}/maps`} className="text-xs text-slate-500 hover:text-slate-300">
+              全部空间地图 →
+            </a>
             {selectedNode.id === '大观园' && (
+              <a href={`/${bookSlug}/map`} className="text-xs text-slate-500 hover:text-slate-300">
+                大观园地图 →
+              </a>
+            )}
+            {(selectedNode.zone === '荣府侧' || selectedNode.zone === '荣府轴') && (
               <a href={`/${bookSlug}/map`} className="text-xs text-slate-500 hover:text-slate-300">
                 大观园地图 →
               </a>

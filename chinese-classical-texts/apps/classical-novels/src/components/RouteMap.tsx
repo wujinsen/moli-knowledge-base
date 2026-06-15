@@ -3,6 +3,13 @@ import * as echarts from 'echarts';
 import type { EChartsOption } from 'echarts';
 import { graphTheme } from '../lib/graphTheme';
 import {
+  hasCustomRouteIcon,
+  routeIconGlow,
+  routeIconSize,
+  routeIconSymbol,
+  preloadRouteIcons,
+} from '../lib/routeIcons';
+import {
   LAYER_LABELS,
   realmColor,
   type RouteData,
@@ -98,6 +105,7 @@ export default function RouteMap({ data, bookSlug }: Props) {
   const [activeLegKey, setActiveLegKey] = useState<string | null>(null);
   const [hoverLegKey, setHoverLegKey] = useState<string | null>(null);
   const [pathLabels, setPathLabels] = useState<PathLabelOverlay[]>([]);
+  const [iconsReady, setIconsReady] = useState(bookSlug !== 'xiyouji');
 
   /** 地图上只显示一条路段标签，避免密集区叠字 */
   const mapLabelLegKey = activeLegKey ?? hoverLegKey;
@@ -220,20 +228,23 @@ export default function RouteMap({ data, bookSlug }: Props) {
             const color = realmColor(n.realm);
             const isReal = n.layer === 'real';
             const selected = n.id === selectedId;
-            const size = isReal ? (n.order != null ? 20 : 16) : 26;
+            const useCustomIcon = bookSlug === 'xiyouji' && hasCustomRouteIcon(n.id);
+            const iconSymbol = useCustomIcon ? routeIconSymbol(bookSlug, n.id) : null;
+            const [iconW, iconH] = routeIconSize(selected);
             return {
               id: n.id,
               name: n.name,
               x: n.x,
               y: n.y,
-              symbol: isReal ? 'circle' : 'diamond',
-              symbolSize: selected ? size * 1.35 : size,
+              symbol: iconSymbol ?? (isReal ? 'circle' : 'diamond'),
+              symbolSize: useCustomIcon ? [iconW, iconH] : selected ? (isReal ? 27 : 35) : isReal ? 20 : 26,
+              symbolKeepAspect: useCustomIcon,
               itemStyle: {
-                color,
-                borderColor: selected ? '#fff' : 'rgba(255,255,255,0.35)',
-                borderWidth: selected ? 2.5 : 1.2,
-                shadowBlur: selected ? 30 : 14,
-                shadowColor: color,
+                color: useCustomIcon ? 'transparent' : color,
+                borderColor: selected ? '#fff' : useCustomIcon ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.35)',
+                borderWidth: selected ? 2.5 : useCustomIcon ? 0 : 1.2,
+                shadowBlur: selected ? 30 : useCustomIcon ? 28 : 14,
+                shadowColor: useCustomIcon ? routeIconGlow(n.id) : color,
               },
               label: {
                 show: true,
@@ -271,10 +282,21 @@ export default function RouteMap({ data, bookSlug }: Props) {
         },
       ],
     };
-  }, [visibleNodes, visibleEdges, selectedId, nodeById, edgeByKey, routeLegOrder, highlightedLegKeys, gt]);
+  }, [visibleNodes, visibleEdges, selectedId, nodeById, edgeByKey, routeLegOrder, highlightedLegKeys, gt, bookSlug]);
 
   useEffect(() => {
-    if (!chartRef.current) return;
+    if (bookSlug !== 'xiyouji') return;
+    let cancelled = false;
+    preloadRouteIcons(bookSlug).finally(() => {
+      if (!cancelled) setIconsReady(true);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [bookSlug]);
+
+  useEffect(() => {
+    if (!iconsReady || !chartRef.current) return;
     const chart = echarts.init(chartRef.current, undefined, { renderer: 'canvas' });
     chartInstance.current = chart;
 
@@ -330,16 +352,18 @@ export default function RouteMap({ data, bookSlug }: Props) {
       chart.dispose();
       chartInstance.current = null;
     };
-  }, [syncPathLabels, routePath, routeLegOrder]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- mount once after icons preload
+  }, [iconsReady]);
 
   useEffect(() => {
     requestAnimationFrame(() => syncPathLabels());
   }, [mapLabelLegKey, syncPathLabels]);
 
   useEffect(() => {
+    if (!iconsReady) return;
     chartInstance.current?.setOption(buildOption(), { notMerge: true });
     requestAnimationFrame(() => syncPathLabels());
-  }, [buildOption, syncPathLabels]);
+  }, [buildOption, syncPathLabels, iconsReady]);
 
   const resetView = () => {
     setSelectedId(null);
@@ -534,7 +558,7 @@ export default function RouteMap({ data, bookSlug }: Props) {
             {r}
           </span>
         ))}
-        <span className="flex items-center gap-1.5 text-xs text-slate-500">● 凡间 · ◆ 异界</span>
+        <span className="flex items-center gap-1.5 text-xs text-slate-500">各地标有专属图标</span>
       </div>
 
       <div ref={chartRef} className="absolute inset-0 h-full w-full" style={{ minHeight: 'calc(100vh - 3rem)' }} />

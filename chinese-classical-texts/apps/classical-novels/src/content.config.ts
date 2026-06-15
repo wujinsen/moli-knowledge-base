@@ -68,6 +68,8 @@ const characters = defineCollection({
     // 红楼梦 · 图鉴扩展
     性格: z.string().optional(),
     喜好: z.array(z.string()).default([]),
+    服饰: z.array(z.string()).default([]),
+    关键物品: z.array(z.string()).default([]),
     // 关系与版本
     relations: z.array(relation).default([]),
     variants: z.array(variant).default([]),
@@ -114,6 +116,10 @@ const books = defineCollection({
 
 const LOCATION_CATEGORIES = [
   '府邸', '花园', '院落', '亭', '楼', '阁', '榭', '堂', '馆', '庵', '祠', '闸', '桥', '幻境', '市街',
+  '衙署',
+  '道院',
+  // 金瓶梅 · 市井地理
+  '街巷', '府治', '县治', '关津', '津渡', '河岸', '庄园', '园林', '宅', '寺',
   // 西游记 · 取经地理
   '国度', '山岭', '洞府', '水域', '天界', '地府', '仙山', '城关', '寺观',
   '其他',

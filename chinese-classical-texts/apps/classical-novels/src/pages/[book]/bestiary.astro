@@ -78,6 +78,8 @@ function cardProps(c: (typeof entries)[number]) {
     outcome: cardOutcome(c.data) ?? c.data.结局,
     personality: c.data.性格,
     likes: c.data.喜好,
+    costumes: c.data.服饰,
+    keyItems: c.data.关键物品,
   };
 }
 ---

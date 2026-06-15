@@ -2332,6 +2332,19 @@ a.edition-tab:hover {
   font-family: var(--font-serif, 'Noto Serif SC', serif);
 }
 
+/* 大观园实景：与 graph-explorer 同高，防画布 0 高空白 */
+.graph-shell .garden-scene.graph-explorer,
+.graph-shell .scene-shell-fallback.graph-explorer {
+  position: relative;
+  width: 100%;
+  height: calc(100dvh - var(--graph-chrome, 10.5rem));
+  min-height: calc(100dvh - var(--graph-chrome, 10.5rem));
+}
+
+.graph-main:has(.garden-scene) .scene-shell-fallback {
+  display: none;
+}
+
 /* ============ 各书模块页（考证 / 诠索 / 白银 / 对勘 / 诗词等） ============ */
 .scoped-pred {
   display: inline-block;

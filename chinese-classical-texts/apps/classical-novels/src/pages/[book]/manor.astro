@@ -6,7 +6,9 @@ import BackLink from '../../components/BackLink.astro';
 import ManorMap from '../../components/ManorMap.tsx';
 import {
   MANOR_ZONE_ORDER,
+  attachManorEvents,
   buildManorEdges,
+  type ManorEventRef,
   type ManorMapNode,
 } from '../../lib/manorMap';
 
@@ -24,7 +26,16 @@ const locations = (await getCollection('locations')).filter(
   (l) => l.data.book === meta.book && l.data.coord && l.data.manor_zone,
 );
 
-const nodes: ManorMapNode[] = locations.map((l) => {
+const manorEvents: ManorEventRef[] = (await getCollection('events'))
+  .filter((e) => e.data.book === meta.book)
+  .map((e) => ({
+    id: e.data.id,
+    title: e.data.title,
+    chapters: e.data.chapters,
+    locations: e.data.locations ?? [],
+  }));
+
+const baseNodes: ManorMapNode[] = locations.map((l) => {
   const d = l.data;
   const chapters = [
     ...new Set(
@@ -50,9 +61,11 @@ const nodes: ManorMapNode[] = locations.map((l) => {
     plaque: d.plaque,
     couplet: d.couplet,
     nearby: d.nearby,
+    events: [],
   };
 });
 
+const nodes = attachManorEvents(baseNodes, manorEvents);
 const manorData = { nodes, edges: buildManorEdges(nodes) };
 const zoneCounts = Object.fromEntries(
   MANOR_ZONE_ORDER.map((z) => [z, nodes.filter((n) => n.zone === z).length]),

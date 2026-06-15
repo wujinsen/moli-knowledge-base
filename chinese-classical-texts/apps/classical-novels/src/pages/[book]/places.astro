@@ -47,27 +47,21 @@ const categorySections = categories
 const foldLabel = meta.book === '红楼梦' ? '建筑分组' : '地点分组';
 ---
 
-<Base title={`${meta.book} · 建筑居所`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+<Base title={root?.pageTitle ?? `${meta.book} · 建筑居所`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
   <p slot="module-extra" class="mt-2 text-sm text-muted">
     {root?.blurb ?? '府邸、园林、亭榭堂馆'}（共 {places.length} 处）
+    {
+      meta.book === '红楼梦' &&
+        (meta.features.includes('garden') || meta.features.includes('manor')) && (
+        <a href={`/${meta.slug}/maps`} class="ml-2 hover:underline" style="color: var(--accent)">
+          → 空间地图
+        </a>
+      )
+    }
     {
       meta.features.includes('town') && (
         <a href={`/${meta.slug}/town`} class="ml-2 hover:underline" style="color: var(--accent)">
           → 市井地图
-        </a>
-      )
-    }
-    {
-      meta.features.includes('garden') && (
-        <a href={`/${meta.slug}/map`} class="ml-2 hover:underline" style="color: var(--accent)">
-          → 大观园地图
-        </a>
-      )
-    }
-    {
-      meta.features.includes('manor') && (
-        <a href={`/${meta.slug}/manor`} class="ml-2 hover:underline" style="color: var(--accent)">
-          → 宁荣两府地图
         </a>
       )
     }

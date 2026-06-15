@@ -45,3 +45,6 @@ export function likeItemHref(bookSlug: string, like: string): string | null {
   if (!ids?.has(like)) return null;
   return `/${bookSlug}/i/${encodeURIComponent(like)}`;
 }
+
+/** 服饰 / 关键物品等同理链至名物百科 */
+export const itemWikiHref = likeItemHref;

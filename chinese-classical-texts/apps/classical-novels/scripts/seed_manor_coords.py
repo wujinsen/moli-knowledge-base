@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""为《红楼梦》宁荣两府地图注入 manor_zone + coord（M3）。
+"""为《红楼梦》宁荣两府地图注入 manor_zone + coord（M3/M4）。
 
 用法: python scripts/seed_manor_coords.py [--write]
 """
@@ -37,6 +37,9 @@ NODES: list[dict] = [
     dict(id="可卿上房", manor_zone="宁府轴", coord=(540, 300)),
     dict(id="家塾", manor_zone="外联", coord=(140, 300)),
     dict(id="荣庆堂", manor_zone="荣府轴", coord=(280, 240)),
+    dict(id="穿堂", manor_zone="连接", coord=(270, 220)),
+    dict(id="邢夫人上房", manor_zone="宁府轴", coord=(480, 240)),
+    dict(id="东角门", manor_zone="连接", coord=(400, 320)),
 ]
 
 
@@ -62,12 +65,29 @@ def upsert_coord(raw: str, x: int, y: int) -> str:
     return raw.rstrip() + "\n" + block
 
 
-def patch_file(path: Path, node: dict, write: bool) -> bool:
+def strip_body_orphans(body: str) -> str:
+    """Remove coord/manor_zone blocks mistakenly appended after frontmatter."""
+    body = re.sub(r"^coord:\n(?:  .+\n)+", "", body, count=1, flags=re.M)
+    body = re.sub(r"^manor_zone:.*\n?", "", body, count=1, flags=re.M)
+    return body.rstrip() + "\n"
+
+
+def patch_file(path: Path, spec: dict, *, write: bool) -> bool:
     raw = path.read_text(encoding="utf-8")
-    raw = upsert_scalar(raw, "manor_zone", node["manor_zone"])
-    raw = upsert_coord(raw, node["coord"][0], node["coord"][1])
+    parts = raw.split("---", 2)
+    if len(parts) < 3:
+        return False
+    fm = parts[1]
+    body = strip_body_orphans(parts[2])
+    cx, cy = spec["coord"]
+    new_fm = upsert_scalar(
+        fm, "manor_zone", spec["manor_zone"], before=("summary:", "tags:", "appear_in:")
+    )
+    new_fm = upsert_coord(new_fm, cx, cy)
+    if new_fm == fm and body == parts[2]:
+        return False
     if write:
-        path.write_text(raw, encoding="utf-8")
+        path.write_text(f"---{new_fm}---\n\n{body.lstrip()}", encoding="utf-8")
     return True
 
 
@@ -75,16 +95,22 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--write", action="store_true")
     args = ap.parse_args()
+    mode = "WRITE" if args.write else "DRY-RUN"
+    print(f"seed_manor_coords [{mode}] · {len(NODES)} nodes\n")
+
     n = 0
-    for node in NODES:
-        p = LOC_DIR / f"{node['id']}.md"
-        if not p.exists():
-            print(f"skip missing: {node['id']}")
+    for spec in NODES:
+        path = LOC_DIR / f"{spec['id']}.md"
+        if not path.exists():
+            print(f"  SKIP missing: {spec['id']}")
             continue
-        patch_file(p, node, args.write)
-        print(f"{'W' if args.write else 'D'} {node['id']} → {node['manor_zone']}")
-        n += 1
-    print(f"{'Updated' if args.write else 'Dry-run'} {n} nodes")
+        if patch_file(path, spec, write=args.write):
+            n += 1
+            print(f"  {'patched' if args.write else 'would patch'}: {spec['id']} ({spec['manor_zone']})")
+
+    print(f"\n{'Patched' if args.write else 'Would patch'}: {n}/{len(NODES)}")
+    if not args.write:
+        print("（加 --write 写回）")
 
 
 if __name__ == "__main__":
