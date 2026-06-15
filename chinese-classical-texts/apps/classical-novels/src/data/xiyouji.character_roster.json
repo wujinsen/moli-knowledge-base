@@ -1,78 +1,80 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 117,
+  "paged_count": 122,
   "pending_count": 5,
   "pending": [
     {
-      "name": "葛仙翁",
+      "name": "护国天王",
       "mentions": 4,
       "chapters": [
-        3,
-        51,
+        77,
         83,
-        87
+        87,
+        95
       ],
       "appear_in": [
-        "第3回",
-        "第51回",
+        "第77回",
         "第83回",
-        "第87回"
+        "第87回",
+        "第95回"
       ],
       "source": "seed",
-      "note": "四天师之一；第51回等"
+      "note": "西天门外迎送；第77回起"
     },
     {
-      "name": "水德星君",
-      "mentions": 2,
+      "name": "丘弘济",
+      "mentions": 3,
       "chapters": [
-        51,
-        52
-      ],
-      "appear_in": [
-        "第51回",
-        "第52回"
-      ],
-      "source": "seed",
-      "note": "乌浩宫水部；第51–52回"
-    },
-    {
-      "name": "火德星君",
-      "mentions": 2,
-      "chapters": [
-        51,
-        52
-      ],
-      "appear_in": [
-        "第51回",
-        "第52回"
-      ],
-      "source": "seed",
-      "note": "彤华宫火部；第51–52回"
-    },
-    {
-      "name": "北极玄灵",
-      "mentions": 1,
-      "chapters": [
-        5
-      ],
-      "appear_in": [
-        "第5回"
-      ],
-      "source": "seed",
-      "note": "五方五老之北；第5回"
-    },
-    {
-      "name": "可韩丈人",
-      "mentions": 1,
-      "chapters": [
+        3,
+        6,
         51
       ],
       "appear_in": [
+        "第3回",
+        "第6回",
         "第51回"
       ],
       "source": "seed",
-      "note": "可韩司查勘思凡；第51回"
+      "note": "灵霄四天师；第3、6、51回"
+    },
+    {
+      "name": "张道陵",
+      "mentions": 2,
+      "chapters": [
+        51,
+        87
+      ],
+      "appear_in": [
+        "第51回",
+        "第87回"
+      ],
+      "source": "seed",
+      "note": "灵霄四天师；第51、87回"
+    },
+    {
+      "name": "温元帅",
+      "mentions": 1,
+      "chapters": [
+        53
+      ],
+      "appear_in": [
+        "第53回"
+      ],
+      "source": "seed",
+      "note": "南天门四大元帅；第53回"
+    },
+    {
+      "name": "马元帅",
+      "mentions": 1,
+      "chapters": [
+        58
+      ],
+      "appear_in": [
+        "第58回"
+      ],
+      "source": "seed",
+      "note": "南天门四大元帅；第58回"
     }
   ]
 }

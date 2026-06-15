@@ -86,6 +86,12 @@
       "weight": 22
     },
     {
+      "id": "北极玄灵",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 32
+    },
+    {
       "id": "十八公",
       "type": "monster",
       "faction": "荆棘岭",
@@ -108,6 +114,12 @@
       "type": "monster",
       "faction": "压龙洞",
       "weight": 44
+    },
+    {
+      "id": "可韩丈人",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 38
     },
     {
       "id": "哪吒",
@@ -314,6 +326,12 @@
       "weight": 34
     },
     {
+      "id": "水德星君",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 44
+    },
+    {
       "id": "沙僧",
       "type": "character",
       "faction": "取经队伍",
@@ -330,6 +348,12 @@
       "type": "monster",
       "faction": "妖魔",
       "weight": 26
+    },
+    {
+      "id": "火德星君",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 44
     },
     {
       "id": "灭法国国王",
@@ -480,6 +504,12 @@
       "type": "character",
       "faction": "仙界",
       "weight": 72
+    },
+    {
+      "id": "葛仙翁",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 40
     },
     {
       "id": "虎力大仙",
@@ -982,6 +1012,24 @@
       "contradiction": false
     },
     {
+      "source": "北极玄灵",
+      "target": "黄角大仙",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "北极玄灵",
+      "target": "崇恩圣帝",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "北极玄灵",
+      "target": "王母娘娘",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "十八公",
       "target": "唐僧",
       "type": "敌对",
@@ -1096,6 +1144,18 @@
       "contradiction": false
     },
     {
+      "source": "可韩丈人",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "可韩丈人",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "哪吒",
       "target": "李靖",
       "type": "父子",
@@ -1129,6 +1189,12 @@
       "source": "哪吒",
       "target": "牛魔王",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "哪吒",
+      "target": "火德星君",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -1792,6 +1858,24 @@
       "contradiction": false
     },
     {
+      "source": "孙悟空",
+      "target": "水德星君",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "火德星君",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "葛仙翁",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "孤直公",
       "target": "唐僧",
       "type": "敌对",
@@ -2134,6 +2218,18 @@
       "contradiction": false
     },
     {
+      "source": "水德星君",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "水德星君",
+      "target": "火德星君",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "沙僧",
       "target": "唐僧",
       "type": "师徒",
@@ -2185,6 +2281,12 @@
       "source": "泾河龙王",
       "target": "袁守诚",
       "type": "仇敌",
+      "contradiction": false
+    },
+    {
+      "source": "火德星君",
+      "target": "玉皇大帝",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -2398,6 +2500,30 @@
       "contradiction": false
     },
     {
+      "source": "玉皇大帝",
+      "target": "水德星君",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "火德星君",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "可韩丈人",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "葛仙翁",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "玉面公主",
       "target": "铁扇公主",
       "type": "仇敌",
@@ -2599,6 +2725,18 @@
       "source": "菩提祖师",
       "target": "孙悟空",
       "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "葛仙翁",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "葛仙翁",
+      "target": "许旌阳",
+      "type": "同僚",
       "contradiction": false
     },
     {
