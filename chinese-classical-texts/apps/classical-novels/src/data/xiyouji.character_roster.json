@@ -1,50 +1,78 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 79,
-  "pending_count": 4,
+  "paged_count": 83,
+  "pending_count": 5,
   "pending": [
     {
-      "name": "天竺国国王",
+      "name": "陈清",
+      "mentions": 4,
+      "chapters": [
+        47,
+        48,
+        49,
+        99
+      ],
+      "appear_in": [
+        "第47回",
+        "第48回",
+        "第49回",
+        "第99回"
+      ],
+      "source": "seed",
+      "note": "陈家庄献祭童男；第47–48回"
+    },
+    {
+      "name": "陈关",
+      "mentions": 3,
+      "chapters": [
+        47,
+        48,
+        99
+      ],
+      "appear_in": [
+        "第47回",
+        "第48回",
+        "第99回"
+      ],
+      "source": "seed",
+      "note": "陈家庄献祭童女；第47–48回"
+    },
+    {
+      "name": "精细鬼",
       "mentions": 2,
       "chapters": [
-        93,
-        95
+        33,
+        34
       ],
       "appear_in": [
-        "第93回",
-        "第95回"
+        "第33回",
+        "第34回"
       ],
       "source": "seed",
-      "note": "玉兔精招亲；第95–96回"
+      "note": "平顶山小妖；第32回"
     },
     {
-      "name": "袁守诚",
-      "mentions": 1,
+      "name": "老鼋",
+      "mentions": 2,
       "chapters": [
-        10
+        49,
+        99
       ],
       "appear_in": [
-        "第10回"
+        "第49回",
+        "第99回"
       ],
       "source": "seed",
-      "note": "长安渔樵，与泾河龙王赌雨；第9回"
+      "note": "通天河渡唐僧，湿经之由；第81、98回"
     },
     {
-      "name": "陈家庄老妪",
+      "name": "弥勒佛祖",
       "mentions": 0,
       "chapters": [],
       "appear_in": [],
       "source": "seed",
-      "note": "灵感大王童男童女；第47–48回"
-    },
-    {
-      "name": "黑水河渔翁",
-      "mentions": 0,
-      "chapters": [],
-      "appear_in": [],
-      "source": "seed",
-      "note": "渡鼍龙难；第47回"
+      "note": "收黄眉童子；第66回"
     }
   ]
 }

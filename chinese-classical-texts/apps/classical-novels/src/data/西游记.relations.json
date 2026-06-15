@@ -104,6 +104,12 @@
       "weight": 64
     },
     {
+      "id": "天竺国国王",
+      "type": "character",
+      "faction": "天竺国",
+      "weight": 36
+    },
+    {
       "id": "太上老君",
       "type": "character",
       "faction": "天界",
@@ -338,6 +344,12 @@
       "weight": 58
     },
     {
+      "id": "袁守诚",
+      "type": "character",
+      "faction": "长安",
+      "weight": 38
+    },
+    {
       "id": "观音菩萨",
       "type": "character",
       "faction": "佛界",
@@ -410,6 +422,12 @@
       "weight": 28
     },
     {
+      "id": "陈家庄老妪",
+      "type": "character",
+      "faction": "陈家庄",
+      "weight": 26
+    },
+    {
       "id": "青牛精",
       "type": "monster",
       "faction": "妖魔",
@@ -462,6 +480,12 @@
       "type": "monster",
       "faction": "妖魔",
       "weight": 38
+    },
+    {
+      "id": "黑水河渔翁",
+      "type": "character",
+      "faction": "黑水河",
+      "weight": 26
     },
     {
       "id": "黑熊精",
@@ -913,6 +937,24 @@
       "source": "大鹏精",
       "target": "如来佛祖",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "天竺国国王",
+      "target": "玉兔精",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "天竺国国王",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "天竺国国王",
+      "target": "孙悟空",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -1414,6 +1456,12 @@
       "contradiction": false
     },
     {
+      "source": "泾河龙王",
+      "target": "袁守诚",
+      "type": "仇敌",
+      "contradiction": false
+    },
+    {
       "source": "灭法国国王",
       "target": "唐僧",
       "type": "师徒",
@@ -1429,6 +1477,12 @@
       "source": "灵吉菩萨",
       "target": "黄风怪",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "灵感大王",
+      "target": "陈家庄老妪",
+      "type": "敌对",
       "contradiction": false
     },
     {
@@ -1732,6 +1786,12 @@
       "contradiction": false
     },
     {
+      "source": "袁守诚",
+      "target": "唐太宗",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "观音菩萨",
       "target": "唐僧",
       "type": "师徒",
@@ -1924,6 +1984,24 @@
       "contradiction": false
     },
     {
+      "source": "陈家庄老妪",
+      "target": "灵感大王",
+      "type": "仇敌",
+      "contradiction": false
+    },
+    {
+      "source": "陈家庄老妪",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "陈家庄老妪",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "青牛精",
       "target": "太上老君",
       "type": "主仆",
@@ -1981,6 +2059,24 @@
       "source": "黄风怪",
       "target": "灵吉菩萨",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "黑水河渔翁",
+      "target": "鼍龙",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "黑水河渔翁",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "黑水河渔翁",
+      "target": "孙悟空",
+      "type": "朋友",
       "contradiction": false
     },
     {
