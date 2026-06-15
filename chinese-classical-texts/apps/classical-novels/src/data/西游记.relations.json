@@ -62,6 +62,12 @@
       "weight": 50
     },
     {
+      "id": "伏狸狮",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 28
+    },
+    {
       "id": "伶俐虫",
       "type": "monster",
       "faction": "平顶山",
@@ -96,6 +102,12 @@
       "type": "character",
       "faction": "凤仙郡",
       "weight": 32
+    },
+    {
+      "id": "刁钻古怪儿",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 24
     },
     {
       "id": "刘伯钦",
@@ -156,6 +168,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 36
+    },
+    {
+      "id": "古怪刁钻儿",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 22
     },
     {
       "id": "可韩丈人",
@@ -620,6 +638,12 @@
       "weight": 82
     },
     {
+      "id": "猱狮",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 30
+    },
+    {
       "id": "玉兔精",
       "type": "monster",
       "faction": "妖魔",
@@ -974,6 +998,12 @@
       "weight": 38
     },
     {
+      "id": "雪狮",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 28
+    },
+    {
       "id": "雷公",
       "type": "character",
       "faction": "天庭",
@@ -1230,6 +1260,24 @@
     {
       "source": "九灵元圣",
       "target": "抟象狮",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "九灵元圣",
+      "target": "伏狸狮",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "九灵元圣",
+      "target": "猱狮",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "九灵元圣",
+      "target": "雪狮",
       "type": "主仆",
       "contradiction": false
     },
@@ -1516,6 +1564,60 @@
       "contradiction": false
     },
     {
+      "source": "伏狸狮",
+      "target": "九灵元圣",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "伏狸狮",
+      "target": "黄狮精",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "伏狸狮",
+      "target": "狻猊狮",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "伏狸狮",
+      "target": "白泽狮",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "伏狸狮",
+      "target": "抟象狮",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "伏狸狮",
+      "target": "猱狮",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "伏狸狮",
+      "target": "雪狮",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "伏狸狮",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "伏狸狮",
+      "target": "猪八戒",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "伶俐虫",
       "target": "金角大王",
       "type": "主仆",
@@ -1674,6 +1776,30 @@
     {
       "source": "凤仙郡郡侯",
       "target": "玉皇大帝",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "刁钻古怪儿",
+      "target": "黄狮精",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "刁钻古怪儿",
+      "target": "古怪刁钻儿",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "刁钻古怪儿",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "刁钻古怪儿",
+      "target": "猪八戒",
       "type": "敌对",
       "contradiction": false
     },
@@ -2095,6 +2221,24 @@
       "source": "参水猿",
       "target": "玉皇大帝",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "古怪刁钻儿",
+      "target": "黄狮精",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "古怪刁钻儿",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "古怪刁钻儿",
+      "target": "猪八戒",
+      "type": "敌对",
       "contradiction": false
     },
     {
@@ -3532,6 +3676,18 @@
       "contradiction": false
     },
     {
+      "source": "孙悟空",
+      "target": "猱狮",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "雪狮",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "孤直公",
       "target": "唐僧",
       "type": "敌对",
@@ -4386,6 +4542,18 @@
     {
       "source": "抟象狮",
       "target": "白泽狮",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "抟象狮",
+      "target": "猱狮",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "抟象狮",
+      "target": "雪狮",
       "type": "朋友",
       "contradiction": false
     },
@@ -5423,6 +5591,18 @@
     },
     {
       "source": "狻猊狮",
+      "target": "猱狮",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "狻猊狮",
+      "target": "雪狮",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "狻猊狮",
       "target": "猪八戒",
       "type": "敌对",
       "contradiction": false
@@ -5467,6 +5647,36 @@
       "source": "猪八戒",
       "target": "高翠兰",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "猪八戒",
+      "target": "猱狮",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "猪八戒",
+      "target": "雪狮",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "猱狮",
+      "target": "九灵元圣",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "猱狮",
+      "target": "黄狮精",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "猱狮",
+      "target": "雪狮",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -5700,6 +5910,18 @@
     {
       "source": "白泽狮",
       "target": "黄狮精",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "白泽狮",
+      "target": "猱狮",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "白泽狮",
+      "target": "雪狮",
       "type": "朋友",
       "contradiction": false
     },
@@ -6814,6 +7036,18 @@
       "contradiction": false
     },
     {
+      "source": "雪狮",
+      "target": "九灵元圣",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "雪狮",
+      "target": "黄狮精",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "雷公",
       "target": "邓天君",
       "type": "主仆",
@@ -6900,6 +7134,18 @@
     {
       "source": "黄狮精",
       "target": "九灵元圣",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "黄狮精",
+      "target": "刁钻古怪儿",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "黄狮精",
+      "target": "古怪刁钻儿",
       "type": "主仆",
       "contradiction": false
     },
