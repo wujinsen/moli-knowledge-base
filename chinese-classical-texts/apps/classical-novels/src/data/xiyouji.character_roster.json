@@ -1,48 +1,64 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 127,
+  "paged_count": 132,
   "pending_count": 5,
   "pending": [
     {
-      "name": "关元帅",
-      "mentions": 0,
-      "chapters": [],
-      "appear_in": [],
+      "name": "大力天王",
+      "mentions": 1,
+      "chapters": [
+        83
+      ],
+      "appear_in": [
+        "第83回"
+      ],
       "source": "seed",
-      "note": "南天门四大元帅；第83回等"
+      "note": "南天门把守；第83回"
     },
     {
-      "name": "刘元帅",
-      "mentions": 0,
-      "chapters": [],
-      "appear_in": [],
+      "name": "辛天君",
+      "mentions": 1,
+      "chapters": [
+        55
+      ],
+      "appear_in": [
+        "第55回"
+      ],
       "source": "seed",
-      "note": "雷霆官将庞、刘；第4回起"
+      "note": "东天门四大元帅；第55回"
     },
     {
-      "name": "庞元帅",
-      "mentions": 0,
-      "chapters": [],
-      "appear_in": [],
+      "name": "邓天君",
+      "mentions": 1,
+      "chapters": [
+        45
+      ],
+      "appear_in": [
+        "第45回"
+      ],
       "source": "seed",
-      "note": "雷霆官将庞、刘；第4回起"
+      "note": "雷部邓天君；第45回"
     },
     {
-      "name": "毕元帅",
+      "name": "陶天君",
+      "mentions": 1,
+      "chapters": [
+        55
+      ],
+      "appear_in": [
+        "第55回"
+      ],
+      "source": "seed",
+      "note": "东天门陶、张、辛、邓；第55回"
+    },
+    {
+      "name": "苟元帅",
       "mentions": 0,
       "chapters": [],
       "appear_in": [],
       "source": "seed",
       "note": "雷霆官将苟、毕；第4回起"
-    },
-    {
-      "name": "赵元帅",
-      "mentions": 0,
-      "chapters": [],
-      "appear_in": [],
-      "source": "seed",
-      "note": "南天门四大元帅；第51回等"
     }
   ]
 }

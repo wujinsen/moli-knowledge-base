@@ -68,6 +68,12 @@
       "weight": 58
     },
     {
+      "id": "关元帅",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 38
+    },
+    {
       "id": "凌空子",
       "type": "monster",
       "faction": "荆棘岭",
@@ -84,6 +90,12 @@
       "type": "character",
       "faction": "两界山",
       "weight": 30
+    },
+    {
+      "id": "刘元帅",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 40
     },
     {
       "id": "刘洪",
@@ -278,6 +290,12 @@
       "weight": 42
     },
     {
+      "id": "庞元帅",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 40
+    },
+    {
       "id": "张道陵",
       "type": "character",
       "faction": "天庭",
@@ -342,6 +360,12 @@
       "type": "character",
       "faction": "比丘国",
       "weight": 34
+    },
+    {
+      "id": "毕元帅",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 38
     },
     {
       "id": "水德星君",
@@ -588,6 +612,12 @@
       "type": "monster",
       "faction": "荆棘岭",
       "weight": 30
+    },
+    {
+      "id": "赵元帅",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 38
     },
     {
       "id": "辟寒大王",
@@ -982,6 +1012,42 @@
       "contradiction": false
     },
     {
+      "source": "关元帅",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "关元帅",
+      "target": "马元帅",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "关元帅",
+      "target": "温元帅",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "关元帅",
+      "target": "赵元帅",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "关元帅",
+      "target": "广目天王",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "关元帅",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "凌空子",
       "target": "唐僧",
       "type": "敌对",
@@ -1049,6 +1115,42 @@
     },
     {
       "source": "刘伯钦",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "刘元帅",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "刘元帅",
+      "target": "庞元帅",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "刘元帅",
+      "target": "毕元帅",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "刘元帅",
+      "target": "增长天王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "刘元帅",
+      "target": "护国天王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "刘元帅",
       "target": "孙悟空",
       "type": "朋友",
       "contradiction": false
@@ -1477,6 +1579,24 @@
       "source": "增长天王",
       "target": "多闻天王",
       "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "增长天王",
+      "target": "庞元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "增长天王",
+      "target": "刘元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "增长天王",
+      "target": "毕元帅",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -1960,6 +2080,24 @@
       "contradiction": false
     },
     {
+      "source": "孙悟空",
+      "target": "赵元帅",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "庞元帅",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "毕元帅",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "孤直公",
       "target": "唐僧",
       "type": "敌对",
@@ -2116,6 +2254,54 @@
       "contradiction": false
     },
     {
+      "source": "广目天王",
+      "target": "赵元帅",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "广目天王",
+      "target": "庞元帅",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "广目天王",
+      "target": "刘元帅",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "广目天王",
+      "target": "毕元帅",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "庞元帅",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "庞元帅",
+      "target": "毕元帅",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "庞元帅",
+      "target": "增长天王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "庞元帅",
+      "target": "护国天王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "张道陵",
       "target": "玉皇大帝",
       "type": "主仆",
@@ -2154,6 +2340,24 @@
     {
       "source": "护国天王",
       "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "护国天王",
+      "target": "庞元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "护国天王",
+      "target": "刘元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "护国天王",
+      "target": "毕元帅",
       "type": "主仆",
       "contradiction": false
     },
@@ -2344,6 +2548,24 @@
       "contradiction": false
     },
     {
+      "source": "毕元帅",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "毕元帅",
+      "target": "增长天王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "毕元帅",
+      "target": "护国天王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "水德星君",
       "target": "玉皇大帝",
       "type": "主仆",
@@ -2418,6 +2640,12 @@
     {
       "source": "温元帅",
       "target": "马元帅",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "温元帅",
+      "target": "赵元帅",
       "type": "同僚",
       "contradiction": false
     },
@@ -2688,6 +2916,36 @@
     {
       "source": "玉皇大帝",
       "target": "温元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "关元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "赵元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "庞元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "刘元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "毕元帅",
       "type": "主仆",
       "contradiction": false
     },
@@ -3103,6 +3361,18 @@
       "source": "赤身鬼",
       "target": "孙悟空",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "赵元帅",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "赵元帅",
+      "target": "马元帅",
+      "type": "同僚",
       "contradiction": false
     },
     {
