@@ -38,6 +38,12 @@
       "weight": 58
     },
     {
+      "id": "伶俐虫",
+      "type": "monster",
+      "faction": "平顶山",
+      "weight": 28
+    },
+    {
       "id": "六耳猕猴",
       "type": "monster",
       "faction": "妖魔",
@@ -116,6 +122,12 @@
       "weight": 64
     },
     {
+      "id": "太阴星君",
+      "type": "character",
+      "faction": "月宫",
+      "weight": 42
+    },
+    {
       "id": "奎木狼",
       "type": "monster",
       "faction": "妖魔",
@@ -176,6 +188,12 @@
       "weight": 32
     },
     {
+      "id": "木吒",
+      "type": "character",
+      "faction": "南海普陀",
+      "weight": 48
+    },
+    {
       "id": "朱紫国国王",
       "type": "character",
       "faction": "朱紫国",
@@ -186,6 +204,12 @@
       "type": "character",
       "faction": "天界",
       "weight": 70
+    },
+    {
+      "id": "杏仙",
+      "type": "monster",
+      "faction": "荆棘岭",
+      "weight": 32
     },
     {
       "id": "殷温娇",
@@ -378,6 +402,12 @@
       "type": "monster",
       "faction": "妖魔",
       "weight": 58
+    },
+    {
+      "id": "赤脚大仙",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 38
     },
     {
       "id": "辟寒大王",
@@ -640,6 +670,30 @@
       "contradiction": false
     },
     {
+      "source": "伶俐虫",
+      "target": "金角大王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "伶俐虫",
+      "target": "银角大王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "伶俐虫",
+      "target": "精细鬼",
+      "type": "兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "伶俐虫",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "六耳猕猴",
       "target": "孙悟空",
       "type": "敌对",
@@ -745,6 +799,12 @@
       "source": "哪吒",
       "target": "李靖",
       "type": "父子",
+      "contradiction": false
+    },
+    {
+      "source": "哪吒",
+      "target": "木吒",
+      "type": "兄弟",
       "contradiction": false
     },
     {
@@ -1009,6 +1069,24 @@
       "source": "太上老君",
       "target": "孙悟空",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "太阴星君",
+      "target": "玉兔精",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "太阴星君",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "太阴星君",
+      "target": "唐僧",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -1360,6 +1438,30 @@
       "contradiction": false
     },
     {
+      "source": "木吒",
+      "target": "李靖",
+      "type": "父子",
+      "contradiction": false
+    },
+    {
+      "source": "木吒",
+      "target": "观音菩萨",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "木吒",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "木吒",
+      "target": "沙僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "朱紫国国王",
       "target": "金圣宫娘娘",
       "type": "夫妻",
@@ -1391,6 +1493,12 @@
     },
     {
       "source": "李靖",
+      "target": "木吒",
+      "type": "父子",
+      "contradiction": false
+    },
+    {
+      "source": "李靖",
       "target": "玉皇大帝",
       "type": "主仆",
       "contradiction": false
@@ -1411,6 +1519,24 @@
       "source": "李靖",
       "target": "地涌夫人",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "杏仙",
+      "target": "唐僧",
+      "type": "恋慕",
+      "contradiction": false
+    },
+    {
+      "source": "杏仙",
+      "target": "猪八戒",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "杏仙",
+      "target": "孙悟空",
+      "type": "敌对",
       "contradiction": false
     },
     {
@@ -1633,6 +1759,12 @@
       "source": "玉兔精",
       "target": "唐僧",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "玉兔精",
+      "target": "太阴星君",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -1913,6 +2045,12 @@
     },
     {
       "source": "观音菩萨",
+      "target": "木吒",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "观音菩萨",
       "target": "白龙马",
       "type": "师徒",
       "contradiction": false
@@ -1981,6 +2119,24 @@
       "source": "赛太岁",
       "target": "朱紫国国王",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "赤脚大仙",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "赤脚大仙",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "赤脚大仙",
+      "target": "如来佛祖",
+      "type": "朋友",
       "contradiction": false
     },
     {
