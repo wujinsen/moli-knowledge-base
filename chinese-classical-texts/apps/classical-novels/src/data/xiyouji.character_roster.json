@@ -1,11 +1,41 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 240,
+  "paged_count": 245,
   "pending_count": 5,
   "pending": [
     {
-      "name": "杜如晦",
+      "name": "萧瑀",
+      "mentions": 3,
+      "chapters": [
+        11,
+        12,
+        100
+      ],
+      "appear_in": [
+        "第11回",
+        "第12回",
+        "第100回"
+      ],
+      "source": "seed",
+      "note": "大学士/宰相，守佛、荐菩萨、雁塔寺；第11–12、100回"
+    },
+    {
+      "name": "傅奕",
+      "mentions": 2,
+      "chapters": [
+        11,
+        12
+      ],
+      "appear_in": [
+        "第11回",
+        "第12回"
+      ],
+      "source": "seed",
+      "note": "太史丞，上表止浮图；第12回"
+    },
+    {
+      "name": "袁天罡",
       "mentions": 2,
       "chapters": [
         10,
@@ -16,50 +46,10 @@
         "第11回"
       ],
       "source": "seed",
-      "note": "大唐宰相，与房玄龄并称；第10–12回"
+      "note": "钦天监台正，袁守诚之侄；第10–11回"
     },
     {
-      "name": "段志玄",
-      "mentions": 2,
-      "chapters": [
-        10,
-        11
-      ],
-      "appear_in": [
-        "第10回",
-        "第11回"
-      ],
-      "source": "seed",
-      "note": "大唐武将，举哀班臣；第11–12回"
-    },
-    {
-      "name": "马三宝",
-      "mentions": 2,
-      "chapters": [
-        10,
-        11
-      ],
-      "appear_in": [
-        "第10回",
-        "第11回"
-      ],
-      "source": "seed",
-      "note": "大唐武将，班臣；第10–12回"
-    },
-    {
-      "name": "王灵官",
-      "mentions": 1,
-      "chapters": [
-        7
-      ],
-      "appear_in": [
-        "第7回"
-      ],
-      "source": "seed",
-      "note": "佑圣真君佐使，灵霄殿前挡悟空；第7回"
-    },
-    {
-      "name": "薛仁贵",
+      "name": "李淳风",
       "mentions": 1,
       "chapters": [
         11
@@ -68,7 +58,18 @@
         "第11回"
       ],
       "source": "seed",
-      "note": "大唐武将，还阳启奏；第12回"
+      "note": "钦天监官员，还阳启奏；第11回"
+    },
+    {
+      "name": "王珪",
+      "mentions": 0,
+      "chapters": [],
+      "appear_in": [],
+      "source": "seed",
+      "note": "大唐文臣，举哀与还阳启奏；第11–12回",
+      "aliases": [
+        "王圭"
+      ]
     }
   ]
 }
