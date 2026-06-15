@@ -1,9 +1,9 @@
 {
   "target_pages": 300,
-  "current_pages": 290,
-  "remaining": 10,
-  "batches_planned": 2,
-  "notes": "每批约5人；已有页跳过，第47批按 lint 动态补缺",
+  "current_pages": 300,
+  "remaining": 0,
+  "batches_planned": 0,
+  "notes": "冲 300 已于 2026-06-15 达成；后续按 lint 补缺，非 seed 批次",
   "batches": [
     { "batch": 38, "target": 255, "names": ["高士廉", "殷开山", "张道源", "张士衡", "虞世南"], "theme": "贞观举哀班臣收官", "done": true },
     { "batch": 39, "target": 260, "names": ["阿傩", "迦叶", "普贤菩萨", "乌巢禅师", "东华帝君"], "theme": "灵山侍者·乌巢授经·东华", "done": true, "note": "惠岸行者合木吒已有页，以东华帝君凑第五" },
@@ -13,7 +13,7 @@
     { "batch": 43, "target": 280, "names": ["乌鸡国太子", "乌鸡国娘娘", "慈云寺院主", "金光寺方丈", "赛太岁先锋"], "theme": "列国/寺院支线", "done": true, "note": "比丘国国丈合白鹿精已有页，改建乌鸡国娘娘" },
     { "batch": 44, "target": 285, "names": ["宝林寺方丈", "东城兵马使", "当驾官", "夜不收", "罗汉"], "theme": "职官与神佛泛称", "done": true },
     { "batch": 45, "target": 290, "names": ["锦衣卫", "宣召官", "太医官", "光禄寺", "老军"], "theme": "职官与列国配角", "done": true },
-    { "batch": 46, "target": 295, "names": ["五城兵马官", "羽林军", "馆使", "护驾", "教坊司"], "theme": "朝堂仪卫与馆驿" },
-    { "batch": 47, "target": 300, "names": ["待lint", "待lint", "待lint", "待lint", "待lint"], "theme": "冲线批" }
+    { "batch": 46, "target": 295, "names": ["五城兵马官", "羽林军", "馆使", "护驾", "教坊司"], "theme": "朝堂仪卫与馆驿", "done": true },
+    { "batch": 47, "target": 300, "names": ["仪制司", "侍官", "太监", "司礼监", "内宫官"], "theme": "冲线批·内廷礼仪", "done": true }
   ]
 }
