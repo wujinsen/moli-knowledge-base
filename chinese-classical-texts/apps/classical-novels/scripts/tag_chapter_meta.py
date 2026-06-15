@@ -401,13 +401,57 @@ def find_ids(text: str, alias_pairs: list[tuple[str, str]], blocks: dict[str, li
 
 
 def parse_list_field(raw: str, field: str) -> list[str] | None:
-    m = re.search(rf"^{field}:\s*\[(.*?)\]", raw, re.M)
-    if not m:
-        return None
-    inner = m.group(1).strip()
-    if not inner:
+    """Parse a YAML frontmatter list field (block `- item` or inline `[a, b]`)."""
+    parts = raw.split("---", 2)
+    fm_raw = parts[1] if len(parts) >= 3 else raw
+
+    if len(parts) >= 3:
+        try:
+            import yaml  # type: ignore
+
+            data = yaml.safe_load(fm_raw)
+            if isinstance(data, dict) and field in data:
+                val = data[field]
+                if val is None:
+                    return []
+                if isinstance(val, list):
+                    return [str(x) for x in val]
+                if isinstance(val, str):
+                    return [val]
+                return []
+        except Exception:
+            pass
+
+    return _parse_list_field_legacy(fm_raw, field)
+
+
+def _parse_list_field_legacy(fm_raw: str, field: str) -> list[str] | None:
+    m = re.search(rf"^{re.escape(field)}:\s*\[(.*?)\]", fm_raw, re.M | re.S)
+    if m:
+        inner = m.group(1).strip()
+        if not inner:
+            return []
+        return re.findall(r"[\u4e00-\u9fff]+", inner)
+
+    block = re.search(
+        rf"^{re.escape(field)}:\s*\n((?:[ \t]*-[ \t].+\n?)+)",
+        fm_raw,
+        re.M,
+    )
+    if block:
+        items: list[str] = []
+        for line in block.group(1).splitlines():
+            line = line.strip()
+            if line.startswith("- "):
+                item = line[2:].strip().strip('"').strip("'")
+                if item:
+                    items.append(item)
+        return items
+
+    if re.search(rf"^{re.escape(field)}:\s*$", fm_raw, re.M):
         return []
-    return re.findall(r"[\u4e00-\u9fff]+", inner)
+
+    return None
 
 
 def parse_scalar_field(raw: str, field: str) -> str | None:
