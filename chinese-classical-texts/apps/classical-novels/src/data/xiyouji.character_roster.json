@@ -1,61 +1,55 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 107,
+  "paged_count": 112,
   "pending_count": 5,
   "pending": [
     {
-      "name": "增长天王",
+      "name": "广目天王",
       "mentions": 4,
       "chapters": [
-        4,
-        25,
-        55,
-        92
+        16,
+        51,
+        58,
+        90
       ],
       "appear_in": [
-        "第4回",
-        "第25回",
-        "第55回",
-        "第92回"
+        "第16回",
+        "第51回",
+        "第58回",
+        "第90回"
       ],
       "source": "seed",
-      "note": "四大天王之一；第4回起"
+      "note": "四大天王之西；第16回等"
     },
     {
-      "name": "巨灵神",
-      "mentions": 3,
-      "chapters": [
-        4,
-        61,
-        83
-      ],
-      "appear_in": [
-        "第4回",
-        "第61回",
-        "第83回"
-      ],
-      "source": "seed",
-      "note": "天庭神将，初战悟空；第4回等"
-    },
-    {
-      "name": "许旌阳",
-      "mentions": 3,
+      "name": "燃灯古佛",
+      "mentions": 2,
       "chapters": [
         5,
-        51,
-        87
+        98
       ],
       "appear_in": [
         "第5回",
-        "第51回",
-        "第87回"
+        "第98回"
       ],
       "source": "seed",
-      "note": "许旌阳真人，奏请授蟠桃园；第5回等"
+      "note": "蟠桃会上宾；第5、98回"
     },
     {
-      "name": "七衣仙女",
+      "name": "多闻天王",
+      "mentions": 1,
+      "chapters": [
+        51
+      ],
+      "appear_in": [
+        "第51回"
+      ],
+      "source": "seed",
+      "note": "四大天王之北；第51回"
+    },
+    {
+      "name": "崇恩圣帝",
       "mentions": 1,
       "chapters": [
         5
@@ -64,19 +58,19 @@
         "第5回"
       ],
       "source": "seed",
-      "note": "王母差摘蟠桃；第5回"
+      "note": "五方五老之东；第5回"
     },
     {
-      "name": "黄角大仙",
+      "name": "菩提祖师",
       "mentions": 1,
       "chapters": [
-        5
+        1
       ],
       "appear_in": [
-        "第5回"
+        "第1回"
       ],
       "source": "seed",
-      "note": "五方五老中央；第5回"
+      "note": "悟空授业之师；第1–2回"
     }
   ]
 }

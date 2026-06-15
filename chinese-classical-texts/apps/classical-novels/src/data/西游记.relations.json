@@ -2,6 +2,12 @@
   "book": "西游记",
   "nodes": [
     {
+      "id": "七衣仙女",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 34
+    },
+    {
       "id": "万圣龙王",
       "type": "monster",
       "faction": "妖魔",
@@ -134,6 +140,12 @@
       "weight": 64
     },
     {
+      "id": "增长天王",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 40
+    },
+    {
       "id": "大鹏精",
       "type": "monster",
       "faction": "妖魔",
@@ -216,6 +228,12 @@
       "type": "monster",
       "faction": "狮驼岭",
       "weight": 32
+    },
+    {
+      "id": "巨灵神",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 38
     },
     {
       "id": "巴山虎",
@@ -464,6 +482,12 @@
       "weight": 100
     },
     {
+      "id": "许旌阳",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 36
+    },
+    {
       "id": "赛太岁",
       "type": "monster",
       "faction": "妖魔",
@@ -620,6 +644,12 @@
       "weight": 52
     },
     {
+      "id": "黄角大仙",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 32
+    },
+    {
       "id": "黄风怪",
       "type": "monster",
       "faction": "妖魔",
@@ -645,6 +675,18 @@
     }
   ],
   "edges": [
+    {
+      "source": "七衣仙女",
+      "target": "王母娘娘",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "七衣仙女",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
     {
       "source": "万圣龙王",
       "target": "九头虫",
@@ -1258,6 +1300,24 @@
       "contradiction": false
     },
     {
+      "source": "增长天王",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "增长天王",
+      "target": "李靖",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "增长天王",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "大鹏精",
       "target": "青狮精",
       "type": "兄弟",
@@ -1630,6 +1690,12 @@
       "contradiction": false
     },
     {
+      "source": "孙悟空",
+      "target": "巨灵神",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "孤直公",
       "target": "唐僧",
       "type": "敌对",
@@ -1710,6 +1776,12 @@
     {
       "source": "小钻风",
       "target": "大鹏精",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "巨灵神",
+      "target": "玉皇大帝",
       "type": "主仆",
       "contradiction": false
     },
@@ -2176,6 +2248,30 @@
       "contradiction": false
     },
     {
+      "source": "玉皇大帝",
+      "target": "许旌阳",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "巨灵神",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "增长天王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "黄角大仙",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "玉面公主",
       "target": "铁扇公主",
       "type": "仇敌",
@@ -2191,6 +2287,12 @@
       "source": "玉面公主",
       "target": "猪八戒",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "王母娘娘",
+      "target": "七衣仙女",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -2490,6 +2592,12 @@
     {
       "source": "观音菩萨",
       "target": "赛太岁",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "许旌阳",
+      "target": "玉皇大帝",
       "type": "主仆",
       "contradiction": false
     },
@@ -2815,6 +2923,12 @@
       "source": "黄眉怪",
       "target": "弥勒佛祖",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "黄角大仙",
+      "target": "王母娘娘",
+      "type": "朋友",
       "contradiction": false
     },
     {
