@@ -11,6 +11,7 @@ import {
 } from '../../../lib/events';
 import { chainEventLinks, chainEventHref, silverEventHref } from '../../../lib/chain';
 import { graphFocusHref } from '../../../lib/sna';
+import { readChapterPath } from '../../../lib/editions';
 import jpmSna from '../../../data/jinpingmei.sna.json';
 
 export async function getStaticPaths() {
@@ -19,10 +20,16 @@ export async function getStaticPaths() {
   const paths: { params: { book: string; id: string }; props: { book: typeof books[0]; ev: typeof events[0] } }[] = [];
   for (const b of books) {
     const feats = b.data.features;
-    if (!feats.includes('nan') && !feats.includes('chain')) continue;
+    const allowed = new Set<string>();
+    if (feats.includes('nan')) allowed.add('tribulation');
+    if (feats.includes('chain')) {
+      allowed.add('financial');
+      allowed.add('plot');
+    }
+    if (feats.includes('saga')) allowed.add('milestone');
+    if (allowed.size === 0) continue;
     for (const ev of events.filter((e) => e.data.book === b.data.book)) {
-      if (feats.includes('chain') && !['financial', 'plot'].includes(ev.data.subtype)) continue;
-      if (feats.includes('nan') && !feats.includes('chain') && ev.data.subtype !== 'tribulation') continue;
+      if (!allowed.has(ev.data.subtype)) continue;
       paths.push({
         params: { book: b.data.slug, id: ev.data.id },
         props: { book: b, ev },
@@ -35,12 +42,17 @@ export async function getStaticPaths() {
 const { book, ev } = Astro.props;
 const meta = book.data;
 const d = ev.data;
-const isChain = meta.features.includes('chain');
 const isNan = d.subtype === 'tribulation';
+const isMilestone = d.subtype === 'milestone';
+const isChain = d.subtype === 'financial' || d.subtype === 'plot';
 const no = d.tribulation_no;
-const readEdition = meta.slug === 'jinpingmei' ? 'cihua' : '1';
-const backHref = isChain ? `/${meta.slug}/chain` : `/${meta.slug}/nan`;
-const backLabel = isChain ? '发家衰败链' : '八十一难时间轴';
+const chapterHref = (c: number) => readChapterPath(meta.slug, meta.book, c);
+const backHref = isNan
+  ? `/${meta.slug}/nan`
+  : isMilestone
+    ? `/${meta.slug}/saga`
+    : `/${meta.slug}/chain`;
+const backLabel = isNan ? '八十一难时间轴' : isMilestone ? '大事记' : '发家衰败链';
 const prevLabel = isNan ? '← 上一难' : '← 上一节点';
 const nextLabel = isNan ? '下一难 →' : '下一节点 →';
 const amount = formatLiangAmount(d.amount_liang);
@@ -96,7 +108,7 @@ const { Content } = await render(ev);
               {
                 d.chapters.map((c) => (
                   <a
-                    href={`/${meta.slug}/read/${readEdition}/${c}`}
+                    href={chapterHref(c)}
                     class="event-link mr-2 hover:underline"
                   >
                     第{c}回
@@ -229,7 +241,7 @@ const { Content } = await render(ev);
               <span class="font-bold" style="color: var(--accent)">{r.subject}</span>
               <span class="scoped-pred">{r.predicate}</span>
               <span style="color: var(--ink)">{r.object}</span>
-              {r.ephemeral && <span class="chip" style="font-size:0.6rem">临时</span>}
+              {r.ephemeral && <span class="chip chip-mini">临时</span>}
               {r.chapter && <span class="text-xs text-muted">（第{r.chapter}回）</span>}
             </li>
           ))}
@@ -249,16 +261,4 @@ const { Content } = await render(ev);
 
   </div>
 
-  <style is:global>
-    .scoped-pred {
-      display: inline-block;
-      padding: 0.08rem 0.55rem;
-      border-radius: 999px;
-      background: color-mix(in srgb, var(--seal) 12%, transparent);
-      color: var(--seal);
-      border: 1px dashed color-mix(in srgb, var(--seal) 45%, transparent);
-      font-size: 0.8125rem;
-      font-weight: 600;
-    }
-  </style>
 </Base>

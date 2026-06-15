@@ -4,6 +4,7 @@ export interface EventData {
   id: string;
   subtype: string;
   tribulation_no?: number | null;
+  edition?: string;
   financial_kind?: string;
   amount_liang?: number | null;
   transaction_refs?: string[];
@@ -70,6 +71,63 @@ export function sortChainEvents(events: EventEntry[]): EventEntry[] {
     if (ca !== cb) return ca - cb;
     return a.data.id.localeCompare(b.data.id, 'zh-CN');
   });
+}
+
+/** 红楼梦 · 大事记五期（按回目；后 40 回属程高本续补） */
+export const HLM_SAGA_PHASES: TimelinePhase[] = [
+  { key: 'prologue', label: '序幕·缘起', range: [1, 15] },
+  { key: 'zenith', label: '烈火烹油·盛极', range: [16, 22] },
+  { key: 'awaken', label: '春情觉醒', range: [23, 73] },
+  { key: 'collapse', label: '自杀自灭·崩塌', range: [74, 80] },
+  { key: 'ruin', label: '白茫茫·覆灭', range: [81, 120] },
+];
+
+/** 后 40 回（程高本续补）起始回 */
+export const HLM_CHENGGAO_FROM = 81;
+
+/** 金瓶梅 · 大事记五期（暴发—鼎盛—衰败） */
+export const JPM_SAGA_PHASES: TimelinePhase[] = [
+  { key: 'sin', label: '罪恶开端', range: [1, 13] },
+  { key: 'wealth', label: '人财暴涨', range: [14, 29] },
+  { key: 'zenith', label: '烈火烹油·巅峰', range: [30, 58] },
+  { key: 'turn', label: '由盛转衰', range: [59, 79] },
+  { key: 'scatter', label: '树倒猢狲散', range: [80, 100] },
+];
+
+/** 西游记 · 大事记五期（叛逆—收心—修成） */
+export const XY_SAGA_PHASES: TimelinePhase[] = [
+  { key: 'rebel', label: '心猿出世·叛逆', range: [1, 13] },
+  { key: 'start', label: '收心启程', range: [14, 26] },
+  { key: 'trial', label: '历劫考验', range: [27, 58] },
+  { key: 'temper', label: '灭欲修心', range: [59, 97] },
+  { key: 'attain', label: '功成证真', range: [98, 100] },
+];
+
+export function sagaPhasesForBook(book: string): TimelinePhase[] {
+  if (book === '金瓶梅') return JPM_SAGA_PHASES;
+  if (book === '西游记') return XY_SAGA_PHASES;
+  return HLM_SAGA_PHASES;
+}
+
+export function sagaPhaseForBook(book: string, chapter: number): TimelinePhase {
+  const phases = sagaPhasesForBook(book);
+  return phases.find((p) => chapter >= p.range[0] && chapter <= p.range[1]) ?? phases[0];
+}
+
+/** 红楼梦专用：按回判断分期（保留向后兼容） */
+export function sagaPhaseFor(chapter: number): TimelinePhase {
+  return sagaPhaseForBook('红楼梦', chapter);
+}
+
+/** 事件所属版本：显式 edition 优先，否则按回目推断（>80 回为程高本补） */
+export function eventEdition(d: EventData): string {
+  if (d.edition) return d.edition;
+  const ch = d.chapters[0] ?? 0;
+  return ch >= HLM_CHENGGAO_FROM ? '程高本' : '脂砚斋本';
+}
+
+export function isChenggaoEvent(d: EventData): boolean {
+  return eventEdition(d) === '程高本';
 }
 
 export function eventSubtypeLabel(subtype: string, financialKind?: string): string {

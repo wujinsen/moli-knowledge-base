@@ -89,6 +89,7 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
     case 'honglou':
       return [
         { key: 'read', glyph: '读', title: '逐回精读', desc: '脂本优先 · 程高本续书', status: 'live', href: `/${slug}/read/zhiben` },
+        { key: 'saga', glyph: '纲', title: '大事记', desc: '四大家族兴衰 · 宝黛悲剧链 · 脂程版本标注', ...live(has('saga'), slug, 'saga', `/${slug}/saga`) },
         { key: 'graph', glyph: '谱', title: '人物关系', desc: '四大家族 · 主仆 · 情感盟约', ...live(has('graph'), slug, 'graph', `/${slug}/graph`) },
         { key: 'bestiary', glyph: '鉴', title: '人物图鉴', desc: '十二钗 · 性格 · 喜好 · 名物互链', ...live(has('bestiary'), slug, 'bestiary', `/${slug}/bestiary`) },
         { key: 'places', glyph: '园', title: '大观园', desc: '院落居所 · 匾额对联 · 居住分派', ...live(has('places'), slug, 'places', `/${slug}/places`) },
@@ -117,6 +118,7 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
     case 'xiyouji':
       return [
         { key: 'read', glyph: '读', title: '逐回精读', desc: '世德堂本 · 通本双版本', status: 'live', href: `/${slug}/read/1` },
+        { key: 'saga', glyph: '纲', title: '大事记', desc: '修心主线 · 大闹天宫到五圣成真', ...live(has('saga'), slug, 'saga', `/${slug}/saga`) },
         { key: 'graph', glyph: '谱', title: '取经关系', desc: '师徒 · 神魔 · 降服与求援', ...live(has('graph'), slug, 'graph', `/${slug}/graph`) },
         { key: 'bestiary', glyph: '妖', title: '妖怪图鉴', desc: '五众神佛 · 妖王分组 · 性格法宝', ...live(has('bestiary'), slug, 'bestiary', `/${slug}/bestiary`) },
         { key: 'items', glyph: '宝', title: '法宝谱系', desc: '制造 · 拥有 · 克制关系', ...live(has('items'), slug, 'items', `/${slug}/items`) },
@@ -186,6 +188,7 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
     case 'jinpingmei':
       return [
         { key: 'read', glyph: '读', title: '逐回精读', desc: '词话 · 崇祯 · 竹坡三版本', status: 'live', href: `/${slug}/read/cihua` },
+        { key: 'saga', glyph: '纲', title: '大事记', desc: '欲望兴衰主线 · 暴发到灰飞烟灭', ...live(has('saga'), slug, 'saga', `/${slug}/saga`) },
         { key: 'graph', glyph: '谱', title: '西门府社会网', desc: '妻妾 · 帮闲 · 政商利益', ...live(has('graph'), slug, 'graph', `/${slug}/graph`) },
         { key: 'bestiary', glyph: '鉴', title: '人物图鉴', desc: '妻妾帮闲 · 性格 · 靠山结局', ...live(has('bestiary'), slug, 'bestiary', `/${slug}/bestiary`) },
         { key: 'places', glyph: '府', title: '西门府', desc: '院落居所 · 店铺 · 县城市井', ...live(has('places'), slug, 'places', `/${slug}/places`) },

@@ -92,7 +92,7 @@ const books = defineCollection({
     author: z.string(),
     chapter_count: z.number(),
     features: z.array(
-      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'sna', 'compare', 'nan', 'route', 'chain', 'town', 'kaozheng', 'quanshi'])
+      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'sna', 'compare', 'nan', 'route', 'chain', 'town', 'kaozheng', 'quanshi', 'saga'])
     ),
     summary: z.string().optional(),
   }),
@@ -260,6 +260,8 @@ const customs = defineCollection({
 
 const IMAGERY_PREDICATES = [
   '对应判词', '作', '吟', '隐喻', '影射', '象征', '预示', '互文',
+  // 红楼 · 双层镜像（太虚↔人间）映射边 + 影身边
+  '还泪', '历劫', '投影', '归彼大荒', '影身',
 ] as const;
 
 const imageryLink = z.object({
@@ -272,7 +274,7 @@ const imageryLink = z.object({
   note: z.string().optional(),
 });
 
-const IMAGERY_SUBTYPES = ['judgment', 'poem', 'symbol', 'flower_lot'] as const;
+const IMAGERY_SUBTYPES = ['judgment', 'poem', 'symbol', 'flower_lot', 'myth'] as const;
 
 const imagery = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/imagery' }),
@@ -283,6 +285,8 @@ const imagery = defineCollection({
     subtype: z.enum(IMAGERY_SUBTYPES),
     title: z.string(),
     text: z.string().optional(),
+    // 红楼 · 双层镜像：太虚幻境（神话层）/ 人间贾府（现实层）
+    layer: z.enum(['太虚', '人间']).optional(),
     chapters: z.array(z.number()).default([]),
     characters: z.array(z.string()).default([]),
     links: z.array(imageryLink).default([]),
@@ -292,7 +296,7 @@ const imagery = defineCollection({
   }),
 });
 
-const EVENT_SUBTYPES = ['tribulation', 'plot', 'financial'] as const;
+const EVENT_SUBTYPES = ['tribulation', 'plot', 'financial', 'milestone'] as const;
 
 const FINANCIAL_KINDS = ['药铺', '放债', '贿赂', '遗产', '经营', '买卖'] as const;
 
@@ -313,6 +317,8 @@ const events = defineCollection({
     book: z.enum(BOOKS),
     subtype: z.enum(EVENT_SUBTYPES).default('tribulation'),
     tribulation_no: z.number().optional(),
+    // 红楼梦 · 大事记版本归属（曹著/脂本 vs 程高本补）
+    edition: z.string().optional(),
     // 金瓶梅 · 经济事件
     financial_kind: z.enum(FINANCIAL_KINDS).optional(),
     amount_liang: z.number().optional(),

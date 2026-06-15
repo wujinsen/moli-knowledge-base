@@ -1,0 +1,181 @@
+---
+import { getCollection } from 'astro:content';
+import { getBooks } from '../../lib/getBooks';
+import Base from '../../layouts/Base.astro';
+import BackLink from '../../components/BackLink.astro';
+import {
+  HLM_CHENGGAO_FROM,
+  chapterLabel,
+  displayTitle,
+  isChenggaoEvent,
+  sagaPhaseForBook,
+  sagaPhasesForBook,
+  sortChainEvents,
+} from '../../lib/events';
+import { readChapterPath } from '../../lib/editions';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  return books
+    .filter((b) => b.data.features.includes('saga'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+const isHonglou = meta.book === '红楼梦';
+
+const events = sortChainEvents(
+  (await getCollection('events')).filter(
+    (e) => e.data.book === meta.book && e.data.subtype === 'milestone',
+  ),
+);
+
+const phases = sagaPhasesForBook(meta.book);
+const phaseCounts = phases.map((p) => ({
+  ...p,
+  count: events.filter((e) => {
+    const ch = e.data.chapters[0] ?? 0;
+    return ch >= p.range[0] && ch <= p.range[1];
+  }).length,
+}));
+
+const SUBTITLE: Record<string, string> = {
+  红楼梦: '贾史王薛四大家族兴衰 × 宝黛爱情悲剧 · 按回目串联',
+  金瓶梅: '从暴发到灰飞烟灭的欲望深渊 · 西门府百年浮沉 · 按回目串联',
+  西游记: '从叛逆到收心 · 九九八十一难的修心之旅 · 按回目串联',
+};
+
+const chenggaoCount = isHonglou
+  ? events.filter((e) => isChenggaoEvent(e.data)).length
+  : 0;
+const caoCount = events.length - chenggaoCount;
+
+const readerHref = isHonglou
+  ? `/${meta.slug}/kaozheng`
+  : meta.features.includes('chain')
+    ? `/${meta.slug}/chain`
+    : meta.features.includes('nan')
+      ? `/${meta.slug}/nan`
+      : `/${meta.slug}`;
+const readerLabel = isHonglou
+  ? '考证台'
+  : meta.features.includes('chain')
+    ? '发家衰败链'
+    : meta.features.includes('nan')
+      ? '八十一难'
+      : meta.book;
+---
+
+<Base title={`${meta.book} · 大事记`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  <BackLink href={`/${meta.slug}`} label={meta.book} />
+
+  <section class="content-page surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
+    <div class="flex items-start gap-4">
+      <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">纲</span>
+      <div>
+        <h1 class="brand text-4xl" style="color: var(--primary)">大事记 · 主线</h1>
+        <p class="mt-2 text-sm">
+          {events.length} 个关键节点 · {SUBTITLE[meta.book] ?? '全书重大转折点'}
+        </p>
+      </div>
+    </div>
+    <p class="page-lead mt-5 max-w-2xl">
+      每条 <code class="rounded px-1" style="background: color-mix(in srgb, var(--primary) 8%, transparent)">event</code>
+      含回目锚点、人物 / 地点与前后置链。
+      {
+        isHonglou && (
+          <span style="color: var(--ink)">
+            前八十回（{caoCount} 节）为曹雪芹原著（脂砚斋本），
+            第 {HLM_CHENGGAO_FROM} 回起 {chenggaoCount} 节属<strong>程高本</strong>续补，
+            人物走向（如「调包计」）学界存争议，详见各节「版本说明」。
+          </span>
+        )
+      }
+    </p>
+  </section>
+
+  {/* 阶段概览 */}
+  <div class="mb-8 flex flex-wrap gap-2">
+    {
+      phaseCounts.map((p) => (
+        <span class="chip">
+          {p.label} · 第{p.range[0]}–{p.range[1]}回（{p.count}）
+          {isHonglou && p.range[0] >= HLM_CHENGGAO_FROM && (
+            <span class="ml-1" style="opacity:0.7">· 程高本</span>
+          )}
+        </span>
+      ))
+    }
+  </div>
+
+  {/* 时间轴 */}
+  <div class="tribulation-timeline mb-10">
+    {
+      events.map((ev, idx) => {
+        const d = ev.data;
+        const ch = d.chapters[0];
+        const phase = ch != null ? sagaPhaseForBook(meta.book, ch) : phases[0];
+        const chenggao = isHonglou && isChenggaoEvent(d);
+        return (
+          <article class="timeline-item surface" id={`saga-${d.id}`}>
+            <div class="timeline-marker">
+              <span class="timeline-no">{idx + 1}</span>
+            </div>
+            <div class="timeline-body min-w-0 flex-1">
+              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h2 class="brand text-xl" style="color: var(--primary)">
+                  <a href={`/${meta.slug}/e/${d.id}`} class="hover:underline">{displayTitle(d)}</a>
+                </h2>
+                <span class="timeline-phase">{phase.label}</span>
+                {chenggao && (
+                  <span class="chip text-xs" style="color: var(--accent); border-color: color-mix(in srgb, var(--accent) 40%, var(--line))" title="后四十回程高本续补，人物走向存争议">
+                    程高本补
+                  </span>
+                )}
+              </div>
+              {d.summary && (
+                <p class="timeline-summary mt-1.5">{d.summary}</p>
+              )}
+              <div class="mt-2.5 flex flex-wrap gap-2">
+                {
+                  ch != null && (
+                    <a href={readChapterPath(meta.slug, meta.book, ch)} class="chip hover:opacity-80">
+                      {chapterLabel(d.chapters)}
+                    </a>
+                  )
+                }
+                {d.characters.slice(0, 6).map((c) => (
+                  <a href={`/${meta.slug}/c/${c}`} class="chip hover:opacity-80">{c}</a>
+                ))}
+                {d.locations.map((l) => (
+                  <a href={`/${meta.slug}/l/${l}`} class="chip hover:opacity-80">{l}</a>
+                ))}
+              </div>
+              <div class="timeline-nav mt-2.5 flex gap-3" style="color: var(--accent)">
+                {d.prev && (
+                  <a href={`/${meta.slug}/e/${d.prev}`} class="hover:underline">← 上一节点</a>
+                )}
+                {d.next && (
+                  <a href={`/${meta.slug}/e/${d.next}`} class="hover:underline">下一节点 →</a>
+                )}
+              </div>
+            </div>
+          </article>
+        );
+      })
+    }
+  </div>
+
+  <div class="surface p-4 text-sm">
+    <span class="chip">数据源</span>
+    events/{meta.book}/ ·
+    <a href={readerHref} class="hover:underline" style="color: var(--accent)">{readerLabel}</a>
+    {meta.features.includes('graph') && (
+      <>
+        {' · '}
+        <a href={`/${meta.slug}/graph`} class="hover:underline" style="color: var(--accent)">关系图谱</a>
+      </>
+    )}
+  </div>
+</Base>
