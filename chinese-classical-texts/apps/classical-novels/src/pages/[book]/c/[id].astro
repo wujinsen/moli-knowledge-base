@@ -6,8 +6,11 @@ import BackLink from '../../../components/BackLink.astro';
 import {
   relatedItemsForCharacter,
   relatedTransactionsForCharacter,
+  milestoneEventsForCharacter,
 } from '../../../lib/crosslinks';
 import { likeItemHref } from '../../../lib/bestiary';
+import { chapterLabel } from '../../../lib/events';
+import { graphFocusHref } from '../../../lib/sna';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -38,6 +41,9 @@ const relatedTxs = features.includes('silver')
   ? await relatedTransactionsForCharacter(d.book, d.id)
   : [];
 const readEdition = slug === 'jinpingmei' ? 'cihua' : slug === 'honglou' ? 'zhiben' : '1';
+const keyEvents = features.includes('saga')
+  ? await milestoneEventsForCharacter(d.book, d.id)
+  : [];
 ---
 
 <Base title={d.name} bookSlug={slug} bookName={d.book} features={features}>
@@ -105,6 +111,29 @@ const readEdition = slug === 'jinpingmei' ? 'cihua' : slug === 'honglou' ? 'zhib
             </li>
           ))}
         </ul>
+      </div>
+    )
+  }
+
+  {
+    keyEvents.length > 0 && (
+      <div class="mt-6">
+        <h2 class="section-title mb-2">关键事件</h2>
+        <ul class="space-y-2">
+          {keyEvents.map((ev) => (
+            <li class="surface px-3 py-2">
+              <a class="hover:underline" style="color: var(--primary)" href={`/${slug}/e/${ev.id}`}>{ev.title}</a>
+              <span class="ml-1 chip text-xs">{chapterLabel(ev.chapters)}</span>
+              {ev.summary && <span class="ml-1 text-sm text-muted">· {ev.summary}</span>}
+            </li>
+          ))}
+        </ul>
+        <div class="mt-2 flex flex-wrap gap-3 text-sm">
+          <a href={`/${slug}/saga`} class="hover:underline" style="color: var(--accent)">查看大事记 →</a>
+          {features.includes('graph') && (
+            <a href={graphFocusHref(slug, d.id)} class="hover:underline" style="color: var(--accent)">在关系图谱中查看 →</a>
+          )}
+        </div>
       </div>
     )
   }

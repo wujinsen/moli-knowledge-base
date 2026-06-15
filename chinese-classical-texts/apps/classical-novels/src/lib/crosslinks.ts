@@ -153,6 +153,57 @@ export async function relatedTransactionsForCharacter(
   return out.sort((a, b) => a.chapter - b.chapter);
 }
 
+export type EventRef = {
+  id: string;
+  title: string;
+  chapters: number[];
+  summary?: string;
+};
+
+async function milestoneEventsBy(
+  book: string,
+  predicate: (ids: string[]) => boolean,
+  getIds: (data: { characters: string[]; locations: string[] }) => string[],
+): Promise<EventRef[]> {
+  const { getCollection } = await import('astro:content');
+  const events = await getCollection('events');
+  return events
+    .filter(
+      (e) =>
+        e.data.book === book &&
+        e.data.subtype === 'milestone' &&
+        predicate(getIds(e.data)),
+    )
+    .map((e) => ({
+      id: e.data.id,
+      title: e.data.title,
+      chapters: e.data.chapters,
+      summary: e.data.summary,
+    }))
+    .sort((a, b) => {
+      const ca = a.chapters[0] ?? 999;
+      const cb = b.chapters[0] ?? 999;
+      if (ca !== cb) return ca - cb;
+      return a.id.localeCompare(b.id, 'zh-CN');
+    });
+}
+
+/** 人物页：参与的大事记节点（saga milestone 反查） */
+export async function milestoneEventsForCharacter(
+  book: string,
+  charId: string,
+): Promise<EventRef[]> {
+  return milestoneEventsBy(book, (ids) => ids.includes(charId), (d) => d.characters);
+}
+
+/** 地点页：发生的大事记节点（saga milestone 反查） */
+export async function milestoneEventsForPlace(
+  book: string,
+  placeId: string,
+): Promise<EventRef[]> {
+  return milestoneEventsBy(book, (ids) => ids.includes(placeId), (d) => d.locations);
+}
+
 /** 读回页：本回交易记录 */
 export async function relatedTransactionsForChapter(
   book: string,

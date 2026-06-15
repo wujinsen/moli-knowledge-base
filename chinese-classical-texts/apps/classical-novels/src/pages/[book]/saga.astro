@@ -8,11 +8,11 @@ import {
   chapterLabel,
   displayTitle,
   isChenggaoEvent,
-  sagaPhaseForBook,
   sagaPhasesForBook,
   sortChainEvents,
 } from '../../lib/events';
 import { readChapterPath } from '../../lib/editions';
+import { graphFocusHref } from '../../lib/sna';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -32,13 +32,17 @@ const events = sortChainEvents(
 );
 
 const phases = sagaPhasesForBook(meta.book);
-const phaseCounts = phases.map((p) => ({
-  ...p,
-  count: events.filter((e) => {
-    const ch = e.data.chapters[0] ?? 0;
-    return ch >= p.range[0] && ch <= p.range[1];
-  }).length,
-}));
+const noById = new Map(events.map((e, i) => [e.data.id, i + 1]));
+const grouped = phases
+  .map((p) => ({
+    phase: p,
+    items: events.filter((e) => {
+      const ch = e.data.chapters[0] ?? 0;
+      return ch >= p.range[0] && ch <= p.range[1];
+    }),
+  }))
+  .filter((g) => g.items.length > 0);
+const phaseCounts = grouped.map((g) => ({ ...g.phase, count: g.items.length }));
 
 const SUBTITLE: Record<string, string> = {
   红楼梦: '贾史王薛四大家族兴衰 × 宝黛爱情悲剧 · 按回目串联',
@@ -109,63 +113,85 @@ const readerLabel = isHonglou
     }
   </div>
 
-  {/* 时间轴 */}
-  <div class="tribulation-timeline mb-10">
-    {
-      events.map((ev, idx) => {
-        const d = ev.data;
-        const ch = d.chapters[0];
-        const phase = ch != null ? sagaPhaseForBook(meta.book, ch) : phases[0];
-        const chenggao = isHonglou && isChenggaoEvent(d);
-        return (
-          <article class="timeline-item surface" id={`saga-${d.id}`}>
-            <div class="timeline-marker">
-              <span class="timeline-no">{idx + 1}</span>
-            </div>
-            <div class="timeline-body min-w-0 flex-1">
-              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                <h2 class="brand text-xl" style="color: var(--primary)">
-                  <a href={`/${meta.slug}/e/${d.id}`} class="hover:underline">{displayTitle(d)}</a>
-                </h2>
-                <span class="timeline-phase">{phase.label}</span>
-                {chenggao && (
-                  <span class="chip text-xs" style="color: var(--accent); border-color: color-mix(in srgb, var(--accent) 40%, var(--line))" title="后四十回程高本续补，人物走向存争议">
-                    程高本补
-                  </span>
-                )}
-              </div>
-              {d.summary && (
-                <p class="timeline-summary mt-1.5">{d.summary}</p>
-              )}
-              <div class="mt-2.5 flex flex-wrap gap-2">
-                {
-                  ch != null && (
-                    <a href={readChapterPath(meta.slug, meta.book, ch)} class="chip hover:opacity-80">
-                      {chapterLabel(d.chapters)}
-                    </a>
-                  )
-                }
-                {d.characters.slice(0, 6).map((c) => (
-                  <a href={`/${meta.slug}/c/${c}`} class="chip hover:opacity-80">{c}</a>
-                ))}
-                {d.locations.map((l) => (
-                  <a href={`/${meta.slug}/l/${l}`} class="chip hover:opacity-80">{l}</a>
-                ))}
-              </div>
-              <div class="timeline-nav mt-2.5 flex gap-3" style="color: var(--accent)">
-                {d.prev && (
-                  <a href={`/${meta.slug}/e/${d.prev}`} class="hover:underline">← 上一节点</a>
-                )}
-                {d.next && (
-                  <a href={`/${meta.slug}/e/${d.next}`} class="hover:underline">下一节点 →</a>
-                )}
-              </div>
-            </div>
-          </article>
-        );
-      })
-    }
-  </div>
+  {/* 时间轴（按阶段分段） */}
+  {
+    grouped.map((g) => (
+      <section class="mb-9">
+        <h2 class="brand mb-3 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-lg" style="color: var(--primary)">
+          <span class="inline-block h-4 w-1.5 rounded-sm" style="background: var(--primary)" aria-hidden="true"></span>
+          {g.phase.label}
+          <span class="text-xs font-normal text-muted">第{g.phase.range[0]}–{g.phase.range[1]}回 · {g.items.length} 节</span>
+          {isHonglou && g.phase.range[0] >= HLM_CHENGGAO_FROM && (
+            <span class="chip text-xs" style="color: var(--accent)">程高本</span>
+          )}
+        </h2>
+        <div class="tribulation-timeline">
+          {g.items.map((ev) => {
+            const d = ev.data;
+            const ch = d.chapters[0];
+            const chenggao = isHonglou && isChenggaoEvent(d);
+            return (
+              <article class="timeline-item surface" id={`saga-${d.id}`}>
+                <div class="timeline-marker">
+                  <span class="timeline-no">{noById.get(d.id)}</span>
+                </div>
+                <div class="timeline-body min-w-0 flex-1">
+                  <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                    <h3 class="brand text-xl" style="color: var(--primary)">
+                      <a href={`/${meta.slug}/e/${d.id}`} class="hover:underline">{displayTitle(d)}</a>
+                    </h3>
+                    {chenggao && (
+                      <span class="chip text-xs" style="color: var(--accent); border-color: color-mix(in srgb, var(--accent) 40%, var(--line))" title="后四十回程高本续补，人物走向存争议">
+                        程高本补
+                      </span>
+                    )}
+                  </div>
+                  {d.summary && (
+                    <p class="timeline-summary mt-1.5">{d.summary}</p>
+                  )}
+                  <div class="mt-2.5 flex flex-wrap gap-2">
+                    {
+                      ch != null && (
+                        <a href={readChapterPath(meta.slug, meta.book, ch)} class="chip hover:opacity-80">
+                          {chapterLabel(d.chapters)}
+                        </a>
+                      )
+                    }
+                    {d.characters.slice(0, 6).map((c) => (
+                      <a href={`/${meta.slug}/c/${c}`} class="chip hover:opacity-80">{c}</a>
+                    ))}
+                    {d.locations.map((l) => (
+                      <a href={`/${meta.slug}/l/${l}`} class="chip hover:opacity-80">{l}</a>
+                    ))}
+                    {
+                      meta.features.includes('graph') && d.characters.length > 0 && (
+                        <a
+                          href={graphFocusHref(meta.slug, d.characters[0])}
+                          class="chip hover:opacity-80"
+                          style="color: var(--accent)"
+                          title="在关系图谱中聚焦"
+                        >
+                          图谱 · {d.characters[0]}
+                        </a>
+                      )
+                    }
+                  </div>
+                  <div class="timeline-nav mt-2.5 flex gap-3" style="color: var(--accent)">
+                    {d.prev && (
+                      <a href={`/${meta.slug}/e/${d.prev}`} class="hover:underline">← 上一节点</a>
+                    )}
+                    {d.next && (
+                      <a href={`/${meta.slug}/e/${d.next}`} class="hover:underline">下一节点 →</a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+    ))
+  }
 
   <div class="surface p-4 text-sm">
     <span class="chip">数据源</span>

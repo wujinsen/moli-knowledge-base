@@ -196,7 +196,23 @@ const { Content } = await render(ev);
       {isChain && (
         <a href={chainEventHref(meta.slug, d.id)} class="btn btn-ghost">时间轴定位</a>
       )}
+      {isMilestone && (
+        <a href={`/${meta.slug}/saga#saga-${d.id}`} class="btn btn-ghost">大事记定位</a>
+      )}
     </div>
+
+    {
+      isMilestone && meta.features.includes('graph') && d.characters.length > 0 && (
+        <div class="mt-4 flex flex-wrap gap-2 text-xs">
+          <span class="chip">模块联动</span>
+          {d.characters.slice(0, 4).map((c) => (
+            <a href={graphFocusHref(meta.slug, c)} class="chip hover:opacity-80" style="color:var(--accent)">
+              图谱 · {c}
+            </a>
+          ))}
+        </div>
+      )
+    }
 
     {
       moduleLinks && (moduleLinks.hasSilver || moduleLinks.hasSna || moduleLinks.graphFocus) && (
