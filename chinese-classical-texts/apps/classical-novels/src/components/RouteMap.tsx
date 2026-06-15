@@ -64,24 +64,6 @@ export default function RouteMap({ data, bookSlug }: Props) {
     [data.nodes],
   );
 
-  const prevSegment = useMemo(() => {
-    if (!selectedId) return null;
-    const idx = routePath.findIndex((n) => n.id === selectedId);
-    if (idx <= 0) return null;
-    const edge = edgeByKey.get(`${routePath[idx - 1].id}→${routePath[idx].id}`);
-    return edge ?? null;
-  }, [selectedId, routePath, edgeByKey]);
-
-  const nextSegment = useMemo(() => {
-    if (!selectedId) return null;
-    const idx = routePath.findIndex((n) => n.id === selectedId);
-    if (idx < 0 || idx >= routePath.length - 1) return null;
-    const edge = edgeByKey.get(`${routePath[idx].id}→${routePath[idx + 1].id}`);
-    return edge ?? null;
-  }, [selectedId, routePath, edgeByKey]);
-
-  const selectedNode = selectedId ? nodeById.get(selectedId) ?? null : null;
-
   /** 凡间路段序（用于交替弯折、路段表） */
   const routeLegs = useMemo(() => {
     const legs: {
@@ -106,18 +88,18 @@ export default function RouteMap({ data, bookSlug }: Props) {
 
   const [activeLegKey, setActiveLegKey] = useState<string | null>(null);
 
-  /** 选中节点时高亮其前后路段 */
+  /** 仅高亮当前选中的一条路段（避免多段同时亮 + 地图飘字） */
   const highlightedLegKeys = useMemo(() => {
-    const keys = new Set<string>();
-    if (activeLegKey) keys.add(activeLegKey);
-    if (selectedId) {
-      const idx = routePath.findIndex((n) => n.id === selectedId);
-      if (idx > 0) keys.add(`${routePath[idx - 1].id}→${routePath[idx].id}`);
-      if (idx >= 0 && idx < routePath.length - 1)
-        keys.add(`${routePath[idx].id}→${routePath[idx + 1].id}`);
-    }
-    return keys;
-  }, [activeLegKey, selectedId, routePath]);
+    if (!activeLegKey) return new Set<string>();
+    return new Set([activeLegKey]);
+  }, [activeLegKey]);
+
+  const selectedNode = selectedId ? nodeById.get(selectedId) ?? null : null;
+  const activeLegEntry = useMemo(
+    () => routeLegs.find((l) => l.key === activeLegKey) ?? null,
+    [routeLegs, activeLegKey],
+  );
+  const activeLeg = activeLegEntry?.edge;
 
   const buildOption = useCallback((): EChartsOption => {
     return {
@@ -193,36 +175,14 @@ export default function RouteMap({ data, bookSlug }: Props) {
           }),
           edges: visibleEdges.map((e) => {
             const key = `${e.source}→${e.target}`;
-            const meta = edgeByKey.get(key);
             const legIdx = routeLegOrder.get(key);
             const isHighlight = highlightedLegKeys.has(key);
-            const segText =
-              meta?.bearing && meta.distanceLi != null
-                ? `${meta.bearing}  ${meta.distanceLi}里`
-                : '';
             return {
               source: e.source,
               target: e.target,
               symbol: ['none', 'arrow'],
               symbolSize: [0, isHighlight ? 9 : 7],
-              label: segText
-                ? {
-                    show: isHighlight,
-                    formatter: segText,
-                    rotate: 0,
-                    position: 'middle',
-                    align: 'center',
-                    verticalAlign: 'middle',
-                    fontSize: 13,
-                    fontWeight: 700,
-                    color: '#fff',
-                    backgroundColor: 'rgba(15, 23, 42, 0.92)',
-                    borderColor: gt.accent,
-                    borderWidth: 1,
-                    padding: [4, 8],
-                    borderRadius: 6,
-                  }
-                : { show: false },
+              label: { show: false },
               lineStyle: {
                 color: isHighlight ? gt.accentSoft : gt.accent,
                 width: isHighlight ? 3.5 : 2,
@@ -230,22 +190,8 @@ export default function RouteMap({ data, bookSlug }: Props) {
                 curveness: legIdx != null ? (legIdx % 2 === 0 ? 0.16 : -0.16) : 0.04,
               },
               emphasis: {
-                lineStyle: { width: 4, opacity: 1 },
-                label: segText
-                  ? {
-                      show: true,
-                      formatter: segText,
-                      rotate: 0,
-                      fontSize: 13,
-                      fontWeight: 700,
-                      color: '#fff',
-                      backgroundColor: 'rgba(15, 23, 42, 0.95)',
-                      borderColor: gt.accent,
-                      borderWidth: 1,
-                      padding: [4, 8],
-                      borderRadius: 6,
-                    }
-                  : { show: false },
+                lineStyle: { width: 4, opacity: 1, color: gt.accentSoft },
+                label: { show: false },
               },
             };
           }),
@@ -264,7 +210,9 @@ export default function RouteMap({ data, bookSlug }: Props) {
         const id = (params.data as { id?: string }).id;
         if (id) {
           setSelectedId((prev) => (prev === id ? null : id));
-          setActiveLegKey(null);
+          const idx = routePath.findIndex((n) => n.id === id);
+          if (idx > 0) setActiveLegKey(`${routePath[idx - 1].id}→${id}`);
+          else setActiveLegKey(null);
         }
       }
       if (params.dataType === 'edge' && params.data && typeof params.data === 'object') {
@@ -371,16 +319,61 @@ export default function RouteMap({ data, bookSlug }: Props) {
         </div>
       </div>
 
-      {/* 路段一览（避免地图上标签折叠） */}
+      {/* 右侧路段栏（全高，距离只在栏内显示，地图不飘字） */}
       {(layer === 'all' || layer === 'real') && routeLegs.length > 0 && (
-        <aside className="absolute left-3 top-14 z-10 flex w-72 max-h-[min(420px,calc(100vh-10rem))] flex-col overflow-hidden rounded-xl border border-white/10 bg-slate-900/92 shadow-xl backdrop-blur-md">
-          <div className="border-b border-white/10 px-3 py-2">
+        <aside className="absolute bottom-4 right-3 top-14 z-10 flex w-[22rem] flex-col overflow-hidden rounded-xl border border-white/10 bg-slate-900/94 shadow-xl backdrop-blur-md">
+          <div className="shrink-0 border-b border-white/10 px-3 py-2.5">
             <div className="text-sm font-semibold text-slate-100">路段一览</div>
-            <div className="text-xs text-slate-400">点击行高亮该段 · 悬停路线亦显示</div>
+            <div className="text-xs text-slate-400">点击行高亮该段路线 · 悬停地图连线可看距离</div>
           </div>
-          <ol className="flex-1 overflow-y-auto px-1 py-1 text-sm">
+
+          {activeLegEntry && activeLeg && (
+            <div
+              className="shrink-0 border-b border-white/10 px-3 py-2.5 text-sm"
+              style={{ backgroundColor: `${gt.accent}12` }}
+            >
+              <div className="text-xs text-slate-400">当前路段</div>
+              <div className="mt-0.5 font-medium text-slate-100">
+                {activeLegEntry.from.name.replace(/^.*·/, '')}
+                <span className="text-slate-500"> → </span>
+                {activeLegEntry.to.name.replace(/^.*·/, '')}
+              </div>
+              {activeLeg.bearing && (
+                <div className="mt-1 text-base font-bold text-white">
+                  <span style={{ color: gt.accentSoft }}>{activeLeg.bearing}</span>
+                  <span className="ml-2">{activeLeg.distanceLi} 里</span>
+                  {activeLeg.distanceKm != null && (
+                    <span className="ml-1 text-sm font-normal text-slate-400">（约 {activeLeg.distanceKm} km）</span>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
+
+          {selectedNode && (
+            <div className="shrink-0 border-b border-white/10 px-3 py-2.5">
+              <div className="flex items-baseline gap-2">
+                <span className="font-semibold" style={{ color: gt.accentSoft }}>
+                  {selectedNode.name}
+                </span>
+                {selectedNode.order != null && (
+                  <span className="text-xs text-slate-400">第 {selectedNode.order} 站</span>
+                )}
+              </div>
+              <p className="mt-1 line-clamp-2 text-xs leading-snug text-slate-400">{selectedNode.summary}</p>
+              <a
+                href={`/${bookSlug}/l/${encodeURIComponent(selectedNode.id)}`}
+                className="mt-1 inline-block text-xs hover:underline"
+                style={{ color: gt.accent }}
+              >
+                地点详情 →
+              </a>
+            </div>
+          )}
+
+          <ol className="min-h-0 flex-1 overflow-y-auto px-1 py-1 text-sm">
             {routeLegs.map((leg, i) => {
-              const active = highlightedLegKeys.has(leg.key);
+              const active = activeLegKey === leg.key;
               const fromName = leg.from.name.replace(/^.*·/, '');
               const toName = leg.to.name.replace(/^.*·/, '');
               return (
@@ -391,17 +384,16 @@ export default function RouteMap({ data, bookSlug }: Props) {
                       setActiveLegKey((prev) => (prev === leg.key ? null : leg.key));
                       setSelectedId(leg.to.id);
                     }}
-                    className="flex w-full items-center gap-2 rounded-lg px-2 py-2 text-left transition hover:bg-white/5"
+                    className="flex w-full items-center gap-2 rounded-lg px-2 py-2.5 text-left transition hover:bg-white/5"
                     style={{
                       backgroundColor: active ? `${gt.accent}18` : undefined,
                       borderLeft: active ? `3px solid ${gt.accent}` : '3px solid transparent',
                     }}
                   >
                     <span className="w-5 shrink-0 text-xs text-slate-500">{i + 1}</span>
-                    <span className="min-w-0 flex-1 truncate text-slate-200">
-                      {fromName}
-                      <span className="text-slate-500"> → </span>
-                      {toName}
+                    <span className="min-w-0 flex-1 text-slate-200">
+                      <span className="block truncate">{fromName}</span>
+                      <span className="block truncate text-xs text-slate-500">→ {toName}</span>
                     </span>
                     {leg.edge?.bearing && (
                       <span className="shrink-0 text-right leading-tight">
@@ -421,7 +413,7 @@ export default function RouteMap({ data, bookSlug }: Props) {
 
       {/* 方位罗盘 */}
       <div
-        className="absolute bottom-4 right-3 z-10 flex h-16 w-16 flex-col items-center justify-center rounded-lg border border-white/10 bg-slate-900/85 text-[10px] text-slate-400 backdrop-blur-md"
+        className="absolute bottom-4 left-3 z-10 flex h-16 w-16 flex-col items-center justify-center rounded-lg border border-white/10 bg-slate-900/85 text-[10px] text-slate-400 backdrop-blur-md"
         aria-hidden
       >
         <span className="font-medium text-slate-300">北</span>
@@ -434,7 +426,7 @@ export default function RouteMap({ data, bookSlug }: Props) {
       </div>
 
       {/* 区域图例 */}
-      <div className="absolute bottom-4 left-3 z-10 flex max-w-[calc(100%-20rem)] flex-wrap gap-x-3 gap-y-1.5 rounded-lg border border-white/10 bg-slate-900/85 p-2.5 backdrop-blur-md xl:max-w-[50%]">
+      <div className="absolute bottom-4 left-20 z-10 flex max-w-[calc(100%-26rem)] flex-wrap gap-x-3 gap-y-1.5 rounded-lg border border-white/10 bg-slate-900/85 p-2.5 backdrop-blur-md">
         {realms.map((r) => (
           <span key={r} className="flex items-center gap-1.5 text-xs text-slate-300">
             <span className="inline-block h-2.5 w-2.5 rounded-full" style={{ backgroundColor: realmColor(r) }} />
@@ -444,109 +436,10 @@ export default function RouteMap({ data, bookSlug }: Props) {
         <span className="flex items-center gap-1.5 text-xs text-slate-500">● 凡间 · ◆ 异界</span>
       </div>
 
-      {/* 选中详情 */}
-      {selectedNode && (
-        <aside
-          className="absolute right-3 top-16 z-10 w-64 rounded-xl border bg-slate-900/90 p-4 shadow-xl backdrop-blur-md"
-          style={{ borderColor: gt.accentLine }}
-        >
-          <div className="mb-1 flex items-baseline gap-2">
-            <span className="text-lg font-semibold" style={{ color: gt.accentSoft }}>
-              {selectedNode.name}
-            </span>
-            {selectedNode.order != null && (
-              <span className="text-xs text-slate-400">第 {selectedNode.order} 站</span>
-            )}
-          </div>
-          <div className="mb-2 text-xs text-slate-400">
-            {selectedNode.realm} · {selectedNode.layer === 'real' ? '凡间路线' : '神话异界'}
-            {selectedNode.aliases.length > 0 && <> · 又称 {selectedNode.aliases.join('、')}</>}
-          </div>
-          <p className="mb-3 text-sm leading-snug text-slate-300">{selectedNode.summary}</p>
-
-          {(prevSegment || nextSegment) && (
-            <div className="mb-3 space-y-2 rounded-lg border border-white/15 bg-slate-800/60 p-3 text-sm text-slate-200">
-              {prevSegment?.bearing && (
-                <div>
-                  自上一站：
-                  <span className="ml-1 font-semibold" style={{ color: gt.accentSoft }}>
-                    {prevSegment.bearing}
-                  </span>
-                  {prevSegment.distanceLi != null && (
-                    <span className="ml-1 text-base font-bold text-white">
-                      {prevSegment.distanceLi} 里
-                    </span>
-                  )}
-                  {prevSegment.distanceKm != null && (
-                    <span className="text-slate-400">（约 {prevSegment.distanceKm} km）</span>
-                  )}
-                </div>
-              )}
-              {nextSegment?.bearing && (
-                <div>
-                  往下一站：
-                  <span className="ml-1 font-semibold" style={{ color: gt.accentSoft }}>
-                    {nextSegment.bearing}
-                  </span>
-                  {nextSegment.distanceLi != null && (
-                    <span className="ml-1 text-base font-bold text-white">
-                      {nextSegment.distanceLi} 里
-                    </span>
-                  )}
-                  {nextSegment.distanceKm != null && (
-                    <span className="text-slate-400">（约 {nextSegment.distanceKm} km）</span>
-                  )}
-                </div>
-              )}
-            </div>
-          )}
-
-          {selectedNode.tribulations.length > 0 && (
-            <div className="mb-3">
-              <div className="mb-1 text-xs uppercase tracking-wide text-slate-500">途经劫难</div>
-              <div className="flex flex-wrap gap-1">
-                {selectedNode.tribulations.map((t) => (
-                  <a
-                    key={t.id}
-                    href={`/${bookSlug}/e/${t.id}`}
-                    className="rounded px-1.5 py-0.5 text-xs hover:underline"
-                    style={{ backgroundColor: `${gt.accent}1a`, color: gt.accentSoft }}
-                  >
-                    第{t.no}难 {t.title}
-                  </a>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {selectedNode.chapters.length > 0 && (
-            <div className="mb-3 flex flex-wrap gap-1">
-              {selectedNode.chapters.map((c) => (
-                <a
-                  key={c}
-                  href={`/${bookSlug}/read/${c}`}
-                  className="rounded border border-white/10 px-1.5 py-0.5 text-xs text-slate-300 hover:border-white/30 hover:text-white"
-                >
-                  第{c}回
-                </a>
-              ))}
-            </div>
-          )}
-
-          <a
-            href={`/${bookSlug}/l/${encodeURIComponent(selectedNode.id)}`}
-            className="inline-block text-sm hover:underline"
-            style={{ color: gt.accent }}
-          >
-            查看地点详情 →
-          </a>
-        </aside>
-      )}
-
       <div ref={chartRef} className="absolute inset-0 h-full w-full" style={{ minHeight: 'calc(100vh - 3rem)' }} />
 
       <p className="pointer-events-none absolute bottom-4 left-1/2 z-0 -translate-x-1/2 select-none text-center text-xs text-slate-600/70">
-        左栏查路段距离 · 悬停路线显示 · 滚轮缩放 · 点击地点
+        右栏查路段 · 悬停连线看距离 · 滚轮缩放 · 点击地点
       </p>
     </div>
   );

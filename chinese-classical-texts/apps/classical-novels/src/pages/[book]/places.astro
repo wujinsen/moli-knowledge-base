@@ -41,6 +41,13 @@ const rootEntry = root ? places.find((p) => p.data.id === root.id) : undefined;
         </a>
       )
     }
+    {
+      meta.features.includes('garden') && (
+        <a href={`/${meta.slug}/map`} class="ml-2 hover:underline" style="color: var(--accent)">
+          → 大观园地图
+        </a>
+      )
+    }
   </p>
 
   <div class="content-page">
