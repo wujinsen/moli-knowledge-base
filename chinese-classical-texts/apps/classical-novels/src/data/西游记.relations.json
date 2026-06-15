@@ -272,6 +272,12 @@
       "weight": 34
     },
     {
+      "id": "大力鬼王",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 28
+    },
+    {
       "id": "大鹏精",
       "type": "monster",
       "faction": "妖魔",
@@ -428,6 +434,12 @@
       "weight": 32
     },
     {
+      "id": "崩将军",
+      "type": "character",
+      "faction": "花果山",
+      "weight": 24
+    },
+    {
       "id": "巨灵神",
       "type": "character",
       "faction": "天庭",
@@ -452,10 +464,22 @@
       "weight": 36
     },
     {
+      "id": "广智",
+      "type": "character",
+      "faction": "人间",
+      "weight": 22
+    },
+    {
       "id": "广目天王",
       "type": "character",
       "faction": "天庭",
       "weight": 42
+    },
+    {
+      "id": "广谋",
+      "type": "character",
+      "faction": "人间",
+      "weight": 22
     },
     {
       "id": "庞元帅",
@@ -660,6 +684,12 @@
       "type": "character",
       "faction": "泾河",
       "weight": 40
+    },
+    {
+      "id": "流元帅",
+      "type": "character",
+      "faction": "花果山",
+      "weight": 24
     },
     {
       "id": "浪荡游神",
@@ -3220,6 +3250,24 @@
       "contradiction": false
     },
     {
+      "source": "大力鬼王",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "大力鬼王",
+      "target": "木吒",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "大力鬼王",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "大鹏精",
       "target": "青狮精",
       "type": "兄弟",
@@ -3780,12 +3828,6 @@
     {
       "source": "孙悟空",
       "target": "直健将军",
-      "type": "敌对",
-      "contradiction": false
-    },
-    {
-      "source": "孙悟空",
-      "target": "大力鬼王",
       "type": "敌对",
       "contradiction": false
     },
@@ -4810,6 +4852,24 @@
       "contradiction": false
     },
     {
+      "source": "崩将军",
+      "target": "孙悟空",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "崩将军",
+      "target": "流元帅",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "崩将军",
+      "target": "二郎神",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "巨灵神",
       "target": "玉皇大帝",
       "type": "主仆",
@@ -4843,6 +4903,30 @@
       "source": "布雾郎君",
       "target": "推云童子",
       "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "广智",
+      "target": "广谋",
+      "type": "师兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "广智",
+      "target": "金池长老",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "广智",
+      "target": "唐僧",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "广智",
+      "target": "孙悟空",
+      "type": "敌对",
       "contradiction": false
     },
     {
@@ -4897,6 +4981,24 @@
       "source": "广目天王",
       "target": "毕元帅",
       "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "广谋",
+      "target": "金池长老",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "广谋",
+      "target": "唐僧",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "广谋",
+      "target": "孙悟空",
+      "type": "敌对",
       "contradiction": false
     },
     {
@@ -5681,12 +5783,6 @@
     },
     {
       "source": "木吒",
-      "target": "大力鬼王",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "木吒",
       "target": "李靖",
       "type": "父子",
       "contradiction": false
@@ -6229,6 +6325,18 @@
       "source": "泾河龙王",
       "target": "袁守诚",
       "type": "仇敌",
+      "contradiction": false
+    },
+    {
+      "source": "流元帅",
+      "target": "孙悟空",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "流元帅",
+      "target": "二郎神",
+      "type": "敌对",
       "contradiction": false
     },
     {
