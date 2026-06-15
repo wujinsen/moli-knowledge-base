@@ -8,7 +8,7 @@ title: 紫鹃试玉
 aliases: [慧紫鹃情辞试忙玉]
 chapters: [57]
 characters: [紫鹃, 贾宝玉, 林黛玉, 贾母]
-locations: [大观园, 怡红院]
+locations: [大观园, 怡红院, 潇湘馆, 沁芳亭]
 prev: hlm-e-012
 next: hlm-e-005
 tags: [慧紫鹃, 试玉, 危机]

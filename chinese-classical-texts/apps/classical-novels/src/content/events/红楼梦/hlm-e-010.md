@@ -8,7 +8,7 @@ title: 宝玉挨打
 aliases: [手足耽耽小动唇舌, 不肖种种大承笞挞]
 chapters: [33]
 characters: [贾宝玉, 贾政, 王夫人, 贾母]
-locations: [荣国府, 怡红院]
+locations: [荣国府, 怡红院, 潇湘馆]
 prev: hlm-e-003
 next: hlm-e-011
 tags: [笞挞, 父子冲突, 钗黛探伤]

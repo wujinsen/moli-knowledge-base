@@ -8,7 +8,7 @@ title: 调包计与黛玉焚稿
 aliases: [苦绛珠魂归离恨天, 病神瑛泪洒相思地]
 chapters: [97, 98]
 characters: [贾母, 王熙凤, 王夫人, 贾宝玉, 薛宝钗, 林黛玉]
-locations: [大观园, 潇湘馆, 怡红院]
+locations: [大观园, 潇湘馆, 怡红院, 蘅芜苑]
 prev: hlm-e-005
 next: hlm-e-007
 tags: [调包计, 焚稿, 程高本]

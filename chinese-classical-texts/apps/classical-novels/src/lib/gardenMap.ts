@@ -89,6 +89,18 @@ export const GARDEN_GUIDES: { key: string; label: string; chapter: number; path:
     chapter: 40,
     path: ['曲径通幽', '沁芳亭', '潇湘馆', '秋爽斋', '蘅芜苑', '怡红院'],
   },
+  {
+    key: 'ch23',
+    label: '分房入住',
+    chapter: 23,
+    path: ['潇湘馆', '怡红院', '蘅芜苑', '稻香村', '秋爽斋', '缀锦楼', '蓼风轩'],
+  },
+  {
+    key: 'ch38',
+    label: '螃蟹宴',
+    chapter: 38,
+    path: ['沁芳亭', '藕香榭'],
+  },
 ];
 
 export function zoneColor(zone: GardenZone): string {
