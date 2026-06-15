@@ -95,6 +95,7 @@ function cardProps(c: (typeof entries)[number]) {
     )
   }
 
+  <div class="bestiary-page">
   {
     slug === 'jinpingmei' && (
       <div class="text-muted mb-6 flex flex-wrap gap-2 text-xs">
@@ -108,11 +109,11 @@ function cardProps(c: (typeof entries)[number]) {
 
   {
     sections.map(({ label, items }) => (
-      <section class="mb-10">
+      <section class="bestiary-section mb-10">
         <h2 class="section-title mb-3 text-lg">
           {label}（{items.length}）
         </h2>
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="bestiary-grid grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {items.map((c) => (
             <CharacterCard {...cardProps(c)} />
           ))}
@@ -125,7 +126,7 @@ function cardProps(c: (typeof entries)[number]) {
     monsters.length > 0 && (
       <>
         <h2 class="section-title mb-3 text-lg">妖怪（{monsters.length}）</h2>
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="bestiary-grid grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {monsters.map((c) => (
             <CharacterCard {...cardProps(c)} />
           ))}
@@ -133,4 +134,5 @@ function cardProps(c: (typeof entries)[number]) {
       </>
     )
   }
+  </div>
 </Base>

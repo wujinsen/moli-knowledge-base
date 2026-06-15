@@ -85,7 +85,7 @@ const counterRefs = artifactData?.counters?.map((id) => allItems.find((i) => i.e
 <Base title={d.name} bookSlug={slug} bookName={d.book} features={features}>
   <BackLink href={`/${slug}/items`} label={indexTitle} />
   <div
-    class="content-page"
+    class="content-page entity-detail"
     data-pagefind-body
     data-pagefind-meta={`title:${d.name}`}
     data-pagefind-filter={`书:${d.book},类型:${kindLabel(kind)}`}
@@ -134,11 +134,11 @@ const counterRefs = artifactData?.counters?.map((id) => allItems.find((i) => i.e
 
     {
       counterRefs.length > 0 && (
-        <div class="mt-6">
-          <h2 class="section-title mb-2">克制关系</h2>
-          <div class="flex flex-wrap gap-2">
+        <div class="entity-detail-links mt-6">
+          <h2 class="section-title mb-2.5">克制关系</h2>
+          <div class="flex flex-wrap gap-2.5">
             {counterRefs.map((item) => item && (
-              <a href={`/${slug}/i/${item.entry.data.id}`} class="chip hover:underline">
+              <a href={`/${slug}/i/${item.entry.data.id}`} class="chip chip-md hover:underline">
                 {item.entry.data.name}
               </a>
             ))}
@@ -149,9 +149,9 @@ const counterRefs = artifactData?.counters?.map((id) => allItems.find((i) => i.e
 
     {
       artifactData?.relations && artifactData.relations.length > 0 && (
-        <div class="mt-6">
-          <h2 class="section-title mb-2">谱系关系</h2>
-          <ul class="space-y-1.5">
+        <div class="entity-detail-links mt-6">
+          <h2 class="section-title mb-2.5">谱系关系</h2>
+          <ul class="entity-detail-relations space-y-2">
             {artifactData.relations.map((rel) => (
               <li>
                 {rel.type}：
@@ -168,11 +168,11 @@ const counterRefs = artifactData?.counters?.map((id) => allItems.find((i) => i.e
 
     {
       samePlace.length > 0 && (
-        <div class="mt-6">
-          <h2 class="section-title mb-2">同地其他名物</h2>
-          <div class="flex flex-wrap gap-2">
+        <div class="entity-detail-links mt-6">
+          <h2 class="section-title mb-2.5">同地其他名物</h2>
+          <div class="flex flex-wrap gap-2.5">
             {samePlace.map((item) => (
-              <a href={`/${slug}/i/${item.id}`} class="chip hover:underline">
+              <a href={`/${slug}/i/${item.id}`} class="chip chip-md hover:underline">
                 {item.name}
               </a>
             ))}
@@ -183,11 +183,11 @@ const counterRefs = artifactData?.counters?.map((id) => allItems.find((i) => i.e
 
     {
       chapterNums.length > 0 && (
-        <div class="mt-6">
-          <h2 class="section-title mb-2">相关回目</h2>
-          <div class="flex flex-wrap gap-2">
+        <div class="entity-detail-links mt-6">
+          <h2 class="section-title mb-2.5">相关回目</h2>
+          <div class="flex flex-wrap gap-2.5">
             {chapterNums.map((num) => (
-              <a href={`/${slug}/read/${num}`} class="chip hover:underline">
+              <a href={`/${slug}/read/${num}`} class="chip chip-md hover:underline">
                 第{num}回
               </a>
             ))}
@@ -196,7 +196,7 @@ const counterRefs = artifactData?.counters?.map((id) => allItems.find((i) => i.e
       )
     }
 
-    <article class="prose-cn mt-6 max-w-none">
+    <article class="entity-detail-prose prose-cn mt-8 max-w-none">
       <Content />
     </article>
   </div>

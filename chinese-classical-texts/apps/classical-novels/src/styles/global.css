@@ -462,22 +462,93 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
   }
 
   /* 图鉴人物卡 */
+  .bestiary-page {
+    --bestiary-name-size: 1.3125rem;
+    --bestiary-body-size: 1.125rem;
+    --bestiary-label-size: 1rem;
+    --bestiary-chip-size: 0.9375rem;
+  }
+
+  @media (min-width: 1280px) {
+    .page-below-nav:not(.page-below-nav--reader) main.site-main:has(.bestiary-page) {
+      max-width: 80rem;
+    }
+  }
+
+  .bestiary-section .section-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .bestiary-grid {
+    align-items: stretch;
+  }
+
   .bestiary-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    border-radius: 0.65rem;
+    border: 1px solid var(--line);
     background: var(--paper-2);
-    border-color: var(--line);
     font-weight: var(--type-body-weight);
     cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
   .bestiary-card:hover {
     border-color: color-mix(in srgb, var(--primary) 32%, var(--line));
     box-shadow: 0 8px 24px -12px color-mix(in srgb, var(--primary) 35%, transparent);
   }
+
+  .bestiary-card-hit {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+  }
+
+  .bestiary-card-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.15rem 1.25rem 1.2rem;
+    pointer-events: none;
+  }
+  @media (min-width: 640px) {
+    .bestiary-card-inner {
+      padding: 1.25rem 1.4rem 1.3rem;
+      gap: 0.85rem;
+    }
+  }
+
+  .bestiary-card-head {
+    flex-shrink: 0;
+  }
+  .bestiary-card-title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .bestiary-card-name {
+    margin: 0;
+    font-size: var(--bestiary-name-size, 1.3125rem);
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--primary);
+  }
   .bestiary-badge {
     display: inline-flex;
+    flex-shrink: 0;
     align-items: center;
     border-radius: 6px;
-    padding: 0.18rem 0.6rem;
-    font-size: var(--type-xs);
+    padding: 0.2rem 0.62rem;
+    font-size: var(--bestiary-label-size, 1rem);
     font-weight: var(--type-label-weight);
     line-height: 1.35;
   }
@@ -492,17 +563,81 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
     border: 1px solid color-mix(in srgb, var(--seal) 28%, transparent);
   }
   .bestiary-card-sub {
-    font-size: var(--type-xs);
+    margin: 0.3rem 0 0;
+    font-size: var(--bestiary-label-size, 1rem);
     line-height: 1.55;
     font-weight: var(--type-body-weight);
-    color: color-mix(in srgb, var(--ink) 55%, var(--ink-soft));
+    color: color-mix(in srgb, var(--ink) 58%, var(--ink-soft));
   }
   .bestiary-card-summary {
-    font-size: var(--type-sm);
-    line-height: 1.7;
+    margin: 0;
+    flex-shrink: 0;
+    font-size: var(--bestiary-body-size, 1.125rem);
+    line-height: 1.72;
     font-weight: var(--type-body-weight);
     color: var(--ink);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    min-height: calc(2 * 1.72em);
   }
+
+  .bestiary-card-fields {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.65rem;
+    min-height: 0;
+  }
+  .bestiary-card-row {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    column-gap: 0.65rem;
+    align-items: start;
+  }
+  .bestiary-card-row--chips {
+    align-items: start;
+  }
+  .bestiary-card-label {
+    padding-top: 0.15rem;
+    font-size: var(--bestiary-label-size, 1rem);
+    font-weight: var(--type-label-weight);
+    line-height: 1.45;
+    color: color-mix(in srgb, var(--primary) 82%, var(--ink-soft));
+    letter-spacing: 0.02em;
+  }
+  .bestiary-card-value {
+    margin: 0;
+    font-size: var(--bestiary-body-size, 1.125rem);
+    line-height: 1.68;
+    font-weight: var(--type-body-weight);
+    color: var(--ink);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  .bestiary-card-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.5rem;
+    align-items: center;
+  }
+  .bestiary-card .chip {
+    font-size: var(--bestiary-chip-size, 0.9375rem);
+    padding: 0.2rem 0.65rem;
+    line-height: 1.4;
+    font-weight: var(--type-label-weight);
+  }
+  .bestiary-card-foot {
+    margin-top: auto;
+    flex-shrink: 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid color-mix(in srgb, var(--line) 88%, transparent);
+  }
+
+  /* legacy aliases (topics / 其它页若引用) */
   .bestiary-card-meta {
     font-size: var(--type-sm);
     line-height: 1.65;
@@ -510,7 +645,7 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
   }
   .bestiary-card-meta dt {
     font-weight: var(--type-label-weight);
-    color: var(--accent);
+    color: color-mix(in srgb, var(--primary) 78%, var(--ink-soft));
   }
   .bestiary-card-meta dd {
     font-weight: var(--type-body-weight);
@@ -773,6 +908,103 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
   margin-top: 0;
 }
 
+/* 名物 / 实体详情页（宽度沿用 site-main max-w-6xl，不再单独收窄） */
+.entity-detail .entity-spec {
+  font-size: var(--type-base);
+  line-height: 1.75;
+}
+
+.entity-detail-links .section-title {
+  font-size: var(--type-base);
+}
+
+.entity-detail-links .chip {
+  font-size: var(--type-sm);
+  padding: 0.32rem 0.9rem;
+  line-height: 1.5;
+}
+
+.entity-detail-relations {
+  font-size: var(--type-base);
+  line-height: 1.75;
+  font-weight: var(--type-body-weight);
+  color: var(--ink);
+}
+
+.entity-detail-prose {
+  font-size: var(--type-lead);
+  line-height: 1.85;
+  color: var(--ink);
+}
+
+.entity-detail-prose p {
+  text-indent: 0;
+  margin: 0 0 0.9rem;
+  font-weight: var(--type-body-weight);
+  color: var(--ink);
+}
+
+.entity-detail-prose h2 {
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 1.75rem 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 85%, transparent);
+  text-indent: 0;
+}
+
+.entity-detail-prose h2:first-child {
+  margin-top: 0;
+}
+
+.entity-detail-prose h3 {
+  font-size: var(--type-base);
+  font-weight: 700;
+  color: var(--primary);
+  margin: 1.25rem 0 0.5rem;
+  text-indent: 0;
+}
+
+.entity-detail-prose ul,
+.entity-detail-prose ol {
+  margin: 0 0 1rem;
+  padding-left: 1.4rem;
+}
+
+.entity-detail-prose ul {
+  list-style: disc;
+}
+
+.entity-detail-prose ol {
+  list-style: decimal;
+}
+
+.entity-detail-prose li {
+  margin-bottom: 0.55rem;
+  line-height: 1.8;
+  font-weight: var(--type-body-weight);
+  color: var(--ink);
+}
+
+.entity-detail-prose li::marker {
+  color: var(--primary-soft);
+}
+
+.entity-detail-prose li:last-child {
+  margin-bottom: 0;
+}
+
+.entity-detail-prose ul ul,
+.entity-detail-prose ol ol {
+  margin-top: 0.45rem;
+  margin-bottom: 0;
+}
+
+.content-page .prose-cn:not(.event-prose):not(.entity-detail-prose) p {
+  text-indent: 0;
+}
+
 /* ============ 全站正文可读性（非阅读器） ============ */
 .page-below-nav:not(.page-below-nav--reader) main.site-main {
   font-size: var(--type-base);
@@ -808,19 +1040,19 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
   font-weight: 700;
 }
 
-.page-below-nav:not(.page-below-nav--reader) main.site-main :where(.prose-cn:not(.event-prose)) {
+.page-below-nav:not(.page-below-nav--reader) main.site-main :where(.prose-cn:not(.event-prose):not(.entity-detail-prose)) {
   font-size: var(--type-base);
   font-weight: var(--type-body-weight);
   color: var(--ink);
   line-height: 1.85;
 }
 
-.page-below-nav:not(.page-below-nav--reader) main.site-main :where(.prose-cn:not(.event-prose) p),
-.page-below-nav:not(.page-below-nav--reader) main.site-main :where(.prose-cn:not(.event-prose) li) {
+.page-below-nav:not(.page-below-nav--reader) main.site-main :where(.prose-cn:not(.event-prose):not(.entity-detail-prose) p),
+.page-below-nav:not(.page-below-nav--reader) main.site-main :where(.prose-cn:not(.event-prose):not(.entity-detail-prose) li) {
   color: var(--ink);
 }
 
-.page-below-nav:not(.page-below-nav--reader) main.site-main :where(.prose-cn:not(.event-prose) h2) {
+.page-below-nav:not(.page-below-nav--reader) main.site-main :where(.prose-cn:not(.event-prose):not(.entity-detail-prose) h2) {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--primary);
@@ -828,7 +1060,7 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
   text-indent: 0;
 }
 
-.page-below-nav:not(.page-below-nav--reader) main.site-main :where(.prose-cn:not(.event-prose) h3) {
+.page-below-nav:not(.page-below-nav--reader) main.site-main :where(.prose-cn:not(.event-prose):not(.entity-detail-prose) h3) {
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--primary);
