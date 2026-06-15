@@ -8,8 +8,9 @@ from __future__ import annotations
 import json
 import sys
 
-from _common import CHAR_DIR, DATA_DIR
+from _common import CHAR_DIR, DATA_DIR, parse_frontmatter
 from hlm_bestiary_fields import FIELDS, GROUPS
+from outcome_extract import extract_outcome
 
 BOOK = "红楼梦"
 OUT = DATA_DIR / "hongloumeng.bestiary.json"
@@ -25,7 +26,23 @@ def main() -> None:
     if extra:
         print(f"warn: FIELDS 多 {len(extra)} 人: {', '.join(extra)}")
 
-    payload = {"book": BOOK, "groups": GROUPS, "fields": {cid: FIELDS[cid] for cid in char_ids}}
+    payload_fields: dict[str, dict] = {}
+    char_dir = CHAR_DIR / BOOK
+    for cid in char_ids:
+        entry = dict(FIELDS[cid])
+        if not entry.get("结局"):
+            path = char_dir / f"{cid}.md"
+            if path.is_file():
+                fm, body = parse_frontmatter(path)
+                if fm.get("结局"):
+                    entry["结局"] = fm["结局"]
+                else:
+                    o = extract_outcome(fm, body)
+                    if o:
+                        entry["结局"] = o
+        payload_fields[cid] = entry
+
+    payload = {"book": BOOK, "groups": GROUPS, "fields": payload_fields}
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     item_ids: set[str] = set()

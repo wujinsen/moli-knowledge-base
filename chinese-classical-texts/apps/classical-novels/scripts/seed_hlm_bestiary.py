@@ -16,7 +16,7 @@ from _common import CHAR_DIR, DATA_DIR, parse_frontmatter
 
 BOOK = "红楼梦"
 DATA_PATH = DATA_DIR / "hongloumeng.bestiary.json"
-FIELDS = ("性格", "喜好")
+FIELDS = ("性格", "喜好", "结局")
 
 
 def write_frontmatter(path, fm: dict, body: str) -> None:

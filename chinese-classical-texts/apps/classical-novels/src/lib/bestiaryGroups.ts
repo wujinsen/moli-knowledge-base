@@ -1,5 +1,6 @@
 /** 图鉴分组 · 三书共用 catalog 模式 */
 
+import { cardOutcome } from './bestiary';
 import hlmCatalog from '../data/hongloumeng.bestiary.json';
 import jpmCatalog from '../data/jinpingmei.bestiary.json';
 import xyjCatalog from '../data/xiyouji.bestiary.json';
@@ -95,8 +96,19 @@ export type BestiaryStats = {
 
 export function bestiaryStatsFor(
   bookSlug: string,
-  entries: { data: { type: string; 靠山?: string; 结局?: string; 性格?: string; 喜好?: string[] } }[],
+  entries: {
+    data: {
+      type: string;
+      靠山?: string;
+      结局?: string;
+      性格?: string;
+      喜好?: string[];
+      arc?: { chapter?: number; stage?: string; title?: string; note?: string }[];
+      summary?: string;
+    };
+  }[],
 ): BestiaryStats {
+  const withOutcomeCount = entries.filter((e) => cardOutcome(e.data) ?? e.data.结局).length;
   const sections = resolveBestiarySections(
     bookSlug,
     entries as { data: { id: string; faction?: string } }[],
@@ -110,17 +122,17 @@ export function bestiaryStatsFor(
     return {
       ...base,
       withBacking: chars.filter((e) => e.data.靠山).length,
-      withOutcome: chars.filter((e) => e.data.结局).length,
+      withOutcome: withOutcomeCount,
       withPersonality: chars.filter((e) => e.data.性格).length,
       withLikes: chars.filter((e) => (e.data.喜好?.length ?? 0) > 0).length,
     };
   }
   if (bookSlug === 'honglou') {
-    const chars = entries.filter((e) => e.data.type === 'character');
     return {
       ...base,
-      withPersonality: chars.filter((e) => e.data.性格).length,
-      withLikes: chars.filter((e) => (e.data.喜好?.length ?? 0) > 0).length,
+      withPersonality: entries.filter((e) => e.data.性格).length,
+      withLikes: entries.filter((e) => (e.data.喜好?.length ?? 0) > 0).length,
+      withOutcome: withOutcomeCount,
     };
   }
   if (bookSlug === 'xiyouji') {
@@ -130,6 +142,7 @@ export function bestiaryStatsFor(
       monsterCount: entries.filter((e) => e.data.type === 'monster').length,
       withPersonality: entries.filter((e) => e.data.性格).length,
       withLikes: entries.filter((e) => (e.data.喜好?.length ?? 0) > 0).length,
+      withOutcome: withOutcomeCount,
     };
   }
   return base;

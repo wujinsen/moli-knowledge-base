@@ -5,6 +5,7 @@ import Base from '../../layouts/Base.astro';
 import CharacterCard from '../../components/CharacterCard.astro';
 import { bestiaryStatsFor, resolveBestiarySections } from '../../lib/bestiaryGroups';
 import { buildFullRosterList, loadCharacterRoster, loadCharacterScope } from '../../lib/characterRoster';
+import { cardOutcome } from '../../lib/bestiary';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -52,7 +53,7 @@ function cardProps(c: (typeof entries)[number]) {
     proximity: c.data.ximen_proximity,
     backing: c.data.靠山,
     attach: c.data.依附,
-    outcome: c.data.结局,
+    outcome: cardOutcome(c.data) ?? c.data.结局,
     personality: c.data.性格,
     likes: c.data.喜好,
   };
@@ -80,6 +81,8 @@ function cardProps(c: (typeof entries)[number]) {
         {stats.groupCount} 组 · {stats.total} 人
         <span class="mx-1">·</span>
         {stats.withPersonality} 有性格 · {stats.withLikes} 有喜好
+        <span class="mx-1">·</span>
+        {stats.withOutcome} 有结局
         <a href={`/${slug}/graph`} class="ml-2 hover:underline" style="color: var(--accent)">
           关系网 →
         </a>
@@ -94,6 +97,8 @@ function cardProps(c: (typeof entries)[number]) {
         本库 {stats.total} 页 · 学界具名约 1200
         <span class="mx-1">·</span>
         {stats.withPersonality} 有性格 · {stats.withLikes} 有喜好
+        <span class="mx-1">·</span>
+        {stats.withOutcome} 有结局
         <a href={`/${slug}/graph`} class="ml-2 hover:underline" style="color: var(--accent)">
           关系网 →
         </a>

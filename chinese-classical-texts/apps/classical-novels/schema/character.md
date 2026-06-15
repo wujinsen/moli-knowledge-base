@@ -34,15 +34,15 @@
 
 ## 西游记图鉴扩展
 
-`性格` · `喜好[]`（法宝 id 可链 `/xiyouji/i/{id}`）
+`性格` · `喜好[]`（法宝 id 可链 `/xiyouji/i/{id}`）· `结局`
 
-数据：`scripts/xyj_bestiary_fields.py` → `build_xyj_bestiary_json.py` → `xiyouji.bestiary.json` · 同步 `seed_xyj_bestiary.py`
+数据：`scripts/xyj_bestiary_fields.py` → `build_xyj_bestiary_json.py`（含 `outcome_extract`）→ `xiyouji.bestiary.json` · 同步 `seed_xyj_bestiary.py`
 
 ## 红楼梦图鉴扩展（type: character）
 
-`性格` · `喜好[]`（条目可为名物 id、活动或人物名；名物 id 可链至 `/honglou/i/{id}`）
+`性格` · `喜好[]`（条目可为名物 id、活动或人物名；名物 id 可链至 `/honglou/i/{id}`）· `结局`
 
-数据：`scripts/hlm_bestiary_fields.py` → `build_hlm_bestiary_json.py` → `hongloumeng.bestiary.json`（132 人）· 同步 `seed_hlm_bestiary.py`
+数据：`scripts/hlm_bestiary_fields.py` → `build_hlm_bestiary_json.py`（含 `outcome_extract` 自动补全）→ `hongloumeng.bestiary.json` · 同步 `seed_hlm_bestiary.py`
 
 ## 图鉴分组（三书共用）
 

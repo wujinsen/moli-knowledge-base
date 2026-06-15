@@ -31,8 +31,7 @@ const {
   personality,
   likes = [],
 } = Astro.props;
-const hasJpmMeta = !!(proximity || backing || attach || outcome);
-const hasHlmMeta = !!(personality || likes.length > 0);
+const hasFields = !!(personality || likes.length > 0 || backing || attach || outcome);
 const subline = [faction, proximity].filter(Boolean).join(' · ');
 ---
 
@@ -52,7 +51,7 @@ const subline = [faction, proximity].filter(Boolean).join(' · ');
     {summary && <p class="bestiary-card-summary">{summary}</p>}
 
     {
-      (hasHlmMeta || hasJpmMeta) && (
+      (hasFields) && (
         <div class="bestiary-card-fields">
           {
             personality && (

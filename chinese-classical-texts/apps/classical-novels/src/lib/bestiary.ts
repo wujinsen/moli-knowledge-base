@@ -8,6 +8,38 @@ const ITEM_IDS: Record<string, Set<string>> = {
   xiyouji: new Set(xyjItemIds as string[]),
 };
 
+export type CardArcNode = {
+  chapter?: number;
+  stage?: string;
+  title?: string;
+  note?: string;
+};
+
+export type CardCharacterData = {
+  结局?: string;
+  arc?: CardArcNode[];
+  summary?: string;
+};
+
+/** 图鉴卡片「结局」：优先 frontmatter，其次 arc 结局节点 */
+export function cardOutcome(data: CardCharacterData): string | undefined {
+  const explicit = data.结局?.trim();
+  if (explicit) return explicit;
+  const arc = data.arc ?? [];
+  for (let i = arc.length - 1; i >= 0; i -= 1) {
+    const node = arc[i];
+    if (node.stage === '结局') {
+      const title = node.title?.trim();
+      const note = node.note?.trim();
+      const ch = node.chapter;
+      const suffix = ch != null ? `（第${ch}回）` : '';
+      if (title) return `${title}${suffix}`;
+      if (note) return note.length > 56 ? `${note.slice(0, 56)}…` : note;
+    }
+  }
+  return undefined;
+}
+
 export function likeItemHref(bookSlug: string, like: string): string | null {
   const ids = ITEM_IDS[bookSlug];
   if (!ids?.has(like)) return null;
