@@ -164,11 +164,30 @@ export type GroupableEntry = {
   };
 };
 
-/** 额外数据源：由页面注入（如 SNA 中心度） */
+/** 额外数据源：由页面注入（如 SNA 中心度、白银流） */
 export type GroupingContext = {
   /** id → degree_norm（0~1），来自 src/data/<slug>.sna.json */
   centrality?: Map<string, number>;
+  /** id → 涉银笔数，来自 crosslinks occupant_transactions */
+  txCount?: Map<string, number>;
 };
+
+/** 兜底大桶：默认折叠（bestiary.astro 中省略 open） */
+export const BESTIARY_REST_BUCKETS = new Set([
+  '未列镜像',
+  '未入图谱',
+  '未涉银流',
+  '未入五行生克',
+  '未标距离',
+  '未标回目',
+  '归宿未明',
+  '其他人物',
+  '其他',
+]);
+
+export function isBestiaryRestBucket(label: string): boolean {
+  return BESTIARY_REST_BUCKETS.has(label);
+}
 
 /** 一种分组依据：key 用于切换、label 用于 tab、sections 为预渲染分区 */
 export type BestiaryGrouping<T> = {
@@ -281,6 +300,23 @@ const MIRROR_ORDER = HLM_MIRRORS.map((m) => m.label);
 const MIRROR_OF = new Map<string, string>();
 for (const m of HLM_MIRRORS) for (const id of m.ids) MIRROR_OF.set(id, m.label);
 
+/* —— 红楼 · 五行生克（金木三角动力学） —— */
+const HLM_WUXING: { label: string; ids: string[] }[] = [
+  { label: '木 · 灵（黛玉系）', ids: ['林黛玉', '晴雯', '龄官'] },
+  { label: '金 · 理（宝钗系）', ids: ['薛宝钗', '袭人', '麝月'] },
+];
+const WUXING_ORDER = HLM_WUXING.map((w) => w.label);
+const WUXING_OF = new Map<string, string>();
+for (const w of HLM_WUXING) for (const id of w.ids) WUXING_OF.set(id, w.label);
+
+/* —— 金瓶 · 白银流角色（transactions 覆盖度分层） —— */
+const ECON_ORDER = ['银钱枢纽', '收支节点'] as const;
+function economicTier(count?: number): string | undefined {
+  if (!count) return undefined;
+  if (count >= 5) return '银钱枢纽';
+  return '收支节点';
+}
+
 /**
  * 构建一本书可用的全部分组依据（首项恒为「身份名册」）。
  * 仅当某维度字段覆盖度足够时才提供该分组，避免出现整页「其他」。
@@ -303,6 +339,16 @@ export function buildBestiaryGroupings<T extends GroupableEntry & { data: { fact
       key: 'proximity',
       label: '与西门府距离',
       sections: groupByKey(list, (e) => PROX_LABEL[e.data.ximen_proximity ?? ''], PROX_ORDER, '未标距离'),
+    });
+  }
+
+  // 2b) 经济角色（金瓶 · occupant_transactions / silver）
+  const txCount = ctx.txCount;
+  if (bookSlug === 'jinpingmei' && txCount && cover((e) => txCount.has(e.data.id)) >= 6) {
+    out.push({
+      key: 'economic',
+      label: '经济角色',
+      sections: groupByKey(list, (e) => economicTier(txCount.get(e.data.id)), ECON_ORDER, '未涉银流'),
     });
   }
 
@@ -363,6 +409,15 @@ export function buildBestiaryGroupings<T extends GroupableEntry & { data: { fact
       key: 'mirror',
       label: '镜像配对',
       sections: groupByKey(list, (e) => MIRROR_OF.get(e.data.id), MIRROR_ORDER, '未列镜像'),
+    });
+  }
+
+  // 10) 五行生克（红楼专属：金木三角）
+  if (bookSlug === 'honglou' && cover((e) => WUXING_OF.has(e.data.id)) >= 2) {
+    out.push({
+      key: 'wuxing',
+      label: '五行生克',
+      sections: groupByKey(list, (e) => WUXING_OF.get(e.data.id), WUXING_ORDER, '未入五行生克'),
     });
   }
 

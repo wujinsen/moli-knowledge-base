@@ -1,0 +1,2158 @@
+{
+  "book": "红楼梦",
+  "generated": "2026-06-15",
+  "node_count": 209,
+  "edge_count": 683,
+  "hubs": [
+    "贾宝玉",
+    "王熙凤",
+    "贾母",
+    "贾政",
+    "林黛玉"
+  ],
+  "bangxian_hubs": [],
+  "factions": {
+    "乡野": {
+      "count": 1,
+      "top_betweenness": [
+        "王成"
+      ],
+      "max_degree": 2
+    },
+    "仕宦": {
+      "count": 1,
+      "top_betweenness": [
+        "贾雨村"
+      ],
+      "max_degree": 7
+    },
+    "他者": {
+      "count": 6,
+      "top_betweenness": [
+        "柳湘莲",
+        "蒋玉菡",
+        "李婶"
+      ],
+      "max_degree": 4
+    },
+    "古董行": {
+      "count": 1,
+      "top_betweenness": [
+        "冷子兴"
+      ],
+      "max_degree": 3
+    },
+    "史府": {
+      "count": 1,
+      "top_betweenness": [
+        "史湘云"
+      ],
+      "max_degree": 5
+    },
+    "外客": {
+      "count": 1,
+      "top_betweenness": [
+        "冯渊"
+      ],
+      "max_degree": 3
+    },
+    "外府": {
+      "count": 1,
+      "top_betweenness": [
+        "傅秋芳"
+      ],
+      "max_degree": 2
+    },
+    "大明宫": {
+      "count": 1,
+      "top_betweenness": [
+        "戴权"
+      ],
+      "max_degree": 1
+    },
+    "太虚幻境": {
+      "count": 5,
+      "top_betweenness": [
+        "绛珠仙子",
+        "渺渺真人",
+        "色空和尚"
+      ],
+      "max_degree": 2
+    },
+    "宁国府": {
+      "count": 16,
+      "top_betweenness": [
+        "贾珍",
+        "秦可卿",
+        "贾惜春"
+      ],
+      "max_degree": 17
+    },
+    "尤家": {
+      "count": 2,
+      "top_betweenness": [
+        "尤二姐",
+        "尤三姐"
+      ],
+      "max_degree": 10
+    },
+    "应天府": {
+      "count": 1,
+      "top_betweenness": [
+        "门子"
+      ],
+      "max_degree": 2
+    },
+    "村野": {
+      "count": 13,
+      "top_betweenness": [
+        "刘姥姥",
+        "王狗儿",
+        "王太医"
+      ],
+      "max_degree": 9
+    },
+    "栊翠庵": {
+      "count": 1,
+      "top_betweenness": [
+        "妙玉"
+      ],
+      "max_degree": 4
+    },
+    "梨香院": {
+      "count": 1,
+      "top_betweenness": [
+        "茄官"
+      ],
+      "max_degree": 1
+    },
+    "水月庵": {
+      "count": 1,
+      "top_betweenness": [
+        "净虚"
+      ],
+      "max_degree": 3
+    },
+    "江南甄家": {
+      "count": 1,
+      "top_betweenness": [
+        "甄应嘉"
+      ],
+      "max_degree": 1
+    },
+    "王家": {
+      "count": 1,
+      "top_betweenness": [
+        "王仁"
+      ],
+      "max_degree": 5
+    },
+    "王府": {
+      "count": 7,
+      "top_betweenness": [
+        "北静王",
+        "南安郡王",
+        "西宁郡王"
+      ],
+      "max_degree": 7
+    },
+    "甄家": {
+      "count": 2,
+      "top_betweenness": [
+        "甄夫人",
+        "甄宝玉"
+      ],
+      "max_degree": 4
+    },
+    "皇宫": {
+      "count": 2,
+      "top_betweenness": [
+        "贾元春",
+        "夏守忠"
+      ],
+      "max_degree": 6
+    },
+    "神武将军府": {
+      "count": 2,
+      "top_betweenness": [
+        "冯紫英",
+        "卫若兰"
+      ],
+      "max_degree": 5
+    },
+    "荣国府": {
+      "count": 111,
+      "top_betweenness": [
+        "贾宝玉",
+        "王熙凤",
+        "贾母"
+      ],
+      "max_degree": 74
+    },
+    "葫芦庙": {
+      "count": 4,
+      "top_betweenness": [
+        "甄士隐",
+        "霍启",
+        "娇杏"
+      ],
+      "max_degree": 6
+    },
+    "薛家": {
+      "count": 9,
+      "top_betweenness": [
+        "薛蟠",
+        "薛姨妈",
+        "薛宝钗"
+      ],
+      "max_degree": 14
+    },
+    "贾府家塾": {
+      "count": 2,
+      "top_betweenness": [
+        "玉爱",
+        "香怜"
+      ],
+      "max_degree": 1
+    },
+    "贾母房": {
+      "count": 2,
+      "top_betweenness": [
+        "珍珠",
+        "鹦哥"
+      ],
+      "max_degree": 1
+    },
+    "赤瑕宫": {
+      "count": 1,
+      "top_betweenness": [
+        "神瑛侍者"
+      ],
+      "max_degree": 2
+    },
+    "赵姨娘房": {
+      "count": 3,
+      "top_betweenness": [
+        "小鹊",
+        "小吉祥儿",
+        "钱槐"
+      ],
+      "max_degree": 3
+    },
+    "都中": {
+      "count": 5,
+      "top_betweenness": [
+        "卜世仁",
+        "吴良",
+        "张三"
+      ],
+      "max_degree": 1
+    },
+    "金陵贾氏": {
+      "count": 1,
+      "top_betweenness": [
+        "贾璜"
+      ],
+      "max_degree": 2
+    },
+    "长安": {
+      "count": 2,
+      "top_betweenness": [
+        "守备",
+        "云光"
+      ],
+      "max_degree": 2
+    },
+    "青州": {
+      "count": 1,
+      "top_betweenness": [
+        "林四娘"
+      ],
+      "max_degree": 1
+    }
+  },
+  "metrics": [
+    {
+      "id": "贾宝玉",
+      "degree": 74,
+      "degree_norm": 1.0,
+      "betweenness": 0.9712,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "王熙凤",
+      "degree": 39,
+      "degree_norm": 0.527,
+      "betweenness": 0.4029,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "贾母",
+      "degree": 30,
+      "degree_norm": 0.405,
+      "betweenness": 0.3279,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 3
+    },
+    {
+      "id": "贾政",
+      "degree": 27,
+      "degree_norm": 0.365,
+      "betweenness": 0.2047,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 4
+    },
+    {
+      "id": "林黛玉",
+      "degree": 20,
+      "degree_norm": 0.27,
+      "betweenness": 0.1924,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 5
+    },
+    {
+      "id": "王夫人",
+      "degree": 23,
+      "degree_norm": 0.311,
+      "betweenness": 0.1348,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 6
+    },
+    {
+      "id": "贾珍",
+      "degree": 17,
+      "degree_norm": 0.23,
+      "betweenness": 0.127,
+      "faction": "宁国府",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "薛蟠",
+      "degree": 14,
+      "degree_norm": 0.189,
+      "betweenness": 0.1041,
+      "faction": "薛家",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "贾雨村",
+      "degree": 7,
+      "degree_norm": 0.095,
+      "betweenness": 0.1001,
+      "faction": "仕宦",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "薛姨妈",
+      "degree": 11,
+      "degree_norm": 0.149,
+      "betweenness": 0.0831,
+      "faction": "薛家",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "贾琏",
+      "degree": 14,
+      "degree_norm": 0.189,
+      "betweenness": 0.0827,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 7
+    },
+    {
+      "id": "李纨",
+      "degree": 10,
+      "degree_norm": 0.135,
+      "betweenness": 0.0803,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 8
+    },
+    {
+      "id": "芳官",
+      "degree": 18,
+      "degree_norm": 0.243,
+      "betweenness": 0.0745,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 9
+    },
+    {
+      "id": "邢夫人",
+      "degree": 10,
+      "degree_norm": 0.135,
+      "betweenness": 0.0688,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 10
+    },
+    {
+      "id": "薛宝钗",
+      "degree": 14,
+      "degree_norm": 0.189,
+      "betweenness": 0.0616,
+      "faction": "薛家",
+      "ximen_proximity": null,
+      "faction_rank": 3
+    },
+    {
+      "id": "贾环",
+      "degree": 10,
+      "degree_norm": 0.135,
+      "betweenness": 0.0519,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 11
+    },
+    {
+      "id": "贾赦",
+      "degree": 10,
+      "degree_norm": 0.135,
+      "betweenness": 0.046,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 12
+    },
+    {
+      "id": "秦可卿",
+      "degree": 11,
+      "degree_norm": 0.149,
+      "betweenness": 0.0448,
+      "faction": "宁国府",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "贾迎春",
+      "degree": 9,
+      "degree_norm": 0.122,
+      "betweenness": 0.0442,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 13
+    },
+    {
+      "id": "藕官",
+      "degree": 10,
+      "degree_norm": 0.135,
+      "betweenness": 0.043,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 14
+    },
+    {
+      "id": "贾芸",
+      "degree": 7,
+      "degree_norm": 0.095,
+      "betweenness": 0.0427,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 15
+    },
+    {
+      "id": "贾代善",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0375,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 16
+    },
+    {
+      "id": "赵姨娘",
+      "degree": 12,
+      "degree_norm": 0.162,
+      "betweenness": 0.0363,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 17
+    },
+    {
+      "id": "贾探春",
+      "degree": 8,
+      "degree_norm": 0.108,
+      "betweenness": 0.0316,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 18
+    },
+    {
+      "id": "贾惜春",
+      "degree": 7,
+      "degree_norm": 0.095,
+      "betweenness": 0.0316,
+      "faction": "宁国府",
+      "ximen_proximity": null,
+      "faction_rank": 3
+    },
+    {
+      "id": "香菱",
+      "degree": 8,
+      "degree_norm": 0.108,
+      "betweenness": 0.0307,
+      "faction": "薛家",
+      "ximen_proximity": null,
+      "faction_rank": 4
+    },
+    {
+      "id": "北静王",
+      "degree": 7,
+      "degree_norm": 0.095,
+      "betweenness": 0.0306,
+      "faction": "王府",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "甄士隐",
+      "degree": 6,
+      "degree_norm": 0.081,
+      "betweenness": 0.0261,
+      "faction": "葫芦庙",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "贾蓉",
+      "degree": 8,
+      "degree_norm": 0.108,
+      "betweenness": 0.0239,
+      "faction": "宁国府",
+      "ximen_proximity": null,
+      "faction_rank": 4
+    },
+    {
+      "id": "冯紫英",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.0216,
+      "faction": "神武将军府",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "刘姥姥",
+      "degree": 9,
+      "degree_norm": 0.122,
+      "betweenness": 0.0211,
+      "faction": "村野",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "单聘仁",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0189,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 19
+    },
+    {
+      "id": "贾源",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0189,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 20
+    },
+    {
+      "id": "门子",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0189,
+      "faction": "应天府",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "史湘云",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.0169,
+      "faction": "史府",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "冷子兴",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0157,
+      "faction": "古董行",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "秦钟",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.0147,
+      "faction": "宁国府",
+      "ximen_proximity": null,
+      "faction_rank": 5
+    },
+    {
+      "id": "贾蔷",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.014,
+      "faction": "宁国府",
+      "ximen_proximity": null,
+      "faction_rank": 6
+    },
+    {
+      "id": "春燕",
+      "degree": 6,
+      "degree_norm": 0.081,
+      "betweenness": 0.0125,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 21
+    },
+    {
+      "id": "薛宝琴",
+      "degree": 6,
+      "degree_norm": 0.081,
+      "betweenness": 0.012,
+      "faction": "薛家",
+      "ximen_proximity": null,
+      "faction_rank": 5
+    },
+    {
+      "id": "金荣",
+      "degree": 6,
+      "degree_norm": 0.081,
+      "betweenness": 0.0114,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 22
+    },
+    {
+      "id": "玉钏儿",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0106,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 23
+    },
+    {
+      "id": "柳湘莲",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0106,
+      "faction": "他者",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "贾珠",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.01,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 24
+    },
+    {
+      "id": "莺儿",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.0095,
+      "faction": "薛家",
+      "ximen_proximity": null,
+      "faction_rank": 6
+    },
+    {
+      "id": "贾兰",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0083,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 25
+    },
+    {
+      "id": "妙玉",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0082,
+      "faction": "栊翠庵",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "尤二姐",
+      "degree": 10,
+      "degree_norm": 0.135,
+      "betweenness": 0.0079,
+      "faction": "尤家",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "尤氏",
+      "degree": 6,
+      "degree_norm": 0.081,
+      "betweenness": 0.0077,
+      "faction": "宁国府",
+      "ximen_proximity": null,
+      "faction_rank": 7
+    },
+    {
+      "id": "南安郡王",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.0068,
+      "faction": "王府",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "王狗儿",
+      "degree": 6,
+      "degree_norm": 0.081,
+      "betweenness": 0.0064,
+      "faction": "村野",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "玻璃",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0061,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 26
+    },
+    {
+      "id": "薛蝌",
+      "degree": 6,
+      "degree_norm": 0.081,
+      "betweenness": 0.0059,
+      "faction": "薛家",
+      "ximen_proximity": null,
+      "faction_rank": 7
+    },
+    {
+      "id": "鸳鸯",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.0056,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 27
+    },
+    {
+      "id": "赖大",
+      "degree": 7,
+      "degree_norm": 0.095,
+      "betweenness": 0.0054,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 28
+    },
+    {
+      "id": "紫鹃",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.005,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 29
+    },
+    {
+      "id": "钱华",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0043,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 30
+    },
+    {
+      "id": "邢岫烟",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0042,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 31
+    },
+    {
+      "id": "智能",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0041,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 32
+    },
+    {
+      "id": "詹光",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0038,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 33
+    },
+    {
+      "id": "周瑞",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.0037,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 34
+    },
+    {
+      "id": "金钏儿",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0036,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 35
+    },
+    {
+      "id": "神瑛侍者",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0035,
+      "faction": "赤瑕宫",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "平儿",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.0034,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 36
+    },
+    {
+      "id": "贾元春",
+      "degree": 6,
+      "degree_norm": 0.081,
+      "betweenness": 0.0033,
+      "faction": "皇宫",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "夏婆子",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.0033,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 37
+    },
+    {
+      "id": "小红",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.0031,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 38
+    },
+    {
+      "id": "王仁",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.0031,
+      "faction": "王家",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "王太医",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0031,
+      "faction": "村野",
+      "ximen_proximity": null,
+      "faction_rank": 3
+    },
+    {
+      "id": "贾瑞",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0028,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 39
+    },
+    {
+      "id": "贾芹",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0028,
+      "faction": "宁国府",
+      "ximen_proximity": null,
+      "faction_rank": 8
+    },
+    {
+      "id": "龄官",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0027,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 40
+    },
+    {
+      "id": "吴新登",
+      "degree": 6,
+      "degree_norm": 0.081,
+      "betweenness": 0.0026,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 41
+    },
+    {
+      "id": "彩霞",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0024,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 42
+    },
+    {
+      "id": "冯渊",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0024,
+      "faction": "外客",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "贾敬",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0023,
+      "faction": "宁国府",
+      "ximen_proximity": null,
+      "faction_rank": 9
+    },
+    {
+      "id": "旺儿",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0022,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 43
+    },
+    {
+      "id": "秋纹",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.0021,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 44
+    },
+    {
+      "id": "林之孝",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.002,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 45
+    },
+    {
+      "id": "秋桐",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.002,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 46
+    },
+    {
+      "id": "西宁郡王",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.002,
+      "faction": "王府",
+      "ximen_proximity": null,
+      "faction_rank": 3
+    },
+    {
+      "id": "碧月",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0018,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 47
+    },
+    {
+      "id": "巧姐",
+      "degree": 6,
+      "degree_norm": 0.081,
+      "betweenness": 0.0017,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 48
+    },
+    {
+      "id": "蒋玉菡",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0017,
+      "faction": "他者",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "司棋",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0016,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 49
+    },
+    {
+      "id": "王善保家的",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0016,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 50
+    },
+    {
+      "id": "彩明",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0015,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 51
+    },
+    {
+      "id": "袭人",
+      "degree": 7,
+      "degree_norm": 0.095,
+      "betweenness": 0.0014,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 52
+    },
+    {
+      "id": "戴良",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.0014,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 53
+    },
+    {
+      "id": "蕊官",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.0014,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 54
+    },
+    {
+      "id": "周瑞家的",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0014,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 55
+    },
+    {
+      "id": "文官",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0014,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 56
+    },
+    {
+      "id": "鲍二家的",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0014,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 57
+    },
+    {
+      "id": "净虚",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0014,
+      "faction": "水月庵",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "贾璜",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0014,
+      "faction": "金陵贾氏",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "兴儿",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0012,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 58
+    },
+    {
+      "id": "尤三姐",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0012,
+      "faction": "尤家",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "来旺家的",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0012,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 59
+    },
+    {
+      "id": "小鹊",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.001,
+      "faction": "赵姨娘房",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "来升",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.001,
+      "faction": "宁国府",
+      "ximen_proximity": null,
+      "faction_rank": 10
+    },
+    {
+      "id": "艾官",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.001,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 60
+    },
+    {
+      "id": "包勇",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.001,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 61
+    },
+    {
+      "id": "玉官",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.001,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 62
+    },
+    {
+      "id": "马道婆",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.001,
+      "faction": "村野",
+      "ximen_proximity": null,
+      "faction_rank": 4
+    },
+    {
+      "id": "夏金桂",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.0009,
+      "faction": "薛家",
+      "ximen_proximity": null,
+      "faction_rank": 8
+    },
+    {
+      "id": "入画",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0009,
+      "faction": "宁国府",
+      "ximen_proximity": null,
+      "faction_rank": 11
+    },
+    {
+      "id": "甄夫人",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0008,
+      "faction": "甄家",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "豆官",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0008,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 63
+    },
+    {
+      "id": "晴雯",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.0007,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 64
+    },
+    {
+      "id": "单大良",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0007,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 65
+    },
+    {
+      "id": "绛珠仙子",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0007,
+      "faction": "太虚幻境",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "葵官",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0006,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 66
+    },
+    {
+      "id": "贾敏",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0006,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 67
+    },
+    {
+      "id": "宝官",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0005,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 68
+    },
+    {
+      "id": "五儿",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0004,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 69
+    },
+    {
+      "id": "张友士",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0004,
+      "faction": "村野",
+      "ximen_proximity": null,
+      "faction_rank": 5
+    },
+    {
+      "id": "茗烟",
+      "degree": 8,
+      "degree_norm": 0.108,
+      "betweenness": 0.0003,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 70
+    },
+    {
+      "id": "麝月",
+      "degree": 6,
+      "degree_norm": 0.081,
+      "betweenness": 0.0003,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 71
+    },
+    {
+      "id": "琥珀",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0003,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 72
+    },
+    {
+      "id": "贾菌",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0003,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 73
+    },
+    {
+      "id": "霍启",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0003,
+      "faction": "葫芦庙",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "锄药",
+      "degree": 7,
+      "degree_norm": 0.095,
+      "betweenness": 0.0002,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 74
+    },
+    {
+      "id": "宝蟾",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0002,
+      "faction": "薛家",
+      "ximen_proximity": null,
+      "faction_rank": 9
+    },
+    {
+      "id": "四儿",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0002,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 75
+    },
+    {
+      "id": "甄宝玉",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0002,
+      "faction": "甄家",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "卫若兰",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0002,
+      "faction": "神武将军府",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "小蝉",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0002,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 76
+    },
+    {
+      "id": "绣凤",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0001,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 77
+    },
+    {
+      "id": "张金哥",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0001,
+      "faction": "村野",
+      "ximen_proximity": null,
+      "faction_rank": 6
+    },
+    {
+      "id": "小吉祥儿",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0001,
+      "faction": "赵姨娘房",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "扫红",
+      "degree": 6,
+      "degree_norm": 0.081,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 78
+    },
+    {
+      "id": "扫花",
+      "degree": 6,
+      "degree_norm": 0.081,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 79
+    },
+    {
+      "id": "墨雨",
+      "degree": 5,
+      "degree_norm": 0.068,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 80
+    },
+    {
+      "id": "伴鹤",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 81
+    },
+    {
+      "id": "双寿",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 82
+    },
+    {
+      "id": "双瑞",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 83
+    },
+    {
+      "id": "夏守忠",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0,
+      "faction": "皇宫",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "板儿",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0,
+      "faction": "村野",
+      "ximen_proximity": null,
+      "faction_rank": 7
+    },
+    {
+      "id": "青儿",
+      "degree": 4,
+      "degree_norm": 0.054,
+      "betweenness": 0.0,
+      "faction": "村野",
+      "ximen_proximity": null,
+      "faction_rank": 8
+    },
+    {
+      "id": "周姨娘",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 84
+    },
+    {
+      "id": "娇杏",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0,
+      "faction": "葫芦庙",
+      "ximen_proximity": null,
+      "faction_rank": 3
+    },
+    {
+      "id": "嫣红",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 85
+    },
+    {
+      "id": "封肃",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0,
+      "faction": "村野",
+      "ximen_proximity": null,
+      "faction_rank": 9
+    },
+    {
+      "id": "彩鸾",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 86
+    },
+    {
+      "id": "李婶",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0,
+      "faction": "他者",
+      "ximen_proximity": null,
+      "faction_rank": 3
+    },
+    {
+      "id": "李纹",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0,
+      "faction": "他者",
+      "ximen_proximity": null,
+      "faction_rank": 4
+    },
+    {
+      "id": "李绮",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0,
+      "faction": "他者",
+      "ximen_proximity": null,
+      "faction_rank": 5
+    },
+    {
+      "id": "潘又安",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 87
+    },
+    {
+      "id": "焦大",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0,
+      "faction": "宁国府",
+      "ximen_proximity": null,
+      "faction_rank": 12
+    },
+    {
+      "id": "碧痕",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 88
+    },
+    {
+      "id": "绣鸾",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 89
+    },
+    {
+      "id": "翠云",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 90
+    },
+    {
+      "id": "翡翠",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 91
+    },
+    {
+      "id": "胡庸医",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0,
+      "faction": "村野",
+      "ximen_proximity": null,
+      "faction_rank": 10
+    },
+    {
+      "id": "贾代儒",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 92
+    },
+    {
+      "id": "鲍二",
+      "degree": 3,
+      "degree_norm": 0.041,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 93
+    },
+    {
+      "id": "东平郡王",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "王府",
+      "ximen_proximity": null,
+      "faction_rank": 4
+    },
+    {
+      "id": "乌进孝",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "宁国府",
+      "ximen_proximity": null,
+      "faction_rank": 13
+    },
+    {
+      "id": "佳蕙",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 94
+    },
+    {
+      "id": "傅秋芳",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "外府",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "傅试",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "村野",
+      "ximen_proximity": null,
+      "faction_rank": 11
+    },
+    {
+      "id": "同喜",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 95
+    },
+    {
+      "id": "同贵",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 96
+    },
+    {
+      "id": "善姐",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 97
+    },
+    {
+      "id": "喜儿",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 98
+    },
+    {
+      "id": "坠儿",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 99
+    },
+    {
+      "id": "孙绍祖",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "他者",
+      "ximen_proximity": null,
+      "faction_rank": 6
+    },
+    {
+      "id": "守备",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "长安",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "张华",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "村野",
+      "ximen_proximity": null,
+      "faction_rank": 12
+    },
+    {
+      "id": "彩云",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 100
+    },
+    {
+      "id": "李嬷嬷",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 101
+    },
+    {
+      "id": "李贵",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 102
+    },
+    {
+      "id": "王尔调",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 103
+    },
+    {
+      "id": "王成",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "乡野",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "秦业",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "宁国府",
+      "ximen_proximity": null,
+      "faction_rank": 14
+    },
+    {
+      "id": "菂官",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 104
+    },
+    {
+      "id": "贾敷",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "宁国府",
+      "ximen_proximity": null,
+      "faction_rank": 15
+    },
+    {
+      "id": "钱槐",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "赵姨娘房",
+      "ximen_proximity": null,
+      "faction_rank": 3
+    },
+    {
+      "id": "雪雁",
+      "degree": 2,
+      "degree_norm": 0.027,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 105
+    },
+    {
+      "id": "云光",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "长安",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "倪二",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 106
+    },
+    {
+      "id": "傻大姐",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 107
+    },
+    {
+      "id": "卜世仁",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "都中",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "吴良",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "都中",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "多官",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "村野",
+      "ximen_proximity": null,
+      "faction_rank": 13
+    },
+    {
+      "id": "引泉",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 108
+    },
+    {
+      "id": "张三",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "都中",
+      "ximen_proximity": null,
+      "faction_rank": 3
+    },
+    {
+      "id": "彩屏",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 109
+    },
+    {
+      "id": "忠顺亲王",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "王府",
+      "ximen_proximity": null,
+      "faction_rank": 5
+    },
+    {
+      "id": "戴权",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "大明宫",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "挑云",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 110
+    },
+    {
+      "id": "林四娘",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "青州",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "渺渺真人",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "太虚幻境",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "玉爱",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "贾府家塾",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "珍珠",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "贾母房",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "甄应嘉",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "江南甄家",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "石呆子",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "都中",
+      "ximen_proximity": null,
+      "faction_rank": 4
+    },
+    {
+      "id": "素云",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "荣国府",
+      "ximen_proximity": null,
+      "faction_rank": 111
+    },
+    {
+      "id": "色空和尚",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "太虚幻境",
+      "ximen_proximity": null,
+      "faction_rank": 3
+    },
+    {
+      "id": "茄官",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "梨香院",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "茫茫大士",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "太虚幻境",
+      "ximen_proximity": null,
+      "faction_rank": 4
+    },
+    {
+      "id": "葫芦僧",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "葫芦庙",
+      "ximen_proximity": null,
+      "faction_rank": 4
+    },
+    {
+      "id": "警幻仙子",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "太虚幻境",
+      "ximen_proximity": null,
+      "faction_rank": 5
+    },
+    {
+      "id": "贾演",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "宁国府",
+      "ximen_proximity": null,
+      "faction_rank": 16
+    },
+    {
+      "id": "赵亦华",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "都中",
+      "ximen_proximity": null,
+      "faction_rank": 5
+    },
+    {
+      "id": "锦乡侯",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "王府",
+      "ximen_proximity": null,
+      "faction_rank": 6
+    },
+    {
+      "id": "镇国公",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "王府",
+      "ximen_proximity": null,
+      "faction_rank": 7
+    },
+    {
+      "id": "香怜",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "贾府家塾",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "鹦哥",
+      "degree": 1,
+      "degree_norm": 0.014,
+      "betweenness": 0.0,
+      "faction": "贾母房",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    }
+  ],
+  "silver_links": {}
+}

@@ -1,0 +1,966 @@
+{
+  "book": "西游记",
+  "generated": "2026-06-15",
+  "node_count": 80,
+  "edge_count": 482,
+  "hubs": [
+    "孙悟空",
+    "唐僧",
+    "玉皇大帝",
+    "唐太宗",
+    "观音菩萨"
+  ],
+  "bangxian_hubs": [],
+  "factions": {
+    "两界山": {
+      "count": 1,
+      "top_betweenness": [
+        "刘伯钦"
+      ],
+      "max_degree": 2
+    },
+    "乌鸡国": {
+      "count": 1,
+      "top_betweenness": [
+        "乌鸡国王"
+      ],
+      "max_degree": 3
+    },
+    "仙界": {
+      "count": 4,
+      "top_betweenness": [
+        "镇元子",
+        "金顶大仙",
+        "镇元仙童"
+      ],
+      "max_degree": 6
+    },
+    "佛界": {
+      "count": 5,
+      "top_betweenness": [
+        "观音菩萨",
+        "如来佛祖",
+        "燃灯古佛"
+      ],
+      "max_degree": 14
+    },
+    "凤仙郡": {
+      "count": 1,
+      "top_betweenness": [
+        "凤仙郡郡侯"
+      ],
+      "max_degree": 3
+    },
+    "南海普陀": {
+      "count": 1,
+      "top_betweenness": [
+        "木吒"
+      ],
+      "max_degree": 5
+    },
+    "取经队伍": {
+      "count": 5,
+      "top_betweenness": [
+        "孙悟空",
+        "唐僧",
+        "猪八戒"
+      ],
+      "max_degree": 62
+    },
+    "大唐": {
+      "count": 4,
+      "top_betweenness": [
+        "唐太宗",
+        "殷温娇",
+        "陈光蕊"
+      ],
+      "max_degree": 5
+    },
+    "天庭": {
+      "count": 28,
+      "top_betweenness": [
+        "王母娘娘",
+        "广目天王",
+        "丘弘济"
+      ],
+      "max_degree": 13
+    },
+    "天界": {
+      "count": 5,
+      "top_betweenness": [
+        "玉皇大帝",
+        "李靖",
+        "哪吒"
+      ],
+      "max_degree": 31
+    },
+    "天竺国": {
+      "count": 1,
+      "top_betweenness": [
+        "天竺国国王"
+      ],
+      "max_degree": 2
+    },
+    "妖魔": {
+      "count": 1,
+      "top_betweenness": [
+        "铁扇公主"
+      ],
+      "max_degree": 2
+    },
+    "宝象国": {
+      "count": 2,
+      "top_betweenness": [
+        "宝象国国王",
+        "百花羞"
+      ],
+      "max_degree": 3
+    },
+    "月宫": {
+      "count": 1,
+      "top_betweenness": [
+        "太阴星君"
+      ],
+      "max_degree": 2
+    },
+    "朱紫国": {
+      "count": 2,
+      "top_betweenness": [
+        "朱紫国国王",
+        "金圣宫娘娘"
+      ],
+      "max_degree": 3
+    },
+    "比丘国": {
+      "count": 1,
+      "top_betweenness": [
+        "比丘国国王"
+      ],
+      "max_degree": 2
+    },
+    "江州": {
+      "count": 1,
+      "top_betweenness": [
+        "刘洪"
+      ],
+      "max_degree": 3
+    },
+    "泾河": {
+      "count": 1,
+      "top_betweenness": [
+        "泾河龙王"
+      ],
+      "max_degree": 4
+    },
+    "灭法国": {
+      "count": 1,
+      "top_betweenness": [
+        "灭法国国王"
+      ],
+      "max_degree": 2
+    },
+    "祭赛国": {
+      "count": 1,
+      "top_betweenness": [
+        "祭赛国国王"
+      ],
+      "max_degree": 2
+    },
+    "西天": {
+      "count": 1,
+      "top_betweenness": [
+        "弥勒佛祖"
+      ],
+      "max_degree": 2
+    },
+    "西梁女国": {
+      "count": 1,
+      "top_betweenness": [
+        "女儿国国王"
+      ],
+      "max_degree": 2
+    },
+    "通天河": {
+      "count": 1,
+      "top_betweenness": [
+        "老鼋"
+      ],
+      "max_degree": 2
+    },
+    "铜台府": {
+      "count": 1,
+      "top_betweenness": [
+        "寇员外"
+      ],
+      "max_degree": 2
+    },
+    "镇海禅林寺": {
+      "count": 1,
+      "top_betweenness": [
+        "镇海寺方丈"
+      ],
+      "max_degree": 2
+    },
+    "长安": {
+      "count": 1,
+      "top_betweenness": [
+        "袁守诚"
+      ],
+      "max_degree": 2
+    },
+    "陈家庄": {
+      "count": 3,
+      "top_betweenness": [
+        "陈家庄老妪",
+        "陈关",
+        "陈清"
+      ],
+      "max_degree": 4
+    },
+    "高老庄": {
+      "count": 2,
+      "top_betweenness": [
+        "高太公",
+        "高翠兰"
+      ],
+      "max_degree": 3
+    },
+    "黑水河": {
+      "count": 1,
+      "top_betweenness": [
+        "黑水河渔翁"
+      ],
+      "max_degree": 2
+    },
+    "龙宫": {
+      "count": 1,
+      "top_betweenness": [
+        "东海龙王"
+      ],
+      "max_degree": 4
+    }
+  },
+  "metrics": [
+    {
+      "id": "孙悟空",
+      "degree": 62,
+      "degree_norm": 1.0,
+      "betweenness": 1.2929,
+      "faction": "取经队伍",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "唐僧",
+      "degree": 35,
+      "degree_norm": 0.565,
+      "betweenness": 0.4875,
+      "faction": "取经队伍",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "玉皇大帝",
+      "degree": 31,
+      "degree_norm": 0.5,
+      "betweenness": 0.2247,
+      "faction": "天界",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "唐太宗",
+      "degree": 5,
+      "degree_norm": 0.081,
+      "betweenness": 0.0896,
+      "faction": "大唐",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "观音菩萨",
+      "degree": 14,
+      "degree_norm": 0.226,
+      "betweenness": 0.0788,
+      "faction": "佛界",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "王母娘娘",
+      "degree": 6,
+      "degree_norm": 0.097,
+      "betweenness": 0.0658,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "东海龙王",
+      "degree": 4,
+      "degree_norm": 0.065,
+      "betweenness": 0.058,
+      "faction": "龙宫",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "猪八戒",
+      "degree": 7,
+      "degree_norm": 0.113,
+      "betweenness": 0.0556,
+      "faction": "取经队伍",
+      "ximen_proximity": null,
+      "faction_rank": 3
+    },
+    {
+      "id": "泾河龙王",
+      "degree": 4,
+      "degree_norm": 0.065,
+      "betweenness": 0.0268,
+      "faction": "泾河",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "陈家庄老妪",
+      "degree": 4,
+      "degree_norm": 0.065,
+      "betweenness": 0.0236,
+      "faction": "陈家庄",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "如来佛祖",
+      "degree": 6,
+      "degree_norm": 0.097,
+      "betweenness": 0.0151,
+      "faction": "佛界",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "宝象国国王",
+      "degree": 3,
+      "degree_norm": 0.048,
+      "betweenness": 0.0118,
+      "faction": "宝象国",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "高太公",
+      "degree": 3,
+      "degree_norm": 0.048,
+      "betweenness": 0.0077,
+      "faction": "高老庄",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "广目天王",
+      "degree": 13,
+      "degree_norm": 0.21,
+      "betweenness": 0.0076,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "丘弘济",
+      "degree": 5,
+      "degree_norm": 0.081,
+      "betweenness": 0.0067,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 3
+    },
+    {
+      "id": "张道陵",
+      "degree": 5,
+      "degree_norm": 0.081,
+      "betweenness": 0.0067,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 4
+    },
+    {
+      "id": "葛仙翁",
+      "degree": 5,
+      "degree_norm": 0.081,
+      "betweenness": 0.0067,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 5
+    },
+    {
+      "id": "凤仙郡郡侯",
+      "degree": 3,
+      "degree_norm": 0.048,
+      "betweenness": 0.0051,
+      "faction": "凤仙郡",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "崇恩圣帝",
+      "degree": 4,
+      "degree_norm": 0.065,
+      "betweenness": 0.005,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 6
+    },
+    {
+      "id": "黄角大仙",
+      "degree": 4,
+      "degree_norm": 0.065,
+      "betweenness": 0.005,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 7
+    },
+    {
+      "id": "镇元子",
+      "degree": 6,
+      "degree_norm": 0.097,
+      "betweenness": 0.0047,
+      "faction": "仙界",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "乌鸡国王",
+      "degree": 3,
+      "degree_norm": 0.048,
+      "betweenness": 0.0029,
+      "faction": "乌鸡国",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "白龙马",
+      "degree": 4,
+      "degree_norm": 0.065,
+      "betweenness": 0.0028,
+      "faction": "取经队伍",
+      "ximen_proximity": null,
+      "faction_rank": 4
+    },
+    {
+      "id": "木吒",
+      "degree": 5,
+      "degree_norm": 0.081,
+      "betweenness": 0.0027,
+      "faction": "南海普陀",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "李靖",
+      "degree": 7,
+      "degree_norm": 0.113,
+      "betweenness": 0.0023,
+      "faction": "天界",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "沙僧",
+      "degree": 6,
+      "degree_norm": 0.097,
+      "betweenness": 0.0022,
+      "faction": "取经队伍",
+      "ximen_proximity": null,
+      "faction_rank": 5
+    },
+    {
+      "id": "哪吒",
+      "degree": 6,
+      "degree_norm": 0.097,
+      "betweenness": 0.0019,
+      "faction": "天界",
+      "ximen_proximity": null,
+      "faction_rank": 3
+    },
+    {
+      "id": "朱紫国国王",
+      "degree": 3,
+      "degree_norm": 0.048,
+      "betweenness": 0.0015,
+      "faction": "朱紫国",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "增长天王",
+      "degree": 8,
+      "degree_norm": 0.129,
+      "betweenness": 0.001,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 8
+    },
+    {
+      "id": "燃灯古佛",
+      "degree": 3,
+      "degree_norm": 0.048,
+      "betweenness": 0.0003,
+      "faction": "佛界",
+      "ximen_proximity": null,
+      "faction_rank": 3
+    },
+    {
+      "id": "火德星君",
+      "degree": 4,
+      "degree_norm": 0.065,
+      "betweenness": 0.0002,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 9
+    },
+    {
+      "id": "金圣宫娘娘",
+      "degree": 3,
+      "degree_norm": 0.048,
+      "betweenness": 0.0002,
+      "faction": "朱紫国",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "刘元帅",
+      "degree": 7,
+      "degree_norm": 0.113,
+      "betweenness": 0.0001,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 10
+    },
+    {
+      "id": "庞元帅",
+      "degree": 7,
+      "degree_norm": 0.113,
+      "betweenness": 0.0001,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 11
+    },
+    {
+      "id": "毕元帅",
+      "degree": 7,
+      "degree_norm": 0.113,
+      "betweenness": 0.0001,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 12
+    },
+    {
+      "id": "关元帅",
+      "degree": 6,
+      "degree_norm": 0.097,
+      "betweenness": 0.0,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 13
+    },
+    {
+      "id": "护国天王",
+      "degree": 6,
+      "degree_norm": 0.097,
+      "betweenness": 0.0,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 14
+    },
+    {
+      "id": "温元帅",
+      "degree": 6,
+      "degree_norm": 0.097,
+      "betweenness": 0.0,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 15
+    },
+    {
+      "id": "赵元帅",
+      "degree": 6,
+      "degree_norm": 0.097,
+      "betweenness": 0.0,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 16
+    },
+    {
+      "id": "马元帅",
+      "degree": 6,
+      "degree_norm": 0.097,
+      "betweenness": 0.0,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 17
+    },
+    {
+      "id": "多闻天王",
+      "degree": 5,
+      "degree_norm": 0.081,
+      "betweenness": 0.0,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 18
+    },
+    {
+      "id": "许旌阳",
+      "degree": 4,
+      "degree_norm": 0.065,
+      "betweenness": 0.0,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 19
+    },
+    {
+      "id": "二郎神",
+      "degree": 3,
+      "degree_norm": 0.048,
+      "betweenness": 0.0,
+      "faction": "天界",
+      "ximen_proximity": null,
+      "faction_rank": 4
+    },
+    {
+      "id": "刘洪",
+      "degree": 3,
+      "degree_norm": 0.048,
+      "betweenness": 0.0,
+      "faction": "江州",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "北极玄灵",
+      "degree": 3,
+      "degree_norm": 0.048,
+      "betweenness": 0.0,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 20
+    },
+    {
+      "id": "四值功曹",
+      "degree": 3,
+      "degree_norm": 0.048,
+      "betweenness": 0.0,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 21
+    },
+    {
+      "id": "殷温娇",
+      "degree": 3,
+      "degree_norm": 0.048,
+      "betweenness": 0.0,
+      "faction": "大唐",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "水德星君",
+      "degree": 3,
+      "degree_norm": 0.048,
+      "betweenness": 0.0,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 22
+    },
+    {
+      "id": "赤脚大仙",
+      "degree": 3,
+      "degree_norm": 0.048,
+      "betweenness": 0.0,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 23
+    },
+    {
+      "id": "陈光蕊",
+      "degree": 3,
+      "degree_norm": 0.048,
+      "betweenness": 0.0,
+      "faction": "大唐",
+      "ximen_proximity": null,
+      "faction_rank": 3
+    },
+    {
+      "id": "陈关",
+      "degree": 3,
+      "degree_norm": 0.048,
+      "betweenness": 0.0,
+      "faction": "陈家庄",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "陈清",
+      "degree": 3,
+      "degree_norm": 0.048,
+      "betweenness": 0.0,
+      "faction": "陈家庄",
+      "ximen_proximity": null,
+      "faction_rank": 3
+    },
+    {
+      "id": "七衣仙女",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 24
+    },
+    {
+      "id": "刘伯钦",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "两界山",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "南极寿星",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 25
+    },
+    {
+      "id": "可韩丈人",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 26
+    },
+    {
+      "id": "天竺国国王",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "天竺国",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "太上老君",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "天界",
+      "ximen_proximity": null,
+      "faction_rank": 5
+    },
+    {
+      "id": "太白金星",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 27
+    },
+    {
+      "id": "太阴星君",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "月宫",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "女儿国国王",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "西梁女国",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "寇员外",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "铜台府",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "巨灵神",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "天庭",
+      "ximen_proximity": null,
+      "faction_rank": 28
+    },
+    {
+      "id": "弥勒佛祖",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "西天",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "文殊菩萨",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "佛界",
+      "ximen_proximity": null,
+      "faction_rank": 4
+    },
+    {
+      "id": "比丘国国王",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "比丘国",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "灭法国国王",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "灭法国",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "灵吉菩萨",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "佛界",
+      "ximen_proximity": null,
+      "faction_rank": 5
+    },
+    {
+      "id": "百花羞",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "宝象国",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "祭赛国国王",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "祭赛国",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "老鼋",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "通天河",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "袁守诚",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "长安",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "金顶大仙",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "仙界",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "铁扇公主",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "妖魔",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "镇元仙童",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "仙界",
+      "ximen_proximity": null,
+      "faction_rank": 3
+    },
+    {
+      "id": "镇海寺方丈",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "镇海禅林寺",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "高翠兰",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "高老庄",
+      "ximen_proximity": null,
+      "faction_rank": 2
+    },
+    {
+      "id": "魏征",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "大唐",
+      "ximen_proximity": null,
+      "faction_rank": 4
+    },
+    {
+      "id": "黑水河渔翁",
+      "degree": 2,
+      "degree_norm": 0.032,
+      "betweenness": 0.0,
+      "faction": "黑水河",
+      "ximen_proximity": null,
+      "faction_rank": 1
+    },
+    {
+      "id": "菩提祖师",
+      "degree": 1,
+      "degree_norm": 0.016,
+      "betweenness": 0.0,
+      "faction": "仙界",
+      "ximen_proximity": null,
+      "faction_rank": 4
+    }
+  ],
+  "silver_links": {}
+}

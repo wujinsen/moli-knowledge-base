@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import CharacterCard from '../../components/CharacterCard.astro';
-import { bestiaryStatsFor, buildBestiaryGroupings } from '../../lib/bestiaryGroups';
+import { bestiaryStatsFor, buildBestiaryGroupings, isBestiaryRestBucket } from '../../lib/bestiaryGroups';
 import { buildFullRosterList, loadCharacterRoster, loadCharacterScope } from '../../lib/characterRoster';
 import { cardOutcome } from '../../lib/bestiary';
 
@@ -34,8 +34,23 @@ if (snaEntry) {
   if (metrics.length > 0) centrality = new Map(metrics.map((m) => [m.id, m.degree_norm ?? 0]));
 }
 
+/** 金瓶 · occupant_transactions → id → 涉银笔数 */
+let txCount: Map<string, number> | undefined;
+if (slug === 'jinpingmei') {
+  const clModules = import.meta.glob('../../data/*.crosslinks.json', { eager: true });
+  const clEntry = Object.entries(clModules).find(([p]) => p.endsWith(`/${slug}.crosslinks.json`));
+  if (clEntry) {
+    const cl =
+      (clEntry[1] as { default?: { occupant_transactions?: Record<string, string[]> } }).default ??
+      (clEntry[1] as { occupant_transactions?: Record<string, string[]> });
+    const occ = cl.occupant_transactions ?? {};
+    const entries = Object.entries(occ).filter(([, ids]) => ids.length > 0);
+    if (entries.length >= 6) txCount = new Map(entries.map(([id, ids]) => [id, ids.length]));
+  }
+}
+
 /** 多维分组：首项恒为「身份名册」，其余按字段覆盖度自动启用 */
-const groupings = buildBestiaryGroupings(slug, entries, { centrality });
+const groupings = buildBestiaryGroupings(slug, entries, { centrality, txCount });
 const stats = bestiaryStatsFor(slug, entries);
 
 const rosterData = loadCharacterRoster(slug);
@@ -244,7 +259,10 @@ function cardProps(c: (typeof entries)[number]) {
         data-pagefind-ignore={i !== 0 ? 'true' : undefined}
       >
         {g.sections.map(({ label, items }) => (
-          <details class="bestiary-section bestiary-group surface mb-6" open>
+          <details
+            class="bestiary-section bestiary-group surface mb-6"
+            {...(!isBestiaryRestBucket(label) ? { open: true } : {})}
+          >
             <summary class="bestiary-group-summary">
               <span class="bestiary-group-title">{label}</span>
               <span class="bestiary-group-count">{items.length}</span>
