@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
+import BackLink from '../../components/BackLink.astro';
 import JpmModuleNav from '../../components/JpmModuleNav.astro';
 import SilverDashboard from '../../components/SilverDashboard.tsx';
 import { formatLiang } from '../../lib/currency';
@@ -48,7 +49,7 @@ const eventTxMap = Object.fromEntries(finEvents.map((e) => [e.data.id, e.data.tr
 ---
 
 <Base title={`${meta.book} · 白银流`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
-  <a href={`/${meta.slug}`} class="text-sm hover:underline" style="color: var(--ink-soft)">← {meta.book}</a>
+  <BackLink href={`/${meta.slug}`} label={meta.book} />
 
   <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
     <div class="flex items-start gap-4">

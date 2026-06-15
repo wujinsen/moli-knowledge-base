@@ -30,7 +30,23 @@
 
 `ximen_proximity`（亲缘 / 雇佣 / 利益交换 / 外人）· `靠山` · `依附` · `结局`
 
-数据：`src/data/jinpingmei.bestiary.json` · 同步 `python scripts/seed_jpm_bestiary.py`
+数据：`src/data/jinpingmei.bestiary.json`（含 `groups` 图鉴分组 + `fields`）· 同步 `python scripts/seed_jpm_bestiary.py`
+
+## 红楼梦图鉴扩展（type: character）
+
+`性格` · `喜好[]`（条目可为名物 id、活动或人物名；名物 id 可链至 `/honglou/i/{id}`）
+
+数据：`scripts/hlm_bestiary_fields.py` → `build_hlm_bestiary_json.py` → `hongloumeng.bestiary.json`（132 人）· 同步 `seed_hlm_bestiary.py`
+
+## 图鉴分组（三书共用）
+
+各书 `src/data/<书>.bestiary.json` 可含 `groups`：`{ "组名": ["人物id", ...] }`。页面由 `src/lib/bestiaryGroups.ts` 统一解析；未配置 `groups` 时回退 `faction` 分组。
+
+| 书 | 数据文件 | 校验 |
+|----|----------|------|
+| 红楼梦 | `hongloumeng.bestiary.json` | `validate_bestiary_groups.py` |
+| 金瓶梅 | `jinpingmei.bestiary.json` | 同上 |
+| 西游记 | `xiyouji.bestiary.json` | 同上（人物+妖怪统一分组） |
 
 ## 示例
 

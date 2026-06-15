@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
+import BackLink from '../../../components/BackLink.astro';
 import { loadBookPlaces, typeLabel } from '../../../lib/places';
 import { chaptersFromAppearIn, relatedItemsForPlace } from '../../../lib/crosslinks';
 
@@ -41,39 +42,38 @@ const isTown = features.includes('town') && !!d.map_zone;
 const backHref = isRoute ? `/${slug}/route` : isTown ? `/${slug}/town` : `/${slug}/places`;
 const placesLabel =
   slug === 'jinpingmei' ? '西门府' : slug === 'honglou' ? '大观园' : '地点';
-const backLabel = isRoute ? '← 取经路线' : isTown ? '← 市井地图' : `← ${placesLabel} · 建筑居所`;
+const backLabel = isRoute ? '取经路线' : isTown ? '市井地图' : `${placesLabel} · 建筑居所`;
 
 const relatedItems = await relatedItemsForPlace(d.book, d.id, d.occupants);
 const chapterNums = chaptersFromAppearIn(d.appear_in);
 ---
 
 <Base title={d.name} bookSlug={slug} bookName={d.book} features={features}>
-  <a href={backHref} class="text-sm hover:underline" style="color: var(--ink-soft)" data-pagefind-ignore>
-    {backLabel}
-  </a>
+  <BackLink href={backHref} label={backLabel} />
   <div
+    class="content-page"
     data-pagefind-body
     data-pagefind-meta={`title:${d.name}`}
     data-pagefind-filter={`书:${d.book},类型:${typeLabel(d.type)}`}
   >
     <div class="mt-3 flex flex-wrap items-center gap-2">
       <h1 class="brand text-4xl" style="color: var(--primary)">{d.name}</h1>
-      <span class="chip">{typeLabel(d.type)}</span>
-      {d.category && <span class="chip">{d.category}</span>}
+      <span class="chip chip-md">{typeLabel(d.type)}</span>
+      {d.category && <span class="chip chip-md">{d.category}</span>}
     </div>
 
     {d.aliases.length > 0 && (
-      <p class="mt-2 text-sm" style="color: var(--ink-soft)">别名：{d.aliases.join('、')}</p>
+      <p class="mt-2 text-sm">别名：{d.aliases.join('、')}</p>
     )}
-    {d.summary && <p class="mt-2 text-sm" style="color: var(--ink-soft)">{d.summary}</p>}
+    {d.summary && <p class="page-lead mt-2">{d.summary}</p>}
 
     {
       d.plaque && (
-        <div class="surface mt-4 p-4 text-sm">
+        <div class="entity-spec surface mt-4 p-4 sm:p-5">
           <div class="brand text-lg" style="color: var(--primary)">匾 · {d.plaque}</div>
           {
             d.couplet && (
-              <div class="mt-1" style="color: var(--ink-soft)">
+              <div class="mt-1.5">
                 联：{d.couplet.upper}；{d.couplet.lower}
               </div>
             )
@@ -82,7 +82,7 @@ const chapterNums = chaptersFromAppearIn(d.appear_in);
       )
     }
 
-    <div class="surface mt-4 grid gap-2 p-4 text-sm sm:grid-cols-2" style="color: var(--ink)">
+    <div class="entity-spec surface mt-4 grid gap-2.5 p-4 sm:grid-cols-2 sm:p-5">
       {d.realm && <div>地理：{d.realm}（{d.layer === 'myth' ? '神话异界' : '凡间路线'}）</div>}
       {d.route_order != null && (
         <div>
@@ -106,7 +106,7 @@ const chapterNums = chaptersFromAppearIn(d.appear_in);
 
     {
       d.features.length > 0 && (
-        <ul class="mt-3 list-inside list-disc text-sm" style="color: var(--ink-soft)">
+        <ul class="mt-3 list-inside list-disc text-sm">
           {d.features.map((f) => (
             <li>{f}</li>
           ))}
@@ -117,7 +117,7 @@ const chapterNums = chaptersFromAppearIn(d.appear_in);
     {
       d.nearby.length > 0 && (
         <div class="mt-6">
-          <h2 class="section-title mb-2 text-sm">邻近</h2>
+          <h2 class="section-title mb-2">邻近</h2>
           <div class="flex flex-wrap gap-2">
             {d.nearby.map((n) => (
               <a href={`/${slug}/l/${n}`} class="chip hover:underline">
@@ -132,7 +132,7 @@ const chapterNums = chaptersFromAppearIn(d.appear_in);
     {
       relatedItems.length > 0 && (
         <div class="mt-6">
-          <h2 class="section-title mb-2 text-sm">相关名物</h2>
+          <h2 class="section-title mb-2">相关名物</h2>
           <div class="flex flex-wrap gap-2">
             {relatedItems.map((item) => (
               <a href={`/${slug}/i/${item.id}`} class="chip hover:underline">
@@ -147,7 +147,7 @@ const chapterNums = chaptersFromAppearIn(d.appear_in);
     {
       chapterNums.length > 0 && (
         <div class="mt-6">
-          <h2 class="section-title mb-2 text-sm">相关回目</h2>
+          <h2 class="section-title mb-2">相关回目</h2>
           <div class="flex flex-wrap gap-2">
             {chapterNums.map((num) => (
               <a href={`/${slug}/read/${num}`} class="chip hover:underline">
@@ -159,7 +159,7 @@ const chapterNums = chaptersFromAppearIn(d.appear_in);
       )
     }
 
-    <article class="prose-cn mt-6 max-w-none" style="color: var(--ink)">
+    <article class="prose-cn mt-6 max-w-none">
       <Content />
     </article>
   </div>

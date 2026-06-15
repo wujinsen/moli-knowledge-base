@@ -63,6 +63,7 @@ export default function RelationGraph({ bookSlug }: Props) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [hiddenFactions, setHiddenFactions] = useState<Set<string>>(new Set());
   const [physics, setPhysics] = useState(true);
+  const [expandedEdgeTypes, setExpandedEdgeTypes] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     const focus = new URLSearchParams(window.location.search).get('focus');
@@ -89,9 +90,66 @@ export default function RelationGraph({ bookSlug }: Props) {
   );
 
   const selectedNode = selectedId ? data.nodes.find((n) => n.id === selectedId) : null;
-  const selectedEdges = selectedId
-    ? visibleEdges.filter((e) => e.source === selectedId || e.target === selectedId)
-    : [];
+  const selectedEdges = useMemo(
+    () =>
+      selectedId
+        ? visibleEdges.filter((e) => e.source === selectedId || e.target === selectedId)
+        : [],
+    [selectedId, visibleEdges],
+  );
+
+  const groupedSelectedEdges = useMemo(() => {
+    if (!selectedNode) return [];
+    const map = new Map<
+      string,
+      { target: string; inference?: boolean; contradiction?: boolean }[]
+    >();
+    for (const e of selectedEdges) {
+      const other = e.source === selectedNode.id ? e.target : e.source;
+      if (!map.has(e.type)) map.set(e.type, []);
+      map.get(e.type)!.push({
+        target: other,
+        inference: e.inference,
+        contradiction: e.contradiction,
+      });
+    }
+    return [...map.entries()]
+      .map(([type, items]) => ({
+        type,
+        items: [...items].sort((a, b) => a.target.localeCompare(b.target, 'zh-CN')),
+      }))
+      .sort((a, b) => b.items.length - a.items.length);
+  }, [selectedEdges, selectedNode]);
+
+  useEffect(() => {
+    if (!selectedId) {
+      setExpandedEdgeTypes(new Set());
+      return;
+    }
+    const edges = visibleEdges.filter((e) => e.source === selectedId || e.target === selectedId);
+    const typeCounts = new Map<string, number>();
+    for (const e of edges) {
+      typeCounts.set(e.type, (typeCounts.get(e.type) ?? 0) + 1);
+    }
+    const auto = new Set<string>();
+    for (const [type, count] of typeCounts) {
+      if (count <= 4) auto.add(type);
+    }
+    if (auto.size === 0) {
+      const top = [...typeCounts.entries()].sort((a, b) => b[1] - a[1])[0];
+      if (top) auto.add(top[0]);
+    }
+    setExpandedEdgeTypes(auto);
+  }, [selectedId, visibleEdges]);
+
+  const toggleEdgeType = (type: string) => {
+    setExpandedEdgeTypes((prev) => {
+      const next = new Set(prev);
+      if (next.has(type)) next.delete(type);
+      else next.add(type);
+      return next;
+    });
+  };
 
   const buildOption = useCallback((): EChartsOption => {
     const focusNeighbors = selectedId ? neighborSet(selectedId, visibleEdges) : null;
@@ -453,9 +511,9 @@ export default function RelationGraph({ bookSlug }: Props) {
         })}
       </div>
 
-      {/* 关系图例 */}
-      {relationTypes.length > 0 && (
-        <div className="absolute bottom-4 right-3 z-10 max-h-32 overflow-y-auto rounded-lg border border-white/10 bg-slate-900/85 p-2 backdrop-blur-md">
+      {/* 关系图例（选中节点时改由侧栏分组展示，避免与详情面板叠盖） */}
+      {relationTypes.length > 0 && !selectedNode && (
+        <div className="graph-legend absolute bottom-4 right-3 z-10 max-h-32 overflow-y-auto rounded-lg border border-white/10 bg-slate-900/85 p-2 backdrop-blur-md">
           <div className="mb-1 text-[10px] uppercase tracking-wide text-slate-500">关系类型</div>
           <div className="flex flex-wrap gap-x-3 gap-y-1">
             {relationTypes.map((t) => (
@@ -474,13 +532,19 @@ export default function RelationGraph({ bookSlug }: Props) {
         </div>
       )}
 
-      {/* 选中详情 */}
+      <div ref={chartRef} className="absolute inset-0 z-0 h-full w-full" />
+
+      {/* 选中详情（置于 canvas 之后，确保可点击） */}
       {selectedNode && (
         <aside
-          className="absolute right-3 top-[3.25rem] z-20 flex w-60 max-h-[calc(100vh-6.5rem)] flex-col rounded-xl border bg-slate-900/92 shadow-2xl backdrop-blur-md"
-          style={{ borderColor: gt.accentLine }}
+          className="graph-detail-panel pointer-events-auto absolute right-3 top-[3.25rem] z-30 flex w-80 flex-col rounded-xl border bg-slate-900/92 shadow-2xl backdrop-blur-md sm:w-96"
+          style={{
+            borderColor: gt.accentLine,
+            height: 'calc(100vh - 5.5rem)',
+            maxHeight: 'calc(100vh - 5.5rem)',
+          }}
         >
-          <div className="border-b border-white/5 px-4 py-3">
+          <div className="shrink-0 border-b border-white/5 px-4 py-3">
             <div className="flex items-start justify-between gap-2">
               <div className="min-w-0">
                 <div className="truncate text-lg font-semibold" style={{ color: gt.accentSoft }}>
@@ -510,24 +574,68 @@ export default function RelationGraph({ bookSlug }: Props) {
               <strong style={{ color: gt.accentSoft }}>{selectedEdges.length}</strong>
               <span>条邻接</span>
               <span className="text-slate-600">·</span>
-              <strong style={{ color: gt.accentSoft }}>{visibleNodes.length}</strong>
-              <span>节点</span>
+              <strong style={{ color: gt.accentSoft }}>{groupedSelectedEdges.length}</strong>
+              <span>类关系</span>
             </div>
           </div>
-          <ul className="graph-panel-scroll flex-1 space-y-1 overflow-y-auto px-4 py-3 text-sm">
-            {selectedEdges.map((e, i) => {
-              const other = e.source === selectedNode.id ? e.target : e.source;
+          <div className="graph-panel-scroll min-h-0 flex-1 overflow-y-auto px-3 py-2 text-sm text-slate-200">
+            {groupedSelectedEdges.length === 0 ? (
+              <p className="px-2 py-4 text-center text-xs text-slate-500">暂无邻接关系</p>
+            ) : (
+              groupedSelectedEdges.map((group) => {
+              const open = expandedEdgeTypes.has(group.type);
+              const color = relationColor(group.type);
               return (
-                <li key={i} className="leading-snug text-slate-300">
-                  <span style={{ color: relationColor(e.type) }}>{e.type}</span>
-                  <span className="text-slate-500"> → </span>
-                  {other}
-                </li>
+                <div key={group.type} className="mb-1.5 rounded-lg border border-white/5 bg-slate-950/40">
+                  <button
+                    type="button"
+                    onClick={() => toggleEdgeType(group.type)}
+                    className="flex w-full items-center gap-2 px-3 py-2 text-left hover:bg-white/5"
+                  >
+                    <span
+                      className="inline-block h-0.5 w-3 shrink-0 rounded"
+                      style={{ backgroundColor: color }}
+                    />
+                    <span className="font-medium" style={{ color }}>
+                      {group.type}
+                    </span>
+                    <span className="ml-auto text-xs text-slate-500">{group.items.length}</span>
+                    <span className="text-xs text-slate-500" aria-hidden>
+                      {open ? '▾' : '▸'}
+                    </span>
+                  </button>
+                  {open && (
+                    <ul className="space-y-0.5 border-t border-white/5 px-3 py-2">
+                      {group.items.map((item) => (
+                        <li key={`${group.type}-${item.target}`} className="leading-snug">
+                          <a
+                            href={`/${bookSlug}/c/${encodeURIComponent(item.target)}`}
+                            className="text-slate-200 hover:text-white hover:underline"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            {item.target}
+                          </a>
+                          {(item.inference || item.contradiction) && (
+                            <span className="ml-1 text-[10px] text-slate-500">
+                              {item.contradiction ? '矛盾' : '推论'}
+                            </span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               );
-            })}
-          </ul>
+            })
+            )}
+            {selectedEdges.length > 12 && (
+              <p className="px-1 py-2 text-center text-[10px] text-slate-500">
+                点击关系类型展开/收起 · 侧栏可滚动
+              </p>
+            )}
+          </div>
           {selectedNode.type === 'topic' && selectedNode.chapter ? (
-            <div className="border-t border-white/5 px-4 py-3 space-y-2">
+            <div className="shrink-0 space-y-2 border-t border-white/5 px-4 py-3">
               <a
                 href={`/${bookSlug}/compare/cihua-chongzhen/${selectedNode.chapter}`}
                 className="inline-block text-sm hover:underline"
@@ -543,7 +651,7 @@ export default function RelationGraph({ bookSlug }: Props) {
               </a>
             </div>
           ) : selectedNode.type !== 'topic' ? (
-            <div className="border-t border-white/5 px-4 py-3">
+            <div className="shrink-0 border-t border-white/5 px-4 py-3">
               <a
                 href={`/${bookSlug}/c/${encodeURIComponent(selectedNode.id)}`}
                 className="inline-block text-sm hover:underline"
@@ -568,8 +676,6 @@ export default function RelationGraph({ bookSlug }: Props) {
           </button>
         </div>
       )}
-
-      <div ref={chartRef} className="absolute inset-0 h-full w-full" />
 
       <p className="pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 select-none text-center text-slate-700/40 text-sm">
         拖拽节点 · 滚轮缩放 · 点击高亮邻接

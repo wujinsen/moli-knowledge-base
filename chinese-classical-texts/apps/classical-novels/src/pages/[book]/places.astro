@@ -49,7 +49,7 @@ const rootEntry = root ? places.find((p) => p.data.id === root.id) : undefined;
         <h2 class="section-title mb-3 text-lg">
           {root.title}（{rootChildren.length + (rootEntry ? 1 : 0)}）
         </h2>
-        <div class="mb-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="mb-4 grid items-stretch gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {rootEntry && (
             <PlaceCard
               href={`/${meta.slug}/l/${rootEntry.data.id}`}
@@ -86,7 +86,7 @@ const rootEntry = root ? places.find((p) => p.data.id === root.id) : undefined;
       return (
         <section id={cat} class="mb-10">
           <h2 class="section-title mb-3 text-lg">{cat}（{rest.length}）</h2>
-          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="grid items-stretch gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
             {rest.map((entry) => (
               <PlaceCard
                 href={`/${meta.slug}/l/${entry.data.id}`}

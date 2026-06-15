@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import GraphLayout from '../../layouts/GraphLayout.astro';
+import BackLink from '../../components/BackLink.astro';
 import TownMap from '../../components/TownMap.tsx';
 import crosslinks from '../../data/jinpingmei.crosslinks.json';
 import { buildTownEdges, type TownEventRef, type TownMapNode } from '../../lib/townMap';
@@ -93,9 +94,7 @@ const zoneCounts = Object.fromEntries(
           </code>
           为地点注入坐标与 map_zone。
         </p>
-        <a href={`/${meta.slug}`} class="mt-6 text-sm text-amber-300 hover:underline">
-          ← 返回 {meta.book}
-        </a>
+        <BackLink href={`/${meta.slug}`} label={meta.book} variant="dark" class="mt-6" />
       </div>
     ) : (
       <>

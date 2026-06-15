@@ -2,9 +2,9 @@
 import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
+import BackLink from '../../components/BackLink.astro';
 import ImageryGraph from '../../components/ImageryGraph.tsx';
 import {
-  HIGHLIGHT_CHAINS,
   buildImageryGraph,
   chapterLabel,
   sortImagery,
@@ -32,11 +32,10 @@ const extraLinks: ImageryGraphEdge[] = extraRaw?.default?.links ?? extraRaw?.lin
 
 const graph = buildImageryGraph(items, extraLinks);
 const bySubtype = (st: string) => items.filter((i) => i.data.subtype === st);
-const featuredChain = HIGHLIGHT_CHAINS[0];
 ---
 
 <Base title={`${meta.book} · 诗词意象`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
-  <a href={`/${meta.slug}`} class="text-sm hover:underline" style="color: var(--ink-soft)">← {meta.book}</a>
+  <BackLink href={`/${meta.slug}`} label={meta.book} />
 
   <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
     <div class="flex items-start gap-4">
@@ -50,7 +49,7 @@ const featuredChain = HIGHLIGHT_CHAINS[0];
     </div>
     <p class="mt-5 max-w-2xl text-sm leading-relaxed" style="color: var(--ink)">
       图谶式文本的核心：表层意象与人物命运的「隐喻」推论边（<code class="rounded px-1" style="background: color-mix(in srgb, var(--primary) 8%, transparent)">inference</code>）。
-      示例链路：<strong>{featuredChain.name}</strong>。
+      点击下方<strong>示例链路</strong>可在互文图中切换高亮路径。
     </p>
   </section>
 
@@ -59,16 +58,8 @@ const featuredChain = HIGHLIGHT_CHAINS[0];
     <ImageryGraph
       graph={graph}
       bookSlug={meta.slug}
-      highlightPath={featuredChain.path}
       client:only="react"
     />
-    <div class="mt-4 flex flex-wrap gap-2 text-xs" style="color: var(--ink-soft)">
-      {
-        HIGHLIGHT_CHAINS.map((c) => (
-          <span class="chip">{c.name}</span>
-        ))
-      }
-    </div>
   </div>
 
   {

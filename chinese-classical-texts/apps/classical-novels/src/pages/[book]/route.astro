@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import GraphLayout from '../../layouts/GraphLayout.astro';
+import BackLink from '../../components/BackLink.astro';
 import RouteMap from '../../components/RouteMap.tsx';
 import { buildRouteEdges, type RouteNode } from '../../lib/route';
 import { sortEvents } from '../../lib/events';
@@ -99,7 +100,7 @@ const mythCount = nodes.filter((n) => n.layer === 'myth').length;
           </code>
           注入凡间路线与神话异界地点。
         </p>
-        <a href={`/${meta.slug}`} class="mt-6 text-sm text-amber-300 hover:underline">← 返回 {meta.book}</a>
+        <BackLink href={`/${meta.slug}`} label={meta.book} variant="dark" class="mt-6" />
       </div>
     ) : (
       <>

@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
+import BackLink from '../../../components/BackLink.astro';
 import { topicSlug, LENS_GLYPH, BRANCH_GLYPH, STANCE_LABEL } from '../../../lib/topics';
 
 export async function getStaticPaths() {
@@ -21,13 +22,14 @@ const { Content } = await render(entry);
 
 const glyph = (d.lens && LENS_GLYPH[d.lens]) || (d.branch && BRANCH_GLYPH[d.branch]) || '题';
 const backHref = d.category === '考证' ? `/${slug}/kaozheng` : d.category === '诠释' ? `/${slug}/quanshi` : `/${slug}`;
-const backLabel = d.category === '考证' ? '← 考证台' : d.category === '诠释' ? '← 诠释专题' : `← ${d.book}`;
+const backLabel = d.category === '考证' ? '考证台' : d.category === '诠释' ? '诠释专题' : d.book;
 const stanceClass = (s: string) =>
   s === '主流' ? 'stance-main' : s === '少数' ? 'stance-minor' : s === '已弃' ? 'stance-dropped' : 'stance-doubt';
 ---
 
 <Base title={`${d.book} · ${d.title}`} bookSlug={slug} bookName={d.book} features={features}>
-  <a href={backHref} class="text-sm hover:underline" style="color: var(--ink-soft)" data-pagefind-ignore>{backLabel}</a>
+  <div class="content-page">
+  <BackLink href={backHref} label={backLabel} />
 
   <div data-pagefind-body data-pagefind-meta={`title:${d.title}`} data-pagefind-filter={`书:${d.book},类型:主题`}>
     <section class="surface relative mt-3 mb-6 overflow-hidden px-6 py-7 sm:px-8">
@@ -40,13 +42,13 @@ const stanceClass = (s: string) =>
             {d.branch && <span class="chip">{d.branch}</span>}
             {d.lens && <span class="chip">{d.lens}</span>}
           </div>
-          {d.summary && <p class="mt-2 text-sm leading-relaxed" style="color: var(--ink-soft)">{d.summary}</p>}
+          {d.summary && <p class="page-lead mt-2">{d.summary}</p>}
         </div>
       </div>
       {
         d.tags.length > 0 && (
           <div class="mt-4 flex flex-wrap gap-1.5">
-            {d.tags.map((t) => <span class="chip" style="font-size:0.66rem">{t}</span>)}
+            {d.tags.map((t) => <span class="chip">{t}</span>)}
           </div>
         )
       }
@@ -131,9 +133,10 @@ const stanceClass = (s: string) =>
       )
     }
 
-    <article class="prose-cn surface mt-2 max-w-none px-6 py-5 sm:px-8" style="color: var(--ink)">
+    <article class="prose-cn surface mt-2 max-w-none px-6 py-5 sm:px-8">
       <Content />
     </article>
+  </div>
   </div>
 </Base>
 

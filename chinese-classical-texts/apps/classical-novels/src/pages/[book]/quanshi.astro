@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
+import BackLink from '../../components/BackLink.astro';
 import { loadTopics, byCategory, groupByLens, topicHref, LENS_GLYPH } from '../../lib/topics';
 
 export async function getStaticPaths() {
@@ -30,7 +31,7 @@ const lensCount = groups.reduce((n, g) => n + g.items.length, 0);
 ---
 
 <Base title={`${meta.book} · 诠释专题`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
-  <a href={`/${meta.slug}`} class="text-sm hover:underline" style="color: var(--ink-soft)">← {meta.book}</a>
+  <BackLink href={`/${meta.slug}`} label={meta.book} />
 
   <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
     <div class="flex items-start gap-4">

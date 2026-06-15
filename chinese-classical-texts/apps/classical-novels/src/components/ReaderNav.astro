@@ -1,4 +1,6 @@
 ---
+import BackLink from './BackLink.astro';
+
 interface Props {
   slug: string;
   bookName: string;
@@ -27,9 +29,13 @@ function chapterHref(num: number) {
   <div class="flex items-center justify-between gap-2 text-sm">
     {
       prev ? (
-        <a href={chapterHref(prev)} class="reader-nav-link min-w-0 truncate rounded px-3 py-2">
-          ← 第{prev}回
-        </a>
+        <BackLink
+          href={chapterHref(prev)}
+          label={`第${prev}回`}
+          variant="reader"
+          compact
+          class="min-w-0 shrink"
+        />
       ) : (
         <span class="reader-nav-muted px-3 py-2">← 已是第一回</span>
       )
@@ -39,9 +45,14 @@ function chapterHref(num: number) {
     </span>
     {
       next ? (
-        <a href={chapterHref(next)} class="reader-nav-link min-w-0 truncate rounded px-3 py-2">
-          第{next}回 →
-        </a>
+        <BackLink
+          href={chapterHref(next)}
+          label={`第${next}回`}
+          variant="reader"
+          direction="forward"
+          compact
+          class="min-w-0 shrink"
+        />
       ) : (
         <span class="reader-nav-muted px-3 py-2">已是最后一回 →</span>
       )

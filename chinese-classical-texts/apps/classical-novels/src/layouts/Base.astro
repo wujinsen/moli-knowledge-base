@@ -85,7 +85,7 @@ const showModuleContext = Boolean(
     <div class:list={['page-below-nav', readerWide && 'page-below-nav--reader']}>
       <main
         class:list={[
-          'mx-auto py-6',
+          'site-main mx-auto py-6',
           readerWide ? 'reader-main w-full max-w-none' : 'max-w-6xl px-4 py-8',
         ]}
       >
@@ -101,10 +101,10 @@ const showModuleContext = Boolean(
 
       <footer
         class:list={[
-          'pb-10 pt-6 text-sm',
+          'pb-10 pt-6 text-[0.9375rem] font-medium leading-relaxed',
           readerWide ? 'w-full max-w-none' : 'mx-auto max-w-6xl px-4',
         ]}
-        style="color: var(--ink-soft)"
+        style="color: color-mix(in srgb, var(--ink) 55%, var(--ink-soft))"
       >
         <div class="rule-seal mb-4">
           <span class="brand text-base">墨</span>

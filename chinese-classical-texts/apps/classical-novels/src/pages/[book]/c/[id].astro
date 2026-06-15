@@ -2,10 +2,12 @@
 import { getCollection, render } from 'astro:content';
 import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
+import BackLink from '../../../components/BackLink.astro';
 import {
   relatedItemsForCharacter,
   relatedTransactionsForCharacter,
 } from '../../../lib/crosslinks';
+import { likeItemHref } from '../../../lib/bestiary';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -39,20 +41,21 @@ const readEdition = slug === 'jinpingmei' ? 'cihua' : slug === 'honglou' ? 'zhib
 ---
 
 <Base title={d.name} bookSlug={slug} bookName={d.book} features={features}>
-  <a href={`/${slug}/bestiary`} class="text-sm hover:underline" style="color: var(--ink-soft)" data-pagefind-ignore>← 图鉴</a>
+  <BackLink href={`/${slug}/bestiary`} label="图鉴" />
   <div
+    class="content-page"
     data-pagefind-body
     data-pagefind-meta={`title:${d.name}`}
     data-pagefind-filter={`书:${d.book},类型:${d.type === 'monster' ? '妖怪' : '人物'}`}
   >
   <div class="mt-3 flex items-center gap-3">
     <h1 class="brand text-4xl" style="color: var(--primary)">{d.name}</h1>
-    <span class="chip">{d.type === 'monster' ? '妖怪' : '人物'}</span>
+    <span class="chip chip-md">{d.type === 'monster' ? '妖怪' : '人物'}</span>
   </div>
 
-  {d.aliases.length > 0 && <p class="mt-2 text-sm" style="color: var(--ink-soft)">别名：{d.aliases.join('、')}</p>}
+  {d.aliases.length > 0 && <p class="mt-2 text-sm">别名：{d.aliases.join('、')}</p>}
 
-  <div class="surface mt-4 grid gap-2 p-4 text-sm sm:grid-cols-2" style="color: var(--ink)">
+  <div class="entity-spec surface mt-4 grid gap-2.5 p-4 sm:grid-cols-2 sm:p-5">
     {d.faction && <div>阵营：{d.faction}</div>}
     {d.ximen_proximity && <div>西门府距离：{d.ximen_proximity}</div>}
     {d.first_appear && <div>首次登场：{d.first_appear}</div>}
@@ -64,13 +67,36 @@ const readEdition = slug === 'jinpingmei' ? 'cihua' : slug === 'honglou' ? 'zhib
     {d.法宝.length > 0 && <div>法宝：{d.法宝.join('、')}</div>}
     {d.结局 && <div>结局：{d.结局}</div>}
     {d.收服者 && <div>收服者：{d.收服者}</div>}
+    {d.性格 && <div class="sm:col-span-2">性格：{d.性格}</div>}
+    {
+      d.喜好.length > 0 && (
+        <div class="sm:col-span-2">
+          喜好：
+          {d.喜好.map((like, i) => {
+            const itemHref = likeItemHref(slug, like);
+            return (
+              <>
+                {i > 0 && '、'}
+                {itemHref ? (
+                  <a class="hover:underline" style="color: var(--accent)" href={itemHref}>
+                    {like}
+                  </a>
+                ) : (
+                  like
+                )}
+              </>
+            );
+          })}
+        </div>
+      )
+    }
   </div>
 
   {
     d.relations.length > 0 && (
       <div class="mt-6">
-        <h2 class="section-title mb-2 text-base">关系</h2>
-        <ul class="flex flex-wrap gap-2 text-sm">
+        <h2 class="section-title mb-2">关系</h2>
+        <ul class="flex flex-wrap gap-2">
           {d.relations.map((r) => (
             <li>
               <a class="chip hover:underline" href={`/${slug}/c/${r.target}`}>
@@ -86,8 +112,8 @@ const readEdition = slug === 'jinpingmei' ? 'cihua' : slug === 'honglou' ? 'zhib
   {
     relatedItems.length > 0 && (
       <div class="mt-6">
-        <h2 class="section-title mb-2 text-base">相关名物</h2>
-        <ul class="flex flex-wrap gap-2 text-sm">
+        <h2 class="section-title mb-2">相关名物</h2>
+        <ul class="flex flex-wrap gap-2">
           {relatedItems.map((item) => (
             <li>
               <a class="chip hover:underline" href={`/${slug}/i/${item.id}`}>
@@ -103,8 +129,8 @@ const readEdition = slug === 'jinpingmei' ? 'cihua' : slug === 'honglou' ? 'zhib
   {
     relatedTxs.length > 0 && (
       <div class="mt-6">
-        <h2 class="section-title mb-2 text-base">白银交易</h2>
-        <ul class="space-y-2 text-sm">
+        <h2 class="section-title mb-2">白银交易</h2>
+        <ul class="space-y-2">
           {relatedTxs.map((tx) => (
             <li class="surface px-3 py-2">
               <a
@@ -114,12 +140,12 @@ const readEdition = slug === 'jinpingmei' ? 'cihua' : slug === 'honglou' ? 'zhib
               >
                 第{tx.chapter}回
               </a>
-              <span style="color: var(--ink-soft)"> · {tx.summary}</span>
+              <span> · {tx.summary}</span>
               {tx.amount && <span class="ml-1 chip">{tx.amount}</span>}
             </li>
           ))}
         </ul>
-        <a href={`/${slug}/silver`} class="mt-2 inline-block text-sm hover:underline" style="color: var(--ink-soft)">
+        <a href={`/${slug}/silver`} class="mt-2 inline-block text-sm hover:underline" style="color: var(--accent)">
           查看白银流 →
         </a>
       </div>
@@ -130,14 +156,14 @@ const readEdition = slug === 'jinpingmei' ? 'cihua' : slug === 'honglou' ? 'zhib
     d.variants.length > 0 && (
       <div class="surface mt-6 p-4" style="border-color: var(--gold)">
         <h2 class="mb-1 font-bold" style="color: var(--primary)">版本异文</h2>
-        <ul class="text-sm" style="color: var(--ink-soft)">
+        <ul>
           {d.variants.map((v) => (
             <li>【{v.edition}】{v.claim}{v.source ? `（${v.source}）` : ''}</li>
           ))}
         </ul>
         {d.contradicts.length > 0 && (
-          <div class="mt-3 border-t pt-3 text-sm" style="border-color: var(--gold)">
-            <span style="color: var(--ink-soft)">版本争议（{contradictHint}）：</span>
+          <div class="mt-3 border-t pt-3" style="border-color: var(--gold)">
+            <span>版本争议（{contradictHint}）：</span>
             {d.contradicts.map((c) => (
               <a class="chip ml-1 hover:underline" href={`/${slug}/graph`}>{c}</a>
             ))}
@@ -151,8 +177,8 @@ const readEdition = slug === 'jinpingmei' ? 'cihua' : slug === 'honglou' ? 'zhib
     d.variants.length === 0 && d.contradicts.length > 0 && (
       <div class="surface mt-6 p-4" style="border-color: var(--gold)">
         <h2 class="mb-1 font-bold" style="color: var(--primary)">版本争议</h2>
-        <div class="text-sm">
-          <span style="color: var(--ink-soft)">{contradictHint}：</span>
+        <div>
+          <span>{contradictHint}：</span>
           {d.contradicts.map((c) => (
             <a class="chip ml-1 hover:underline" href={`/${slug}/graph`}>{c}</a>
           ))}
@@ -161,7 +187,7 @@ const readEdition = slug === 'jinpingmei' ? 'cihua' : slug === 'honglou' ? 'zhib
     )
   }
 
-  <article class="prose-cn mt-6 max-w-none" style="color: var(--ink)">
+  <article class="prose-cn mt-6 max-w-none">
     <Content />
   </article>
   </div>

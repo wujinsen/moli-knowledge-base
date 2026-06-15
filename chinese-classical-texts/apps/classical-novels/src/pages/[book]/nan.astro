@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
+import BackLink from '../../components/BackLink.astro';
 import {
   TRIBULATION_PHASES,
   chapterLabel,
@@ -35,19 +36,19 @@ const phaseCounts = TRIBULATION_PHASES.map((p) => ({
 ---
 
 <Base title={`${meta.book} · 八十一难`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
-  <a href={`/${meta.slug}`} class="text-sm hover:underline" style="color: var(--ink-soft)">← {meta.book}</a>
+  <BackLink href={`/${meta.slug}`} label={meta.book} />
 
-  <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
+  <section class="content-page surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
     <div class="flex items-start gap-4">
       <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">难</span>
       <div>
         <h1 class="brand text-4xl" style="color: var(--primary)">八十一难 · 时间轴</h1>
-        <p class="mt-2 text-sm" style="color: var(--ink-soft)">
+        <p class="mt-2 text-sm">
           {tribulations.length} 个劫难单元 · 据第九十九回「历难簿」 · 按序串联西行时间线
         </p>
       </div>
     </div>
-    <p class="mt-5 max-w-2xl text-sm leading-relaxed" style="color: var(--ink)">
+    <p class="page-lead mt-5 max-w-2xl">
       每条 <code class="rounded px-1" style="background: color-mix(in srgb, var(--primary) 8%, transparent)">event</code>
       实体含难序、回目锚点与前后置链。第 81 难为菩萨补计「通天河湿经」。回目映射可逐步对勘修订。
     </p>
@@ -80,12 +81,12 @@ const phaseCounts = TRIBULATION_PHASES.map((p) => ({
                 <h2 class="brand text-xl" style="color: var(--primary)">
                   <a href={`/${meta.slug}/e/${d.id}`} class="hover:underline">{displayTitle(d)}</a>
                 </h2>
-                <span class="text-xs" style="color: var(--ink-soft)">{phase.label}</span>
+                <span class="timeline-phase">{phase.label}</span>
               </div>
               {d.summary && (
-                <p class="mt-1 text-sm leading-snug" style="color: var(--ink-soft)">{d.summary}</p>
+                <p class="timeline-summary mt-1.5">{d.summary}</p>
               )}
-              <div class="mt-2 flex flex-wrap gap-2 text-xs">
+              <div class="mt-2.5 flex flex-wrap gap-2">
                 {
                   ch != null && (
                     <a href={`/${meta.slug}/read/${ch}`} class="chip hover:opacity-80">
@@ -97,7 +98,7 @@ const phaseCounts = TRIBULATION_PHASES.map((p) => ({
                 {d.locations.map((l) => <span class="chip">{l}</span>)}
                 {d.aliases.slice(1).map((a) => <span class="chip">{a}</span>)}
               </div>
-              <div class="mt-2 flex gap-3 text-xs" style="color: var(--accent)">
+              <div class="timeline-nav mt-2.5 flex gap-3" style="color: var(--accent)">
                 {d.prev && (
                   <a href={`/${meta.slug}/e/${d.prev}`} class="hover:underline">← 上一难</a>
                 )}
@@ -112,7 +113,7 @@ const phaseCounts = TRIBULATION_PHASES.map((p) => ({
     }
   </div>
 
-  <div class="surface p-4 text-sm" style="color: var(--ink-soft)">
+  <div class="surface p-4 text-sm">
     <span class="chip">数据源</span>
     第九十九回历难簿 ·
     <a href={`/${meta.slug}/read/99`} class="hover:underline" style="color: var(--accent)">阅读原文</a>

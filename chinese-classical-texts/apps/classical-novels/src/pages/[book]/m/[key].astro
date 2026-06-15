@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
+import BackLink from '../../../components/BackLink.astro';
 import { modulesFor, type BookModule } from '../../../lib/books';
 
 export async function getStaticPaths() {
@@ -28,7 +29,7 @@ const p = mod.preview!;
 ---
 
 <Base title={`${bookName} · ${mod.title}`} bookSlug={slug} bookName={bookName} features={features}>
-  <a href={`/${slug}`} class="text-sm hover:underline" style="color: var(--ink-soft)">← {bookName}</a>
+  <BackLink href={`/${slug}`} label={bookName} />
 
   {/* 模块标题 */}
   <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">

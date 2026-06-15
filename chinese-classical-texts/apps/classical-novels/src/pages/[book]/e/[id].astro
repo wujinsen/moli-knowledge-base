@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
+import BackLink from '../../../components/BackLink.astro';
 import {
   chapterLabel,
   displayTitle,
@@ -39,7 +40,7 @@ const isNan = d.subtype === 'tribulation';
 const no = d.tribulation_no;
 const readEdition = meta.slug === 'jinpingmei' ? 'cihua' : '1';
 const backHref = isChain ? `/${meta.slug}/chain` : `/${meta.slug}/nan`;
-const backLabel = isChain ? '← 发家衰败链' : '← 八十一难时间轴';
+const backLabel = isChain ? '发家衰败链' : '八十一难时间轴';
 const prevLabel = isNan ? '← 上一难' : '← 上一节点';
 const nextLabel = isNan ? '下一难 →' : '下一节点 →';
 const amount = formatLiangAmount(d.amount_liang);
@@ -56,53 +57,53 @@ const { Content } = await render(ev);
 ---
 
 <Base title={`${meta.book} · ${d.title}`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
-  <a href={backHref} class="text-sm hover:underline" style="color: var(--ink-soft)">{backLabel}</a>
+  <div class="content-page event-detail">
+  <BackLink href={backHref} label={backLabel} />
 
   <section class="surface mt-3 mb-6 px-6 py-7 sm:px-8">
     <div class="flex flex-wrap items-start gap-4">
       {
         isNan && no != null && (
           <span
-            class="brand grid h-14 w-14 shrink-0 place-items-center rounded-xl text-2xl text-white"
+            class="brand grid h-14 w-14 shrink-0 place-items-center rounded-xl text-2xl font-semibold text-white"
             style="background: linear-gradient(135deg, var(--primary), var(--primary-soft))"
           >
             {no}
           </span>
         )
       }
-      <div>
+      <div class="min-w-0 flex-1">
         <div class="mb-2 flex flex-wrap gap-2">
-          <span class="chip">{subtype}</span>
-          {amount && <span class="chip">{amount}</span>}
+          <span class="chip chip-md">{subtype}</span>
+          {amount && <span class="chip chip-md">{amount}</span>}
         </div>
         <h1 class="brand text-3xl sm:text-4xl" style="color: var(--primary)">{displayTitle(d)}</h1>
         {
           d.aliases.length > 0 && isNan && (
-            <p class="mt-1 text-sm" style="color: var(--ink-soft)">难簿名：{d.title}</p>
+            <p class="mt-1.5 text-base" style="color: var(--ink-soft)">难簿名：{d.title}</p>
           )
         }
-        {d.summary && <p class="mt-3 leading-relaxed" style="color: var(--ink)">{d.summary}</p>}
+        {d.summary && <p class="event-summary mt-3">{d.summary}</p>}
       </div>
     </div>
 
-    <dl class="mt-6 grid gap-3 text-sm sm:grid-cols-2">
+    <dl class="event-meta mt-6 grid gap-x-4 gap-y-3 sm:grid-cols-2">
       {
         d.chapters.length > 0 && (
           <>
-            <dt style="color: var(--ink-soft)">回目锚点</dt>
+            <dt>回目锚点</dt>
             <dd>
               {
                 d.chapters.map((c) => (
                   <a
                     href={`/${meta.slug}/read/${readEdition}/${c}`}
-                    class="mr-2 hover:underline"
-                    style="color: var(--accent)"
+                    class="event-link mr-2 hover:underline"
                   >
                     第{c}回
                   </a>
                 ))
               }
-              <span class="ml-1" style="color: var(--ink-soft)">（{chapterLabel(d.chapters)}）</span>
+              <span class="ml-1 event-meta-muted">（{chapterLabel(d.chapters)}）</span>
             </dd>
           </>
         )
@@ -110,11 +111,11 @@ const { Content } = await render(ev);
       {
         d.characters.length > 0 && (
           <>
-            <dt style="color: var(--ink-soft)">人物</dt>
+            <dt>人物</dt>
             <dd>
               {
                 d.characters.map((c) => (
-                  <a href={`/${meta.slug}/c/${c}`} class="mr-2 hover:underline" style="color: var(--accent)">
+                  <a href={`/${meta.slug}/c/${c}`} class="event-link mr-2 hover:underline">
                     {c}
                   </a>
                 ))
@@ -126,7 +127,7 @@ const { Content } = await render(ev);
       {
         d.monsters.length > 0 && (
           <>
-            <dt style="color: var(--ink-soft)">妖魔</dt>
+            <dt>妖魔</dt>
             <dd>{d.monsters.join(' · ')}</dd>
           </>
         )
@@ -134,11 +135,11 @@ const { Content } = await render(ev);
       {
         d.locations.length > 0 && (
           <>
-            <dt style="color: var(--ink-soft)">地点</dt>
+            <dt>地点</dt>
             <dd>
               {
                 d.locations.map((l) => (
-                  <a href={`/${meta.slug}/l/${l}`} class="mr-2 hover:underline" style="color: var(--accent)">
+                  <a href={`/${meta.slug}/l/${l}`} class="event-link mr-2 hover:underline">
                     {l}
                   </a>
                 ))
@@ -150,7 +151,7 @@ const { Content } = await render(ev);
       {
         d.artifacts.length > 0 && (
           <>
-            <dt style="color: var(--ink-soft)">法宝</dt>
+            <dt>法宝</dt>
             <dd>{d.artifacts.join(' · ')}</dd>
           </>
         )
@@ -158,11 +159,11 @@ const { Content } = await render(ev);
       {
         d.transaction_refs.length > 0 && (
           <>
-            <dt style="color: var(--ink-soft)">关联交易</dt>
+            <dt>关联交易</dt>
             <dd>
               {
                 d.transaction_refs.map((tid) => (
-                  <a href={`/${meta.slug}/silver#${tid}`} class="mr-2 hover:underline" style="color: var(--accent)">
+                  <a href={`/${meta.slug}/silver#${tid}`} class="event-link mr-2 hover:underline">
                     {tid}
                   </a>
                 ))
@@ -173,12 +174,12 @@ const { Content } = await render(ev);
       }
     </dl>
 
-    <div class="mt-6 flex flex-wrap gap-4 text-sm">
+    <div class="mt-6 flex flex-wrap gap-3">
       {d.prev && (
-        <a href={`/${meta.slug}/e/${d.prev}`} class="btn btn-ghost">{prevLabel}</a>
+        <a href={`/${meta.slug}/e/${d.prev}`} class="btn btn-ghost event-nav">{prevLabel}</a>
       )}
       {d.next && (
-        <a href={`/${meta.slug}/e/${d.next}`} class="btn btn-ghost">{nextLabel}</a>
+        <a href={`/${meta.slug}/e/${d.next}`} class="btn btn-ghost event-nav">{nextLabel}</a>
       )}
       {isChain && (
         <a href={chainEventHref(meta.slug, d.id)} class="btn btn-ghost">时间轴定位</a>
@@ -242,19 +243,22 @@ const { Content } = await render(ev);
     )
   }
 
-  <div class="prose-cn surface mt-4 px-6 py-5 text-sm leading-relaxed sm:px-8" style="color: var(--ink-soft)">
+  <div class="prose-cn event-prose surface mt-4 px-6 py-5 sm:px-8">
     <Content />
+  </div>
+
   </div>
 
   <style is:global>
     .scoped-pred {
       display: inline-block;
-      padding: 0.05rem 0.5rem;
+      padding: 0.08rem 0.55rem;
       border-radius: 999px;
       background: color-mix(in srgb, var(--seal) 12%, transparent);
       color: var(--seal);
       border: 1px dashed color-mix(in srgb, var(--seal) 45%, transparent);
-      font-size: 0.72rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
     }
   </style>
 </Base>

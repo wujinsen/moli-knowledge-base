@@ -53,6 +53,9 @@ const characters = defineCollection({
     // 金瓶梅 · 图鉴扩展（P5）
     靠山: z.string().optional(),
     依附: z.string().optional(),
+    // 红楼梦 · 图鉴扩展
+    性格: z.string().optional(),
+    喜好: z.array(z.string()).default([]),
     // 关系与版本
     relations: z.array(relation).default([]),
     variants: z.array(variant).default([]),

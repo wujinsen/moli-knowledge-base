@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import CharacterCard from '../../components/CharacterCard.astro';
+import { bestiaryStatsFor, resolveBestiarySections } from '../../lib/bestiaryGroups';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -14,63 +15,84 @@ export async function getStaticPaths() {
 
 const { book } = Astro.props;
 const meta = book.data;
-const isJpm = meta.slug === 'jinpingmei';
+const slug = meta.slug;
 
 const entries = (await getCollection('characters'))
   .filter((c) => c.data.book === meta.book)
   .sort((a, b) => (b.data.weight ?? 0) - (a.data.weight ?? 0));
 
-const characters = entries.filter((c) => c.data.type === 'character');
-const monsters = entries.filter((c) => c.data.type === 'monster');
+/** 有 catalog.groups 时人物与妖怪统一分组（西游）；否则仅人物分组，妖怪另列 */
+const useUnifiedGroups = slug === 'xiyouji';
+const groupList = useUnifiedGroups ? entries : entries.filter((c) => c.data.type === 'character');
+const monsters = useUnifiedGroups ? [] : entries.filter((c) => c.data.type === 'monster');
 
-const JPM_FACTION_ORDER = ['西门府', '帮闲圈', '清河县', '朝廷'] as const;
+const sections = resolveBestiarySections(slug, groupList);
+const stats = bestiaryStatsFor(slug, entries);
 
-function groupByFaction(list: typeof characters) {
-  const map = new Map<string, typeof characters>();
-  for (const c of list) {
-    const f = c.data.faction ?? '其他';
-    if (!map.has(f)) map.set(f, []);
-    map.get(f)!.push(c);
-  }
-  const keys = [...map.keys()].sort((a, b) => {
-    const ia = JPM_FACTION_ORDER.indexOf(a as (typeof JPM_FACTION_ORDER)[number]);
-    const ib = JPM_FACTION_ORDER.indexOf(b as (typeof JPM_FACTION_ORDER)[number]);
-    const ai = ia === -1 ? 999 : ia;
-    const bi = ib === -1 ? 999 : ib;
-    return ai - bi || a.localeCompare(b, 'zh-CN');
-  });
-  return keys.map((k) => ({ faction: k, items: map.get(k)! }));
+function cardProps(c: (typeof entries)[number]) {
+  return {
+    href: `/${slug}/c/${c.data.id}`,
+    name: c.data.name,
+    type: c.data.type,
+    bookSlug: slug,
+    faction: c.data.faction,
+    summary: c.data.summary,
+    tags: c.data.tags,
+    proximity: c.data.ximen_proximity,
+    backing: c.data.靠山,
+    attach: c.data.依附,
+    outcome: c.data.结局,
+    personality: c.data.性格,
+    likes: c.data.喜好,
+  };
 }
-
-const jpmGroups = isJpm ? groupByFaction(characters) : [];
-const withBacking = characters.filter((c) => c.data.靠山).length;
-const withOutcome = characters.filter((c) => c.data.结局).length;
 ---
 
-<Base title={`${meta.book} 图鉴`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+<Base title={`${meta.book} 图鉴`} bookSlug={slug} bookName={meta.book} features={meta.features}>
   {
-    isJpm ? (
+    slug === 'jinpingmei' ? (
       <p slot="module-extra" class="mt-2 text-sm" style="color: var(--ink-soft)">
-        妻妾 · 帮闲 · 政商群像 · {characters.length} 人
+        {stats.groupCount} 组 · {stats.total} 人
         <span class="mx-1">·</span>
-        {withBacking} 有靠山 · {withOutcome} 有结局
-        <a href={`/${meta.slug}/graph`} class="ml-2 hover:underline" style="color: var(--accent)">
+        {stats.withBacking} 有靠山 · {stats.withOutcome} 有结局
+        <a href={`/${slug}/graph`} class="ml-2 hover:underline" style="color: var(--accent)">
           社会网 →
         </a>
-        <a href={`/${meta.slug}/sna`} class="ml-2 hover:underline" style="color: var(--accent)">
+        <a href={`/${slug}/sna`} class="ml-2 hover:underline" style="color: var(--accent)">
           SNA →
+        </a>
+      </p>
+    ) : slug === 'honglou' ? (
+      <p slot="module-extra" class="mt-2 text-sm" style="color: var(--ink-soft)">
+        {stats.groupCount} 组 · {stats.total} 人
+        <span class="mx-1">·</span>
+        {stats.withPersonality} 有性格 · {stats.withLikes} 有喜好
+        <a href={`/${slug}/graph`} class="ml-2 hover:underline" style="color: var(--accent)">
+          关系网 →
+        </a>
+        <a href={`/${slug}/i`} class="ml-2 hover:underline" style="color: var(--accent)">
+          名物 →
+        </a>
+      </p>
+    ) : slug === 'xiyouji' ? (
+      <p slot="module-extra" class="mt-2 text-sm" style="color: var(--ink-soft)">
+        {stats.groupCount} 组 · {stats.characterCount} 人物 · {stats.monsterCount} 妖怪
+        <a href={`/${slug}/graph`} class="ml-2 hover:underline" style="color: var(--accent)">
+          关系网 →
+        </a>
+        <a href={`/${slug}/nan`} class="ml-2 hover:underline" style="color: var(--accent)">
+          八十一难 →
         </a>
       </p>
     ) : (
       <p slot="module-extra" class="mt-2 text-sm" style="color: var(--ink-soft)">
-        登场人物与妖怪群像 · {characters.length} 人物
-        {monsters.length > 0 && ` · ${monsters.length} 妖怪`}
+        登场人物与妖怪群像 · {stats.total} 人
       </p>
     )
   }
 
   {
-    isJpm && (
+    slug === 'jinpingmei' && (
       <div class="mb-6 flex flex-wrap gap-2 text-xs" style="color: var(--ink-soft)">
         <span class="chip">亲缘 = 西门府内</span>
         <span class="chip">雇佣 = 仆佣</span>
@@ -81,52 +103,18 @@ const withOutcome = characters.filter((c) => c.data.结局).length;
   }
 
   {
-    isJpm ? (
-      jpmGroups.map(({ faction, items }) => (
-        <section class="mb-10">
-          <h2 class="section-title mb-3 text-lg">
-            {faction}（{items.length}）
-          </h2>
-          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {items.map((c) => (
-              <CharacterCard
-                href={`/${meta.slug}/c/${c.data.id}`}
-                name={c.data.name}
-                type={c.data.type}
-                faction={c.data.faction}
-                summary={c.data.summary}
-                tags={c.data.tags}
-                proximity={c.data.ximen_proximity}
-                backing={c.data.靠山}
-                attach={c.data.依附}
-                outcome={c.data.结局}
-              />
-            ))}
-          </div>
-        </section>
-      ))
-    ) : (
-      <>
-        <h2 class="section-title mb-3 text-lg">人物（{characters.length}）</h2>
-        <div class="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {
-            characters.map((c) => (
-              <CharacterCard
-                href={`/${meta.slug}/c/${c.data.id}`}
-                name={c.data.name}
-                type={c.data.type}
-                faction={c.data.faction}
-                summary={c.data.summary}
-                tags={c.data.tags}
-                backing={c.data.靠山}
-                attach={c.data.依附}
-                outcome={c.data.结局}
-              />
-            ))
-          }
+    sections.map(({ label, items }) => (
+      <section class="mb-10">
+        <h2 class="section-title mb-3 text-lg">
+          {label}（{items.length}）
+        </h2>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {items.map((c) => (
+            <CharacterCard {...cardProps(c)} />
+          ))}
         </div>
-      </>
-    )
+      </section>
+    ))
   }
 
   {
@@ -135,15 +123,7 @@ const withOutcome = characters.filter((c) => c.data.结局).length;
         <h2 class="section-title mb-3 text-lg">妖怪（{monsters.length}）</h2>
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {monsters.map((c) => (
-            <CharacterCard
-              href={`/${meta.slug}/c/${c.data.id}`}
-              name={c.data.name}
-              type={c.data.type}
-              faction={c.data.faction}
-              summary={c.data.summary}
-              tags={c.data.tags}
-              outcome={c.data.结局}
-            />
+            <CharacterCard {...cardProps(c)} />
           ))}
         </div>
       </>

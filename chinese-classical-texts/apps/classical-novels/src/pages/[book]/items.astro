@@ -58,7 +58,7 @@ const sections: { key: keyof typeof grouped; anchor: string }[] = isXiyouji
       grouped[key].length > 0 ? (
         <section id={anchor} class="mb-10">
           <h2 class="section-title mb-3 text-lg">{kindLabel(key)}（{grouped[key].length}）</h2>
-          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="grid items-stretch gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
             {grouped[key].map(({ kind, entry }) => (
               <ItemCard
                 href={`/${meta.slug}/i/${entry.data.id}`}

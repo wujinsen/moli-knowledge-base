@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import { getBooks } from '../../../../lib/getBooks';
 import Base from '../../../../layouts/Base.astro';
+import BackLink from '../../../../components/BackLink.astro';
 import {
   comparePairSlugs,
   comparePairsFor,
@@ -85,9 +86,7 @@ const next = chapter < meta.chapter_count ? chapter + 1 : undefined;
   bookName={meta.book}
   features={meta.features}
 >
-  <a href={`/${meta.slug}/compare`} class="text-sm hover:underline" style="color: var(--ink-soft)">
-    ← 对勘目录
-  </a>
+  <BackLink href={`/${meta.slug}/compare`} label="对勘目录" />
 
   <section class="surface mt-3 mb-4 px-4 py-5 sm:px-6">
     <h1 class="brand text-2xl sm:text-3xl" style="color: var(--primary)">

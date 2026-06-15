@@ -12,9 +12,9 @@ const { module: mod, bookName } = Astro.props;
 <section class="module-context surface" aria-label="当前模块">
   <span class="glyph module-context-glyph">{mod.glyph}</span>
   <div class="min-w-0 flex-1">
-    <p class="text-xs tracking-wide" style="color: var(--ink-soft)">{bookName}</p>
+    <p class="module-context-book tracking-wide">{bookName}</p>
     <h1 class="brand text-2xl sm:text-3xl" style="color: var(--primary)">{mod.title}</h1>
-    <p class="mt-1 text-sm leading-relaxed" style="color: var(--ink-soft)">{mod.desc}</p>
+    <p class="module-context-desc mt-1.5 leading-relaxed">{mod.desc}</p>
     <slot />
   </div>
 </section>

@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
+import BackLink from '../../../components/BackLink.astro';
 import { chapterLabel, subtypeLabel } from '../../../lib/imagery';
 
 export async function getStaticPaths() {
@@ -29,7 +30,7 @@ const infLinks = d.links.filter((l) => l.inference);
 ---
 
 <Base title={`${meta.book} · ${d.title}`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
-  <a href={`/${meta.slug}/shi`} class="text-sm hover:underline" style="color: var(--ink-soft)">← 诗词意象</a>
+  <BackLink href={`/${meta.slug}/shi`} label="诗词意象" />
 
   <section class="surface mt-3 mb-6 px-6 py-7 sm:px-8">
     <div class="flex flex-wrap items-start gap-3">

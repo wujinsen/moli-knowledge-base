@@ -1,6 +1,7 @@
 ---
 import { getBooks } from '../../lib/getBooks';
 import GraphLayout from '../../layouts/GraphLayout.astro';
+import BackLink from '../../components/BackLink.astro';
 import RelationGraph from '../../components/RelationGraph.tsx';
 import { graphTheme } from '../../lib/graphTheme';
 import { relationGraphForSlug } from '../../lib/relations';
@@ -41,9 +42,7 @@ const data = relationGraphForSlug(meta.slug);
           </code>
           生成图谱数据。
         </p>
-        <a href={`/${meta.slug}`} class="mt-6 text-sm hover:underline" style={`color:${gt.accent}`}>
-          ← 返回 {meta.book}
-        </a>
+        <BackLink href={`/${meta.slug}`} label={meta.book} variant="dark" class="mt-6" />
       </div>
     ) : (
       <>

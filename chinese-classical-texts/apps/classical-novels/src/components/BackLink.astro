@@ -1,0 +1,31 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  variant?: 'default' | 'dark' | 'reader';
+  direction?: 'back' | 'forward';
+  compact?: boolean;
+  class?: string;
+}
+
+const { href, label, variant = 'default', direction = 'back', compact = false, class: className } =
+  Astro.props;
+const glyph = direction === 'forward' ? '→' : '←';
+---
+
+<a
+  href={href}
+  class:list={[
+    'back-link',
+    variant === 'dark' && 'back-link--dark',
+    variant === 'reader' && 'back-link--reader',
+    direction === 'forward' && 'back-link--forward',
+    compact && 'back-link--compact',
+    className,
+  ]}
+  data-pagefind-ignore
+>
+  {direction === 'back' && <span class="back-link-glyph" aria-hidden="true">{glyph}</span>}
+  <span class="back-link-label">{label}</span>
+  {direction === 'forward' && <span class="back-link-glyph" aria-hidden="true">{glyph}</span>}
+</a>
