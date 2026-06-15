@@ -1,8 +1,76 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "phase": "小雷音二十八宿点名",
-  "paged_count": 175,
-  "pending_count": 0,
-  "pending": []
+  "paged_count": 180,
+  "pending_count": 5,
+  "pending": [
+    {
+      "name": "猱狮",
+      "mentions": 3,
+      "chapters": [
+        55,
+        89,
+        90
+      ],
+      "appear_in": [
+        "第55回",
+        "第89回",
+        "第90回"
+      ],
+      "source": "seed",
+      "note": "九灵元圣七狮；铁蒺藜；第90回"
+    },
+    {
+      "name": "雪狮",
+      "mentions": 3,
+      "chapters": [
+        54,
+        89,
+        90
+      ],
+      "appear_in": [
+        "第54回",
+        "第89回",
+        "第90回"
+      ],
+      "source": "seed",
+      "note": "九灵元圣七狮；三楞简；第90回"
+    },
+    {
+      "name": "伏狸狮",
+      "mentions": 1,
+      "chapters": [
+        90
+      ],
+      "appear_in": [
+        "第90回"
+      ],
+      "source": "seed",
+      "note": "九灵元圣七狮；玉华州城战；第90回"
+    },
+    {
+      "name": "刁钻古怪儿",
+      "mentions": 1,
+      "chapters": [
+        90
+      ],
+      "appear_in": [
+        "第90回"
+      ],
+      "source": "seed",
+      "note": "黄狮精小妖；钉钯会；第89–90回"
+    },
+    {
+      "name": "古怪刁钻儿",
+      "mentions": 1,
+      "chapters": [
+        90
+      ],
+      "appear_in": [
+        "第90回"
+      ],
+      "source": "seed",
+      "note": "黄狮精小妖；钉钯会；第89–90回"
+    }
+  ]
 }

@@ -410,6 +410,12 @@
       "weight": 36
     },
     {
+      "id": "抟象狮",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 28
+    },
+    {
       "id": "护国天王",
       "type": "character",
       "faction": "天庭",
@@ -602,6 +608,12 @@
       "weight": 58
     },
     {
+      "id": "狻猊狮",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 28
+    },
+    {
       "id": "猪八戒",
       "type": "character",
       "faction": "取经队伍",
@@ -636,6 +648,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 42
+    },
+    {
+      "id": "白泽狮",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 28
     },
     {
       "id": "白象精",
@@ -872,6 +890,12 @@
       "weight": 38
     },
     {
+      "id": "金头揭谛",
+      "type": "character",
+      "faction": "佛界",
+      "weight": 44
+    },
+    {
       "id": "金角大王",
       "type": "monster",
       "faction": "妖魔",
@@ -888,6 +912,12 @@
       "type": "character",
       "faction": "妖魔",
       "weight": 70
+    },
+    {
+      "id": "银头揭谛",
+      "type": "character",
+      "faction": "佛界",
+      "weight": 36
     },
     {
       "id": "银角大王",
@@ -1186,6 +1216,24 @@
       "contradiction": false
     },
     {
+      "source": "九灵元圣",
+      "target": "狻猊狮",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "九灵元圣",
+      "target": "白泽狮",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "九灵元圣",
+      "target": "抟象狮",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "二郎神",
       "target": "孙悟空",
       "type": "敌对",
@@ -1441,6 +1489,18 @@
       "source": "亢金龙",
       "target": "轸水蚓",
       "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "亢金龙",
+      "target": "金头揭谛",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "亢金龙",
+      "target": "银头揭谛",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -2119,6 +2179,18 @@
       "source": "唐僧",
       "target": "观音菩萨",
       "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
+      "target": "金头揭谛",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
+      "target": "银头揭谛",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -3430,6 +3502,36 @@
       "contradiction": false
     },
     {
+      "source": "孙悟空",
+      "target": "金头揭谛",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "银头揭谛",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "狻猊狮",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "白泽狮",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "抟象狮",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "孤直公",
       "target": "唐僧",
       "type": "敌对",
@@ -4261,6 +4363,30 @@
       "source": "房日兔",
       "target": "玉皇大帝",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "抟象狮",
+      "target": "九灵元圣",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "抟象狮",
+      "target": "黄狮精",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "抟象狮",
+      "target": "狻猊狮",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "抟象狮",
+      "target": "白泽狮",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -5278,6 +5404,30 @@
       "contradiction": false
     },
     {
+      "source": "狻猊狮",
+      "target": "九灵元圣",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "狻猊狮",
+      "target": "黄狮精",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "狻猊狮",
+      "target": "白泽狮",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "狻猊狮",
+      "target": "猪八戒",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "猪八戒",
       "target": "唐僧",
       "type": "师徒",
@@ -5539,6 +5689,18 @@
       "source": "电母",
       "target": "玉皇大帝",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "白泽狮",
+      "target": "九灵元圣",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "白泽狮",
+      "target": "黄狮精",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -6161,6 +6323,18 @@
     },
     {
       "source": "观音菩萨",
+      "target": "金头揭谛",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "观音菩萨",
+      "target": "银头揭谛",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "观音菩萨",
       "target": "金顶大仙",
       "type": "朋友",
       "contradiction": false
@@ -6430,6 +6604,30 @@
       "contradiction": false
     },
     {
+      "source": "金头揭谛",
+      "target": "观音菩萨",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "金头揭谛",
+      "target": "银头揭谛",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "金头揭谛",
+      "target": "黄眉怪",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "金头揭谛",
+      "target": "白龙马",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "金角大王",
       "target": "银角大王",
       "type": "兄弟",
@@ -6462,6 +6660,18 @@
     {
       "source": "铁扇公主",
       "target": "观音菩萨",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "银头揭谛",
+      "target": "观音菩萨",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "银头揭谛",
+      "target": "黄眉怪",
       "type": "敌对",
       "contradiction": false
     },
