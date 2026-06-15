@@ -28,11 +28,11 @@ const arc = d.arc;
 
 // 命运曲线几何
 const W = 880;
-const H = 300;
-const padL = 48;
-const padR = 48;
-const padT = 44;
-const padB = 44;
+const H = 320;
+const padL = 52;
+const padR = 52;
+const padT = 56;
+const padB = 48;
 const innerW = W - padL - padR;
 const innerH = H - padT - padB;
 const midY = padT + innerH / 2;
@@ -40,8 +40,27 @@ const n = arc.length;
 const xAt = (i: number) => (n <= 1 ? W / 2 : padL + (i * innerW) / (n - 1));
 const yAt = (f?: number | null) => midY - ((f ?? 0) / 100) * (innerH / 2);
 const linePts = arc.map((a, i) => `${xAt(i)},${yAt(a.fortune)}`).join(' ');
+// 命运区填充（曲线↔中线之间），上金（高光）下红（低谷）渐变
+const areaPath =
+  n > 1
+    ? `M ${xAt(0)},${yAt(arc[0].fortune)} ` +
+      arc.map((a, i) => `L ${xAt(i)},${yAt(a.fortune)}`).join(' ') +
+      ` L ${xAt(n - 1)},${midY} L ${xAt(0)},${midY} Z`
+    : '';
+// 每个节点的横向区间（阶段背景带）
+const cellAt = (i: number): [number, number] => {
+  const left = i === 0 ? padL : (xAt(i - 1) + xAt(i)) / 2;
+  const right = i === n - 1 ? W - padR : (xAt(i) + xAt(i + 1)) / 2;
+  return [left, right];
+};
 const nodeColor = (f?: number | null) =>
   (f ?? 0) > 0 ? 'var(--gold)' : (f ?? 0) < 0 ? 'var(--seal)' : 'var(--muted)';
+const cellFill = (f?: number | null) =>
+  (f ?? 0) > 0
+    ? 'color-mix(in srgb, var(--gold) 13%, transparent)'
+    : (f ?? 0) < 0
+      ? 'color-mix(in srgb, var(--seal) 11%, transparent)'
+      : 'transparent';
 
 const fortuneTag = (f?: number | null) =>
   f == null ? '' : f > 0 ? `↑ ${f}` : f < 0 ? `↓ ${f}` : `· 0`;
@@ -64,13 +83,40 @@ const fortuneTag = (f?: number | null) =>
 
   {/* 命运曲线 */}
   <section class="surface mb-6 overflow-x-auto px-3 py-5 sm:px-6">
-    <svg viewBox={`0 0 ${W} ${H}`} class="w-full" style="min-width:640px" role="img" aria-label={`${d.name}命运曲线`}>
+    <svg viewBox={`0 0 ${W} ${H}`} class="w-full" style="min-width:680px" role="img" aria-label={`${d.name}命运曲线`}>
+      <defs>
+        <linearGradient id="fortuneFill" gradientUnits="userSpaceOnUse" x1="0" y1={padT} x2="0" y2={H - padB}>
+          <stop offset="0" stop-color="var(--gold)" stop-opacity="0.5" />
+          <stop offset="0.5" stop-color="var(--gold)" stop-opacity="0.04" />
+          <stop offset="0.5" stop-color="var(--seal)" stop-opacity="0.04" />
+          <stop offset="1" stop-color="var(--seal)" stop-opacity="0.45" />
+        </linearGradient>
+      </defs>
+
+      {/* 阶段背景带（按命运正负淡着色，顶部标阶段） */}
+      {arc.map((a, i) => {
+        const [left, right] = cellAt(i);
+        return (
+          <g>
+            <rect x={left} y={padT} width={Math.max(0, right - left)} height={innerH} style={`fill:${cellFill(a.fortune)}`} />
+            {a.stage && (
+              <text x={(left + right) / 2} y={20} text-anchor="middle" font-size="11" fill="var(--muted)">{a.stage}</text>
+            )}
+          </g>
+        );
+      })}
+
+      {/* 命运区填充（高光金 / 低谷红） */}
+      {n > 1 && <path d={areaPath} fill="url(#fortuneFill)" />}
+
       {/* 中线（命运=0） */}
       <line x1={padL} y1={midY} x2={W - padR} y2={midY} stroke="var(--line)" stroke-dasharray="4 4" />
-      <text x={padL - 6} y={padT + 4} text-anchor="end" font-size="11" fill="var(--muted)">高</text>
-      <text x={padL - 6} y={H - padB} text-anchor="end" font-size="11" fill="var(--muted)">低</text>
+      <text x={padL - 8} y={padT + 4} text-anchor="end" font-size="11" fill="var(--gold)">高光</text>
+      <text x={padL - 8} y={H - padB} text-anchor="end" font-size="11" fill="var(--seal)">低谷</text>
+
       {/* 折线 */}
       {n > 1 && <polyline points={linePts} fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round" />}
+
       {/* 节点 */}
       {arc.map((a, i) => {
         const cx = xAt(i);
