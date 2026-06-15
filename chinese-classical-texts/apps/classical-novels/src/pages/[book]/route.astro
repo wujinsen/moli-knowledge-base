@@ -5,6 +5,7 @@ import GraphLayout from '../../layouts/GraphLayout.astro';
 import BackLink from '../../components/BackLink.astro';
 import RouteMap from '../../components/RouteMap.tsx';
 import { buildRouteEdges, type RouteNode } from '../../lib/route';
+import { projectRouteLayout } from '../../lib/routeGeo';
 import { sortEvents } from '../../lib/events';
 
 export async function getStaticPaths() {
@@ -18,7 +19,7 @@ const { book } = Astro.props;
 const meta = book.data;
 
 const locations = (await getCollection('locations')).filter(
-  (l) => l.data.book === meta.book && l.data.coord && l.data.layer,
+  (l) => l.data.book === meta.book && l.data.layer && (l.data.coord || l.data.geo),
 );
 
 const tribulations = sortEvents(
@@ -67,8 +68,9 @@ const nodes: RouteNode[] = locations.map((l) => {
     name: d.name,
     realm: d.realm ?? '凡间',
     layer: d.layer === 'myth' ? 'myth' : 'real',
-    x: d.coord!.x,
-    y: d.coord!.y,
+    x: d.coord?.x ?? 0,
+    y: d.coord?.y ?? 0,
+    geo: d.geo,
     order: d.route_order ?? null,
     aliases: d.aliases,
     summary: d.summary ?? '',
@@ -76,6 +78,8 @@ const nodes: RouteNode[] = locations.map((l) => {
     tribulations: tribulationsHere,
   };
 });
+
+projectRouteLayout(nodes);
 
 const routeData = { nodes, edges: buildRouteEdges(nodes) };
 const realCount = nodes.filter((n) => n.layer === 'real').length;

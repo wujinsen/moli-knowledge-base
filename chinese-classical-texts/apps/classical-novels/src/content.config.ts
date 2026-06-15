@@ -106,7 +106,7 @@ const books = defineCollection({
     author: z.string(),
     chapter_count: z.number(),
     features: z.array(
-      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'sna', 'compare', 'nan', 'route', 'chain', 'town', 'kaozheng', 'quanshi', 'saga'])
+      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'sna', 'compare', 'nan', 'route', 'chain', 'town', 'garden', 'kaozheng', 'quanshi', 'saga'])
     ),
     summary: z.string().optional(),
   }),
@@ -121,6 +121,9 @@ const LOCATION_CATEGORIES = [
 
 // 西游记取经路线 GIS：地理分层（real 凡间路线 / myth 神话异界）
 const ROUTE_LAYERS = ['real', 'myth'] as const;
+
+// 红楼梦大观园 M0 地图分区
+const GARDEN_ZONES = ['居所', '水系', '仪典', '路径'] as const;
 
 const locations = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/locations' }),
@@ -149,10 +152,14 @@ const locations = defineCollection({
     tags: z.array(z.string()).default([]),
     summary: z.string().optional(),
     map_zone: z.enum(['府内', '市井', '寺观', '城外']).optional(),
+    garden_zone: z.enum(GARDEN_ZONES).optional(),
+    tour_order: z.number().optional(),
     // 取经路线 GIS（西游记专用，可选）
     realm: z.string().optional(),
     layer: z.enum(ROUTE_LAYERS).optional(),
     coord: z.object({ x: z.number(), y: z.number() }).optional(),
+    /** 真实经纬度（取经路线方位投影用） */
+    geo: z.object({ lat: z.number(), lng: z.number() }).optional(),
     route_order: z.number().optional(),
   }),
 });

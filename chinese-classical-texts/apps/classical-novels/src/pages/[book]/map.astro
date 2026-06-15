@@ -1,0 +1,92 @@
+---
+import { getCollection } from 'astro:content';
+import { getBooks } from '../../lib/getBooks';
+import GraphLayout from '../../layouts/GraphLayout.astro';
+import BackLink from '../../components/BackLink.astro';
+import GardenMap from '../../components/GardenMap.tsx';
+import { buildGardenEdges, type GardenMapNode } from '../../lib/gardenMap';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  return books
+    .filter((b) => b.data.features.includes('garden'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+
+const locations = (await getCollection('locations')).filter(
+  (l) => l.data.book === meta.book && l.data.coord && l.data.garden_zone,
+);
+
+const nodes: GardenMapNode[] = locations.map((l) => {
+  const d = l.data;
+  const chapters = [
+    ...new Set(
+      d.appear_in
+        .map((s) => {
+          const m = s.match(/第(\d+)回/);
+          return m ? Number(m[1]) : null;
+        })
+        .filter((n): n is number => n != null),
+    ),
+  ].sort((a, b) => a - b);
+
+  return {
+    id: d.id,
+    name: d.name,
+    zone: d.garden_zone!,
+    category: d.category,
+    x: d.coord!.x,
+    y: d.coord!.y,
+    tourOrder: d.tour_order ?? null,
+    summary: d.summary ?? '',
+    chapters,
+    occupants: d.occupants,
+    plants: d.plants,
+    plaque: d.plaque,
+    couplet: d.couplet,
+    nearby: d.nearby,
+  };
+});
+
+const gardenData = { nodes, edges: buildGardenEdges(nodes) };
+const zoneCounts = Object.fromEntries(
+  (['居所', '水系', '仪典', '路径'] as const).map((z) => [z, nodes.filter((n) => n.zone === z).length]),
+);
+---
+
+<GraphLayout
+  title={`${meta.book} 大观园地图`}
+  bookSlug={meta.slug}
+  bookName={meta.book}
+  features={meta.features}
+  moduleLabel="大观园地图"
+>
+  {
+    nodes.length === 0 ? (
+      <div class="flex min-h-[70vh] flex-col items-center justify-center px-4 text-center text-slate-300">
+        <p class="mb-2 text-lg">大观园地图待生成</p>
+        <p class="max-w-md text-sm text-slate-400">
+          运行
+          <code class="mx-1 rounded bg-slate-800 px-2 py-0.5 text-amber-300">
+            python scripts/seed_garden_coords.py --write
+          </code>
+          为游线节点注入坐标与 garden_zone。
+        </p>
+        <BackLink href={`/${meta.slug}`} label={meta.book} variant="dark" class="mt-6" />
+      </div>
+    ) : (
+      <>
+        <div class="pointer-events-none absolute left-1/2 top-3 z-20 -translate-x-1/2 text-center sm:hidden">
+          <span class="text-xs text-slate-400">
+            居所 {zoneCounts['居所']} · 水系 {zoneCounts['水系']} · 仪典 {zoneCounts['仪典']} · 路径{' '}
+            {zoneCounts['路径']}
+          </span>
+        </div>
+        <GardenMap data={gardenData} bookSlug={meta.slug} client:only="react" />
+      </>
+    )
+  }
+</GraphLayout>

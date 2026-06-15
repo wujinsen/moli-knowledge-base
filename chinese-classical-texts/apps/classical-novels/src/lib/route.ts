@@ -1,4 +1,4 @@
-/** 取经路线 GIS：纯数据与配色（不依赖 astro:content） */
+import { formatSegment, type GeoPoint } from './routeGeo';
 
 export type RouteLayer = 'real' | 'myth';
 
@@ -15,6 +15,7 @@ export interface RouteNode {
   layer: RouteLayer;
   x: number;
   y: number;
+  geo?: { lat: number; lng: number };
   order: number | null;
   aliases: string[];
   summary: string;
@@ -25,6 +26,12 @@ export interface RouteNode {
 export interface RouteEdge {
   source: string;
   target: string;
+  /** 路段距离（km） */
+  distanceKm?: number;
+  /** 传统里数 */
+  distanceLi?: number;
+  /** 相对方位，如「西南」 */
+  bearing?: string;
 }
 
 export interface RouteData {
@@ -51,14 +58,23 @@ export const LAYER_LABELS: Record<RouteLayer, string> = {
   myth: '神话地理',
 };
 
-/** 由凡间节点的 route_order 串成取经折线 */
+/** 由凡间节点的 route_order 串成取经折线，并标注相对方位与距离 */
 export function buildRouteEdges(nodes: RouteNode[]): RouteEdge[] {
   const path = nodes
     .filter((n) => n.layer === 'real' && n.order != null)
     .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
   const edges: RouteEdge[] = [];
   for (let i = 0; i < path.length - 1; i++) {
-    edges.push({ source: path[i].id, target: path[i + 1].id });
+    const a = path[i];
+    const b = path[i + 1];
+    const edge: RouteEdge = { source: a.id, target: b.id };
+    if (a.geo && b.geo) {
+      const seg = formatSegment(a.geo as GeoPoint, b.geo as GeoPoint);
+      edge.distanceKm = seg.km;
+      edge.distanceLi = seg.li;
+      edge.bearing = seg.bearing;
+    }
+    edges.push(edge);
   }
   return edges;
 }
