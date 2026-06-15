@@ -796,6 +796,41 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
     border-top: 1px solid color-mix(in srgb, var(--line) 85%, transparent);
   }
 
+  /* 名录页 · 可折叠分组（建筑 / 名物 / 诗词意象，与图鉴共用样式） */
+  .catalog-fold-body > .grid,
+  .catalog-fold-body > .catalog-fold-grid {
+    margin-top: 0;
+  }
+  .catalog-fold-group .catalog-fold-body {
+    padding-top: 0.15rem;
+  }
+  .catalog-fold-group .catalog-fold-body > .grid,
+  .catalog-fold-group .catalog-fold-body > .catalog-fold-grid {
+    margin-top: 1rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid color-mix(in srgb, var(--line) 85%, transparent);
+  }
+
+  /* 大观园地图 · 侧栏名录折叠 */
+  .garden-catalog-summary {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    list-style: none;
+  }
+  .garden-catalog-summary::-webkit-details-marker {
+    display: none;
+  }
+  .garden-catalog-summary::before {
+    content: "▸";
+    color: #94a3b8;
+    font-size: 0.75rem;
+    transition: transform 0.15s ease;
+  }
+  .garden-catalog-group[open] .garden-catalog-summary::before {
+    transform: rotate(90deg);
+  }
+
   .bestiary-card {
     position: relative;
     display: flex;
@@ -2272,6 +2307,29 @@ a.edition-tab:hover {
 .graph-shell .graph-detail-panel h3 {
   font-size: var(--type-lead);
   font-weight: 700;
+}
+
+/* 大观园地图：深色底上字号与字重加强 */
+.graph-shell .garden-map {
+  font-family: var(--font-serif, 'Noto Serif SC', serif);
+}
+
+.graph-shell .garden-map :where(.text-xs) {
+  font-size: var(--type-sm);
+  font-weight: 600;
+}
+
+.graph-shell .garden-map :where(.text-sm) {
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.graph-shell .garden-map-panel :where(p, a, span, li) {
+  font-weight: 500;
+}
+
+.graph-shell .garden-catalog summary {
+  font-family: var(--font-serif, 'Noto Serif SC', serif);
 }
 
 /* ============ 各书模块页（考证 / 诠索 / 白银 / 对勘 / 诗词等） ============ */

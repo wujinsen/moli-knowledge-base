@@ -8,7 +8,7 @@ title: 探春理家
 aliases: [敏探春兴利除宿弊, 时宝钗小惠全大体]
 chapters: [55, 56]
 characters: [贾探春, 李纨, 薛宝钗, 王熙凤]
-locations: [大观园, 秋爽斋]
+locations: [大观园, 秋爽斋, 稻香村]
 prev: hlm-e-011
 next: hlm-e-004
 tags: [兴利除宿弊, 改革, 末世才情]

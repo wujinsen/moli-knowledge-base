@@ -4,7 +4,13 @@ import { getBooks } from '../../lib/getBooks';
 import GraphLayout from '../../layouts/GraphLayout.astro';
 import BackLink from '../../components/BackLink.astro';
 import GardenMap from '../../components/GardenMap.tsx';
-import { buildGardenEdges, type GardenMapNode } from '../../lib/gardenMap';
+import {
+  attachEventsToNodes,
+  buildGardenEdges,
+  ZONE_ORDER,
+  type GardenEventRef,
+  type GardenMapNode,
+} from '../../lib/gardenMap';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -20,7 +26,16 @@ const locations = (await getCollection('locations')).filter(
   (l) => l.data.book === meta.book && l.data.coord && l.data.garden_zone,
 );
 
-const nodes: GardenMapNode[] = locations.map((l) => {
+const gardenEvents: GardenEventRef[] = (await getCollection('events'))
+  .filter((e) => e.data.book === meta.book)
+  .map((e) => ({
+    id: e.data.id,
+    title: e.data.title,
+    chapters: e.data.chapters,
+    locations: e.data.locations ?? [],
+  }));
+
+const baseNodes: GardenMapNode[] = locations.map((l) => {
   const d = l.data;
   const chapters = [
     ...new Set(
@@ -48,12 +63,14 @@ const nodes: GardenMapNode[] = locations.map((l) => {
     plaque: d.plaque,
     couplet: d.couplet,
     nearby: d.nearby,
+    events: [],
   };
 });
 
+const nodes = attachEventsToNodes(baseNodes, gardenEvents);
 const gardenData = { nodes, edges: buildGardenEdges(nodes) };
 const zoneCounts = Object.fromEntries(
-  (['居所', '水系', '仪典', '路径'] as const).map((z) => [z, nodes.filter((n) => n.zone === z).length]),
+  ZONE_ORDER.map((z) => [z, nodes.filter((n) => n.zone === z).length]),
 );
 ---
 
@@ -80,9 +97,10 @@ const zoneCounts = Object.fromEntries(
     ) : (
       <>
         <div class="pointer-events-none absolute left-1/2 top-3 z-20 -translate-x-1/2 text-center sm:hidden">
-          <span class="text-xs text-slate-400">
-            居所 {zoneCounts['居所']} · 水系 {zoneCounts['水系']} · 仪典 {zoneCounts['仪典']} · 路径{' '}
-            {zoneCounts['路径']}
+          <span class="text-sm font-medium text-slate-300">
+            {ZONE_ORDER.filter((z) => zoneCounts[z] > 0)
+              .map((z) => `${z} ${zoneCounts[z]}`)
+              .join(' · ')}
           </span>
         </div>
         <GardenMap data={gardenData} bookSlug={meta.slug} client:only="react" />

@@ -8,7 +8,7 @@ title: 共读西厢与黛玉葬花
 aliases: [西厢记妙词通戏语, 埋香冢飞燕泣残红]
 chapters: [23, 27]
 characters: [贾宝玉, 林黛玉]
-locations: [大观园, 怡红院]
+locations: [大观园, 怡红院, 潇湘馆, 滴翠亭, 沁芳闸]
 prev: hlm-e-002
 next: hlm-e-010
 tags: [西厢记, 葬花吟, 觉醒]

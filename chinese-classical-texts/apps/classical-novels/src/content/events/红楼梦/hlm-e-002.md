@@ -7,7 +7,7 @@ edition: 脂砚斋本
 title: 元妃省亲
 chapters: [16, 17, 18]
 characters: [贾元春, 贾政, 贾宝玉, 贾母]
-locations: [大观园, 荣国府]
+locations: [大观园, 荣国府, 省亲别墅, 曲径通幽, 沁芳亭, 潇湘馆, 稻香村, 蓼溆, 蘅芜苑, 怡红院]
 prev: hlm-e-009
 next: hlm-e-003
 tags: [省亲, 大观园, 鼎盛]

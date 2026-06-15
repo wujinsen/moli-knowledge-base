@@ -122,8 +122,8 @@ const LOCATION_CATEGORIES = [
 // 西游记取经路线 GIS：地理分层（real 凡间路线 / myth 神话异界）
 const ROUTE_LAYERS = ['real', 'myth'] as const;
 
-// 红楼梦大观园 M0 地图分区
-const GARDEN_ZONES = ['居所', '水系', '仪典', '路径'] as const;
+// 红楼梦大观园地图分区
+const GARDEN_ZONES = ['居所', '水系', '仪典', '路径', '亭榭', '寺观', '服务'] as const;
 
 const locations = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/locations' }),

@@ -8,7 +8,7 @@ title: 抄检大观园
 aliases: [惑奸谗抄检大观园]
 chapters: [74]
 characters: [王夫人, 王熙凤, 贾探春, 晴雯, 司棋]
-locations: [大观园]
+locations: [大观园, 怡红院, 潇湘馆, 秋爽斋, 稻香村, 蓼风轩, 缀锦楼, 大观园厨房]
 prev: hlm-e-004
 next: hlm-e-006
 tags: [绣春囊, 抄检, 自杀自灭]
