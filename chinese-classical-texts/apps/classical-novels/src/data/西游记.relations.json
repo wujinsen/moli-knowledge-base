@@ -290,6 +290,12 @@
       "weight": 48
     },
     {
+      "id": "土地",
+      "type": "character",
+      "faction": "护行神祇",
+      "weight": 36
+    },
+    {
       "id": "地涌夫人",
       "type": "monster",
       "faction": "妖魔",
@@ -488,6 +494,12 @@
       "weight": 36
     },
     {
+      "id": "山神",
+      "type": "character",
+      "faction": "护行神祇",
+      "weight": 36
+    },
+    {
       "id": "崇恩圣帝",
       "type": "character",
       "faction": "天庭",
@@ -662,10 +674,22 @@
       "weight": 32
     },
     {
+      "id": "掀烘兴",
+      "type": "monster",
+      "faction": "妖魔",
+      "weight": 22
+    },
+    {
       "id": "推云童子",
       "type": "character",
       "faction": "天庭",
       "weight": 38
+    },
+    {
+      "id": "揭谛",
+      "type": "character",
+      "faction": "佛界",
+      "weight": 32
     },
     {
       "id": "文殊菩萨",
@@ -678,6 +702,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 44
+    },
+    {
+      "id": "日值功曹",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 34
     },
     {
       "id": "星日马",
@@ -2033,6 +2063,24 @@
     },
     {
       "source": "五方揭谛",
+      "target": "土地",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "五方揭谛",
+      "target": "山神",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "五方揭谛",
+      "target": "揭谛",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "五方揭谛",
       "target": "黄眉怪",
       "type": "敌对",
       "contradiction": false
@@ -2557,6 +2605,12 @@
       "source": "兴烘掀",
       "target": "牛魔王",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "兴烘掀",
+      "target": "掀烘兴",
+      "type": "同僚",
       "contradiction": false
     },
     {
@@ -3610,6 +3664,30 @@
       "contradiction": false
     },
     {
+      "source": "四值功曹",
+      "target": "日值功曹",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "四值功曹",
+      "target": "土地",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "四值功曹",
+      "target": "山神",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "四值功曹",
+      "target": "揭谛",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "国师王菩萨",
       "target": "小张太子",
       "type": "师徒",
@@ -3625,6 +3703,30 @@
       "source": "国师王菩萨",
       "target": "黄眉怪",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "土地",
+      "target": "山神",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "土地",
+      "target": "金头揭谛",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "土地",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "土地",
+      "target": "唐僧",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -5476,6 +5578,24 @@
       "contradiction": false
     },
     {
+      "source": "山神",
+      "target": "金头揭谛",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "山神",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "山神",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "崇恩圣帝",
       "target": "黄角大仙",
       "type": "朋友",
@@ -6382,9 +6502,63 @@
       "contradiction": false
     },
     {
+      "source": "掀烘兴",
+      "target": "红孩儿",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "掀烘兴",
+      "target": "云里雾",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "掀烘兴",
+      "target": "牛魔王",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "推云童子",
       "target": "风婆婆",
       "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "揭谛",
+      "target": "五方揭谛",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "揭谛",
+      "target": "金头揭谛",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "揭谛",
+      "target": "银头揭谛",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "揭谛",
+      "target": "土地",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "揭谛",
+      "target": "山神",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "揭谛",
+      "target": "观音菩萨",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -6511,6 +6685,36 @@
       "source": "斗木獬",
       "target": "黄眉怪",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "日值功曹",
+      "target": "四值功曹",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "日值功曹",
+      "target": "五方揭谛",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "日值功曹",
+      "target": "观音菩萨",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "日值功曹",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "日值功曹",
+      "target": "唐僧",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -8514,6 +8718,12 @@
     {
       "source": "红孩儿",
       "target": "兴烘掀",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "红孩儿",
+      "target": "掀烘兴",
       "type": "主仆",
       "contradiction": false
     },
