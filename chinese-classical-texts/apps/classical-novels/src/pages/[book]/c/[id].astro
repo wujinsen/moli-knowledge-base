@@ -99,6 +99,24 @@ const keyEvents = features.includes('saga')
   </div>
 
   {
+    d.arc.length > 0 && (
+      <a
+        href={`/${slug}/lifeline/${d.id}`}
+        class="surface mt-4 flex items-center gap-3 px-4 py-3 hover:opacity-90"
+        style="border-left: 3px solid var(--primary)"
+      >
+        <span class="glyph shrink-0" style="width:2.4rem;height:2.4rem;font-size:1.3rem">途</span>
+        <span class="min-w-0">
+          <span class="font-bold" style="color: var(--primary)">人生轨迹 · 命运曲线</span>
+          <span class="block text-sm text-muted">
+            {d.arc.length} 个节点，从「{d.arc[0].title}」到「{d.arc[d.arc.length - 1].title}」 →
+          </span>
+        </span>
+      </a>
+    )
+  }
+
+  {
     d.relations.length > 0 && (
       <div class="mt-6">
         <h2 class="section-title mb-2">关系</h2>
