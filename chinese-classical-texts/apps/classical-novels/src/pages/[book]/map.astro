@@ -4,12 +4,14 @@ import { getBooks } from '../../lib/getBooks';
 import GraphLayout from '../../layouts/GraphLayout.astro';
 import BackLink from '../../components/BackLink.astro';
 import GardenMap from '../../components/GardenMap.tsx';
+import gardenSnapshot from '../../data/红楼梦.garden_map.json';
 import {
   attachEventsToNodes,
   buildGardenEdges,
   ZONE_ORDER,
   type GardenEventRef,
   type GardenMapNode,
+  type GardenZone,
 } from '../../lib/gardenMap';
 
 export async function getStaticPaths() {
@@ -35,11 +37,10 @@ const gardenEvents: GardenEventRef[] = (await getCollection('events'))
     locations: e.data.locations ?? [],
   }));
 
-const baseNodes: GardenMapNode[] = locations.map((l) => {
-  const d = l.data;
-  const chapters = [
+function chaptersFromAppearIn(appearIn: string[]): number[] {
+  return [
     ...new Set(
-      d.appear_in
+      appearIn
         .map((s) => {
           const m = s.match(/第(\d+)回/);
           return m ? Number(m[1]) : null;
@@ -47,7 +48,9 @@ const baseNodes: GardenMapNode[] = locations.map((l) => {
         .filter((n): n is number => n != null),
     ),
   ].sort((a, b) => a - b);
+}
 
+function nodeFromLocation(d: (typeof locations)[number]['data']): GardenMapNode {
   return {
     id: d.id,
     name: d.name,
@@ -57,7 +60,7 @@ const baseNodes: GardenMapNode[] = locations.map((l) => {
     y: d.coord!.y,
     tourOrder: d.tour_order ?? null,
     summary: d.summary ?? '',
-    chapters,
+    chapters: chaptersFromAppearIn(d.appear_in),
     occupants: d.occupants,
     plants: d.plants,
     plaque: d.plaque,
@@ -65,7 +68,34 @@ const baseNodes: GardenMapNode[] = locations.map((l) => {
     nearby: d.nearby,
     events: [],
   };
-});
+}
+
+type SnapshotNode = (typeof gardenSnapshot)['nodes'][number];
+
+function nodeFromSnapshot(n: SnapshotNode): GardenMapNode {
+  return {
+    id: n.id,
+    name: n.name,
+    zone: n.zone as GardenZone,
+    category: n.category,
+    x: n.x,
+    y: n.y,
+    tourOrder: n.tourOrder ?? null,
+    summary: n.summary ?? '',
+    chapters: n.chapters ?? [],
+    occupants: n.occupants ?? [],
+    plants: n.plants ?? [],
+    plaque: n.plaque,
+    couplet: n.couplet,
+    nearby: n.nearby ?? [],
+    events: [],
+  };
+}
+
+const baseNodes: GardenMapNode[] =
+  locations.length > 0
+    ? locations.map((l) => nodeFromLocation(l.data))
+    : gardenSnapshot.nodes.map(nodeFromSnapshot);
 
 const nodes = attachEventsToNodes(baseNodes, gardenEvents);
 const gardenData = { nodes, edges: buildGardenEdges(nodes) };
@@ -90,7 +120,11 @@ const zoneCounts = Object.fromEntries(
           <code class="mx-1 rounded bg-slate-800 px-2 py-0.5 text-amber-300">
             python scripts/seed_garden_coords.py --write
           </code>
-          为游线节点注入坐标与 garden_zone。
+          注入坐标，再运行
+          <code class="mx-1 rounded bg-slate-800 px-2 py-0.5 text-amber-300">
+            python scripts/build_garden_map_manifest.py --write
+          </code>
+          生成地图快照。
         </p>
         <BackLink href={`/${meta.slug}`} label={meta.book} variant="dark" class="mt-6" />
       </div>

@@ -14,6 +14,7 @@ function catalogEntries(): BookEntry[] {
 
 /**
  * 读取书目列表。优先 Astro content store；若 dev 下 data-store 写入失败导致空集合，回退静态 catalog。
+ * catalog 的 features 必须与 src/content/books/*.md frontmatter 保持一致，否则模块会误标「未做」、顶栏缺入口。
  */
 export async function getBooks(): Promise<BookEntry[]> {
   try {

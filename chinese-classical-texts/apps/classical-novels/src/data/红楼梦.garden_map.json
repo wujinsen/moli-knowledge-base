@@ -1,0 +1,992 @@
+{
+  "book": "红楼梦",
+  "slug": "honglou",
+  "coord_basis": "seed_garden_coords",
+  "node_count": 36,
+  "nodes": [
+    {
+      "id": "省亲别墅",
+      "name": "省亲别墅",
+      "zone": "仪典",
+      "category": "楼",
+      "x": 400,
+      "y": 85,
+      "tourOrder": 9,
+      "summary": "大观园正殿区，为元春省亲驻跸之所；元春正殿赐匾「顾恩思义」（第18回）。",
+      "chapters": [
+        17,
+        18
+      ],
+      "occupants": [],
+      "plants": [],
+      "plaque": "顾恩思义",
+      "couplet": {
+        "upper": "天地启宏慈，赤子苍头同感戴",
+        "lower": "古今垂旷典，九州万国被恩荣"
+      },
+      "nearby": [
+        "嘉荫堂"
+      ],
+      "events": []
+    },
+    {
+      "id": "玉皇庙",
+      "name": "玉皇庙",
+      "zone": "寺观",
+      "category": "庵",
+      "x": 595,
+      "y": 95,
+      "tourOrder": null,
+      "summary": "原安置十二小沙弥于园中，后迁铁槛寺，由贾芹按月支领。",
+      "chapters": [
+        23
+      ],
+      "occupants": [
+        "贾芹"
+      ],
+      "plants": [],
+      "plaque": null,
+      "couplet": null,
+      "nearby": [
+        "达摩庵",
+        "铁槛寺"
+      ],
+      "events": []
+    },
+    {
+      "id": "芦雪庵",
+      "name": "芦雪庵",
+      "zone": "亭榭",
+      "category": "其他",
+      "x": 175,
+      "y": 105,
+      "tourOrder": null,
+      "summary": "大观园雪夜联诗之所，「芦雪庵即景联诗」为全书诗社名段。",
+      "chapters": [
+        49,
+        50
+      ],
+      "occupants": [],
+      "plants": [
+        "芦荻"
+      ],
+      "plaque": "荻芦夜雪",
+      "couplet": null,
+      "nearby": [
+        "沁芳亭",
+        "稻香村"
+      ],
+      "events": []
+    },
+    {
+      "id": "栊翠庵",
+      "name": "栊翠庵",
+      "zone": "寺观",
+      "category": "庵",
+      "x": 515,
+      "y": 105,
+      "tourOrder": null,
+      "summary": "大观园内庵堂，妙玉居此，刘姥姥游时在此品茶为全书名段。",
+      "chapters": [
+        41,
+        50,
+        87,
+        95
+      ],
+      "occupants": [
+        "妙玉"
+      ],
+      "plants": [
+        "红梅",
+        "梅花"
+      ],
+      "plaque": "栊翠庵",
+      "couplet": null,
+      "nearby": [
+        "暖香坞",
+        "稻香村"
+      ],
+      "events": []
+    },
+    {
+      "id": "稻香村",
+      "name": "稻香村",
+      "zone": "居所",
+      "category": "院落",
+      "x": 255,
+      "y": 125,
+      "tourOrder": 5,
+      "summary": "李纨在大观园中的住所，仿田园杏花村，匾题「杏帘在望」。",
+      "chapters": [
+        17,
+        23,
+        37,
+        49
+      ],
+      "occupants": [
+        "李纨"
+      ],
+      "plants": [
+        "杏花",
+        "桑",
+        "榆",
+        "槿",
+        "柘",
+        "蔬菜"
+      ],
+      "plaque": "杏帘在望",
+      "couplet": {
+        "upper": "新涨绿添浣葛处",
+        "lower": "好云香护采芹人"
+      },
+      "nearby": [
+        "栊翠庵",
+        "芦雪庵",
+        "议事厅"
+      ],
+      "events": []
+    },
+    {
+      "id": "达摩庵",
+      "name": "达摩庵",
+      "zone": "寺观",
+      "category": "庵",
+      "x": 555,
+      "y": 135,
+      "tourOrder": null,
+      "summary": "原安置十二小道士于园中，后同沙弥一并迁铁槛寺。",
+      "chapters": [
+        23
+      ],
+      "occupants": [],
+      "plants": [],
+      "plaque": null,
+      "couplet": null,
+      "nearby": [
+        "玉皇庙",
+        "铁槛寺"
+      ],
+      "events": []
+    },
+    {
+      "id": "议事厅",
+      "name": "议事厅",
+      "zone": "亭榭",
+      "category": "其他",
+      "x": 455,
+      "y": 155,
+      "tourOrder": null,
+      "summary": "匾「辅仁谕德」，俗呼议事厅；探春、李纨协理荣府内事处。",
+      "chapters": [
+        55,
+        56,
+        57
+      ],
+      "occupants": [
+        "贾探春",
+        "李纨"
+      ],
+      "plants": [],
+      "plaque": "辅仁谕德",
+      "couplet": null,
+      "nearby": [
+        "秋爽斋",
+        "稻香村"
+      ],
+      "events": []
+    },
+    {
+      "id": "大观园厨房",
+      "name": "大观园厨房",
+      "zone": "服务",
+      "category": "其他",
+      "x": 335,
+      "y": 165,
+      "tourOrder": null,
+      "summary": "园中炊事重地，柳家媳妇总管；玫瑰露、茯苓霜案发端于此。",
+      "chapters": [
+        61,
+        74
+      ],
+      "occupants": [
+        "柳家的"
+      ],
+      "plants": [],
+      "plaque": null,
+      "couplet": null,
+      "nearby": [
+        "茶房"
+      ],
+      "events": []
+    },
+    {
+      "id": "缀锦阁",
+      "name": "缀锦阁",
+      "zone": "亭榭",
+      "category": "阁",
+      "x": 675,
+      "y": 175,
+      "tourOrder": null,
+      "summary": "大观园中楼阁，存围屏花灯；刘姥姥游时开阁，贾母寿宴亦用此地。",
+      "chapters": [
+        40,
+        71
+      ],
+      "occupants": [
+        "贾迎春"
+      ],
+      "plants": [],
+      "plaque": "含芳阁",
+      "couplet": null,
+      "nearby": [
+        "嘉荫堂",
+        "船坞",
+        "藕香榭"
+      ],
+      "events": []
+    },
+    {
+      "id": "茶房",
+      "name": "茶房",
+      "zone": "服务",
+      "category": "其他",
+      "x": 295,
+      "y": 185,
+      "tourOrder": null,
+      "summary": "园中茶事处所；第61回五丫头往茶房寻姊妹，与厨房并列。",
+      "chapters": [
+        61
+      ],
+      "occupants": [],
+      "plants": [],
+      "plaque": null,
+      "couplet": null,
+      "nearby": [
+        "大观园厨房"
+      ],
+      "events": []
+    },
+    {
+      "id": "嘉荫堂",
+      "name": "嘉荫堂",
+      "zone": "亭榭",
+      "category": "堂",
+      "x": 535,
+      "y": 185,
+      "tourOrder": null,
+      "summary": "大观园内厅堂，贾母八旬荣寿时作接驾、茶叙与更衣之所，与缀锦阁同为寿宴空间。",
+      "chapters": [
+        71
+      ],
+      "occupants": [
+        "贾母"
+      ],
+      "plants": [],
+      "plaque": "嘉荫堂",
+      "couplet": null,
+      "nearby": [
+        "省亲别墅",
+        "缀锦阁"
+      ],
+      "events": []
+    },
+    {
+      "id": "沁芳亭",
+      "name": "沁芳亭",
+      "zone": "水系",
+      "category": "亭",
+      "x": 400,
+      "y": 215,
+      "tourOrder": 3,
+      "summary": "大观园沁芳溪上之亭，宝玉题「沁芳」匾及名联，为园中重要水景节点。",
+      "chapters": [
+        17,
+        23,
+        40
+      ],
+      "occupants": [],
+      "plants": [
+        "垂柳",
+        "桃杏"
+      ],
+      "plaque": "沁芳",
+      "couplet": {
+        "upper": "绕堤柳借三篙翠",
+        "lower": "隔岸花分一脉香"
+      },
+      "nearby": [
+        "后门",
+        "回廊",
+        "怡红院",
+        "曲径通幽",
+        "沁芳闸",
+        "潇湘馆",
+        "船坞",
+        "芦雪庵"
+      ],
+      "events": []
+    },
+    {
+      "id": "船坞",
+      "name": "船坞",
+      "zone": "水系",
+      "category": "其他",
+      "x": 615,
+      "y": 235,
+      "tourOrder": null,
+      "summary": "大观园存舟之处；第40回刘姥姥游园由此撑船。",
+      "chapters": [
+        40
+      ],
+      "occupants": [],
+      "plants": [],
+      "plaque": null,
+      "couplet": null,
+      "nearby": [
+        "沁芳亭",
+        "缀锦阁",
+        "蓼溆"
+      ],
+      "events": []
+    },
+    {
+      "id": "秋爽斋",
+      "name": "秋爽斋",
+      "zone": "居所",
+      "category": "院落",
+      "x": 725,
+      "y": 245,
+      "tourOrder": null,
+      "summary": "贾探春在大观园中的住所，内设晓翠堂，格局开阔，陈设清雅而富。",
+      "chapters": [
+        23,
+        40,
+        55,
+        74
+      ],
+      "occupants": [
+        "贾探春"
+      ],
+      "plants": [
+        "梧桐",
+        "芭蕉",
+        "白菊",
+        "佛手"
+      ],
+      "plaque": "风清玉爽",
+      "couplet": null,
+      "nearby": [
+        "晓翠堂",
+        "藕香榭",
+        "议事厅"
+      ],
+      "events": []
+    },
+    {
+      "id": "蓼溆",
+      "name": "蓼溆",
+      "zone": "水系",
+      "category": "其他",
+      "x": 565,
+      "y": 255,
+      "tourOrder": 7,
+      "summary": "大观园水边蓼花渚，刘姥姥游湖经此，与紫菱洲一带相连。",
+      "chapters": [
+        17,
+        40,
+        81
+      ],
+      "occupants": [],
+      "plants": [
+        "蓼花",
+        "荇叶"
+      ],
+      "plaque": "蓼汀花溆",
+      "couplet": null,
+      "nearby": [
+        "云步石梯",
+        "紫菱洲",
+        "船坞",
+        "藕香榭"
+      ],
+      "events": []
+    },
+    {
+      "id": "晓翠堂",
+      "name": "晓翠堂",
+      "zone": "亭榭",
+      "category": "堂",
+      "x": 740,
+      "y": 265,
+      "tourOrder": null,
+      "summary": "秋爽斋内厅堂，两宴大观园时在此摆席、行牙牌令。",
+      "chapters": [
+        40
+      ],
+      "occupants": [
+        "贾探春"
+      ],
+      "plants": [],
+      "plaque": "晓翠堂",
+      "couplet": null,
+      "nearby": [
+        "秋爽斋",
+        "藕香榭"
+      ],
+      "events": []
+    },
+    {
+      "id": "潇湘馆",
+      "name": "潇湘馆",
+      "zone": "居所",
+      "category": "院落",
+      "x": 155,
+      "y": 275,
+      "tourOrder": 4,
+      "summary": "林黛玉在大观园中的住所，匾题「有凤来仪」，以翠竹幽栏著称。",
+      "chapters": [
+        17,
+        23,
+        40,
+        64,
+        97
+      ],
+      "occupants": [
+        "林黛玉"
+      ],
+      "plants": [
+        "翠竹",
+        "梨花",
+        "芭蕉"
+      ],
+      "plaque": "有凤来仪",
+      "couplet": {
+        "upper": "宝鼎茶闲烟尚绿",
+        "lower": "幽窗棋罢指犹凉"
+      },
+      "nearby": [
+        "回廊",
+        "怡红院",
+        "柳叶渚",
+        "沁芳亭",
+        "沁芳闸",
+        "滴翠亭",
+        "翠烟桥",
+        "蜂腰桥"
+      ],
+      "events": []
+    },
+    {
+      "id": "凸碧堂",
+      "name": "凸碧堂",
+      "zone": "亭榭",
+      "category": "堂",
+      "x": 425,
+      "y": 275,
+      "tourOrder": null,
+      "summary": "大观园中秋宴饮赏月之堂，与凹晶馆对称，第76回笛声催泪。",
+      "chapters": [
+        75,
+        76
+      ],
+      "occupants": [],
+      "plants": [],
+      "plaque": "凸碧",
+      "couplet": null,
+      "nearby": [
+        "凹晶馆"
+      ],
+      "events": []
+    },
+    {
+      "id": "滴翠亭",
+      "name": "滴翠亭",
+      "zone": "亭榭",
+      "category": "亭",
+      "x": 485,
+      "y": 295,
+      "tourOrder": null,
+      "summary": "大观园中亭榭，宝钗在此偷听红玉私语，为「嫁祸黛玉」名场面发生地。",
+      "chapters": [
+        27
+      ],
+      "occupants": [],
+      "plants": [],
+      "plaque": "滴翠亭",
+      "couplet": null,
+      "nearby": [
+        "潇湘馆",
+        "蘅芜苑"
+      ],
+      "events": []
+    },
+    {
+      "id": "蘅芜苑",
+      "name": "蘅芜苑",
+      "zone": "居所",
+      "category": "院落",
+      "x": 645,
+      "y": 295,
+      "tourOrder": 8,
+      "summary": "薛宝钗在大观园中的住所，以蘅芜异香与素净陈设著称，与潇湘馆形成对照。",
+      "chapters": [
+        17,
+        23,
+        40,
+        108
+      ],
+      "occupants": [
+        "薛宝钗"
+      ],
+      "plants": [
+        "杜若",
+        "蘅芜",
+        "茝兰",
+        "清葛",
+        "紫芸",
+        "青芷"
+      ],
+      "plaque": "蘅芷清芬",
+      "couplet": {
+        "upper": "吟成莼潞才犹艳",
+        "lower": "睡足酴醿梦也香"
+      },
+      "nearby": [
+        "云步石梯",
+        "柳叶渚",
+        "滴翠亭",
+        "藕香榭"
+      ],
+      "events": []
+    },
+    {
+      "id": "藕香榭",
+      "name": "藕香榭",
+      "zone": "亭榭",
+      "category": "榭",
+      "x": 315,
+      "y": 305,
+      "tourOrder": null,
+      "summary": "大观园临水戏台，贾母两宴大观园时在此听戏。",
+      "chapters": [
+        40,
+        41,
+        87
+      ],
+      "occupants": [],
+      "plants": [
+        "残荷",
+        "芙蓉"
+      ],
+      "plaque": "藕香榭",
+      "couplet": null,
+      "nearby": [
+        "晓翠堂",
+        "秋爽斋",
+        "紫菱洲",
+        "缀锦楼",
+        "缀锦阁",
+        "蓼溆",
+        "蘅芜苑"
+      ],
+      "events": []
+    },
+    {
+      "id": "缀锦楼",
+      "name": "缀锦楼",
+      "zone": "居所",
+      "category": "楼",
+      "x": 705,
+      "y": 315,
+      "tourOrder": null,
+      "summary": "贾迎春在大观园中的住处，亦作存放围屏花灯之楼阁。",
+      "chapters": [
+        23,
+        40,
+        73
+      ],
+      "occupants": [
+        "贾迎春"
+      ],
+      "plants": [
+        "紫菱",
+        "荇叶"
+      ],
+      "plaque": "崇光泛彩",
+      "couplet": null,
+      "nearby": [
+        "紫菱洲",
+        "藕香榭"
+      ],
+      "events": []
+    },
+    {
+      "id": "回廊",
+      "name": "回廊",
+      "zone": "服务",
+      "category": "其他",
+      "x": 245,
+      "y": 325,
+      "tourOrder": null,
+      "summary": "园中回廊；第57回紫鹃在回廊做针黹，拒宝玉亲昵。",
+      "chapters": [
+        57
+      ],
+      "occupants": [],
+      "plants": [],
+      "plaque": null,
+      "couplet": null,
+      "nearby": [
+        "沁芳亭",
+        "潇湘馆"
+      ],
+      "events": []
+    },
+    {
+      "id": "沁芳闸",
+      "name": "沁芳闸",
+      "zone": "水系",
+      "category": "闸",
+      "x": 400,
+      "y": 335,
+      "tourOrder": 10,
+      "summary": "大观园引外水入园之闸口，沁芳溪正源所在。",
+      "chapters": [
+        17,
+        23
+      ],
+      "occupants": [],
+      "plants": [],
+      "plaque": "沁芳闸",
+      "couplet": null,
+      "nearby": [
+        "怡红院",
+        "沁芳亭",
+        "潇湘馆"
+      ],
+      "events": []
+    },
+    {
+      "id": "紫菱洲",
+      "name": "紫菱洲",
+      "zone": "亭榭",
+      "category": "院落",
+      "x": 115,
+      "y": 355,
+      "tourOrder": null,
+      "summary": "大观园水边洲渚，湘云来园时曾居此，刘姥姥游经荇叶渚、蓼溆一带。",
+      "chapters": [
+        37,
+        40
+      ],
+      "occupants": [
+        "史湘云"
+      ],
+      "plants": [
+        "菱",
+        "蓼"
+      ],
+      "plaque": "荇叶渚",
+      "couplet": null,
+      "nearby": [
+        "缀锦楼",
+        "蓼溆",
+        "藕香榭"
+      ],
+      "events": []
+    },
+    {
+      "id": "凹晶馆",
+      "name": "凹晶馆",
+      "zone": "亭榭",
+      "category": "馆",
+      "x": 375,
+      "y": 355,
+      "tourOrder": null,
+      "summary": "大观园临水馆舍，第76回湘云、黛玉中秋联诗处，名联出于此。",
+      "chapters": [
+        76
+      ],
+      "occupants": [],
+      "plants": [],
+      "plaque": "凹晶",
+      "couplet": null,
+      "nearby": [
+        "凸碧堂"
+      ],
+      "events": []
+    },
+    {
+      "id": "蓼风轩",
+      "name": "蓼风轩",
+      "zone": "居所",
+      "category": "院落",
+      "x": 685,
+      "y": 375,
+      "tourOrder": null,
+      "summary": "贾惜春在大观园中的住所，常与暖香坞并提，为作画清修之所。",
+      "chapters": [
+        23,
+        74,
+        87
+      ],
+      "occupants": [
+        "贾惜春"
+      ],
+      "plants": [
+        "梧桐",
+        "蓼",
+        "荇叶"
+      ],
+      "plaque": "桐剪秋风",
+      "couplet": null,
+      "nearby": [
+        "暖香坞"
+      ],
+      "events": []
+    },
+    {
+      "id": "翠烟桥",
+      "name": "翠烟桥",
+      "zone": "路径",
+      "category": "其他",
+      "x": 295,
+      "y": 395,
+      "tourOrder": null,
+      "summary": "大观园内桥梁；第25回小红在此遇贾芸、坠儿传帕。",
+      "chapters": [
+        25
+      ],
+      "occupants": [],
+      "plants": [],
+      "plaque": null,
+      "couplet": null,
+      "nearby": [
+        "怡红院",
+        "潇湘馆",
+        "红香圃"
+      ],
+      "events": []
+    },
+    {
+      "id": "暖香坞",
+      "name": "暖香坞",
+      "zone": "居所",
+      "category": "院落",
+      "x": 700,
+      "y": 395,
+      "tourOrder": null,
+      "summary": "贾惜春在蓼风轩内的暖阁，作画清修，与蓼风轩并提。",
+      "chapters": [
+        50,
+        74
+      ],
+      "occupants": [
+        "贾惜春"
+      ],
+      "plants": [],
+      "plaque": "暖香坞",
+      "couplet": null,
+      "nearby": [
+        "栊翠庵",
+        "蓼风轩"
+      ],
+      "events": []
+    },
+    {
+      "id": "蜂腰桥",
+      "name": "蜂腰桥",
+      "zone": "路径",
+      "category": "其他",
+      "x": 505,
+      "y": 405,
+      "tourOrder": null,
+      "summary": "大观园中板桥，第26回小红与贾芸蜂腰桥传帕定情。",
+      "chapters": [
+        26
+      ],
+      "occupants": [],
+      "plants": [],
+      "plaque": null,
+      "couplet": null,
+      "nearby": [
+        "怡红院",
+        "潇湘馆",
+        "红香圃"
+      ],
+      "events": []
+    },
+    {
+      "id": "柳叶渚",
+      "name": "柳叶渚",
+      "zone": "水系",
+      "category": "其他",
+      "x": 195,
+      "y": 415,
+      "tourOrder": null,
+      "summary": "大观园柳堤一带；第59回莺儿、蕊官编花篮，春燕护母冲突。",
+      "chapters": [
+        59
+      ],
+      "occupants": [],
+      "plants": [
+        "垂柳"
+      ],
+      "plaque": null,
+      "couplet": null,
+      "nearby": [
+        "潇湘馆",
+        "蘅芜苑"
+      ],
+      "events": []
+    },
+    {
+      "id": "红香圃",
+      "name": "红香圃",
+      "zone": "亭榭",
+      "category": "其他",
+      "x": 460,
+      "y": 430,
+      "tourOrder": null,
+      "summary": "大观园怡红院外花圃，第62–63回宝玉生日群芳夜宴于此。",
+      "chapters": [
+        62,
+        63
+      ],
+      "occupants": [],
+      "plants": [
+        "海棠",
+        "蔷薇",
+        "宝相花"
+      ],
+      "plaque": "红香圃",
+      "couplet": null,
+      "nearby": [
+        "后门",
+        "怡红院",
+        "翠烟桥",
+        "蜂腰桥"
+      ],
+      "events": []
+    },
+    {
+      "id": "怡红院",
+      "name": "怡红院",
+      "zone": "居所",
+      "category": "院落",
+      "x": 400,
+      "y": 455,
+      "tourOrder": 11,
+      "summary": "贾宝玉在大观园中的住所，初名红香绿玉，元春赐名怡红快绿，为全书最精工之院。",
+      "chapters": [
+        17,
+        18,
+        23,
+        31,
+        92,
+        99
+      ],
+      "occupants": [
+        "贾宝玉"
+      ],
+      "plants": [
+        "芭蕉",
+        "西府海棠",
+        "蔷薇",
+        "宝相花"
+      ],
+      "plaque": "怡红快绿",
+      "couplet": {
+        "upper": "绿蜡春犹卷",
+        "lower": "红妆夜未眠"
+      },
+      "nearby": [
+        "后门",
+        "沁芳亭",
+        "沁芳闸",
+        "潇湘馆",
+        "红香圃",
+        "翠烟桥",
+        "蜂腰桥"
+      ],
+      "events": []
+    },
+    {
+      "id": "后门",
+      "name": "后门",
+      "zone": "服务",
+      "category": "其他",
+      "x": 545,
+      "y": 475,
+      "tourOrder": null,
+      "summary": "大观园后门；第37回贾芸候门送花，第52回宝玉由此潜听。",
+      "chapters": [
+        37,
+        52
+      ],
+      "occupants": [],
+      "plants": [],
+      "plaque": null,
+      "couplet": null,
+      "nearby": [
+        "二门",
+        "夹道",
+        "怡红院",
+        "沁芳亭",
+        "红香圃",
+        "角门",
+        "门上"
+      ],
+      "events": []
+    },
+    {
+      "id": "云步石梯",
+      "name": "云步石梯",
+      "zone": "路径",
+      "category": "其他",
+      "x": 345,
+      "y": 505,
+      "tourOrder": null,
+      "summary": "大观园石梯；第40回刘姥姥游湖后顺云步石梯入蘅芜苑。",
+      "chapters": [
+        40
+      ],
+      "occupants": [],
+      "plants": [],
+      "plaque": null,
+      "couplet": null,
+      "nearby": [
+        "蓼溆",
+        "蘅芜苑"
+      ],
+      "events": []
+    },
+    {
+      "id": "曲径通幽",
+      "name": "曲径通幽",
+      "zone": "路径",
+      "category": "其他",
+      "x": 400,
+      "y": 535,
+      "tourOrder": 2,
+      "summary": "大观园入口第一景，翠嶂留题「曲径通幽处」，为贾政试才首处。",
+      "chapters": [
+        17
+      ],
+      "occupants": [],
+      "plants": [
+        "藤萝",
+        "苔藓"
+      ],
+      "plaque": "曲径通幽",
+      "couplet": {
+        "upper": "曲径通幽处",
+        "lower": "禅房花木深"
+      },
+      "nearby": [
+        "沁芳亭"
+      ],
+      "events": []
+    }
+  ]
+}
