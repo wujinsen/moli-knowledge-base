@@ -204,32 +204,57 @@ function cardProps(c: (typeof entries)[number]) {
     )
   }
 
+  <div class="bestiary-controls mb-6">
+    <span class="bestiary-controls-label">{sections.length + (monsters.length > 0 ? 1 : 0)} 个分类</span>
+    <div class="bestiary-controls-btns">
+      <button type="button" class="bestiary-control-btn" data-bestiary-expand="all">全部展开</button>
+      <button type="button" class="bestiary-control-btn" data-bestiary-expand="none">全部折叠</button>
+    </div>
+  </div>
+
   {
     sections.map(({ label, items }) => (
-      <section class="bestiary-section mb-10">
-        <h2 class="section-title mb-3 text-lg">
-          {label}（{items.length}）
-        </h2>
+      <details class="bestiary-section bestiary-group surface mb-6" open>
+        <summary class="bestiary-group-summary">
+          <span class="bestiary-group-title">{label}</span>
+          <span class="bestiary-group-count">{items.length}</span>
+        </summary>
         <div class="bestiary-grid grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {items.map((c) => (
             <CharacterCard {...cardProps(c)} />
           ))}
         </div>
-      </section>
+      </details>
     ))
   }
 
   {
     monsters.length > 0 && (
-      <>
-        <h2 class="section-title mb-3 text-lg">妖怪（{monsters.length}）</h2>
+      <details class="bestiary-section bestiary-group surface mb-6" open>
+        <summary class="bestiary-group-summary">
+          <span class="bestiary-group-title">妖怪</span>
+          <span class="bestiary-group-count">{monsters.length}</span>
+        </summary>
         <div class="bestiary-grid grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {monsters.map((c) => (
             <CharacterCard {...cardProps(c)} />
           ))}
         </div>
-      </>
+      </details>
     )
   }
   </div>
+
+  <script>
+    document.querySelectorAll('[data-bestiary-expand]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const open = btn.getAttribute('data-bestiary-expand') === 'all';
+        document
+          .querySelectorAll('details.bestiary-group')
+          .forEach((d) => {
+            d.open = open;
+          });
+      });
+    });
+  </script>
 </Base>

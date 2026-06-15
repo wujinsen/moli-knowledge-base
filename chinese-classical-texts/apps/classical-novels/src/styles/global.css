@@ -669,6 +669,82 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
     align-items: stretch;
   }
 
+  /* 图鉴分组 · 折叠控制 */
+  .bestiary-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+  }
+  .bestiary-controls-label {
+    font-size: var(--type-sm);
+    font-weight: var(--type-label-weight);
+    color: var(--ink-soft);
+  }
+  .bestiary-controls-btns {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .bestiary-control-btn {
+    appearance: none;
+    cursor: pointer;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--primary);
+    font-size: var(--type-sm);
+    font-weight: var(--type-label-weight);
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    transition:
+      background 0.15s ease,
+      border-color 0.15s ease;
+  }
+  .bestiary-control-btn:hover {
+    border-color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+  }
+
+  /* 图鉴分组 · 可折叠卡片 */
+  .bestiary-group {
+    padding: 0.85rem 1.15rem 1.15rem;
+    border-radius: 0.65rem;
+  }
+  .bestiary-group-summary {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    cursor: pointer;
+    list-style: none;
+  }
+  .bestiary-group-summary::-webkit-details-marker {
+    display: none;
+  }
+  .bestiary-group-summary::before {
+    content: "▸";
+    color: var(--primary-soft);
+    font-size: 0.85em;
+    transition: transform 0.15s ease;
+  }
+  .bestiary-group[open] .bestiary-group-summary::before {
+    transform: rotate(90deg);
+  }
+  .bestiary-group-title {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .bestiary-group-count {
+    font-size: var(--type-sm);
+    font-weight: var(--type-label-weight);
+    color: var(--ink-soft);
+  }
+  .bestiary-group .bestiary-grid {
+    margin-top: 1rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid color-mix(in srgb, var(--line) 85%, transparent);
+  }
+
   .bestiary-card {
     position: relative;
     display: flex;
