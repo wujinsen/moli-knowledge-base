@@ -140,6 +140,12 @@
       "weight": 38
     },
     {
+      "id": "光禄寺",
+      "type": "character",
+      "faction": "人间",
+      "weight": 28
+    },
+    {
       "id": "六丁六甲",
       "type": "character",
       "faction": "天庭",
@@ -386,6 +392,12 @@
       "weight": 48
     },
     {
+      "id": "太医官",
+      "type": "character",
+      "faction": "人间",
+      "weight": 28
+    },
+    {
       "id": "太宰",
       "type": "character",
       "faction": "人间",
@@ -474,6 +486,12 @@
       "type": "character",
       "faction": "宝象国",
       "weight": 32
+    },
+    {
+      "id": "宣召官",
+      "type": "character",
+      "faction": "人间",
+      "weight": 26
     },
     {
       "id": "室火猪",
@@ -1226,6 +1244,12 @@
       "weight": 36
     },
     {
+      "id": "老军",
+      "type": "character",
+      "faction": "人间",
+      "weight": 24
+    },
+    {
       "id": "老鼋",
       "type": "character",
       "faction": "通天河",
@@ -1500,6 +1524,12 @@
       "type": "monster",
       "faction": "妖魔",
       "weight": 58
+    },
+    {
+      "id": "锦衣卫",
+      "type": "character",
+      "faction": "人间",
+      "weight": 28
     },
     {
       "id": "镇元仙童",
@@ -2665,6 +2695,36 @@
       "source": "傅奕",
       "target": "张士衡",
       "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "光禄寺",
+      "target": "祭赛国国王",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "光禄寺",
+      "target": "灭法国国王",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "光禄寺",
+      "target": "天竺国国王",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "光禄寺",
+      "target": "比丘国国王",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "光禄寺",
+      "target": "唐僧",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -4246,6 +4306,18 @@
       "contradiction": false
     },
     {
+      "source": "天竺国国王",
+      "target": "宣召官",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "天竺国国王",
+      "target": "光禄寺",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
       "source": "太上老君",
       "target": "金角大王",
       "type": "主仆",
@@ -4302,6 +4374,24 @@
     {
       "source": "太乙救苦天尊",
       "target": "广目天王",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "太医官",
+      "target": "朱紫国国王",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "太医官",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "太医官",
+      "target": "唐僧",
       "type": "朋友",
       "contradiction": false
     },
@@ -5395,6 +5485,30 @@
       "source": "宝象国国王",
       "target": "百花羞",
       "type": "父子",
+      "contradiction": false
+    },
+    {
+      "source": "宣召官",
+      "target": "黄门官",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "宣召官",
+      "target": "天竺国国王",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "宣召官",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "宣召官",
+      "target": "孙悟空",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -7246,6 +7360,12 @@
       "contradiction": false
     },
     {
+      "source": "朱紫国国王",
+      "target": "太医官",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
       "source": "李太尉",
       "target": "二郎神",
       "type": "主仆",
@@ -7513,6 +7633,18 @@
       "source": "比丘国国王",
       "target": "白面狐狸",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "比丘国国王",
+      "target": "老军",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "比丘国国王",
+      "target": "光禄寺",
+      "type": "君臣",
       "contradiction": false
     },
     {
@@ -7926,6 +8058,12 @@
     {
       "source": "灭法国国王",
       "target": "总兵官",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "灭法国国王",
+      "target": "光禄寺",
       "type": "君臣",
       "contradiction": false
     },
@@ -8830,6 +8968,18 @@
       "contradiction": false
     },
     {
+      "source": "祭赛国国王",
+      "target": "锦衣卫",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "祭赛国国王",
+      "target": "光禄寺",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
       "source": "秦叔宝",
       "target": "唐太宗",
       "type": "君臣",
@@ -9145,6 +9295,24 @@
       "source": "翼火蛇",
       "target": "玉皇大帝",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "老军",
+      "target": "比丘国国王",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "老军",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "老军",
+      "target": "唐僧",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -10099,6 +10267,30 @@
       "source": "银角大王",
       "target": "太上老君",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "锦衣卫",
+      "target": "祭赛国国王",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "锦衣卫",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "锦衣卫",
+      "target": "奔波儿灞",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "锦衣卫",
+      "target": "灞波儿奔",
+      "type": "敌对",
       "contradiction": false
     },
     {

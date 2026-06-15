@@ -1,8 +1,8 @@
 {
   "target_pages": 300,
-  "current_pages": 285,
-  "remaining": 15,
-  "batches_planned": 3,
+  "current_pages": 290,
+  "remaining": 10,
+  "batches_planned": 2,
   "notes": "每批约5人；已有页跳过，第47批按 lint 动态补缺",
   "batches": [
     { "batch": 38, "target": 255, "names": ["高士廉", "殷开山", "张道源", "张士衡", "虞世南"], "theme": "贞观举哀班臣收官", "done": true },
@@ -12,8 +12,8 @@
     { "batch": 42, "target": 275, "names": ["黄门官", "驿丞", "太宰", "总兵官", "金平府刺史"], "theme": "人间职官背景板", "done": true, "note": "太宰取比丘国阁下太宰 ch79；总兵官取法国巡城 ch85" },
     { "batch": 43, "target": 280, "names": ["乌鸡国太子", "乌鸡国娘娘", "慈云寺院主", "金光寺方丈", "赛太岁先锋"], "theme": "列国/寺院支线", "done": true, "note": "比丘国国丈合白鹿精已有页，改建乌鸡国娘娘" },
     { "batch": 44, "target": 285, "names": ["宝林寺方丈", "东城兵马使", "当驾官", "夜不收", "罗汉"], "theme": "职官与神佛泛称", "done": true },
-    { "batch": 45, "target": 290, "names": ["锦衣卫", "宣召官", "太医官", "光禄寺", "老军"], "theme": "职官与列国配角" },
-    { "batch": 46, "target": 295, "names": ["待lint", "待lint", "待lint", "待lint", "待lint"], "theme": "按缺页清单填" },
+    { "batch": 45, "target": 290, "names": ["锦衣卫", "宣召官", "太医官", "光禄寺", "老军"], "theme": "职官与列国配角", "done": true },
+    { "batch": 46, "target": 295, "names": ["五城兵马官", "羽林军", "馆使", "护驾", "教坊司"], "theme": "朝堂仪卫与馆驿" },
     { "batch": 47, "target": 300, "names": ["待lint", "待lint", "待lint", "待lint", "待lint"], "theme": "冲线批" }
   ]
 }
