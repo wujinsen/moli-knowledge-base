@@ -4,7 +4,7 @@
     {
       "id": "何九",
       "type": "character",
-      "faction": "帮闲圈",
+      "faction": "清河市井",
       "weight": 22,
       "ximen_proximity": "利益交换"
     },
@@ -397,12 +397,6 @@
   ],
   "edges": [
     {
-      "source": "何九",
-      "target": "西门庆",
-      "type": "帮闲",
-      "contradiction": false
-    },
-    {
       "source": "冯神仙",
       "target": "西门庆",
       "type": "朋友",
@@ -487,6 +481,18 @@
       "contradiction": false
     },
     {
+      "source": "孙天化",
+      "target": "应伯爵",
+      "type": "结拜",
+      "contradiction": false
+    },
+    {
+      "source": "孙天化",
+      "target": "谢希大",
+      "type": "结拜",
+      "contradiction": false
+    },
+    {
       "source": "孙雪娥",
       "target": "西门庆",
       "type": "情人",
@@ -502,6 +508,36 @@
       "source": "孟玉楼",
       "target": "西门庆",
       "type": "情人",
+      "contradiction": false
+    },
+    {
+      "source": "孟玉楼",
+      "target": "吴月娘",
+      "type": "妯娌",
+      "contradiction": false
+    },
+    {
+      "source": "孟玉楼",
+      "target": "潘金莲",
+      "type": "妯娌",
+      "contradiction": false
+    },
+    {
+      "source": "孟玉楼",
+      "target": "李瓶儿",
+      "type": "妯娌",
+      "contradiction": false
+    },
+    {
+      "source": "孟玉楼",
+      "target": "孙雪娥",
+      "type": "妯娌",
+      "contradiction": false
+    },
+    {
+      "source": "孟玉楼",
+      "target": "李娇儿",
+      "type": "妯娌",
       "contradiction": false
     },
     {
@@ -544,6 +580,12 @@
       "source": "常峙节",
       "target": "应伯爵",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "常峙节",
+      "target": "谢希大",
+      "type": "结拜",
       "contradiction": false
     },
     {
@@ -603,6 +645,12 @@
     {
       "source": "张大户",
       "target": "潘金莲",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "张大户",
+      "target": "武大郎",
       "type": "主仆",
       "contradiction": false
     },
@@ -670,6 +718,12 @@
       "source": "来保",
       "target": "西门庆",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "来保",
+      "target": "韩道国",
+      "type": "同僚",
       "contradiction": false
     },
     {
@@ -787,9 +841,33 @@
       "contradiction": false
     },
     {
+      "source": "白赉光",
+      "target": "应伯爵",
+      "type": "结拜",
+      "contradiction": false
+    },
+    {
+      "source": "白赉光",
+      "target": "谢希大",
+      "type": "结拜",
+      "contradiction": false
+    },
+    {
       "source": "祝实念",
       "target": "西门庆",
       "type": "帮闲",
+      "contradiction": false
+    },
+    {
+      "source": "祝实念",
+      "target": "应伯爵",
+      "type": "结拜",
+      "contradiction": false
+    },
+    {
+      "source": "祝实念",
+      "target": "谢希大",
+      "type": "结拜",
       "contradiction": false
     },
     {
@@ -826,6 +904,12 @@
       "source": "花子虚",
       "target": "西门庆",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "花子虚",
+      "target": "应伯爵",
+      "type": "结拜",
       "contradiction": false
     },
     {
@@ -885,6 +969,12 @@
     {
       "source": "西门庆",
       "target": "蔡京",
+      "type": "贿赂",
+      "contradiction": false
+    },
+    {
+      "source": "西门庆",
+      "target": "何九",
       "type": "贿赂",
       "contradiction": false
     },
