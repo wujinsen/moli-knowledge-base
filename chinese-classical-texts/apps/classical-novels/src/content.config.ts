@@ -28,6 +28,18 @@ const variant = z.object({
   source: z.string().optional(),
 });
 
+// 人物路线图 · 一生轨迹节点（出身→转折→结局）。fortune 为命运值（-100 低谷 ~ 100 高光），驱动命运曲线
+export const ARC_STAGES = ['出场', '起', '转', '高光', '低谷', '结局'] as const;
+
+const characterArc = z.object({
+  chapter: z.number().optional(),
+  stage: z.enum(ARC_STAGES).optional(),
+  title: z.string(),
+  note: z.string().optional(),
+  fortune: z.number().min(-100).max(100).optional(),
+  event: z.string().optional(),
+});
+
 const characters = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/characters' }),
   schema: z.object({
@@ -60,6 +72,8 @@ const characters = defineCollection({
     relations: z.array(relation).default([]),
     variants: z.array(variant).default([]),
     contradicts: z.array(z.string()).default([]),
+    // 人物路线图 · 一生轨迹（可选，仅录入主角；空则不显示路线页）
+    arc: z.array(characterArc).default([]),
     // 由 /consolidate 重算，勿手填
     weight: z.number().min(0).max(100).optional(),
     summary: z.string().optional(),

@@ -1,0 +1,148 @@
+---
+import { getCollection } from 'astro:content';
+import { getBooks } from '../../../lib/getBooks';
+import Base from '../../../layouts/Base.astro';
+import BackLink from '../../../components/BackLink.astro';
+import { readChapterPath } from '../../../lib/editions';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  const slugByBook = new Map(books.map((b) => [b.data.book, b.data.slug]));
+  const featByBook = new Map(books.map((b) => [b.data.book, b.data.features]));
+  const chars = await getCollection('characters');
+  return chars
+    .filter((c) => (c.data.arc?.length ?? 0) > 0)
+    .map((c) => ({
+      params: { book: slugByBook.get(c.data.book)!, id: c.data.id },
+      props: {
+        entry: c,
+        slug: slugByBook.get(c.data.book)!,
+        features: featByBook.get(c.data.book) ?? [],
+      },
+    }));
+}
+
+const { entry, slug, features } = Astro.props;
+const d = entry.data;
+const arc = d.arc;
+
+// 命运曲线几何
+const W = 880;
+const H = 300;
+const padL = 48;
+const padR = 48;
+const padT = 44;
+const padB = 44;
+const innerW = W - padL - padR;
+const innerH = H - padT - padB;
+const midY = padT + innerH / 2;
+const n = arc.length;
+const xAt = (i: number) => (n <= 1 ? W / 2 : padL + (i * innerW) / (n - 1));
+const yAt = (f?: number | null) => midY - ((f ?? 0) / 100) * (innerH / 2);
+const linePts = arc.map((a, i) => `${xAt(i)},${yAt(a.fortune)}`).join(' ');
+const nodeColor = (f?: number | null) =>
+  (f ?? 0) > 0 ? 'var(--gold)' : (f ?? 0) < 0 ? 'var(--seal)' : 'var(--muted)';
+
+const fortuneTag = (f?: number | null) =>
+  f == null ? '' : f > 0 ? `↑ ${f}` : f < 0 ? `↓ ${f}` : `· 0`;
+---
+
+<Base title={`${d.name} · 人生轨迹`} bookSlug={slug} bookName={d.book} features={features}>
+  <BackLink href={`/${slug}/c/${d.id}`} label={d.name} />
+
+  <section class="content-page surface relative mt-3 mb-6 overflow-hidden px-6 py-7 sm:px-8">
+    <div class="flex items-start gap-4">
+      <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">途</span>
+      <div class="min-w-0">
+        <h1 class="brand text-4xl" style="color: var(--primary)">{d.name} · 人生轨迹</h1>
+        <p class="mt-2 text-sm text-muted">
+          {n} 个节点 · 从「{arc[0]?.title}」到「{arc[n - 1]?.title}」 · 纵轴为命运起伏（高光↑ / 低谷↓）
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* 命运曲线 */}
+  <section class="surface mb-6 overflow-x-auto px-3 py-5 sm:px-6">
+    <svg viewBox={`0 0 ${W} ${H}`} class="w-full" style="min-width:640px" role="img" aria-label={`${d.name}命运曲线`}>
+      {/* 中线（命运=0） */}
+      <line x1={padL} y1={midY} x2={W - padR} y2={midY} stroke="var(--line)" stroke-dasharray="4 4" />
+      <text x={padL - 6} y={padT + 4} text-anchor="end" font-size="11" fill="var(--muted)">高</text>
+      <text x={padL - 6} y={H - padB} text-anchor="end" font-size="11" fill="var(--muted)">低</text>
+      {/* 折线 */}
+      {n > 1 && <polyline points={linePts} fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round" />}
+      {/* 节点 */}
+      {arc.map((a, i) => {
+        const cx = xAt(i);
+        const cy = yAt(a.fortune);
+        const labelAbove = (a.fortune ?? 0) >= 0;
+        return (
+          <a href={`#arc-${i}`}>
+            <circle cx={cx} cy={cy} r="6" style={`fill:${nodeColor(a.fortune)}`} stroke="var(--bg)" stroke-width="2" />
+            <text
+              x={cx}
+              y={labelAbove ? cy - 12 : cy + 20}
+              text-anchor="middle"
+              font-size="12"
+              fill="var(--ink)"
+              class="brand"
+            >
+              {a.title}
+            </text>
+            {a.chapter != null && (
+              <text x={cx} y={labelAbove ? cy - 26 : cy + 34} text-anchor="middle" font-size="10" fill="var(--muted)">
+                第{a.chapter}回
+              </text>
+            )}
+          </a>
+        );
+      })}
+    </svg>
+  </section>
+
+  {/* 竖向时间轴 */}
+  <div class="tribulation-timeline">
+    {arc.map((a, i) => (
+      <article class="timeline-item surface" id={`arc-${i}`}>
+        <div class="timeline-marker">
+          <span class="timeline-no">{i + 1}</span>
+        </div>
+        <div class="timeline-body min-w-0 flex-1">
+          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <h3 class="brand text-xl" style="color: var(--primary)">{a.title}</h3>
+            {a.stage && <span class="chip text-xs">{a.stage}</span>}
+            {a.fortune != null && (
+              <span class="text-xs" style={`color:${nodeColor(a.fortune)}`}>{fortuneTag(a.fortune)}</span>
+            )}
+          </div>
+          {a.note && <p class="timeline-summary mt-1.5">{a.note}</p>}
+          <div class="mt-2.5 flex flex-wrap gap-2">
+            {a.chapter != null && (
+              <a href={readChapterPath(slug, d.book, a.chapter)} class="chip hover:opacity-80">
+                第{a.chapter}回
+              </a>
+            )}
+            {a.event && (
+              <a href={`/${slug}/e/${a.event}`} class="chip hover:opacity-80" style="color: var(--accent)">
+                大事记 · 详情
+              </a>
+            )}
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <div class="surface mt-6 p-4 text-sm">
+    <span class="chip">数据源</span>
+    characters/{d.book}/{d.id}.md · arc
+    {features.includes('saga') && (
+      <>
+        {' · '}
+        <a href={`/${slug}/saga`} class="hover:underline" style="color: var(--accent)">大事记主线</a>
+      </>
+    )}
+    {' · '}
+    <a href={`/${slug}/c/${d.id}`} class="hover:underline" style="color: var(--accent)">{d.name}档案</a>
+  </div>
+</Base>

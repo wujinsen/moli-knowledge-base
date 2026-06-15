@@ -42,6 +42,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
           var topbar = document.querySelector('.graph-topbar');
           if (!shell || !topbar) return;
           shell.style.setProperty('--graph-chrome', topbar.offsetHeight + 'px');
+          window.dispatchEvent(new Event('graph-chrome-sync'));
         }
         syncGraphChrome();
         window.addEventListener('resize', syncGraphChrome);

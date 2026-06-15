@@ -1,52 +1,56 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 69,
+  "paged_count": 74,
   "pending_count": 5,
   "pending": [
     {
-      "name": "凤仙郡郡侯",
+      "name": "白面狐狸",
       "mentions": 1,
       "chapters": [
-        87
+        79
       ],
       "appear_in": [
-        "第87回"
+        "第79回"
       ],
       "source": "seed",
-      "note": "冒犯上天、米山面山锁；第87–88回"
+      "note": "比丘国美后，白鹿精同党；第78–79回"
     },
     {
-      "name": "宝象国国王",
+      "name": "百花羞",
+      "mentions": 1,
+      "chapters": [
+        29
+      ],
+      "appear_in": [
+        "第29回"
+      ],
+      "source": "seed",
+      "note": "宝象国公主，奎木狼妻；第29–31回"
+    },
+    {
+      "name": "南极寿星",
       "mentions": 0,
       "chapters": [],
       "appear_in": [],
       "source": "seed",
-      "note": "黄袍怪摄公主；第30–31回"
+      "note": "收白鹿精；第79回"
     },
     {
-      "name": "朱紫国国王",
+      "name": "灭法国国王",
       "mentions": 0,
       "chapters": [],
       "appear_in": [],
       "source": "seed",
-      "note": "金圣宫被抢、双鸟失群之疾；第68–71回"
+      "note": "万僧之愿，后改钦法国；第84–85回"
     },
     {
-      "name": "比丘国国王",
+      "name": "镇海寺方丈",
       "mentions": 0,
       "chapters": [],
       "appear_in": [],
       "source": "seed",
-      "note": "白鹿精国丈、一千一百一十一颗小儿心；第76–77回"
-    },
-    {
-      "name": "祭赛国国王",
-      "mentions": 0,
-      "chapters": [],
-      "appear_in": [],
-      "source": "seed",
-      "note": "金光寺舍利被盗；第62–63回"
+      "note": "僧房病；第81–82回"
     }
   ]
 }

@@ -14,6 +14,12 @@
       "weight": 38
     },
     {
+      "id": "乌鸡国王",
+      "type": "character",
+      "faction": "乌鸡国",
+      "weight": 36
+    },
+    {
       "id": "九头虫",
       "type": "monster",
       "faction": "妖魔",
@@ -36,6 +42,24 @@
       "type": "monster",
       "faction": "妖魔",
       "weight": 58
+    },
+    {
+      "id": "凤仙郡郡侯",
+      "type": "character",
+      "faction": "凤仙郡",
+      "weight": 32
+    },
+    {
+      "id": "刘伯钦",
+      "type": "character",
+      "faction": "两界山",
+      "weight": 30
+    },
+    {
+      "id": "刘洪",
+      "type": "character",
+      "faction": "江州",
+      "weight": 22
     },
     {
       "id": "南山大王",
@@ -110,10 +134,34 @@
       "weight": 100
     },
     {
+      "id": "宝象国国王",
+      "type": "character",
+      "faction": "宝象国",
+      "weight": 32
+    },
+    {
+      "id": "寇员外",
+      "type": "character",
+      "faction": "铜台府",
+      "weight": 34
+    },
+    {
+      "id": "小钻风",
+      "type": "monster",
+      "faction": "狮驼岭",
+      "weight": 32
+    },
+    {
       "id": "文殊菩萨",
       "type": "character",
       "faction": "佛界",
       "weight": 32
+    },
+    {
+      "id": "朱紫国国王",
+      "type": "character",
+      "faction": "朱紫国",
+      "weight": 34
     },
     {
       "id": "李靖",
@@ -122,10 +170,28 @@
       "weight": 70
     },
     {
+      "id": "殷温娇",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 26
+    },
+    {
+      "id": "比丘国国王",
+      "type": "character",
+      "faction": "比丘国",
+      "weight": 34
+    },
+    {
       "id": "沙僧",
       "type": "character",
       "faction": "取经队伍",
       "weight": 82
+    },
+    {
+      "id": "泾河龙王",
+      "type": "character",
+      "faction": "泾河",
+      "weight": 40
     },
     {
       "id": "混世魔王",
@@ -212,6 +278,12 @@
       "weight": 32
     },
     {
+      "id": "祭赛国国王",
+      "type": "character",
+      "faction": "祭赛国",
+      "weight": 32
+    },
+    {
       "id": "红孩儿",
       "type": "monster",
       "faction": "妖魔",
@@ -272,6 +344,12 @@
       "weight": 38
     },
     {
+      "id": "金圣宫娘娘",
+      "type": "character",
+      "faction": "朱紫国",
+      "weight": 38
+    },
+    {
       "id": "金角大王",
       "type": "monster",
       "faction": "妖魔",
@@ -296,6 +374,12 @@
       "weight": 58
     },
     {
+      "id": "陈光蕊",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 28
+    },
+    {
       "id": "青牛精",
       "type": "monster",
       "faction": "妖魔",
@@ -306,6 +390,24 @@
       "type": "monster",
       "faction": "妖魔",
       "weight": 58
+    },
+    {
+      "id": "高太公",
+      "type": "character",
+      "faction": "高老庄",
+      "weight": 24
+    },
+    {
+      "id": "高翠兰",
+      "type": "character",
+      "faction": "高老庄",
+      "weight": 22
+    },
+    {
+      "id": "魏征",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 42
     },
     {
       "id": "鹿力大仙",
@@ -382,6 +484,30 @@
       "contradiction": false
     },
     {
+      "source": "乌鸡国王",
+      "target": "狮猁怪",
+      "type": "仇敌",
+      "contradiction": false
+    },
+    {
+      "source": "乌鸡国王",
+      "target": "文殊菩萨",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "乌鸡国王",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "乌鸡国王",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "九头虫",
       "target": "孙悟空",
       "type": "敌对",
@@ -443,6 +569,54 @@
     },
     {
       "source": "六耳猕猴",
+      "target": "唐僧",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "凤仙郡郡侯",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "凤仙郡郡侯",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "凤仙郡郡侯",
+      "target": "玉皇大帝",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "刘伯钦",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "刘伯钦",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "刘洪",
+      "target": "陈光蕊",
+      "type": "仇敌",
+      "contradiction": false
+    },
+    {
+      "source": "刘洪",
+      "target": "殷温娇",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "刘洪",
       "target": "唐僧",
       "type": "敌对",
       "contradiction": false
@@ -539,6 +713,18 @@
     },
     {
       "source": "唐僧",
+      "target": "陈光蕊",
+      "type": "父子",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
+      "target": "殷温娇",
+      "type": "母子",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
       "target": "白骨精",
       "type": "敌对",
       "contradiction": false
@@ -622,6 +808,18 @@
       "contradiction": false
     },
     {
+      "source": "唐太宗",
+      "target": "魏征",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "泾河龙王",
+      "type": "仇敌",
+      "contradiction": false
+    },
+    {
       "source": "地涌夫人",
       "target": "唐僧",
       "type": "敌对",
@@ -702,6 +900,12 @@
     {
       "source": "奎木狼",
       "target": "沙僧",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "奎木狼",
+      "target": "宝象国国王",
       "type": "敌对",
       "contradiction": false
     },
@@ -940,6 +1144,54 @@
       "contradiction": false
     },
     {
+      "source": "宝象国国王",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "宝象国国王",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "寇员外",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "寇员外",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "小钻风",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "小钻风",
+      "target": "青狮精",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "小钻风",
+      "target": "白象精",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "小钻风",
+      "target": "大鹏精",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "文殊菩萨",
       "target": "狮猁怪",
       "type": "主仆",
@@ -948,6 +1200,30 @@
     {
       "source": "文殊菩萨",
       "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "朱紫国国王",
+      "target": "金圣宫娘娘",
+      "type": "夫妻",
+      "contradiction": false
+    },
+    {
+      "source": "朱紫国国王",
+      "target": "赛太岁",
+      "type": "仇敌",
+      "contradiction": false
+    },
+    {
+      "source": "朱紫国国王",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "朱紫国国王",
+      "target": "唐僧",
       "type": "朋友",
       "contradiction": false
     },
@@ -979,6 +1255,42 @@
       "source": "李靖",
       "target": "地涌夫人",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "殷温娇",
+      "target": "唐僧",
+      "type": "母子",
+      "contradiction": false
+    },
+    {
+      "source": "殷温娇",
+      "target": "陈光蕊",
+      "type": "夫妻",
+      "contradiction": false
+    },
+    {
+      "source": "殷温娇",
+      "target": "刘洪",
+      "type": "仇敌",
+      "contradiction": false
+    },
+    {
+      "source": "比丘国国王",
+      "target": "白鹿精",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "比丘国国王",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "比丘国国王",
+      "target": "唐僧",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -1015,6 +1327,18 @@
       "source": "沙僧",
       "target": "红孩儿",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "泾河龙王",
+      "target": "魏征",
+      "type": "仇敌",
+      "contradiction": false
+    },
+    {
+      "source": "泾河龙王",
+      "target": "东海龙王",
+      "type": "兄弟",
       "contradiction": false
     },
     {
@@ -1092,6 +1416,18 @@
     {
       "source": "猪八戒",
       "target": "红孩儿",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "猪八戒",
+      "target": "高太公",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "猪八戒",
+      "target": "高翠兰",
       "type": "敌对",
       "contradiction": false
     },
@@ -1183,6 +1519,30 @@
       "source": "百眼魔君",
       "target": "孙悟空",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "祭赛国国王",
+      "target": "九头虫",
+      "type": "仇敌",
+      "contradiction": false
+    },
+    {
+      "source": "祭赛国国王",
+      "target": "万圣龙王",
+      "type": "仇敌",
+      "contradiction": false
+    },
+    {
+      "source": "祭赛国国王",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "祭赛国国王",
+      "target": "唐僧",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -1342,6 +1702,18 @@
       "contradiction": false
     },
     {
+      "source": "赛太岁",
+      "target": "金圣宫娘娘",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "赛太岁",
+      "target": "朱紫国国王",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "辟寒大王",
       "target": "辟暑大王",
       "type": "兄弟",
@@ -1363,6 +1735,18 @@
       "source": "辟尘大王",
       "target": "辟暑大王",
       "type": "兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "金圣宫娘娘",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "金圣宫娘娘",
+      "target": "观音菩萨",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -1408,6 +1792,12 @@
       "contradiction": false
     },
     {
+      "source": "陈光蕊",
+      "target": "唐僧",
+      "type": "父子",
+      "contradiction": false
+    },
+    {
       "source": "青牛精",
       "target": "太上老君",
       "type": "主仆",
@@ -1417,6 +1807,30 @@
       "source": "青狮精",
       "target": "孙悟空",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "高太公",
+      "target": "高翠兰",
+      "type": "父子",
+      "contradiction": false
+    },
+    {
+      "source": "高太公",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "高翠兰",
+      "target": "高太公",
+      "type": "父子",
+      "contradiction": false
+    },
+    {
+      "source": "魏征",
+      "target": "唐太宗",
+      "type": "君臣",
       "contradiction": false
     },
     {

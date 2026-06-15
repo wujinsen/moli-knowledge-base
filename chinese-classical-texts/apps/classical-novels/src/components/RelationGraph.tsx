@@ -299,11 +299,13 @@ export default function RelationGraph({ bookSlug }: Props) {
 
   useEffect(() => {
     const el = chartRef.current;
+    const container = containerRef.current;
     if (!el) return;
 
     let chart: echarts.ECharts | null = null;
     let cancelled = false;
     let attempts = 0;
+    let rafId = 0;
     setChartError(null);
 
     const mountChart = () => {
@@ -312,7 +314,10 @@ export default function RelationGraph({ bookSlug }: Props) {
         attempts += 1;
         if (attempts > 240) {
           setChartError('图谱画布高度为 0，请刷新页面或点击全屏');
+          return;
         }
+        cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(mountChart);
         return;
       }
       try {
@@ -338,20 +343,26 @@ export default function RelationGraph({ bookSlug }: Props) {
       window.setTimeout(() => chart?.resize(), 0);
     };
 
-    const ro = new ResizeObserver(() => {
+    const onLayoutChange = () => {
       if (!chart) mountChart();
       else chart.resize();
-    });
+    };
+
+    const ro = new ResizeObserver(onLayoutChange);
     ro.observe(el);
+    if (container && container !== el) ro.observe(container);
+
     mountChart();
 
-    const onResize = () => chart?.resize();
-    window.addEventListener('resize', onResize);
+    window.addEventListener('resize', onLayoutChange);
+    window.addEventListener('graph-chrome-sync', onLayoutChange);
 
     return () => {
       cancelled = true;
+      cancelAnimationFrame(rafId);
       ro.disconnect();
-      window.removeEventListener('resize', onResize);
+      window.removeEventListener('resize', onLayoutChange);
+      window.removeEventListener('graph-chrome-sync', onLayoutChange);
       chart?.dispose();
       chartInstance.current = null;
       setChartReady(false);
