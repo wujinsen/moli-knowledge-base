@@ -32,6 +32,20 @@ const extraLinks: ImageryGraphEdge[] = extraRaw?.default?.links ?? extraRaw?.lin
 
 const graph = buildImageryGraph(items, extraLinks);
 const bySubtype = (st: string) => items.filter((i) => i.data.subtype === st);
+
+const SUBTYPE_ORDER = [
+  'myth', 'judgment', 'poem', 'symbol', 'flower_lot',
+  'tune_omen', 'name_omen', 'object_omen',
+];
+const presentSubtypes = SUBTYPE_ORDER.filter((st) => bySubtype(st).length > 0);
+const presentLabels = presentSubtypes.map(subtypeLabel).join(' / ');
+
+const SUBTYPE_GLYPH: Record<string, string> = {
+  myth: '幻', judgment: '谶', poem: '吟', symbol: '象', flower_lot: '签',
+  tune_omen: '曲', name_omen: '名', object_omen: '物',
+};
+
+const isJpm = meta.slug === 'jinpingmei';
 ---
 
 <Base title={`${meta.book} · 诗词意象`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
@@ -42,15 +56,24 @@ const bySubtype = (st: string) => items.filter((i) => i.data.subtype === st);
     <div class="flex items-start gap-4">
       <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">诗</span>
       <div>
-        <h1 class="brand text-4xl" style="color: var(--primary)">诗词意象 · 互文网络</h1>
+        <h1 class="brand text-4xl" style="color: var(--primary)">{isJpm ? '名物谶纬 · 因果闭环' : '诗词意象 · 互文网络'}</h1>
         <p class="mt-2 text-sm text-muted">
-          {items.length} 条意象实体 · {graph.edges.length} 条关联边 · 神话本源 / 判词 / 诗词 / 象征 / 花签
+          {items.length} 条意象实体 · {graph.edges.length} 条关联边 · {presentLabels}
         </p>
       </div>
     </div>
     <p class="mt-5 max-w-2xl text-sm leading-relaxed" style="color: var(--ink)">
-      图谶式文本的核心：表层意象与人物命运的「隐喻」推论边（<code class="rounded px-1" style="background: color-mix(in srgb, var(--primary) 8%, transparent)">inference</code>）。
-      点击下方<strong>示例链路</strong>可在互文图中切换高亮路径。
+      {isJpm ? (
+        <Fragment>
+          世情物语的核心：以「谐音双关 + 物象隐喻」连成「欲起→聚敛→极盛→反噬→散尽」的因果报应闭环，边按张竹坡<strong>冷热金针</strong>标注冷热（<code class="rounded px-1" style="background: color-mix(in srgb, var(--primary) 8%, transparent)">temperature</code>）。
+          点击下方<strong>示例链路</strong>可在网络图中切换高亮路径。
+        </Fragment>
+      ) : (
+        <Fragment>
+          图谶式文本的核心：表层意象与人物命运的「隐喻」推论边（<code class="rounded px-1" style="background: color-mix(in srgb, var(--primary) 8%, transparent)">inference</code>）。
+          点击下方<strong>示例链路</strong>可在互文图中切换高亮路径。
+        </Fragment>
+      )}
     </p>
   </section>
 
@@ -64,7 +87,7 @@ const bySubtype = (st: string) => items.filter((i) => i.data.subtype === st);
   </div>
 
   {
-    ['myth', 'judgment', 'poem', 'symbol', 'flower_lot'].map((st) => {
+    presentSubtypes.map((st) => {
       const group = bySubtype(st);
       if (group.length === 0) return null;
       return (
@@ -78,7 +101,7 @@ const bySubtype = (st: string) => items.filter((i) => i.data.subtype === st);
                 return (
                   <a href={`/${meta.slug}/imagery/${d.id}`} class="module-card">
                     <span class="glyph" style="font-size:1.2rem;width:2.6rem;height:2.6rem">
-                      {st === 'myth' ? '幻' : st === 'judgment' ? '谶' : st === 'poem' ? '吟' : st === 'symbol' ? '象' : '签'}
+                      {SUBTYPE_GLYPH[st] ?? '象'}
                     </span>
                     <div class="min-w-0">
                       <h3 class="font-bold" style="color: var(--primary)">{d.title}</h3>

@@ -170,17 +170,21 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
               ? !(focusNeighbors.has(e.source) && focusNeighbors.has(e.target))
               : false;
             const ekind = edgeKindOf(e.predicate);
+            const tempColor = e.temperature === '热' ? HOT_COLOR : e.temperature === '冷' ? COLD_COLOR : null;
             const baseColor =
-              ekind === 'mapping' ? MAPPING_COLOR : ekind === 'shadow' ? SHADOW_COLOR : e.inference ? '#355766' : '#8f1f2b';
+              tempColor ??
+              (ekind === 'mapping' ? MAPPING_COLOR : ekind === 'shadow' ? SHADOW_COLOR : e.inference ? '#355766' : '#8f1f2b');
             const baseType =
               ekind === 'shadow' ? ([3, 3] as number[]) : e.inference ? ([6, 4] as number[]) : 'solid';
-            const baseWidth = ekind === 'mapping' ? 2.4 : e.inference ? 1.2 : 1.8;
+            const baseWidth = tempColor ? 2.2 : ekind === 'mapping' ? 2.4 : e.inference ? 1.2 : 1.8;
             return {
               source: e.source,
               target: e.target,
               predicate: e.predicate,
               inference: e.inference,
               note: e.note,
+              phase: e.phase,
+              temperature: e.temperature,
               sourceLabel: src?.label ?? e.source,
               targetLabel: tgt?.label ?? e.target,
               label: { show: false, formatter: e.predicate, fontSize: 14 },
@@ -239,9 +243,21 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
   return (
     <div className="relative">
       <p className="mb-2 text-xs text-muted">
-        ◆ 太虚幻境（神话层）· ● 人间贾府 ·{' '}
-        <span style={{ color: MAPPING_COLOR }}>金线=投胎/还泪/投影映射</span> ·{' '}
-        <span style={{ color: SHADOW_COLOR }}>紫线=影身</span> · 实线=事实 · 虚线=推论 · 点击节点高亮相邻
+        {bookSlug === 'honglou' && (
+          <>
+            ◆ 太虚幻境（神话层）· ● 人间贾府 ·{' '}
+            <span style={{ color: MAPPING_COLOR }}>金线=投胎/还泪/投影映射</span> ·{' '}
+            <span style={{ color: SHADOW_COLOR }}>紫线=影身</span> ·{' '}
+          </>
+        )}
+        {bookSlug === 'jinpingmei' && (
+          <>
+            因果闭环：欲起→聚敛→极盛→反噬→散尽 ·{' '}
+            <span style={{ color: HOT_COLOR }}>热线=繁华纵欲</span> ·{' '}
+            <span style={{ color: COLD_COLOR }}>冷线=死亡虚无</span>（冷热金针）·{' '}
+          </>
+        )}
+        实线=事实 · 虚线=推论 · 点击节点高亮相邻
       </p>
       <div className="flex flex-col gap-3 lg:flex-row">
         <div
@@ -318,7 +334,7 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
         )}
       </div>
 
-      <div className="mt-3 flex flex-wrap items-center gap-2">
+      <div className="mt-3 flex flex-wrap items-center gap-2" style={{ display: chains.length ? undefined : 'none' }}>
         <span className="text-xs text-muted">
           示例链路
         </span>

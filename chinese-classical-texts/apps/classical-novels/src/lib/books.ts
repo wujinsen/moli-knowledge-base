@@ -274,6 +274,25 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
           },
         },
         {
+          key: 'shi', glyph: '谶', title: '名物谶纬', desc: '名字谶 · 物象流转 · 因果闭环', ...live(has('poems'), slug, 'shi', `/${slug}/shi`),
+          preview: {
+            intro:
+              '《金瓶梅》的意象贴近肉身与世俗，以「谐音双关 + 物象隐喻」暗示宿命与家族盛衰。本模块把名字谶、物象谶、曲牌宝卷谶连成「欲起→聚敛→极盛→反噬→散尽」的因果报应闭环，并以张竹坡「冷热金针」标注边的冷热。',
+            dimensions: [
+              { title: '名字谶', desc: '金/瓶/梅、花子虚、陈经济（不经济）等人名的谐音宿命' },
+              { title: '物象谶', desc: '雪狮子、葡萄架、胡僧药、鞋与簪——权力与欲望的信物' },
+              { title: '曲牌宝卷谶', desc: '酒色财气歌、尼姑宝卷、盲女琵琶——文本内的命运画外音' },
+              { title: '因果闭环', desc: '以西门庆为枢纽，李瓶儿之死为冷热转折，物象由向心聚敛转为离心崩解' },
+            ],
+            phases: [
+              'P1 名字谶 / 物象谶 / 曲牌宝卷谶 录入（标注 inference）',
+              'P2 边补 phase（聚敛/极盛/反噬/散尽）+ temperature（冷/热）',
+              'P3 因果报应闭环可视化（冷热金针 · 向心↔离心）',
+            ],
+            relatedDoc: '诗词意象模块借鉴规划.md（三、金瓶梅借鉴方案）',
+          },
+        },
+        {
           key: 'sna', glyph: '网', title: '社会网络分析', desc: '帮闲圈介数中心性 SNA', ...live(has('sna'), slug, 'sna', `/${slug}/sna`),
           preview: {
             intro:

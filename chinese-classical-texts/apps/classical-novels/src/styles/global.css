@@ -466,6 +466,7 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
     background: var(--paper-2);
     border-color: var(--line);
     font-weight: var(--type-body-weight);
+    cursor: pointer;
   }
   .bestiary-card:hover {
     border-color: color-mix(in srgb, var(--primary) 32%, var(--line));

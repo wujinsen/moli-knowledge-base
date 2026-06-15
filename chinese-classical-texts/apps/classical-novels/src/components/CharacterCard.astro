@@ -33,12 +33,11 @@ const {
 } = Astro.props;
 const hasJpmMeta = !!(proximity || backing || attach || outcome);
 const hasHlmMeta = !!(personality || likes.length > 0);
-const hasItemLinks = likes.some((like) => bookSlug && likeItemHref(bookSlug, like));
 ---
 
 <div class="bestiary-card relative flex h-full flex-col rounded-lg border p-4 transition sm:p-5">
   <a href={href} class="absolute inset-0 z-0 rounded-lg" aria-label={name}></a>
-  <div class={`relative flex min-h-0 flex-1 flex-col ${hasItemLinks ? 'z-10' : 'pointer-events-none'}`}>
+  <div class="relative z-10 flex min-h-0 flex-1 flex-col pointer-events-none">
     <header class="shrink-0">
       <div class="flex items-start justify-between gap-2">
         <h3 class="text-lg font-bold leading-tight" style="color: var(--primary)">{name}</h3>
