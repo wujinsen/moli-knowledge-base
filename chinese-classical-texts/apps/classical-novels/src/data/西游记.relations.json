@@ -98,6 +98,12 @@
       "weight": 26
     },
     {
+      "id": "傅奕",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 38
+    },
+    {
       "id": "六丁六甲",
       "type": "character",
       "faction": "天庭",
@@ -674,6 +680,12 @@
       "weight": 22
     },
     {
+      "id": "李淳风",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 36
+    },
+    {
       "id": "李翠莲",
       "type": "character",
       "faction": "人间",
@@ -932,6 +944,12 @@
       "weight": 36
     },
     {
+      "id": "王珪",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 36
+    },
+    {
       "id": "电母",
       "type": "character",
       "faction": "天庭",
@@ -1094,6 +1112,12 @@
       "weight": 72
     },
     {
+      "id": "萧瑀",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 42
+    },
+    {
       "id": "葛仙翁",
       "type": "character",
       "faction": "天庭",
@@ -1128,6 +1152,12 @@
       "type": "monster",
       "faction": "妖魔",
       "weight": 58
+    },
+    {
+      "id": "袁天罡",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 40
     },
     {
       "id": "袁守诚",
@@ -2242,6 +2272,18 @@
       "contradiction": false
     },
     {
+      "source": "傅奕",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "傅奕",
+      "target": "萧瑀",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "六丁六甲",
       "target": "观音菩萨",
       "type": "主仆",
@@ -3083,6 +3125,12 @@
     },
     {
       "source": "唐僧",
+      "target": "萧瑀",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
       "target": "陈光蕊",
       "type": "父子",
       "contradiction": false
@@ -3276,6 +3324,36 @@
     {
       "source": "唐太宗",
       "target": "薛仁贵",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "萧瑀",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "傅奕",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "王珪",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "袁天罡",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "李淳风",
       "type": "君臣",
       "contradiction": false
     },
@@ -5872,6 +5950,12 @@
       "contradiction": false
     },
     {
+      "source": "房玄龄",
+      "target": "王珪",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "抟象狮",
       "target": "九灵元圣",
       "type": "主仆",
@@ -6313,6 +6397,18 @@
       "source": "李定",
       "target": "袁守诚",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "李淳风",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "李淳风",
+      "target": "袁天罡",
+      "type": "同僚",
       "contradiction": false
     },
     {
@@ -7588,6 +7684,18 @@
       "contradiction": false
     },
     {
+      "source": "王珪",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "王珪",
+      "target": "魏征",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "电母",
       "target": "邓天君",
       "type": "主仆",
@@ -8188,6 +8296,24 @@
       "contradiction": false
     },
     {
+      "source": "萧瑀",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "萧瑀",
+      "target": "魏征",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "萧瑀",
+      "target": "观音菩萨",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "葛仙翁",
       "target": "玉皇大帝",
       "type": "主仆",
@@ -8329,6 +8455,18 @@
       "source": "蝎子精",
       "target": "猪八戒",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "袁天罡",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "袁天罡",
+      "target": "袁守诚",
+      "type": "朋友",
       "contradiction": false
     },
     {

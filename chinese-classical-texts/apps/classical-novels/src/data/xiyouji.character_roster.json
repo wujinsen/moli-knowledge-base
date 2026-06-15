@@ -1,27 +1,29 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 245,
+  "paged_count": 250,
   "pending_count": 5,
   "pending": [
     {
-      "name": "萧瑀",
-      "mentions": 3,
+      "name": "殷开山",
+      "mentions": 4,
       "chapters": [
+        9,
+        10,
         11,
-        12,
-        100
+        12
       ],
       "appear_in": [
+        "第9回",
+        "第10回",
         "第11回",
-        "第12回",
-        "第100回"
+        "第12回"
       ],
       "source": "seed",
-      "note": "大学士/宰相，守佛、荐菩萨、雁塔寺；第11–12、100回"
+      "note": "西厢武将，还阳启奏；第11回"
     },
     {
-      "name": "傅奕",
+      "name": "张士衡",
       "mentions": 2,
       "chapters": [
         11,
@@ -32,24 +34,24 @@
         "第12回"
       ],
       "source": "seed",
-      "note": "太史丞，上表止浮图；第12回"
+      "note": "贞观文臣，举哀班臣；第11回"
     },
     {
-      "name": "袁天罡",
+      "name": "张道源",
       "mentions": 2,
       "chapters": [
-        10,
-        11
+        11,
+        12
       ],
       "appear_in": [
-        "第10回",
-        "第11回"
+        "第11回",
+        "第12回"
       ],
       "source": "seed",
-      "note": "钦天监台正，袁守诚之侄；第10–11回"
+      "note": "贞观文臣，举哀班臣；第11回"
     },
     {
-      "name": "李淳风",
+      "name": "高士廉",
       "mentions": 1,
       "chapters": [
         11
@@ -58,18 +60,15 @@
         "第11回"
       ],
       "source": "seed",
-      "note": "钦天监官员，还阳启奏；第11回"
+      "note": "贞观文臣，白虎殿举哀；第11回"
     },
     {
-      "name": "王珪",
+      "name": "虞世南",
       "mentions": 0,
       "chapters": [],
       "appear_in": [],
       "source": "seed",
-      "note": "大唐文臣，举哀与还阳启奏；第11–12回",
-      "aliases": [
-        "王圭"
-      ]
+      "note": "贞观文臣，举哀班臣；第11回"
     }
   ]
 }
