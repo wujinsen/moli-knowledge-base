@@ -32,6 +32,12 @@
       "weight": 36
     },
     {
+      "id": "东城兵马使",
+      "type": "character",
+      "faction": "人间",
+      "weight": 26
+    },
+    {
       "id": "东海龙王",
       "type": "character",
       "faction": "龙宫",
@@ -338,6 +344,12 @@
       "weight": 40
     },
     {
+      "id": "夜不收",
+      "type": "character",
+      "faction": "人间",
+      "weight": 26
+    },
+    {
       "id": "大力天王",
       "type": "character",
       "faction": "天庭",
@@ -450,6 +462,12 @@
       "type": "monster",
       "faction": "荆棘岭",
       "weight": 32
+    },
+    {
+      "id": "宝林寺方丈",
+      "type": "character",
+      "faction": "乌鸡国",
+      "weight": 28
     },
     {
       "id": "宝象国国王",
@@ -630,6 +648,12 @@
       "type": "character",
       "faction": "西天",
       "weight": 44
+    },
+    {
+      "id": "当驾官",
+      "type": "character",
+      "faction": "人间",
+      "weight": 28
     },
     {
       "id": "徐茂功",
@@ -1182,6 +1206,12 @@
       "type": "monster",
       "faction": "妖魔",
       "weight": 70
+    },
+    {
+      "id": "罗汉",
+      "type": "character",
+      "faction": "佛界",
+      "weight": 30
     },
     {
       "id": "羊力大仙",
@@ -1798,6 +1828,24 @@
       "contradiction": false
     },
     {
+      "source": "东城兵马使",
+      "target": "总兵官",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "东城兵马使",
+      "target": "灭法国国王",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "东城兵马使",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "东海龙王",
       "target": "孙悟空",
       "type": "朋友",
@@ -1854,6 +1902,12 @@
     {
       "source": "乌鸡国太子",
       "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "乌鸡国太子",
+      "target": "宝林寺方丈",
       "type": "朋友",
       "contradiction": false
     },
@@ -3629,6 +3683,12 @@
     },
     {
       "source": "唐太宗",
+      "target": "当驾官",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
       "target": "徐茂功",
       "type": "君臣",
       "contradiction": false
@@ -4079,6 +4139,24 @@
     },
     {
       "source": "多闻天王",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "夜不收",
+      "target": "朱紫国国王",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "夜不收",
+      "target": "赛太岁",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "夜不收",
       "target": "孙悟空",
       "type": "朋友",
       "contradiction": false
@@ -4572,6 +4650,12 @@
     {
       "source": "如来佛祖",
       "target": "迦叶",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "如来佛祖",
+      "target": "罗汉",
       "type": "主仆",
       "contradiction": false
     },
@@ -5275,6 +5359,24 @@
       "source": "孤直公",
       "target": "孙悟空",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "宝林寺方丈",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "宝林寺方丈",
+      "target": "乌鸡国王",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "宝林寺方丈",
+      "target": "孙悟空",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -6156,6 +6258,30 @@
     {
       "source": "弥勒佛祖",
       "target": "小张太子",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "当驾官",
+      "target": "祭赛国国王",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "当驾官",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "当驾官",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "当驾官",
+      "target": "孙悟空",
       "type": "朋友",
       "contradiction": false
     },
@@ -7093,6 +7219,12 @@
       "source": "朱紫国国王",
       "target": "赛太岁",
       "type": "仇敌",
+      "contradiction": false
+    },
+    {
+      "source": "朱紫国国王",
+      "target": "夜不收",
+      "type": "君臣",
       "contradiction": false
     },
     {
@@ -8692,6 +8824,12 @@
       "contradiction": false
     },
     {
+      "source": "祭赛国国王",
+      "target": "当驾官",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
       "source": "秦叔宝",
       "target": "唐太宗",
       "type": "君臣",
@@ -8941,6 +9079,36 @@
       "source": "红孩儿",
       "target": "掀烘兴",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "罗汉",
+      "target": "如来佛祖",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "罗汉",
+      "target": "阿傩",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "罗汉",
+      "target": "迦叶",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "罗汉",
+      "target": "揭谛",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "罗汉",
+      "target": "唐僧",
+      "type": "朋友",
       "contradiction": false
     },
     {
