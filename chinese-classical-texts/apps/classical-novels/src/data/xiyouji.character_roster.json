@@ -1,72 +1,74 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 220,
+  "paged_count": 230,
   "pending_count": 5,
   "pending": [
     {
-      "name": "崔判官",
+      "name": "地藏王菩萨",
       "mentions": 3,
       "chapters": [
+        3,
+        58,
+        97
+      ],
+      "appear_in": [
+        "第3回",
+        "第58回",
+        "第97回"
+      ],
+      "source": "seed",
+      "note": "幽冥教主；第3、58回"
+    },
+    {
+      "name": "刘全",
+      "mentions": 2,
+      "chapters": [
         11,
-        12,
-        68
+        12
       ],
       "appear_in": [
         "第11回",
-        "第12回",
-        "第68回"
+        "第12回"
       ],
       "source": "seed",
-      "note": "地府判官，崔珏；第11–12回"
+      "note": "进瓜果还魂，夫妻团圆；第12回"
     },
     {
-      "name": "高才",
-      "mentions": 3,
+      "name": "李翠莲",
+      "mentions": 2,
       "chapters": [
-        9,
-        18,
-        19
+        11,
+        12
       ],
       "appear_in": [
-        "第9回",
-        "第18回",
-        "第19回"
+        "第11回",
+        "第12回"
       ],
       "source": "seed",
-      "note": "高太公家人，引悟空降八戒；第18–19回"
+      "note": "刘全妻，借御妹尸还魂；第12回"
     },
     {
-      "name": "张稍",
-      "mentions": 1,
+      "name": "许敬宗",
+      "mentions": 2,
       "chapters": [
-        10
+        10,
+        11
       ],
       "appear_in": [
-        "第10回"
+        "第10回",
+        "第11回"
       ],
       "source": "seed",
-      "note": "泾河渔翁，与袁守诚卦；第9–10回"
+      "note": "驳魏征候主还阳；第11回"
     },
     {
-      "name": "李定",
-      "mentions": 1,
-      "chapters": [
-        10
-      ],
-      "appear_in": [
-        "第10回"
-      ],
-      "source": "seed",
-      "note": "泾河樵子，张稍攀话；第9–10回"
-    },
-    {
-      "name": "芭将军",
+      "name": "徐茂功",
       "mentions": 0,
       "chapters": [],
       "appear_in": [],
       "source": "seed",
-      "note": "花果山崩芭二将；第6回"
+      "note": "徐世绩，扶棺还魂；第11–12回"
     }
   ]
 }

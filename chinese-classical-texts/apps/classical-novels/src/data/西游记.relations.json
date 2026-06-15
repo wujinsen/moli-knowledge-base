@@ -410,6 +410,12 @@
       "weight": 22
     },
     {
+      "id": "尉迟恭",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 32
+    },
+    {
       "id": "小张太子",
       "type": "character",
       "faction": "盱眙山",
@@ -432,6 +438,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 32
+    },
+    {
+      "id": "崔判官",
+      "type": "character",
+      "faction": "地府",
+      "weight": 36
     },
     {
       "id": "崩将军",
@@ -504,6 +516,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 36
+    },
+    {
+      "id": "张稍",
+      "type": "character",
+      "faction": "长安",
+      "weight": 22
     },
     {
       "id": "张道陵",
@@ -596,6 +614,12 @@
       "weight": 48
     },
     {
+      "id": "朱太尉",
+      "type": "character",
+      "faction": "地府",
+      "weight": 28
+    },
+    {
       "id": "朱紫国国王",
       "type": "character",
       "faction": "朱紫国",
@@ -606,6 +630,12 @@
       "type": "character",
       "faction": "灌江口",
       "weight": 24
+    },
+    {
+      "id": "李定",
+      "type": "character",
+      "faction": "长安",
+      "weight": 22
     },
     {
       "id": "李靖",
@@ -908,10 +938,28 @@
       "weight": 24
     },
     {
+      "id": "相良",
+      "type": "character",
+      "faction": "人间",
+      "weight": 26
+    },
+    {
       "id": "祭赛国国王",
       "type": "character",
       "faction": "祭赛国",
       "weight": 32
+    },
+    {
+      "id": "秦叔宝",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 34
+    },
+    {
+      "id": "秦广王",
+      "type": "character",
+      "faction": "地府",
+      "weight": 42
     },
     {
       "id": "箕水豹",
@@ -954,6 +1002,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 36
+    },
+    {
+      "id": "芭将军",
+      "type": "character",
+      "faction": "花果山",
+      "weight": 24
     },
     {
       "id": "苟元帅",
@@ -1248,6 +1302,12 @@
       "type": "character",
       "faction": "高老庄",
       "weight": 24
+    },
+    {
+      "id": "高才",
+      "type": "character",
+      "faction": "高老庄",
+      "weight": 22
     },
     {
       "id": "高翠兰",
@@ -2981,6 +3041,54 @@
     },
     {
       "source": "唐太宗",
+      "target": "崔判官",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "秦叔宝",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "尉迟恭",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "相良",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "徐茂功",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "许敬宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "刘全",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "李翠莲",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
       "target": "泾河龙王",
       "type": "仇敌",
       "contradiction": false
@@ -4402,6 +4510,42 @@
       "contradiction": false
     },
     {
+      "source": "孙悟空",
+      "target": "流元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "崩将军",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "芭将军",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "高才",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "秦广王",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "地藏王菩萨",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "孤直公",
       "target": "唐僧",
       "type": "敌对",
@@ -4642,6 +4786,12 @@
       "contradiction": false
     },
     {
+      "source": "寇员外",
+      "target": "地藏王菩萨",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "寇栋",
       "target": "寇员外",
       "type": "父子",
@@ -4674,6 +4824,24 @@
     {
       "source": "寇梁",
       "target": "铜台府刺史",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "尉迟恭",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "尉迟恭",
+      "target": "秦叔宝",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "尉迟恭",
+      "target": "相良",
       "type": "朋友",
       "contradiction": false
     },
@@ -4852,6 +5020,36 @@
       "contradiction": false
     },
     {
+      "source": "崔判官",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "崔判官",
+      "target": "魏征",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "崔判官",
+      "target": "朱太尉",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "崔判官",
+      "target": "相良",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "崔判官",
+      "target": "秦广王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "崩将军",
       "target": "孙悟空",
       "type": "主仆",
@@ -4860,6 +5058,12 @@
     {
       "source": "崩将军",
       "target": "流元帅",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "崩将军",
+      "target": "芭将军",
       "type": "同僚",
       "contradiction": false
     },
@@ -5125,6 +5329,18 @@
       "source": "张月鹿",
       "target": "玉皇大帝",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "张稍",
+      "target": "李定",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "张稍",
+      "target": "袁守诚",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -5806,6 +6022,18 @@
       "contradiction": false
     },
     {
+      "source": "朱太尉",
+      "target": "唐太宗",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "朱太尉",
+      "target": "秦广王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "朱紫国国王",
       "target": "金圣宫娘娘",
       "type": "夫妻",
@@ -5838,6 +6066,12 @@
     {
       "source": "李太尉",
       "target": "梅山六兄弟",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "李定",
+      "target": "袁守诚",
       "type": "朋友",
       "contradiction": false
     },
@@ -6328,9 +6562,21 @@
       "contradiction": false
     },
     {
+      "source": "泾河龙王",
+      "target": "秦叔宝",
+      "type": "仇敌",
+      "contradiction": false
+    },
+    {
       "source": "流元帅",
       "target": "孙悟空",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "流元帅",
+      "target": "芭将军",
+      "type": "同僚",
       "contradiction": false
     },
     {
@@ -7228,6 +7474,66 @@
       "contradiction": false
     },
     {
+      "source": "秦叔宝",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "秦叔宝",
+      "target": "魏征",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "秦叔宝",
+      "target": "徐茂功",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "秦广王",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "秦广王",
+      "target": "崔判官",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "秦广王",
+      "target": "朱太尉",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "秦广王",
+      "target": "泾河龙王",
+      "type": "仇敌",
+      "contradiction": false
+    },
+    {
+      "source": "秦广王",
+      "target": "地藏王菩萨",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "秦广王",
+      "target": "刘全",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "秦广王",
+      "target": "李翠莲",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "箕水豹",
       "target": "虚日鼠",
       "type": "同僚",
@@ -7489,6 +7795,18 @@
       "source": "胃土彘",
       "target": "玉皇大帝",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "芭将军",
+      "target": "孙悟空",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "芭将军",
+      "target": "二郎神",
+      "type": "敌对",
       "contradiction": false
     },
     {
@@ -7801,6 +8119,12 @@
       "source": "观音菩萨",
       "target": "赛太岁",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "观音菩萨",
+      "target": "地藏王菩萨",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -8351,8 +8675,32 @@
     },
     {
       "source": "高太公",
+      "target": "高才",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "高太公",
       "target": "唐僧",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "高才",
+      "target": "高太公",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "高才",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "高才",
+      "target": "猪八戒",
+      "type": "敌对",
       "contradiction": false
     },
     {
@@ -8395,6 +8743,24 @@
       "source": "魏征",
       "target": "唐太宗",
       "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "魏征",
+      "target": "徐茂功",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "魏征",
+      "target": "许敬宗",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "魏征",
+      "target": "刘全",
+      "type": "朋友",
       "contradiction": false
     },
     {
