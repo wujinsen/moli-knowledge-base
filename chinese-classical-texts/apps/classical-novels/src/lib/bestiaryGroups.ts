@@ -159,8 +159,15 @@ export type GroupableEntry = {
     status?: string;
     weight?: number;
     ximen_proximity?: string;
+    first_appear?: string;
     结局?: string;
   };
+};
+
+/** 额外数据源：由页面注入（如 SNA 中心度） */
+export type GroupingContext = {
+  /** id → degree_norm（0~1），来自 src/data/<slug>.sna.json */
+  centrality?: Map<string, number>;
 };
 
 /** 一种分组依据：key 用于切换、label 用于 tab、sections 为预渲染分区 */
@@ -219,6 +226,61 @@ function classifyOutcome(text?: string): string | undefined {
   return '其他归宿';
 }
 
+/* —— SNA 中心度（按 degree_norm 分层） —— */
+const CENTRALITY_ORDER = ['核心枢纽', '主要节点', '次要节点', '边缘节点'] as const;
+function centralityTier(d?: number): string | undefined {
+  if (d == null) return undefined; // 不在图谱 → restLabel
+  if (d >= 0.5) return '核心枢纽';
+  if (d >= 0.15) return '主要节点';
+  if (d >= 0.05) return '次要节点';
+  return '边缘节点';
+}
+
+/* —— 首次登场回段（每 20 回一段） —— */
+const CHAPTER_BUCKET_ORDER = [
+  '第 1–20 回',
+  '第 21–40 回',
+  '第 41–60 回',
+  '第 61–80 回',
+  '第 81–100 回',
+  '第 101–120 回',
+] as const;
+function chapterBucket(fa?: string): string | undefined {
+  if (!fa) return undefined;
+  const m = fa.match(/(\d+)/);
+  if (!m) return undefined;
+  const n = Number(m[1]);
+  if (!Number.isFinite(n) || n <= 0) return undefined;
+  const lo = Math.floor((n - 1) / 20) * 20 + 1;
+  return `第 ${lo}–${lo + 19} 回`;
+}
+
+/* —— 红楼 · 神话双层（太虚 / 人间） —— */
+const HLM_CELESTIAL = new Set([
+  '神瑛侍者',
+  '绛珠仙子',
+  '绛珠仙草',
+  '警幻仙子',
+  '警幻仙姑',
+  '渺渺真人',
+  '茫茫大士',
+  '空空道人',
+  '一僧一道',
+]);
+const MYTH_LAYER_ORDER = ['太虚幻境 · 神话层', '人间贾府 · 现世层'] as const;
+function mythLayer(id: string): string {
+  return HLM_CELESTIAL.has(id) ? '太虚幻境 · 神话层' : '人间贾府 · 现世层';
+}
+
+/* —— 红楼 · 镜像配对（脂评「真身 / 影身」说） —— */
+const HLM_MIRRORS: { label: string; ids: string[] }[] = [
+  { label: '黛玉系 · 真身与影（晴为黛影）', ids: ['林黛玉', '晴雯', '龄官'] },
+  { label: '宝钗系 · 真身与影（袭为钗副）', ids: ['薛宝钗', '袭人', '麝月'] },
+];
+const MIRROR_ORDER = HLM_MIRRORS.map((m) => m.label);
+const MIRROR_OF = new Map<string, string>();
+for (const m of HLM_MIRRORS) for (const id of m.ids) MIRROR_OF.set(id, m.label);
+
 /**
  * 构建一本书可用的全部分组依据（首项恒为「身份名册」）。
  * 仅当某维度字段覆盖度足够时才提供该分组，避免出现整页「其他」。
@@ -226,6 +288,7 @@ function classifyOutcome(text?: string): string | undefined {
 export function buildBestiaryGroupings<T extends GroupableEntry & { data: { faction?: string } }>(
   bookSlug: string,
   list: T[],
+  ctx: GroupingContext = {},
 ): BestiaryGrouping<T>[] {
   const out: BestiaryGrouping<T>[] = [];
   const enough = (n: number) => n >= Math.max(6, Math.ceil(list.length * 0.3));
@@ -243,7 +306,17 @@ export function buildBestiaryGroupings<T extends GroupableEntry & { data: { fact
     });
   }
 
-  // 3) 命运归宿（三书通用，依赖 结局 覆盖度）
+  // 3) SNA 中心度（依赖 <slug>.sna.json 注入）
+  const centrality = ctx.centrality;
+  if (centrality && cover((e) => centrality.has(e.data.id)) >= 6) {
+    out.push({
+      key: 'centrality',
+      label: 'SNA 中心度',
+      sections: groupByKey(list, (e) => centralityTier(centrality.get(e.data.id)), CENTRALITY_ORDER, '未入图谱'),
+    });
+  }
+
+  // 4) 命运归宿（三书通用，依赖 结局 覆盖度）
   if (enough(cover((e) => e.data.结局))) {
     out.push({
       key: 'outcome',
@@ -252,7 +325,7 @@ export function buildBestiaryGroupings<T extends GroupableEntry & { data: { fact
     });
   }
 
-  // 4) 重要度（依赖 status 覆盖度）
+  // 5) 重要度（依赖 status 覆盖度）
   if (enough(cover((e) => e.data.status))) {
     out.push({
       key: 'status',
@@ -261,9 +334,36 @@ export function buildBestiaryGroupings<T extends GroupableEntry & { data: { fact
     });
   }
 
-  // 5) 家族 / 阵营（依赖 faction 覆盖度，作为 catalog 的另一视角）
+  // 6) 首次登场回段（依赖 first_appear 覆盖度）
+  if (enough(cover((e) => e.data.first_appear))) {
+    out.push({
+      key: 'debut',
+      label: '首次登场',
+      sections: groupByKey(list, (e) => chapterBucket(e.data.first_appear), CHAPTER_BUCKET_ORDER, '未标回目'),
+    });
+  }
+
+  // 7) 家族 / 阵营（依赖 faction 覆盖度，作为 catalog 的另一视角）
   if (enough(cover((e) => e.data.faction))) {
     out.push({ key: 'faction', label: '家族 / 阵营', sections: groupByFaction(list, bookSlug) });
+  }
+
+  // 8) 神话双层（红楼专属：太虚 / 人间）
+  if (bookSlug === 'honglou' && cover((e) => HLM_CELESTIAL.has(e.data.id)) >= 2) {
+    out.push({
+      key: 'myth',
+      label: '神话双层',
+      sections: groupByKey(list, (e) => mythLayer(e.data.id), MYTH_LAYER_ORDER, '人间贾府 · 现世层'),
+    });
+  }
+
+  // 9) 镜像配对（红楼专属：脂评真身 / 影身）
+  if (bookSlug === 'honglou' && cover((e) => MIRROR_OF.has(e.data.id)) >= 2) {
+    out.push({
+      key: 'mirror',
+      label: '镜像配对',
+      sections: groupByKey(list, (e) => MIRROR_OF.get(e.data.id), MIRROR_ORDER, '未列镜像'),
+    });
   }
 
   return out;

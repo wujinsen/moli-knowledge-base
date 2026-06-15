@@ -23,8 +23,19 @@ const entries = (await getCollection('characters'))
   .filter((c) => c.data.book === meta.book)
   .sort((a, b) => (b.data.weight ?? 0) - (a.data.weight ?? 0));
 
+/** SNA 中心度（若存在 <slug>.sna.json）→ id → degree_norm */
+const snaModules = import.meta.glob('../../data/*.sna.json', { eager: true });
+const snaEntry = Object.entries(snaModules).find(([p]) => p.endsWith(`/${slug}.sna.json`));
+let centrality: Map<string, number> | undefined;
+if (snaEntry) {
+  const sna = (snaEntry[1] as { default?: { metrics?: { id: string; degree_norm?: number }[] } }).default ??
+    (snaEntry[1] as { metrics?: { id: string; degree_norm?: number }[] });
+  const metrics = sna.metrics ?? [];
+  if (metrics.length > 0) centrality = new Map(metrics.map((m) => [m.id, m.degree_norm ?? 0]));
+}
+
 /** 多维分组：首项恒为「身份名册」，其余按字段覆盖度自动启用 */
-const groupings = buildBestiaryGroupings(slug, entries);
+const groupings = buildBestiaryGroupings(slug, entries, { centrality });
 const stats = bestiaryStatsFor(slug, entries);
 
 const rosterData = loadCharacterRoster(slug);
