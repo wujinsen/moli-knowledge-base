@@ -1,11 +1,11 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 235,
+  "paged_count": 240,
   "pending_count": 5,
   "pending": [
     {
-      "name": "房玄龄",
+      "name": "杜如晦",
       "mentions": 2,
       "chapters": [
         10,
@@ -16,10 +16,10 @@
         "第11回"
       ],
       "source": "seed",
-      "note": "大唐宰相，班臣；第10–12回"
+      "note": "大唐宰相，与房玄龄并称；第10–12回"
     },
     {
-      "name": "程咬金",
+      "name": "段志玄",
       "mentions": 2,
       "chapters": [
         10,
@@ -30,10 +30,24 @@
         "第11回"
       ],
       "source": "seed",
-      "note": "大唐武将，扶棺还魂；第11–12回"
+      "note": "大唐武将，举哀班臣；第11–12回"
     },
     {
-      "name": "佑圣真君",
+      "name": "马三宝",
+      "mentions": 2,
+      "chapters": [
+        10,
+        11
+      ],
+      "appear_in": [
+        "第10回",
+        "第11回"
+      ],
+      "source": "seed",
+      "note": "大唐武将，班臣；第10–12回"
+    },
+    {
+      "name": "王灵官",
       "mentions": 1,
       "chapters": [
         7
@@ -42,10 +56,10 @@
         "第7回"
       ],
       "source": "seed",
-      "note": "通明殿佑圣真君；第51回"
+      "note": "佑圣真君佐使，灵霄殿前挡悟空；第7回"
     },
     {
-      "name": "刘洪基",
+      "name": "薛仁贵",
       "mentions": 1,
       "chapters": [
         11
@@ -54,19 +68,7 @@
         "第11回"
       ],
       "source": "seed",
-      "note": "大唐武将，班臣；第10–12回"
-    },
-    {
-      "name": "谛听",
-      "mentions": 1,
-      "chapters": [
-        58
-      ],
-      "appear_in": [
-        "第58回"
-      ],
-      "source": "seed",
-      "note": "地藏座下兽，察听真假悟空；第58回"
+      "note": "大唐武将，还阳启奏；第12回"
     }
   ]
 }

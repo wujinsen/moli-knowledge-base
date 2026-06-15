@@ -86,6 +86,12 @@
       "weight": 28
     },
     {
+      "id": "佑圣真君",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 38
+    },
+    {
       "id": "倚海龙",
       "type": "monster",
       "faction": "平顶山",
@@ -156,6 +162,12 @@
       "type": "character",
       "faction": "江州",
       "weight": 22
+    },
+    {
+      "id": "刘洪基",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 24
     },
     {
       "id": "北极玄灵",
@@ -564,6 +576,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 36
+    },
+    {
+      "id": "房玄龄",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 26
     },
     {
       "id": "抟象狮",
@@ -986,6 +1004,12 @@
       "weight": 42
     },
     {
+      "id": "程咬金",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 26
+    },
+    {
       "id": "箕水豹",
       "type": "character",
       "faction": "天庭",
@@ -1115,6 +1139,12 @@
       "id": "许旌阳",
       "type": "character",
       "faction": "天庭",
+      "weight": 36
+    },
+    {
+      "id": "谛听",
+      "type": "character",
+      "faction": "地府",
       "weight": 36
     },
     {
@@ -2140,6 +2170,18 @@
       "contradiction": false
     },
     {
+      "source": "佑圣真君",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "佑圣真君",
+      "target": "孙悟空",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "倚海龙",
       "target": "银角大王",
       "type": "主仆",
@@ -2214,6 +2256,12 @@
     {
       "source": "六耳猕猴",
       "target": "唐僧",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "六耳猕猴",
+      "target": "谛听",
       "type": "敌对",
       "contradiction": false
     },
@@ -2461,6 +2509,18 @@
       "source": "刘洪",
       "target": "唐僧",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "刘洪基",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "刘洪基",
+      "target": "秦叔宝",
+      "type": "同僚",
       "contradiction": false
     },
     {
@@ -3143,6 +3203,24 @@
     },
     {
       "source": "唐太宗",
+      "target": "房玄龄",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "程咬金",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "刘洪基",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
       "target": "泾河龙王",
       "type": "仇敌",
       "contradiction": false
@@ -3234,6 +3312,12 @@
     {
       "source": "地藏王菩萨",
       "target": "寇员外",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "地藏王菩萨",
+      "target": "谛听",
       "type": "主仆",
       "contradiction": false
     },
@@ -4534,6 +4618,18 @@
       "contradiction": false
     },
     {
+      "source": "孙悟空",
+      "target": "秦广王",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "谛听",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "孤直公",
       "target": "唐僧",
       "type": "敌对",
@@ -5416,6 +5512,12 @@
       "contradiction": false
     },
     {
+      "source": "徐茂功",
+      "target": "程咬金",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "心月狐",
       "target": "角木蛟",
       "type": "同僚",
@@ -5665,6 +5767,18 @@
       "source": "房日兔",
       "target": "玉皇大帝",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "房玄龄",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "房玄龄",
+      "target": "魏征",
+      "type": "同僚",
       "contradiction": false
     },
     {
@@ -7139,6 +7253,12 @@
     },
     {
       "source": "玉皇大帝",
+      "target": "佑圣真君",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
       "target": "李靖",
       "type": "主仆",
       "contradiction": false
@@ -7534,6 +7654,12 @@
       "contradiction": false
     },
     {
+      "source": "秦叔宝",
+      "target": "程咬金",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "秦广王",
       "target": "唐太宗",
       "type": "君臣",
@@ -7559,14 +7685,14 @@
     },
     {
       "source": "秦广王",
-      "target": "孙悟空",
-      "type": "敌对",
+      "target": "地藏王菩萨",
+      "type": "主仆",
       "contradiction": false
     },
     {
-      "source": "秦广王",
-      "target": "地藏王菩萨",
-      "type": "主仆",
+      "source": "程咬金",
+      "target": "唐太宗",
+      "type": "君臣",
       "contradiction": false
     },
     {
@@ -8232,6 +8358,12 @@
     {
       "source": "许旌阳",
       "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "谛听",
+      "target": "地藏王菩萨",
       "type": "主仆",
       "contradiction": false
     },
