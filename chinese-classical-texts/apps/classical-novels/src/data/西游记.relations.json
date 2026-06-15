@@ -326,10 +326,22 @@
       "weight": 32
     },
     {
+      "id": "推云童子",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 38
+    },
+    {
       "id": "文殊菩萨",
       "type": "character",
       "faction": "佛界",
       "weight": 32
+    },
+    {
+      "id": "昴日星官",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 52
     },
     {
       "id": "木吒",
@@ -480,6 +492,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 52
+    },
+    {
+      "id": "电母",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 42
     },
     {
       "id": "白象精",
@@ -740,6 +758,12 @@
       "weight": 38
     },
     {
+      "id": "雷公",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 44
+    },
+    {
       "id": "青牛精",
       "type": "monster",
       "faction": "妖魔",
@@ -750,6 +774,12 @@
       "type": "monster",
       "faction": "妖魔",
       "weight": 58
+    },
+    {
+      "id": "风婆婆",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 40
     },
     {
       "id": "马元帅",
@@ -2176,6 +2206,36 @@
       "contradiction": false
     },
     {
+      "source": "孙悟空",
+      "target": "昴日星官",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "雷公",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "电母",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "风婆婆",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "推云童子",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "孤直公",
       "target": "唐僧",
       "type": "敌对",
@@ -2470,6 +2530,12 @@
       "contradiction": false
     },
     {
+      "source": "推云童子",
+      "target": "风婆婆",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "文殊菩萨",
       "target": "狮猁怪",
       "type": "主仆",
@@ -2478,6 +2544,30 @@
     {
       "source": "文殊菩萨",
       "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "昴日星官",
+      "target": "观音菩萨",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "昴日星官",
+      "target": "陶天君",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "昴日星官",
+      "target": "辛天君",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "昴日星官",
+      "target": "猪八戒",
       "type": "朋友",
       "contradiction": false
     },
@@ -3094,6 +3184,24 @@
       "contradiction": false
     },
     {
+      "source": "电母",
+      "target": "邓天君",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "电母",
+      "target": "雷公",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "电母",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "白象精",
       "target": "青狮精",
       "type": "兄弟",
@@ -3580,6 +3688,18 @@
       "contradiction": false
     },
     {
+      "source": "邓天君",
+      "target": "雷公",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "邓天君",
+      "target": "电母",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "金圣宫娘娘",
       "target": "孙悟空",
       "type": "朋友",
@@ -3763,6 +3883,18 @@
       "source": "陶天君",
       "target": "增长天王",
       "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "雷公",
+      "target": "邓天君",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "雷公",
+      "target": "玉皇大帝",
+      "type": "主仆",
       "contradiction": false
     },
     {
