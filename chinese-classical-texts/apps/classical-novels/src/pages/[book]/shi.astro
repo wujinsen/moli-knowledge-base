@@ -36,6 +36,7 @@ const bySubtype = (st: string) => items.filter((i) => i.data.subtype === st);
 const SUBTYPE_ORDER = [
   'myth', 'judgment', 'poem', 'symbol', 'flower_lot',
   'tune_omen', 'name_omen', 'object_omen',
+  'alchemy', 'place_omen',
 ];
 const presentSubtypes = SUBTYPE_ORDER.filter((st) => bySubtype(st).length > 0);
 const presentLabels = presentSubtypes.map(subtypeLabel).join(' / ');
@@ -43,9 +44,11 @@ const presentLabels = presentSubtypes.map(subtypeLabel).join(' / ');
 const SUBTYPE_GLYPH: Record<string, string> = {
   myth: '幻', judgment: '谶', poem: '吟', symbol: '象', flower_lot: '签',
   tune_omen: '曲', name_omen: '名', object_omen: '物',
+  alchemy: '丹', place_omen: '境',
 };
 
 const isJpm = meta.slug === 'jinpingmei';
+const isXyj = meta.slug === 'xiyouji';
 ---
 
 <Base title={`${meta.book} · 诗词意象`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
@@ -56,7 +59,7 @@ const isJpm = meta.slug === 'jinpingmei';
     <div class="flex items-start gap-4">
       <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">诗</span>
       <div>
-        <h1 class="brand text-4xl" style="color: var(--primary)">{isJpm ? '名物谶纬 · 因果闭环' : '诗词意象 · 互文网络'}</h1>
+        <h1 class="brand text-4xl" style="color: var(--primary)">{isJpm ? '名物谶纬 · 因果闭环' : isXyj ? '丹道意象 · 修心网络' : '诗词意象 · 互文网络'}</h1>
         <p class="mt-2 text-sm text-muted">
           {items.length} 条意象实体 · {graph.edges.length} 条关联边 · {presentLabels}
         </p>
@@ -67,6 +70,11 @@ const isJpm = meta.slug === 'jinpingmei';
         <Fragment>
           世情物语的核心：以「谐音双关 + 物象隐喻」连成「欲起→聚敛→极盛→反噬→散尽」的因果报应闭环，边按张竹坡<strong>冷热金针</strong>标注冷热（<code class="rounded px-1" style="background: color-mix(in srgb, var(--primary) 8%, transparent)">temperature</code>）。
           点击下方<strong>示例链路</strong>可在网络图中切换高亮路径。
+        </Fragment>
+      ) : isXyj ? (
+        <Fragment>
+          内丹解经的核心：心猿（金）· 意马 · 木母 · 黄婆（土）· 婴儿（火）· 姹女（水）构成丹道符号系统，以<strong>金木相克/交并 · 黄婆调和 · 水火相济</strong>为关系边，并把火焰山、通天河等地名作环境节点（联动 <code class="rounded px-1" style="background: color-mix(in srgb, var(--primary) 8%, transparent)">quanshi</code> 内丹视角）。
+          点击下方<strong>示例链路</strong>可在修心网络中切换高亮路径。
         </Fragment>
       ) : (
         <Fragment>

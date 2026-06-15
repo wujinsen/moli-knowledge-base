@@ -14,6 +14,8 @@ const KIND_COLORS: Record<string, string> = {
   name_omen: '#a8543b',
   object_omen: '#8a6d2f',
   tune_omen: '#5d7a6a',
+  alchemy: '#7a5230',
+  place_omen: '#3f6b54',
 };
 
 const MAPPING_COLOR = '#b08338';

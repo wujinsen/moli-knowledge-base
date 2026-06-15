@@ -180,6 +180,25 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
             relatedDoc: '西游学分支与产品映射.md（⑤ 诠释 + 情境边）',
           },
         },
+        {
+          key: 'shi', glyph: '丹', title: '丹道意象', desc: '心猿意马 · 五行生克 · 修心网络', ...live(has('poems'), slug, 'shi', `/${slug}/shi`),
+          preview: {
+            intro:
+              '《西游记》自明清以来被读作内丹修炼的「证道书」。本模块把心猿（金）、意马、木母、黄婆（土）、婴儿（火）、姹女（水）等丹道符号连成修心网络，以五行生克为关系边，并把火焰山、通天河等地名作环境节点，联动 quanshi 内丹视角。',
+            dimensions: [
+              { title: '丹道意象', desc: '心猿/金公、意马、木母、黄婆、婴儿、姹女 → 五众与妖魔' },
+              { title: '五行生克', desc: '金木相克/交并、黄婆调和、水火相济（降龙伏虎）' },
+              { title: '回前诗 · 证道偈', desc: '回前诗与乌巢禅师《心经》等修心总纲' },
+              { title: '环境节点', desc: '灵台方寸山、火焰山、通天河——特定丹道工夫的考验场' },
+            ],
+            phases: [
+              'X1 丹道意象 / 地名隐喻录入（标注 inference）',
+              'X2 五行生克关系边（相克/交并/调和/相济）',
+              'X3 修心网络可视化 + quanshi 内丹专题互链',
+            ],
+            relatedDoc: '诗词意象模块借鉴规划.md（二、西游记借鉴方案）',
+          },
+        },
         kaozhengModule(slug, has),
         {
           key: 'edition', glyph: '勘', title: '版本对勘', desc: '世德堂本 vs 通本异文双栏', ...live(has('compare'), slug, 'edition', `/${slug}/compare`),

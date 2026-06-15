@@ -39,7 +39,9 @@ export type ImageryNodeKind =
   | 'myth'
   | 'name_omen'
   | 'object_omen'
-  | 'tune_omen';
+  | 'tune_omen'
+  | 'alchemy'
+  | 'place_omen';
 
 export interface ImageryGraphNode {
   id: string;
@@ -79,6 +81,8 @@ export const SUBTYPE_LABEL: Record<string, string> = {
   name_omen: '名字谶',
   object_omen: '物象谶',
   tune_omen: '曲牌宝卷',
+  alchemy: '丹道意象',
+  place_omen: '地名隐喻',
   character: '人物',
 };
 
@@ -100,6 +104,15 @@ export const HIGHLIGHT_CHAINS: Record<string, { name: string; path: string[] }[]
     { name: '反噬：胡僧药→西门庆暴亡', path: ['jpm-obj-husengyao', '西门庆'] },
     { name: '散尽：陈经济败家', path: ['jpm-name-chenjingji', '陈经济', '西门庆'] },
   ],
+  xiyouji: [
+    { name: '心猿→悟空（金）', path: ['xyj-dan-xinyuan', '孙悟空'] },
+    { name: '意马→龙马', path: ['xyj-dan-yima', '白龙马'] },
+    { name: '金木相克：心猿—木母', path: ['xyj-dan-xinyuan', 'xyj-dan-mumu', '猪八戒'] },
+    { name: '黄婆调和金木', path: ['xyj-dan-huangpo', 'xyj-dan-xinyuan', 'xyj-dan-mumu'] },
+    { name: '水火相济：心猿—意马', path: ['xyj-dan-xinyuan', 'xyj-dan-yima', '白龙马'] },
+    { name: '婴儿火性：火焰山—红孩儿', path: ['xyj-place-huoyanshan', 'xyj-dan-yinger', '红孩儿'] },
+    { name: '修心起点：灵台方寸山', path: ['xyj-place-lingtai', '孙悟空'] },
+  ],
 };
 
 const NODE_SIZE: Record<string, number> = {
@@ -112,6 +125,8 @@ const NODE_SIZE: Record<string, number> = {
   name_omen: 24,
   object_omen: 24,
   tune_omen: 22,
+  alchemy: 28,
+  place_omen: 24,
 };
 
 function nodeKind(subtype: string | 'character'): ImageryGraphNode['kind'] {
@@ -192,6 +207,7 @@ export function sortImagery(items: ImageryEntry[]): ImageryEntry[] {
   const order = [
     'myth', 'judgment', 'poem', 'symbol', 'flower_lot',
     'tune_omen', 'name_omen', 'object_omen',
+    'alchemy', 'place_omen',
   ];
   return [...items].sort((a, b) => {
     const ia = order.indexOf(a.data.subtype);

@@ -264,6 +264,8 @@ const IMAGERY_PREDICATES = [
   '还泪', '历劫', '投影', '归彼大荒', '影身',
   // 金瓶 · 名字谶 / 物象流转 / 因果反噬
   '谐音', '流转', '反噬', '催命',
+  // 西游 · 五行生克（丹道）
+  '相克', '交并', '调和', '相济',
 ] as const;
 
 // 金瓶 · 因果报应闭环：欲起→聚敛→极盛→反噬→散尽（以李瓶儿之死为冷热转折）
@@ -286,6 +288,8 @@ const IMAGERY_SUBTYPES = [
   'judgment', 'poem', 'symbol', 'flower_lot', 'myth',
   // 金瓶 · 世情物语
   'name_omen', 'object_omen', 'tune_omen',
+  // 西游 · 丹道意象
+  'alchemy', 'place_omen',
 ] as const;
 
 const imagery = defineCollection({
