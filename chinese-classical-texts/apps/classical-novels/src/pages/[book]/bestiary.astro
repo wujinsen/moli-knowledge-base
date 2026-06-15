@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import CharacterCard from '../../components/CharacterCard.astro';
-import { bestiaryStatsFor, resolveBestiarySections } from '../../lib/bestiaryGroups';
+import { bestiaryStatsFor, buildBestiaryGroupings } from '../../lib/bestiaryGroups';
 import { buildFullRosterList, loadCharacterRoster, loadCharacterScope } from '../../lib/characterRoster';
 import { cardOutcome } from '../../lib/bestiary';
 
@@ -23,12 +23,8 @@ const entries = (await getCollection('characters'))
   .filter((c) => c.data.book === meta.book)
   .sort((a, b) => (b.data.weight ?? 0) - (a.data.weight ?? 0));
 
-/** 有 catalog.groups 时人物与妖怪统一分组（西游）；否则仅人物分组，妖怪另列 */
-const useUnifiedGroups = slug === 'xiyouji';
-const groupList = useUnifiedGroups ? entries : entries.filter((c) => c.data.type === 'character');
-const monsters = useUnifiedGroups ? [] : entries.filter((c) => c.data.type === 'monster');
-
-const sections = resolveBestiarySections(slug, groupList);
+/** 多维分组：首项恒为「身份名册」，其余按字段覆盖度自动启用 */
+const groupings = buildBestiaryGroupings(slug, entries);
 const stats = bestiaryStatsFor(slug, entries);
 
 const rosterData = loadCharacterRoster(slug);
@@ -204,8 +200,24 @@ function cardProps(c: (typeof entries)[number]) {
     )
   }
 
-  <div class="bestiary-controls mb-6">
-    <span class="bestiary-controls-label">{sections.length + (monsters.length > 0 ? 1 : 0)} 个分类</span>
+  <div class="bestiary-switcher mb-6">
+    {groupings.length > 1 && (
+      <div class="bestiary-tabs" role="tablist" aria-label="分组依据">
+        <span class="bestiary-tabs-label">分组依据</span>
+        {groupings.map((g, i) => (
+          <button
+            type="button"
+            class="bestiary-tab"
+            role="tab"
+            data-grouping-tab={g.key}
+            aria-selected={i === 0 ? 'true' : 'false'}
+          >
+            {g.label}
+            <span class="bestiary-tab-count">{g.sections.length}</span>
+          </button>
+        ))}
+      </div>
+    )}
     <div class="bestiary-controls-btns">
       <button type="button" class="bestiary-control-btn" data-bestiary-expand="all">全部展开</button>
       <button type="button" class="bestiary-control-btn" data-bestiary-expand="none">全部折叠</button>
@@ -213,47 +225,56 @@ function cardProps(c: (typeof entries)[number]) {
   </div>
 
   {
-    sections.map(({ label, items }) => (
-      <details class="bestiary-section bestiary-group surface mb-6" open>
-        <summary class="bestiary-group-summary">
-          <span class="bestiary-group-title">{label}</span>
-          <span class="bestiary-group-count">{items.length}</span>
-        </summary>
-        <div class="bestiary-grid grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {items.map((c) => (
-            <CharacterCard {...cardProps(c)} />
-          ))}
-        </div>
-      </details>
+    groupings.map((g, i) => (
+      <div
+        class="bestiary-grouping"
+        data-grouping={g.key}
+        hidden={i !== 0}
+        data-pagefind-ignore={i !== 0 ? 'true' : undefined}
+      >
+        {g.sections.map(({ label, items }) => (
+          <details class="bestiary-section bestiary-group surface mb-6" open>
+            <summary class="bestiary-group-summary">
+              <span class="bestiary-group-title">{label}</span>
+              <span class="bestiary-group-count">{items.length}</span>
+            </summary>
+            <div class="bestiary-grid grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+              {items.map((c) => (
+                <CharacterCard {...cardProps(c)} />
+              ))}
+            </div>
+          </details>
+        ))}
+      </div>
     ))
-  }
-
-  {
-    monsters.length > 0 && (
-      <details class="bestiary-section bestiary-group surface mb-6" open>
-        <summary class="bestiary-group-summary">
-          <span class="bestiary-group-title">妖怪</span>
-          <span class="bestiary-group-count">{monsters.length}</span>
-        </summary>
-        <div class="bestiary-grid grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {monsters.map((c) => (
-            <CharacterCard {...cardProps(c)} />
-          ))}
-        </div>
-      </details>
-    )
   }
   </div>
 
   <script>
+    const groupings = Array.from(document.querySelectorAll('.bestiary-grouping'));
+    const tabs = Array.from(document.querySelectorAll('[data-grouping-tab]'));
+
+    function activate(key: string | null) {
+      groupings.forEach((g) => {
+        (g as HTMLElement).hidden = g.getAttribute('data-grouping') !== key;
+      });
+      tabs.forEach((t) =>
+        t.setAttribute('aria-selected', t.getAttribute('data-grouping-tab') === key ? 'true' : 'false'),
+      );
+    }
+
+    tabs.forEach((t) =>
+      t.addEventListener('click', () => activate(t.getAttribute('data-grouping-tab'))),
+    );
+
     document.querySelectorAll('[data-bestiary-expand]').forEach((btn) => {
       btn.addEventListener('click', () => {
         const open = btn.getAttribute('data-bestiary-expand') === 'all';
-        document
-          .querySelectorAll('details.bestiary-group')
-          .forEach((d) => {
-            d.open = open;
-          });
+        const active =
+          document.querySelector('.bestiary-grouping:not([hidden])') ?? document;
+        active.querySelectorAll('details.bestiary-group').forEach((d) => {
+          (d as HTMLDetailsElement).open = open;
+        });
       });
     });
   </script>
