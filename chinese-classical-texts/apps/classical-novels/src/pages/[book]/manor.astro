@@ -1,0 +1,86 @@
+---
+import { getCollection } from 'astro:content';
+import { getBooks } from '../../lib/getBooks';
+import GraphLayout from '../../layouts/GraphLayout.astro';
+import BackLink from '../../components/BackLink.astro';
+import ManorMap from '../../components/ManorMap.tsx';
+import {
+  MANOR_ZONE_ORDER,
+  buildManorEdges,
+  type ManorMapNode,
+} from '../../lib/manorMap';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  return books
+    .filter((b) => b.data.features.includes('manor'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+
+const locations = (await getCollection('locations')).filter(
+  (l) => l.data.book === meta.book && l.data.coord && l.data.manor_zone,
+);
+
+const nodes: ManorMapNode[] = locations.map((l) => {
+  const d = l.data;
+  const chapters = [
+    ...new Set(
+      d.appear_in
+        .map((s) => {
+          const m = s.match(/第(\d+)回/);
+          return m ? Number(m[1]) : null;
+        })
+        .filter((n): n is number => n != null),
+    ),
+  ].sort((a, b) => a - b);
+
+  return {
+    id: d.id,
+    name: d.name,
+    zone: d.manor_zone!,
+    category: d.category,
+    x: d.coord!.x,
+    y: d.coord!.y,
+    summary: d.summary ?? '',
+    chapters,
+    occupants: d.occupants,
+    plaque: d.plaque,
+    couplet: d.couplet,
+    nearby: d.nearby,
+  };
+});
+
+const manorData = { nodes, edges: buildManorEdges(nodes) };
+const zoneCounts = Object.fromEntries(
+  MANOR_ZONE_ORDER.map((z) => [z, nodes.filter((n) => n.zone === z).length]),
+);
+---
+
+<GraphLayout
+  title={`${meta.book} 宁荣两府地图`}
+  bookSlug={meta.slug}
+  bookName={meta.book}
+  features={meta.features}
+  moduleLabel="宁荣两府地图"
+>
+  {
+    nodes.length === 0 ? (
+      <div class="flex min-h-[70vh] flex-col items-center justify-center px-4 text-center text-slate-300">
+        <p class="mb-2 text-lg">两府地图待生成</p>
+        <p class="max-w-md text-sm text-slate-400">
+          运行
+          <code class="mx-1 rounded bg-slate-800 px-2 py-0.5 text-amber-300">
+            python scripts/seed_manor_coords.py --write
+          </code>
+          为节点注入 manor_zone 与坐标。
+        </p>
+        <BackLink href={`/${meta.slug}`} label={meta.book} variant="dark" class="mt-6" />
+      </div>
+    ) : (
+      <ManorMap data={manorData} bookSlug={meta.slug} client:only="react" />
+    )
+  }
+</GraphLayout>

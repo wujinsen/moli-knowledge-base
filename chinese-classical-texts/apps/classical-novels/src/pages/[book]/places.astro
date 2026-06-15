@@ -64,6 +64,13 @@ const foldLabel = meta.book === '红楼梦' ? '建筑分组' : '地点分组';
         </a>
       )
     }
+    {
+      meta.features.includes('manor') && (
+        <a href={`/${meta.slug}/manor`} class="ml-2 hover:underline" style="color: var(--accent)">
+          → 宁荣两府地图
+        </a>
+      )
+    }
   </p>
 
   <div class="content-page catalog-fold-page">

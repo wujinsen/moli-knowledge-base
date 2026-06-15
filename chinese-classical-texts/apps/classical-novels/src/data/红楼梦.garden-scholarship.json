@@ -39,12 +39,15 @@
     "northeast_trees": "第23回：东北角一带，有松柏等树"
   },
   "plant_matrix": [
-    { "place": "潇湘馆", "plants": ["翠竹", "芭蕉"], "chapter": 17, "symbol": "黛玉" },
-    { "place": "蘅芜苑", "plants": ["奇藤异草", "杜若蘅芜"], "chapter": 17, "symbol": "宝钗" },
-    { "place": "怡红院", "plants": ["海棠", "芭蕉"], "chapter": 17, "symbol": "宝玉" },
-    { "place": "稻香村", "plants": ["杏花", "榆荚", "菜畦", "桑榆"], "chapter": 17, "symbol": "李纨" },
-    { "place": "秋爽斋", "plants": ["梧桐", "芭蕉"], "chapter": 17, "symbol": "探春" },
-    { "place": "栊翠庵", "plants": ["红梅"], "chapter": 50, "symbol": "妙玉" }
+    { "place": "潇湘馆", "plants": ["翠竹", "梨花", "芭蕉"], "chapter": 17, "symbol": "黛玉" },
+    { "place": "蘅芜苑", "plants": ["杜若", "蘅芜", "茝兰", "清葛"], "chapter": 17, "symbol": "宝钗" },
+    { "place": "怡红院", "plants": ["芭蕉", "西府海棠", "蔷薇"], "chapter": 17, "symbol": "宝玉" },
+    { "place": "稻香村", "plants": ["杏花", "桑", "榆", "蔬菜"], "chapter": 17, "symbol": "李纨" },
+    { "place": "秋爽斋", "plants": ["梧桐", "芭蕉", "白菊"], "chapter": 23, "symbol": "探春" },
+    { "place": "缀锦楼", "plants": ["紫菱", "荇叶"], "chapter": 23, "symbol": "迎春" },
+    { "place": "蓼风轩", "plants": ["梧桐", "蓼"], "chapter": 23, "symbol": "惜春" },
+    { "place": "栊翠庵", "plants": ["红梅", "梅花"], "chapter": 50, "symbol": "妙玉" },
+    { "place": "红香圃", "plants": ["海棠", "蔷薇"], "chapter": 62, "symbol": "群芳夜宴" }
   ],
   "replica_projects": [
     {

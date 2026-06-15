@@ -41,13 +41,16 @@ const { Content } = await render(entry);
 const isRoute = features.includes('route') && !!d.layer;
 const isTown = features.includes('town') && !!d.map_zone;
 const isGarden = features.includes('garden') && !!d.garden_zone;
+const isManor = features.includes('manor') && !!d.manor_zone;
 const backHref = isRoute
   ? `/${slug}/route`
   : isTown
     ? `/${slug}/town`
     : isGarden
       ? `/${slug}/map`
-      : `/${slug}/places`;
+      : isManor
+        ? `/${slug}/manor`
+        : `/${slug}/places`;
 const placesLabel =
   slug === 'jinpingmei' ? '西门府' : slug === 'honglou' ? '大观园' : '地点';
 const backLabel = isRoute
@@ -56,7 +59,9 @@ const backLabel = isRoute
     ? '市井地图'
     : isGarden
       ? '大观园地图'
-      : `${placesLabel} · 建筑居所`;
+      : isManor
+        ? '宁荣两府地图'
+        : `${placesLabel} · 建筑居所`;
 
 const relatedItems = await relatedItemsForPlace(d.book, d.id, d.occupants);
 const chapterNums = chaptersFromAppearIn(d.appear_in);
@@ -116,6 +121,12 @@ const keyEvents = features.includes('saga')
           {d.garden_zone}
           {d.tour_order != null && ` · 游线第 ${d.tour_order} 站`} ·{' '}
           <a class="hover:underline" style="color: var(--primary)" href={`/${slug}/map`}>大观园地图</a>
+        </div>
+      )}
+      {d.manor_zone && d.coord && (
+        <div>
+          {d.manor_zone} ·{' '}
+          <a class="hover:underline" style="color: var(--primary)" href={`/${slug}/manor`}>宁荣两府地图</a>
         </div>
       )}
       {d.parent && (

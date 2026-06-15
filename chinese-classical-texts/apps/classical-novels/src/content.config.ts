@@ -106,7 +106,7 @@ const books = defineCollection({
     author: z.string(),
     chapter_count: z.number(),
     features: z.array(
-      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'sna', 'compare', 'nan', 'route', 'chain', 'town', 'garden', 'kaozheng', 'quanshi', 'saga'])
+      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'sna', 'compare', 'nan', 'route', 'chain', 'town', 'garden', 'manor', 'kaozheng', 'quanshi', 'saga'])
     ),
     summary: z.string().optional(),
   }),
@@ -124,6 +124,7 @@ const ROUTE_LAYERS = ['real', 'myth'] as const;
 
 // 红楼梦大观园地图分区
 const GARDEN_ZONES = ['居所', '水系', '仪典', '路径', '亭榭', '寺观', '服务'] as const;
+const MANOR_ZONES = ['荣府轴', '荣府侧', '宁府轴', '宁府园', '连接', '外联'] as const;
 
 const locations = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/locations' }),
@@ -153,6 +154,7 @@ const locations = defineCollection({
     summary: z.string().optional(),
     map_zone: z.enum(['府内', '市井', '寺观', '城外']).optional(),
     garden_zone: z.enum(GARDEN_ZONES).optional(),
+    manor_zone: z.enum(MANOR_ZONES).optional(),
     tour_order: z.number().optional(),
     // 取经路线 GIS（西游记专用，可选）
     realm: z.string().optional(),
