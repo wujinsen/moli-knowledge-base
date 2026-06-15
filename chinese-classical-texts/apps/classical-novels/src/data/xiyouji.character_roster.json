@@ -1,11 +1,51 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 210,
+  "paged_count": 215,
   "pending_count": 5,
   "pending": [
     {
-      "name": "张太尉",
+      "name": "大力鬼王",
+      "mentions": 3,
+      "chapters": [
+        6,
+        7,
+        55
+      ],
+      "appear_in": [
+        "第6回",
+        "第7回",
+        "第55回"
+      ],
+      "source": "seed",
+      "note": "玉帝差神赍调二郎；第6回"
+    },
+    {
+      "name": "广智",
+      "mentions": 1,
+      "chapters": [
+        16
+      ],
+      "appear_in": [
+        "第16回"
+      ],
+      "source": "seed",
+      "note": "观音院小和尚，谋害唐僧；第16回"
+    },
+    {
+      "name": "广谋",
+      "mentions": 1,
+      "chapters": [
+        16
+      ],
+      "appear_in": [
+        "第16回"
+      ],
+      "source": "seed",
+      "note": "广智师弟，放火焚禅堂；第16回"
+    },
+    {
+      "name": "流元帅",
       "mentions": 1,
       "chapters": [
         6
@@ -14,51 +54,15 @@
         "第6回"
       ],
       "source": "seed",
-      "note": "梅山六兄弟；第6、63回"
+      "note": "花果山马流元帅；第6回"
     },
     {
-      "name": "直健",
-      "mentions": 1,
-      "chapters": [
-        6
-      ],
-      "appear_in": [
-        "第6回"
-      ],
-      "source": "seed",
-      "note": "梅山六兄弟，直健将军；第6、63回"
-    },
-    {
-      "name": "郭申",
-      "mentions": 1,
-      "chapters": [
-        6
-      ],
-      "appear_in": [
-        "第6回"
-      ],
-      "source": "seed",
-      "note": "梅山六兄弟，郭申将军；第6、63回"
-    },
-    {
-      "name": "金池长老",
-      "mentions": 1,
-      "chapters": [
-        17
-      ],
-      "appear_in": [
-        "第17回"
-      ],
-      "source": "seed",
-      "note": "观音院长老，贪袈裟；第16–17回"
-    },
-    {
-      "name": "李太尉",
+      "name": "崩将军",
       "mentions": 0,
       "chapters": [],
       "appear_in": [],
       "source": "seed",
-      "note": "梅山六兄弟，李四太尉；第6、63回"
+      "note": "花果山崩芭二将；第6回"
     }
   ]
 }
