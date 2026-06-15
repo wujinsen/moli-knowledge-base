@@ -349,6 +349,9 @@ const events = defineCollection({
     prev: z.string().optional(),
     next: z.string().optional(),
     scoped_relations: z.array(scopedRelation).default([]),
+    // 红楼梦 · 版本异文（脂本探佚 vs 程高本续补）与矛盾主题标记
+    variants: z.array(variant).default([]),
+    contradicts: z.array(z.string()).default([]),
     tags: z.array(z.string()).default([]),
     summary: z.string().optional(),
     source: z.string().optional(),

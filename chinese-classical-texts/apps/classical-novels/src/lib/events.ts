@@ -17,6 +17,8 @@ export interface EventData {
   artifacts: string[];
   prev?: string;
   next?: string;
+  variants?: { edition: string; claim: string; source?: string }[];
+  contradicts?: string[];
   tags: string[];
   summary?: string;
 }
