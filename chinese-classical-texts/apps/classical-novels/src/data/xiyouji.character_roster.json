@@ -1,53 +1,49 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 147,
+  "paged_count": 152,
   "pending_count": 5,
   "pending": [
     {
-      "name": "井木犴",
+      "name": "房日兔",
       "mentions": 2,
       "chapters": [
-        65,
-        92
+        6,
+        65
       ],
       "appear_in": [
-        "第65回",
-        "第92回"
+        "第6回",
+        "第65回"
       ],
       "source": "seed",
-      "note": "四木禽星；擒犀牛；第92回"
+      "note": "二十八宿；小雷音夜战；第65回"
     },
     {
-      "name": "斗木獬",
-      "mentions": 2,
+      "name": "国师王菩萨",
+      "mentions": 1,
       "chapters": [
-        65,
-        92
-      ],
-      "appear_in": [
-        "第65回",
-        "第92回"
-      ],
-      "source": "seed",
-      "note": "四木禽星；青龙山；第92回"
-    },
-    {
-      "name": "荡魔天尊",
-      "mentions": 2,
-      "chapters": [
-        65,
         66
       ],
       "appear_in": [
-        "第65回",
         "第66回"
       ],
       "source": "seed",
-      "note": "武当山真武；助破黄眉；第66回"
+      "note": "盱眙山；遣四将助破黄眉；第66–67回"
     },
     {
-      "name": "心月狐",
+      "name": "小张太子",
+      "mentions": 1,
+      "chapters": [
+        66
+      ],
+      "appear_in": [
+        "第66回"
+      ],
+      "source": "seed",
+      "note": "国师王弟子；小雷音；第66–67回"
+    },
+    {
+      "name": "尾火虎",
       "mentions": 1,
       "chapters": [
         65
@@ -59,16 +55,16 @@
       "note": "二十八宿；小雷音夜战；第65回"
     },
     {
-      "name": "黎山老姆",
+      "name": "箕水豹",
       "mentions": 1,
       "chapters": [
-        73
+        65
       ],
       "appear_in": [
-        "第73回"
+        "第65回"
       ],
       "source": "seed",
-      "note": "指路毗蓝婆；第73回"
+      "note": "二十八宿；小雷音夜战；第65回"
     }
   ]
 }
