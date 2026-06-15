@@ -124,7 +124,7 @@ const next = chapter < meta.chapter_count ? chapter + 1 : undefined;
     relevantVariants.length > 0 && (
       <section class="surface mb-4 px-4 py-4 sm:px-6">
         <h2 class="section-title mb-2 text-sm">本回异文锚点（{relevantVariants.length}）</h2>
-        <ul class="space-y-2 text-sm" style="color: var(--ink-soft)">
+        <ul class="space-y-2 text-sm text-muted">
           {
             relevantVariants.map((v) => (
               <li class="border-l-2 pl-3" style="border-color: var(--accent)">
@@ -176,7 +176,7 @@ const next = chapter < meta.chapter_count ? chapter + 1 : undefined;
         <span />
       )
     }
-    <a href={`/${meta.slug}/read/${editionSlug(pair.left)}/${chapter}`} class="hover:underline" style="color: var(--ink-soft)">
+    <a href={`/${meta.slug}/read/${editionSlug(pair.left)}/${chapter}`} class="hover:underline text-muted">
       单栏阅读
     </a>
     {

@@ -42,7 +42,7 @@ const bySubtype = (st: string) => items.filter((i) => i.data.subtype === st);
       <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">诗</span>
       <div>
         <h1 class="brand text-4xl" style="color: var(--primary)">诗词意象 · 互文网络</h1>
-        <p class="mt-2 text-sm" style="color: var(--ink-soft)">
+        <p class="mt-2 text-sm text-muted">
           {items.length} 条意象实体 · {graph.edges.length} 条关联边 · 判词 / 诗词 / 象征 / 花签
         </p>
       </div>
@@ -82,7 +82,7 @@ const bySubtype = (st: string) => items.filter((i) => i.data.subtype === st);
                     <div class="min-w-0">
                       <h3 class="font-bold" style="color: var(--primary)">{d.title}</h3>
                       {d.text && (
-                        <p class="mt-1 line-clamp-2 text-sm" style="color: var(--ink-soft)">{d.text}</p>
+                        <p class="mt-1 line-clamp-2 text-sm text-muted">{d.text}</p>
                       )}
                       <div class="mt-2 flex flex-wrap gap-2 text-xs">
                         {d.chapters[0] != null && (

@@ -33,7 +33,7 @@ const sections: { key: keyof typeof grouped; anchor: string }[] = isXiyouji
 ---
 
 <Base title={`${meta.book} · ${indexTitle}`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
-  <p slot="module-extra" class="mt-2 text-sm" style="color: var(--ink-soft)">
+  <p slot="module-extra" class="mt-2 text-sm text-muted">
     {
       isXiyouji
         ? `兵器、容器、符咒类法宝实体（共 ${items.length} 条）`
@@ -77,7 +77,7 @@ const sections: { key: keyof typeof grouped; anchor: string }[] = isXiyouji
 
   {
     items.length === 0 && (
-      <p class="text-sm" style="color: var(--ink-soft)">
+      <p class="text-sm text-muted">
         {isXiyouji ? '本书暂无法宝实体页。' : '本书暂无名物实体页。'}
       </p>
     )

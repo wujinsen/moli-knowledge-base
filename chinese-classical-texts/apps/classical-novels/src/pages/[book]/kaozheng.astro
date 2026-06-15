@@ -39,7 +39,7 @@ const stanceClass = (s: string) =>
       <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">考</span>
       <div>
         <h1 class="brand text-4xl" style="color: var(--primary)">考证台</h1>
-        <p class="mt-2 text-sm" style="color: var(--ink-soft)">
+        <p class="mt-2 text-sm text-muted">
           成书史 · 版本学 · 作者公案 · {topics.length} 个专题 · {hypotheses.length} 张假说卡
         </p>
       </div>
@@ -67,7 +67,7 @@ const stanceClass = (s: string) =>
 
   {
     topics.length === 0 ? (
-      <div class="surface p-8 text-center text-sm" style="color: var(--ink-soft)">
+      <div class="surface p-8 text-center text-sm text-muted">
         尚无考证专题。请在
         <code class="mx-1 rounded px-2 py-0.5" style="background: var(--base)">src/content/topics/{meta.book}/</code>
         新建 category: 考证 的 topic（branch: 成书史 / 版本学 / 作者公案）。
@@ -78,7 +78,7 @@ const stanceClass = (s: string) =>
         {hypotheses.length > 0 && (
           <section class="mb-10">
             <h2 class="section-title mb-1 text-lg">假说卡 · inference 分层</h2>
-            <p class="mb-4 text-sm" style="color: var(--ink-soft)">
+            <p class="mb-4 text-sm text-muted">
               按可信度排序：<span class="seal stance stance-main">主流说</span>
               <span class="seal stance stance-doubt ml-1">存疑</span>
               <span class="seal stance stance-minor ml-1">少数说</span>
@@ -90,11 +90,11 @@ const stanceClass = (s: string) =>
                   <div class="flex flex-wrap items-center gap-2">
                     <span class={`seal stance ${stanceClass(h.stance)}`}>{STANCE_LABEL[h.stance] ?? h.stance}</span>
                     {h.proponent && <span class="text-sm font-bold" style="color: var(--accent)">{h.proponent}</span>}
-                    {h.period && <span class="text-xs" style="color: var(--ink-soft)">{h.period}</span>}
+                    {h.period && <span class="text-xs text-muted">{h.period}</span>}
                   </div>
                   <p class="mt-2 text-sm leading-relaxed" style="color: var(--ink)">{h.claim}</p>
                   {h.evidence.length > 0 && (
-                    <ul class="mt-2 list-disc space-y-0.5 pl-5 text-xs" style="color: var(--ink-soft)">
+                    <ul class="mt-2 list-disc space-y-0.5 pl-5 text-xs text-muted">
                       {h.evidence.map((e) => <li>{e}</li>)}
                     </ul>
                   )}
@@ -123,7 +123,7 @@ const stanceClass = (s: string) =>
                     {t.data.hypotheses.length > 0 && <span class="chip" style="font-size:0.62rem">{t.data.hypotheses.length} 假说</span>}
                   </div>
                   {t.data.summary && (
-                    <p class="mt-1 text-sm leading-snug" style="color: var(--ink-soft)">{t.data.summary}</p>
+                    <p class="mt-1 text-sm leading-snug text-muted">{t.data.summary}</p>
                   )}
                 </a>
               ))}

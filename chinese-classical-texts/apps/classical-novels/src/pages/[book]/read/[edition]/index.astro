@@ -79,7 +79,7 @@ const max = maxChapterForEdition(book, editionName, total);
 >
   <header class="mb-6">
     <h1 class="section-title text-2xl">逐回精读</h1>
-    <p class="mt-2 text-sm leading-relaxed" style="color: var(--ink-soft)">
+    <p class="mt-2 text-sm leading-relaxed text-muted">
       先选版本，再进入阅读。
       {
         book === '红楼梦' &&
@@ -124,7 +124,7 @@ const max = maxChapterForEdition(book, editionName, total);
 
   {
     book === '红楼梦' && editionName === '脂砚斋本' && (
-      <p class="mt-8 text-sm" style="color: var(--ink-soft)">
+      <p class="mt-8 text-sm text-muted">
         第 {ZHIBEN_MAX + 1}–{total} 回仅程高本续书，见
         <a href={readIndexPath(slug, book, '程高本')} class="hover:underline" style="color: var(--primary)">
           程高本回目

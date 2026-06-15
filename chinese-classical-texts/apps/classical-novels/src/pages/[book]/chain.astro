@@ -73,7 +73,7 @@ const bangxianHubs = snaHubs.bangxian_hubs ?? [];
       <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">链</span>
       <div>
         <h1 class="brand text-4xl" style="color: var(--primary)">发家 · 衰败链</h1>
-        <p class="mt-2 text-sm" style="color: var(--ink-soft)">
+        <p class="mt-2 text-sm text-muted">
           {financialCount} 个白银节点 · {plotCount} 个情节节点 · 按回目串联西门府百年浮沉
         </p>
       </div>
@@ -138,10 +138,10 @@ const bangxianHubs = snaHubs.bangxian_hubs ?? [];
                 </h2>
                 <span class="chip text-xs">{subtype}</span>
                 {amount && <span class="chip text-xs">{amount}</span>}
-                <span class="text-xs" style="color: var(--ink-soft)">{phase.label}</span>
+                <span class="text-xs text-muted">{phase.label}</span>
               </div>
               {d.summary && (
-                <p class="mt-1 text-sm leading-snug" style="color: var(--ink-soft)">{d.summary}</p>
+                <p class="mt-1 text-sm leading-snug text-muted">{d.summary}</p>
               )}
               <div class="mt-2 flex flex-wrap gap-2 text-xs">
                 {
@@ -208,7 +208,7 @@ const bangxianHubs = snaHubs.bangxian_hubs ?? [];
     }
   </div>
 
-  <div class="surface p-4 text-sm" style="color: var(--ink-soft)">
+  <div class="surface p-4 text-sm text-muted">
     <span class="chip">数据源</span>
     financial_event + plot ·
     <a href={`/${meta.slug}/silver`} class="hover:underline" style="color: var(--accent)">白银流</a>

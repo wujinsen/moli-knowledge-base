@@ -56,7 +56,7 @@ const eventTxMap = Object.fromEntries(finEvents.map((e) => [e.data.id, e.data.tr
       <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">银</span>
       <div>
         <h1 class="brand text-4xl" style="color: var(--primary)">物价 · 白银流</h1>
-        <p class="mt-2 text-sm" style="color: var(--ink-soft)">
+        <p class="mt-2 text-sm text-muted">
           交易记录 · 银两换算 · 资金池桑基图 · {txs.length} 笔
           {silverData && ` · 构建期 JSON ${silverData.generated}`}
         </p>
@@ -74,7 +74,7 @@ const eventTxMap = Object.fromEntries(finEvents.map((e) => [e.data.id, e.data.tr
 
   {
     txs.length === 0 || !silverData ? (
-      <div class="surface p-8 text-center" style="color: var(--ink-soft)">
+      <div class="surface p-8 text-center text-muted">
         {txs.length === 0 ? (
           <>
             尚无交易记录，请向 <code>src/content/transactions/{meta.book}/</code> 录入数据。
@@ -116,8 +116,8 @@ const eventTxMap = Object.fromEntries(finEvents.map((e) => [e.data.id, e.data.tr
                         <span class="chip ml-1 text-xs" title="换算或金额存疑">存疑</span>
                       )}
                     </td>
-                    <td class="px-3 py-2.5" style="color: var(--ink-soft)">{r.parties || '—'}</td>
-                    <td class="px-3 py-2.5 max-w-xs truncate" style="color: var(--ink-soft)">{r.summary}</td>
+                    <td class="px-3 py-2.5 text-muted">{r.parties || '—'}</td>
+                    <td class="px-3 py-2.5 max-w-xs truncate text-muted">{r.summary}</td>
                   </tr>
                 ))
               }
@@ -125,7 +125,7 @@ const eventTxMap = Object.fromEntries(finEvents.map((e) => [e.data.id, e.data.tr
           </table>
         </div>
 
-        <div class="surface p-4 text-sm" style="color: var(--ink-soft)">
+        <div class="surface p-4 text-sm text-muted">
           <span class="chip">合计（标准化）</span>
           <strong style="color: var(--primary)">{formatLiang(totalLiang)}</strong>
           <span class="ml-2">· 资金池：西门庆府 → 妻妾奴婢 / 经营投资 / 政商贿赂 / 帮闲圈 等</span>
@@ -159,7 +159,7 @@ const eventTxMap = Object.fromEntries(finEvents.map((e) => [e.data.id, e.data.tr
                           {e.data.title}
                         </a>
                       </p>
-                      <p class="mt-1" style="color: var(--ink-soft)">{e.data.summary}</p>
+                      <p class="mt-1 text-muted">{e.data.summary}</p>
                       <p class="mt-2 text-xs">
                         第 {e.data.chapters.join('、')} 回
                         {e.data.transaction_refs.length > 0 && (

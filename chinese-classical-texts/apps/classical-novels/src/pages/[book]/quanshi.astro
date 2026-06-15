@@ -38,7 +38,7 @@ const lensCount = groups.reduce((n, g) => n + g.items.length, 0);
       <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">诠</span>
       <div>
         <h1 class="brand text-4xl" style="color: var(--primary)">诠释专题</h1>
-        <p class="mt-2 text-sm" style="color: var(--ink-soft)">
+        <p class="mt-2 text-sm text-muted">
           内丹心性 · 政治隐喻 · 原型源流 · {lensCount} 个专题 · {scopedEdges.length} 条情境边
         </p>
       </div>
@@ -52,7 +52,7 @@ const lensCount = groups.reduce((n, g) => n + g.items.length, 0);
   {/* 按视角列诠释专题 */}
   {
     groups.length === 0 ? (
-      <div class="surface mb-10 p-8 text-center text-sm" style="color: var(--ink-soft)">
+      <div class="surface mb-10 p-8 text-center text-sm text-muted">
         尚无诠释专题。请在
         <code class="mx-1 rounded px-2 py-0.5" style="background: var(--base)">src/content/topics/{meta.book}/</code>
         新建 category: 诠释 的 topic（lens: 内丹 / 政治 / 原型…）。
@@ -72,7 +72,7 @@ const lensCount = groups.reduce((n, g) => n + g.items.length, 0);
                   {t.data.readings.length > 0 && <span class="chip" style="font-size:0.62rem">{t.data.readings.length} 解读</span>}
                 </div>
                 {t.data.summary && (
-                  <p class="mt-1 text-sm leading-snug" style="color: var(--ink-soft)">{t.data.summary}</p>
+                  <p class="mt-1 text-sm leading-snug text-muted">{t.data.summary}</p>
                 )}
               </a>
             ))}
@@ -85,12 +85,12 @@ const lensCount = groups.reduce((n, g) => n + g.items.length, 0);
   {/* 情境边：变身 / 伪装等 ephemeral 关系 */}
   <section class="mb-10">
     <h2 class="section-title mb-1 text-lg">情境边 · 变身与伪装</h2>
-    <p class="mb-4 text-sm" style="color: var(--ink-soft)">
+    <p class="mb-4 text-sm text-muted">
       「情境边」只在特定情节内成立（ephemeral）：妖魔变作他人、神佛化身考验。它们不进入稳定关系图谱，单列于此。
     </p>
     {
       scopedEdges.length === 0 ? (
-        <div class="surface p-6 text-center text-sm" style="color: var(--ink-soft)">
+        <div class="surface p-6 text-center text-sm text-muted">
           暂无情境边数据。可在 events 的 <code class="rounded px-1" style="background: var(--base)">scoped_relations</code> 中录入。
         </div>
       ) : (
@@ -108,7 +108,7 @@ const lensCount = groups.reduce((n, g) => n + g.items.length, 0);
                     {e.ephemeral && <span class="ml-1 chip" style="font-size:0.6rem">临时</span>}
                   </td>
                   <td style="color: var(--ink)">{e.object}</td>
-                  <td style="color: var(--ink-soft)">{e.chapter ? `第${e.chapter}回` : '—'}</td>
+                  <td>{e.chapter ? `第${e.chapter}回` : '—'}</td>
                   <td>
                     <a href={`/${meta.slug}/e/${e.eventId}`} class="hover:underline" style="color: var(--primary)">{e.eventTitle}</a>
                   </td>

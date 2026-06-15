@@ -42,7 +42,7 @@ const p = mod.preview!;
           <h1 class="brand text-4xl" style="color: var(--primary)">{mod.title}</h1>
           <span class="seal seal-planned">未做</span>
         </div>
-        <p class="mt-2 text-sm" style="color: var(--ink-soft)">{mod.desc}</p>
+        <p class="mt-2 text-sm text-muted">{mod.desc}</p>
       </div>
     </div>
     <p class="mt-5 max-w-2xl leading-relaxed" style="color: var(--ink)">{p.intro}</p>
@@ -55,7 +55,7 @@ const p = mod.preview!;
       p.dimensions.map((d) => (
         <div class="surface p-4">
           <h3 class="font-bold" style="color: var(--accent)">{d.title}</h3>
-          <p class="mt-1 text-sm leading-snug" style="color: var(--ink-soft)">{d.desc}</p>
+          <p class="mt-1 text-sm leading-snug text-muted">{d.desc}</p>
         </div>
       ))
     }
@@ -80,7 +80,7 @@ const p = mod.preview!;
   </ol>
 
   {/* 关联文档 */}
-  <div class="surface flex flex-wrap items-center gap-2 p-4 text-sm" style="color: var(--ink-soft)">
+  <div class="surface flex flex-wrap items-center gap-2 p-4 text-sm text-muted">
     <span class="chip">关联文档</span>
     <code class="rounded px-1.5 py-0.5" style="background: color-mix(in srgb, var(--primary) 10%, transparent); color: var(--primary)">
       docs/{p.relatedDoc}

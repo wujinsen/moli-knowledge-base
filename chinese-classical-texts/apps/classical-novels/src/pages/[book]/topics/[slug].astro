@@ -59,7 +59,7 @@ const stanceClass = (s: string) =>
       d.hypotheses.length > 0 && (
         <section class="mb-8">
           <h2 class="section-title mb-1 text-lg">假说卡</h2>
-          <p class="mb-4 text-sm" style="color: var(--ink-soft)">
+          <p class="mb-4 text-sm text-muted">
             以下均为学术「诠释 / 推论」，非定论；标注提出者、年代、证据与可信度。
           </p>
           <div class="grid gap-4 sm:grid-cols-2">
@@ -68,11 +68,11 @@ const stanceClass = (s: string) =>
                 <div class="flex flex-wrap items-center gap-2">
                   <span class={`seal stance ${stanceClass(h.stance)}`}>{STANCE_LABEL[h.stance] ?? h.stance}</span>
                   {h.proponent && <span class="text-sm font-bold" style="color: var(--accent)">{h.proponent}</span>}
-                  {h.period && <span class="text-xs" style="color: var(--ink-soft)">{h.period}</span>}
+                  {h.period && <span class="text-xs text-muted">{h.period}</span>}
                 </div>
                 <p class="mt-2 leading-relaxed" style="color: var(--ink)">{h.claim}</p>
                 {h.evidence.length > 0 && (
-                  <ul class="mt-2 list-disc space-y-0.5 pl-5 text-sm" style="color: var(--ink-soft)">
+                  <ul class="mt-2 list-disc space-y-0.5 pl-5 text-sm text-muted">
                     {h.evidence.map((e) => <li>{e}</li>)}
                   </ul>
                 )}
@@ -80,7 +80,7 @@ const stanceClass = (s: string) =>
                   <p class="mt-2 text-sm" style="color: var(--seal)">⊘ 反驳：{h.counter}</p>
                 )}
                 {h.source && (
-                  <p class="mt-2 text-xs" style="color: var(--ink-soft)">出处：{h.source}</p>
+                  <p class="mt-2 text-xs text-muted">出处：{h.source}</p>
                 )}
               </article>
             ))}
@@ -94,7 +94,7 @@ const stanceClass = (s: string) =>
       d.readings.length > 0 && (
         <section class="mb-8">
           <h2 class="section-title mb-1 text-lg">诠释条目</h2>
-          <p class="mb-4 text-sm" style="color: var(--ink-soft)">
+          <p class="mb-4 text-sm text-muted">
             象征解读属「诠释」（inference），与原文事实分层；同一符号可有多种读法。
           </p>
           <div class="overflow-x-auto">
@@ -113,7 +113,7 @@ const stanceClass = (s: string) =>
                       {r.meaning}
                       {r.inference && <span class="ml-1 chip" style="font-size:0.6rem">诠释</span>}
                     </td>
-                    <td style="color: var(--ink-soft)">{r.proponent ?? '—'}{r.source ? `（${r.source}）` : ''}</td>
+                    <td>{r.proponent ?? '—'}{r.source ? `（${r.source}）` : ''}</td>
                   </tr>
                 ))}
               </tbody>
@@ -126,7 +126,7 @@ const stanceClass = (s: string) =>
     {/* 来源实体 */}
     {
       d.derived_from.length > 0 && (
-        <div class="surface mb-6 flex flex-wrap items-center gap-x-1.5 gap-y-1 p-4 text-sm" style="color: var(--ink-soft)">
+        <div class="surface mb-6 flex flex-wrap items-center gap-x-1.5 gap-y-1 p-4 text-sm text-muted">
           <span class="chip">综合自</span>
           <span>{d.derived_from.join(' · ')}</span>
         </div>

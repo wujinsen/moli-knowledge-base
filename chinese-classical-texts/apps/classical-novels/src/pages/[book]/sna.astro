@@ -32,7 +32,7 @@ const data = snaBySlug[meta.slug] ?? { book: meta.book, metrics: [], hubs: [] };
       <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">网</span>
       <div>
         <h1 class="brand text-4xl" style="color: var(--primary)">社会网络分析</h1>
-        <p class="mt-2 text-sm" style="color: var(--ink-soft)">
+        <p class="mt-2 text-sm text-muted">
           帮闲圈介数中心性 · 西门府利益距离 · {data.node_count ?? data.metrics.length} 节点
           {data.bangxian_hubs?.length ? ` · 帮闲 Top ${data.bangxian_hubs.slice(0, 2).join('、')}` : ''}
         </p>
@@ -49,7 +49,7 @@ const data = snaBySlug[meta.slug] ?? { book: meta.book, metrics: [], hubs: [] };
 
   {
     data.metrics.length === 0 ? (
-      <div class="surface p-8 text-center" style="color: var(--ink-soft)">
+      <div class="surface p-8 text-center text-muted">
         尚无 SNA 数据。请先录入人物并运行
         <code class="mx-1 rounded px-2 py-0.5" style="background: var(--base)">
           python scripts/build_sna.py {meta.book}

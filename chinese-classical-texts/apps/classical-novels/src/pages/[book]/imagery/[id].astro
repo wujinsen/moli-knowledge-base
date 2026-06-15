@@ -47,7 +47,7 @@ const infLinks = d.links.filter((l) => l.inference);
         {d.text}
       </blockquote>
     )}
-    {d.summary && <p class="mt-4 text-sm leading-relaxed" style="color: var(--ink-soft)">{d.summary}</p>}
+    {d.summary && <p class="mt-4 text-sm leading-relaxed text-muted">{d.summary}</p>}
   </section>
 
   {
@@ -104,7 +104,7 @@ const infLinks = d.links.filter((l) => l.inference);
                         <span class="chip">事实</span>
                       )}
                     </td>
-                    <td class="px-3 py-2.5" style="color: var(--ink-soft)">{l.note ?? '—'}</td>
+                    <td class="px-3 py-2.5 text-muted">{l.note ?? '—'}</td>
                   </tr>
                 ))
               }
