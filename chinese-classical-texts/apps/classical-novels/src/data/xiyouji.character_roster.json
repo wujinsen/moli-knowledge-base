@@ -1,54 +1,48 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 195,
-  "pending_count": 4,
+  "paged_count": 200,
+  "pending_count": 5,
   "pending": [
     {
-      "name": "寇梁",
+      "name": "寇栋",
       "mentions": 2,
-      "chapters": [
-        96,
-        97
-      ],
-      "appear_in": [
-        "第96回",
-        "第97回"
-      ],
+      "chapters": [96, 97],
+      "appear_in": ["第96回", "第97回"],
       "source": "seed",
-      "note": "寇员外之子；诬告唐僧；第96–97回"
+      "note": "寇员外次子；与寇梁同诬告；第96–97回"
     },
     {
-      "name": "有来有去",
-      "mentions": 1,
-      "chapters": [
-        70
-      ],
-      "appear_in": [
-        "第70回"
-      ],
-      "source": "seed",
-      "note": "小雷音寺小妖；报信黄眉；第65回"
-    },
-    {
-      "name": "铜台府刺史",
-      "mentions": 1,
-      "chapters": [
-        97
-      ],
-      "appear_in": [
-        "第97回"
-      ],
-      "source": "seed",
-      "note": "寇员外线；第96–97回"
-    },
-    {
-      "name": "哮天犬",
+      "name": "凌虚子",
       "mentions": 0,
       "chapters": [],
       "appear_in": [],
       "source": "seed",
-      "note": "二郎神细犬；咬九头虫；第63回"
+      "note": "双叉岭熊罴怪；寅将军同伙；第13回"
+    },
+    {
+      "name": "熊山君",
+      "mentions": 0,
+      "chapters": [],
+      "appear_in": [],
+      "source": "seed",
+      "note": "双叉岭棕熊精；第13回"
+    },
+    {
+      "name": "寅将军",
+      "mentions": 0,
+      "chapters": [],
+      "appear_in": [],
+      "source": "seed",
+      "note": "双叉岭虎精；第13回"
+    },
+    {
+      "name": "特处士",
+      "mentions": 0,
+      "chapters": [],
+      "appear_in": [],
+      "source": "seed",
+      "note": "双叉岭野牛精；第13回"
     }
   ]
 }
