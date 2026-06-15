@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""从 jinpingmei.bestiary.json 同步人物 frontmatter 的 靠山/依附/结局/性格/喜好。
+"""从 xiyouji.bestiary.json 同步 frontmatter 的 性格/喜好。
 
-编辑 scripts/jpm_bestiary_fields.py 后先运行 build_jpm_bestiary_json.py
+编辑 scripts/xyj_bestiary_fields.py 后先运行 build_xyj_bestiary_json.py
 """
 from __future__ import annotations
 
@@ -11,9 +11,9 @@ import yaml
 
 from _common import CHAR_DIR, DATA_DIR, parse_frontmatter
 
-BOOK = "金瓶梅"
-DATA_PATH = DATA_DIR / "jinpingmei.bestiary.json"
-FIELDS = ("靠山", "依附", "结局", "性格", "喜好")
+BOOK = "西游记"
+DATA_PATH = DATA_DIR / "xiyouji.bestiary.json"
+FIELDS = ("性格", "喜好")
 
 
 def write_frontmatter(path, fm: dict, body: str) -> None:
@@ -23,7 +23,7 @@ def write_frontmatter(path, fm: dict, body: str) -> None:
 
 def main() -> None:
     data = json.loads(DATA_PATH.read_text(encoding="utf-8"))
-    field_map: dict[str, dict[str, str]] = data.get("fields", {})
+    field_map: dict[str, dict] = data.get("fields", {})
     char_dir = CHAR_DIR / BOOK
     updated = 0
 
@@ -46,14 +46,10 @@ def main() -> None:
         if not changed:
             continue
         write_frontmatter(path, fm, body)
-        filled = [k for k in FIELDS if fm.get(k)]
-        print(f"  {cid}: {', '.join(filled) or '—'}")
+        print(f"  {cid}: 性格={'有' if fm.get('性格') else '—'} · 喜好 {len(fm.get('喜好') or [])} 项")
         updated += 1
 
-    missing = sorted(set(field_map) - {p.stem for p in char_dir.glob("*.md")})
-    if missing:
-        print(f"  warn: JSON 有但无人物页: {', '.join(missing)}")
-    print(f"[{BOOK}] 更新 {updated} 个人物图鉴字段（共 {len(field_map)} 条定义）")
+    print(f"[{BOOK}] 更新 {updated} 个图鉴字段（共 {len(field_map)} 条定义）")
 
 
 if __name__ == "__main__":

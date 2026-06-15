@@ -54,6 +54,8 @@ function cardProps(c: (typeof entries)[number]) {
       <p slot="module-extra" class="mt-2 text-sm" style="color: var(--ink-soft)">
         {stats.groupCount} 组 · {stats.total} 人
         <span class="mx-1">·</span>
+        {stats.withPersonality} 有性格 · {stats.withLikes} 有喜好
+        <span class="mx-1">·</span>
         {stats.withBacking} 有靠山 · {stats.withOutcome} 有结局
         <a href={`/${slug}/graph`} class="ml-2 hover:underline" style="color: var(--accent)">
           社会网 →
@@ -77,6 +79,8 @@ function cardProps(c: (typeof entries)[number]) {
     ) : slug === 'xiyouji' ? (
       <p slot="module-extra" class="mt-2 text-sm" style="color: var(--ink-soft)">
         {stats.groupCount} 组 · {stats.characterCount} 人物 · {stats.monsterCount} 妖怪
+        <span class="mx-1">·</span>
+        {stats.withPersonality} 有性格 · {stats.withLikes} 有喜好
         <a href={`/${slug}/graph`} class="ml-2 hover:underline" style="color: var(--accent)">
           关系网 →
         </a>

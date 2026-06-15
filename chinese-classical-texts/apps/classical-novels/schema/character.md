@@ -30,7 +30,13 @@
 
 `ximen_proximity`（亲缘 / 雇佣 / 利益交换 / 外人）· `靠山` · `依附` · `结局`
 
-数据：`src/data/jinpingmei.bestiary.json`（含 `groups` 图鉴分组 + `fields`）· 同步 `python scripts/seed_jpm_bestiary.py`
+数据：`scripts/jpm_bestiary_fields.py` → `build_jpm_bestiary_json.py` → `jinpingmei.bestiary.json` · 同步 `seed_jpm_bestiary.py`
+
+## 西游记图鉴扩展
+
+`性格` · `喜好[]`（法宝 id 可链 `/xiyouji/i/{id}`）
+
+数据：`scripts/xyj_bestiary_fields.py` → `build_xyj_bestiary_json.py` → `xiyouji.bestiary.json` · 同步 `seed_xyj_bestiary.py`
 
 ## 红楼梦图鉴扩展（type: character）
 

@@ -111,6 +111,8 @@ export function bestiaryStatsFor(
       ...base,
       withBacking: chars.filter((e) => e.data.靠山).length,
       withOutcome: chars.filter((e) => e.data.结局).length,
+      withPersonality: chars.filter((e) => e.data.性格).length,
+      withLikes: chars.filter((e) => (e.data.喜好?.length ?? 0) > 0).length,
     };
   }
   if (bookSlug === 'honglou') {
@@ -126,6 +128,8 @@ export function bestiaryStatsFor(
       ...base,
       characterCount: entries.filter((e) => e.data.type === 'character').length,
       monsterCount: entries.filter((e) => e.data.type === 'monster').length,
+      withPersonality: entries.filter((e) => e.data.性格).length,
+      withLikes: entries.filter((e) => (e.data.喜好?.length ?? 0) > 0).length,
     };
   }
   return base;

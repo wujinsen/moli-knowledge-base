@@ -118,7 +118,7 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
       return [
         { key: 'read', glyph: '读', title: '逐回精读', desc: '世德堂本 · 通本双版本', status: 'live', href: `/${slug}/read/1` },
         { key: 'graph', glyph: '谱', title: '取经关系', desc: '师徒 · 神魔 · 降服与求援', ...live(has('graph'), slug, 'graph', `/${slug}/graph`) },
-        { key: 'bestiary', glyph: '妖', title: '妖怪图鉴', desc: '五众 · 神佛 · 妖王分组 · 本相结局', ...live(has('bestiary'), slug, 'bestiary', `/${slug}/bestiary`) },
+        { key: 'bestiary', glyph: '妖', title: '妖怪图鉴', desc: '五众神佛 · 妖王分组 · 性格法宝', ...live(has('bestiary'), slug, 'bestiary', `/${slug}/bestiary`) },
         { key: 'items', glyph: '宝', title: '法宝谱系', desc: '制造 · 拥有 · 克制关系', ...live(has('items'), slug, 'items', `/${slug}/items`) },
         {
           key: 'nan', glyph: '难', title: '八十一难', desc: '劫难单元时间轴', ...live(has('nan'), slug, 'nan', `/${slug}/nan`),
@@ -187,7 +187,7 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
       return [
         { key: 'read', glyph: '读', title: '逐回精读', desc: '词话 · 崇祯 · 竹坡三版本', status: 'live', href: `/${slug}/read/cihua` },
         { key: 'graph', glyph: '谱', title: '西门府社会网', desc: '妻妾 · 帮闲 · 政商利益', ...live(has('graph'), slug, 'graph', `/${slug}/graph`) },
-        { key: 'bestiary', glyph: '鉴', title: '人物图鉴', desc: '妻妾帮闲 · catalog 分组 · 靠山结局', ...live(has('bestiary'), slug, 'bestiary', `/${slug}/bestiary`) },
+        { key: 'bestiary', glyph: '鉴', title: '人物图鉴', desc: '妻妾帮闲 · 性格 · 靠山结局', ...live(has('bestiary'), slug, 'bestiary', `/${slug}/bestiary`) },
         { key: 'places', glyph: '府', title: '西门府', desc: '院落居所 · 店铺 · 县城市井', ...live(has('places'), slug, 'places', `/${slug}/places`) },
         { key: 'town', glyph: '图', title: '市井地图', desc: '清河 · 西门府 · 东京政商链示意', ...live(has('town'), slug, 'town', `/${slug}/town`) },
         {
