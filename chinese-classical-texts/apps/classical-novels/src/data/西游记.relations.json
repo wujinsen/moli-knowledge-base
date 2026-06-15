@@ -200,6 +200,12 @@
       "weight": 40
     },
     {
+      "id": "壁水貐",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 36
+    },
+    {
       "id": "多闻天王",
       "type": "character",
       "faction": "天庭",
@@ -254,6 +260,12 @@
       "weight": 52
     },
     {
+      "id": "女土貉",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 36
+    },
+    {
       "id": "如意真仙",
       "type": "monster",
       "faction": "妖魔",
@@ -264,6 +276,12 @@
       "type": "character",
       "faction": "佛界",
       "weight": 64
+    },
+    {
+      "id": "娄金狗",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 34
     },
     {
       "id": "孙悟空",
@@ -456,6 +474,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 38
+    },
+    {
+      "id": "毕月乌",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 36
     },
     {
       "id": "毗蓝婆",
@@ -665,6 +689,12 @@
       "id": "老鼋",
       "type": "character",
       "faction": "通天河",
+      "weight": 36
+    },
+    {
+      "id": "胃土彘",
+      "type": "character",
+      "faction": "天庭",
       "weight": 36
     },
     {
@@ -1241,6 +1271,36 @@
     },
     {
       "source": "亢金龙",
+      "target": "女土貉",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "亢金龙",
+      "target": "壁水貐",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "亢金龙",
+      "target": "娄金狗",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "亢金龙",
+      "target": "胃土彘",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "亢金龙",
+      "target": "毕月乌",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "亢金龙",
       "target": "黄眉怪",
       "type": "敌对",
       "contradiction": false
@@ -1643,6 +1703,36 @@
     },
     {
       "source": "危月燕",
+      "target": "女土貉",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "危月燕",
+      "target": "壁水貐",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "危月燕",
+      "target": "娄金狗",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "危月燕",
+      "target": "胃土彘",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "危月燕",
+      "target": "毕月乌",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "危月燕",
       "target": "黄眉怪",
       "type": "敌对",
       "contradiction": false
@@ -2014,6 +2104,60 @@
       "contradiction": false
     },
     {
+      "source": "壁水貐",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "壁水貐",
+      "target": "角木蛟",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "壁水貐",
+      "target": "奎木狼",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "壁水貐",
+      "target": "女土貉",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "壁水貐",
+      "target": "娄金狗",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "壁水貐",
+      "target": "胃土彘",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "壁水貐",
+      "target": "毕月乌",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "壁水貐",
+      "target": "黄眉怪",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "壁水貐",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "多闻天王",
       "target": "玉皇大帝",
       "type": "主仆",
@@ -2200,6 +2344,30 @@
       "contradiction": false
     },
     {
+      "source": "奎木狼",
+      "target": "女土貉",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "奎木狼",
+      "target": "娄金狗",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "奎木狼",
+      "target": "胃土彘",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "奎木狼",
+      "target": "毕月乌",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "女儿国国王",
       "target": "唐僧",
       "type": "恋慕",
@@ -2209,6 +2377,54 @@
       "source": "女儿国国王",
       "target": "孙悟空",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "女土貉",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "女土貉",
+      "target": "角木蛟",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "女土貉",
+      "target": "氐土蝠",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "女土貉",
+      "target": "娄金狗",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "女土貉",
+      "target": "胃土彘",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "女土貉",
+      "target": "毕月乌",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "女土貉",
+      "target": "黄眉怪",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "女土貉",
+      "target": "玉皇大帝",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -2251,6 +2467,30 @@
       "source": "如来佛祖",
       "target": "燃灯古佛",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "娄金狗",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "娄金狗",
+      "target": "角木蛟",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "娄金狗",
+      "target": "黄眉怪",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "娄金狗",
+      "target": "玉皇大帝",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -2686,6 +2926,18 @@
       "contradiction": false
     },
     {
+      "source": "孙悟空",
+      "target": "胃土彘",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "毕月乌",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "孤直公",
       "target": "唐僧",
       "type": "敌对",
@@ -2789,6 +3041,36 @@
     },
     {
       "source": "室火猪",
+      "target": "女土貉",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "室火猪",
+      "target": "壁水貐",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "室火猪",
+      "target": "娄金狗",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "室火猪",
+      "target": "胃土彘",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "室火猪",
+      "target": "毕月乌",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "室火猪",
       "target": "黄眉怪",
       "type": "敌对",
       "contradiction": false
@@ -2874,6 +3156,36 @@
     {
       "source": "尾火虎",
       "target": "虚日鼠",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "尾火虎",
+      "target": "女土貉",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "尾火虎",
+      "target": "壁水貐",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "尾火虎",
+      "target": "娄金狗",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "尾火虎",
+      "target": "胃土彘",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "尾火虎",
+      "target": "毕月乌",
       "type": "同僚",
       "contradiction": false
     },
@@ -3119,6 +3431,36 @@
     },
     {
       "source": "心月狐",
+      "target": "女土貉",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "心月狐",
+      "target": "壁水貐",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "心月狐",
+      "target": "娄金狗",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "心月狐",
+      "target": "胃土彘",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "心月狐",
+      "target": "毕月乌",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "心月狐",
       "target": "黄眉怪",
       "type": "敌对",
       "contradiction": false
@@ -3150,6 +3492,36 @@
     {
       "source": "房日兔",
       "target": "虚日鼠",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "房日兔",
+      "target": "女土貉",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "房日兔",
+      "target": "壁水貐",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "房日兔",
+      "target": "娄金狗",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "房日兔",
+      "target": "胃土彘",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "房日兔",
+      "target": "毕月乌",
       "type": "同僚",
       "contradiction": false
     },
@@ -3263,6 +3635,36 @@
     },
     {
       "source": "斗木獬",
+      "target": "女土貉",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "斗木獬",
+      "target": "壁水貐",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "斗木獬",
+      "target": "娄金狗",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "斗木獬",
+      "target": "胃土彘",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "斗木獬",
+      "target": "毕月乌",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "斗木獬",
       "target": "黄眉怪",
       "type": "敌对",
       "contradiction": false
@@ -3294,6 +3696,12 @@
     {
       "source": "昴日星官",
       "target": "虚日鼠",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "昴日星官",
+      "target": "毕月乌",
       "type": "同僚",
       "contradiction": false
     },
@@ -3478,6 +3886,36 @@
       "contradiction": false
     },
     {
+      "source": "毕月乌",
+      "target": "角木蛟",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "毕月乌",
+      "target": "娄金狗",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "毕月乌",
+      "target": "胃土彘",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "毕月乌",
+      "target": "黄眉怪",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "毕月乌",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "毗蓝婆",
       "target": "昴日星官",
       "type": "母子",
@@ -3522,6 +3960,30 @@
     {
       "source": "氐土蝠",
       "target": "虚日鼠",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "氐土蝠",
+      "target": "壁水貐",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "氐土蝠",
+      "target": "娄金狗",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "氐土蝠",
+      "target": "胃土彘",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "氐土蝠",
+      "target": "毕月乌",
       "type": "同僚",
       "contradiction": false
     },
@@ -3684,6 +4146,36 @@
     {
       "source": "牛金牛",
       "target": "虚日鼠",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "牛金牛",
+      "target": "女土貉",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "牛金牛",
+      "target": "壁水貐",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "牛金牛",
+      "target": "娄金狗",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "牛金牛",
+      "target": "胃土彘",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "牛金牛",
+      "target": "毕月乌",
       "type": "同僚",
       "contradiction": false
     },
@@ -4133,6 +4625,36 @@
     },
     {
       "source": "箕水豹",
+      "target": "女土貉",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "箕水豹",
+      "target": "壁水貐",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "箕水豹",
+      "target": "娄金狗",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "箕水豹",
+      "target": "胃土彘",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "箕水豹",
+      "target": "毕月乌",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "箕水豹",
       "target": "黄眉怪",
       "type": "敌对",
       "contradiction": false
@@ -4216,6 +4738,30 @@
       "contradiction": false
     },
     {
+      "source": "胃土彘",
+      "target": "角木蛟",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "胃土彘",
+      "target": "娄金狗",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "胃土彘",
+      "target": "黄眉怪",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "胃土彘",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "苟元帅",
       "target": "玉皇大帝",
       "type": "主仆",
@@ -4296,6 +4842,36 @@
     {
       "source": "虚日鼠",
       "target": "角木蛟",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "虚日鼠",
+      "target": "女土貉",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "虚日鼠",
+      "target": "壁水貐",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "虚日鼠",
+      "target": "娄金狗",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "虚日鼠",
+      "target": "胃土彘",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "虚日鼠",
+      "target": "毕月乌",
       "type": "同僚",
       "contradiction": false
     },
