@@ -16,11 +16,27 @@
 | `first_appear` | | 首次登场，如 `第1回` |
 | `status` | | 主角 \| 重要 \| 配角 |
 | `tags` | | 标签数组 |
+| `arc` | | 一生轨迹节点数组（见下）；有节点时生成 `/lifeline/[id]` |
 | `relations` | | 关系数组：`{ target, type, role? }` |
 | `variants` | | 版本异文：`{ edition, claim, source? }` |
 | `contradicts` | | 存在版本冲突的主题 id 数组 |
 | `weight` | | 0–100，由 `/consolidate` 自动重算 |
 | `summary` | | ≤ 2 句简介 |
+
+### `arc` 节点（可选）
+
+驱动 `/[book]/lifeline/[id]` 命运曲线。每项：
+
+| 子字段 | 说明 |
+|--------|------|
+| `chapter` | 对应回目（数字） |
+| `stage` | `出场` \| `起` \| `转` \| `高光` \| `低谷` \| `结局` |
+| `title` | 节点标题 |
+| `note` | 情节说明（≤ 2 句） |
+| `fortune` | 命运值 -100 ~ 100（可选） |
+| `event` | 关联 saga 事件 id，如 `hlm-e-001`（可选） |
+
+`stage: 结局` 节点优先用于图鉴「结局」提取（`outcome_extract.py`）。
 
 ## 妖怪扩展字段（type: monster）
 
