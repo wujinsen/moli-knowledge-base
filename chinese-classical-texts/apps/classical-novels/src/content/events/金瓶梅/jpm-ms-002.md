@@ -8,7 +8,7 @@ chapters: [14, 19]
 characters: [李瓶儿, 西门庆, 花子虚]
 locations: [西门府, 花家]
 prev: jpm-ms-001
-next: jpm-ms-003
+next: jpm-ms-008
 tags: [人财两得, 横财, 暴富]
 summary: 花子虚死后，李瓶儿带巨额家产（含大内库银）改嫁西门庆。这笔横财令西门庆经济实力质变，得以扩宅、结交权贵，开启暴发户式狂欢。
 source: chapters/金瓶梅/词话本/019.md

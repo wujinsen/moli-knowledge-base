@@ -8,7 +8,7 @@ title: 林黛玉进贾府
 chapters: [3]
 characters: [林黛玉, 贾宝玉, 贾母, 王熙凤]
 locations: [荣国府, 金陵城]
-next: hlm-e-002
+next: hlm-e-009
 tags: [木石前盟, 初会, 序幕]
 summary: 黛玉别父进京入荣国府，宝黛初会「这个妹妹我曾见过的」，木石前盟于人间重逢；并借黛玉之眼全景展开贾府烈火烹油之盛与错综人际。
 source: chapters/红楼梦/003.md

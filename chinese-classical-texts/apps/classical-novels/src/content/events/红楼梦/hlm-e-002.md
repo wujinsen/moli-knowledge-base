@@ -8,7 +8,7 @@ title: 元妃省亲
 chapters: [16, 17, 18]
 characters: [贾元春, 贾政, 贾宝玉, 贾母]
 locations: [大观园, 荣国府]
-prev: hlm-e-001
+prev: hlm-e-009
 next: hlm-e-003
 tags: [省亲, 大观园, 鼎盛]
 summary: 贾元春加封贤德妃归省，贾府斥巨资建大观园迎驾；鲜花着锦、烈火烹油之极盛，然耗尽内囊，伏后来经济崩塌之线。

@@ -7,7 +7,7 @@ title: 三打白骨精
 chapters: [27]
 characters: [孙悟空, 唐僧, 白骨精, 猪八戒]
 locations: [白虎岭]
-prev: xy-ms-002
+prev: xy-ms-008
 next: xy-ms-004
 tags: [信任危机, 火眼金睛, 驱逐]
 summary: 孙悟空三次识破白骨精化身，却被肉眼凡胎的唐僧误解并狠心驱逐。这是取经团队内部矛盾最激烈的一次爆发，暴露盲目慈悲与霹雳手段的不可调和。

@@ -10,7 +10,7 @@ chapters: [23, 27]
 characters: [贾宝玉, 林黛玉]
 locations: [大观园, 怡红院]
 prev: hlm-e-002
-next: hlm-e-004
+next: hlm-e-010
 tags: [西厢记, 葬花吟, 觉醒]
 summary: 桃花树下共读《西厢记》，宝黛冲破礼教、爱情意识真正觉醒；继以黛玉葬花、《葬花吟》自伤寄人篱下，预示「花落人亡两不知」的群芳结局。
 source: chapters/红楼梦/027.md

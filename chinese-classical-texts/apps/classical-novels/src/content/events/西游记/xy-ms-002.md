@@ -8,7 +8,7 @@ chapters: [14]
 characters: [唐僧, 孙悟空, 观音菩萨]
 locations: [两界山]
 prev: xy-ms-001
-next: xy-ms-003
+next: xy-ms-007
 tags: [收心, 紧箍咒, 戒律]
 summary: 唐僧于五行山救出孙悟空，观音赐紧箍咒。取经团队的基石就此奠定，「心猿」开始接受戒律与外在约束，踏上体制内的救赎之路。
 source: chapters/西游记/014.md

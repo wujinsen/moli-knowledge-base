@@ -7,8 +7,8 @@ title: 生子与升官
 chapters: [30]
 characters: [西门庆, 李瓶儿, 蔡京]
 locations: [西门府, 东京]
-prev: jpm-ms-002
-next: jpm-ms-004
+prev: jpm-ms-008
+next: jpm-ms-009
 tags: [巅峰, 官商合一, 贿赂]
 summary: 李瓶儿为西门庆生下官哥儿，同时西门庆重金贿赂太师蔡京，得任山东提刑所理刑副千户。权力、财富、子嗣三丰收，达烈火烹油的极盛顶点。
 source: chapters/金瓶梅/词话本/030.md

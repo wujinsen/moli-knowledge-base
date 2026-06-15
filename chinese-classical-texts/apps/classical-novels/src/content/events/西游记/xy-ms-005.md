@@ -8,7 +8,7 @@ chapters: [59, 61]
 characters: [孙悟空, 牛魔王, 铁扇公主]
 locations: [火焰山]
 prev: xy-ms-004
-next: xy-ms-006
+next: xy-ms-009
 tags: [欲火, 斗法, 灭贪嗔痴]
 summary: 路阻火焰山，悟空与昔日结拜大哥牛魔王及铁扇公主展开全书最宏大漫长的斗法。火焰山隐喻内心焦躁欲火，借扇灭火象征熄灭贪嗔痴，是修行的重要里程碑。
 source: chapters/西游记/061.md

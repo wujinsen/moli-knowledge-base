@@ -9,7 +9,7 @@ aliases: [慧紫鹃情辞试忙玉]
 chapters: [57]
 characters: [紫鹃, 贾宝玉, 林黛玉, 贾母]
 locations: [大观园, 怡红院]
-prev: hlm-e-003
+prev: hlm-e-012
 next: hlm-e-005
 tags: [慧紫鹃, 试玉, 危机]
 summary: 紫鹃谎称黛玉将回苏州老家，宝玉听后痴狂几死；情深「同生共死」尽显，亦惊动贾母王夫人，间接催化日后「金玉良缘」的强制干预。
