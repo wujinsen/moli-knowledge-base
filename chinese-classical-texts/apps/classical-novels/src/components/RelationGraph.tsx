@@ -303,12 +303,16 @@ export default function RelationGraph({ bookSlug }: Props) {
 
     let chart: echarts.ECharts | null = null;
     let cancelled = false;
+    let attempts = 0;
     setChartError(null);
 
     const mountChart = () => {
-      if (cancelled) return;
+      if (cancelled || chart) return;
       if (el.clientWidth < 16 || el.clientHeight < 16) {
-        window.requestAnimationFrame(mountChart);
+        attempts += 1;
+        if (attempts > 240) {
+          setChartError('图谱画布高度为 0，请刷新页面或点击全屏');
+        }
         return;
       }
       try {
@@ -334,12 +338,15 @@ export default function RelationGraph({ bookSlug }: Props) {
       window.setTimeout(() => chart?.resize(), 0);
     };
 
+    const ro = new ResizeObserver(() => {
+      if (!chart) mountChart();
+      else chart.resize();
+    });
+    ro.observe(el);
     mountChart();
 
     const onResize = () => chart?.resize();
     window.addEventListener('resize', onResize);
-    const ro = new ResizeObserver(() => chart?.resize());
-    ro.observe(el);
 
     return () => {
       cancelled = true;
@@ -420,10 +427,14 @@ export default function RelationGraph({ bookSlug }: Props) {
   };
 
   const relationTypes = [...new Set(visibleEdges.map((e) => e.type))];
+  const graphHeight = 'calc(100dvh - var(--graph-chrome, 10.5rem))';
 
   if (data.nodes.length === 0) {
     return (
-      <div className="flex h-full min-h-[50vh] flex-col items-center justify-center px-4 text-center text-slate-400">
+      <div
+        className="flex h-full min-h-[50vh] flex-col items-center justify-center px-4 text-center text-slate-400"
+        style={{ minHeight: graphHeight }}
+      >
         <p className="mb-2 text-lg" style={{ color: gt.accentSoft }}>
           关系图谱待生成
         </p>
@@ -436,7 +447,11 @@ export default function RelationGraph({ bookSlug }: Props) {
   }
 
   return (
-    <div ref={containerRef} className="graph-explorer">
+    <div
+      ref={containerRef}
+      className="graph-explorer"
+      style={{ height: graphHeight, minHeight: graphHeight }}
+    >
       {/* 背景装饰 */}
       <div
         className="pointer-events-none absolute inset-0"

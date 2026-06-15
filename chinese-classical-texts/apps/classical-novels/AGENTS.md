@@ -198,6 +198,21 @@ summary: 一句话说明本页价值
 
 ---
 
+### 5.7 关系图谱前端（防空白，必守）
+
+改顶栏、全站 CSS 或 `RelationGraph` / `GraphLayout` 时**必读** [`docs/关系图谱-前端布局规范.md`](docs/关系图谱-前端布局规范.md)。
+
+铁律摘要：
+
+1. **数据**：`RelationGraph` 内 `relationGraphForSlug(bookSlug)` 加载 JSON；**禁止**把整份 `*.relations.json` 塞进 `astro-island` props。
+2. **高度**：保留 `--graph-chrome`（顶栏实测高度）+ `.graph-explorer` 的 `height/minHeight: calc(100dvh - var(--graph-chrome))`；**禁止**只靠 `height: 100%` 无显式 calc。
+3. **初始化**：ECharts 用 ResizeObserver 等有尺寸再 init；勿无限 `requestAnimationFrame` 等 0 高度容器。
+4. **验收**：改完后打开 `/honglou/graph` 确认节点可见，`npm run build` 通过。
+
+空白图谱 ≠ 数据丢失；先查 canvas 父级 `clientHeight`。
+
+---
+
 ## 6. 版本与矛盾建模（本库特色）
 
 本库天然多版本：红楼梦 脂评本 vs 程高本；金瓶梅 词话本 vs 绣像本。把版本差异当一等公民。
@@ -239,4 +254,5 @@ contradicts: [情节-黛玉结局]      # 标记存在版本冲突的主题 id
 
 ## 变更记录
 
+- **2026-06-15**：§5.7 关系图谱前端布局铁律；[`docs/关系图谱-前端布局规范.md`](docs/关系图谱-前端布局规范.md)（防 ECharts 画布高度 0 复发）。
 - **2026-06-14**：`/query` 增补「回填判断规则」、主题页 `topics/` 目录与 frontmatter 规范。

@@ -33,8 +33,23 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
   </head>
   <body
     class="graph-shell min-h-screen text-slate-100"
-    style={`background-color:${gt.base}`}
+    style={`background-color:${gt.base};--graph-chrome:10.5rem`}
   >
+    <script is:inline>
+      (function () {
+        function syncGraphChrome() {
+          var shell = document.querySelector('.graph-shell');
+          var topbar = document.querySelector('.graph-topbar');
+          if (!shell || !topbar) return;
+          shell.style.setProperty('--graph-chrome', topbar.offsetHeight + 'px');
+        }
+        syncGraphChrome();
+        window.addEventListener('resize', syncGraphChrome);
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(syncGraphChrome);
+        }
+      })();
+    </script>
     <header
       class="graph-topbar z-30 border-b backdrop-blur-md"
       style={`background-color:${gt.base}f2;border-color:${gt.accentLine}`}
