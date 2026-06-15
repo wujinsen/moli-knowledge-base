@@ -95,6 +95,7 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
         { key: 'places', glyph: '园', title: '大观园', desc: '院落居所 · 匾额对联 · 居住分派', ...live(has('places'), slug, 'places', `/${slug}/places`) },
         { key: 'garden', glyph: '图', title: '大观园地图', desc: '第17回游线 · 居所水系仪典示意', ...live(has('garden'), slug, 'map', `/${slug}/map`) },
         { key: 'manor', glyph: '府', title: '宁荣两府地图', desc: '荣宁中轴 · 侧院门禁示意', ...live(has('manor'), slug, 'manor', `/${slug}/manor`) },
+        { key: 'scene', glyph: '景', title: '大观园实景', desc: '潇湘馆/怡红院建筑 · NPC 黛玉宝玉点击对话', ...live(has('scene'), slug, 'scene', `/${slug}/scene`) },
         { key: 'items', glyph: '物', title: '名物百科', desc: '饮食 · 医药 · 服饰纵切研究', ...live(has('items'), slug, 'items', `/${slug}/items`) },
         {
           key: 'shi', glyph: '诗', title: '诗词意象', desc: '葬花吟 · 判词 · 花签隐喻', ...live(has('poems'), slug, 'shi', `/${slug}/shi`),

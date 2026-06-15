@@ -1,0 +1,42 @@
+---
+import { getBooks } from '../../lib/getBooks';
+import GraphLayout from '../../layouts/GraphLayout.astro';
+import BackLink from '../../components/BackLink.astro';
+import GardenScene from '../../components/GardenScene.tsx';
+import sceneData from '../../data/红楼梦.garden_scene.json';
+import dialogues from '../../data/红楼梦.dialogues.json';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  return books
+    .filter((b) => b.data.features.includes('scene'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+const hasScene = meta.slug === 'honglou';
+const pools = dialogues.pools as Record<
+  string,
+  { text: string; chapter: number; source: string }[]
+>;
+---
+
+<GraphLayout
+  title={`${meta.book} 大观园实景`}
+  bookSlug={meta.slug}
+  bookName={meta.book}
+  features={meta.features}
+  moduleLabel="大观园实景"
+>
+  {
+    hasScene ? (
+      <GardenScene scene={sceneData} pools={pools} bookSlug={meta.slug} client:only="react" />
+    ) : (
+      <div class="flex min-h-[70vh] flex-col items-center justify-center px-4 text-center text-slate-300">
+        <p class="mb-2 text-lg">该书实景场景待制作</p>
+        <BackLink href={`/${meta.slug}`} label={meta.book} variant="dark" class="mt-6" />
+      </div>
+    )
+  }
+</GraphLayout>

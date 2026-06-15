@@ -1,0 +1,21 @@
+{
+  "book": "红楼梦",
+  "note": "NPC 台词池：均为原文逐字引用，随机抽取展示，带回目出处。新增条目须可回原文核对（参 AGENTS /guard）。",
+  "pools": {
+    "林黛玉": [
+      { "text": "我心里想着潇湘馆好，爱那几竿竹子隐着一道曲栏，比别处更觉幽静。", "chapter": 23, "source": "chapters/红楼梦/023.md" },
+      { "text": "撂在水里不好。你看这里的水干净，只一流出去，有人家的地方脏的臭的混倒，仍旧把花遭塌了。", "chapter": 23, "source": "chapters/红楼梦/023.md" },
+      { "text": "你这该死的胡说！好好的把这淫词艳曲弄了来，还学了这些混话来欺负我。", "chapter": 23, "source": "chapters/红楼梦/023.md" },
+      { "text": "花谢花飞花满天，红消香断有谁怜？", "chapter": 27, "source": "chapters/红楼梦/027.md" },
+      { "text": "侬今葬花人笑痴，他年葬侬知是谁？", "chapter": 27, "source": "chapters/红楼梦/027.md" },
+      { "text": "质本洁来还洁去，强于污淖陷渠沟。", "chapter": 27, "source": "chapters/红楼梦/027.md" }
+    ],
+    "贾宝玉": [
+      { "text": "我就是个『多愁多病身』，你就是那『倾国倾城貌』。", "chapter": 23, "source": "chapters/红楼梦/023.md" },
+      { "text": "正和我的主意一样，我也要叫你住这里呢。我就住怡红院，咱们两个又近，又都清幽。", "chapter": 23, "source": "chapters/红楼梦/023.md" },
+      { "text": "好妹妹，若论你，我是不怕的。你看了，好歹别告诉别人去。真真这是好书！", "chapter": 23, "source": "chapters/红楼梦/023.md" },
+      { "text": "好妹妹，千万饶我这一遭，原是我说错了。", "chapter": 23, "source": "chapters/红楼梦/023.md" },
+      { "text": "好妹妹，你昨儿可告我了不曾？教我悬了一夜心。", "chapter": 27, "source": "chapters/红楼梦/027.md" }
+    ]
+  }
+}

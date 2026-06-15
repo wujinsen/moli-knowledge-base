@@ -106,7 +106,7 @@ const books = defineCollection({
     author: z.string(),
     chapter_count: z.number(),
     features: z.array(
-      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'sna', 'compare', 'nan', 'route', 'chain', 'town', 'garden', 'manor', 'kaozheng', 'quanshi', 'saga'])
+      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'sna', 'compare', 'nan', 'route', 'chain', 'town', 'garden', 'manor', 'scene', 'kaozheng', 'quanshi', 'saga'])
     ),
     summary: z.string().optional(),
   }),

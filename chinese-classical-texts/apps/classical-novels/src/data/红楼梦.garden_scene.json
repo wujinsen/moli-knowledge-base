@@ -1,0 +1,79 @@
+{
+  "book": "红楼梦",
+  "slug": "honglou",
+  "title": "大观园·一角",
+  "subtitle": "潇湘馆 · 沁芳亭 · 怡红院（第17—27回场景示意）",
+  "width": 1200,
+  "height": 760,
+  "background": "/honglou/scene/garden-bg.png",
+  "px_per_step": 6,
+  "scale_note": "建筑方位依「南北中轴说」(inference)，距离为图上示意换算（约 6px≈1 步），非原著测绘尺度。",
+  "buildings": [
+    {
+      "id": "沁芳亭",
+      "name": "沁芳亭",
+      "plaque": "沁芳",
+      "zone": "水系",
+      "x": 520,
+      "y": 110,
+      "w": 170,
+      "h": 130,
+      "sprite": "/honglou/scene/qinfangting.png",
+      "link": "/honglou/l/沁芳亭",
+      "note": "桥上有亭，跨溪而立，匾「沁芳」（第17回）"
+    },
+    {
+      "id": "潇湘馆",
+      "name": "潇湘馆",
+      "plaque": "有凤来仪",
+      "zone": "居所",
+      "x": 150,
+      "y": 410,
+      "w": 230,
+      "h": 175,
+      "sprite": "/honglou/scene/xiaoxiangguan.png",
+      "link": "/honglou/l/潇湘馆",
+      "note": "翠竹千竿、一明两暗，林黛玉居所（第17、23回）"
+    },
+    {
+      "id": "怡红院",
+      "name": "怡红院",
+      "plaque": "怡红快绿",
+      "zone": "居所",
+      "x": 800,
+      "y": 430,
+      "w": 250,
+      "h": 185,
+      "sprite": "/honglou/scene/yihongyuan.png",
+      "link": "/honglou/l/怡红院",
+      "note": "蕉棠两植、两层迷径，贾宝玉居所（第17、23回）"
+    }
+  ],
+  "npcs": [
+    {
+      "id": "林黛玉",
+      "name": "林黛玉",
+      "at": "潇湘馆",
+      "x": 300,
+      "y": 600,
+      "sprite": "/honglou/scene/npc-daiyu.png",
+      "link": "/honglou/c/林黛玉",
+      "tint": "#7dd3fc"
+    },
+    {
+      "id": "贾宝玉",
+      "name": "贾宝玉",
+      "at": "怡红院",
+      "x": 945,
+      "y": 630,
+      "sprite": "/honglou/scene/npc-baoyu.png",
+      "link": "/honglou/c/贾宝玉",
+      "tint": "#fca5a5"
+    }
+  ],
+  "paths": [
+    { "from": "潇湘馆", "to": "沁芳亭" },
+    { "from": "沁芳亭", "to": "怡红院" },
+    { "from": "潇湘馆", "to": "怡红院" }
+  ]
+}
