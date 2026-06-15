@@ -1,80 +1,48 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 122,
+  "paged_count": 127,
   "pending_count": 5,
   "pending": [
     {
-      "name": "护国天王",
-      "mentions": 4,
-      "chapters": [
-        77,
-        83,
-        87,
-        95
-      ],
-      "appear_in": [
-        "第77回",
-        "第83回",
-        "第87回",
-        "第95回"
-      ],
+      "name": "关元帅",
+      "mentions": 0,
+      "chapters": [],
+      "appear_in": [],
       "source": "seed",
-      "note": "西天门外迎送；第77回起"
+      "note": "南天门四大元帅；第83回等"
     },
     {
-      "name": "丘弘济",
-      "mentions": 3,
-      "chapters": [
-        3,
-        6,
-        51
-      ],
-      "appear_in": [
-        "第3回",
-        "第6回",
-        "第51回"
-      ],
+      "name": "刘元帅",
+      "mentions": 0,
+      "chapters": [],
+      "appear_in": [],
       "source": "seed",
-      "note": "灵霄四天师；第3、6、51回"
+      "note": "雷霆官将庞、刘；第4回起"
     },
     {
-      "name": "张道陵",
-      "mentions": 2,
-      "chapters": [
-        51,
-        87
-      ],
-      "appear_in": [
-        "第51回",
-        "第87回"
-      ],
+      "name": "庞元帅",
+      "mentions": 0,
+      "chapters": [],
+      "appear_in": [],
       "source": "seed",
-      "note": "灵霄四天师；第51、87回"
+      "note": "雷霆官将庞、刘；第4回起"
     },
     {
-      "name": "温元帅",
-      "mentions": 1,
-      "chapters": [
-        53
-      ],
-      "appear_in": [
-        "第53回"
-      ],
+      "name": "毕元帅",
+      "mentions": 0,
+      "chapters": [],
+      "appear_in": [],
       "source": "seed",
-      "note": "南天门四大元帅；第53回"
+      "note": "雷霆官将苟、毕；第4回起"
     },
     {
-      "name": "马元帅",
-      "mentions": 1,
-      "chapters": [
-        58
-      ],
-      "appear_in": [
-        "第58回"
-      ],
+      "name": "赵元帅",
+      "mentions": 0,
+      "chapters": [],
+      "appear_in": [],
       "source": "seed",
-      "note": "南天门四大元帅；第58回"
+      "note": "南天门四大元帅；第51回等"
     }
   ]
 }

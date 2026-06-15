@@ -14,6 +14,12 @@
       "weight": 38
     },
     {
+      "id": "丘弘济",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 40
+    },
+    {
       "id": "东海龙王",
       "type": "character",
       "faction": "龙宫",
@@ -272,10 +278,22 @@
       "weight": 42
     },
     {
+      "id": "张道陵",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 40
+    },
+    {
       "id": "弥勒佛祖",
       "type": "character",
       "faction": "西天",
       "weight": 44
+    },
+    {
+      "id": "护国天王",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 42
     },
     {
       "id": "拂云叟",
@@ -348,6 +366,12 @@
       "type": "monster",
       "faction": "妖魔",
       "weight": 26
+    },
+    {
+      "id": "温元帅",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 36
     },
     {
       "id": "火德星君",
@@ -668,6 +692,12 @@
       "weight": 58
     },
     {
+      "id": "马元帅",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 38
+    },
+    {
       "id": "高太公",
       "type": "character",
       "faction": "高老庄",
@@ -763,6 +793,36 @@
       "source": "万圣龙王",
       "target": "唐僧",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "丘弘济",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "丘弘济",
+      "target": "葛仙翁",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "丘弘济",
+      "target": "许旌阳",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "丘弘济",
+      "target": "张道陵",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "丘弘济",
+      "target": "孙悟空",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -1876,6 +1936,30 @@
       "contradiction": false
     },
     {
+      "source": "孙悟空",
+      "target": "张道陵",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "护国天王",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "马元帅",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "温元帅",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "孤直公",
       "target": "唐僧",
       "type": "敌对",
@@ -2014,6 +2098,42 @@
       "contradiction": false
     },
     {
+      "source": "广目天王",
+      "target": "护国天王",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "广目天王",
+      "target": "马元帅",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "广目天王",
+      "target": "温元帅",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "张道陵",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "张道陵",
+      "target": "葛仙翁",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "张道陵",
+      "target": "许旌阳",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "弥勒佛祖",
       "target": "黄眉怪",
       "type": "主仆",
@@ -2029,6 +2149,12 @@
       "source": "弥勒佛祖",
       "target": "唐僧",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "护国天王",
+      "target": "玉皇大帝",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -2284,6 +2410,18 @@
       "contradiction": false
     },
     {
+      "source": "温元帅",
+      "target": "玉皇大帝",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "温元帅",
+      "target": "马元帅",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "火德星君",
       "target": "玉皇大帝",
       "type": "主仆",
@@ -2520,6 +2658,36 @@
     {
       "source": "玉皇大帝",
       "target": "葛仙翁",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "张道陵",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "丘弘济",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "护国天王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "马元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "温元帅",
       "type": "主仆",
       "contradiction": false
     },
@@ -3145,6 +3313,12 @@
       "source": "青狮精",
       "target": "孙悟空",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "马元帅",
+      "target": "玉皇大帝",
+      "type": "主仆",
       "contradiction": false
     },
     {
