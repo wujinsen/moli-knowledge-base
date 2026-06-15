@@ -46,5 +46,19 @@ export function likeItemHref(bookSlug: string, like: string): string | null {
   return `/${bookSlug}/i/${encodeURIComponent(like)}`;
 }
 
+/** 图鉴 chip：名物优先，其次地点 */
+export function chipHref(
+  bookSlug: string,
+  label: string,
+  placeIds?: ReadonlySet<string>,
+): string | null {
+  const item = likeItemHref(bookSlug, label);
+  if (item) return item;
+  if (placeIds?.has(label)) {
+    return `/${bookSlug}/l/${encodeURIComponent(label)}`;
+  }
+  return null;
+}
+
 /** 服饰 / 关键物品等同理链至名物百科 */
 export const itemWikiHref = likeItemHref;

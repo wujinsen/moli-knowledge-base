@@ -929,6 +929,18 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
     overflow: hidden;
     min-height: calc(2 * 1.72em);
   }
+  .bestiary-card--compact .bestiary-card-summary {
+    min-height: 0;
+  }
+  .bestiary-card-teaser {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.45rem;
+    align-items: center;
+  }
+  .bestiary-card--compact .bestiary-card-inner {
+    gap: 0.65rem;
+  }
 
   .bestiary-card-fields {
     display: flex;
@@ -937,14 +949,56 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
     gap: 0.65rem;
     min-height: 0;
   }
+  .bestiary-card-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    min-width: 0;
+  }
   .bestiary-card-row {
     display: grid;
-    grid-template-columns: 3rem minmax(0, 1fr);
+    grid-template-columns: 2.5rem minmax(0, 1fr);
     column-gap: 0.65rem;
     align-items: start;
   }
   .bestiary-card-row--chips {
     align-items: start;
+  }
+  .bestiary-link-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.45rem;
+    align-items: center;
+  }
+  .bestiary-link-chip {
+    font-size: var(--bestiary-chip-size, 0.9375rem);
+    padding: 0.2rem 0.65rem;
+    line-height: 1.4;
+    font-weight: var(--type-label-weight);
+    max-width: 100%;
+  }
+  a.bestiary-link-chip {
+    text-decoration: none;
+    transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+  }
+  a.bestiary-link-chip:hover {
+    border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+    background: color-mix(in srgb, var(--accent) 12%, var(--paper-2));
+    color: var(--accent);
+  }
+  .bestiary-card .chip-link {
+    text-decoration: none;
+    transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+  }
+  .bestiary-card a.chip-link {
+    background: color-mix(in srgb, var(--primary) 8%, var(--paper-2));
+    color: var(--primary);
+    border-color: color-mix(in srgb, var(--primary) 22%, transparent);
+  }
+  .bestiary-card a.chip-link:hover {
+    border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+    background: color-mix(in srgb, var(--accent) 12%, var(--paper-2));
+    color: var(--accent);
   }
   .bestiary-card-label {
     padding-top: 0.15rem;
@@ -964,6 +1018,11 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
+  }
+  .bestiary-card-value--chips {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
   }
   .bestiary-card-chips {
     display: flex;
@@ -1259,6 +1318,156 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
 .entity-detail .entity-spec {
   font-size: var(--type-base);
   line-height: 1.75;
+}
+
+.entity-spec-dl {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1rem 1.25rem;
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .entity-spec-dl {
+    padding: 1.25rem 1.5rem;
+    gap: 1rem;
+  }
+}
+
+.entity-spec-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 0.55rem 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 88%, transparent);
+}
+.entity-spec-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin: 0;
+  min-width: 0;
+}
+.entity-spec-meta-item dt {
+  font-size: var(--type-sm);
+  font-weight: var(--type-label-weight);
+  color: color-mix(in srgb, var(--primary) 78%, var(--ink-soft));
+  letter-spacing: 0.02em;
+}
+.entity-spec-meta-item dd {
+  margin: 0;
+  font-weight: var(--type-body-weight);
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.entity-spec-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.entity-spec-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0;
+}
+.entity-spec-block dt {
+  font-size: var(--type-sm);
+  font-weight: var(--type-label-weight);
+  color: color-mix(in srgb, var(--primary) 78%, var(--ink-soft));
+  letter-spacing: 0.02em;
+}
+.entity-spec-block dd {
+  margin: 0;
+  font-weight: var(--type-body-weight);
+  color: var(--ink);
+  line-height: 1.75;
+}
+.entity-spec-block--chips dd {
+  line-height: 1.85;
+}
+
+.entity-spec-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem 1.25rem;
+}
+@media (min-width: 480px) {
+  .entity-spec-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 768px) {
+  .entity-spec-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.entity-spec-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0;
+  min-width: 0;
+}
+.entity-spec-cell dt {
+  font-size: var(--type-sm);
+  font-weight: var(--type-label-weight);
+  color: color-mix(in srgb, var(--primary) 78%, var(--ink-soft));
+  letter-spacing: 0.02em;
+}
+.entity-spec-cell dd {
+  margin: 0;
+  font-weight: var(--type-body-weight);
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+/* legacy row (其它页若引用) */
+.entity-spec-row {
+  display: grid;
+  grid-template-columns: 4.25rem minmax(0, 1fr);
+  column-gap: 0.75rem;
+  align-items: baseline;
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .entity-spec-row {
+    grid-template-columns: 5rem minmax(0, 1fr);
+    column-gap: 1rem;
+  }
+}
+.entity-spec-row dt {
+  flex-shrink: 0;
+  font-weight: var(--type-label-weight);
+  color: color-mix(in srgb, var(--primary) 78%, var(--ink-soft));
+  letter-spacing: 0.02em;
+}
+.entity-spec-row dd {
+  margin: 0;
+  font-weight: var(--type-body-weight);
+  color: var(--ink);
+  line-height: 1.75;
+}
+
+.linked-item-chips {
+  display: inline;
+  line-height: 1.75;
+}
+.linked-item-chip {
+  font-weight: var(--type-label-weight);
+  color: var(--accent);
+  text-decoration: none;
+}
+a.linked-item-chip:hover {
+  text-decoration: underline;
+}
+.linked-item-chip--plain {
+  font-weight: var(--type-body-weight);
+  color: var(--ink);
+}
+.linked-item-sep {
+  color: color-mix(in srgb, var(--ink) 55%, var(--ink-soft));
 }
 
 .entity-detail-links .section-title {

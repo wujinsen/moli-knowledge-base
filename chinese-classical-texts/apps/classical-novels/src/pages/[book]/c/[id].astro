@@ -8,7 +8,7 @@ import {
   relatedTransactionsForCharacter,
   milestoneEventsForCharacter,
 } from '../../../lib/crosslinks';
-import { likeItemHref } from '../../../lib/bestiary';
+import LinkedItemChips from '../../../components/LinkedItemChips.astro';
 import { chapterLabel } from '../../../lib/events';
 import { graphFocusHref } from '../../../lib/sna';
 
@@ -61,86 +61,130 @@ const keyEvents = features.includes('saga')
 
   {d.aliases.length > 0 && <p class="mt-2 text-sm">别名：{d.aliases.join('、')}</p>}
 
-  <div class="entity-spec surface mt-4 grid gap-2.5 p-4 sm:grid-cols-2 sm:p-5">
-    {d.faction && <div>阵营：{d.faction}</div>}
-    {d.ximen_proximity && <div>西门府距离：{d.ximen_proximity}</div>}
-    {d.first_appear && <div>首次登场：{d.first_appear}</div>}
-    {d.靠山 && <div>靠山：{d.靠山}</div>}
-    {d.依附 && <div>依附：{d.依附}</div>}
-    {d.洞府 && <div>洞府：{d.洞府}</div>}
-    {d.原型 && <div>原型：{d.原型}</div>}
-    {d.能力.length > 0 && <div>能力：{d.能力.join('、')}</div>}
-    {d.法宝.length > 0 && <div>法宝：{d.法宝.join('、')}</div>}
-    {d.结局 && <div>结局：{d.结局}</div>}
-    {d.收服者 && <div>收服者：{d.收服者}</div>}
-    {d.性格 && <div class="sm:col-span-2">性格：{d.性格}</div>}
+  <dl class="entity-spec entity-spec-dl surface mt-4">
     {
-      d.服饰.length > 0 && (
-        <div class="sm:col-span-2">
-          服饰：
-          {d.服饰.map((item, i) => {
-            const itemHref = likeItemHref(slug, item);
-            return (
-              <>
-                {i > 0 && '、'}
-                {itemHref ? (
-                  <a class="hover:underline" style="color: var(--accent)" href={itemHref}>
-                    {item}
-                  </a>
-                ) : (
-                  item
-                )}
-              </>
-            );
-          })}
+      (d.faction || d.first_appear || d.ximen_proximity || d.靠山 || d.依附) && (
+        <div class="entity-spec-meta">
+          {d.faction && (
+            <div class="entity-spec-meta-item">
+              <dt>阵营</dt>
+              <dd>{d.faction}</dd>
+            </div>
+          )}
+          {d.first_appear && (
+            <div class="entity-spec-meta-item">
+              <dt>首次登场</dt>
+              <dd>{d.first_appear}</dd>
+            </div>
+          )}
+          {d.ximen_proximity && (
+            <div class="entity-spec-meta-item">
+              <dt>西门府距离</dt>
+              <dd>{d.ximen_proximity}</dd>
+            </div>
+          )}
+          {d.靠山 && (
+            <div class="entity-spec-meta-item">
+              <dt>靠山</dt>
+              <dd>{d.靠山}</dd>
+            </div>
+          )}
+          {d.依附 && (
+            <div class="entity-spec-meta-item">
+              <dt>依附</dt>
+              <dd>{d.依附}</dd>
+            </div>
+          )}
         </div>
       )
     }
     {
-      d.关键物品.length > 0 && (
-        <div class="sm:col-span-2">
-          关键物品：
-          {d.关键物品.map((item, i) => {
-            const itemHref = likeItemHref(slug, item);
-            return (
-              <>
-                {i > 0 && '、'}
-                {itemHref ? (
-                  <a class="hover:underline" style="color: var(--accent)" href={itemHref}>
-                    {item}
-                  </a>
-                ) : (
-                  item
-                )}
-              </>
-            );
-          })}
+      (d.结局 || d.性格) && (
+        <div class="entity-spec-blocks">
+          {d.结局 && (
+            <div class="entity-spec-block">
+              <dt>结局</dt>
+              <dd>{d.结局}</dd>
+            </div>
+          )}
+          {d.性格 && (
+            <div class="entity-spec-block">
+              <dt>性格</dt>
+              <dd>{d.性格}</dd>
+            </div>
+          )}
+        </div>
+      )
+    }
+    {
+      (d.洞府 ||
+        d.原型 ||
+        d.能力.length > 0 ||
+        d.法宝.length > 0 ||
+        d.收服者 ||
+        d.服饰.length > 0 ||
+        d.关键物品.length > 0) && (
+        <div class="entity-spec-grid">
+          {d.洞府 && (
+            <div class="entity-spec-cell">
+              <dt>洞府</dt>
+              <dd>{d.洞府}</dd>
+            </div>
+          )}
+          {d.原型 && (
+            <div class="entity-spec-cell">
+              <dt>原型</dt>
+              <dd>{d.原型}</dd>
+            </div>
+          )}
+          {d.能力.length > 0 && (
+            <div class="entity-spec-cell">
+              <dt>能力</dt>
+              <dd>{d.能力.join('、')}</dd>
+            </div>
+          )}
+          {d.法宝.length > 0 && (
+            <div class="entity-spec-cell">
+              <dt>法宝</dt>
+              <dd>{d.法宝.join('、')}</dd>
+            </div>
+          )}
+          {d.收服者 && (
+            <div class="entity-spec-cell">
+              <dt>收服者</dt>
+              <dd>{d.收服者}</dd>
+            </div>
+          )}
+          {d.服饰.length > 0 && (
+            <div class="entity-spec-cell">
+              <dt>服饰</dt>
+              <dd>
+                <LinkedItemChips bookSlug={slug} items={d.服饰} />
+              </dd>
+            </div>
+          )}
+          {d.关键物品.length > 0 && (
+            <div class="entity-spec-cell">
+              <dt>关键物品</dt>
+              <dd>
+                <LinkedItemChips bookSlug={slug} items={d.关键物品} />
+              </dd>
+            </div>
+          )}
         </div>
       )
     }
     {
       d.喜好.length > 0 && (
-        <div class="sm:col-span-2">
-          喜好：
-          {d.喜好.map((like, i) => {
-            const itemHref = likeItemHref(slug, like);
-            return (
-              <>
-                {i > 0 && '、'}
-                {itemHref ? (
-                  <a class="hover:underline" style="color: var(--accent)" href={itemHref}>
-                    {like}
-                  </a>
-                ) : (
-                  like
-                )}
-              </>
-            );
-          })}
+        <div class="entity-spec-block entity-spec-block--chips">
+          <dt>喜好</dt>
+          <dd>
+            <LinkedItemChips bookSlug={slug} items={d.喜好} />
+          </dd>
         </div>
       )
     }
-  </div>
+  </dl>
 
   {
     d.arc.length > 0 && (

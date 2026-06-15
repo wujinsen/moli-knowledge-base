@@ -1,0 +1,27 @@
+---
+import { likeItemHref } from '../lib/bestiary';
+
+interface Props {
+  bookSlug: string;
+  items: string[];
+  class?: string;
+}
+const { bookSlug, items, class: className = '' } = Astro.props;
+---
+
+{
+  items.length > 0 && (
+    <div class:list={['bestiary-link-chips', className]}>
+      {items.map((item) => {
+        const href = likeItemHref(bookSlug, item);
+        return href ? (
+          <a class="bestiary-link-chip chip chip-like pointer-events-auto" href={href}>
+            {item}
+          </a>
+        ) : (
+          <span class="bestiary-link-chip chip">{item}</span>
+        );
+      })}
+    </div>
+  )
+}

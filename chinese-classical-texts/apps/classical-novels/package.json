@@ -5,9 +5,11 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "clean": "node -e \"const fs=require('fs');for(const d of ['.astro','node_modules/.vite'])fs.rmSync(d,{recursive:true,force:true});console.log('cleared .astro + node_modules/.vite')\"",
+    "clean": "node -e \"const fs=require('fs');for(const d of ['dist','.astro','node_modules/.vite'])fs.rmSync(d,{recursive:true,force:true});console.log('cleared dist + .astro + node_modules/.vite')\"",
     "dev:clean": "npm run clean && astro dev",
-    "build": "astro build",
+    "build": "npm run clean && astro build",
+    "build:fast": "astro build",
+    "pack": "npm run build && node scripts/pack-dist.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "import": "python scripts/import_chapters.py all",

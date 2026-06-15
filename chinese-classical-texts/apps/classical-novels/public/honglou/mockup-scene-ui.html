@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>大观园实景 · UI 高保真 mockup（方案 B）</title>
+  <style>
+    :root {
+      --bg: #141d22;
+      --chrome: rgba(15, 23, 28, 0.92);
+      --panel: rgba(15, 23, 28, 0.88);
+      --stroke: rgba(255, 255, 255, 0.12);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #e0b059;
+      --accent-soft: #f4d796;
+      --zone-仪典: #b08416;
+      --zone-居所: #b45f7a;
+      --zone-水系: #3f7fa6;
+      --zone-亭榭: #7c5fb0;
+      --zone-寺观: #5c7a9c;
+      --zone-路径: #6b7280;
+      --zone-服务: #596273;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Noto Serif SC", "Source Han Serif SC", serif, system-ui;
+      background: #0a0608;
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .banner {
+      padding: 12px 20px;
+      background: #1a1210;
+      border-bottom: 1px solid var(--stroke);
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .banner strong { color: var(--accent-soft); }
+    .shell {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    .mockup {
+      position: relative;
+      height: min(78vh, 720px);
+      border: 1px solid var(--stroke);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .topbar {
+      height: 44px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 16px;
+      background: var(--chrome);
+      border-bottom: 1px solid var(--stroke);
+      font-size: 14px;
+    }
+    .topbar .path { color: var(--muted); }
+    .topbar .active { color: var(--accent-soft); font-weight: 600; }
+    .scene-wrap { position: absolute; inset: 44px 0 0; }
+    #map {
+      width: 100%;
+      height: 100%;
+      display: block;
+      cursor: grab;
+    }
+    #map:active { cursor: grabbing; }
+    .overlay {
+      position: absolute;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .overlay > * { pointer-events: auto; }
+    .info-panel {
+      left: 12px; top: 12px;
+      max-width: 280px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--stroke);
+      background: var(--panel);
+      backdrop-filter: blur(8px);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .info-panel h2 { font-size: 17px; color: var(--accent-soft); margin-bottom: 4px; }
+    .info-panel .sub { color: var(--muted); font-size: 12px; }
+    .info-panel a { color: var(--accent-soft); font-size: 12px; }
+    .controls {
+      right: 12px; top: 12px;
+      display: flex; gap: 8px; align-items: center;
+    }
+    .controls select, .controls button, .controls label {
+      font-size: 13px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--stroke);
+      background: var(--panel);
+      color: var(--text);
+    }
+    .controls label { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+    .detail-panel {
+      right: 12px; top: 56px;
+      width: 250px;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid var(--stroke);
+      background: var(--panel);
+      backdrop-filter: blur(8px);
+      font-size: 13px;
+    }
+    .detail-panel h3 { font-size: 20px; color: var(--accent-soft); }
+    .detail-panel .meta { color: var(--muted); font-size: 12px; margin: 6px 0 10px; }
+    .detail-panel ul { list-style: none; margin: 8px 0 12px; }
+    .detail-panel li {
+      display: flex; justify-content: space-between;
+      padding: 3px 0; font-size: 12px;
+    }
+    .detail-panel li span:last-child { color: var(--accent-soft); }
+    .detail-panel .btn {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px solid var(--stroke);
+      border-radius: 6px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 12px;
+    }
+    .compass {
+      right: 12px; bottom: 12px;
+      text-align: center;
+      font-size: 10px;
+      color: var(--muted);
+    }
+    .compass-ring {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      border: 1px solid var(--stroke);
+      background: var(--panel);
+      position: relative;
+      margin: 0 auto 4px;
+    }
+    .compass-ring span { position: absolute; font-size: 11px; font-weight: 700; }
+    .compass-ring .n { top: 4px; left: 50%; transform: translateX(-50%); color: var(--accent); }
+    .compass-ring .s { bottom: 4px; left: 50%; transform: translateX(-50%); }
+    .compass-ring .w { left: 6px; top: 50%; transform: translateY(-50%); }
+    .compass-ring .e { right: 6px; top: 50%; transform: translateY(-50%); }
+    .compass-ring .needle {
+      position: absolute; left: 50%; top: 10px;
+      width: 2px; height: 22px;
+      background: var(--accent);
+      transform: translateX(-50%);
+    }
+    .npc-bar {
+      left: 50%; bottom: 16px;
+      transform: translateX(-50%);
+      display: flex; align-items: center; gap: 14px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--stroke);
+      background: var(--panel);
+      backdrop-filter: blur(8px);
+      max-width: min(92%, 640px);
+      font-size: 13px;
+    }
+    .npc-bar .name { color: #f0a8c0; font-weight: 700; white-space: nowrap; }
+    .npc-bar .quote { color: var(--muted); font-style: italic; }
+    .legend {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 8px;
+      font-size: 12px;
+    }
+    .legend span { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+    .building { cursor: pointer; }
+    .building.selected .roof { stroke: var(--accent-soft); stroke-width: 2.5; }
+    .building .label { font-size: 10px; font-weight: 600; fill: #fdf6e3; pointer-events: none; }
+    .building .label-bg { fill: rgba(10,6,8,0.75); }
+    .tour-dot { fill: var(--accent); font-size: 7px; font-weight: 700; fill: #191c22; }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <strong>高保真 UI mockup</strong> · 方案 B（全园 36 节点 + wiki 坐标准）· 坐标同源 <code>seed_garden_coords.py</code> / <code>/honglou/map</code> · 非 scan 图方位
+  </div>
+  <div class="shell">
+    <div class="mockup">
+      <div class="topbar">
+        <span>红楼梦</span><span class="path">/</span>
+        <span class="active">大观园实景</span>
+        <span style="flex:1"></span>
+        <span class="path">/honglou/scene</span>
+      </div>
+      <div class="scene-wrap">
+        <svg id="map" viewBox="0 0 920 560" aria-label="大观园等距全园"></svg>
+
+        <div class="overlay info-panel">
+          <h2>大观园 · 等距全园</h2>
+          <p class="sub">共 36 处 · 点击建筑看方位距离</p>
+          <p class="sub" style="margin-top:6px">逻辑坐标 · 北在上 · 非 scan 方位</p>
+        </div>
+
+        <div class="overlay controls">
+          <select id="zoneFilter" aria-label="分区筛选">
+            <option value="all">全部分区</option>
+            <option value="仪典">仪典</option>
+            <option value="居所">居所</option>
+            <option value="水系">水系</option>
+            <option value="亭榭">亭榭</option>
+            <option value="寺观">寺观</option>
+            <option value="路径">路径</option>
+            <option value="服务">服务</option>
+          </select>
+          <label><input type="checkbox" id="showTour" checked /> 第17回游线</label>
+          <button type="button" id="resetView">重置视图</button>
+        </div>
+
+        <div class="overlay detail-panel" id="detailPanel"></div>
+
+        <div class="overlay compass">
+          <div class="compass-ring">
+            <span class="n">北</span><span class="s">南</span><span class="w">西</span><span class="e">东</span>
+            <div class="needle"></div>
+          </div>
+          南北中轴说
+        </div>
+
+        <div class="overlay npc-bar">
+          <span class="name">林黛玉</span>
+          <span class="quote">「花谢花飞飞满天，红消香断有谁怜…」</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="legend" id="legend"></div>
+  </div>
+
+  <script>
+    const BOUNDS = { minX: 115, maxX: 740, minY: 85, maxY: 535 };
+    const MAP = { w: 920, h: 560, padX: 48, padY: 36 };
+    const PX_PER_STEP = 6;
+    const ZONE_COLOR = {
+      仪典: "#b08416", 居所: "#b45f7a", 水系: "#3f7fa6", 亭榭: "#7c5fb0",
+      寺观: "#5c7a9c", 路径: "#6b7280", 服务: "#596273",
+    };
+    const SIZE = {
+      仪典: [44, 32], 居所: [38, 28], 水系: [26, 18], 亭榭: [30, 22],
+      寺观: [28, 20], 路径: [18, 12], 服务: [22, 16],
+    };
+    const NODES = [
+      { id: "省亲别墅", zone: "仪典", x: 400, y: 85, plaque: "顾恩思义", tour: 9 },
+      { id: "稻香村", zone: "居所", x: 255, y: 125, plaque: "杏帘在望", tour: 5 },
+      { id: "议事厅", zone: "亭榭", x: 455, y: 155 },
+      { id: "大观园厨房", zone: "服务", x: 335, y: 165 },
+      { id: "茶房", zone: "服务", x: 295, y: 185 },
+      { id: "芦雪庵", zone: "亭榭", x: 175, y: 105 },
+      { id: "栊翠庵", zone: "寺观", x: 515, y: 105 },
+      { id: "达摩庵", zone: "寺观", x: 555, y: 135 },
+      { id: "玉皇庙", zone: "寺观", x: 595, y: 95 },
+      { id: "沁芳亭", zone: "水系", x: 400, y: 215, plaque: "沁芳", tour: 3 },
+      { id: "缀锦阁", zone: "亭榭", x: 675, y: 175 },
+      { id: "嘉荫堂", zone: "亭榭", x: 535, y: 185 },
+      { id: "船坞", zone: "水系", x: 615, y: 235 },
+      { id: "凸碧堂", zone: "亭榭", x: 425, y: 275 },
+      { id: "蓼溆", zone: "水系", x: 565, y: 255, tour: 7 },
+      { id: "滴翠亭", zone: "亭榭", x: 485, y: 295 },
+      { id: "藕香榭", zone: "亭榭", x: 315, y: 305 },
+      { id: "沁芳闸", zone: "水系", x: 400, y: 335, tour: 10 },
+      { id: "凹晶馆", zone: "亭榭", x: 375, y: 355 },
+      { id: "回廊", zone: "服务", x: 245, y: 325 },
+      { id: "潇湘馆", zone: "居所", x: 155, y: 275, plaque: "有凤来仪", tour: 4 },
+      { id: "紫菱洲", zone: "亭榭", x: 115, y: 355 },
+      { id: "柳叶渚", zone: "水系", x: 195, y: 415 },
+      { id: "蘅芜苑", zone: "居所", x: 645, y: 295, plaque: "蘅芷清芬", tour: 8 },
+      { id: "秋爽斋", zone: "居所", x: 725, y: 245, plaque: "风清玉爽" },
+      { id: "缀锦楼", zone: "居所", x: 705, y: 315 },
+      { id: "蓼风轩", zone: "居所", x: 685, y: 375 },
+      { id: "翠烟桥", zone: "路径", x: 295, y: 395 },
+      { id: "蜂腰桥", zone: "路径", x: 505, y: 405 },
+      { id: "怡红院", zone: "居所", x: 400, y: 455, plaque: "怡红快绿", tour: 11 },
+      { id: "红香圃", zone: "亭榭", x: 460, y: 430 },
+      { id: "暖香坞", zone: "居所", x: 700, y: 395 },
+      { id: "晓翠堂", zone: "亭榭", x: 740, y: 265 },
+      { id: "后门", zone: "服务", x: 545, y: 475 },
+      { id: "云步石梯", zone: "路径", x: 345, y: 505 },
+      { id: "曲径通幽", zone: "路径", x: 400, y: 535, tour: 2 },
+    ];
+
+    function toMap(lx, ly) {
+      const ux = MAP.w - MAP.padX * 2, uy = MAP.h - MAP.padY * 2;
+      return {
+        x: MAP.padX + ((lx - BOUNDS.minX) / (BOUNDS.maxX - BOUNDS.minX)) * ux,
+        y: MAP.padY + ((ly - BOUNDS.minY) / (BOUNDS.maxY - BOUNDS.minY)) * uy,
+      };
+    }
+    function steps(a, b) {
+      return Math.round(Math.hypot(b.x - a.x, b.y - a.y) / PX_PER_STEP);
+    }
+    function bearing(from, to) {
+      const dx = to.x - from.x, dy = to.y - from.y;
+      const deg = Math.atan2(dx, dy) * 180 / Math.PI;
+      const dirs = ["北","东北","东","东南","南","西南","西","西北"];
+      return dirs[((Math.round(deg / 45) % 8) + 8) % 8];
+    }
+
+    let selectedId = "潇湘馆";
+    let showTour = true;
+    let zoneFilter = "all";
+
+    const svg = document.getElementById("map");
+    const detailPanel = document.getElementById("detailPanel");
+    const gRoot = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    svg.appendChild(gRoot);
+
+    function drawBuilding(n, sel) {
+      const [w, h] = SIZE[n.zone];
+      const p = toMap(n.x, n.y);
+      const left = p.x - w / 2, top = p.y - h * 0.72;
+      const color = ZONE_COLOR[n.zone];
+      const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      g.classList.add("building");
+      if (sel) g.classList.add("selected");
+      g.dataset.id = n.id;
+
+      const base = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      base.setAttribute("x", left); base.setAttribute("y", top + h * 0.55);
+      base.setAttribute("width", w); base.setAttribute("height", h * 0.45);
+      base.setAttribute("rx", 2); base.setAttribute("fill", "#cdbf9e");
+      g.appendChild(base);
+
+      const wall = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      wall.setAttribute("x", left + w * 0.1); wall.setAttribute("y", top + h * 0.32);
+      wall.setAttribute("width", w * 0.8); wall.setAttribute("height", h * 0.34);
+      wall.setAttribute("fill", "#eae3d2");
+      g.appendChild(wall);
+
+      const roof = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+      roof.classList.add("roof");
+      roof.setAttribute("points", `${left-w*0.08},${top+h*0.34} ${left+w*1.08},${top+h*0.34} ${left+w*0.78},${top} ${left+w*0.22},${top}`);
+      roof.setAttribute("fill", color);
+      roof.setAttribute("stroke", sel ? "#f4d796" : "rgba(255,255,255,0.2)");
+      roof.setAttribute("stroke-width", sel ? 2.5 : 0.75);
+      g.appendChild(roof);
+
+      const tw = n.id.length * 6.4;
+      const lb = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      lb.classList.add("label-bg");
+      lb.setAttribute("x", left + w/2 - tw/2); lb.setAttribute("y", top + h + 2);
+      lb.setAttribute("width", tw); lb.setAttribute("height", 14); lb.setAttribute("rx", 3);
+      g.appendChild(lb);
+
+      const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      label.classList.add("label");
+      label.setAttribute("x", left + w/2); label.setAttribute("y", top + h + 12);
+      label.setAttribute("text-anchor", "middle");
+      label.textContent = n.id;
+      g.appendChild(label);
+
+      if (n.tour) {
+        const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        c.setAttribute("cx", left + w - 4); c.setAttribute("cy", top + 6);
+        c.setAttribute("r", 7); c.setAttribute("fill", "#e0b059");
+        g.appendChild(c);
+        const t = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        t.setAttribute("x", left + w - 4); t.setAttribute("y", top + 9);
+        t.setAttribute("text-anchor", "middle"); t.setAttribute("font-size", "8");
+        t.setAttribute("fill", "#191c22"); t.setAttribute("font-weight", "700");
+        t.textContent = n.tour;
+        g.appendChild(t);
+      }
+
+      g.addEventListener("click", () => { selectedId = n.id; render(); updateDetail(); });
+      return g;
+    }
+
+    function render() {
+      gRoot.innerHTML = "";
+      const border = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      border.setAttribute("x", MAP.padX - 12); border.setAttribute("y", MAP.padY - 12);
+      border.setAttribute("width", MAP.w - MAP.padX * 2 + 24);
+      border.setAttribute("height", MAP.h - MAP.padY * 2 + 24);
+      border.setAttribute("rx", 14); border.setAttribute("fill", "#20302a");
+      border.setAttribute("stroke", "rgba(255,255,255,0.15)");
+      gRoot.appendChild(border);
+
+      const axisT = toMap(400, 85), axisM = toMap(400, 300), axisB = toMap(400, 535);
+      const water = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      water.setAttribute("d", `M ${axisT.x-28} ${axisT.y} C ${axisT.x-40} ${axisM.y-40}, ${axisT.x+36} ${axisM.y+20}, ${axisM.x+22} ${axisM.y} S ${axisB.x-18} ${axisB.y-30}, ${axisB.x+14} ${axisB.y}`);
+      water.setAttribute("fill", "#2c5a73"); water.setAttribute("fill-opacity", "0.45");
+      gRoot.appendChild(water);
+
+      if (showTour) {
+        const tourIds = NODES.filter(n => n.tour).sort((a,b) => a.tour - b.tour).map(n => n.id);
+        const pts = tourIds.map(id => { const n = NODES.find(x => x.id === id); const p = toMap(n.x, n.y); return `${p.x},${p.y}`; }).join(" ");
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+        line.setAttribute("points", pts);
+        line.setAttribute("fill", "none"); line.setAttribute("stroke", "#e0b059");
+        line.setAttribute("stroke-width", 2); line.setAttribute("stroke-dasharray", "6 4");
+        line.setAttribute("opacity", "0.8");
+        gRoot.appendChild(line);
+      }
+
+      const pri = ["路径","服务","水系","寺观","亭榭","居所","仪典"];
+      const visible = zoneFilter === "all" ? NODES : NODES.filter(n => n.zone === zoneFilter);
+      [...visible].sort((a,b) => pri.indexOf(a.zone) - pri.indexOf(b.zone))
+        .forEach(n => gRoot.appendChild(drawBuilding(n, n.id === selectedId)));
+
+      const sel = NODES.find(n => n.id === selectedId);
+      if (sel) {
+        const p = toMap(sel.x, sel.y);
+        const ring = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        ring.setAttribute("cx", p.x); ring.setAttribute("cy", p.y);
+        ring.setAttribute("r", SIZE[sel.zone][0] * 0.95);
+        ring.setAttribute("fill", "none"); ring.setAttribute("stroke", "#e0b059");
+        ring.setAttribute("stroke-width", 1.5); ring.setAttribute("stroke-dasharray", "4 3");
+        gRoot.appendChild(ring);
+      }
+    }
+
+    function updateDetail() {
+      const sel = NODES.find(n => n.id === selectedId);
+      if (!sel) return;
+      const dists = NODES.filter(n => n.id !== sel.id)
+        .map(n => ({ id: n.id, steps: steps(sel, n), bearing: bearing(sel, n) }))
+        .sort((a,b) => a.steps - b.steps).slice(0, 6);
+      detailPanel.innerHTML = `
+        <h3>${sel.id}</h3>
+        ${sel.plaque ? `<div class="meta">匾 · ${sel.plaque}</div>` : ""}
+        <div class="meta">${sel.zone} · (${sel.x}, ${sel.y})</div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:6px">到其他建筑</div>
+        <ul>${dists.map(d => `<li><span>${d.id} <span style="color:#64748b">${d.bearing}</span></span><span>约 ${d.steps} 步</span></li>`).join("")}</ul>
+        <a class="btn" href="/honglou/l/${encodeURIComponent(sel.id)}">查看建筑词条</a>
+      `;
+    }
+
+    document.getElementById("zoneFilter").addEventListener("change", e => {
+      zoneFilter = e.target.value; render();
+    });
+    document.getElementById("showTour").addEventListener("change", e => {
+      showTour = e.target.checked; render();
+    });
+    document.getElementById("resetView").addEventListener("click", () => render());
+
+    document.getElementById("legend").innerHTML = Object.entries(ZONE_COLOR)
+      .map(([z, c]) => `<div><span style="background:${c}"></span>${z}</div>`).join("");
+
+    render();
+    updateDetail();
+  </script>
+</body>
+</html>

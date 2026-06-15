@@ -3,9 +3,9 @@ import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import CharacterCard from '../../components/CharacterCard.astro';
+import { cardOutcome } from '../../lib/bestiary';
 import { bestiaryStatsFor, buildBestiaryGroupings, isBestiaryRestBucket } from '../../lib/bestiaryGroups';
 import { buildFullRosterList, loadCharacterRoster, loadCharacterScope } from '../../lib/characterRoster';
-import { cardOutcome } from '../../lib/bestiary';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -22,6 +22,10 @@ const slug = meta.slug;
 const entries = (await getCollection('characters'))
   .filter((c) => c.data.book === meta.book)
   .sort((a, b) => (b.data.weight ?? 0) - (a.data.weight ?? 0));
+
+const placeIds = (await getCollection('locations'))
+  .filter((l) => l.data.book === meta.book)
+  .flatMap((l) => [l.data.id, ...l.data.aliases]);
 
 /** SNA 中心度（若存在 <slug>.sna.json）→ id → degree_norm */
 const snaModules = import.meta.glob('../../data/*.sna.json', { eager: true });
@@ -69,14 +73,11 @@ function cardProps(c: (typeof entries)[number]) {
     name: c.data.name,
     type: c.data.type,
     bookSlug: slug,
+    placeIds,
     faction: c.data.faction,
     summary: c.data.summary,
     tags: c.data.tags,
-    proximity: c.data.ximen_proximity,
-    backing: c.data.靠山,
-    attach: c.data.依附,
     outcome: cardOutcome(c.data) ?? c.data.结局,
-    personality: c.data.性格,
     likes: c.data.喜好,
     costumes: c.data.服饰,
     keyItems: c.data.关键物品,

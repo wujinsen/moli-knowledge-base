@@ -244,7 +244,7 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
             const sp = new Sprite(tex);
             sp.width = scene.width;
             sp.height = scene.height;
-            sp.alpha = 0.72; // 水彩背景仅氛围；方位以逻辑坐标/罗盘为准
+            sp.alpha = 1; // P0 底图作为主视觉；方位以逻辑坐标/罗盘为准
             world.addChildAt(sp, 1);
           })
           .catch(() => {
@@ -289,6 +289,7 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
       // ---- 建筑 ----
       const drawPlaceholderBuilding = (b: SceneBuilding) => {
         const g = new Graphics();
+        g.alpha = scene.background ? 0.42 : 1;
         const fill = ZONE_FILL[b.zone] ?? 0x8a6f4a;
         // 台基
         g.roundRect(0, b.h * 0.55, b.w, b.h * 0.45, 4).fill({ color: 0xcdbf9e, alpha: 0.95 });
@@ -333,7 +334,7 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
         const nameBg = new Graphics();
         nameBg
           .roundRect(-nameText.width / 2 - 10, -4, nameText.width + 20, nameText.height + 8, 6)
-          .fill({ color: 0x0a0608, alpha: 0.7 });
+          .fill({ color: 0x0a0608, alpha: scene.background ? 0.52 : 0.7 });
         nameTag.addChild(nameBg, nameText);
         nameTag.position.set(b.w / 2, b.h + 6);
         node.addChild(nameTag);

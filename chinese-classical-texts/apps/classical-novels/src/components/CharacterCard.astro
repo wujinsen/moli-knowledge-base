@@ -1,45 +1,42 @@
 ---
-import { likeItemHref } from '../lib/bestiary';
+import BestiaryLinkChips from './BestiaryLinkChips.astro';
+import { chipHref } from '../lib/bestiary';
 
 interface Props {
   href: string;
   name: string;
   type: string;
   bookSlug?: string;
+  placeIds?: string[];
   faction?: string;
   summary?: string;
   tags?: string[];
-  proximity?: string;
-  backing?: string;
-  attach?: string;
   outcome?: string;
-  personality?: string;
   likes?: string[];
-  costumes?: string[];
   keyItems?: string[];
+  costumes?: string[];
 }
 const {
   href,
   name,
   type,
   bookSlug,
+  placeIds = [],
   faction,
   summary,
   tags = [],
-  proximity,
-  backing,
-  attach,
   outcome,
-  personality,
   likes = [],
-  costumes = [],
   keyItems = [],
+  costumes = [],
 } = Astro.props;
-const hasFields = !!(personality || likes.length > 0 || costumes.length > 0 || keyItems.length > 0 || backing || attach || outcome);
-const subline = [faction, proximity].filter(Boolean).join(' · ');
+const subline = faction ?? '';
+const placeIdSet = new Set(placeIds);
+const hasDetailFields =
+  outcome || costumes.length > 0 || keyItems.length > 0 || (bookSlug && likes.length > 0);
 ---
 
-<div class="bestiary-card">
+<div class="bestiary-card bestiary-card--compact">
   <a href={href} class="bestiary-card-hit" aria-label={name}></a>
   <div class="bestiary-card-inner">
     <header class="bestiary-card-head">
@@ -55,94 +52,37 @@ const subline = [faction, proximity].filter(Boolean).join(' · ');
     {summary && <p class="bestiary-card-summary">{summary}</p>}
 
     {
-      (hasFields) && (
+      hasDetailFields && (
         <div class="bestiary-card-fields">
           {
-            personality && (
-              <div class="bestiary-card-row">
-                <span class="bestiary-card-label">性格</span>
-                <p class="bestiary-card-value">{personality}</p>
-              </div>
-            )
-          }
-          {
-            likes.length > 0 && (
-              <div class="bestiary-card-row bestiary-card-row--chips">
-                <span class="bestiary-card-label">喜好</span>
-                <div class="bestiary-card-chips">
-                  {likes.map((like) => {
-                    const itemHref = bookSlug ? likeItemHref(bookSlug, like) : null;
-                    return itemHref ? (
-                      <a class="chip chip-like pointer-events-auto" href={itemHref}>
-                        {like}
-                      </a>
-                    ) : (
-                      <span class="chip chip-like">{like}</span>
-                    );
-                  })}
-                </div>
-              </div>
-            )
-          }
-          {
-            costumes.length > 0 && (
-              <div class="bestiary-card-row bestiary-card-row--chips">
-                <span class="bestiary-card-label">服饰</span>
-                <div class="bestiary-card-chips">
-                  {costumes.map((item) => {
-                    const itemHref = bookSlug ? likeItemHref(bookSlug, item) : null;
-                    return itemHref ? (
-                      <a class="chip chip-like pointer-events-auto" href={itemHref}>
-                        {item}
-                      </a>
-                    ) : (
-                      <span class="chip chip-like">{item}</span>
-                    );
-                  })}
-                </div>
-              </div>
-            )
-          }
-          {
-            keyItems.length > 0 && (
-              <div class="bestiary-card-row bestiary-card-row--chips">
-                <span class="bestiary-card-label">关键物品</span>
-                <div class="bestiary-card-chips">
-                  {keyItems.map((item) => {
-                    const itemHref = bookSlug ? likeItemHref(bookSlug, item) : null;
-                    return itemHref ? (
-                      <a class="chip chip-like pointer-events-auto" href={itemHref}>
-                        {item}
-                      </a>
-                    ) : (
-                      <span class="chip chip-like">{item}</span>
-                    );
-                  })}
-                </div>
-              </div>
-            )
-          }
-          {
-            backing && (
-              <div class="bestiary-card-row">
-                <span class="bestiary-card-label">靠山</span>
-                <p class="bestiary-card-value">{backing}</p>
-              </div>
-            )
-          }
-          {
-            attach && (
-              <div class="bestiary-card-row">
-                <span class="bestiary-card-label">依附</span>
-                <p class="bestiary-card-value">{attach}</p>
-              </div>
-            )
-          }
-          {
             outcome && (
-              <div class="bestiary-card-row">
+              <div class="bestiary-card-field">
                 <span class="bestiary-card-label">结局</span>
                 <p class="bestiary-card-value">{outcome}</p>
+              </div>
+            )
+          }
+          {
+            costumes.length > 0 && bookSlug && (
+              <div class="bestiary-card-field">
+                <span class="bestiary-card-label">服饰</span>
+                <BestiaryLinkChips bookSlug={bookSlug} items={costumes} />
+              </div>
+            )
+          }
+          {
+            keyItems.length > 0 && bookSlug && (
+              <div class="bestiary-card-field">
+                <span class="bestiary-card-label">信物</span>
+                <BestiaryLinkChips bookSlug={bookSlug} items={keyItems} />
+              </div>
+            )
+          }
+          {
+            likes.length > 0 && bookSlug && (
+              <div class="bestiary-card-field">
+                <span class="bestiary-card-label">喜好</span>
+                <BestiaryLinkChips bookSlug={bookSlug} items={likes} />
               </div>
             )
           }
@@ -154,9 +94,16 @@ const subline = [faction, proximity].filter(Boolean).join(' · ');
       tags.length > 0 && (
         <footer class="bestiary-card-foot">
           <div class="bestiary-card-chips">
-            {tags.map((t) => (
-              <span class="chip chip-foot">{t}</span>
-            ))}
+            {tags.slice(0, 3).map((t) => {
+              const tagHref = bookSlug ? chipHref(bookSlug, t, placeIdSet) : null;
+              return tagHref ? (
+                <a class="chip chip-foot chip-link pointer-events-auto" href={tagHref}>
+                  {t}
+                </a>
+              ) : (
+                <span class="chip chip-foot">{t}</span>
+              );
+            })}
           </div>
         </footer>
       )
