@@ -26,10 +26,22 @@
       "weight": 40
     },
     {
+      "id": "东华帝君",
+      "type": "character",
+      "faction": "天庭",
+      "weight": 36
+    },
+    {
       "id": "东海龙王",
       "type": "character",
       "faction": "龙宫",
       "weight": 38
+    },
+    {
+      "id": "乌巢禅师",
+      "type": "character",
+      "faction": "浮屠山",
+      "weight": 44
     },
     {
       "id": "乌鸡国王",
@@ -656,6 +668,12 @@
       "weight": 52
     },
     {
+      "id": "普贤菩萨",
+      "type": "character",
+      "faction": "佛界",
+      "weight": 42
+    },
+    {
       "id": "有来有去",
       "type": "monster",
       "faction": "妖魔",
@@ -1280,6 +1298,12 @@
       "weight": 38
     },
     {
+      "id": "迦叶",
+      "type": "character",
+      "faction": "佛界",
+      "weight": 38
+    },
+    {
       "id": "邓天君",
       "type": "character",
       "faction": "天庭",
@@ -1362,6 +1386,12 @@
       "type": "character",
       "faction": "镇海禅林寺",
       "weight": 28
+    },
+    {
+      "id": "阿傩",
+      "type": "character",
+      "faction": "佛界",
+      "weight": 38
     },
     {
       "id": "陈光蕊",
@@ -1642,6 +1672,12 @@
       "contradiction": false
     },
     {
+      "source": "东华帝君",
+      "target": "南极寿星",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "东海龙王",
       "target": "孙悟空",
       "type": "朋友",
@@ -1657,6 +1693,24 @@
       "source": "东海龙王",
       "target": "玉皇大帝",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "乌巢禅师",
+      "target": "唐僧",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "乌巢禅师",
+      "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "乌巢禅师",
+      "target": "猪八戒",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -3179,6 +3233,12 @@
     },
     {
       "source": "唐僧",
+      "target": "乌巢禅师",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
       "target": "陈光蕊",
       "type": "父子",
       "contradiction": false
@@ -4177,6 +4237,18 @@
       "source": "如来佛祖",
       "target": "燃灯古佛",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "如来佛祖",
+      "target": "阿傩",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "如来佛祖",
+      "target": "迦叶",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -6215,6 +6287,12 @@
     },
     {
       "source": "文殊菩萨",
+      "target": "普贤菩萨",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "文殊菩萨",
       "target": "孙悟空",
       "type": "朋友",
       "contradiction": false
@@ -6430,6 +6508,24 @@
       "contradiction": false
     },
     {
+      "source": "普贤菩萨",
+      "target": "白象精",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "普贤菩萨",
+      "target": "如来佛祖",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "普贤菩萨",
+      "target": "大鹏精",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "有来有去",
       "target": "赛太岁",
       "type": "主仆",
@@ -6468,6 +6564,18 @@
     {
       "source": "木吒",
       "target": "沙僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "木吒",
+      "target": "萧瑀",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "木吒",
+      "target": "唐太宗",
       "type": "朋友",
       "contradiction": false
     },
@@ -7228,6 +7336,18 @@
       "contradiction": false
     },
     {
+      "source": "燃灯古佛",
+      "target": "阿傩",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "燃灯古佛",
+      "target": "迦叶",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "牛金牛",
       "target": "角木蛟",
       "type": "同僚",
@@ -7909,6 +8029,12 @@
       "source": "白象精",
       "target": "孙悟空",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "白象精",
+      "target": "普贤菩萨",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -8974,6 +9100,24 @@
       "contradiction": false
     },
     {
+      "source": "迦叶",
+      "target": "如来佛祖",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "迦叶",
+      "target": "阿傩",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "迦叶",
+      "target": "唐僧",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "邓天君",
       "target": "玉皇大帝",
       "type": "主仆",
@@ -9180,6 +9324,18 @@
     {
       "source": "镇海寺方丈",
       "target": "孙悟空",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "阿傩",
+      "target": "如来佛祖",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "阿傩",
+      "target": "唐僧",
       "type": "朋友",
       "contradiction": false
     },
