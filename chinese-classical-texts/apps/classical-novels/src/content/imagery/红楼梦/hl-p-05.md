@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: poem
 title: 芙蓉女儿诔
+layer: 人间
 text: "维太平不易之元，蓉桂竞芳之月……呜呼哀哉！尚飨！"
 chapters:
   - 78

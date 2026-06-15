@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: poem
 title: 好事终
+layer: 太虚
 text: "画梁春尽落香尘。擅权，攒家私，一时情。……"
 chapters:
   - 5

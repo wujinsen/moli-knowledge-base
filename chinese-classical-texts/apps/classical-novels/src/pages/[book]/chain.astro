@@ -68,6 +68,7 @@ const bangxianHubs = snaHubs.bangxian_hubs ?? [];
 <Base title={`${meta.book} · 发家衰败链`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
   <BackLink href={`/${meta.slug}`} label={meta.book} />
 
+  <div class="content-page">
   <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
     <div class="flex items-start gap-4">
       <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">链</span>
@@ -105,7 +106,7 @@ const bangxianHubs = snaHubs.bangxian_hubs ?? [];
     financialData && (
       <section class="mb-10">
         <h2 class="section-title mb-4 text-lg">专题轨 · 药铺 / 放债 / 贿赂</h2>
-        <div class="surface p-4 sm:p-6">
+        <div class="kb-dashboard surface p-4 sm:p-6">
           <FinancialTracks data={financialData} bookSlug={meta.slug} client:only="react" />
         </div>
       </section>
@@ -168,7 +169,7 @@ const bangxianHubs = snaHubs.bangxian_hubs ?? [];
               {
                 (links.hasSilver || links.hasSna || links.graphFocus) && (
                   <div class="mt-2 flex flex-wrap gap-2 text-xs">
-                    <span class="chip" style="font-size:0.65rem">联动</span>
+                    <span class="chip chip-mini\">联动</span>
                     {
                       links.hasSilver && (
                         <a href={silverEventHref(meta.slug, d.id)} class="chip hover:opacity-80" style="color:var(--accent)">
@@ -237,5 +238,6 @@ const bangxianHubs = snaHubs.bangxian_hubs ?? [];
       </>
     )}
     · 增补事件后更新 frontmatter 中 prev/next 链
+  </div>
   </div>
 </Base>

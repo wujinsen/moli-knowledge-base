@@ -34,6 +34,7 @@ const stanceClass = (s: string) =>
 <Base title={`${meta.book} · 考证台`} bookSlug={meta.slug} bookName={meta.book} features={meta.features} moduleContext={false}>
   <BackLink href={`/${meta.slug}`} label={meta.book} />
 
+  <div class="content-page">
   <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
     <div class="flex items-start gap-4">
       <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">考</span>
@@ -120,7 +121,7 @@ const stanceClass = (s: string) =>
                 <a href={topicHref(meta.slug, t)} class="surface block p-4 transition hover:-translate-y-0.5">
                   <div class="flex items-center gap-2">
                     <h3 class="font-bold" style="color: var(--accent)">{t.data.title}</h3>
-                    {t.data.hypotheses.length > 0 && <span class="chip" style="font-size:0.62rem">{t.data.hypotheses.length} 假说</span>}
+                    {t.data.hypotheses.length > 0 && <span class="chip chip-mini\">{t.data.hypotheses.length} 假说</span>}
                   </div>
                   {t.data.summary && (
                     <p class="mt-1 text-sm leading-snug text-muted">{t.data.summary}</p>
@@ -133,13 +134,6 @@ const stanceClass = (s: string) =>
       </>
     )
   }
+  </div>
 </Base>
 
-<style is:global>
-  .hypothesis-card { border-color: color-mix(in srgb, var(--gold) 40%, transparent); }
-  .seal.stance { letter-spacing: 0; }
-  .stance-main { background: var(--primary); color: #fff; border: none; }
-  .stance-doubt { background: transparent; color: var(--ink-soft); border: 1px solid color-mix(in srgb, var(--ink-soft) 45%, transparent); }
-  .stance-minor { background: transparent; color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent); }
-  .stance-dropped { background: transparent; color: var(--seal); border: 1px solid color-mix(in srgb, var(--seal) 45%, transparent); text-decoration: line-through; }
-</style>

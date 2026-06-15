@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: poem
 title: 喜冤家
+layer: 太虚
 text: "中山狼，无情兽，全不念当日根由。一味的骄奢淫荡贪还构。觑着那，侯门艳质同蒲柳，作践的，公府千金似下流。叹芳魂艳魄，一载荡悠悠。"
 chapters:
   - 5

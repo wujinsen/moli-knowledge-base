@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: judgment
 title: 李纨判词
+layer: 太虚
 text: "偶因济刘氏，巧得苟安食。春光忽已尽，命薄偏不遇。"
 chapters:
   - 5

@@ -2,15 +2,31 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import * as echarts from 'echarts';
 import type { EChartsOption } from 'echarts';
 import type { ImageryGraph as GraphData } from '../lib/imagery';
-import { HIGHLIGHT_CHAINS, SUBTYPE_LABEL } from '../lib/imagery';
+import { HIGHLIGHT_CHAINS, MAPPING_PREDICATES, SHADOW_PREDICATES, SUBTYPE_LABEL } from '../lib/imagery';
 
 const KIND_COLORS: Record<string, string> = {
   character: '#8f1f2b',
+  myth: '#5a4a86',
   judgment: '#355766',
   poem: '#b08338',
   symbol: '#bf4c54',
   flower_lot: '#6f5347',
+  name_omen: '#a8543b',
+  object_omen: '#8a6d2f',
+  tune_omen: '#5d7a6a',
 };
+
+const MAPPING_COLOR = '#b08338';
+const SHADOW_COLOR = '#5a4a86';
+// 金瓶 · 冷热金针：极热（繁华纵欲）/ 极冷（死亡虚无）
+const HOT_COLOR = '#c0392b';
+const COLD_COLOR = '#2c6e8f';
+
+function edgeKindOf(predicate: string): 'mapping' | 'shadow' | 'normal' {
+  if (MAPPING_PREDICATES.has(predicate)) return 'mapping';
+  if (SHADOW_PREDICATES.has(predicate)) return 'shadow';
+  return 'normal';
+}
 
 function neighborSet(nodeId: string, edges: GraphData['edges']): Set<string> {
   const set = new Set<string>([nodeId]);
@@ -45,19 +61,20 @@ function pathEdgeKeys(path: string[]): Set<string> {
 }
 
 export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) {
+  const chains = HIGHLIGHT_CHAINS[bookSlug] ?? [];
   const chartRef = useRef<HTMLDivElement>(null);
   const inst = useRef<echarts.ECharts | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
   const [chartReady, setChartReady] = useState(false);
   const [activeChain, setActiveChain] = useState(() => {
     if (!highlightPath?.length) return 0;
-    const idx = HIGHLIGHT_CHAINS.findIndex(
+    const idx = chains.findIndex(
       (c) => c.path.length === highlightPath.length && c.path.every((id, i) => id === highlightPath[i]),
     );
     return idx >= 0 ? idx : 0;
   });
 
-  const activePath = activeChain >= 0 ? HIGHLIGHT_CHAINS[activeChain]?.path ?? [] : [];
+  const activePath = activeChain >= 0 ? chains[activeChain]?.path ?? [] : [];
   const pathSet = useMemo(() => new Set(activePath), [activePath]);
   const pathEdges = useMemo(() => pathEdgeKeys(activePath), [activePath]);
 
@@ -92,7 +109,9 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
           if (p.dataType === 'edge') {
             const d = p.data ?? {};
             const inf = d.inference ? '推论' : '事实';
-            return `<strong>${d.sourceLabel}</strong> — ${d.predicate} — <strong>${d.targetLabel}</strong><br/><span style="opacity:0.85">${inf}${d.note ? ' · ' + d.note : ''}</span>`;
+            const phase = d.phase ? ` · ${d.phase}` : '';
+            const temp = d.temperature ? `（${d.temperature}）` : '';
+            return `<strong>${d.sourceLabel}</strong> — ${d.predicate}${temp} — <strong>${d.targetLabel}</strong><br/><span style="opacity:0.85">${inf}${phase}${d.note ? ' · ' + d.note : ''}</span>`;
           }
           const d = p.data ?? {};
           return `<strong>${d.displayName ?? d.name}</strong><br/>${SUBTYPE_LABEL[String(d.kind)] ?? d.kind}`;
@@ -111,20 +130,28 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
             const onPath = pathSet.has(n.id);
             const isSel = selected === n.id;
             const dimmed = focusNeighbors ? !focusNeighbors.has(n.id) : false;
+            const isTaixu = n.layer === '太虚';
             return {
               id: n.id,
               name: n.label,
               displayName: n.label,
               kind: n.kind,
+              symbol: isTaixu ? 'diamond' : 'circle',
               symbolSize: n.size + (onPath ? 8 : 0) + (isSel ? 10 : 0),
               category: categoryIndex(n.kind),
               itemStyle: {
                 color: KIND_COLORS[n.kind],
-                borderColor: isSel ? '#b08338' : onPath ? '#b08338' : 'rgba(255,255,255,0.35)',
-                borderWidth: isSel ? 3 : onPath ? 2 : 1,
+                borderColor: isSel
+                  ? '#b08338'
+                  : onPath
+                    ? '#b08338'
+                    : isTaixu
+                      ? '#e7c66b'
+                      : 'rgba(255,255,255,0.35)',
+                borderWidth: isSel ? 3 : onPath ? 2 : isTaixu ? 2 : 1,
                 opacity: dimmed ? 0.25 : 1,
-                shadowBlur: isSel ? 20 : onPath ? 12 : 0,
-                shadowColor: KIND_COLORS[n.kind],
+                shadowBlur: isSel ? 20 : onPath ? 12 : isTaixu ? 10 : 0,
+                shadowColor: isTaixu ? '#e7c66b' : KIND_COLORS[n.kind],
               },
               label: {
                 show: true,
@@ -142,6 +169,12 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
             const dimmed = focusNeighbors
               ? !(focusNeighbors.has(e.source) && focusNeighbors.has(e.target))
               : false;
+            const ekind = edgeKindOf(e.predicate);
+            const baseColor =
+              ekind === 'mapping' ? MAPPING_COLOR : ekind === 'shadow' ? SHADOW_COLOR : e.inference ? '#355766' : '#8f1f2b';
+            const baseType =
+              ekind === 'shadow' ? ([3, 3] as number[]) : e.inference ? ([6, 4] as number[]) : 'solid';
+            const baseWidth = ekind === 'mapping' ? 2.4 : e.inference ? 1.2 : 1.8;
             return {
               source: e.source,
               target: e.target,
@@ -150,13 +183,13 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
               note: e.note,
               sourceLabel: src?.label ?? e.source,
               targetLabel: tgt?.label ?? e.target,
-              label: { show: false, formatter: e.predicate, fontSize: 10 },
+              label: { show: false, formatter: e.predicate, fontSize: 14 },
               lineStyle: {
-                type: e.inference ? [6, 4] : 'solid',
-                width: onPath ? 2.5 : e.inference ? 1.2 : 1.8,
-                opacity: dimmed ? 0.12 : onPath ? 0.95 : e.inference ? 0.55 : 0.75,
-                color: e.inference ? '#355766' : '#8f1f2b',
-                curveness: 0.15,
+                type: baseType,
+                width: onPath ? 2.8 : baseWidth,
+                opacity: dimmed ? 0.12 : onPath ? 0.95 : ekind !== 'normal' ? 0.85 : e.inference ? 0.55 : 0.75,
+                color: baseColor,
+                curveness: ekind === 'mapping' ? 0.05 : 0.15,
               },
             };
           }),
@@ -205,8 +238,10 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
 
   return (
     <div className="relative">
-      <p className="mb-2 text-xs" style={{ color: 'var(--ink-soft)' }}>
-        实线 = 事实关联 · 虚线 = 推论（隐喻/影射/预示）· 点击节点高亮相邻
+      <p className="mb-2 text-xs text-muted">
+        ◆ 太虚幻境（神话层）· ● 人间贾府 ·{' '}
+        <span style={{ color: MAPPING_COLOR }}>金线=投胎/还泪/投影映射</span> ·{' '}
+        <span style={{ color: SHADOW_COLOR }}>紫线=影身</span> · 实线=事实 · 虚线=推论 · 点击节点高亮相邻
       </p>
       <div className="flex flex-col gap-3 lg:flex-row">
         <div
@@ -232,7 +267,7 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
                 <div className="truncate text-lg font-semibold" style={{ color: 'var(--primary)' }}>
                   {selectedNode.label}
                 </div>
-                <div className="text-xs" style={{ color: 'var(--ink-soft)' }}>
+                <div className="text-xs text-muted">
                   {SUBTYPE_LABEL[selectedNode.kind] ?? selectedNode.kind}
                 </div>
               </div>
@@ -255,7 +290,7 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
                 return (
                   <li key={i} className="leading-snug">
                     <span style={{ color: e.inference ? '#355766' : '#8f1f2b' }}>{e.predicate}</span>
-                    <span style={{ color: 'var(--ink-soft)' }}> → </span>
+                    <span className="text-muted"> → </span>
                     <a
                       href={other ? nodeHref(bookSlug, other) : '#'}
                       className="hover:underline"
@@ -264,7 +299,7 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
                       {other?.label ?? otherId}
                     </a>
                     {e.inference && (
-                      <span className="ml-1 text-[10px]" style={{ color: 'var(--ink-soft)' }}>
+                      <span className="ml-1 text-xs text-muted">
                         推论
                       </span>
                     )}
@@ -284,10 +319,10 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
       </div>
 
       <div className="mt-3 flex flex-wrap items-center gap-2">
-        <span className="text-xs" style={{ color: 'var(--ink-soft)' }}>
+        <span className="text-xs text-muted">
           示例链路
         </span>
-        {HIGHLIGHT_CHAINS.map((chain, i) => (
+        {chains.map((chain, i) => (
           <button
             key={chain.name}
             type="button"
@@ -315,8 +350,7 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
           <button
             type="button"
             onClick={() => setActiveChain(-1)}
-            className="text-xs hover:underline"
-            style={{ color: 'var(--ink-soft)' }}
+            className="text-xs text-muted hover:underline"
           >
             清除高亮
           </button>

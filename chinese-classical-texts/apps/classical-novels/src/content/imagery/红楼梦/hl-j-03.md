@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: judgment
 title: 贾元春判词
+layer: 太虚
 text: "二十年来辨是非，榴花深处照宫闱。三春争及初春景，虎兕相逢大梦归。"
 chapters:
   - 5

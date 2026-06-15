@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: poem
 title: 分骨肉
+layer: 太虚
 text: "一帆风雨路三千，把骨肉家园齐来抛闪。恐哭损残年，告爹娘，莫把儿消息传。……"
 chapters:
   - 5

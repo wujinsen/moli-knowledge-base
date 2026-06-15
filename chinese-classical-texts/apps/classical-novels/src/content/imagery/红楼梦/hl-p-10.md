@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: poem
 title: 秋窗风雨夕
+layer: 人间
 text: "秋花惨淡秋草黄，已觉秋窗秋未凉。……"
 chapters:
   - 45

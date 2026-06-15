@@ -43,6 +43,7 @@ const rootEntry = root ? places.find((p) => p.data.id === root.id) : undefined;
     }
   </p>
 
+  <div class="content-page">
   {
     root && (rootChildren.length > 0 || rootEntry) && (
       <section id={root.id} class="mb-10">
@@ -104,4 +105,5 @@ const rootEntry = root ? places.find((p) => p.data.id === root.id) : undefined;
       );
     })
   }
+  </div>
 </Base>

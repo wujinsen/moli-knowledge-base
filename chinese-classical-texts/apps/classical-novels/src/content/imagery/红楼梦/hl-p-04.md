@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: poem
 title: 螃蟹咏
+layer: 人间
 text: "持螯更喜桂阴凉，泼醋擂姜兴欲狂。……"
 chapters:
   - 38

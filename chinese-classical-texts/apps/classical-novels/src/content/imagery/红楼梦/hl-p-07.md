@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: poem
 title: 飞鸟各投林
+layer: 太虚
 text: "为官的，家业凋零；富贵的，金银散尽；……好一似食尽鸟投林，落了片白茫茫大地真干净！"
 chapters:
   - 5

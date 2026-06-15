@@ -33,6 +33,7 @@ const lensCount = groups.reduce((n, g) => n + g.items.length, 0);
 <Base title={`${meta.book} · 诠释专题`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
   <BackLink href={`/${meta.slug}`} label={meta.book} />
 
+  <div class="content-page">
   <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
     <div class="flex items-start gap-4">
       <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">诠</span>
@@ -69,7 +70,7 @@ const lensCount = groups.reduce((n, g) => n + g.items.length, 0);
               <a href={topicHref(meta.slug, t)} class="surface block p-4 transition hover:-translate-y-0.5">
                 <div class="flex items-center gap-2">
                   <h3 class="font-bold" style="color: var(--accent)">{t.data.title}</h3>
-                  {t.data.readings.length > 0 && <span class="chip" style="font-size:0.62rem">{t.data.readings.length} 解读</span>}
+                  {t.data.readings.length > 0 && <span class="chip chip-mini\">{t.data.readings.length} 解读</span>}
                 </div>
                 {t.data.summary && (
                   <p class="mt-1 text-sm leading-snug text-muted">{t.data.summary}</p>
@@ -105,7 +106,7 @@ const lensCount = groups.reduce((n, g) => n + g.items.length, 0);
                   <td class="font-bold" style="color: var(--accent)">{e.subject}</td>
                   <td>
                     <span class="scoped-pred">{e.predicate}</span>
-                    {e.ephemeral && <span class="ml-1 chip" style="font-size:0.6rem">临时</span>}
+                    {e.ephemeral && <span class="ml-1 chip chip-mini">临时</span>}
                   </td>
                   <td style="color: var(--ink)">{e.object}</td>
                   <td>{e.chapter ? `第${e.chapter}回` : '—'}</td>
@@ -120,23 +121,6 @@ const lensCount = groups.reduce((n, g) => n + g.items.length, 0);
       )
     }
   </section>
+  </div>
 </Base>
 
-<style is:global>
-  .scoped-table th, .scoped-table td {
-    text-align: left;
-    padding: 0.5rem 0.7rem;
-    border-bottom: 1px solid color-mix(in srgb, var(--ink-soft) 18%, transparent);
-    vertical-align: top;
-  }
-  .scoped-table th { color: var(--ink-soft); font-weight: 600; }
-  .scoped-pred {
-    display: inline-block;
-    padding: 0.05rem 0.5rem;
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--seal) 12%, transparent);
-    color: var(--seal);
-    border: 1px dashed color-mix(in srgb, var(--seal) 45%, transparent);
-    font-size: 0.72rem;
-  }
-</style>

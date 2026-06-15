@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: judgment
 title: 薛宝钗判词
+layer: 太虚
 text: "空对着，山中高士晶莹雪；终不忘，世外仙姝寂寞林。"
 chapters:
   - 5

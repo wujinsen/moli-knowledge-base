@@ -106,6 +106,8 @@ const tocChapters = await listReaderChapters(book, slug, {
     data-reader-theme="light"
     data-reader-layout="scroll"
     data-reader-font-size="md"
+    data-reader-leading="relaxed"
+    data-reader-segments="para"
   >
     <script is:inline>
       (function () {
@@ -116,13 +118,24 @@ const tocChapters = await listReaderChapters(book, slug, {
             if (t === 'dark' || t === 'night' || t === '夜间' || t === '黯') return 'dark';
             return 'light';
           }
+          function normalizeReaderSegments(v) {
+            if (v === 'off' || v === 'para' || v === 'clause') return v;
+            if (v === 'on') return 'clause';
+            return 'para';
+          }
           var t = normalizeReaderTheme(localStorage.getItem('reader-theme'));
           var l = localStorage.getItem('reader-layout');
           var f = localStorage.getItem('reader-font-size');
+          var ld = localStorage.getItem('reader-leading');
+          var seg = normalizeReaderSegments(localStorage.getItem('reader-segments'));
           localStorage.setItem('reader-theme', t);
           el.dataset.readerTheme = t;
           if (l === 'scroll' || l === 'columns') el.dataset.readerLayout = l;
           if (f === 'sm' || f === 'md' || f === 'lg' || f === 'xl') el.dataset.readerFontSize = f;
+          if (ld === 'compact' || ld === 'normal' || ld === 'relaxed' || ld === 'loose') {
+            el.dataset.readerLeading = ld;
+          }
+          el.dataset.readerSegments = seg;
         } catch (e) {}
       })();
     </script>

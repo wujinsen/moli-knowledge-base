@@ -111,7 +111,7 @@ const stanceClass = (s: string) =>
                     <td class="font-bold" style="color: var(--accent)">{r.symbol}</td>
                     <td style="color: var(--ink)">
                       {r.meaning}
-                      {r.inference && <span class="ml-1 chip" style="font-size:0.6rem">诠释</span>}
+                      {r.inference && <span class="ml-1 chip chip-mini">诠释</span>}
                     </td>
                     <td>{r.proponent ?? '—'}{r.source ? `（${r.source}）` : ''}</td>
                   </tr>
@@ -140,18 +140,3 @@ const stanceClass = (s: string) =>
   </div>
 </Base>
 
-<style is:global>
-  .hypothesis-card { border-color: color-mix(in srgb, var(--gold) 40%, transparent); }
-  .seal.stance { letter-spacing: 0; }
-  .stance-main { background: var(--primary); color: #fff; border: none; }
-  .stance-doubt { background: transparent; color: var(--ink-soft); border: 1px solid color-mix(in srgb, var(--ink-soft) 45%, transparent); }
-  .stance-minor { background: transparent; color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent); }
-  .stance-dropped { background: transparent; color: var(--seal); border: 1px solid color-mix(in srgb, var(--seal) 45%, transparent); text-decoration: line-through; }
-  .reading-table th, .reading-table td {
-    text-align: left;
-    padding: 0.5rem 0.7rem;
-    border-bottom: 1px solid color-mix(in srgb, var(--ink-soft) 18%, transparent);
-    vertical-align: top;
-  }
-  .reading-table th { color: var(--ink-soft); font-weight: 600; }
-</style>

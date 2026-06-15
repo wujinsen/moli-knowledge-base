@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: poem
 title: 留余庆
+layer: 太虚
 text: "留余庆，留余庆，忽遇恩人；幸娘亲，幸娘亲，积得阴功。……"
 chapters:
   - 5

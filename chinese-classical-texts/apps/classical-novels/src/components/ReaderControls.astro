@@ -1,5 +1,5 @@
 ---
-/** 阅读页：浅色/深色 + 滚动/双栏 + 字号（版本在目录页切换） */
+/** 阅读页：浅色/深色 + 滚动/双栏 + 字号 + 行距 + 分段 */
 ---
 
 <div class="reader-toolbar surface" data-pagefind-ignore role="toolbar" aria-label="阅读设置">
@@ -13,6 +13,7 @@
     <span class="reader-toolbar-label">版式</span>
     <button type="button" class="reader-toggle" data-reader-layout="scroll" aria-pressed="true">滚动</button>
     <button type="button" class="reader-toggle" data-reader-layout="columns" aria-pressed="false">双栏</button>
+  </div>
   <span class="reader-toolbar-divider" aria-hidden="true"></span>
   <div class="reader-toolbar-group" role="group" aria-label="字号">
     <span class="reader-toolbar-label">字号</span>
@@ -21,13 +22,42 @@
     <button type="button" class="reader-toggle" data-reader-font="lg" aria-pressed="false" title="较大">大</button>
     <button type="button" class="reader-toggle" data-reader-font="xl" aria-pressed="false" title="特大">特大</button>
   </div>
+  <span class="reader-toolbar-divider" aria-hidden="true"></span>
+  <div class="reader-toolbar-group" role="group" aria-label="行距">
+    <span class="reader-toolbar-label">行距</span>
+    <button type="button" class="reader-toggle" data-reader-leading="compact" aria-pressed="false" title="行距较紧">紧凑</button>
+    <button type="button" class="reader-toggle" data-reader-leading="normal" aria-pressed="false" title="适中">标准</button>
+    <button type="button" class="reader-toggle" data-reader-leading="relaxed" aria-pressed="true" title="默认，适合长段阅读">疏朗</button>
+    <button type="button" class="reader-toggle" data-reader-leading="loose" aria-pressed="false" title="行距最宽">很疏</button>
+  </div>
+  <span class="reader-toolbar-divider" aria-hidden="true"></span>
+  <div class="reader-toolbar-group" role="group" aria-label="分段">
+    <span class="reader-toolbar-label">分段</span>
+    <button type="button" class="reader-toggle" data-reader-segments="off" aria-pressed="false" title="整段连续阅读">连续</button>
+    <button type="button" class="reader-toggle" data-reader-segments="para" aria-pressed="true" title="按章回体例拆段（话说、却说等）">段落</button>
+    <button type="button" class="reader-toggle" data-reader-segments="clause" aria-pressed="false" title="按句号逐句分行">句读</button>
+  </div>
 </div>
 
 <script>
+  import {
+    CHAPTER_BODY_SELECTOR,
+    CHAPTER_TEXT_SELECTOR,
+    extractParagraphPlain,
+    normalizeSegmentMode,
+    paragraphNeedsSplit,
+    splitParagraphText,
+    splitTextToClauses,
+  } from '../lib/readerParagraphs';
+
   const STORAGE_THEME = 'reader-theme';
   const STORAGE_LAYOUT = 'reader-layout';
   const STORAGE_FONT = 'reader-font-size';
+  const STORAGE_LEADING = 'reader-leading';
+  const STORAGE_SEGMENTS = 'reader-segments';
+  const STORAGE_SEGMENTS_MIGRATION = 'reader-segments-v2';
   const FONT_LEVELS = ['sm', 'md', 'lg', 'xl'];
+  const LEADING_LEVELS = ['compact', 'normal', 'relaxed', 'loose'];
 
   function normalizeFont(raw) {
     return FONT_LEVELS.includes(raw) ? raw : 'md';
@@ -38,8 +68,102 @@
     return 'light';
   }
 
+  function normalizeLeading(raw) {
+    return LEADING_LEVELS.includes(raw) ? raw : 'relaxed';
+  }
+
   function shell() {
     return document.getElementById('reader-shell');
+  }
+
+  function chapterBody() {
+    return document.querySelector(CHAPTER_BODY_SELECTOR);
+  }
+
+  function ensureBodySnapshot(body) {
+    if (!body.dataset.readerOriginal) {
+      body.dataset.readerOriginal = body.innerHTML;
+    }
+  }
+
+  function restoreBody(body) {
+    const original = body.dataset.readerOriginal;
+    if (original != null) {
+      body.innerHTML = original;
+    }
+  }
+
+  function clauseParagraph(p) {
+    if (p.dataset.readerClause === 'true') return;
+    const fragments = [];
+    for (const node of p.childNodes) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        for (const part of splitTextToClauses(node.textContent ?? '')) {
+          const span = document.createElement('span');
+          span.className = 'reader-seg';
+          span.textContent = part;
+          fragments.push(span);
+        }
+      } else if (node instanceof HTMLElement) {
+        fragments.push(node.cloneNode(true));
+      }
+    }
+    p.dataset.readerClauseOriginal = p.innerHTML;
+    p.replaceChildren(...fragments);
+    p.dataset.readerClause = 'true';
+  }
+
+  function restoreClauseParagraph(p) {
+    if (p.dataset.readerClause !== 'true') return;
+    const original = p.dataset.readerClauseOriginal;
+    if (original != null) {
+      p.innerHTML = original;
+    }
+    delete p.dataset.readerClauseOriginal;
+    delete p.dataset.readerClause;
+  }
+
+  function splitParagraphElements(body) {
+    const ps = [...body.querySelectorAll(':scope > p:not(.reader-zhipi-hint)')];
+    for (const p of ps) {
+      if (!paragraphNeedsSplit(p)) continue;
+      const parts = splitParagraphText(extractParagraphPlain(p));
+      if (parts.length <= 1) continue;
+      const created = parts.map((text) => {
+        const np = document.createElement('p');
+        np.className = 'reader-para';
+        np.textContent = text;
+        return np;
+      });
+      p.replaceWith(...created);
+    }
+  }
+
+  function applySegmentMode(mode) {
+    const next = normalizeSegmentMode(mode);
+    const s = shell();
+    const body = chapterBody();
+    if (!body) return;
+
+    if (s) {
+      s.dataset.readerSegments = next;
+      try {
+        localStorage.setItem(STORAGE_SEGMENTS, next);
+      } catch (_) {}
+    }
+
+    ensureBodySnapshot(body);
+    restoreBody(body);
+
+    if (next === 'para') {
+      splitParagraphElements(body);
+    } else if (next === 'clause') {
+      for (const p of body.querySelectorAll(CHAPTER_TEXT_SELECTOR)) {
+        clauseParagraph(p);
+      }
+    }
+
+    syncButtons();
   }
 
   function syncButtons() {
@@ -60,6 +184,18 @@
     const font = s.dataset.readerFontSize ?? 'md';
     document.querySelectorAll('[data-reader-font]').forEach((btn) => {
       const pressed = btn.getAttribute('data-reader-font') === font;
+      btn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+      btn.classList.toggle('is-active', pressed);
+    });
+    const leading = s.dataset.readerLeading ?? 'relaxed';
+    document.querySelectorAll('[data-reader-leading]').forEach((btn) => {
+      const pressed = btn.getAttribute('data-reader-leading') === leading;
+      btn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+      btn.classList.toggle('is-active', pressed);
+    });
+    const segments = normalizeSegmentMode(s.dataset.readerSegments ?? 'para');
+    document.querySelectorAll('[data-reader-segments]').forEach((btn) => {
+      const pressed = btn.getAttribute('data-reader-segments') === segments;
       btn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
       btn.classList.toggle('is-active', pressed);
     });
@@ -97,6 +233,17 @@
     syncButtons();
   }
 
+  function applyLeading(level) {
+    const s = shell();
+    if (!s) return;
+    const next = normalizeLeading(level);
+    s.dataset.readerLeading = next;
+    try {
+      localStorage.setItem(STORAGE_LEADING, next);
+    } catch (_) {}
+    syncButtons();
+  }
+
   document.querySelectorAll('[data-reader-theme]').forEach((btn) => {
     btn.addEventListener('click', () => {
       applyTheme(btn.getAttribute('data-reader-theme'));
@@ -115,19 +262,51 @@
     });
   });
 
-  syncButtons();
+  document.querySelectorAll('[data-reader-leading]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      applyLeading(btn.getAttribute('data-reader-leading'));
+    });
+  });
 
-  (function migrateTheme() {
+  document.querySelectorAll('[data-reader-segments]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      applySegmentMode(btn.getAttribute('data-reader-segments'));
+    });
+  });
+
+  (function initFromStorage() {
     const s = shell();
     if (!s) return;
     try {
-      const next = normalizeTheme(localStorage.getItem(STORAGE_THEME));
-      s.dataset.readerTheme = next;
-      localStorage.setItem(STORAGE_THEME, next);
+      const theme = normalizeTheme(localStorage.getItem(STORAGE_THEME));
+      s.dataset.readerTheme = theme;
+      localStorage.setItem(STORAGE_THEME, theme);
+
       const font = normalizeFont(localStorage.getItem(STORAGE_FONT));
       s.dataset.readerFontSize = font;
       localStorage.setItem(STORAGE_FONT, font);
-      syncButtons();
+
+      const layout = localStorage.getItem(STORAGE_LAYOUT);
+      if (layout === 'scroll' || layout === 'columns') {
+        s.dataset.readerLayout = layout;
+      }
+
+      const leading = normalizeLeading(localStorage.getItem(STORAGE_LEADING));
+      s.dataset.readerLeading = leading;
+      localStorage.setItem(STORAGE_LEADING, leading);
+
+      if (!localStorage.getItem(STORAGE_SEGMENTS_MIGRATION)) {
+        const prev = localStorage.getItem(STORAGE_SEGMENTS);
+        const migrated = prev === 'on' || prev === 'clause' ? 'clause' : 'para';
+        localStorage.setItem(STORAGE_SEGMENTS, migrated);
+        localStorage.setItem(STORAGE_SEGMENTS_MIGRATION, '1');
+      }
+
+      const segments = normalizeSegmentMode(localStorage.getItem(STORAGE_SEGMENTS));
+      s.dataset.readerSegments = segments;
+      localStorage.setItem(STORAGE_SEGMENTS, segments);
     } catch (_) {}
+    syncButtons();
+    applySegmentMode(s.dataset.readerSegments ?? 'para');
   })();
 </script>

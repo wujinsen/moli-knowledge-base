@@ -55,17 +55,17 @@ export default function SnaDashboard({ data, bookSlug }: Props) {
         axisPointer: { type: 'shadow' },
         backgroundColor: 'rgba(31, 38, 31, 0.92)',
         borderColor: 'rgba(156, 132, 80, 0.4)',
-        textStyle: { color: '#ecece1', fontSize: 12 },
+        textStyle: { color: '#ecece1', fontSize: 14 },
       },
       xAxis: {
         type: 'value',
-        axisLabel: { color: '#5c6359', fontSize: 10 },
+        axisLabel: { color: '#5c6359', fontSize: 14 },
         splitLine: { lineStyle: { color: 'rgba(92, 99, 89, 0.15)' } },
       },
       yAxis: {
         type: 'category',
         data: top.map((m) => m.id).reverse(),
-        axisLabel: { color: '#1f261f', fontFamily: '"Noto Serif SC", serif', fontSize: 11 },
+        axisLabel: { color: '#1f261f', fontFamily: '"Noto Serif SC", serif', fontSize: 13 },
         axisLine: { show: false },
         axisTick: { show: false },
       },
@@ -110,7 +110,7 @@ export default function SnaDashboard({ data, bookSlug }: Props) {
             className="rounded-xl border px-4 py-3 transition hover:opacity-90"
             style={{ borderColor: 'var(--line)', background: 'var(--surface)' }}
           >
-            <div className="text-xs" style={{ color: 'var(--ink-soft)' }}>
+            <div className="text-xs text-muted">
               全书介数 Top {i + 1}
             </div>
             <div className="brand mt-1 text-xl" style={{ color: 'var(--primary)' }}>
@@ -121,7 +121,7 @@ export default function SnaDashboard({ data, bookSlug }: Props) {
       </div>
 
       {bangxian.length > 0 && (
-        <div className="surface px-4 py-3 text-sm" style={{ color: 'var(--ink-soft)' }}>
+        <div className="surface px-4 py-3 text-sm text-muted">
           <span className="chip text-xs">{BANGXIAN}</span>
           <span className="ml-2" style={{ color: 'var(--ink)' }}>
             派系内介数前列：
@@ -170,7 +170,7 @@ export default function SnaDashboard({ data, bookSlug }: Props) {
         }}
       />
 
-      <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-soft)' }}>
+      <p className="text-sm leading-relaxed text-muted">
         无向图近似 · Brandes 介数中心性 · {data.node_count ?? data.metrics.length} 节点
         {data.generated && ` · ${data.generated}`}。        点击人物跳转
         <strong style={{ color: 'var(--ink)' }}> 关系图谱高亮</strong>；有白银记录者链至
@@ -187,7 +187,7 @@ export default function SnaDashboard({ data, bookSlug }: Props) {
       <div className="overflow-x-auto">
         <table className="w-full min-w-[720px] border-collapse text-sm">
           <thead>
-            <tr style={{ borderBottom: '1.5px solid var(--line)', color: 'var(--ink-soft)' }}>
+            <tr class="text-muted" style="border-bottom: 1.5px solid var(--line)">
               <th className="px-3 py-2 text-left font-normal">#</th>
               <th className="px-3 py-2 text-left font-normal">人物</th>
               <th className="px-3 py-2 text-left font-normal">派系</th>
@@ -211,7 +211,7 @@ export default function SnaDashboard({ data, bookSlug }: Props) {
                     background: isFocus ? 'color-mix(in srgb, var(--accent) 8%, transparent)' : undefined,
                   }}
                 >
-                  <td className="px-3 py-2.5" style={{ color: 'var(--ink-soft)' }}>
+                  <td className="px-3 py-2.5 text-muted">
                     {i + 1}
                   </td>
                   <td className="px-3 py-2.5 font-medium">
@@ -219,10 +219,10 @@ export default function SnaDashboard({ data, bookSlug }: Props) {
                       {m.id}
                     </a>
                   </td>
-                  <td className="px-3 py-2.5" style={{ color: 'var(--ink-soft)' }}>
+                  <td className="px-3 py-2.5 text-muted">
                     {m.faction ?? '—'}
                   </td>
-                  <td className="px-3 py-2.5" style={{ color: 'var(--ink-soft)' }}>
+                  <td className="px-3 py-2.5 text-muted">
                     {proximityLabel(m.ximen_proximity)}
                   </td>
                   <td className="px-3 py-2.5 text-right tabular-nums">{m.degree}</td>
@@ -250,7 +250,7 @@ export default function SnaDashboard({ data, bookSlug }: Props) {
         </table>
       </div>
 
-      <p className="text-xs" style={{ color: 'var(--ink-soft)' }}>
+      <p className="text-xs text-muted">
         深度阅读：
         <a href={`/${bookSlug}/topics/帮闲圈分析`} className="ml-1 hover:underline" style={{ color: 'var(--accent)' }}>
           帮闲圈分析 topic

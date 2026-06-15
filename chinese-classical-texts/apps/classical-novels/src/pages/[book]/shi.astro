@@ -37,13 +37,14 @@ const bySubtype = (st: string) => items.filter((i) => i.data.subtype === st);
 <Base title={`${meta.book} · 诗词意象`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
   <BackLink href={`/${meta.slug}`} label={meta.book} />
 
+  <div class="content-page">
   <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
     <div class="flex items-start gap-4">
       <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">诗</span>
       <div>
         <h1 class="brand text-4xl" style="color: var(--primary)">诗词意象 · 互文网络</h1>
         <p class="mt-2 text-sm text-muted">
-          {items.length} 条意象实体 · {graph.edges.length} 条关联边 · 判词 / 诗词 / 象征 / 花签
+          {items.length} 条意象实体 · {graph.edges.length} 条关联边 · 神话本源 / 判词 / 诗词 / 象征 / 花签
         </p>
       </div>
     </div>
@@ -54,7 +55,7 @@ const bySubtype = (st: string) => items.filter((i) => i.data.subtype === st);
   </section>
 
   <h2 class="section-title mb-4 text-lg">意象互文图</h2>
-  <div class="surface mb-10 p-4 sm:p-6">
+  <div class="kb-dashboard surface mb-10 p-4 sm:p-6">
     <ImageryGraph
       graph={graph}
       bookSlug={meta.slug}
@@ -63,7 +64,7 @@ const bySubtype = (st: string) => items.filter((i) => i.data.subtype === st);
   </div>
 
   {
-    ['judgment', 'poem', 'symbol', 'flower_lot'].map((st) => {
+    ['myth', 'judgment', 'poem', 'symbol', 'flower_lot'].map((st) => {
       const group = bySubtype(st);
       if (group.length === 0) return null;
       return (
@@ -77,7 +78,7 @@ const bySubtype = (st: string) => items.filter((i) => i.data.subtype === st);
                 return (
                   <a href={`/${meta.slug}/imagery/${d.id}`} class="module-card">
                     <span class="glyph" style="font-size:1.2rem;width:2.6rem;height:2.6rem">
-                      {st === 'judgment' ? '谶' : st === 'poem' ? '吟' : st === 'symbol' ? '象' : '签'}
+                      {st === 'myth' ? '幻' : st === 'judgment' ? '谶' : st === 'poem' ? '吟' : st === 'symbol' ? '象' : '签'}
                     </span>
                     <div class="min-w-0">
                       <h3 class="font-bold" style="color: var(--primary)">{d.title}</h3>
@@ -103,4 +104,5 @@ const bySubtype = (st: string) => items.filter((i) => i.data.subtype === st);
       );
     })
   }
+  </div>
 </Base>

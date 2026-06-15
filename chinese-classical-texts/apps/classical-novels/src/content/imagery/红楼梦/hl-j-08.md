@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: judgment
 title: 贾惜春判词
+layer: 太虚
 text: "勘破三春景不长，缁衣顿改昔年装。可怜绣户侯门女，独卧青灯古佛旁。"
 chapters:
   - 5

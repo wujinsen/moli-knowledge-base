@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: poem
 title: 聪明累
+layer: 太虚
 text: "凡鸟偏从末世来，都知爱慕此生才。一从二令三人木，哭向金陵事更哀。"
 chapters:
   - 5

@@ -35,6 +35,9 @@ const infLinks = d.links.filter((l) => l.inference);
   <section class="surface mt-3 mb-6 px-6 py-7 sm:px-8">
     <div class="flex flex-wrap items-start gap-3">
       <span class="chip">{subtypeLabel(d.subtype)}</span>
+      {d.layer && (
+        <span class="chip" title="双层镜像">{d.layer === '太虚' ? '太虚幻境' : '人间贾府'}</span>
+      )}
       {d.chapters[0] != null && (
         <a href={`/${meta.slug}/read/${d.chapters[0]}`} class="chip hover:opacity-80">
           {chapterLabel(d.chapters)}
@@ -72,7 +75,7 @@ const infLinks = d.links.filter((l) => l.inference);
         <div class="mb-6 overflow-x-auto">
           <table class="w-full min-w-[520px] border-collapse text-sm">
             <thead>
-              <tr style="border-bottom: 1.5px solid var(--line); color: var(--ink-soft)">
+              <tr class="text-muted" style="border-bottom: 1.5px solid var(--line)">
                 <th class="px-3 py-2 text-left font-normal">目标</th>
                 <th class="px-3 py-2 text-left font-normal">关系</th>
                 <th class="px-3 py-2 text-left font-normal">类型</th>

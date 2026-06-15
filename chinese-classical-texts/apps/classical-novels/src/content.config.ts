@@ -262,7 +262,12 @@ const IMAGERY_PREDICATES = [
   '对应判词', '作', '吟', '隐喻', '影射', '象征', '预示', '互文',
   // 红楼 · 双层镜像（太虚↔人间）映射边 + 影身边
   '还泪', '历劫', '投影', '归彼大荒', '影身',
+  // 金瓶 · 名字谶 / 物象流转 / 因果反噬
+  '谐音', '流转', '反噬', '催命',
 ] as const;
+
+// 金瓶 · 因果报应闭环：欲起→聚敛→极盛→反噬→散尽（以李瓶儿之死为冷热转折）
+const IMAGERY_PHASES = ['欲起', '聚敛', '极盛', '反噬', '散尽'] as const;
 
 const imageryLink = z.object({
   target: z.string(),
@@ -272,9 +277,16 @@ const imageryLink = z.object({
   chapter: z.number().optional(),
   source: z.string().optional(),
   note: z.string().optional(),
+  // 金瓶 · 时序闭环：阶段 + 冷热（张竹坡「冷热金针」）
+  phase: z.enum(IMAGERY_PHASES).optional(),
+  temperature: z.enum(['冷', '热']).optional(),
 });
 
-const IMAGERY_SUBTYPES = ['judgment', 'poem', 'symbol', 'flower_lot', 'myth'] as const;
+const IMAGERY_SUBTYPES = [
+  'judgment', 'poem', 'symbol', 'flower_lot', 'myth',
+  // 金瓶 · 世情物语
+  'name_omen', 'object_omen', 'tune_omen',
+] as const;
 
 const imagery = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/imagery' }),

@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: poem
 title: 虚名利
+layer: 太虚
 text: "气质美如兰，才华阜比仙。天生成孤癖，世难合。……"
 chapters:
   - 5

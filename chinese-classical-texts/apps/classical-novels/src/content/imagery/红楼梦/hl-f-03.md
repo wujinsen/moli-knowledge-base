@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: flower_lot
 title: 梅花花签
+layer: 人间
 text: "竹篱茅舍自甘心"
 chapters:
   - 63

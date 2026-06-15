@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: judgment
 title: 林黛玉判词
+layer: 太虚
 text: "可叹停机德，堪怜咏絮才。玉带林中挂，金簪雪里埋。"
 chapters:
   - 5

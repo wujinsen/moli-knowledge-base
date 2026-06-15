@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: poem
 title: 晚韶华
+layer: 太虚
 text: "梦里既相逢，偏是梦相随。谁知向，画梁春晚，落尽香尘。……"
 chapters:
   - 5

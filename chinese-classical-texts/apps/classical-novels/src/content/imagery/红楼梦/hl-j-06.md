@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: judgment
 title: 妙玉判词
+layer: 太虚
 text: "欲洁何曾洁，云空未必空。可怜金玉地，终陷污泥中。"
 chapters:
   - 5

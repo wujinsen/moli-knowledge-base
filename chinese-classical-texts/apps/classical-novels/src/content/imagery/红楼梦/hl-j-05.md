@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: judgment
 title: 史湘云判词
+layer: 太虚
 text: "富贵又何为，襁褓之间父母违。展眼吊斜晖，湘江水逝楚云飞。"
 chapters:
   - 5

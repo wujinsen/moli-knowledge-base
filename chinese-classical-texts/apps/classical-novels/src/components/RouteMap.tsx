@@ -241,7 +241,7 @@ export default function RouteMap({ data, bookSlug }: Props) {
             {r}
           </span>
         ))}
-        <span className="flex items-center gap-1.5 text-[10px] text-slate-500">● 凡间 · ◆ 异界</span>
+        <span className="flex items-center gap-1.5 text-xs text-slate-500">● 凡间 · ◆ 异界</span>
       </div>
 
       {/* 选中详情 */}
@@ -266,7 +266,7 @@ export default function RouteMap({ data, bookSlug }: Props) {
 
           {selectedNode.tribulations.length > 0 && (
             <div className="mb-3">
-              <div className="mb-1 text-[10px] uppercase tracking-wide text-slate-500">途经劫难</div>
+              <div className="mb-1 text-xs uppercase tracking-wide text-slate-500">途经劫难</div>
               <div className="flex flex-wrap gap-1">
                 {selectedNode.tribulations.map((t) => (
                   <a

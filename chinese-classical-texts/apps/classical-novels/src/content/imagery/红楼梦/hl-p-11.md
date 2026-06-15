@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: poem
 title: 恨无常
+layer: 太虚
 text: "喜荣华正好，恨无常又到。眼见着把万类皆抛，乐极夭夭。……"
 chapters:
   - 5

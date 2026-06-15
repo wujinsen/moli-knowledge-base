@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: poem
 title: 乐中悲
+layer: 太虚
 text: "襁褓中，寄人篱下，早离故乡。纵有，干霄凌云志，怎向，空门学步虚。……"
 chapters:
   - 5

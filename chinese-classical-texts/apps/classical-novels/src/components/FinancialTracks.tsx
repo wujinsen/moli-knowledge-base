@@ -18,19 +18,19 @@ function TrackLane({ track, bookSlug }: { track: FinancialTrack; bookSlug: strin
           <span className="chip text-xs">{track.total_liang} 两（节点合计）</span>
         )}
         {track.transaction_count > 0 && (
-          <span className="text-xs" style={{ color: 'var(--ink-soft)' }}>
+          <span className="text-xs text-muted">
             {track.transaction_count} 笔关联交易
           </span>
         )}
       </div>
-      <p className="mb-4 text-sm" style={{ color: 'var(--ink-soft)' }}>
+      <p className="mb-4 text-sm text-muted">
         {track.description}
       </p>
       <div className="flex flex-wrap items-stretch gap-2">
         {track.events.map((ev, i) => (
           <div key={ev.id} className="flex min-w-0 items-center gap-2">
             {i > 0 && (
-              <span className="hidden shrink-0 text-lg sm:inline" style={{ color: 'var(--ink-soft)' }}>
+              <span className="hidden shrink-0 text-lg sm:inline text-muted">
                 →
               </span>
             )}
@@ -43,7 +43,7 @@ function TrackLane({ track, bookSlug }: { track: FinancialTrack; bookSlug: strin
               <div className="font-medium leading-snug" style={{ color: 'var(--ink)' }}>
                 {ev.title}
               </div>
-              <div className="mt-1 text-xs" style={{ color: 'var(--ink-soft)' }}>
+              <div className="mt-1 text-xs text-muted">
                 第{ev.chapter}回
                 {ev.amount_liang != null && (
                   <span className="ml-1" style={{ color: 'var(--primary)' }}>
@@ -88,7 +88,7 @@ function TrackLane({ track, bookSlug }: { track: FinancialTrack; bookSlug: strin
 export default function FinancialTracks({ data, bookSlug }: Props) {
   return (
     <div className="financial-tracks">
-      <p className="mb-6 text-sm leading-relaxed" style={{ color: 'var(--ink-soft)' }}>
+      <p className="mb-6 text-sm leading-relaxed text-muted">
         按<strong style={{ color: 'var(--ink)' }}>药铺经营 / 放债帮闲 / 政商贿赂</strong>
         等专题轨分组，与下方全书时间轴互补。数据来自{' '}
         <code className="rounded px-1 text-xs" style={{ background: 'var(--base)' }}>
@@ -103,7 +103,7 @@ export default function FinancialTracks({ data, bookSlug }: Props) {
       {data.tracks.map((track) => (
         <TrackLane key={track.id} track={track} bookSlug={bookSlug} />
       ))}
-      <p className="text-xs" style={{ color: 'var(--ink-soft)' }}>
+      <p className="text-xs text-muted">
         深度阅读：
         <a href={`/${bookSlug}/topics/药铺与放债链`} className="ml-1 hover:underline" style={{ color: 'var(--accent)' }}>
           药铺与放债链 topic

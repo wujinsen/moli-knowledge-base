@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: judgment
 title: 贾探春判词
+layer: 太虚
 text: "才自精明志自高，生于末世运偏消。清明涕送江边望，千里东风一梦遥。"
 chapters:
   - 5

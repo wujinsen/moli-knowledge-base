@@ -4,10 +4,18 @@
     {
       "source": "晴雯",
       "target": "林黛玉",
-      "predicate": "影射",
+      "predicate": "影身",
       "inference": true,
-      "note": "晴为黛影；撕扇、补裘、性情与黛玉镜像",
+      "note": "晴为黛影；撕扇、补裘、风流灵巧遭忌，预演黛玉夭逝",
       "chapter": 31
+    },
+    {
+      "source": "袭人",
+      "target": "薛宝钗",
+      "predicate": "影身",
+      "inference": true,
+      "note": "袭为钗影；温柔和顺、劝谏立身，「贤袭人」与「时宝钗」同调",
+      "chapter": 19
     },
     {
       "source": "hl-s-furong",

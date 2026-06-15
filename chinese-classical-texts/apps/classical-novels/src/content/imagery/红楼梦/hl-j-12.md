@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: judgment
 title: 秦可卿判词
+layer: 太虚
 text: "情天情海幻情身，情既相逢必主淫。漫言不肖皆荣出，造衅开端实在宁。"
 chapters:
   - 5

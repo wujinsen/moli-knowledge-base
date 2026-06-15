@@ -130,7 +130,7 @@ export default function SilverDashboard({ data, bookSlug, txRows, initialChapter
           label: {
             color: '#1f261f',
             fontFamily: '"Noto Serif SC", serif',
-            fontSize: 11,
+            fontSize: 13,
             formatter: (p: { name?: string }) => {
               const pool = filtered.pools.find((x) => x.name === p.name);
               if (!pool || pool.name === filtered.hub.name) return p.name ?? '';
@@ -164,7 +164,7 @@ export default function SilverDashboard({ data, bookSlug, txRows, initialChapter
         trigger: 'axis',
         backgroundColor: 'rgba(31, 38, 31, 0.92)',
         borderColor: 'rgba(156, 132, 80, 0.4)',
-        textStyle: { color: '#ecece1', fontSize: 12 },
+        textStyle: { color: '#ecece1', fontSize: 14 },
         formatter: (params: { dataIndex?: number }[]) => {
           const idx = params[0]?.dataIndex ?? 0;
           const p = pts[idx];
@@ -175,14 +175,14 @@ export default function SilverDashboard({ data, bookSlug, txRows, initialChapter
       xAxis: {
         type: 'category',
         data: pts.map((p) => `${p.chapter}`),
-        axisLabel: { color: '#5c6359', fontSize: 10 },
+        axisLabel: { color: '#5c6359', fontSize: 14 },
         axisLine: { lineStyle: { color: 'rgba(92, 99, 89, 0.35)' } },
       },
       yAxis: {
         type: 'value',
         name: '累计两',
-        nameTextStyle: { color: '#5c6359', fontSize: 10 },
-        axisLabel: { color: '#5c6359', fontSize: 10 },
+        nameTextStyle: { color: '#5c6359', fontSize: 14 },
+        axisLabel: { color: '#5c6359', fontSize: 14 },
         splitLine: { lineStyle: { color: 'rgba(92, 99, 89, 0.15)' } },
       },
       series: [
@@ -248,7 +248,7 @@ export default function SilverDashboard({ data, bookSlug, txRows, initialChapter
   return (
     <div className="silver-dashboard">
       <div className="mb-4 flex flex-wrap items-end gap-4">
-        <label className="flex min-w-[200px] flex-1 flex-col gap-1 text-sm" style={{ color: 'var(--ink-soft)' }}>
+        <label className="flex min-w-[200px] flex-1 flex-col gap-1 text-sm text-muted">
           <span>
             截止第 <strong style={{ color: 'var(--accent)' }}>{maxChapter}</strong> 回 · 已录入{' '}
             <strong style={{ color: 'var(--primary)' }}>{filtered.total_liang}</strong> 两（累计口径）
@@ -282,8 +282,8 @@ export default function SilverDashboard({ data, bookSlug, txRows, initialChapter
         {topPools.map((p) => (
           <span
             key={p.name}
-            className="chip text-xs"
-            style={{ borderColor: p.color, color: 'var(--ink-soft)' }}
+            className="chip text-xs text-muted"
+            style={{ borderColor: p.color }}
             title={`流入 ${p.inflow} · 流出 ${p.outflow}`}
           >
             <span
@@ -305,7 +305,7 @@ export default function SilverDashboard({ data, bookSlug, txRows, initialChapter
         }}
       />
 
-      <p className="mt-2 text-xs" style={{ color: 'var(--ink-soft)' }}>
+      <p className="mt-2 text-xs text-muted">
         节点宽度 ∝ 流量；点击流向带可定位下方交易。与{' '}
         <a href={`/${bookSlug}/chain`} className="hover:underline" style={{ color: 'var(--accent)' }}>
           衰败链

@@ -281,7 +281,7 @@ export default function RelationGraph({ bookSlug }: Props) {
               label: {
                 show: !dimmed && visibleEdges.length <= 40,
                 formatter: e.type,
-                fontSize: 10,
+                fontSize: 14,
                 color: 'rgba(203,213,225,0.85)',
                 backgroundColor: 'rgba(15,23,42,0.65)',
                 padding: [2, 4],
@@ -521,7 +521,7 @@ export default function RelationGraph({ bookSlug }: Props) {
       {/* 关系图例（选中节点时改由侧栏分组展示，避免与详情面板叠盖） */}
       {relationTypes.length > 0 && !selectedNode && (
         <div className="graph-legend absolute bottom-4 right-3 z-10 max-h-32 overflow-y-auto rounded-lg border border-white/10 bg-slate-900/85 p-2 backdrop-blur-md">
-          <div className="mb-1 text-[10px] uppercase tracking-wide text-slate-500">关系类型</div>
+          <div className="mb-1 text-xs uppercase tracking-wide text-slate-500">关系类型</div>
           <div className="flex flex-wrap gap-x-3 gap-y-1">
             {relationTypes.map((t) => (
               <span key={t} className="flex items-center gap-1 text-xs text-slate-300">
@@ -533,7 +533,7 @@ export default function RelationGraph({ bookSlug }: Props) {
               </span>
             ))}
           </div>
-          <div className="mt-2 border-t border-white/5 pt-2 text-[10px] text-slate-500">
+          <div className="mt-2 border-t border-white/5 pt-2 text-xs text-slate-500">
             虚线 = 推论 / 矛盾
           </div>
         </div>
@@ -623,7 +623,7 @@ export default function RelationGraph({ bookSlug }: Props) {
                             {item.target}
                           </a>
                           {(item.inference || item.contradiction) && (
-                            <span className="ml-1 text-[10px] text-slate-500">
+                            <span className="ml-1 text-xs text-slate-500">
                               {item.contradiction ? '矛盾' : '推论'}
                             </span>
                           )}
@@ -636,7 +636,7 @@ export default function RelationGraph({ bookSlug }: Props) {
             })
             )}
             {selectedEdges.length > 12 && (
-              <p className="px-1 py-2 text-center text-[10px] text-slate-500">
+              <p className="px-1 py-2 text-center text-xs text-slate-500">
                 点击关系类型展开/收起 · 侧栏可滚动
               </p>
             )}

@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: symbol
 title: 芙蓉
+layer: 人间
 chapters: []
 characters: []
 links: []

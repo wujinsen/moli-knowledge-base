@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: symbol
 title: 冰
+layer: 人间
 chapters:
   - 5
 characters:

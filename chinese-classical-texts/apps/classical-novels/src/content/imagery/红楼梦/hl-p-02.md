@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: poem
 title: 好了歌
+layer: 太虚
 text: "世人都晓神仙好，惟有功名忘不了！……"
 chapters:
   - 1

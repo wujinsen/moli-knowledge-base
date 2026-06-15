@@ -41,6 +41,7 @@ const sections: { key: keyof typeof grouped; anchor: string }[] = isXiyouji
     }
   </p>
 
+  <div class="content-page">
   <nav class="mb-8 flex flex-wrap gap-2 text-sm">
     {
       sections.map(({ key, anchor }) =>
@@ -82,4 +83,5 @@ const sections: { key: keyof typeof grouped; anchor: string }[] = isXiyouji
       </p>
     )
   }
+  </div>
 </Base>

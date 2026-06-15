@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: judgment
 title: 贾巧姐判词
+layer: 太虚
 text: "势败休云尊贵，家亡莫论亲疏。幸有贤妻，留得余生，巧傍贵人。"
 chapters:
   - 5

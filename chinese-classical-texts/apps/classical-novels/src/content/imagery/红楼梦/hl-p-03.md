@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: poem
 title: 枉凝眉
+layer: 太虚
 text: "一个是阆苑仙葩，一个是美玉无瑕。……"
 chapters:
   - 5

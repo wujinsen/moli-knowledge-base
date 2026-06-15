@@ -68,6 +68,11 @@
   --type-lead: 1.125rem;
   --type-body-weight: 500;
   --type-label-weight: 600;
+  /* 阅读器 UI（工具栏 / 批语 / 关联标签） */
+  --reader-ui-xs: 0.9375rem;
+  --reader-ui-sm: 1.0625rem;
+  --reader-body-base: 1.125rem;
+  --reader-annotation-scale: 0.95;
 }
 
 html {
@@ -321,7 +326,9 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
   .reader-shell .back-link--reader {
     border-color: color-mix(in srgb, var(--reader-line) 85%, transparent);
     background: color-mix(in srgb, var(--reader-bg) 88%, var(--reader-line));
-    color: var(--reader-ink-soft);
+    color: color-mix(in srgb, var(--reader-ink) 68%, var(--reader-ink-soft));
+    font-size: var(--reader-ui-xs);
+    font-weight: var(--type-label-weight);
   }
   .reader-shell .back-link--reader:hover {
     color: var(--reader-primary);
@@ -446,6 +453,12 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
     font-size: var(--type-sm);
     padding: 0.26rem 0.85rem;
     font-weight: var(--type-label-weight);
+  }
+  .chip-mini {
+    font-size: var(--type-xs);
+    padding: 0.18rem 0.58rem;
+    font-weight: var(--type-label-weight);
+    line-height: 1.35;
   }
 
   /* 图鉴人物卡 */
@@ -888,25 +901,110 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
   max-width: none;
   width: 100%;
   margin-inline: 0;
-  font-size: calc(1.075rem * var(--reader-font-scale, 1));
+  font-size: calc(var(--reader-body-base) * var(--reader-font-scale, 1));
+  font-weight: var(--type-body-weight);
+}
+
+/* 阅读器正文：版心、行距、字距（章回原文多为单段长文，需单独优化） */
+.reader-shell {
+  --reader-line-height: 2.45;
+  --reader-letter-spacing: 0.04em;
+  --reader-measure: 40em;
+}
+
+.reader-shell[data-reader-leading="compact"] {
+  --reader-line-height: 2.1;
+  --reader-letter-spacing: 0.02em;
+}
+.reader-shell[data-reader-leading="normal"] {
+  --reader-line-height: 2.35;
+  --reader-letter-spacing: 0.03em;
+}
+.reader-shell[data-reader-leading="relaxed"] {
+  --reader-line-height: 2.45;
+  --reader-letter-spacing: 0.04em;
+}
+.reader-shell[data-reader-leading="loose"] {
+  --reader-line-height: 2.75;
+  --reader-letter-spacing: 0.05em;
+}
+
+.reader-shell[data-reader-layout="scroll"] .reader-body {
+  max-width: min(var(--reader-measure), 100%);
+  margin-inline: auto;
+}
+
+.reader-shell[data-reader-layout="columns"] .reader-body {
+  max-width: none;
+  margin-inline: 0;
+}
+
+.reader-shell .reader-body.prose-cn p,
+.reader-shell .reader-body.prose-cn li {
+  font-weight: var(--type-body-weight);
+  color: var(--reader-ink);
+  line-height: var(--reader-line-height);
+  letter-spacing: var(--reader-letter-spacing);
+  text-align: justify;
+  text-justify: inter-character;
+  hanging-punctuation: allow-end;
+}
+
+.reader-shell .reader-body.prose-cn > p:not(.reader-zhipi-hint) {
+  margin-bottom: 0.85em;
+}
+
+.reader-shell .reader-body.prose-cn > p:not(.reader-zhipi-hint):last-child {
+  margin-bottom: 0;
+}
+
+.reader-shell[data-reader-segments="clause"] .reader-body.prose-cn > p:not(.reader-zhipi-hint) {
+  margin-bottom: 0;
+}
+
+.reader-shell[data-reader-segments="clause"] .reader-body.prose-cn > p:not(.reader-zhipi-hint) .reader-seg {
+  display: block;
+  margin-bottom: 0.55em;
+  text-indent: 2em;
+}
+
+.reader-shell[data-reader-segments="clause"] .reader-body.prose-cn > p:not(.reader-zhipi-hint) .reader-seg:first-child {
+  text-indent: 2em;
+}
+
+.reader-shell .reader-body.prose-cn blockquote p {
+  text-align: start;
+  text-justify: auto;
 }
 
 .reader-shell[data-reader-font-size="sm"] {
-  --reader-font-scale: 0.92;
+  --reader-font-scale: 0.94;
 }
 .reader-shell[data-reader-font-size="md"] {
   --reader-font-scale: 1;
 }
 .reader-shell[data-reader-font-size="lg"] {
-  --reader-font-scale: 1.12;
+  --reader-font-scale: 1.1;
 }
 .reader-shell[data-reader-font-size="xl"] {
-  --reader-font-scale: 1.26;
+  --reader-font-scale: 1.22;
 }
 
-.reader-shell .reader-body .prose-cn p,
-.reader-shell .reader-body .prose-cn blockquote {
+.reader-shell .reader-body.prose-cn blockquote {
   font-size: inherit;
+}
+
+/* 阅读器页：版心外 UI 与 text-sm/xs 统一放大 */
+.page-below-nav--reader :where(.text-sm) {
+  font-size: var(--type-sm);
+  line-height: 1.7;
+  font-weight: var(--type-body-weight);
+}
+
+.page-below-nav--reader :where(.text-xs) {
+  font-size: var(--type-xs);
+  line-height: 1.6;
+  font-weight: var(--type-body-weight);
 }
 
 /* ============ 阅读器：配色 / 版式 ============ */
@@ -933,6 +1031,14 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
 /* 版本切换与阅读框同宽对齐 */
 .page-below-nav--reader .edition-tabs {
   margin-inline: 0;
+  font-size: var(--type-sm);
+}
+
+.page-below-nav--reader .edition-tab-meta {
+  font-size: var(--type-xs);
+  font-weight: var(--type-body-weight);
+  opacity: 1;
+  color: color-mix(in srgb, var(--ink) 58%, var(--ink-soft));
 }
 
 .reader-main {
@@ -977,11 +1083,8 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
   margin-inline: 0;
 }
 
-.reader-shell .reader-body,
 .reader-shell .reader-content {
-  max-width: none;
   width: 100%;
-  margin-inline: 0;
 }
 
 .reader-shell[data-reader-theme="light"] {
@@ -1048,21 +1151,29 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
 }
 .reader-header .brand {
   color: var(--reader-primary);
+  font-size: var(--reader-ui-sm);
+  font-weight: var(--type-label-weight);
 }
 .reader-header h1 {
   color: var(--reader-ink);
 }
 .reader-header p {
-  color: var(--reader-ink-soft);
+  color: color-mix(in srgb, var(--reader-ink) 78%, var(--reader-ink-soft));
+  font-size: var(--reader-ui-sm);
+  font-weight: var(--type-body-weight);
+  line-height: 1.75;
 }
 
 .reader-chapter-links {
   background: color-mix(in srgb, var(--reader-primary) 6%, var(--reader-bg));
   border: 1px solid color-mix(in srgb, var(--reader-line) 85%, transparent);
-  color: var(--reader-ink-soft);
+  color: color-mix(in srgb, var(--reader-ink) 72%, var(--reader-ink-soft));
+  font-size: var(--reader-ui-sm);
 }
 .reader-chapter-links-title {
   color: var(--reader-ink);
+  font-size: var(--reader-ui-sm);
+  font-weight: var(--type-label-weight);
 }
 .reader-header .reader-chapter-links-title {
   color: var(--reader-ink);
@@ -1080,12 +1191,11 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
 }
 .reader-chapter-links-label {
   flex: 0 0 auto;
-  min-width: 2.25rem;
-  font-size: 0.72rem;
-  font-weight: 600;
+  min-width: 2.5rem;
+  font-size: var(--reader-ui-xs);
+  font-weight: var(--type-label-weight);
   letter-spacing: 0.04em;
-  color: var(--reader-ink-soft);
-  opacity: 0.85;
+  color: color-mix(in srgb, var(--reader-ink) 65%, var(--reader-ink-soft));
 }
 .reader-chapter-links-tags {
   display: flex;
@@ -1097,10 +1207,10 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
-  padding: 0.18rem 0.62rem;
-  font-size: 0.82rem;
-  font-weight: 500;
-  line-height: 1.35;
+  padding: 0.22rem 0.72rem;
+  font-size: var(--reader-ui-xs);
+  font-weight: var(--type-label-weight);
+  line-height: 1.4;
   text-decoration: none;
   color: var(--reader-primary);
   background: color-mix(in srgb, var(--reader-primary) 10%, var(--reader-bg));
@@ -1121,16 +1231,19 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
-  padding: 0.18rem 0.62rem;
-  font-size: 0.82rem;
-  line-height: 1.35;
-  color: var(--reader-ink-soft);
+  padding: 0.22rem 0.72rem;
+  font-size: var(--reader-ui-xs);
+  font-weight: var(--type-body-weight);
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--reader-ink) 70%, var(--reader-ink-soft));
   background: color-mix(in srgb, var(--reader-ink-soft) 8%, var(--reader-bg));
   border: 1px dashed color-mix(in srgb, var(--reader-line) 90%, transparent);
 }
 
 .reader-topbar {
-  color: var(--reader-ink-soft);
+  color: color-mix(in srgb, var(--reader-ink) 72%, var(--reader-ink-soft));
+  font-size: var(--reader-ui-sm);
+  font-weight: var(--type-body-weight);
 }
 .reader-topbar a {
   color: var(--reader-primary);
@@ -1153,12 +1266,14 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
 }
 .reader-toc-picker-label {
   flex-shrink: 0;
-  font-size: 0.82rem;
-  color: var(--reader-ink-soft);
+  font-size: var(--reader-ui-xs);
+  font-weight: var(--type-label-weight);
+  color: color-mix(in srgb, var(--reader-ink) 68%, var(--reader-ink-soft));
 }
 .reader-toc-select {
   font-family: var(--font-serif);
-  font-size: 0.82rem;
+  font-size: var(--reader-ui-xs);
+  font-weight: var(--type-body-weight);
   max-width: min(28rem, 72vw);
   padding: 0.28rem 1.75rem 0.28rem 0.55rem;
   border-radius: 6px;
@@ -1196,30 +1311,33 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.65rem 1rem;
-  padding: 0.55rem 0.85rem;
+  padding: 0.65rem 0.95rem;
   margin-bottom: 1rem;
   background: var(--reader-bg) !important;
   border-color: var(--reader-line) !important;
+  font-size: var(--reader-ui-sm);
 }
 .reader-toolbar-group {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
 }
 .reader-toolbar-label {
-  font-size: 0.72rem;
-  margin-right: 0.15rem;
-  color: var(--reader-ink-soft);
+  font-size: var(--reader-ui-xs);
+  font-weight: var(--type-label-weight);
+  margin-right: 0.2rem;
+  color: color-mix(in srgb, var(--reader-ink) 65%, var(--reader-ink-soft));
 }
 .reader-toolbar-divider {
   width: 1px;
-  height: 1.25rem;
+  height: 1.35rem;
   background: var(--reader-line);
 }
 .reader-toggle {
   font-family: var(--font-serif);
-  font-size: 0.82rem;
-  padding: 0.28rem 0.65rem;
+  font-size: var(--reader-ui-xs);
+  font-weight: var(--type-body-weight);
+  padding: 0.32rem 0.75rem;
   border-radius: 6px;
   border: 1px solid color-mix(in srgb, var(--reader-line) 80%, transparent);
   background: color-mix(in srgb, var(--reader-bg) 70%, transparent);
@@ -1246,13 +1364,15 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
 .reader-nav {
   background: var(--reader-bg) !important;
   border-color: var(--reader-line) !important;
+  font-size: var(--reader-ui-sm);
 }
 .reader-nav-meta {
-  color: var(--reader-ink-soft);
+  color: color-mix(in srgb, var(--reader-ink) 72%, var(--reader-ink-soft));
+  font-weight: var(--type-label-weight);
 }
 .reader-nav-muted {
-  color: var(--reader-ink-soft);
-  opacity: 0.55;
+  color: color-mix(in srgb, var(--reader-ink) 58%, var(--reader-ink-soft));
+  font-weight: var(--type-body-weight);
 }
 
 .reader-shell .chip,
@@ -1264,55 +1384,62 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
 
 /* 脂砚斋批语 */
 .reader-zhipi-hint {
-  color: var(--reader-ink-soft);
+  color: color-mix(in srgb, var(--reader-ink) 68%, var(--reader-ink-soft));
+  font-size: var(--reader-ui-sm);
+  font-weight: var(--type-body-weight);
+  line-height: 1.7;
   margin-bottom: 1.25rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px dashed color-mix(in srgb, var(--reader-line) 70%, transparent);
 }
 .reader-edition-notice {
   color: var(--reader-accent);
+  font-size: var(--reader-ui-sm);
+  font-weight: var(--type-body-weight);
   background: color-mix(in srgb, var(--reader-accent) 10%, var(--reader-bg));
   border: 1px solid color-mix(in srgb, var(--reader-accent) 25%, var(--reader-line));
   border-radius: 8px;
-  padding: 0.65rem 0.85rem;
+  padding: 0.75rem 0.95rem;
 }
 .reader-shell .zhipi {
   display: inline;
-  font-size: 0.88em;
-  color: color-mix(in srgb, var(--reader-accent) 85%, var(--reader-ink-soft));
-  background: color-mix(in srgb, var(--reader-accent) 12%, transparent);
+  font-size: calc(1em * var(--reader-annotation-scale));
+  font-weight: var(--type-body-weight);
+  color: color-mix(in srgb, var(--reader-accent) 72%, var(--reader-ink));
+  background: color-mix(in srgb, var(--reader-accent) 14%, transparent);
   border-radius: 3px;
-  padding: 0.05em 0.2em;
-  margin: 0 0.05em;
-  line-height: 1.65;
+  padding: 0.08em 0.28em;
+  margin: 0 0.06em;
+  line-height: 1.7;
 }
 .reader-shell .zhipi-inline {
   font-size: inherit;
-  padding: 0.1em 0.35em;
+  padding: 0.12em 0.38em;
 }
 .reader-shell[data-reader-theme="dark"] .zhipi {
-  color: #9ec4d4;
-  background: color-mix(in srgb, #9ec4d4 14%, transparent);
+  color: color-mix(in srgb, #9ec4d4 88%, #eaeaea);
+  background: color-mix(in srgb, #9ec4d4 18%, transparent);
 }
 
 /* 张竹坡 / 绣像批语（复用脂批样式，略偏墨绿） */
 .reader-shell .zhupi {
   display: inline;
-  font-size: 0.88em;
-  color: color-mix(in srgb, var(--reader-accent) 80%, #3d5c45);
-  background: color-mix(in srgb, var(--reader-accent) 10%, transparent);
+  font-size: calc(1em * var(--reader-annotation-scale));
+  font-weight: var(--type-body-weight);
+  color: color-mix(in srgb, var(--reader-accent) 68%, var(--reader-ink));
+  background: color-mix(in srgb, var(--reader-accent) 12%, transparent);
   border-radius: 3px;
-  padding: 0.05em 0.2em;
-  margin: 0 0.05em;
-  line-height: 1.65;
+  padding: 0.08em 0.28em;
+  margin: 0 0.06em;
+  line-height: 1.7;
 }
 .reader-shell .zhupi-inline {
   font-size: inherit;
-  padding: 0.1em 0.35em;
+  padding: 0.12em 0.38em;
 }
 .reader-shell[data-reader-theme="dark"] .zhupi {
-  color: #8fb89a;
-  background: color-mix(in srgb, #8fb89a 14%, transparent);
+  color: color-mix(in srgb, #8fb89a 88%, #eaeaea);
+  background: color-mix(in srgb, #8fb89a 18%, transparent);
 }
 
 /* 外层版本切换（目录 / 阅读入口） */
@@ -1399,17 +1526,19 @@ a.edition-tab:hover {
 
 .edition-compare-head {
   flex-shrink: 0;
-  padding: 0.65rem 1rem;
+  padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--line);
   background: color-mix(in srgb, var(--primary) 5%, var(--paper));
-  font-size: 0.875rem;
+  font-size: var(--type-sm);
+  font-weight: var(--type-label-weight);
 }
 
 .edition-compare-body {
   flex: 1;
   overflow-y: auto;
   padding: 1rem 1.1rem 1.25rem;
-  font-size: 0.92rem;
+  font-size: var(--type-base);
+  font-weight: var(--type-body-weight);
   line-height: 1.85;
 }
 
@@ -1580,5 +1709,148 @@ a.edition-tab:hover {
 .graph-shell .graph-detail-panel h3 {
   font-size: var(--type-lead);
   font-weight: 700;
+}
+
+/* ============ 各书模块页（考证 / 诠索 / 白银 / 对勘 / 诗词等） ============ */
+.scoped-pred {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--seal) 12%, transparent);
+  color: var(--seal);
+  border: 1px dashed color-mix(in srgb, var(--seal) 45%, transparent);
+  font-size: var(--type-xs);
+  font-weight: var(--type-label-weight);
+  line-height: 1.4;
+}
+
+.scoped-table th,
+.scoped-table td,
+.content-page .reading-table th,
+.content-page .reading-table td {
+  text-align: left;
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink-soft) 18%, transparent);
+  vertical-align: top;
+  font-size: var(--type-sm);
+  font-weight: var(--type-body-weight);
+}
+
+.scoped-table th,
+.content-page .reading-table th {
+  font-size: var(--type-xs);
+  font-weight: var(--type-label-weight);
+  color: color-mix(in srgb, var(--ink) 65%, var(--ink-soft));
+}
+
+.hypothesis-card {
+  border-color: color-mix(in srgb, var(--gold) 40%, transparent);
+}
+
+.seal.stance {
+  letter-spacing: 0;
+  font-size: var(--type-xs);
+  font-weight: var(--type-label-weight);
+}
+
+.stance-main {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+}
+
+.stance-doubt {
+  background: transparent;
+  color: color-mix(in srgb, var(--ink) 58%, var(--ink-soft));
+  border: 1px solid color-mix(in srgb, var(--ink-soft) 45%, transparent);
+}
+
+.stance-minor {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+.stance-dropped {
+  background: transparent;
+  color: var(--seal);
+  border: 1px solid color-mix(in srgb, var(--seal) 45%, transparent);
+  text-decoration: line-through;
+}
+
+/* React 数据面板（白银 / SNA / 财路 / 意象图） */
+.kb-dashboard {
+  font-size: var(--type-base);
+  font-weight: var(--type-body-weight);
+  line-height: 1.7;
+}
+
+.kb-dashboard :where(.text-sm) {
+  font-size: var(--type-sm);
+  line-height: 1.7;
+}
+
+.kb-dashboard :where(.text-xs) {
+  font-size: var(--type-xs);
+  line-height: 1.6;
+}
+
+.kb-dashboard :where(table th, table td) {
+  font-size: var(--type-sm);
+  padding: 0.55rem 0.75rem;
+}
+
+.kb-dashboard :where(table th) {
+  font-size: var(--type-xs);
+  font-weight: var(--type-label-weight);
+  color: color-mix(in srgb, var(--ink) 65%, var(--ink-soft));
+}
+
+.financial-track h3 {
+  font-size: var(--type-lead);
+  font-weight: 700;
+}
+
+.financial-track .surface {
+  font-size: var(--type-sm);
+}
+
+/* Pagefind 检索 UI */
+.pagefind-ui {
+  font-size: var(--type-base);
+  font-weight: var(--type-body-weight);
+}
+
+.pagefind-ui :where(input, button, select) {
+  font-size: var(--type-sm);
+  font-weight: var(--type-body-weight);
+}
+
+.pagefind-ui :where(.pagefind-ui__result-title, .pagefind-ui__result-nested) {
+  font-size: var(--type-lead);
+  font-weight: var(--type-label-weight);
+}
+
+.pagefind-ui :where(.pagefind-ui__result-excerpt, .pagefind-ui__message) {
+  font-size: var(--type-sm);
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--ink) 72%, var(--ink-soft));
+}
+
+/* 暗色地图壳（清河县 / 取经路线）提高次要文字对比度 */
+.graph-shell .text-slate-400 {
+  color: #cbd5e1;
+}
+
+.graph-shell .text-slate-500 {
+  color: #b6c2d3;
+}
+
+.graph-shell .text-slate-300 {
+  color: #e2e8f0;
+}
+
+.graph-shell .text-slate-600\/70 {
+  color: rgb(148 163 184 / 0.88);
 }
 

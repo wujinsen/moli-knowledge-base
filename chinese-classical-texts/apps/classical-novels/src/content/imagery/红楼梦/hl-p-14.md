@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: poem
 title: 柳絮词
+layer: 人间
 text: "粉堕百花洲，香残燕子楼。……（诸钗各咏柳絮）"
 chapters:
   - 70

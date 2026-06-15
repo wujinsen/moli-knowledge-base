@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: poem
 title: 姽婳词
+layer: 人间
 text: "恒王好武兼好色，遂教美女习骑射……"
 chapters:
   - 78

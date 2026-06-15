@@ -1,5 +1,8 @@
 /** 诗词意象 / 互文网络（纯函数，不含 astro:content） */
 
+export type ImageryPhase = '欲起' | '聚敛' | '极盛' | '反噬' | '散尽';
+export type ImageryTemperature = '冷' | '热';
+
 export interface ImageryLink {
   target: string;
   target_kind: 'character' | 'imagery';
@@ -7,13 +10,18 @@ export interface ImageryLink {
   inference: boolean;
   chapter?: number;
   note?: string;
+  phase?: ImageryPhase;
+  temperature?: ImageryTemperature;
 }
+
+export type ImageryLayer = '太虚' | '人间';
 
 export interface ImageryData {
   id: string;
   subtype: string;
   title: string;
   text?: string;
+  layer?: ImageryLayer;
   chapters: number[];
   characters: string[];
   links: ImageryLink[];
@@ -22,12 +30,29 @@ export interface ImageryData {
 
 export type ImageryEntry = { data: ImageryData };
 
+export type ImageryNodeKind =
+  | 'character'
+  | 'judgment'
+  | 'poem'
+  | 'symbol'
+  | 'flower_lot'
+  | 'myth'
+  | 'name_omen'
+  | 'object_omen'
+  | 'tune_omen';
+
 export interface ImageryGraphNode {
   id: string;
   label: string;
-  kind: 'character' | 'judgment' | 'poem' | 'symbol' | 'flower_lot';
+  kind: ImageryNodeKind;
   size: number;
+  layer?: ImageryLayer;
 }
+
+/** 跨层映射边（太虚↔人间）：投胎历劫 / 还泪 / 投影 / 归空 */
+export const MAPPING_PREDICATES = new Set(['还泪', '历劫', '投影', '归彼大荒']);
+/** 影身边：丫鬟为主子之影（晴雯→黛玉、袭人→宝钗） */
+export const SHADOW_PREDICATES = new Set(['影身']);
 
 export interface ImageryGraphEdge {
   source: string;
@@ -36,6 +61,8 @@ export interface ImageryGraphEdge {
   inference: boolean;
   chapter?: number;
   note?: string;
+  phase?: ImageryPhase;
+  temperature?: ImageryTemperature;
 }
 
 export interface ImageryGraph {
@@ -44,28 +71,47 @@ export interface ImageryGraph {
 }
 
 export const SUBTYPE_LABEL: Record<string, string> = {
+  myth: '神话本源',
   judgment: '判词',
   poem: '诗词',
   symbol: '象征',
   flower_lot: '花签',
+  name_omen: '名字谶',
+  object_omen: '物象谶',
+  tune_omen: '曲牌宝卷',
   character: '人物',
 };
 
-export const HIGHLIGHT_CHAINS: { name: string; path: string[] }[] = [
-  { name: '晴雯—芙蓉—黛玉', path: ['晴雯', 'hl-s-furong', '林黛玉'] },
-  { name: '竹—潇湘—黛玉', path: ['hl-s-zhu', '林黛玉'] },
-  { name: '金玉—钗黛', path: ['hl-s-yu', '贾宝玉', 'hl-s-jin', '薛宝钗'] },
-  { name: '芙蓉诔—改字—黛玉', path: ['hl-p-05', '林黛玉', 'hl-s-furong', '晴雯'] },
-  { name: '迎春—中山狼', path: ['hl-j-07', 'hl-p-19', '孙绍祖', '贾迎春'] },
-  { name: '香菱—判词—咏月', path: ['hl-j-14', '香菱', 'hl-p-21'] },
-];
+/** 示例链路（按书 slug 区分；图谱按 bookSlug 取对应链路） */
+export const HIGHLIGHT_CHAINS: Record<string, { name: string; path: string[] }[]> = {
+  honglou: [
+    { name: '木石前盟：绛珠→黛玉', path: ['hl-myth-jiangzhu', '林黛玉', 'hl-s-zhu'] },
+    { name: '顽石历劫→宝玉', path: ['hl-myth-stone', '贾宝玉', 'hl-s-yu'] },
+    { name: '太虚→判词→黛玉', path: ['hl-myth-taixu', 'hl-j-01', '林黛玉'] },
+    { name: '影身：晴雯→黛玉', path: ['晴雯', 'hl-s-furong', '林黛玉'] },
+    { name: '影身：袭人→宝钗', path: ['袭人', '薛宝钗', 'hl-s-jin'] },
+    { name: '金玉—钗黛', path: ['hl-s-yu', '贾宝玉', 'hl-s-jin', '薛宝钗'] },
+    { name: '迎春—中山狼', path: ['hl-j-07', 'hl-p-19', '孙绍祖', '贾迎春'] },
+  ],
+  jinpingmei: [
+    { name: '总纲：酒色财气→西门庆', path: ['jpm-tune-jiusecaiqi', '西门庆'] },
+    { name: '聚敛：瓶→瓶儿→西门府', path: ['jpm-name-pinger', '李瓶儿', '西门庆'] },
+    { name: '转折：雪狮子→瓶儿崩塌', path: ['jpm-obj-xueshizi', '李瓶儿', '西门庆'] },
+    { name: '反噬：胡僧药→西门庆暴亡', path: ['jpm-obj-husengyao', '西门庆'] },
+    { name: '散尽：陈经济败家', path: ['jpm-name-chenjingji', '陈经济', '西门庆'] },
+  ],
+};
 
 const NODE_SIZE: Record<string, number> = {
   character: 28,
+  myth: 30,
   judgment: 22,
   poem: 20,
   symbol: 24,
   flower_lot: 20,
+  name_omen: 24,
+  object_omen: 24,
+  tune_omen: 22,
 };
 
 function nodeKind(subtype: string | 'character'): ImageryGraphNode['kind'] {
@@ -86,17 +132,25 @@ export function buildImageryGraph(
   const edges: ImageryGraphEdge[] = [...extraLinks];
   const edgeKeys = new Set(extraLinks.map((e) => `${e.source}|${e.predicate}|${e.target}`));
 
-  const addNode = (id: string, label: string, kind: ImageryGraphNode['kind']) => {
-    if (!nodeMap.has(id)) {
-      nodeMap.set(id, { id, label, kind, size: NODE_SIZE[kind] ?? 20 });
+  const addNode = (
+    id: string,
+    label: string,
+    kind: ImageryGraphNode['kind'],
+    layer?: ImageryLayer,
+  ) => {
+    const existing = nodeMap.get(id);
+    if (!existing) {
+      nodeMap.set(id, { id, label, kind, size: NODE_SIZE[kind] ?? 20, layer });
+    } else if (layer && !existing.layer) {
+      existing.layer = layer;
     }
   };
 
   for (const item of items) {
     const d = item.data;
-    addNode(d.id, d.title, nodeKind(d.subtype));
+    addNode(d.id, d.title, nodeKind(d.subtype), d.layer);
     for (const c of d.characters) {
-      addNode(c, c, 'character');
+      addNode(c, c, 'character', d.layer === '太虚' ? undefined : '人间');
     }
     for (const link of d.links) {
       const tid = resolveTargetId(link.target, link.target_kind);
@@ -109,6 +163,8 @@ export function buildImageryGraph(
         inference: link.inference,
         chapter: link.chapter,
         note: link.note,
+        phase: link.phase,
+        temperature: link.temperature,
       };
       const key = `${edge.source}|${edge.predicate}|${edge.target}`;
       if (!edgeKeys.has(key)) {
@@ -133,7 +189,10 @@ export function buildImageryGraph(
 }
 
 export function sortImagery(items: ImageryEntry[]): ImageryEntry[] {
-  const order = ['judgment', 'poem', 'symbol', 'flower_lot'];
+  const order = [
+    'myth', 'judgment', 'poem', 'symbol', 'flower_lot',
+    'tune_omen', 'name_omen', 'object_omen',
+  ];
   return [...items].sort((a, b) => {
     const ia = order.indexOf(a.data.subtype);
     const ib = order.indexOf(b.data.subtype);

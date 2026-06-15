@@ -217,7 +217,7 @@ export default function TownMap({ data, bookSlug }: Props) {
             {ZONE_LABELS[z]}
           </span>
         ))}
-        <span className="text-[10px] text-slate-500">虚线 = 隶属 · 实线 = 邻近</span>
+        <span className="text-xs text-slate-500">虚线 = 隶属 · 实线 = 邻近</span>
       </div>
 
       {selectedNode && (
@@ -236,7 +236,7 @@ export default function TownMap({ data, bookSlug }: Props) {
 
           {selectedNode.events.length > 0 && (
             <div className="mb-3">
-              <div className="mb-1 text-[10px] uppercase tracking-wide text-slate-500">链上事件</div>
+              <div className="mb-1 text-xs uppercase tracking-wide text-slate-500">链上事件</div>
               <div className="flex flex-wrap gap-1">
                 {selectedNode.events.map((ev) => (
                   <a
@@ -254,7 +254,7 @@ export default function TownMap({ data, bookSlug }: Props) {
 
           {selectedNode.items.length > 0 && (
             <div className="mb-3">
-              <div className="mb-1 text-[10px] uppercase tracking-wide text-slate-500">相关名物</div>
+              <div className="mb-1 text-xs uppercase tracking-wide text-slate-500">相关名物</div>
               <div className="flex flex-wrap gap-1">
                 {selectedNode.items.map((item) => (
                   <span

@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: judgment
 title: 晴雯判词
+layer: 太虚
 text: "霁月难逢，彩云易散。心比天高，身为下贱。风流灵巧招人怨，寿夭多因毁谤生。"
 chapters:
   - 5

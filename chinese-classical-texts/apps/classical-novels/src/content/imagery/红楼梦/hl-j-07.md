@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: judgment
 title: 贾迎春判词
+layer: 太虚
 text: "子系中山狼，得志便猖狂。金闺花柳质，一载赴黄粱。"
 chapters:
   - 5

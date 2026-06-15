@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: poem
 title: 香菱咏月
+layer: 人间
 text: "精华欲掩料应难，影自娟娟魄自寒。一片砧敲千里白，半轮鸡唱五更残。绿蓑江上秋闻笛，红袖楼头夜倚栏。博得嫦娥应借问，缘何不使永团圆！"
 chapters:
   - 49

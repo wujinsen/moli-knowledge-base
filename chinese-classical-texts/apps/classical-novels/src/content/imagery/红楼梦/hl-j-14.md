@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: judgment
 title: 香菱判词
+layer: 太虚
 text: "根并荷花一体香，平生遭际实堪伤。自从两地生孤木，致使香魂返故乡。"
 chapters:
   - 5

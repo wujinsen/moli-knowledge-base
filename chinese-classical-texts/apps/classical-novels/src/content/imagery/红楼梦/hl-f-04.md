@@ -4,6 +4,7 @@ type: imagery
 book: 红楼梦
 subtype: flower_lot
 title: 杏花花签
+layer: 人间
 text: "日边红杏倚云栽"
 chapters:
   - 63

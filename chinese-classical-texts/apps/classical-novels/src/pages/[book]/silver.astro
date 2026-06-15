@@ -51,6 +51,7 @@ const eventTxMap = Object.fromEntries(finEvents.map((e) => [e.data.id, e.data.tr
 <Base title={`${meta.book} · 白银流`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
   <BackLink href={`/${meta.slug}`} label={meta.book} />
 
+  <div class="content-page">
   <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
     <div class="flex items-start gap-4">
       <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">银</span>
@@ -86,7 +87,7 @@ const eventTxMap = Object.fromEntries(finEvents.map((e) => [e.data.id, e.data.tr
     ) : (
       <>
         <h2 class="section-title mb-4 text-lg">白银流向</h2>
-        <div class="surface mb-10 p-4 sm:p-6">
+        <div class="kb-dashboard surface mb-10 p-4 sm:p-6">
           <SilverDashboard data={silverData} bookSlug={meta.slug} txRows={txRows} eventTxMap={eventTxMap} client:only="react" />
         </div>
 
@@ -94,7 +95,7 @@ const eventTxMap = Object.fromEntries(finEvents.map((e) => [e.data.id, e.data.tr
         <div class="mb-6 overflow-x-auto">
           <table class="w-full min-w-[640px] border-collapse text-sm">
             <thead>
-              <tr style="border-bottom: 1.5px solid var(--line); color: var(--ink-soft)">
+              <tr class="text-muted" style="border-bottom: 1.5px solid var(--line)">
                 <th class="px-3 py-2 text-left font-normal">回</th>
                 <th class="px-3 py-2 text-left font-normal">类型</th>
                 <th class="px-3 py-2 text-left font-normal">金额</th>
@@ -184,6 +185,7 @@ const eventTxMap = Object.fromEntries(finEvents.map((e) => [e.data.id, e.data.tr
       </>
     )
   }
+  </div>
 </Base>
 
 <script>

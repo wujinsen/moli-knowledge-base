@@ -56,7 +56,7 @@ const data = snaBySlug[meta.slug] ?? { book: meta.book, metrics: [], hubs: [] };
         </code>
       </div>
     ) : (
-      <div class="surface mb-10 p-4 sm:p-6">
+      <div class="kb-dashboard surface mb-10 p-4 sm:p-6">
         <SnaDashboard data={data} bookSlug={meta.slug} client:only="react" />
       </div>
     )
