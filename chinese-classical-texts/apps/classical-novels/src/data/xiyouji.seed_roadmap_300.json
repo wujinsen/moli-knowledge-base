@@ -1,0 +1,19 @@
+{
+  "target_pages": 300,
+  "current_pages": 250,
+  "remaining": 50,
+  "batches_planned": 10,
+  "notes": "每批约5人；已有页跳过，第47批按 lint 动态补缺",
+  "batches": [
+    { "batch": 38, "target": 255, "names": ["高士廉", "殷开山", "张道源", "张士衡", "虞世南"], "theme": "贞观举哀班臣收官" },
+    { "batch": 39, "target": 260, "names": ["阿傩", "迦叶", "普贤菩萨", "乌巢禅师", "惠岸行者"], "theme": "灵山侍者·乌巢授经" },
+    { "batch": 40, "target": 265, "names": ["云里雾", "雾里云", "急如火", "快如风", "东华帝君"], "theme": "火云洞六健将·东华" },
+    { "batch": 41, "target": 270, "names": ["土地", "山神", "功曹", "揭谛", "罗汉"], "theme": "护行神祇（群体具名）" },
+    { "batch": 42, "target": 275, "names": ["黄门官", "驿丞", "太宰", "总兵官", "金平府刺史"], "theme": "人间职官背景板" },
+    { "batch": 43, "target": 280, "names": ["乌鸡国太子", "比丘国国丈", "慈云寺院主", "金光寺方丈", "赛太岁先锋"], "theme": "列国/寺院支线" },
+    { "batch": 44, "target": 285, "names": ["待lint", "待lint", "待lint", "待lint", "待lint"], "theme": "按缺页清单填" },
+    { "batch": 45, "target": 290, "names": ["待lint", "待lint", "待lint", "待lint", "待lint"], "theme": "按缺页清单填" },
+    { "batch": 46, "target": 295, "names": ["待lint", "待lint", "待lint", "待lint", "待lint"], "theme": "按缺页清单填" },
+    { "batch": 47, "target": 300, "names": ["待lint", "待lint", "待lint", "待lint", "待lint"], "theme": "冲线批" }
+  ]
+}

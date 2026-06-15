@@ -536,6 +536,12 @@
       "weight": 26
     },
     {
+      "id": "张士衡",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 22
+    },
+    {
       "id": "张太尉",
       "type": "character",
       "faction": "灌江口",
@@ -551,6 +557,12 @@
       "id": "张稍",
       "type": "character",
       "faction": "长安",
+      "weight": 22
+    },
+    {
+      "id": "张道源",
+      "type": "character",
+      "faction": "大唐",
       "weight": 22
     },
     {
@@ -723,6 +735,12 @@
     },
     {
       "id": "段志玄",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 24
+    },
+    {
+      "id": "殷开山",
       "type": "character",
       "faction": "大唐",
       "weight": 24
@@ -1142,6 +1160,12 @@
       "weight": 38
     },
     {
+      "id": "虞世南",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 22
+    },
+    {
       "id": "蜘蛛精",
       "type": "monster",
       "faction": "妖魔",
@@ -1416,6 +1440,12 @@
       "type": "character",
       "faction": "天庭",
       "weight": 38
+    },
+    {
+      "id": "高士廉",
+      "type": "character",
+      "faction": "大唐",
+      "weight": 22
     },
     {
       "id": "高太公",
@@ -2284,6 +2314,18 @@
       "contradiction": false
     },
     {
+      "source": "傅奕",
+      "target": "张道源",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "傅奕",
+      "target": "张士衡",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "六丁六甲",
       "target": "观音菩萨",
       "type": "主仆",
@@ -2598,6 +2640,12 @@
     {
       "source": "刘洪基",
       "target": "秦叔宝",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "刘洪基",
+      "target": "殷开山",
       "type": "同僚",
       "contradiction": false
     },
@@ -3354,6 +3402,36 @@
     {
       "source": "唐太宗",
       "target": "李淳风",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "高士廉",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "殷开山",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "张道源",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "张士衡",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "虞世南",
       "type": "君臣",
       "contradiction": false
     },
@@ -5512,6 +5590,24 @@
       "contradiction": false
     },
     {
+      "source": "张士衡",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "张士衡",
+      "target": "萧瑀",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "张士衡",
+      "target": "张道源",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "张太尉",
       "target": "二郎神",
       "type": "主仆",
@@ -5587,6 +5683,18 @@
       "source": "张稍",
       "target": "袁守诚",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "张道源",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "张道源",
+      "target": "萧瑀",
+      "type": "同僚",
       "contradiction": false
     },
     {
@@ -5952,6 +6060,30 @@
     {
       "source": "房玄龄",
       "target": "王珪",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "房玄龄",
+      "target": "张道源",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "房玄龄",
+      "target": "张士衡",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "房玄龄",
+      "target": "高士廉",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "房玄龄",
+      "target": "虞世南",
       "type": "同僚",
       "contradiction": false
     },
@@ -6582,6 +6714,24 @@
     {
       "source": "段志玄",
       "target": "程咬金",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "殷开山",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "殷开山",
+      "target": "秦叔宝",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "殷开山",
+      "target": "薛仁贵",
       "type": "同僚",
       "contradiction": false
     },
@@ -8434,6 +8584,18 @@
       "contradiction": false
     },
     {
+      "source": "虞世南",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "虞世南",
+      "target": "高士廉",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "蜘蛛精",
       "target": "孙悟空",
       "type": "敌对",
@@ -9163,6 +9325,18 @@
       "source": "马元帅",
       "target": "玉皇大帝",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "高士廉",
+      "target": "唐太宗",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "高士廉",
+      "target": "萧瑀",
+      "type": "同僚",
       "contradiction": false
     },
     {
