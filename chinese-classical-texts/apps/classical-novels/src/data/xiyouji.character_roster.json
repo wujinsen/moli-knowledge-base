@@ -1,72 +1,54 @@
 {
   "book": "西游记",
   "generated": "2026-06-15",
-  "paged_count": 190,
-  "pending_count": 5,
+  "paged_count": 195,
+  "pending_count": 4,
   "pending": [
     {
-      "name": "玉华王",
-      "mentions": 3,
+      "name": "寇梁",
+      "mentions": 2,
       "chapters": [
-        88,
-        89,
-        90
+        96,
+        97
       ],
       "appear_in": [
-        "第88回",
-        "第89回",
-        "第90回"
+        "第96回",
+        "第97回"
       ],
       "source": "seed",
-      "note": "天竺宗室玉华州贤王；三子拜师；第88–90回"
+      "note": "寇员外之子；诬告唐僧；第96–97回"
     },
     {
-      "name": "万圣公主",
+      "name": "有来有去",
       "mentions": 1,
       "chapters": [
-        62
+        70
       ],
       "appear_in": [
-        "第62回"
+        "第70回"
       ],
       "source": "seed",
-      "note": "万圣龙王之女；九头虫妻；第62–63回"
+      "note": "小雷音寺小妖；报信黄眉；第65回"
     },
     {
-      "name": "奔波儿灞",
+      "name": "铜台府刺史",
       "mentions": 1,
       "chapters": [
-        62
+        97
       ],
       "appear_in": [
-        "第62回"
+        "第97回"
       ],
       "source": "seed",
-      "note": "碧波潭小妖；祭赛国线；第62–63回"
+      "note": "寇员外线；第96–97回"
     },
     {
-      "name": "灞波儿奔",
-      "mentions": 1,
-      "chapters": [
-        62
-      ],
-      "appear_in": [
-        "第62回"
-      ],
+      "name": "哮天犬",
+      "mentions": 0,
+      "chapters": [],
+      "appear_in": [],
       "source": "seed",
-      "note": "碧波潭小妖；与奔波儿灞对名；第62–63回"
-    },
-    {
-      "name": "狮奴",
-      "mentions": 1,
-      "chapters": [
-        90
-      ],
-      "appear_in": [
-        "第90回"
-      ],
-      "source": "seed",
-      "note": "太乙救苦天尊看狮；失拴九灵；第90回"
+      "note": "二郎神细犬；咬九头虫；第63回"
     }
   ]
 }
