@@ -4,6 +4,7 @@ import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import CharacterCard from '../../components/CharacterCard.astro';
 import { bestiaryStatsFor, resolveBestiarySections } from '../../lib/bestiaryGroups';
+import { buildFullRosterList, loadCharacterRoster } from '../../lib/characterRoster';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -28,6 +29,15 @@ const monsters = useUnifiedGroups ? [] : entries.filter((c) => c.data.type === '
 
 const sections = resolveBestiarySections(slug, groupList);
 const stats = bestiaryStatsFor(slug, entries);
+
+const rosterData = loadCharacterRoster(slug);
+const pendingList = rosterData?.pending ?? [];
+const fullRoster = buildFullRosterList(slug, entries, pendingList);
+const totalMentioned = stats.total + pendingList.length;
+const rosterBreakdown =
+  stats.monsterCount != null
+    ? `${stats.characterCount} 已建页 · ${stats.monsterCount} 妖怪 · ${pendingList.length} 待补建`
+    : `${stats.total} 已建页 · ${pendingList.length} 待补建`;
 
 function cardProps(c: (typeof entries)[number]) {
   return {
@@ -96,6 +106,45 @@ function cardProps(c: (typeof entries)[number]) {
   }
 
   <div class="bestiary-page">
+  <details class="bestiary-roster surface mb-8" open>
+    <summary class="bestiary-roster-summary">
+      <span class="bestiary-roster-title">全部人物名录</span>
+      <span class="bestiary-roster-count">
+        全书提及 {totalMentioned} 位（{rosterBreakdown}）
+      </span>
+      <span class="bestiary-roster-hint">已建页可点击追溯 · 灰色为待补建</span>
+    </summary>
+    <div class="bestiary-roster-list">
+      {fullRoster.map((item) =>
+        item.kind === 'paged' ? (
+          <a
+            href={item.href}
+            class:list={['chip', 'chip-mini', item.entityType === 'monster' && 'chip-monster']}
+            title={item.summary}
+          >
+            {item.name}
+          </a>
+        ) : (
+          <span
+            class="chip chip-mini chip-pending"
+            title={
+              [
+                item.note,
+                item.appear_in.length > 0 ? `提及：${item.appear_in.slice(0, 4).join('、')}${item.appear_in.length > 4 ? '…' : ''}` : '待补建',
+                '待补建',
+              ]
+                .filter(Boolean)
+                .join(' · ')
+            }
+          >
+            {item.name}
+            <span class="chip-pending-tag">待补建</span>
+          </span>
+        )
+      )}
+    </div>
+  </details>
+
   {
     slug === 'jinpingmei' && (
       <div class="text-muted mb-6 flex flex-wrap gap-2 text-xs">

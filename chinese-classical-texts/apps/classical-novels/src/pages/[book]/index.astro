@@ -11,7 +11,6 @@ import {
   readIndexPath,
   ZHIBEN_MAX,
 } from '../../lib/editions';
-import { chapterLabel } from '../../lib/events';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -39,19 +38,6 @@ const first = chapters[0];
 const multiEd = hasMultipleEditions(meta.book);
 const t = THEME_BY_SLUG[meta.slug];
 const modules = modulesFor(meta.slug, meta.features);
-
-let sagaPreview: { title: string; label: string }[] = [];
-let sagaTotal = 0;
-if (meta.features.includes('saga')) {
-  const evs = (await getCollection('events'))
-    .filter((e) => e.data.book === meta.book && e.data.subtype === 'milestone')
-    .sort((a, b) => (a.data.chapters?.[0] ?? 999) - (b.data.chapters?.[0] ?? 999));
-  sagaTotal = evs.length;
-  sagaPreview = evs.slice(0, 3).map((e) => ({
-    title: e.data.title,
-    label: chapterLabel(e.data.chapters ?? []),
-  }));
-}
 ---
 
 <Base title={meta.book} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
@@ -106,9 +92,6 @@ if (meta.features.includes('saga')) {
 
   {/* 探索模块：与顶栏模块卡片同语汇，首页作详细入口 */}
   <h2 class="section-title mb-4 text-lg">探索模块</h2>
-  <p class="mb-4 text-sm text-muted">
-    顶栏可快速切换；下方卡片含各模块简介。
-  </p>
   <div class="mb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
     {
       modules.map((m) => (
@@ -122,27 +105,6 @@ if (meta.features.includes('saga')) {
             <span class="mt-1 block text-sm leading-snug text-muted">
               {m.desc}
             </span>
-            {m.key === 'saga' && sagaPreview.length > 0 && (
-              <span
-                class="mt-2 block space-y-1 pt-2"
-                style="border-top: 1px solid color-mix(in srgb, var(--primary) 12%, transparent)"
-              >
-                {sagaPreview.map((ev, i) => (
-                  <span class="flex items-baseline gap-1.5 text-xs">
-                    <span class="brand shrink-0" style="color: var(--accent)">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <span class="min-w-0 truncate" style="color: var(--ink)">
-                      {ev.title}
-                    </span>
-                    <span class="chip shrink-0">{ev.label}</span>
-                  </span>
-                ))}
-                <span class="block pt-0.5 text-xs" style="color: var(--accent)">
-                  共 {sagaTotal} 节，查看全部 →
-                </span>
-              </span>
-            )}
           </span>
         </a>
       ))

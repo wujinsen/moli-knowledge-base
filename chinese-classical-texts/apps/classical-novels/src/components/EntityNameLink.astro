@@ -1,0 +1,22 @@
+---
+import { resolveEntityHref, type EntityIndex } from '../lib/entityLinks';
+
+interface Props {
+  name: string;
+  index: EntityIndex;
+  slug: string;
+}
+
+const { name, index, slug } = Astro.props;
+const href = resolveEntityHref(index, slug, name);
+---
+
+{
+  href ? (
+    <a class="entity-link hover:underline" href={href}>
+      {name}
+    </a>
+  ) : (
+    name
+  )
+}

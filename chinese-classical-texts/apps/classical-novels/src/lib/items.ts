@@ -23,6 +23,21 @@ export function itemsIndexTitle(book: string): string {
   return book === '西游记' ? '法宝谱系' : '名物百科';
 }
 
+const COLLECTION_BY_KIND = {
+  artifact: 'artifacts',
+  medicine: 'medicines',
+  dish: 'dishes',
+  costume: 'costumes',
+  custom: 'customs',
+} as const;
+
+export async function getItemEntry(kind: ItemKind, id: string): Promise<ItemEntry['entry'] | undefined> {
+  const { getCollection } = await import('astro:content');
+  const collection = COLLECTION_BY_KIND[kind];
+  const rows = await getCollection(collection);
+  return rows.find((r) => r.data.id === id);
+}
+
 export async function loadBookItems(bookName: string): Promise<ItemEntry[]> {
   const { getCollection } = await import('astro:content');
   const [medicines, dishes, costumes, customs, artifacts] = await Promise.all([

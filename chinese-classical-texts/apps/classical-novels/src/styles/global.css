@@ -475,6 +475,89 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
     }
   }
 
+  /* 全人物名录（图鉴顶部总览） */
+  .bestiary-roster {
+    padding: 1rem 1.25rem 1.25rem;
+    border-radius: 0.65rem;
+  }
+  .bestiary-roster-summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 0.85rem;
+    cursor: pointer;
+    list-style: none;
+  }
+  .bestiary-roster-summary::-webkit-details-marker {
+    display: none;
+  }
+  .bestiary-roster-summary::before {
+    content: "▸";
+    color: var(--primary-soft);
+    font-size: 0.85em;
+    transition: transform 0.15s ease;
+  }
+  .bestiary-roster[open] .bestiary-roster-summary::before {
+    transform: rotate(90deg);
+  }
+  .bestiary-roster-title {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .bestiary-roster-count {
+    font-size: var(--type-sm);
+    font-weight: var(--type-label-weight);
+    color: var(--ink);
+  }
+  .bestiary-roster-breakdown {
+    color: var(--ink-soft);
+    font-weight: var(--type-body-weight);
+  }
+  .bestiary-roster-hint {
+    margin-left: auto;
+    font-size: var(--type-xs);
+    color: color-mix(in srgb, var(--ink) 48%, var(--ink-soft));
+  }
+  .bestiary-roster-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 1rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid color-mix(in srgb, var(--line) 85%, transparent);
+  }
+  .bestiary-roster-list .chip {
+    text-decoration: none;
+  }
+  .bestiary-roster-list .chip:hover {
+    border-color: color-mix(in srgb, var(--primary) 45%, transparent);
+    background: color-mix(in srgb, var(--primary) 14%, var(--paper-2));
+  }
+  .chip-monster {
+    background: color-mix(in srgb, var(--seal) 9%, var(--paper-2));
+    color: var(--seal);
+    border-color: color-mix(in srgb, var(--seal) 28%, transparent);
+  }
+  .bestiary-roster-list .chip-monster:hover {
+    border-color: color-mix(in srgb, var(--seal) 48%, transparent);
+    background: color-mix(in srgb, var(--seal) 15%, var(--paper-2));
+  }
+  .chip-pending {
+    cursor: default;
+    background: color-mix(in srgb, var(--ink-soft) 12%, var(--paper-2));
+    color: color-mix(in srgb, var(--ink) 42%, var(--ink-soft));
+    border-color: color-mix(in srgb, var(--ink-soft) 28%, transparent);
+    font-weight: var(--type-body-weight);
+  }
+  .chip-pending-tag {
+    margin-left: 0.35rem;
+    font-size: 0.8125em;
+    font-weight: var(--type-label-weight);
+    color: color-mix(in srgb, var(--ink-soft) 88%, var(--ink));
+    opacity: 0.85;
+  }
+
   .bestiary-section .section-title {
     font-size: 1.25rem;
     margin-bottom: 1rem;
@@ -993,6 +1076,18 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
 
 .entity-detail-prose li:last-child {
   margin-bottom: 0;
+}
+
+.entity-detail-prose a,
+.entity-detail .entity-link {
+  font-weight: var(--type-label-weight);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.entity-detail-prose a:hover,
+.entity-detail .entity-link:hover {
+  text-decoration: underline;
 }
 
 .entity-detail-prose ul ul,

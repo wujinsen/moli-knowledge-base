@@ -1,0 +1,22 @@
+---
+import EntityNameLink from './EntityNameLink.astro';
+import type { EntityIndex } from '../lib/entityLinks';
+
+interface Props {
+  names: string[];
+  index: EntityIndex;
+  slug: string;
+  separator?: string;
+}
+
+const { names, index, slug, separator = '、' } = Astro.props;
+---
+
+{
+  names.map((name, i) => (
+    <>
+      {i > 0 && separator}
+      <EntityNameLink name={name} index={index} slug={slug} />
+    </>
+  ))
+}

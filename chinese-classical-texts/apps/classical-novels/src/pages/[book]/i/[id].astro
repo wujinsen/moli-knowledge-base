@@ -1,14 +1,21 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
 import BackLink from '../../../components/BackLink.astro';
-import { itemsIndexTitle, kindLabel, loadBookItems, type ItemKind } from '../../../lib/items';
+import { itemsIndexTitle, kindLabel, loadBookItems, getItemEntry, type ItemKind } from '../../../lib/items';
 import {
   chaptersFromAppearIn,
   itemLocationId,
   relatedItemsAtSameLocation,
 } from '../../../lib/crosslinks';
+import {
+  buildEntityIndex,
+  isEntityMetaLabel,
+  renderWikiMarkdownBody,
+} from '../../../lib/entityLinks';
+import EntityNameLink from '../../../components/EntityNameLink.astro';
+import EntityNameLinks from '../../../components/EntityNameLinks.astro';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -29,7 +36,9 @@ export async function getStaticPaths() {
 
 const { slug, kind, entry, features } = Astro.props;
 const d = entry.data;
-const { Content } = await render(entry);
+const fullEntry = (await getItemEntry(kind, d.id)) ?? entry;
+const entityIndex = await buildEntityIndex(d.book);
+const proseHtml = await renderWikiMarkdownBody(fullEntry.body ?? '', entityIndex, slug);
 
 const metaRows: [string, string | undefined][] = [];
 if (kind === 'artifact') {
@@ -105,18 +114,35 @@ const counterRefs = artifactData?.counters?.map((id) => allItems.find((i) => i.e
           .filter(([, v]) => v)
           .map(([label, value]) => (
             <div>
-              {label}：{value}
+              {label}：
+              {isEntityMetaLabel(label) && value ? (
+                <EntityNameLink name={value} index={entityIndex} slug={slug} />
+              ) : (
+                value
+              )}
             </div>
           ))
       }
       {
-        d.eaters?.length > 0 && <div>食用：{d.eaters.join('、')}</div>
+        d.eaters?.length > 0 && (
+          <div>
+            食用：<EntityNameLinks names={d.eaters} index={entityIndex} slug={slug} />
+          </div>
+        )
       }
       {
-        d.ingredients?.length > 0 && <div>配料：{d.ingredients.join('、')}</div>
+        d.ingredients?.length > 0 && (
+          <div>
+            配料：<EntityNameLinks names={d.ingredients} index={entityIndex} slug={slug} />
+          </div>
+        )
       }
       {
-        d.participants?.length > 0 && <div>参与者：{d.participants.join('、')}</div>
+        d.participants?.length > 0 && (
+          <div>
+            参与者：<EntityNameLinks names={d.participants} index={entityIndex} slug={slug} />
+          </div>
+        )
       }
       {
         artifactData?.abilities && artifactData.abilities.length > 0 && (
@@ -196,8 +222,6 @@ const counterRefs = artifactData?.counters?.map((id) => allItems.find((i) => i.e
       )
     }
 
-    <article class="entity-detail-prose prose-cn mt-8 max-w-none">
-      <Content />
-    </article>
+    <article class="entity-detail-prose prose-cn mt-8 max-w-none" set:html={proseHtml} />
   </div>
 </Base>
