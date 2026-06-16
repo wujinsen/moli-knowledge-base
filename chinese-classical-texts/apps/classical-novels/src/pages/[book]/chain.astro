@@ -1,5 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import BackLink from '../../components/BackLink.astro';
@@ -14,6 +13,7 @@ import {
   formatLiangAmount,
   sortChainEvents,
 } from '../../lib/events';
+import { loadEvents } from '../../lib/loadEvents';
 import {
   chainEventLinks,
   silverEventHref,
@@ -37,10 +37,8 @@ const meta = book.data;
 const readEdition = meta.slug === 'jinpingmei' ? 'cihua' : '1';
 
 const allEvents = sortChainEvents(
-  (await getCollection('events')).filter(
-    (e) =>
-      e.data.book === meta.book &&
-      (e.data.subtype === 'financial' || e.data.subtype === 'plot'),
+  (await loadEvents(meta.book)).filter(
+    (e) => e.data.subtype === 'financial' || e.data.subtype === 'plot',
   ),
 );
 

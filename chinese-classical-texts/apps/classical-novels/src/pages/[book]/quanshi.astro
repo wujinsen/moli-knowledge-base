@@ -1,9 +1,9 @@
 ---
-import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import BackLink from '../../components/BackLink.astro';
 import { loadTopics, byCategory, groupByLens, topicHref, LENS_GLYPH } from '../../lib/topics';
+import { loadEvents } from '../../lib/loadEvents';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -18,7 +18,7 @@ const topics = byCategory(await loadTopics(meta.book), '诠释');
 const groups = groupByLens(topics);
 
 // 情境边（X4）：从事件 scoped_relations 汇总变身 / 伪装等 ephemeral 关系
-const events = (await getCollection('events')).filter((e) => e.data.book === meta.book);
+const events = await loadEvents(meta.book);
 type Edge = { subject: string; predicate: string; object: string; chapter?: number; ephemeral?: boolean; eventId: string; eventTitle: string };
 const scopedEdges: Edge[] = [];
 for (const e of events) {

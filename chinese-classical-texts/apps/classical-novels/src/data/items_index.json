@@ -1,0 +1,3459 @@
+{
+  "generated_by": "build_content_snapshots.py",
+  "books": {
+    "honglou": {
+      "book": "红楼梦",
+      "slug": "honglou",
+      "count": 85,
+      "entries": [
+        {
+          "id": "玉匣记",
+          "type": "ritual",
+          "name": "《玉匣记》",
+          "book": "红楼梦",
+          "participants": [
+            "刘姥姥",
+            "王熙凤",
+            "彩明",
+            "巧姐"
+          ],
+          "procedure": [
+            "查祟",
+            "送祟"
+          ],
+          "first_appear": "第42回",
+          "appear_in": [
+            "第42回"
+          ],
+          "tags": [
+            "祟书",
+            "巧姐",
+            "刘姥姥",
+            "送祟"
+          ],
+          "summary": "刘姥姥建议查祟，平儿取出《玉匣记》由彩明念方，并配合五色纸钱送祟，巧姐遂安。",
+          "kind": "custom"
+        },
+        {
+          "id": "两宴大观园",
+          "type": "banquet",
+          "name": "两宴大观园",
+          "book": "红楼梦",
+          "category": "家宴",
+          "eaters": [
+            "贾母",
+            "王熙凤",
+            "刘姥姥",
+            "薛宝钗",
+            "林黛玉",
+            "贾宝玉",
+            "史湘云"
+          ],
+          "location": "大观园",
+          "occasion": "史太君携刘姥姥游园",
+          "first_appear": "第40回",
+          "appear_in": [
+            "第40回",
+            "第41回"
+          ],
+          "tags": [
+            "宴席",
+            "刘姥姥",
+            "贾母"
+          ],
+          "summary": "第40–41回贾母携刘姥姥两宴，软烟罗、鸽子蛋、茄鲞、栊翠庵品茶连贯成饮食—阶级双高潮。",
+          "kind": "dish"
+        },
+        {
+          "id": "中秋",
+          "type": "festival",
+          "name": "中秋",
+          "book": "红楼梦",
+          "participants": [
+            "贾母",
+            "贾赦",
+            "贾政",
+            "贾宝玉",
+            "林黛玉",
+            "史湘云",
+            "妙玉"
+          ],
+          "procedure": [
+            "赏月",
+            "联诗",
+            "笛声"
+          ],
+          "location": "凸碧堂",
+          "first_appear": "第76回",
+          "appear_in": [
+            "第76回"
+          ],
+          "tags": [
+            "节令",
+            "中秋",
+            "联诗"
+          ],
+          "summary": "凸碧堂、凹晶馆赏月联诗，笛声凄清，是盛时将尽、诗社余韵的名场面。",
+          "kind": "custom"
+        },
+        {
+          "id": "义学",
+          "type": "institution",
+          "name": "义学",
+          "book": "红楼梦",
+          "participants": [
+            "贾代儒",
+            "贾宝玉",
+            "秦钟",
+            "金荣",
+            "贾瑞"
+          ],
+          "procedure": [
+            "入学拜塾",
+            "课读",
+            "闹学堂"
+          ],
+          "location": "家塾",
+          "legal_norm": "始祖所立，族贫免资",
+          "first_appear": "第9回",
+          "appear_in": [
+            "第9回",
+            "第10回"
+          ],
+          "tags": [
+            "家塾",
+            "代儒",
+            "闹学堂"
+          ],
+          "summary": "贾氏始祖所立义学，贾代儒掌教；第9回宝玉、秦钟入学，金荣闹学堂。",
+          "kind": "custom"
+        },
+        {
+          "id": "九龙佩",
+          "type": "accessory",
+          "name": "九龙佩",
+          "book": "红楼梦",
+          "wearer": "尤二姐",
+          "material": "汉玉",
+          "first_appear": "第64回",
+          "appear_in": [
+            "第64回"
+          ],
+          "tags": [
+            "信物",
+            "贾琏",
+            "尤二姐",
+            "私情"
+          ],
+          "summary": "贾琏暗解汉玉九龙佩拴绢掷与尤二姐，回目「浪荡子情遗九龙佩」；私通定情之物。",
+          "kind": "costume"
+        },
+        {
+          "id": "五色纸钱",
+          "type": "ritual",
+          "name": "五色纸钱",
+          "book": "红楼梦",
+          "participants": [
+            "刘姥姥",
+            "王熙凤",
+            "巧姐",
+            "贾母"
+          ],
+          "procedure": [
+            "向东南方四十步送之"
+          ],
+          "first_appear": "第42回",
+          "appear_in": [
+            "第42回"
+          ],
+          "tags": [
+            "送祟",
+            "巧姐",
+            "刘姥姥"
+          ],
+          "summary": "依《玉匣记》方，用五色纸钱四十张向东南方送祟，第42回巧姐、贾母各一份。",
+          "kind": "custom"
+        },
+        {
+          "id": "人参养荣丸",
+          "type": "prescription",
+          "name": "人参养荣丸",
+          "book": "红楼梦",
+          "category": "丸",
+          "patient": "林黛玉",
+          "syndrome": "肺弱、气血亏",
+          "first_appear": "第45回",
+          "appear_in": [
+            "第45回",
+            "第57回"
+          ],
+          "tags": [
+            "方剂",
+            "黛玉",
+            "调补"
+          ],
+          "summary": "黛玉常年服用的调补丸药，常与燕窝粥并提，象征其弱症与耗神。",
+          "kind": "medicine"
+        },
+        {
+          "id": "伽南珠",
+          "type": "accessory",
+          "name": "伽南珠",
+          "book": "红楼梦",
+          "wearer": "贾母",
+          "material": "香木珠",
+          "first_appear": "第71回",
+          "appear_in": [
+            "第71回"
+          ],
+          "tags": [
+            "首饰",
+            "元春",
+            "贾母八旬宴"
+          ],
+          "summary": "元春遣太监赐贾母伽南珠一串，与沉香拐等同批，见第71回贾母八旬宴。",
+          "kind": "costume"
+        },
+        {
+          "id": "元宵夜宴",
+          "type": "festival",
+          "name": "元宵",
+          "book": "红楼梦",
+          "participants": [
+            "贾母",
+            "王夫人",
+            "邢夫人",
+            "贾政",
+            "宝玉",
+            "众姊妹"
+          ],
+          "procedure": [
+            "挂灯",
+            "戏班",
+            "夜宴",
+            "放烟火"
+          ],
+          "location": "荣国府",
+          "economic": "年例、赏钱、戏班",
+          "first_appear": "第53回",
+          "appear_in": [
+            "第53回"
+          ],
+          "tags": [
+            "节令",
+            "夜宴",
+            "年例"
+          ],
+          "summary": "第53回下「荣国府元宵开夜宴」，挂灯戏班、贾母领众赏灯，与上回祭祖构成年例双景。",
+          "kind": "custom"
+        },
+        {
+          "id": "元春省亲",
+          "type": "ritual",
+          "name": "元春省亲",
+          "book": "红楼梦",
+          "participants": [
+            "贾元春",
+            "贾母",
+            "贾政",
+            "王夫人",
+            "宝玉",
+            "众姊妹"
+          ],
+          "procedure": [
+            "五更候驾",
+            "更衣",
+            "降省",
+            "行礼",
+            "赐宴",
+            "题匾",
+            "命姊妹入园"
+          ],
+          "location": "省亲别墅",
+          "economic": "造园、省亲排场",
+          "legal_norm": "妃省亲礼仪、不得直对",
+          "first_appear": "第18回",
+          "appear_in": [
+            "第18回"
+          ],
+          "tags": [
+            "省亲",
+            "元春",
+            "大观园"
+          ],
+          "summary": "元春晋妃省亲，大观园正用，赐名匾联、命众姊妹入苑，全书空间与命运转折。",
+          "kind": "custom"
+        },
+        {
+          "id": "冷子兴演说",
+          "type": "ritual",
+          "name": "冷子兴演说",
+          "book": "红楼梦",
+          "participants": [
+            "冷子兴",
+            "贾雨村"
+          ],
+          "procedure": [
+            "维扬馆闲谈",
+            "述宁荣谱系",
+            "评宝玉"
+          ],
+          "location": "维扬",
+          "first_appear": "第2回",
+          "appear_in": [
+            "第2回",
+            "第3回"
+          ],
+          "tags": [
+            "演说",
+            "冷眼",
+            "叙事"
+          ],
+          "summary": "第2回冷子兴向雨村详述荣宁两府人物与近况；脂评「三染法」，诗曰须问旁观冷眼人。",
+          "kind": "custom"
+        },
+        {
+          "id": "冷香丸",
+          "type": "prescription",
+          "name": "冷香丸",
+          "book": "红楼梦",
+          "category": "丸",
+          "patient": "薛宝钗",
+          "prescriber": "癞头和尚",
+          "first_appear": "第7回",
+          "appear_in": [
+            "第7回",
+            "第8回"
+          ],
+          "tags": [
+            "方剂",
+            "宝钗",
+            "象征"
+          ],
+          "summary": "癞头和尚为宝钗胎里热毒所开奇方，强调四时花蕊与露水，文学性极强。",
+          "kind": "medicine"
+        },
+        {
+          "id": "剪发誓",
+          "type": "ritual",
+          "name": "剪发誓",
+          "book": "红楼梦",
+          "participants": [
+            "鸳鸯",
+            "贾母",
+            "邢夫人",
+            "贾赦"
+          ],
+          "procedure": [
+            "当众抗婚",
+            "剪发为尼"
+          ],
+          "first_appear": "第71回",
+          "appear_in": [
+            "第71回"
+          ],
+          "tags": [
+            "抗婚",
+            "鸳鸯",
+            "贾母八旬宴"
+          ],
+          "summary": "第71回贾母八旬寿后，鸳鸯当贾母面拒贾赦纳妾之逼，剪发为誓，誓不嫁人。",
+          "kind": "custom"
+        },
+        {
+          "id": "同心帖",
+          "type": "accessory",
+          "name": "同心帖",
+          "book": "红楼梦",
+          "wearer": "司棋",
+          "material": "纸",
+          "first_appear": "第74回",
+          "appear_in": [
+            "第74回"
+          ],
+          "tags": [
+            "信物",
+            "司棋",
+            "潘又安",
+            "抄检"
+          ],
+          "summary": "第74回抄检自司棋箱中搜出潘又安同心帖及男子袜履，司棋低头不语、并无畏惧惭愧。",
+          "kind": "costume"
+        },
+        {
+          "id": "大红妆缎",
+          "type": "fabric",
+          "name": "大红妆缎",
+          "book": "红楼梦",
+          "color": "大红",
+          "occasion": "秦可卿丧仪",
+          "rank_signal": "丧仪奢靡、逾制用度",
+          "first_appear": "第15回",
+          "appear_in": [
+            "第13回",
+            "第14回",
+            "第15回"
+          ],
+          "tags": [
+            "织物",
+            "丧仪",
+            "可卿"
+          ],
+          "summary": "可卿丧仪中贾珍「尽用」大红妆缎，标志丧仪排场之奢。",
+          "kind": "costume"
+        },
+        {
+          "id": "大红妆缎蟒袄",
+          "type": "costume",
+          "name": "大红妆缎蟒袄",
+          "book": "红楼梦",
+          "wearer": "贾珍",
+          "material": "大红妆缎",
+          "occasion": "宗祠祭祖",
+          "rank_signal": "五品诰命、宗法班位",
+          "first_appear": "第53回",
+          "appear_in": [
+            "第53回"
+          ],
+          "tags": [
+            "服饰",
+            "祭祖",
+            "贾珍"
+          ],
+          "summary": "贾珍宗祠祭祖所着蟒袄，标志品级、班位与宗法秩序。",
+          "kind": "costume"
+        },
+        {
+          "id": "大观园图",
+          "type": "accessory",
+          "name": "大观园图",
+          "book": "红楼梦",
+          "wearer": "贾惜春",
+          "material": "绢",
+          "first_appear": "第75回",
+          "appear_in": [
+            "第75回"
+          ],
+          "tags": [
+            "画",
+            "惜春",
+            "大观园"
+          ],
+          "summary": "惜春奉贾母之命绘制大观园全图，第75回；后文勘验入画存银与此线相关。",
+          "kind": "costume"
+        },
+        {
+          "id": "奴婢月例",
+          "type": "institution",
+          "name": "奴婢月例与等级",
+          "book": "红楼梦",
+          "participants": [
+            "王熙凤",
+            "袭人",
+            "晴雯",
+            "平儿",
+            "小红",
+            "李嬷嬷"
+          ],
+          "procedure": [
+            "按级定月钱",
+            "年例赏钱",
+            "赎身身价",
+            "配婚放出去"
+          ],
+          "economic": "大丫鬟约一两；小丫头五百文；袭人赎身四十两",
+          "legal_norm": "家生奴、赎身、抗婚权",
+          "first_appear": "第55回",
+          "appear_in": [
+            "第19回",
+            "第55回",
+            "第65回"
+          ],
+          "tags": [
+            "奴婢",
+            "月例",
+            "制度"
+          ],
+          "summary": "凤姐理家揭示各等月钱；袭人四十两赎身、鸳鸯抗婚，呈现清代府内奴婢等级与有限权利。",
+          "kind": "custom"
+        },
+        {
+          "id": "宗祠祭祖",
+          "type": "ritual",
+          "name": "宗祠祭祖",
+          "book": "红楼梦",
+          "participants": [
+            "贾珍",
+            "贾蓉",
+            "贾母",
+            "王夫人",
+            "邢夫人",
+            "贾政",
+            "贾琏",
+            "贾环",
+            "贾兰等"
+          ],
+          "procedure": [
+            "开祠打扫",
+            "悬供影像",
+            "排班入祠",
+            "献祭",
+            "按品级列位",
+            "退班"
+          ],
+          "location": "宁国府宗祠",
+          "economic": "年例、恩赏、押岁锞",
+          "legal_norm": "宗法秩序、嫡庶班位",
+          "first_appear": "第53回",
+          "appear_in": [
+            "第53回"
+          ],
+          "tags": [
+            "年例",
+            "祭祖",
+            "宁府"
+          ],
+          "summary": "除夕宁府宗祠祭祖，贾珍主祭，按品级排班，是全书宗法与年例制度的重要场景。",
+          "kind": "custom"
+        },
+        {
+          "id": "宝玉宝钗成婚",
+          "type": "wedding",
+          "name": "宝玉宝钗成婚",
+          "book": "红楼梦",
+          "participants": [
+            "贾宝玉",
+            "薛宝钗",
+            "贾母",
+            "王夫人",
+            "薛姨妈",
+            "王熙凤"
+          ],
+          "procedure": [
+            "偷梁换柱",
+            "拜堂",
+            "合卺"
+          ],
+          "location": "荣国府",
+          "legal_norm": "父母之命、金玉良缘",
+          "first_appear": "第97回",
+          "appear_in": [
+            "第97回",
+            "第98回"
+          ],
+          "tags": [
+            "婚礼",
+            "金玉良缘",
+            "偷梁换柱"
+          ],
+          "summary": "「偷梁换柱」娶宝钗，黛玉闻讯吐血，全书情局与制度结局的汇合点。",
+          "kind": "custom"
+        },
+        {
+          "id": "宫制堆纱花",
+          "type": "accessory",
+          "name": "宫制堆纱花",
+          "book": "红楼梦",
+          "wearer": "林黛玉（戴花）；薛宝钗（拒戴）",
+          "occasion": "戴花节",
+          "rank_signal": "宫制、赐花",
+          "first_appear": "第27回",
+          "appear_in": [
+            "第27回"
+          ],
+          "tags": [
+            "首饰",
+            "戴花节",
+            "黛玉",
+            "宝钗"
+          ],
+          "summary": "宫制堆纱花二支，元春下赐戴花节用；黛玉戴花，宝钗云「不戴这没趣儿的东西」，形成性格对比。",
+          "kind": "costume"
+        },
+        {
+          "id": "寿宴玉杯",
+          "type": "accessory",
+          "name": "寿宴玉杯",
+          "book": "红楼梦",
+          "wearer": "贾母",
+          "material": "玉",
+          "first_appear": "第71回",
+          "appear_in": [
+            "第71回"
+          ],
+          "tags": [
+            "寿礼",
+            "元春",
+            "贾母八旬宴"
+          ],
+          "summary": "元春赐玉杯四只，第71回八旬寿礼之一，与金锭、彩缎等同批。",
+          "kind": "costume"
+        },
+        {
+          "id": "巧哥儿名",
+          "type": "ritual",
+          "name": "巧哥儿名",
+          "book": "红楼梦",
+          "participants": [
+            "刘姥姥",
+            "王熙凤",
+            "巧姐"
+          ],
+          "procedure": [
+            "以毒攻毒以火攻火",
+            "遇难成祥"
+          ],
+          "first_appear": "第42回",
+          "appear_in": [
+            "第42回"
+          ],
+          "tags": [
+            "起名",
+            "巧姐",
+            "刘姥姥",
+            "谶语"
+          ],
+          "summary": "刘姥姥为凤姐之女起名「巧哥儿」，七月初七生，以毒攻火；后文「偶因济刘氏，巧得遇恩人」伏线。",
+          "kind": "custom"
+        },
+        {
+          "id": "年例",
+          "type": "institution",
+          "name": "年例",
+          "book": "红楼梦",
+          "participants": [
+            "贾母",
+            "贾珍",
+            "尤氏",
+            "乌进孝"
+          ],
+          "procedure": [
+            "春祭恩赏",
+            "押岁锞",
+            "赏钱",
+            "戏班",
+            "祭祖"
+          ],
+          "location": "宁荣两府",
+          "economic": "押岁锞、田租、赏钱",
+          "first_appear": "第53回",
+          "appear_in": [
+            "第53回"
+          ],
+          "tags": [
+            "年例",
+            "经济",
+            "祭祖"
+          ],
+          "summary": "腊月年例：恩赏、押岁锞、戏班、祭祖与乌进孝交租，是贾府年度礼仪与经济盘点。",
+          "kind": "custom"
+        },
+        {
+          "id": "张友士脉案",
+          "type": "diagnosis",
+          "name": "张友士诊秦可卿",
+          "book": "红楼梦",
+          "category": "诊脉",
+          "patient": "秦可卿",
+          "physician": "张友士",
+          "first_appear": "第10回",
+          "appear_in": [
+            "第10回"
+          ],
+          "tags": [
+            "诊脉",
+            "可卿",
+            "张友士"
+          ],
+          "summary": "全书最详脉案之一，冯紫英所荐张友士细论可卿水亏木旺、肝脾不和。",
+          "kind": "medicine"
+        },
+        {
+          "id": "成窑杯",
+          "type": "accessory",
+          "name": "成窑杯",
+          "book": "红楼梦",
+          "wearer": "妙玉",
+          "material": "瓷",
+          "first_appear": "第41回",
+          "appear_in": [
+            "第41回"
+          ],
+          "tags": [
+            "茶具",
+            "妙玉",
+            "栊翠庵"
+          ],
+          "summary": "妙玉私藏成窑五彩小盖钟，刘姥姥误用后妙玉欲弃碗；洁癖与阶级并置。",
+          "kind": "costume"
+        },
+        {
+          "id": "手帕",
+          "type": "accessory",
+          "name": "手帕",
+          "book": "红楼梦",
+          "wearer": "小红",
+          "material": "绢",
+          "first_appear": "第26回",
+          "appear_in": [
+            "第26回"
+          ],
+          "tags": [
+            "信物",
+            "小红",
+            "贾芸",
+            "蜂腰桥"
+          ],
+          "summary": "小红遗帕为贾芸拾得，经坠儿于蜂腰桥传还，定二人私情；怡红院匾「情思睡昏昏」与此回呼应。",
+          "kind": "costume"
+        },
+        {
+          "id": "扮青儿",
+          "type": "ritual",
+          "name": "扮青儿",
+          "book": "红楼梦",
+          "participants": [
+            "巧姐",
+            "平儿",
+            "刘姥姥",
+            "青儿"
+          ],
+          "procedure": [
+            "改装扮青儿",
+            "后门乘车出城"
+          ],
+          "first_appear": "第119回",
+          "appear_in": [
+            "第119回"
+          ],
+          "tags": [
+            "救脱",
+            "巧姐",
+            "刘姥姥",
+            "外藩"
+          ],
+          "summary": "第119回平儿将巧姐装做青儿模样，后门雇车送刘姥姥出城，避外藩买人之祸。",
+          "kind": "custom"
+        },
+        {
+          "id": "折扇",
+          "type": "accessory",
+          "name": "折扇",
+          "book": "红楼梦",
+          "wearer": "晴雯",
+          "material": "扇骨",
+          "first_appear": "第31回",
+          "appear_in": [
+            "第31回"
+          ],
+          "tags": [
+            "扇",
+            "晴雯",
+            "端午"
+          ],
+          "summary": "端阳赐扇，晴雯失手跌折；宝玉任其撕扇取乐，「千金一笑」。",
+          "kind": "costume"
+        },
+        {
+          "id": "护官符",
+          "type": "institution",
+          "name": "护官符",
+          "book": "红楼梦",
+          "participants": [
+            "门子",
+            "贾雨村",
+            "薛蟠",
+            "冯渊"
+          ],
+          "procedure": [
+            "门子献符",
+            "徇情枉法",
+            "葫芦案了结"
+          ],
+          "location": "应天府",
+          "legal_norm": "四大家族权势网络",
+          "first_appear": "第4回",
+          "appear_in": [
+            "第4回"
+          ],
+          "tags": [
+            "官场",
+            "门子",
+            "雨村",
+            "薛蟠"
+          ],
+          "summary": "第4回门子呈本地大族名姓之谚，劝贾雨村徇情了结薛蟠打死冯渊之葫芦案。",
+          "kind": "custom"
+        },
+        {
+          "id": "斗方",
+          "type": "ritual",
+          "name": "斗方",
+          "book": "红楼梦",
+          "participants": [
+            "贾宝玉",
+            "詹光",
+            "单聘仁",
+            "钱华"
+          ],
+          "procedure": [
+            "清客索字",
+            "管事赞书法",
+            "应酬赠贴"
+          ],
+          "location": "荣国府",
+          "first_appear": "第8回",
+          "appear_in": [
+            "第8回"
+          ],
+          "tags": [
+            "清客",
+            "字画",
+            "应酬"
+          ],
+          "summary": "第8回宝玉往梨香院，詹光、单聘仁与钱华等管事索斗方字画，清客应酬典型场景。",
+          "kind": "custom"
+        },
+        {
+          "id": "旧帕",
+          "type": "accessory",
+          "name": "旧帕",
+          "book": "红楼梦",
+          "wearer": "林黛玉",
+          "material": "绢",
+          "first_appear": "第34回",
+          "appear_in": [
+            "第34回",
+            "第64回",
+            "第97回"
+          ],
+          "tags": [
+            "信物",
+            "黛玉",
+            "宝黛"
+          ],
+          "summary": "宝玉题帕赠黛玉，后成定情信物；程高本焚稿时与诗稿同毁。",
+          "kind": "costume"
+        },
+        {
+          "id": "旧衣",
+          "type": "costume",
+          "name": "旧衣",
+          "book": "红楼梦",
+          "wearer": "邢岫烟",
+          "material": "青嗉绨",
+          "first_appear": "第49回",
+          "appear_in": [
+            "第49回"
+          ],
+          "tags": [
+            "服饰",
+            "邢岫烟",
+            "贫而有节"
+          ],
+          "summary": "邢岫烟芦雪庵联诗仍着家常旧衣，与众人大红妆缎对照，写其贫俭而有节。",
+          "kind": "costume"
+        },
+        {
+          "id": "枫露茶",
+          "type": "tea",
+          "name": "枫露茶",
+          "book": "红楼梦",
+          "category": "茶",
+          "eaters": [
+            "贾宝玉",
+            "李嬷嬷"
+          ],
+          "location": "荣国府",
+          "literary_vs_real": "plausible_qing",
+          "first_appear": "第8回",
+          "appear_in": [
+            "第8回"
+          ],
+          "tags": [
+            "饮食",
+            "李嬷嬷",
+            "宝玉",
+            "倚老"
+          ],
+          "summary": "第8回宝玉所留枫露茶，李嬷嬷赌气吃尽；与后文糖蒸酥酪并写嬷嬷倚老争宠。",
+          "kind": "dish"
+        },
+        {
+          "id": "梅花络",
+          "type": "accessory",
+          "name": "梅花络",
+          "book": "红楼梦",
+          "wearer": "莺儿",
+          "material": "丝",
+          "first_appear": "第35回",
+          "appear_in": [
+            "第35回"
+          ],
+          "tags": [
+            "信物",
+            "莺儿",
+            "玉钏儿",
+            "宝玉"
+          ],
+          "summary": "第35回黄金莺巧结梅花络；宝玉以络向玉钏儿赔情，暗写金钏儿之亡与姊妹遗恨。",
+          "kind": "costume"
+        },
+        {
+          "id": "梅花雪水茶",
+          "type": "tea",
+          "name": "梅花雪水",
+          "book": "红楼梦",
+          "category": "茶",
+          "eaters": [
+            "薛宝钗",
+            "林黛玉",
+            "贾宝玉"
+          ],
+          "location": "栊翠庵",
+          "process": "玄墓蟠香寺收梅花雪，鬼脸青瓮埋藏五年",
+          "literary_vs_real": "literary",
+          "first_appear": "第41回",
+          "appear_in": [
+            "第41回"
+          ],
+          "tags": [
+            "茶",
+            "妙玉",
+            "宝黛钗"
+          ],
+          "summary": "妙玉以五年梅花雪水烹茶款宝黛钗，成盒成杯分用，是洁癖与三人性格对比的名场面。",
+          "kind": "dish"
+        },
+        {
+          "id": "毕知庵诊宝玉",
+          "type": "diagnosis",
+          "name": "毕知庵诊宝玉",
+          "book": "红楼梦",
+          "category": "诊脉",
+          "patient": "贾宝玉",
+          "physician": "毕知庵",
+          "syndrome": "悲喜激射，冷暖失调，饮食失时，忧忿滞中，正气壅闭",
+          "first_appear": "第98回",
+          "appear_in": [
+            "第98回"
+          ],
+          "tags": [
+            "诊脉",
+            "宝玉",
+            "毕知庵",
+            "心病"
+          ],
+          "summary": "宝玉成亲后疯傻病重，诸名医不识，城外穷医毕知庵断为悲喜激射、正气壅闭，服药后稍省。",
+          "kind": "medicine"
+        },
+        {
+          "id": "求愿金镯",
+          "type": "accessory",
+          "name": "求愿金镯",
+          "book": "红楼梦",
+          "wearer": "刘姥姥",
+          "material": "金",
+          "first_appear": "第113回",
+          "appear_in": [
+            "第113回"
+          ],
+          "tags": [
+            "首饰",
+            "凤姐",
+            "刘姥姥",
+            "托付"
+          ],
+          "summary": "凤姐病中褪金镯交刘姥姥求神许愿，并言「我的命交给你了，巧姐儿也交给你了」。",
+          "kind": "costume"
+        },
+        {
+          "id": "汗巾儿",
+          "type": "fabric",
+          "name": "汗巾儿",
+          "book": "红楼梦",
+          "wearer": "袭人",
+          "material": "红汗巾",
+          "first_appear": "第28回",
+          "appear_in": [
+            "第28回"
+          ],
+          "tags": [
+            "信物",
+            "端午",
+            "换巾",
+            "琪官"
+          ],
+          "summary": "第28回宝玉与蒋玉菡互赠汗巾，宝玉以所得茜香罗换得袭人旧汗巾；续书此巾系蒋玉菡与袭人姻缘伏线。",
+          "kind": "costume"
+        },
+        {
+          "id": "沉香拐",
+          "type": "accessory",
+          "name": "沉香拐",
+          "book": "红楼梦",
+          "wearer": "贾母",
+          "material": "沉香木",
+          "first_appear": "第71回",
+          "appear_in": [
+            "第71回"
+          ],
+          "tags": [
+            "寿礼",
+            "元春",
+            "贾母八旬宴"
+          ],
+          "summary": "元春赐贾母沉香拐一只，第71回八旬寿礼，与金寿星、伽南珠同批。",
+          "kind": "costume"
+        },
+        {
+          "id": "燕窝粥",
+          "type": "dish",
+          "name": "燕窝粥",
+          "book": "红楼梦",
+          "category": "药膳",
+          "eaters": [
+            "林黛玉"
+          ],
+          "location": "潇湘馆",
+          "literary_vs_real": "plausible_qing",
+          "first_appear": "第45回",
+          "appear_in": [
+            "第45回",
+            "第57回"
+          ],
+          "tags": [
+            "药膳",
+            "黛玉",
+            "供给"
+          ],
+          "summary": "黛玉因肺弱所食调补，第57回薛姨妈送燕窝引发王夫人、赵姨娘等议论，见府内资源与人情。",
+          "kind": "dish"
+        },
+        {
+          "id": "王太医诊晴雯",
+          "type": "diagnosis",
+          "name": "王太医诊晴雯",
+          "book": "红楼梦",
+          "category": "诊脉",
+          "patient": "晴雯",
+          "physician": "王太医",
+          "syndrome": "外感内滞，小伤寒",
+          "first_appear": "第51回",
+          "appear_in": [
+            "第51回",
+            "第89回"
+          ],
+          "tags": [
+            "诊脉",
+            "晴雯",
+            "王太医",
+            "和剂"
+          ],
+          "summary": "贾府惯请太医，诊晴雯为外感小伤寒，方用当归、陈皮、白芍等和剂，无枳实麻黄。",
+          "kind": "medicine"
+        },
+        {
+          "id": "黛玉积郁脉案",
+          "type": "diagnosis",
+          "name": "王太医诊黛玉（积郁）",
+          "book": "红楼梦",
+          "category": "诊脉",
+          "patient": "林黛玉",
+          "physician": "王太医",
+          "syndrome": "六脉皆弦，积郁，肝阴亏损，心气衰耗",
+          "first_appear": "第83回",
+          "appear_in": [
+            "第83回"
+          ],
+          "tags": [
+            "诊脉",
+            "黛玉",
+            "王太医",
+            "积郁"
+          ],
+          "summary": "黛玉因窗外婆子辱骂疑心病发，王太医诊六脉皆弦、积郁所致，拟黑逍遥、归肺固金，忌骤用补剂。",
+          "kind": "medicine"
+        },
+        {
+          "id": "玫瑰露",
+          "type": "dish",
+          "name": "玫瑰露",
+          "book": "红楼梦",
+          "category": "露剂",
+          "eaters": [
+            "贾环",
+            "彩云"
+          ],
+          "location": "王夫人房",
+          "literary_vs_real": "plausible_qing",
+          "first_appear": "第60回",
+          "appear_in": [
+            "第60回",
+            "第61回"
+          ],
+          "tags": [
+            "饮食",
+            "玫瑰",
+            "赵姨娘",
+            "投鼠忌器"
+          ],
+          "summary": "王夫人房中的玫瑰露；彩云私赠贾环，与茯苓霜案并起，平儿行权压事。",
+          "kind": "dish"
+        },
+        {
+          "id": "益气养荣补脾和肝汤",
+          "type": "prescription",
+          "name": "益气养荣补脾和肝汤",
+          "book": "红楼梦",
+          "category": "汤",
+          "patient": "秦可卿",
+          "prescriber": "张友士",
+          "physician": "张友士",
+          "ingredients": [
+            "人参",
+            "白术",
+            "茯苓",
+            "熟地",
+            "当归",
+            "白芍",
+            "川芎",
+            "黄芪",
+            "香附",
+            "柴胡",
+            "山药",
+            "阿胶",
+            "延胡索",
+            "甘草",
+            "莲子",
+            "红枣"
+          ],
+          "syndrome": "水亏木旺，忧虑伤脾，肝木克脾",
+          "first_appear": "第10回",
+          "appear_in": [
+            "第10回"
+          ],
+          "tags": [
+            "方剂",
+            "可卿",
+            "张友士"
+          ],
+          "summary": "张友士为秦可卿所开主方，益气养血、疏肝健脾，预后「过了春分可望全愈」未验。",
+          "kind": "medicine"
+        },
+        {
+          "id": "省亲宴",
+          "type": "banquet",
+          "name": "省亲宴",
+          "book": "红楼梦",
+          "category": "大礼宴",
+          "eaters": [
+            "贾元春",
+            "贾母",
+            "贾政",
+            "王夫人",
+            "贾宝玉"
+          ],
+          "location": "省亲别墅",
+          "occasion": "元春省亲",
+          "first_appear": "第18回",
+          "appear_in": [
+            "第18回"
+          ],
+          "tags": [
+            "宴席",
+            "省亲",
+            "元春"
+          ],
+          "summary": "元春省亲赐宴，与更衣降省、题匾同场，标志大观园由仪典转入日常。",
+          "kind": "dish"
+        },
+        {
+          "id": "省亲礼服",
+          "type": "costume",
+          "name": "省亲礼服",
+          "book": "红楼梦",
+          "wearer": "贾元春",
+          "occasion": "元春省亲",
+          "rank_signal": "妃嫔仪制、凤纹",
+          "first_appear": "第18回",
+          "appear_in": [
+            "第18回"
+          ],
+          "tags": [
+            "服饰",
+            "省亲",
+            "元春"
+          ],
+          "summary": "元春晋妃省亲时所着妃嫔礼服，以凤纹、黄彩标识身份，与省亲别墅仪典相配。",
+          "kind": "costume"
+        },
+        {
+          "id": "石榴裙",
+          "type": "fabric",
+          "name": "石榴裙",
+          "book": "红楼梦",
+          "wearer": "香菱",
+          "material": "绫",
+          "first_appear": "第62回",
+          "appear_in": [
+            "第62回"
+          ],
+          "tags": [
+            "服饰",
+            "香菱",
+            "石榴"
+          ],
+          "summary": "香菱「情解石榴裙」，第62回与湘云醉眠芍药裀同回名场面。",
+          "kind": "costume"
+        },
+        {
+          "id": "祭菂官",
+          "type": "ritual",
+          "name": "祭菂官",
+          "book": "红楼梦",
+          "participants": [
+            "藕官",
+            "菂官",
+            "贾宝玉",
+            "芳官"
+          ],
+          "procedure": [
+            "清明烧纸",
+            "园外祭奠",
+            "宝玉护庇",
+            "假凤泣虚凰"
+          ],
+          "location": "大观园",
+          "first_appear": "第58回",
+          "appear_in": [
+            "第58回"
+          ],
+          "tags": [
+            "戏班",
+            "藕官",
+            "诚心",
+            "梨香院"
+          ],
+          "summary": "第58回藕官于园外烧纸祭已故小旦菂官，宝玉谎言护庇；芳官道破戏里夫妻、戏外祭情。",
+          "kind": "custom"
+        },
+        {
+          "id": "福寿香",
+          "type": "accessory",
+          "name": "福寿香",
+          "book": "红楼梦",
+          "wearer": "贾母",
+          "first_appear": "第71回",
+          "appear_in": [
+            "第71回"
+          ],
+          "tags": [
+            "寿礼",
+            "元春",
+            "贾母八旬宴"
+          ],
+          "summary": "元春赐福寿香一盒，第71回贾母八旬寿礼，与金寿星等同批送达。",
+          "kind": "costume"
+        },
+        {
+          "id": "秦可卿丧仪",
+          "type": "funeral",
+          "name": "秦可卿丧仪",
+          "book": "红楼梦",
+          "participants": [
+            "贾珍",
+            "尤氏",
+            "北静王",
+            "四王八公"
+          ],
+          "procedure": [
+            "停灵天香楼",
+            "买五品龙禁尉",
+            "路祭",
+            "北静王祭",
+            "僧道水陆"
+          ],
+          "location": "宁国府",
+          "economic": "贾珍「尽用」、四王八公路祭",
+          "legal_norm": "五品诰命、丧仪逾制（inference 争议）",
+          "first_appear": "第13回",
+          "appear_in": [
+            "第13回",
+            "第14回",
+            "第15回"
+          ],
+          "tags": [
+            "丧礼",
+            "可卿",
+            "奢靡"
+          ],
+          "summary": "可卿丧仪极尽排场，买官、北静王路祭、僧道水陆，是贾府奢靡与「造衅」伏笔。",
+          "kind": "custom"
+        },
+        {
+          "id": "端午",
+          "type": "festival",
+          "name": "端午",
+          "book": "红楼梦",
+          "participants": [
+            "贾宝玉",
+            "王夫人",
+            "金钏儿"
+          ],
+          "procedure": [
+            "赐扇",
+            "节礼"
+          ],
+          "location": "大观园",
+          "first_appear": "第31回",
+          "appear_in": [
+            "第31回"
+          ],
+          "tags": [
+            "节令",
+            "端午",
+            "金钏儿"
+          ],
+          "summary": "端午赐扇与节礼，宝玉与金钏儿冲突，是第30回投井余波的关键节令场景。",
+          "kind": "custom"
+        },
+        {
+          "id": "糖蒸酥酪",
+          "type": "dish",
+          "name": "糖蒸酥酪",
+          "book": "红楼梦",
+          "category": "点心",
+          "eaters": [
+            "袭人",
+            "李嬷嬷",
+            "贾宝玉"
+          ],
+          "location": "荣国府",
+          "literary_vs_real": "plausible_qing",
+          "first_appear": "第19回",
+          "appear_in": [
+            "第19回"
+          ],
+          "tags": [
+            "饮食",
+            "元春",
+            "袭人",
+            "李嬷嬷"
+          ],
+          "summary": "元春赐下糖蒸酥酪，宝玉留与袭人；李嬷嬷赌气吃尽，触发袭人「花解语」箴规。",
+          "kind": "dish"
+        },
+        {
+          "id": "糟鹅掌",
+          "type": "dish",
+          "name": "糟鹅掌",
+          "book": "红楼梦",
+          "category": "闲食",
+          "first_appear": "第8回",
+          "appear_in": [
+            "第8回"
+          ],
+          "tags": [
+            "饮食",
+            "富贵"
+          ],
+          "summary": "宝玉、秦钟家宴提及的糟渍鹅掌，标志少年闲食与贵族日常。",
+          "kind": "dish"
+        },
+        {
+          "id": "累丝金凤",
+          "type": "accessory",
+          "name": "累丝金凤",
+          "book": "红楼梦",
+          "wearer": "王熙凤",
+          "material": "金",
+          "first_appear": "第21回",
+          "appear_in": [
+            "第21回"
+          ],
+          "tags": [
+            "首饰",
+            "凤姐",
+            "典当"
+          ],
+          "summary": "凤姐累丝金凤等当四百两，暴露贾府现金流与贾琏偷当伏笔。",
+          "kind": "costume"
+        },
+        {
+          "id": "红麝串",
+          "type": "accessory",
+          "name": "红麝串",
+          "book": "红楼梦",
+          "wearer": "薛宝钗",
+          "material": "麝香珠串",
+          "occasion": "元春节礼",
+          "first_appear": "第28回",
+          "appear_in": [
+            "第28回"
+          ],
+          "tags": [
+            "首饰",
+            "宝钗",
+            "端午",
+            "元春"
+          ],
+          "summary": "元春节礼赐下的红麝串，宝钗因体态丰腴「羞笼」遮掩，与黛玉葬花同回对照。",
+          "kind": "costume"
+        },
+        {
+          "id": "绣春囊",
+          "type": "accessory",
+          "name": "绣春囊",
+          "book": "红楼梦",
+          "material": "绣缎",
+          "first_appear": "第73回",
+          "appear_in": [
+            "第73回",
+            "第74回"
+          ],
+          "tags": [
+            "信物",
+            "傻大姐",
+            "抄检",
+            "绣春"
+          ],
+          "summary": "第73回傻大姐于山石后误拾绣春囊，邢夫人呈贾母，引发第74回抄检大观园。",
+          "kind": "costume"
+        },
+        {
+          "id": "群芳夜宴",
+          "type": "banquet",
+          "name": "群芳夜宴",
+          "book": "红楼梦",
+          "category": "夜宴",
+          "eaters": [
+            "贾宝玉",
+            "晴雯",
+            "麝月",
+            "芳官",
+            "四儿",
+            "秋纹",
+            "碧痕",
+            "彩鸾"
+          ],
+          "location": "怡红院",
+          "occasion": "宝玉生日前夜",
+          "first_appear": "第63回",
+          "appear_in": [
+            "第63回"
+          ],
+          "tags": [
+            "宴席",
+            "怡红院",
+            "女儿",
+            "青春"
+          ],
+          "summary": "第63回宝玉生日前夜，怡红院众丫鬟置酒行令，「群芳夜宴」；与同日贾敬服丹暴亡并置。",
+          "kind": "dish"
+        },
+        {
+          "id": "老君眉",
+          "type": "tea",
+          "name": "老君眉",
+          "book": "红楼梦",
+          "category": "茶",
+          "eaters": [
+            "贾母"
+          ],
+          "location": "栊翠庵",
+          "occasion": "刘姥姥游园、妙玉奉茶",
+          "literary_vs_real": "plausible_qing",
+          "first_appear": "第41回",
+          "appear_in": [
+            "第41回"
+          ],
+          "tags": [
+            "茶",
+            "贾母",
+            "妙玉"
+          ],
+          "summary": "妙玉奉贾母之茶，非六安茶，用旧年蠲的雨水，标志贾母专享与阶级分野。",
+          "kind": "dish"
+        },
+        {
+          "id": "胡庸医诊晴雯",
+          "type": "diagnosis",
+          "name": "胡庸医乱用虎狼药",
+          "book": "红楼梦",
+          "category": "诊脉",
+          "patient": "晴雯",
+          "physician": "胡庸医",
+          "syndrome": "外感内滞，误用虎狼药",
+          "first_appear": "第51回",
+          "appear_in": [
+            "第51回"
+          ],
+          "tags": [
+            "诊脉",
+            "晴雯",
+            "庸医",
+            "枳实",
+            "麻黄"
+          ],
+          "summary": "晴雯受凉后，一陌生大夫误以枳实、麻黄等「狼虎药」治女孩儿，宝玉斥后改请王太医。",
+          "kind": "medicine"
+        },
+        {
+          "id": "芍药裀",
+          "type": "fabric",
+          "name": "芍药裀",
+          "book": "红楼梦",
+          "wearer": "史湘云",
+          "occasion": "宝玉生日宴",
+          "first_appear": "第62回",
+          "appear_in": [
+            "第62回"
+          ],
+          "tags": [
+            "服饰",
+            "湘云",
+            "芍药"
+          ],
+          "summary": "湘云醉卧芍药裀，第62回名场面；与香菱石榴裙同回对照。",
+          "kind": "costume"
+        },
+        {
+          "id": "茄鲞",
+          "type": "dish",
+          "name": "茄鲞",
+          "book": "红楼梦",
+          "category": "点心",
+          "ingredients": [
+            "茄子",
+            "鸡",
+            "香菌",
+            "新笋",
+            "蘑菇",
+            "五香腐干",
+            "干果子",
+            "鸡汤",
+            "香油",
+            "糟油"
+          ],
+          "eaters": [
+            "刘姥姥",
+            "贾母",
+            "王熙凤"
+          ],
+          "location": "大观园",
+          "literary_vs_real": "plausible_qing",
+          "first_appear": "第41回",
+          "appear_in": [
+            "第41回"
+          ],
+          "tags": [
+            "饮食",
+            "奢侈",
+            "刘姥姥"
+          ],
+          "summary": "刘姥姥游园所尝名馔，工序极繁，是阶层反差与奢靡讽喻的经典场景。",
+          "kind": "dish"
+        },
+        {
+          "id": "茜香罗",
+          "type": "fabric",
+          "name": "茜香罗",
+          "book": "红楼梦",
+          "wearer": "贾宝玉",
+          "material": "罗",
+          "color": "茜色",
+          "first_appear": "第28回",
+          "appear_in": [
+            "第28回",
+            "第108回"
+          ],
+          "tags": [
+            "服饰",
+            "端午",
+            "琪官"
+          ],
+          "summary": "蒋玉菡（琪官）所赠汗巾，后系于袭人腰间；续书袭人嫁蒋玉菡与此呼应。",
+          "kind": "costume"
+        },
+        {
+          "id": "茯苓霜",
+          "type": "dish",
+          "name": "茯苓霜",
+          "book": "红楼梦",
+          "category": "点心",
+          "eaters": [
+            "芳官",
+            "五儿",
+            "贾环"
+          ],
+          "location": "大观园",
+          "literary_vs_real": "plausible_qing",
+          "first_appear": "第60回",
+          "appear_in": [
+            "第60回",
+            "第61回",
+            "第62回"
+          ],
+          "tags": [
+            "饮食",
+            "茯苓",
+            "玫瑰露",
+            "投鼠忌器"
+          ],
+          "summary": "王夫人房中的茯苓霜；玫瑰露案牵连五儿、芳官，平儿行权「大事化小」。",
+          "kind": "dish"
+        },
+        {
+          "id": "荷包",
+          "type": "accessory",
+          "name": "荷包",
+          "book": "红楼梦",
+          "wearer": "林黛玉",
+          "material": "绢",
+          "first_appear": "第18回",
+          "appear_in": [
+            "第18回"
+          ],
+          "tags": [
+            "信物",
+            "黛玉",
+            "宝黛",
+            "省亲"
+          ],
+          "summary": "黛玉省亲前为宝玉所绣荷包，宝玉贴身藏红袄襟内；黛玉疑其送人赌气剪香袋，见荷包仍在而愧悔。",
+          "kind": "costume"
+        },
+        {
+          "id": "莲叶羹",
+          "type": "dish",
+          "name": "莲叶羹",
+          "book": "红楼梦",
+          "category": "汤羹",
+          "eaters": [
+            "贾宝玉"
+          ],
+          "location": "大观园",
+          "literary_vs_real": "plausible_qing",
+          "first_appear": "第35回",
+          "appear_in": [
+            "第35回"
+          ],
+          "tags": [
+            "饮食",
+            "宝玉",
+            "玉钏儿"
+          ],
+          "summary": "宝玉欲吃的小丫头误送莲叶羹，引发对玉钏儿姐姐金钏儿的追忆与「情」「礼」波澜。",
+          "kind": "dish"
+        },
+        {
+          "id": "蔷薇硝",
+          "type": "accessory",
+          "name": "蔷薇硝",
+          "book": "红楼梦",
+          "wearer": "贾环",
+          "material": "药",
+          "first_appear": "第60回",
+          "appear_in": [
+            "第60回",
+            "第61回"
+          ],
+          "tags": [
+            "信物",
+            "贾环",
+            "芳官",
+            "赵姨娘"
+          ],
+          "summary": "第60回蕊官赠芳官蔷薇硝擦春癣；贾环以茉莉粉冒充索取，引发与赵姨娘房冲突及玫瑰露案。",
+          "kind": "costume"
+        },
+        {
+          "id": "虾须镯",
+          "type": "accessory",
+          "name": "虾须镯",
+          "book": "红楼梦",
+          "wearer": "平儿",
+          "material": "金",
+          "first_appear": "第52回",
+          "appear_in": [
+            "第52回"
+          ],
+          "tags": [
+            "首饰",
+            "平儿",
+            "怡红院"
+          ],
+          "summary": "平儿在怡红院遗失的虾须镯，坠儿偷取；平儿掩赃护晴雯，第52回专名。",
+          "kind": "costume"
+        },
+        {
+          "id": "螃蟹宴",
+          "type": "banquet",
+          "name": "螃蟹宴",
+          "book": "红楼梦",
+          "category": "节令宴",
+          "ingredients": [
+            "蟹",
+            "酒",
+            "果"
+          ],
+          "eaters": [
+            "贾母",
+            "薛姨妈",
+            "薛宝钗",
+            "林黛玉",
+            "贾宝玉",
+            "史湘云"
+          ],
+          "location": "藕香榭",
+          "occasion": "重阳前后、菊花诗社",
+          "cost_estimate": "约二十两银子",
+          "literary_vs_real": "plausible_qing",
+          "first_appear": "第38回",
+          "appear_in": [
+            "第38回"
+          ],
+          "tags": [
+            "宴席",
+            "诗社",
+            "湘云"
+          ],
+          "summary": "藕香榭赏桂吃螃蟹，宝钗出资约二十两，黛玉夺魁《咏菊》诗社高潮。",
+          "kind": "dish"
+        },
+        {
+          "id": "贾母八旬宴",
+          "type": "banquet",
+          "name": "贾母八旬宴",
+          "book": "红楼梦",
+          "category": "寿宴",
+          "eaters": [
+            "贾母",
+            "王夫人",
+            "邢夫人",
+            "贾政",
+            "贾宝玉",
+            "众姊妹"
+          ],
+          "location": "大观园",
+          "occasion": "贾母八十寿辰",
+          "first_appear": "第71回",
+          "appear_in": [
+            "第71回"
+          ],
+          "tags": [
+            "宴席",
+            "贾母",
+            "寿宴"
+          ],
+          "summary": "贾母八旬荣寿，府内排场犹盛，是败落前最后一次大规模寿宴。",
+          "kind": "dish"
+        },
+        {
+          "id": "贾珠遗砚",
+          "type": "accessory",
+          "name": "贾珠遗砚",
+          "book": "红楼梦",
+          "wearer": "李纨",
+          "material": "石",
+          "first_appear": "第4回",
+          "appear_in": [
+            "第4回"
+          ],
+          "tags": [
+            "文房",
+            "李纨",
+            "贾兰"
+          ],
+          "summary": "李纨守寡，课子课孙；贾珠早亡，遗风在稻香村与诗社间。",
+          "kind": "costume"
+        },
+        {
+          "id": "软烟罗",
+          "type": "fabric",
+          "name": "软烟罗",
+          "book": "红楼梦",
+          "wearer": "贾母赏赐（黛玉窗纱等）",
+          "color": "雨过天青、秋香、银红、柳绿",
+          "occasion": "刘姥姥游园、贾母论窗纱",
+          "rank_signal": "贾母库房、上层用度",
+          "first_appear": "第40回",
+          "appear_in": [
+            "第40回"
+          ],
+          "tags": [
+            "织物",
+            "贾母",
+            "潇湘馆"
+          ],
+          "summary": "贾母库房四色软烟罗，极软轻，用于潇湘馆窗纱等，是贵族织品与贾母眼力的展示。",
+          "kind": "costume"
+        },
+        {
+          "id": "迎春出嫁",
+          "type": "wedding",
+          "name": "迎春出嫁",
+          "book": "红楼梦",
+          "participants": [
+            "贾迎春",
+            "孙绍祖",
+            "贾母",
+            "王夫人"
+          ],
+          "procedure": [
+            "嫁妆",
+            "哭嫁",
+            "过门"
+          ],
+          "location": "荣国府",
+          "economic": "嫁妆、孙家聘礼",
+          "legal_norm": "父母包办、嫡女出嫁",
+          "first_appear": "第80回",
+          "appear_in": [
+            "第80回"
+          ],
+          "tags": [
+            "婚礼",
+            "迎春",
+            "误嫁"
+          ],
+          "summary": "迎春嫁孙绍祖，嫁妆齐备而婚后受虐，是「误嫁」与家族无力护女的悲剧线。",
+          "kind": "custom"
+        },
+        {
+          "id": "通灵宝玉",
+          "type": "accessory",
+          "name": "通灵宝玉",
+          "book": "红楼梦",
+          "wearer": "贾宝玉",
+          "material": "玉石",
+          "first_appear": "第3回",
+          "appear_in": [
+            "第3回",
+            "第25回",
+            "第56回",
+            "第98回"
+          ],
+          "tags": [
+            "佩饰",
+            "宝玉",
+            "象征"
+          ],
+          "summary": "大如雀卵、刻「莫失莫忘，仙寿恒昌」，全书核心象征与「假宝玉」对照轴。",
+          "kind": "costume"
+        },
+        {
+          "id": "金寿星",
+          "type": "accessory",
+          "name": "金寿星",
+          "book": "红楼梦",
+          "wearer": "贾母",
+          "material": "金",
+          "first_appear": "第71回",
+          "appear_in": [
+            "第71回"
+          ],
+          "tags": [
+            "寿礼",
+            "元春",
+            "贾母八旬宴"
+          ],
+          "summary": "元春命太监送金寿星一尊，为贾母八旬寿礼核心陈设之一，与沉香拐等同批。",
+          "kind": "costume"
+        },
+        {
+          "id": "金银锞",
+          "type": "accessory",
+          "name": "金银锞",
+          "book": "红楼梦",
+          "wearer": "入画",
+          "material": "金银",
+          "first_appear": "第74回",
+          "appear_in": [
+            "第74回"
+          ],
+          "tags": [
+            "信物",
+            "入画",
+            "贾珍",
+            "抄检"
+          ],
+          "summary": "第74回抄检自入画箱中搜出贾珍所赠金银锞与男子靴袜；惜春坚请逐出，不肯讨情。",
+          "kind": "costume"
+        },
+        {
+          "id": "金锁",
+          "type": "accessory",
+          "name": "金锁",
+          "book": "红楼梦",
+          "wearer": "薛宝钗",
+          "material": "金",
+          "occasion": "癞头和尚所赠",
+          "first_appear": "第8回",
+          "appear_in": [
+            "第8回",
+            "第28回"
+          ],
+          "tags": [
+            "首饰",
+            "宝钗",
+            "金玉良缘"
+          ],
+          "summary": "癞头和尚所赠，与通灵宝玉成对，「金玉良缘」的物质载体。",
+          "kind": "costume"
+        },
+        {
+          "id": "金麒麟",
+          "type": "accessory",
+          "name": "金麒麟",
+          "book": "红楼梦",
+          "wearer": "史湘云",
+          "material": "金",
+          "first_appear": "第31回",
+          "appear_in": [
+            "第31回"
+          ],
+          "tags": [
+            "首饰",
+            "湘云",
+            "白首双星"
+          ],
+          "summary": "湘云所佩麒麟，与宝玉所佩一对；脂批「因麒麟伏白首双星」。",
+          "kind": "costume"
+        },
+        {
+          "id": "随身小镜",
+          "type": "accessory",
+          "name": "随身小镜",
+          "book": "红楼梦",
+          "wearer": "紫鹃",
+          "material": "镜",
+          "first_appear": "第113回",
+          "appear_in": [
+            "第113回"
+          ],
+          "tags": [
+            "信物",
+            "紫鹃",
+            "黛玉",
+            "宝玉"
+          ],
+          "summary": "紫鹃病中曾给宝玉的小镜子，仍留在紫鹃处；第113回宝玉寻紫鹃忆此镜，写黛玉死后余温。",
+          "kind": "costume"
+        },
+        {
+          "id": "雀金裘",
+          "type": "costume",
+          "name": "雀金裘",
+          "book": "红楼梦",
+          "wearer": "晴雯",
+          "material": "俄罗斯孔雀毛线，金线界边",
+          "first_appear": "第89回",
+          "appear_in": [
+            "第89回"
+          ],
+          "tags": [
+            "服饰",
+            "稀世",
+            "晴雯"
+          ],
+          "summary": "贾母所赐境外奇裘，烧洞后难补，与晴雯命运并置。",
+          "kind": "costume"
+        },
+        {
+          "id": "风筝",
+          "type": "ritual",
+          "name": "风筝",
+          "book": "红楼梦",
+          "participants": [
+            "贾探春",
+            "林黛玉",
+            "薛宝钗",
+            "史湘云"
+          ],
+          "procedure": [
+            "剪线放鸢",
+            "放晦气"
+          ],
+          "first_appear": "第70回",
+          "appear_in": [
+            "第70回",
+            "第74回"
+          ],
+          "tags": [
+            "民俗",
+            "探春",
+            "清明"
+          ],
+          "summary": "第70回清明放风筝「放晦气」；第74回抄检后探春放鸢，远嫁之伏线。",
+          "kind": "custom"
+        },
+        {
+          "id": "魇魔法",
+          "type": "ritual",
+          "name": "魇魔法",
+          "book": "红楼梦",
+          "participants": [
+            "赵姨娘",
+            "马道婆",
+            "贾环",
+            "贾宝玉"
+          ],
+          "procedure": [
+            "纸人纸马",
+            "作法诅咒"
+          ],
+          "first_appear": "第25回",
+          "appear_in": [
+            "第25回"
+          ],
+          "tags": [
+            "魇胜",
+            "赵姨娘",
+            "马道婆",
+            "宝玉"
+          ],
+          "summary": "第25回赵姨娘托马道婆以纸人纸马魇魔法，欲害宝玉、凤姐；癞头和尚、跛足道人以通灵玉救宝玉。",
+          "kind": "custom"
+        },
+        {
+          "id": "鸳鸯剑",
+          "type": "accessory",
+          "name": "鸳鸯剑",
+          "book": "红楼梦",
+          "wearer": "尤三姐",
+          "material": "冷香寒铁",
+          "first_appear": "第66回",
+          "appear_in": [
+            "第66回",
+            "第67回"
+          ],
+          "tags": [
+            "信物",
+            "尤三姐",
+            "柳湘莲",
+            "定礼"
+          ],
+          "summary": "柳湘莲定礼所赠一对雌雄剑，上镌「鸳」「鸯」；三姐自刎以剑，湘莲截发出家。",
+          "kind": "costume"
+        },
+        {
+          "id": "鸽子蛋",
+          "type": "ingredient",
+          "name": "鸽子蛋",
+          "book": "红楼梦",
+          "category": "食材",
+          "cost_estimate": "一两银子一个",
+          "literary_vs_real": "plausible_qing",
+          "first_appear": "第40回",
+          "appear_in": [
+            "第40回"
+          ],
+          "tags": [
+            "物价",
+            "刘姥姥"
+          ],
+          "summary": "凤姐戏言鸽子蛋「一两银子一个」，刘姥姥惊异，是全书著名物价标尺之一。",
+          "kind": "dish"
+        },
+        {
+          "id": "黛玉郁气吐血",
+          "type": "diagnosis",
+          "name": "黛玉郁气吐血",
+          "book": "红楼梦",
+          "category": "诊脉",
+          "patient": "林黛玉",
+          "physician": "王大夫",
+          "syndrome": "郁气伤肝，肝不藏血",
+          "first_appear": "第97回",
+          "appear_in": [
+            "第97回"
+          ],
+          "tags": [
+            "诊脉",
+            "黛玉",
+            "王大夫",
+            "吐血"
+          ],
+          "summary": "黛玉闻「金玉成婚」后急怒吐血，王大夫诊为郁气伤肝、肝不藏血，方用敛阴止血。",
+          "kind": "medicine"
+        }
+      ]
+    },
+    "jinpingmei": {
+      "book": "金瓶梅",
+      "slug": "jinpingmei",
+      "count": 25,
+      "entries": [
+        {
+          "id": "五灵脂",
+          "type": "prescription",
+          "name": "五灵脂",
+          "book": "金瓶梅",
+          "category": "方剂",
+          "patient": "李瓶儿",
+          "ingredients": [
+            "五灵脂"
+          ],
+          "first_appear": "第52回",
+          "appear_in": [
+            "第52回"
+          ],
+          "tags": [
+            "药材"
+          ],
+          "summary": "李瓶儿病中所用，与府内医药描写相关。",
+          "kind": "medicine"
+        },
+        {
+          "id": "任医官诊血崩",
+          "type": "diagnosis",
+          "name": "任医官诊李瓶儿血崩",
+          "book": "金瓶梅",
+          "category": "诊脉",
+          "patient": "李瓶儿",
+          "physician": "任医官",
+          "syndrome": "血崩（下血不止、气血两亏）",
+          "pulse": "脉息细数无力，肝脾受损",
+          "effect_literary": "丧子悲恸郁结成疾，药石难医，伏李瓶儿之死",
+          "first_appear": "第61回",
+          "appear_in": [
+            "第61回",
+            "第62回"
+          ],
+          "tags": [
+            "诊脉",
+            "妇科",
+            "命运"
+          ],
+          "summary": "官哥儿夭折后，李瓶儿悲郁成血崩之症；任医官诊脉断为气血败坏、难以挽回（第61回），不久病亡（第62回）。",
+          "kind": "medicine"
+        },
+        {
+          "id": "大红妆花袍",
+          "type": "costume",
+          "name": "大红妆花通袖袍",
+          "book": "金瓶梅",
+          "wearer": "西门府妻妾",
+          "material": "大红妆花缎",
+          "color": "大红",
+          "occasion": "庆典 / 命妇礼服",
+          "rank_signal": "命妇 / 体面外眷",
+          "description": "大红妆花缎织出通袖花纹的圆领长袍，为节庆、堂会、命妇出场所穿",
+          "tags": [
+            "服饰",
+            "礼服",
+            "奢侈"
+          ],
+          "summary": "大红妆花缎的通袖圆领袍，是西门府女眷的礼服规格；以僭越命妇之服的盛装，照见暴发之家对体面与品级的渴慕。",
+          "kind": "costume",
+          "appear_in": []
+        },
+        {
+          "id": "大红段子袄",
+          "type": "costume",
+          "name": "大红段子袄",
+          "book": "金瓶梅",
+          "wearer": "潘金莲",
+          "material": "刻丝段子",
+          "color": "大红",
+          "first_appear": "第12回",
+          "appear_in": [
+            "第12回"
+          ],
+          "tags": [
+            "服饰",
+            "奢侈"
+          ],
+          "summary": "刻丝段子对衿圆领，名物描写极细。",
+          "kind": "costume"
+        },
+        {
+          "id": "梅汤",
+          "type": "tea",
+          "name": "梅汤",
+          "book": "金瓶梅",
+          "category": "饮子",
+          "ingredients": [
+            "乌梅",
+            "糖"
+          ],
+          "eaters": [
+            "西门庆"
+          ],
+          "location": "王婆茶坊",
+          "occasion": "王婆挨光",
+          "first_appear": "第3回",
+          "appear_in": [
+            "第3回"
+          ],
+          "literary_vs_real": "plausible_qing",
+          "tags": [
+            "饮食",
+            "茶坊",
+            "市井"
+          ],
+          "summary": "王婆茶坊的酸甜饮子。王婆以「梅汤」「和合汤」撩拨流连的西门庆（第3回），是「挨光」诱局的开场道具。",
+          "kind": "dish"
+        },
+        {
+          "id": "满池娇分心",
+          "type": "accessory",
+          "name": "满池娇分心",
+          "book": "金瓶梅",
+          "wearer": "西门府妻妾",
+          "material": "金镶玉",
+          "occasion": "礼仪 / 盛装",
+          "rank_signal": "头面首饰",
+          "description": "鬏髻正面所插的「分心」首饰，作「满池娇」（莲池鸳鸯荷花）纹样，金镶珠玉",
+          "tags": [
+            "服饰",
+            "首饰",
+            "纹样"
+          ],
+          "summary": "「满池娇」（荷塘鸳鸯莲花）纹样的金镶玉分心，是妻妾头面的点睛之饰；繁缛纹样与贵金属，标记西门府的财力与品位攀附。",
+          "kind": "costume",
+          "appear_in": []
+        },
+        {
+          "id": "烧猪头",
+          "type": "dish",
+          "name": "烧猪头",
+          "book": "金瓶梅",
+          "category": "主菜",
+          "ingredients": [
+            "猪头",
+            "大料",
+            "酱"
+          ],
+          "process": "一根长柴禾儿，慢火烧得皮脱肉化、香喷喷五味俱全",
+          "eaters": [
+            "宋惠莲",
+            "潘金莲",
+            "西门庆"
+          ],
+          "location": "西门府",
+          "first_appear": "第23回",
+          "appear_in": [
+            "第23回"
+          ],
+          "literary_vs_real": "plausible_qing",
+          "tags": [
+            "饮食",
+            "名场面"
+          ],
+          "summary": "宋惠莲「一根柴禾儿烧猪头」的拿手活（第23回），既显其精乖手段，也是市井饮馔的细写。",
+          "kind": "dish"
+        },
+        {
+          "id": "烧羊",
+          "type": "dish",
+          "name": "烧羊",
+          "book": "金瓶梅",
+          "category": "主菜",
+          "ingredients": [
+            "羊肉"
+          ],
+          "eaters": [
+            "西门庆",
+            "应伯爵",
+            "谢希大"
+          ],
+          "location": "西门府",
+          "first_appear": "第1回",
+          "appear_in": [
+            "第1回"
+          ],
+          "tags": [
+            "饮食",
+            "宴席"
+          ],
+          "summary": "西门庆宴帮闲弟兄，烧羊为常见硬菜。",
+          "kind": "dish"
+        },
+        {
+          "id": "犀角带",
+          "type": "accessory",
+          "name": "犀角带",
+          "book": "金瓶梅",
+          "wearer": "西门庆",
+          "material": "犀角",
+          "rank_signal": "官员身份",
+          "first_appear": "第27回",
+          "appear_in": [
+            "第27回"
+          ],
+          "tags": [
+            "服饰",
+            "高价"
+          ],
+          "summary": "王昭宣所售犀角带，西门庆购以装点官仪。",
+          "kind": "costume"
+        },
+        {
+          "id": "白绫袄儿",
+          "type": "costume",
+          "name": "白绫袄儿",
+          "book": "金瓶梅",
+          "wearer": "潘金莲",
+          "material": "白绫",
+          "color": "白",
+          "occasion": "家常",
+          "description": "白绫对衿小袄，多配挑线裙，是妻妾房中家常装束",
+          "tags": [
+            "服饰",
+            "家常"
+          ],
+          "summary": "白绫对衿家常袄，常见于潘金莲房内装扮；与盛装华服相对，写妻妾日常的体面与算计。",
+          "kind": "costume",
+          "appear_in": []
+        },
+        {
+          "id": "糟鲥鱼",
+          "type": "dish",
+          "name": "糟鲥鱼",
+          "book": "金瓶梅",
+          "category": "主菜",
+          "ingredients": [
+            "鲥鱼",
+            "香糟"
+          ],
+          "process": "江南时鲜以香糟腌渍，远道运至北地，珍贵难得",
+          "eaters": [
+            "西门庆"
+          ],
+          "location": "西门府",
+          "literary_vs_real": "plausible_qing",
+          "tags": [
+            "饮食",
+            "江南时鲜",
+            "奢侈"
+          ],
+          "summary": "江南糟制鲥鱼，路远价高的稀罕珍味；西门府以之待客馈赠，见其攀附富贵的口腹排场。",
+          "kind": "dish",
+          "appear_in": []
+        },
+        {
+          "id": "红睡鞋",
+          "type": "accessory",
+          "name": "红睡鞋",
+          "book": "金瓶梅",
+          "wearer": "潘金莲",
+          "material": "大红绫",
+          "color": "大红",
+          "description": "三寸金莲所着的大红绣花睡鞋，缠足与情欲的双重符号",
+          "tags": [
+            "服饰",
+            "鞋",
+            "情欲"
+          ],
+          "summary": "大红绣花的三寸金莲睡鞋，是潘金莲身上最具情欲意味的物件；与名物谶中「鞋」的勾引—私情隐喻互文。",
+          "kind": "costume",
+          "appear_in": []
+        },
+        {
+          "id": "胡僧药",
+          "type": "medicine",
+          "name": "胡僧春药",
+          "book": "金瓶梅",
+          "category": "春药",
+          "patient": "西门庆",
+          "prescriber": "胡僧",
+          "ingredients": [],
+          "first_appear": "第49回",
+          "appear_in": [
+            "第49回"
+          ],
+          "tags": [
+            "药材",
+            "纵欲"
+          ],
+          "summary": "胡僧所赠，西门庆纵欲之由，晚明纵欲心理切片。",
+          "kind": "medicine"
+        },
+        {
+          "id": "薛姑子种子方",
+          "type": "prescription",
+          "name": "薛姑子种子符药",
+          "book": "金瓶梅",
+          "category": "求子偏方",
+          "patient": "吴月娘",
+          "prescriber": "薛姑子",
+          "ingredients": [
+            "头生男胎衣胞",
+            "符水",
+            "壬子日服"
+          ],
+          "effect_literary": "借佛门名义行求子迷信，写月娘求嗣心切与三姑六婆的渗透",
+          "effect_scholarly": "反映晚明民间求子巫术与僧尼出入内宅的世情",
+          "tags": [
+            "偏方",
+            "求子",
+            "迷信",
+            "三姑六婆"
+          ],
+          "summary": "薛姑子哄吴月娘求子的符药偏方（取头胎衣胞为引、择壬子日服），既写月娘求嗣之切，也写尼姑借宗教渗入内宅、敛财弄权的世态。",
+          "kind": "medicine",
+          "appear_in": []
+        },
+        {
+          "id": "螃蟹鲜",
+          "type": "dish",
+          "name": "螃蟹鲜",
+          "book": "金瓶梅",
+          "category": "主菜",
+          "ingredients": [
+            "螃蟹",
+            "椒料",
+            "姜醋"
+          ],
+          "process": "以椒料、姜醋拌蒸的肥蟹，秋令时鲜",
+          "eaters": [
+            "西门庆",
+            "应伯爵",
+            "李瓶儿"
+          ],
+          "location": "西门府",
+          "literary_vs_real": "plausible_qing",
+          "tags": [
+            "饮食",
+            "时鲜",
+            "宴席"
+          ],
+          "summary": "西门府秋令食蟹，肥美讲究；帮闲清客凑趣分食，是富家应时享口福的日常一景。",
+          "kind": "dish",
+          "appear_in": []
+        },
+        {
+          "id": "衣梅",
+          "type": "dish",
+          "name": "衣梅",
+          "book": "金瓶梅",
+          "category": "蜜饯",
+          "ingredients": [
+            "青梅",
+            "蜜",
+            "各色药料"
+          ],
+          "process": "以多味香药、蜜糖裹腌青梅，外衣如霜",
+          "eaters": [
+            "西门庆"
+          ],
+          "location": "西门府",
+          "literary_vs_real": "plausible_qing",
+          "tags": [
+            "饮食",
+            "蜜饯",
+            "茶食"
+          ],
+          "summary": "多味药料蜜裹的青梅蜜饯，含化生津；西门庆常含于口，是讲究到极致的零嘴细物。",
+          "kind": "dish",
+          "appear_in": []
+        },
+        {
+          "id": "西门庆脱阳之症",
+          "type": "diagnosis",
+          "name": "西门庆脱阳之症",
+          "book": "金瓶梅",
+          "category": "诊脉",
+          "patient": "西门庆",
+          "syndrome": "纵欲过度、髓竭精脱（脱阳）",
+          "effect_literary": "误服胡僧药过量、贪欢无度，下元虚脱，血竭而亡",
+          "first_appear": "第79回",
+          "appear_in": [
+            "第79回"
+          ],
+          "tags": [
+            "诊脉",
+            "纵欲",
+            "命运"
+          ],
+          "summary": "西门庆纵欲并误服胡僧春药过量，精脱髓竭、下血不止而亡（第79回）；「死于极乐」的催命之症，是「酒色财气」反噬的肉身注脚。",
+          "kind": "medicine"
+        },
+        {
+          "id": "貂鼠里皮袄",
+          "type": "costume",
+          "name": "貂鼠里皮袄",
+          "book": "金瓶梅",
+          "wearer": "西门庆",
+          "material": "貂鼠",
+          "first_appear": "第15回",
+          "appear_in": [
+            "第15回"
+          ],
+          "tags": [
+            "服饰",
+            "冬装"
+          ],
+          "summary": "西门庆冬日外出所穿，体现商贾显贵。",
+          "kind": "costume"
+        },
+        {
+          "id": "遍地金比甲",
+          "type": "costume",
+          "name": "遍地金比甲",
+          "book": "金瓶梅",
+          "wearer": "西门府妻妾",
+          "material": "遍地金织锦",
+          "occasion": "节令 / 宴会",
+          "rank_signal": "富室妻妾盛装",
+          "description": "通体织金的对襟无袖背心（比甲），罩于袄裙之外，华贵耀目",
+          "tags": [
+            "服饰",
+            "奢侈"
+          ],
+          "summary": "满地织金的比甲（背心），是西门府妻妾节令宴会的盛装；以「遍地金」之奢，写晚明暴富之家的衣饰僭越。",
+          "kind": "costume",
+          "appear_in": []
+        },
+        {
+          "id": "酥油泡螺儿",
+          "type": "dish",
+          "name": "酥油泡螺儿",
+          "book": "金瓶梅",
+          "category": "点心",
+          "ingredients": [
+            "酥油",
+            "白糖"
+          ],
+          "process": "以酥油、糖霜搅打捏成螺旋小盏，入口而化",
+          "eaters": [
+            "西门庆",
+            "李瓶儿",
+            "郑爱月儿"
+          ],
+          "location": "西门府",
+          "literary_vs_real": "plausible_qing",
+          "tags": [
+            "饮食",
+            "茶食",
+            "奢侈"
+          ],
+          "summary": "西门府最见工夫的精细茶食，酥油糖霜捏成螺形、入口即化，是富贵人家口腹之奢的写照。",
+          "kind": "dish",
+          "appear_in": []
+        },
+        {
+          "id": "酥酥",
+          "type": "dish",
+          "name": "酥酥",
+          "book": "金瓶梅",
+          "category": "点心",
+          "ingredients": [
+            "面",
+            "油"
+          ],
+          "eaters": [
+            "西门庆",
+            "应伯爵"
+          ],
+          "first_appear": "第1回",
+          "appear_in": [
+            "第1回"
+          ],
+          "tags": [
+            "饮食",
+            "帮闲"
+          ],
+          "summary": "应伯爵等帮闲陪西门庆所吃小点，见帮闲圈日常消费。",
+          "kind": "dish"
+        },
+        {
+          "id": "金丝鬏髻",
+          "type": "accessory",
+          "name": "金丝鬏髻",
+          "book": "金瓶梅",
+          "wearer": "李瓶儿",
+          "material": "金丝",
+          "color": "金",
+          "occasion": "日常 / 礼仪",
+          "rank_signal": "妻妾身份冠饰",
+          "first_appear": "第20回",
+          "appear_in": [
+            "第20回"
+          ],
+          "description": "金丝编成的鬏髻（罩发的冠状饰物），重数两，是有体面妇人的头面之首",
+          "tags": [
+            "服饰",
+            "首饰",
+            "身份"
+          ],
+          "summary": "金丝编就的鬏髻，是妻妾体面的象征。李瓶儿入门带来金丝鬏髻，惹得潘金莲艳羡讨要（第20回），一顶头面便见妻妾争宠的暗战。",
+          "kind": "costume"
+        },
+        {
+          "id": "金华酒",
+          "type": "wine",
+          "name": "金华酒",
+          "book": "金瓶梅",
+          "category": "wine",
+          "ingredients": [],
+          "eaters": [
+            "西门庆"
+          ],
+          "first_appear": "第1回",
+          "appear_in": [
+            "第1回"
+          ],
+          "tags": [
+            "饮食",
+            "酒类"
+          ],
+          "summary": "浙江名酒，西门庆府宴饮常备，体现晚明商品流通。",
+          "kind": "dish"
+        },
+        {
+          "id": "销金裙带",
+          "type": "accessory",
+          "name": "销金裙带",
+          "book": "金瓶梅",
+          "wearer": "潘金莲",
+          "material": "销金",
+          "color": "大红",
+          "first_appear": "第12回",
+          "appear_in": [
+            "第12回"
+          ],
+          "tags": [
+            "服饰"
+          ],
+          "summary": "潘金莲所着，晚明销金工艺与妾室装扮。",
+          "kind": "costume"
+        },
+        {
+          "id": "面汤",
+          "type": "dish",
+          "name": "面汤",
+          "book": "金瓶梅",
+          "category": "主食",
+          "ingredients": [
+            "面",
+            "汤"
+          ],
+          "eaters": [
+            "庞春梅"
+          ],
+          "first_appear": "第8回",
+          "appear_in": [
+            "第8回"
+          ],
+          "tags": [
+            "饮食"
+          ],
+          "summary": "庞春梅等婢仆日常饮食，与主子宴席形成阶层对照。",
+          "kind": "dish"
+        }
+      ]
+    },
+    "xiyouji": {
+      "book": "西游记",
+      "slug": "xiyouji",
+      "count": 22,
+      "entries": [
+        {
+          "id": "七星剑",
+          "type": "weapon",
+          "name": "七星剑",
+          "book": "西游记",
+          "category": "兵器",
+          "maker": "太上老君",
+          "owner": "金角大王",
+          "abilities": [
+            "对撞霞光"
+          ],
+          "relations": [
+            {
+              "target": "太上老君",
+              "type": "制造"
+            },
+            {
+              "target": "金角大王",
+              "type": "拥有"
+            },
+            {
+              "target": "银角大王",
+              "type": "拥有"
+            }
+          ],
+          "first_appear": "第32回",
+          "appear_in": [
+            "第32回",
+            "第33回",
+            "第34回",
+            "第35回"
+          ],
+          "tags": [
+            "平顶山",
+            "莲花洞"
+          ],
+          "summary": "老君五宝之一；金角银角与悟空赌斗，后与芭蕉扇、净瓶同出洞。",
+          "kind": "artifact"
+        },
+        {
+          "id": "九瓣铜锤",
+          "type": "weapon",
+          "name": "九瓣铜锤",
+          "book": "西游记",
+          "category": "兵器",
+          "maker": "观音菩萨（莲花池菡萏所化）",
+          "owner": "灵感大王",
+          "abilities": [
+            "击人"
+          ],
+          "relations": [
+            {
+              "target": "灵感大王",
+              "type": "拥有"
+            },
+            {
+              "target": "观音菩萨",
+              "type": "制造"
+            }
+          ],
+          "first_appear": "第49回",
+          "appear_in": [
+            "第47回",
+            "第49回"
+          ],
+          "tags": [
+            "通天河",
+            "灵感大王"
+          ],
+          "summary": "观音莲花池未开菡萏所炼，金鱼每日听经成精后运为兵；通天河与八戒赌斗，终被观音竹篮收鱼。",
+          "kind": "artifact"
+        },
+        {
+          "id": "九齿钉钯",
+          "type": "weapon",
+          "name": "九齿钉钯",
+          "book": "西游记",
+          "category": "兵器",
+          "maker": "太上老君",
+          "owner": "猪八戒",
+          "weight": "五千零四十八斤",
+          "abilities": [
+            "九齿利刃"
+          ],
+          "relations": [
+            {
+              "target": "太上老君",
+              "type": "制造"
+            },
+            {
+              "target": "猪八戒",
+              "type": "拥有"
+            }
+          ],
+          "first_appear": "第19回",
+          "appear_in": [
+            "第19回",
+            "第22回",
+            "第88回",
+            "第89回"
+          ],
+          "tags": [
+            "五众兵器"
+          ],
+          "summary": "八戒天蓬旧日兵器，九齿渗金钉钯；取经中副战兵器。",
+          "kind": "artifact"
+        },
+        {
+          "id": "五彩仙衣",
+          "type": "implement",
+          "name": "五彩仙衣",
+          "book": "西游记",
+          "category": "仙衣",
+          "maker": "未详（神仙所送）",
+          "owner": "金圣宫娘娘",
+          "abilities": [
+            "身生针刺",
+            "拒妖近身"
+          ],
+          "relations": [
+            {
+              "target": "赛太岁",
+              "type": "克制",
+              "note": "娘娘著衣三年妖不敢近"
+            }
+          ],
+          "first_appear": "第70回",
+          "appear_in": [
+            "第70回"
+          ],
+          "tags": [
+            "朱紫国",
+            "赛太岁",
+            "金圣宫"
+          ],
+          "summary": "神仙送金圣宫娘娘妆新之衣，著后浑身生针刺，赛太岁三年不能近身；与紫金铃同为朱紫线护身之物。",
+          "kind": "artifact"
+        },
+        {
+          "id": "人种袋",
+          "type": "container",
+          "name": "人种袋",
+          "book": "西游记",
+          "category": "容器",
+          "maker": "弥勒佛",
+          "owner": "黄眉怪",
+          "abilities": [
+            "装人",
+            "困神"
+          ],
+          "relations": [
+            {
+              "target": "弥勒佛",
+              "type": "制造"
+            },
+            {
+              "target": "黄眉怪",
+              "type": "拥有",
+              "note": "童子偷下界"
+            }
+          ],
+          "first_appear": "第65回",
+          "appear_in": [
+            "第65回",
+            "第66回"
+          ],
+          "tags": [
+            "小雷音寺",
+            "黄眉怪"
+          ],
+          "summary": "弥勒人种袋，黄眉假设小雷音寺；悟空等被装入袋中，弥勒收伏。",
+          "kind": "artifact"
+        },
+        {
+          "id": "定风丹",
+          "type": "talisman",
+          "name": "定风丹",
+          "book": "西游记",
+          "category": "丹药",
+          "maker": "灵吉菩萨",
+          "owner": "灵吉菩萨",
+          "abilities": [
+            "定风"
+          ],
+          "counters": [
+            "芭蕉扇"
+          ],
+          "relations": [
+            {
+              "target": "灵吉菩萨",
+              "type": "制造"
+            },
+            {
+              "target": "芭蕉扇",
+              "type": "克制"
+            }
+          ],
+          "first_appear": "第59回",
+          "appear_in": [
+            "第59回",
+            "第60回"
+          ],
+          "tags": [
+            "火焰山",
+            "克制"
+          ],
+          "summary": "灵吉菩萨所赐，服后定住身形，芭蕉扇扇不动；三借芭蕉扇关键。",
+          "kind": "artifact"
+        },
+        {
+          "id": "幌金绳",
+          "type": "container",
+          "name": "幌金绳",
+          "book": "西游记",
+          "category": "索器",
+          "maker": "太上老君",
+          "owner": "金角大王",
+          "abilities": [
+            "捆缚",
+            "自紧"
+          ],
+          "relations": [
+            {
+              "target": "太上老君",
+              "type": "制造"
+            },
+            {
+              "target": "金角大王",
+              "type": "拥有"
+            },
+            {
+              "target": "银角大王",
+              "type": "拥有"
+            }
+          ],
+          "first_appear": "第32回",
+          "appear_in": [
+            "第32回",
+            "第34回"
+          ],
+          "tags": [
+            "平顶山",
+            "莲花洞"
+          ],
+          "summary": "老君五宝之一，抛起捆人，越挣越紧；银角用绳擒悟空。",
+          "kind": "artifact"
+        },
+        {
+          "id": "捣药杵",
+          "type": "weapon",
+          "name": "捣药杵",
+          "book": "西游记",
+          "category": "兵器",
+          "maker": "太阴星君",
+          "owner": "玉兔精",
+          "abilities": [
+            "击人"
+          ],
+          "relations": [
+            {
+              "target": "玉兔精",
+              "type": "拥有"
+            },
+            {
+              "target": "金箍棒",
+              "type": "克制",
+              "note": "力弱难敌"
+            }
+          ],
+          "first_appear": "第95回",
+          "appear_in": [
+            "第95回"
+          ],
+          "tags": [
+            "天竺国",
+            "广寒宫"
+          ],
+          "summary": "广寒宫玉兔兵器，短棍状；天竺殿上与金箍棒赌斗，终被太阴收走。",
+          "kind": "artifact"
+        },
+        {
+          "id": "火尖枪",
+          "type": "weapon",
+          "name": "火尖枪",
+          "book": "西游记",
+          "category": "兵器",
+          "maker": "未详",
+          "owner": "红孩儿",
+          "abilities": [
+            "击人"
+          ],
+          "relations": [
+            {
+              "target": "红孩儿",
+              "type": "拥有"
+            },
+            {
+              "target": "金箍棒",
+              "type": "克制",
+              "note": "枪棒赌斗，真火方胜"
+            }
+          ],
+          "first_appear": "第41回",
+          "appear_in": [
+            "第41回",
+            "第42回"
+          ],
+          "tags": [
+            "火云洞",
+            "红孩儿"
+          ],
+          "summary": "丈八长火尖枪，红孩儿兵器；与金箍棒赌斗，配合三昧真火、五行火车方困悟空。",
+          "kind": "artifact"
+        },
+        {
+          "id": "白布搭包",
+          "type": "container",
+          "name": "白布搭包",
+          "book": "西游记",
+          "category": "搭包",
+          "maker": "弥勒佛",
+          "owner": "黄眉怪",
+          "abilities": [
+            "装人",
+            "困神"
+          ],
+          "relations": [
+            {
+              "target": "弥勒佛",
+              "type": "制造"
+            },
+            {
+              "target": "黄眉怪",
+              "type": "拥有"
+            },
+            {
+              "target": "人种袋",
+              "type": "克制",
+              "note": "与人种袋同类，弥勒一并收走"
+            }
+          ],
+          "first_appear": "第65回",
+          "appear_in": [
+            "第65回",
+            "第66回"
+          ],
+          "tags": [
+            "小雷音寺",
+            "黄眉怪"
+          ],
+          "summary": "弥勒旧白布搭包，黄眉怪掷下装尽悟空、二十八宿与五方揭谛；与人种袋、金铙并称小雷音寺三宝。",
+          "kind": "artifact"
+        },
+        {
+          "id": "紧箍",
+          "type": "talisman",
+          "name": "紧箍",
+          "book": "西游记",
+          "category": "符咒",
+          "maker": "观音菩萨",
+          "owner": "唐僧",
+          "abilities": [
+            "念咒收紧",
+            "约束心猿"
+          ],
+          "relations": [
+            {
+              "target": "观音菩萨",
+              "type": "制造"
+            },
+            {
+              "target": "唐僧",
+              "type": "拥有",
+              "note": "持咒者"
+            },
+            {
+              "target": "孙悟空",
+              "type": "拥有",
+              "note": "佩戴者"
+            }
+          ],
+          "first_appear": "第14回",
+          "appear_in": [
+            "第14回",
+            "第27回",
+            "第56回"
+          ],
+          "tags": [
+            "取经约束",
+            "心猿"
+          ],
+          "summary": "观音所授三件箍之一，戴于悟空顶；唐僧念紧箍咒以制其桀骜。",
+          "kind": "artifact"
+        },
+        {
+          "id": "紫金红葫芦",
+          "type": "container",
+          "name": "紫金红葫芦",
+          "book": "西游记",
+          "category": "容器",
+          "maker": "太上老君",
+          "owner": "金角大王",
+          "abilities": [
+            "应名吸入",
+            "化浆水"
+          ],
+          "relations": [
+            {
+              "target": "太上老君",
+              "type": "制造"
+            },
+            {
+              "target": "金角大王",
+              "type": "拥有"
+            },
+            {
+              "target": "银角大王",
+              "type": "拥有"
+            }
+          ],
+          "first_appear": "第32回",
+          "appear_in": [
+            "第32回",
+            "第33回",
+            "第34回",
+            "第35回"
+          ],
+          "tags": [
+            "平顶山",
+            "莲花洞"
+          ],
+          "summary": "老君五宝之一；应名答应即被吸入葫芦化水，悟空以假名脱身。",
+          "kind": "artifact"
+        },
+        {
+          "id": "紫金铃",
+          "type": "talisman",
+          "name": "紫金铃",
+          "book": "西游记",
+          "category": "铃器",
+          "maker": "观音菩萨",
+          "owner": "赛太岁",
+          "abilities": [
+            "放烟火",
+            "放黄沙",
+            "摇铃唤妖"
+          ],
+          "relations": [
+            {
+              "target": "观音菩萨",
+              "type": "制造"
+            },
+            {
+              "target": "赛太岁",
+              "type": "拥有"
+            },
+            {
+              "target": "孙悟空",
+              "type": "克制",
+              "note": "悟空盗换三件真铃"
+            }
+          ],
+          "first_appear": "第70回",
+          "appear_in": [
+            "第70回",
+            "第71回"
+          ],
+          "tags": [
+            "朱紫国",
+            "赛太岁",
+            "麒麟山"
+          ],
+          "summary": "观音所赐三件紫金铃，摇之出火、烟、沙；赛太岁倚仗摄后；悟空变侍女盗铃，以假铃赌斗，终由观音收走。",
+          "kind": "artifact"
+        },
+        {
+          "id": "羊脂玉净瓶",
+          "type": "container",
+          "name": "羊脂玉净瓶",
+          "aliases": [
+            "净瓶"
+          ],
+          "book": "西游记",
+          "category": "容器",
+          "maker": "太上老君",
+          "owner": "金角大王",
+          "abilities": [
+            "应名吸入",
+            "放光"
+          ],
+          "relations": [
+            {
+              "target": "太上老君",
+              "type": "制造",
+              "note": "盛水"
+            },
+            {
+              "target": "金角大王",
+              "type": "拥有"
+            },
+            {
+              "target": "银角大王",
+              "type": "拥有"
+            }
+          ],
+          "first_appear": "第35回",
+          "appear_in": [
+            "第35回"
+          ],
+          "tags": [
+            "平顶山",
+            "莲花洞"
+          ],
+          "summary": "老君羊脂玉净瓶，应名吸入；悟空骗装银角，后罩金角，还于老君。",
+          "kind": "artifact"
+        },
+        {
+          "id": "芭蕉扇",
+          "type": "implement",
+          "name": "芭蕉扇",
+          "book": "西游记",
+          "category": "法器",
+          "owner": "铁扇公主",
+          "abilities": [
+            "扇风灭火",
+            "生风助火",
+            "扇人万里"
+          ],
+          "relations": [
+            {
+              "target": "铁扇公主",
+              "type": "拥有"
+            },
+            {
+              "target": "牛魔王",
+              "type": "拥有",
+              "note": "夫妻共用"
+            }
+          ],
+          "first_appear": "第59回",
+          "appear_in": [
+            "第59回",
+            "第60回",
+            "第61回"
+          ],
+          "tags": [
+            "火焰山",
+            "三借芭蕉扇"
+          ],
+          "summary": "铁扇公主掌中宝扇，能灭火焰山；悟空三借方得真扇。",
+          "kind": "artifact"
+        },
+        {
+          "id": "蟠龙拐",
+          "type": "weapon",
+          "name": "蟠龙拐",
+          "book": "西游记",
+          "category": "兵器",
+          "maker": "未详",
+          "owner": "白鹿精",
+          "abilities": [
+            "击人"
+          ],
+          "relations": [
+            {
+              "target": "白鹿精",
+              "type": "拥有"
+            },
+            {
+              "target": "金箍棒",
+              "type": "克制",
+              "note": "拐抵不住棒，鹿精化寒光逃遁"
+            }
+          ],
+          "first_appear": "第79回",
+          "appear_in": [
+            "第79回"
+          ],
+          "tags": [
+            "比丘国",
+            "白鹿精"
+          ],
+          "summary": "比丘国国丈（白鹿精）兵器，蟠龙拐杖；与悟空空中赌斗，终不敌金箍棒，寿星收鹿。",
+          "kind": "artifact"
+        },
+        {
+          "id": "金刚琢",
+          "type": "weapon",
+          "name": "金刚琢",
+          "book": "西游记",
+          "category": "法器",
+          "maker": "太上老君",
+          "owner": "青牛精",
+          "abilities": [
+            "套取兵器",
+            "水火不侵"
+          ],
+          "relations": [
+            {
+              "target": "太上老君",
+              "type": "制造"
+            },
+            {
+              "target": "青牛精",
+              "type": "拥有",
+              "note": "老君坐骑偷下界"
+            }
+          ],
+          "first_appear": "第50回",
+          "appear_in": [
+            "第50回",
+            "第51回",
+            "第52回"
+          ],
+          "tags": [
+            "金兜洞",
+            "青牛精"
+          ],
+          "summary": "老君金刚琢，青牛偷下界；套走悟空兵器，诸神兵器尽被收去。",
+          "kind": "artifact"
+        },
+        {
+          "id": "金箍棒",
+          "type": "weapon",
+          "name": "金箍棒",
+          "book": "西游记",
+          "category": "兵器",
+          "maker": "太上老君",
+          "owner": "孙悟空",
+          "weight": "一万三千五百斤",
+          "abilities": [
+            "随心变化",
+            "定海",
+            "击碎"
+          ],
+          "relations": [
+            {
+              "target": "太上老君",
+              "type": "制造",
+              "note": "大禹治水定海神铁"
+            },
+            {
+              "target": "东海龙王",
+              "type": "赠与",
+              "note": "龙宫借取"
+            },
+            {
+              "target": "孙悟空",
+              "type": "拥有"
+            }
+          ],
+          "first_appear": "第3回",
+          "appear_in": [
+            "第3回",
+            "第5回",
+            "第14回",
+            "第88回",
+            "第100回"
+          ],
+          "tags": [
+            "五众兵器",
+            "定海神针"
+          ],
+          "summary": "东海定海神针，悟空龙宫所得；随心大小，取经全程主兵器。",
+          "kind": "artifact"
+        },
+        {
+          "id": "金铙",
+          "type": "container",
+          "name": "金铙",
+          "book": "西游记",
+          "category": "法器",
+          "maker": "弥勒佛",
+          "owner": "黄眉怪",
+          "abilities": [
+            "罩人",
+            "无缝"
+          ],
+          "relations": [
+            {
+              "target": "弥勒佛",
+              "type": "制造"
+            },
+            {
+              "target": "黄眉怪",
+              "type": "拥有"
+            }
+          ],
+          "first_appear": "第65回",
+          "appear_in": [
+            "第65回",
+            "第66回"
+          ],
+          "tags": [
+            "小雷音寺",
+            "黄眉怪"
+          ],
+          "summary": "佛门金铙，黄眉假佛掷下罩悟空；亢金龙钻角救出，悟空打碎，弥勒复聚。",
+          "kind": "artifact"
+        },
+        {
+          "id": "锦襴袈裟",
+          "type": "implement",
+          "name": "锦襴袈裟",
+          "book": "西游记",
+          "category": "佛宝",
+          "maker": "唐太宗所赐（传自观音）",
+          "owner": "唐僧",
+          "abilities": [
+            "放光",
+            "佛门至宝"
+          ],
+          "relations": [
+            {
+              "target": "黑熊精",
+              "type": "盗取"
+            },
+            {
+              "target": "观音菩萨",
+              "type": "克制",
+              "note": "计擒黑熊后复得"
+            }
+          ],
+          "first_appear": "第16回",
+          "appear_in": [
+            "第16回",
+            "第17回",
+            "第65回",
+            "第98回"
+          ],
+          "tags": [
+            "观音院",
+            "黑风山",
+            "取经"
+          ],
+          "summary": "唐王所赐佛门异宝，霞光迸迸；观音院示袈裟引火，黑熊精趁乱盗走，后由观音收妖复得。",
+          "kind": "artifact"
+        },
+        {
+          "id": "阴阳二气瓶",
+          "type": "container",
+          "name": "阴阳二气瓶",
+          "book": "西游记",
+          "category": "宝瓶",
+          "maker": "未详",
+          "owner": "大鹏精",
+          "abilities": [
+            "化人为浆"
+          ],
+          "relations": [
+            {
+              "target": "大鹏精",
+              "type": "拥有"
+            },
+            {
+              "target": "孙悟空",
+              "type": "克制",
+              "note": "悟空以金箍棒撑瓶脱困"
+            }
+          ],
+          "first_appear": "第74回",
+          "appear_in": [
+            "第74回",
+            "第75回"
+          ],
+          "tags": [
+            "狮驼岭",
+            "大鹏精"
+          ],
+          "summary": "大鹏精随身宝瓶，装人一时三刻化为浆水；悟空被装后以金箍棒撑开阴阳二气，脱瓶而出。",
+          "kind": "artifact"
+        },
+        {
+          "id": "降妖宝杖",
+          "type": "weapon",
+          "name": "降妖宝杖",
+          "book": "西游记",
+          "category": "兵器",
+          "maker": "玉帝",
+          "owner": "沙僧",
+          "weight": "五千零四十八斤",
+          "abilities": [
+            "降妖"
+          ],
+          "relations": [
+            {
+              "target": "沙僧",
+              "type": "拥有"
+            }
+          ],
+          "first_appear": "第22回",
+          "appear_in": [
+            "第22回",
+            "第88回"
+          ],
+          "tags": [
+            "五众兵器"
+          ],
+          "summary": "沙僧卷帘大将旧兵器，降妖宝杖；流沙河后随师西行。",
+          "kind": "artifact"
+        }
+      ]
+    }
+  }
+}

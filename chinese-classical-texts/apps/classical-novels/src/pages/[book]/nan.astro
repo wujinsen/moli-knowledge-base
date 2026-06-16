@@ -1,5 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import BackLink from '../../components/BackLink.astro';
@@ -10,6 +9,7 @@ import {
   phaseFor,
   sortEvents,
 } from '../../lib/events';
+import { loadEvents } from '../../lib/loadEvents';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -20,9 +20,7 @@ export async function getStaticPaths() {
 
 const { book } = Astro.props;
 const meta = book.data;
-const events = sortEvents(
-  (await getCollection('events')).filter((e) => e.data.book === meta.book),
-);
+const events = sortEvents(await loadEvents(meta.book));
 const tribulations = events.filter((e) => e.data.subtype === 'tribulation');
 const phaseCounts = TRIBULATION_PHASES.map((p) => ({
   ...p,

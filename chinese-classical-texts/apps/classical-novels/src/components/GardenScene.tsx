@@ -3,6 +3,7 @@ import {
   Application,
   Assets,
   Container,
+  FillGradient,
   Graphics,
   Rectangle,
   Sprite,
@@ -13,6 +14,7 @@ import {
 import { graphTheme } from '../lib/graphTheme';
 import {
   bearingLabel,
+  GARDEN_LAYOUT_DISCLAIMER,
   logicalSteps,
   logicalToScene,
   type LogicalPoint,
@@ -93,8 +95,12 @@ const ZONE_FILL: Record<string, number> = {
 /** 写实等距美术资产（与 daguanyuan-full-bg-scan-style.png 同调；坐标仍用项目数据） */
 const SCENE_ASSETS = {
   grass: '/honglou/scene/grass.png',
-  water: '/honglou/scene/water.png',
   trees: '/honglou/scene/trees.png',
+  lotusPad: '/honglou/scene/lotus-pad.png',
+  lotusBloom: '/honglou/scene/lotus-bloom.png',
+  rockA: '/honglou/scene/rock-a.png',
+  rockB: '/honglou/scene/rock-b.png',
+  rockC: '/honglou/scene/rock-c.png',
   grandhall: '/honglou/scene/grandhall.png',
   courtyard: '/honglou/scene/courtyard.png',
   farmstead: '/honglou/scene/farmstead.png',
@@ -161,6 +167,50 @@ function mulberry32(seed: number): () => number {
   };
 }
 
+/** 点到线段最近距离及投影点 */
+function nearestOnSegment(
+  px: number,
+  py: number,
+  ax: number,
+  ay: number,
+  bx: number,
+  by: number,
+): { x: number; y: number; dist: number } {
+  const dx = bx - ax;
+  const dy = by - ay;
+  const len2 = dx * dx + dy * dy || 1e-6;
+  const t = Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / len2));
+  const x = ax + dx * t;
+  const y = ay + dy * t;
+  return { x, y, dist: Math.hypot(px - x, py - y) };
+}
+
+/** 最近水域接触点（溪心/池缘），用于倒影定位 */
+function nearestWaterPoint(
+  px: number,
+  py: number,
+  streamLines: Array<[LogicalPoint, LogicalPoint]>,
+  poolCenters: Array<{ x: number; y: number; r: number }>,
+  streamR: number,
+): { x: number; y: number; dist: number } | null {
+  let best: { x: number; y: number; dist: number } | null = null;
+  const reach = streamR + 58;
+  for (const [a, b] of streamLines) {
+    const q = nearestOnSegment(px, py, a.x, a.y, b.x, b.y);
+    if (q.dist <= reach && (!best || q.dist < best.dist)) best = q;
+  }
+  for (const pc of poolCenters) {
+    const d = Math.hypot(px - pc.x, py - pc.y);
+    if (d > pc.r + 58) continue;
+    const ang = Math.atan2(py - pc.y, px - pc.x);
+    const qx = pc.x + Math.cos(ang) * pc.r * 0.88;
+    const qy = pc.y + Math.sin(ang) * pc.r * 0.82;
+    const edgeDist = Math.abs(d - pc.r * 0.9);
+    if (!best || edgeDist < best.dist) best = { x: qx, y: qy, dist: edgeDist };
+  }
+  return best;
+}
+
 function hexToNum(hex?: string): number | undefined {
   if (!hex) return undefined;
   const v = hex.replace('#', '');
@@ -192,14 +242,21 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
   const hostRef = useRef<HTMLDivElement>(null);
   const appRef = useRef<Application | null>(null);
   const viewRef = useRef<{ x: number; y: number; scale: number } | null>(null);
+  const restoreRef = useRef<{ x: number; y: number; scale: number } | null>(null);
+  const selectedIdRef = useRef<string | null>(null);
+  const tapHandlerRef = useRef<(b: SceneBuilding) => void>(() => {});
+  const routeRef = useRef<{ aId: string | null; bId: string | null; label: string } | null>(null);
 
   const [selected, setSelected] = useState<SceneBuilding | null>(null);
+  selectedIdRef.current = selected?.id ?? null;
   const [dialogue, setDialogue] = useState<{ npc: SceneNpc; line: DialogueLine } | null>(null);
   const [sceneReady, setSceneReady] = useState(false);
   const [sceneError, setSceneError] = useState<string | null>(null);
   const [zoneFilter, setZoneFilter] = useState<string>('all');
-  const [scanOpen, setScanOpen] = useState(false);
   const [galleryOpen, setGalleryOpen] = useState(false);
+  const [routeMode, setRouteMode] = useState(false);
+  const [routeA, setRouteA] = useState<SceneBuilding | null>(null);
+  const [routeB, setRouteB] = useState<SceneBuilding | null>(null);
 
   const graphHeight = 'calc(100dvh - var(--graph-chrome, 10.5rem))';
 
@@ -234,6 +291,42 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
       }))
       .sort((a, b) => a.steps - b.steps);
   }, [selected, buildings, scene.px_per_step]);
+
+  const routeInfo = useMemo(() => {
+    if (!routeA || !routeB) return null;
+    return {
+      steps: logicalSteps(routeA.logical, routeB.logical, scene.px_per_step),
+      bearing: bearingLabel(routeA.logical, routeB.logical),
+    };
+  }, [routeA, routeB, scene.px_per_step]);
+
+  const routeLabel = routeInfo ? `约 ${routeInfo.steps} 步` : '';
+
+  // 点击建筑的行为随模式而变（用 ref 避免重建 Pixi 场景）
+  tapHandlerRef.current = (b: SceneBuilding) => {
+    setDialogue(null);
+    if (routeMode) {
+      if (!routeA || (routeA && routeB)) {
+        setRouteA(b);
+        setRouteB(null);
+      } else if (b.id !== routeA.id) {
+        setRouteB(b);
+      }
+    } else {
+      setSelected(b);
+    }
+  };
+  routeRef.current = { aId: routeA?.id ?? null, bId: routeB?.id ?? null, label: routeLabel };
+
+  const toggleRoute = () => {
+    const next = !routeMode;
+    setRouteMode(next);
+    setRouteA(null);
+    setRouteB(null);
+    if (next) setSelected(null);
+    const app = appRef.current as (Application & { _reset?: () => void }) | null;
+    app?._reset?.(); // 回到整园，便于看两点连线
+  };
 
   const rollDialogue = (npc: SceneNpc) => {
     const pool = pools[npc.id];
@@ -338,43 +431,226 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
         ['沁芳亭', '蓼溆'],
         ['蓼溆', '船坞'],
       ];
-      const waterShape = new Graphics();
-      const STREAM_R = 24;
-      const addCapsule = (a: LogicalPoint, b: LogicalPoint, r: number) => {
+      const waterBank = new Graphics(); // 河岸柔边（深色压底）
+      const waterShape = new Graphics(); // 水域形状（渐变水面遮罩）
+      const STREAM_R = 26;
+      const streamLines: Array<[LogicalPoint, LogicalPoint]> = [];
+      const poolCenters: Array<{ x: number; y: number; r: number }> = [];
+      const stamp = (g: Graphics, a: LogicalPoint, b: LogicalPoint, r: number) => {
         const dx = b.x - a.x;
         const dy = b.y - a.y;
         const len = Math.hypot(dx, dy) || 1;
         const nx = (-dy / len) * r;
         const ny = (dx / len) * r;
-        waterShape
-          .poly([a.x + nx, a.y + ny, b.x + nx, b.y + ny, b.x - nx, b.y - ny, a.x - nx, a.y - ny])
-          .fill({ color: 0xffffff });
-        waterShape.circle(a.x, a.y, r).fill({ color: 0xffffff });
-        waterShape.circle(b.x, b.y, r).fill({ color: 0xffffff });
+        g.poly([a.x + nx, a.y + ny, b.x + nx, b.y + ny, b.x - nx, b.y - ny, a.x - nx, a.y - ny]);
+        g.circle(a.x, a.y, r);
+        g.circle(b.x, b.y, r);
       };
       let waterDrawn = 0;
+      let waterReflectCtx: {
+        reflectionLayer: Container;
+        streamLines: Array<[LogicalPoint, LogicalPoint]>;
+        poolCenters: Array<{ x: number; y: number; r: number }>;
+        streamR: number;
+      } | null = null;
       for (const [from, to] of streamSegs) {
         const a = sceneOf(from);
         const b = sceneOf(to);
-        if (a && b) {
-          addCapsule(a, b, STREAM_R);
-          waterDrawn += 1;
-        }
+        if (!a || !b) continue;
+        stamp(waterBank, a, b, STREAM_R + 6);
+        stamp(waterShape, a, b, STREAM_R);
+        streamLines.push([a, b]);
+        waterDrawn += 1;
       }
       // 沁芳亭 / 沁芳闸 处微微放宽成小潭
       for (const id of ['沁芳亭', '沁芳闸']) {
         const p = sceneOf(id);
-        if (p) {
-          waterShape.circle(p.x, p.y, 40).fill({ color: 0xffffff });
-          waterDrawn += 1;
-        }
+        if (!p) continue;
+        waterBank.circle(p.x, p.y, 48);
+        waterShape.circle(p.x, p.y, 42);
+        poolCenters.push({ x: p.x, y: p.y, r: 42 });
+        waterDrawn += 1;
       }
       if (waterDrawn > 0) {
-        const waterFill = new TilingSprite({ texture: tex[SCENE_ASSETS.water], width: gW, height: gH });
-        waterFill.position.set(gX, gY);
-        waterFill.tileScale.set(0.5);
-        waterFill.mask = waterShape;
-        world.addChild(waterShape, waterFill);
+        waterBank.fill({ color: 0x16322f, alpha: 0.55 });
+        waterShape.fill({ color: 0xffffff });
+
+        const waterLayer = new Container();
+        const reflectionLayer = new Container(); // 邻水建筑倒影（建筑循环后填充）
+        // 黛碧静水（中式园林水色：不饱和青碧，自上而下加深）
+        const waterGrad = new FillGradient({
+          type: 'linear',
+          start: { x: 0, y: 0 },
+          end: { x: 0, y: 1 },
+          textureSpace: 'local',
+          colorStops: [
+            { offset: 0, color: 0x6f998e },
+            { offset: 0.5, color: 0x3c6b65 },
+            { offset: 1, color: 0x244744 },
+          ],
+        });
+        const fillG = new Graphics();
+        fillG.rect(gX, gY, gW, gH).fill(waterGrad);
+        waterLayer.addChild(fillG, reflectionLayer);
+
+        // 荷叶 sprite（确定性散布，受水域遮罩裁切）
+        const plantRnd = mulberry32(0x10a75c0d);
+        const padLayer = new Container();
+        const lotusPadTex = tex[SCENE_ASSETS.lotusPad];
+        const lotusBloomTex = tex[SCENE_ASSETS.lotusBloom];
+        const placePadSprite = (x: number, y: number, scale: number) => {
+          const bloom = plantRnd() < 0.22;
+          const t = bloom ? lotusBloomTex : lotusPadTex;
+          if (!t) return;
+          const sp = new Sprite(t);
+          sp.anchor.set(0.5, 0.55);
+          const w = (bloom ? 34 : 30) * scale * (0.85 + plantRnd() * 0.3);
+          sp.width = w;
+          sp.height = w * (t.height / t.width);
+          sp.rotation = (plantRnd() - 0.5) * 0.5;
+          sp.position.set(x, y);
+          padLayer.addChild(sp);
+        };
+        poolCenters.forEach((pc) => {
+          const n = 4 + Math.floor(plantRnd() * 4);
+          for (let i = 0; i < n; i++) {
+            const ang = plantRnd() * Math.PI * 2;
+            const rr = plantRnd() * (pc.r - 14);
+            placePadSprite(pc.x + Math.cos(ang) * rr, pc.y + Math.sin(ang) * rr * 0.7, 1);
+          }
+        });
+        streamLines.forEach(([a, b]) => {
+          const dx = b.x - a.x;
+          const dy = b.y - a.y;
+          const len = Math.hypot(dx, dy) || 1;
+          const nx = -dy / len;
+          const ny = dx / len;
+          const n = Math.max(1, Math.floor(len / 100));
+          for (let i = 0; i < n; i++) {
+            const t = 0.2 + plantRnd() * 0.6;
+            const off = (plantRnd() - 0.5) * (STREAM_R - 10) * 2;
+            placePadSprite(a.x + dx * t + nx * off, a.y + dy * t + ny * off, 0.85);
+          }
+        });
+        waterLayer.addChild(padLayer);
+
+        // 动态涟漪圈：缓缓扩散后淡出、循环重生（落叶 / 游鱼）
+        const ripples = new Graphics();
+        waterLayer.addChild(ripples);
+        const ripPts: Array<{ x: number; y: number }> = [];
+        poolCenters.forEach((pc) => ripPts.push({ x: pc.x, y: pc.y }));
+        streamLines.forEach(([a, b]) => ripPts.push({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }));
+        type Rip = { x: number; y: number; r: number; max: number };
+        const spawnRip = (): Rip => {
+          const p = ripPts[Math.floor(plantRnd() * ripPts.length)] ?? { x: gX, y: gY };
+          return {
+            x: p.x + (plantRnd() - 0.5) * 34,
+            y: p.y + (plantRnd() - 0.5) * 22,
+            r: 1 + plantRnd() * 6,
+            max: 16 + plantRnd() * 20,
+          };
+        };
+        const rips: Rip[] = Array.from({ length: 5 }, spawnRip);
+        const drawRipples = () => {
+          ripples.clear();
+          for (const rp of rips) {
+            const a = Math.max(0, 0.34 * (1 - rp.r / rp.max));
+            if (a <= 0.01) continue;
+            ripples.ellipse(rp.x, rp.y, rp.r, rp.r * 0.6).stroke({ width: 1.4, color: 0xdfeee8, alpha: a });
+            if (rp.r > 7) {
+              ripples.ellipse(rp.x, rp.y, rp.r * 0.58, rp.r * 0.35).stroke({ width: 1, color: 0xdfeee8, alpha: a * 0.7 });
+            }
+          }
+        };
+        drawRipples();
+        const onWater = () => {
+          const dt = app.ticker.deltaTime;
+          for (let i = 0; i < rips.length; i++) {
+            rips[i].r += 0.32 * dt;
+            if (rips[i].r >= rips[i].max) rips[i] = spawnRip();
+          }
+          drawRipples();
+        };
+        app.ticker.add(onWater);
+        cleanups.push(() => app.ticker.remove(onWater));
+
+        waterLayer.mask = waterShape;
+        world.addChild(waterBank, waterShape, waterLayer);
+
+        // 驳岸假山 sprite + 芦苇：叠石簇框住水缘
+        const rockRnd = mulberry32(0x7a31b9c1);
+        const rocks = new Container();
+        const rockTex = [SCENE_ASSETS.rockA, SCENE_ASSETS.rockB, SCENE_ASSETS.rockC]
+          .map((u) => tex[u])
+          .filter(Boolean) as Texture[];
+        const placeRockery = (x: number, y: number, size = 1) => {
+          if (!rockTex.length) return;
+          const n = 2 + Math.floor(rockRnd() * 3);
+          for (let i = 0; i < n; i++) {
+            const rt = rockTex[Math.floor(rockRnd() * rockTex.length)]!;
+            const sp = new Sprite(rt);
+            sp.anchor.set(0.5, 0.88);
+            const w = (16 + rockRnd() * 22) * size;
+            sp.width = w;
+            sp.height = w * (rt.height / rt.width);
+            sp.position.set(x + (rockRnd() - 0.5) * 14, y + (rockRnd() - 0.5) * 8 - i * 4);
+            sp.rotation = (rockRnd() - 0.5) * 0.35;
+            rocks.addChild(sp);
+          }
+        };
+        const placeReed = (x: number, y: number) => {
+          const reedG = new Graphics();
+          const n = 3 + Math.floor(rockRnd() * 3);
+          for (let i = 0; i < n; i++) {
+            const sway = (rockRnd() - 0.5) * 0.6;
+            const h = 9 + rockRnd() * 11;
+            const bx = x + (i - n / 2) * 1.8;
+            reedG.moveTo(bx, y).lineTo(bx + Math.sin(sway) * h, y - h);
+          }
+          reedG.stroke({ width: 1.4, color: 0x5f7d3a, alpha: 0.8 });
+          rocks.addChild(reedG);
+        };
+        streamLines.forEach(([a, b]) => {
+          const dx = b.x - a.x;
+          const dy = b.y - a.y;
+          const len = Math.hypot(dx, dy) || 1;
+          const ux = dx / len;
+          const uy = dy / len;
+          const nx = -uy;
+          const ny = ux;
+          for (let d = 0; d <= len; d += 22) {
+            for (const side of [-1, 1]) {
+              const roll = rockRnd();
+              if (roll < 0.32) continue;
+              const off = (STREAM_R + 3) * side + (rockRnd() - 0.5) * 5;
+              const x = a.x + ux * d + nx * off;
+              const y = a.y + uy * d + ny * off;
+              if (roll > 0.88) placeReed(x, y);
+              else if (roll > 0.55) placeRockery(x, y, 0.75);
+              else placeRockery(x, y, 1);
+            }
+          }
+        });
+        poolCenters.forEach((pc) => {
+          const n = 12;
+          for (let i = 0; i < n; i++) {
+            const roll = rockRnd();
+            if (roll < 0.22) continue;
+            const ang = (i / n) * Math.PI * 2 + (rockRnd() - 0.5) * 0.3;
+            const x = pc.x + Math.cos(ang) * (pc.r + 4);
+            const y = pc.y + Math.sin(ang) * (pc.r + 4) * 0.82;
+            if (roll > 0.92) placeReed(x, y);
+            else placeRockery(x, y, 1.05);
+          }
+        });
+        world.addChild(rocks);
+
+        waterReflectCtx = {
+          reflectionLayer,
+          streamLines,
+          poolCenters,
+          streamR: STREAM_R,
+        };
       }
 
       // 园墙（双线）
@@ -383,24 +659,182 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
       wall.roundRect(gX, gY, gW, gH, 18).stroke({ width: 2, color: 0x9c8e7d, alpha: 0.7 });
       world.addChild(wall);
 
-      // 第17回游线（淡）
+      // 园路网：浅色石径连通各院落（呼应美术画廊的步道感），置于林木/建筑之下
+      const pathPts: LogicalPoint[] = [];
+      {
+        const pn = visibleBuildings.map((b) =>
+          logicalToScene(b.logical.x, b.logical.y, scene.width, scene.height),
+        );
+        const dist2 = (i: number, j: number) =>
+          (pn[i].x - pn[j].x) ** 2 + (pn[i].y - pn[j].y) ** 2;
+        const edgeKeys = new Set<string>();
+        const edges: Array<[number, number]> = [];
+        const addEdge = (i: number, j: number) => {
+          if (i === j) return;
+          const k = i < j ? `${i}-${j}` : `${j}-${i}`;
+          if (!edgeKeys.has(k)) {
+            edgeKeys.add(k);
+            edges.push([i, j]);
+          }
+        };
+        if (pn.length > 1) {
+          // 最小生成树（Prim）：每处院落都连通
+          const inTree = new Array(pn.length).fill(false);
+          inTree[0] = true;
+          for (let c = 1; c < pn.length; c++) {
+            let bi = -1, bj = -1, bd = Infinity;
+            for (let i = 0; i < pn.length; i++) {
+              if (!inTree[i]) continue;
+              for (let j = 0; j < pn.length; j++) {
+                if (inTree[j]) continue;
+                const d = dist2(i, j);
+                if (d < bd) { bd = d; bi = i; bj = j; }
+              }
+            }
+            if (bj < 0) break;
+            inTree[bj] = true;
+            addEdge(bi, bj);
+          }
+          // 近邻补边：制造少量环路，更像园林而非纯树状
+          for (let i = 0; i < pn.length; i++) {
+            let nj = -1, nd = Infinity;
+            for (let j = 0; j < pn.length; j++) {
+              if (j === i) continue;
+              const d = dist2(i, j);
+              if (d < nd) { nd = d; nj = j; }
+            }
+            if (nj >= 0) addEdge(i, nj);
+          }
+        }
+        // 南门入口主路：园墙底部正中 → 最近院落
+        const gate = { x: gX + gW / 2, y: gY + gH };
+        let gi = -1, gdist = Infinity;
+        pn.forEach((p, i) => {
+          const d = (p.x - gate.x) ** 2 + (p.y - gate.y) ** 2;
+          if (d < gdist) { gdist = d; gi = i; }
+        });
+
+        const prnd = mulberry32(0x9e3779b1);
+        const segs: Array<{ a: LogicalPoint; c: LogicalPoint; b: LogicalPoint }> = [];
+        const pushSeg = (a: LogicalPoint, b: LogicalPoint, wind = 1) => {
+          const dx = b.x - a.x, dy = b.y - a.y;
+          const len = Math.hypot(dx, dy) || 1;
+          const off = (prnd() - 0.5) * Math.min(len * 0.16, 46) * wind;
+          const c = {
+            x: (a.x + b.x) / 2 + (-dy / len) * off,
+            y: (a.y + b.y) / 2 + (dx / len) * off,
+          };
+          segs.push({ a, c, b });
+          for (let t = 0; t <= 1.001; t += 0.25) {
+            const it = 1 - t;
+            pathPts.push({
+              x: it * it * a.x + 2 * it * t * c.x + t * t * b.x,
+              y: it * it * a.y + 2 * it * t * c.y + t * t * b.y,
+            });
+          }
+        };
+        edges.forEach(([i, j]) => pushSeg(pn[i], pn[j]));
+        if (gi >= 0) pushSeg(gate, pn[gi], 0.35);
+
+        if (segs.length) {
+          // 落地软影（在石板之下，给路面接地感）
+          const sh = new Graphics();
+          segs.forEach((s) => sh.moveTo(s.a.x, s.a.y).quadraticCurveTo(s.c.x, s.c.y, s.b.x, s.b.y));
+          sh.stroke({ width: 22, color: 0x2c2a1e, alpha: 0.15, cap: 'round', join: 'round' });
+          world.addChild(sh);
+
+          // 青石板分块铺面：沿曲线按弧长铺石板（带缝、逐块色差）
+          const SLAB_W = 15;
+          const SLAB_LEN = 15;
+          const SLAB_GAP = 4.5;
+          const slabRnd = mulberry32(0x5eed51ab);
+          const slabG = new Graphics();
+          const drawSlabs = (a: LogicalPoint, c: LogicalPoint, b: LogicalPoint) => {
+            const N = Math.max(10, Math.ceil((Math.hypot(b.x - a.x, b.y - a.y) + 40) / 8));
+            const pts: LogicalPoint[] = [];
+            for (let i = 0; i <= N; i++) {
+              const t = i / N;
+              const it = 1 - t;
+              pts.push({
+                x: it * it * a.x + 2 * it * t * c.x + t * t * b.x,
+                y: it * it * a.y + 2 * it * t * c.y + t * t * b.y,
+              });
+            }
+            let acc = 0;
+            let nextAt = SLAB_LEN / 2;
+            for (let i = 1; i < pts.length; i++) {
+              const p0 = pts[i - 1];
+              const p1 = pts[i];
+              const segLen = Math.hypot(p1.x - p0.x, p1.y - p0.y) || 1e-3;
+              while (nextAt <= acc + segLen) {
+                const f = (nextAt - acc) / segLen;
+                const cx = p0.x + (p1.x - p0.x) * f;
+                const cy = p0.y + (p1.y - p0.y) * f;
+                const ux = (p1.x - p0.x) / segLen;
+                const uy = (p1.y - p0.y) / segLen;
+                const nx = -uy;
+                const ny = ux;
+                const hl = SLAB_LEN / 2;
+                const hw = SLAB_W / 2;
+                const corners = [
+                  cx - ux * hl - nx * hw, cy - uy * hl - ny * hw,
+                  cx + ux * hl - nx * hw, cy + uy * hl - ny * hw,
+                  cx + ux * hl + nx * hw, cy + uy * hl + ny * hw,
+                  cx - ux * hl + nx * hw, cy - uy * hl + ny * hw,
+                ];
+                const j = Math.floor((slabRnd() - 0.5) * 26);
+                const r = Math.max(70, Math.min(165, 0x83 + j));
+                const g = Math.max(78, Math.min(175, 0x90 + j));
+                const bl = Math.max(78, Math.min(175, 0x90 + j));
+                slabG
+                  .poly(corners)
+                  .fill({ color: (r << 16) | (g << 8) | bl, alpha: 0.96 })
+                  .stroke({ width: 1.1, color: 0x434d4c, alpha: 0.6 });
+                nextAt += SLAB_LEN + SLAB_GAP;
+              }
+              acc += segLen;
+            }
+          };
+          segs.forEach((s) => drawSlabs(s.a, s.c, s.b));
+          world.addChild(slabG);
+        }
+        if (gi >= 0) {
+          const apron = new Graphics();
+          apron.roundRect(gate.x - 28, gate.y - 12, 56, 24, 5).fill({ color: 0x434d4c, alpha: 0.6 });
+          apron.roundRect(gate.x - 25, gate.y - 10, 50, 20, 4).fill({ color: 0x8b9795, alpha: 0.96 });
+          apron
+            .moveTo(gate.x - 8, gate.y - 10)
+            .lineTo(gate.x - 8, gate.y + 10)
+            .moveTo(gate.x + 9, gate.y - 10)
+            .lineTo(gate.x + 9, gate.y + 10)
+            .stroke({ width: 1.2, color: 0x434d4c, alpha: 0.6 });
+          world.addChild(apron);
+        }
+      }
+
+      // 第17回游线（金色淡线，叠在石径之上）
       if (scene.paths.length) {
         const tline = new Graphics();
         scene.paths.forEach((p) => {
-          const a = buildingById.get(p.from);
-          const b = buildingById.get(p.to);
+          const a = sceneOf(p.from);
+          const b = sceneOf(p.to);
           if (!a || !b) return;
-          const ca = center(a);
-          const cb = center(b);
-          tline.moveTo(ca.x, ca.y).lineTo(cb.x, cb.y);
+          tline.moveTo(a.x, a.y).lineTo(b.x, b.y);
         });
-        tline.stroke({ width: 2, color: 0xe7c873, alpha: 0.22 });
+        tline.stroke({ width: 2.5, color: 0xe7c873, alpha: 0.4 });
         world.addChild(tline);
       }
 
       // ============ 林木 + 建筑：按 baseY 统一深度排序 ============
       const labelSize = compactLabels ? 13 : 17;
       const drawables: Array<{ baseY: number; node: Container }> = [];
+      // 建筑句柄索引：选中态不重建场景，只在此基础上切换高亮 + 移动相机
+      const nodeIndex = new Map<
+        string,
+        { node: Container; gx: number; gy: number; w: number; h: number; setLabelSel: (on: boolean) => void }
+      >();
+      const selectionRing = new Graphics();
+      const routeLayer = new Container(); // 动线连线 + 步数（置最顶）
       const labelLayer = new Container();
 
       // 林木散点（确定性；避开建筑与水面）
@@ -418,7 +852,8 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
           (b) => Math.hypot(center(b).x - tx, center(b).y - ty) < 64,
         );
         const nearWater = waterPts.some((p) => Math.hypot(p.x - tx, p.y - ty) < 60);
-        if (nearBuilding || nearWater) continue;
+        const nearPath = pathPts.some((p) => Math.hypot(p.x - tx, p.y - ty) < 28);
+        if (nearBuilding || nearWater || nearPath) continue;
         const tw = 56 + rnd() * 48;
         const sp = new Sprite(treeTex);
         sp.anchor.set(0.5, 0.86);
@@ -432,11 +867,8 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
       }
 
       // 建筑（真坐标摆等距 sprite）
-      let focusPoint: { x: number; y: number } | null = null;
       for (const b of visibleBuildings) {
         const ground = logicalToScene(b.logical.x, b.logical.y, scene.width, scene.height);
-        const isSelected = selected?.id === b.id;
-        if (isSelected) focusPoint = { x: ground.x, y: ground.y };
         const node = new Container();
         node.eventMode = 'static';
         node.cursor = 'pointer';
@@ -451,13 +883,6 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
         shadow.ellipse(dispW * 0.05, 0, dispW * 0.38, dispW * 0.12).fill({ color: 0x0a0f0a, alpha: 0.26 });
         node.addChild(shadow);
 
-        if (isSelected) {
-          const ring = new Graphics();
-          ring.ellipse(0, 0, b.w * 0.6, b.h * 0.34).fill({ color: 0xf4d796, alpha: 0.16 });
-          ring.ellipse(0, 0, b.w * 0.6, b.h * 0.34).stroke({ width: 2.5, color: 0xf4d796, alpha: 0.85 });
-          node.addChild(ring);
-        }
-
         if (archTex) {
           const sp = new Sprite(archTex);
           sp.anchor.set(0.5, 0.9);
@@ -471,10 +896,7 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
         }
         node.hitArea = new Rectangle(-dispW / 2, -dispH * 0.9, dispW, dispH);
 
-        node.on('pointertap', () => {
-          setSelected(b);
-          setDialogue(null);
-        });
+        node.on('pointertap', () => tapHandlerRef.current?.(b));
         drawables.push({ baseY: ground.y, node });
 
         // 名称标签（统一置顶层，避免被南侧建筑遮挡）
@@ -483,25 +905,65 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
           style: {
             fontFamily: 'Noto Serif SC, serif',
             fontSize: labelSize,
-            fill: isSelected ? 0xf4d796 : 0xfdf6e3,
-            fontWeight: isSelected ? 700 : 600,
+            fill: 0xfdf6e3,
+            fontWeight: 600,
           },
         });
         nameText.anchor.set(0.5, 0);
         const nameBg = new Graphics();
-        nameBg
-          .roundRect(-nameText.width / 2 - 8, -3, nameText.width + 16, nameText.height + 6, 5)
-          .fill({ color: isSelected ? 0x1a120d : 0x16110e, alpha: isSelected ? 0.8 : 0.52 })
-          .stroke({ width: 1, color: 0xc5b08f, alpha: isSelected ? 0.65 : 0.3 });
+        const drawLabelBg = (on: boolean) => {
+          nameBg
+            .clear()
+            .roundRect(-nameText.width / 2 - 8, -3, nameText.width + 16, nameText.height + 6, 5)
+            .fill({ color: on ? 0x1a120d : 0x16110e, alpha: on ? 0.8 : 0.52 })
+            .stroke({ width: 1, color: 0xc5b08f, alpha: on ? 0.65 : 0.3 });
+        };
+        drawLabelBg(false);
         const nameTag = new Container();
         nameTag.addChild(nameBg, nameText);
         nameTag.position.set(ground.x, ground.y + 8);
         labelLayer.addChild(nameTag);
+
+        nodeIndex.set(b.id, {
+          node,
+          gx: ground.x,
+          gy: ground.y,
+          w: b.w,
+          h: b.h,
+          setLabelSel: (on: boolean) => {
+            nameText.style.fill = on ? 0xf4d796 : 0xfdf6e3;
+            nameText.style.fontWeight = on ? 700 : 600;
+            drawLabelBg(on);
+          },
+        });
+      }
+
+      // 邻水建筑极淡倒影：邻近 sprite 压扁翻转，半透明画入水面层
+      if (waterReflectCtx) {
+        const { reflectionLayer, streamLines, poolCenters, streamR } = waterReflectCtx;
+        for (const b of visibleBuildings) {
+          if (b.zone === '水系' || b.zone === '路径') continue;
+          const ground = logicalToScene(b.logical.x, b.logical.y, scene.width, scene.height);
+          const wp = nearestWaterPoint(ground.x, ground.y, streamLines, poolCenters, streamR);
+          if (!wp || wp.dist > 68 || wp.dist < 6) continue;
+          const archTex = tex[SCENE_ASSETS[archetypeFor(b)]];
+          if (!archTex) continue;
+          const dispW = b.w * 1.05;
+          const baseScale = dispW / archTex.width;
+          const refl = new Sprite(archTex);
+          refl.anchor.set(0.5, 0);
+          refl.scale.set(baseScale * 0.88, -baseScale * 0.24);
+          refl.position.set(wp.x + (ground.x - wp.x) * 0.22, wp.y + 3);
+          refl.alpha = 0.1 + (1 - wp.dist / 68) * 0.07;
+          refl.tint = 0x7a9894;
+          reflectionLayer.addChild(refl);
+        }
       }
 
       drawables.sort((a, b) => a.baseY - b.baseY);
       for (const d of drawables) world.addChild(d.node);
       world.addChild(labelLayer);
+      world.addChild(routeLayer);
 
       // ---- NPC ----
       for (const n of npcs) {
@@ -563,42 +1025,106 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
         world.addChild(node);
       }
 
-      // ---- 适配缩放 + 平移 + 滚轮 ----
+      // ---- 相机：对焦/缩放/平移 + 补间（选中态不重建场景） ----
+      let focusPoint: { x: number; y: number } | null = null;
       const MIN_SCALE = 0.16;
       const MAX_SCALE = 4;
       const clampScale = (v: number) => Math.max(MIN_SCALE, Math.min(MAX_SCALE, v));
       const baseFitScale = () =>
         Math.min(app.screen.width / scene.width, app.screen.height / scene.height) * 0.94;
-      const saveView = () => {
-        viewRef.current = { x: world.x, y: world.y, scale: world.scale.x };
+      type View = { x: number; y: number; scale: number };
+      const currentView = (): View => ({ x: world.x, y: world.y, scale: world.scale.x });
+      const applyView = (v: View) => {
+        world.scale.set(v.scale);
+        world.position.set(v.x, v.y);
+        viewRef.current = v;
       };
-      const fitDefault = () => {
+      // 手动平移/缩放后：既更新相机，又把它记为「关闭后回退」目标
+      const saveView = () => {
+        const v = currentView();
+        viewRef.current = v;
+        restoreRef.current = v;
+      };
+      const defaultView = (): View => {
         const sw = app.screen.width;
         const sh = app.screen.height;
         const s = baseFitScale();
-        world.scale.set(s);
-        world.position.set((sw - scene.width * s) / 2, (sh - scene.height * s) / 2);
+        return { x: (sw - scene.width * s) / 2, y: (sh - scene.height * s) / 2, scale: s };
       };
-      // fit：选中建筑→对焦放大；否则恢复上次手动视图；都没有→整园铺满
-      const fit = () => {
+      const focusView = (): View => {
         const sw = app.screen.width;
         const sh = app.screen.height;
-        app.stage.hitArea = new Rectangle(0, 0, sw, sh);
-        if (focusPoint) {
-          const s = clampScale(baseFitScale() * 2.6);
-          world.scale.set(s);
-          // 略偏左，避免被右侧详情面板遮住
-          world.position.set(sw * 0.42 - focusPoint.x * s, sh * 0.46 - focusPoint.y * s);
-          return;
-        }
-        if (viewRef.current) {
-          world.scale.set(viewRef.current.scale);
-          world.position.set(viewRef.current.x, viewRef.current.y);
-          return;
-        }
-        fitDefault();
+        const s = clampScale(baseFitScale() * 2.6);
+        // 略偏左，避免被右侧详情面板遮住
+        return { x: sw * 0.42 - focusPoint!.x * s, y: sh * 0.46 - focusPoint!.y * s, scale: s };
       };
-      fit();
+      const targetView = (): View => (focusPoint ? focusView() : restoreRef.current ?? defaultView());
+
+      // ---- 相机补间 ----
+      let tweenRaf = 0;
+      const cancelTween = () => {
+        if (tweenRaf) cancelAnimationFrame(tweenRaf);
+        tweenRaf = 0;
+      };
+      cleanups.push(cancelTween);
+      const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+      const TWEEN_MS = 460;
+      const tweenView = (from: View, to: View) => {
+        cancelTween();
+        if (Math.abs(from.x - to.x) < 1 && Math.abs(from.y - to.y) < 1 && Math.abs(from.scale - to.scale) < 0.001) {
+          applyView(to);
+          return;
+        }
+        applyView(from);
+        const start = performance.now();
+        const step = (now: number) => {
+          const t = Math.min(1, (now - start) / TWEEN_MS);
+          const k = easeOutCubic(t);
+          applyView({
+            x: from.x + (to.x - from.x) * k,
+            y: from.y + (to.y - from.y) * k,
+            // 缩放用几何插值，过渡更自然
+            scale: from.scale * Math.pow(to.scale / from.scale, k),
+          });
+          if (t < 1) tweenRaf = requestAnimationFrame(step);
+          else tweenRaf = 0;
+        };
+        tweenRaf = requestAnimationFrame(step);
+      };
+
+      const updateHitArea = () => {
+        app.stage.hitArea = new Rectangle(0, 0, app.screen.width, app.screen.height);
+      };
+      // 尺寸/初始：即时贴合，不打断已有补间逻辑
+      const reflow = () => {
+        updateHitArea();
+        cancelTween();
+        applyView(targetView());
+      };
+
+      // 选中态切换：只换高亮 + 移动相机，绝不重建场景（消除闪烁）
+      let selectedId: string | null = null;
+      const setSelection = (id: string | null, animate: boolean) => {
+        if (selectedId && selectedId !== id) nodeIndex.get(selectedId)?.setLabelSel(false);
+        if (selectionRing.parent) selectionRing.parent.removeChild(selectionRing);
+        selectedId = id;
+        const cur = id ? nodeIndex.get(id) : undefined;
+        if (cur) {
+          cur.setLabelSel(true);
+          selectionRing
+            .clear()
+            .ellipse(0, 0, cur.w * 0.6, cur.h * 0.34)
+            .fill({ color: 0xf4d796, alpha: 0.16 })
+            .ellipse(0, 0, cur.w * 0.6, cur.h * 0.34)
+            .stroke({ width: 2.5, color: 0xf4d796, alpha: 0.85 });
+          cur.node.addChildAt(selectionRing, 1); // 影子之上、建筑之下
+          focusPoint = { x: cur.gx, y: cur.gy };
+        } else {
+          focusPoint = null;
+        }
+        if (animate) tweenView(currentView(), targetView());
+        else reflow();
+      };
 
       app.stage.eventMode = 'static';
       let dragging = false;
@@ -606,7 +1132,8 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
       let origin = { x: 0, y: 0 };
       app.stage.on('pointerdown', (e) => {
         dragging = true;
-        focusPoint = null; // 手动平移后不再强制对焦
+        focusPoint = null; // 手动平移后不再强制对焦（保留选中高亮）
+        cancelTween();
         startP = { x: e.global.x, y: e.global.y };
         origin = { x: world.x, y: world.y };
       });
@@ -624,6 +1151,7 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
 
       const zoomAround = (factor: number, px: number, py: number) => {
         focusPoint = null;
+        cancelTween();
         const wx = (px - world.x) / world.scale.x;
         const wy = (py - world.y) / world.scale.y;
         const next = clampScale(world.scale.x * factor);
@@ -641,7 +1169,9 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
       app.canvas.addEventListener('wheel', onWheel, { passive: false });
       cleanups.push(() => app.canvas.removeEventListener('wheel', onWheel));
 
-      const onResize = () => fit();
+      let lastW = host.clientWidth;
+      let lastH = host.clientHeight;
+      const onResize = () => reflow();
       window.addEventListener('resize', onResize);
       window.addEventListener('graph-chrome-sync', onResize);
       cleanups.push(() => {
@@ -649,26 +1179,74 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
         window.removeEventListener('graph-chrome-sync', onResize);
       });
 
-      const ro = new ResizeObserver(() => fit());
+      const ro = new ResizeObserver(() => {
+        // 仅在尺寸真正变化时重排，避免 observe 的首帧回调打断对焦补间
+        const w = host.clientWidth;
+        const h = host.clientHeight;
+        if (Math.abs(w - lastW) < 2 && Math.abs(h - lastH) < 2) return;
+        lastW = w;
+        lastH = h;
+        reflow();
+      });
       ro.observe(host);
       cleanups.push(() => ro.disconnect());
 
+      // 动线连线：A→B 一条金线 + 端点标记 + 中点步数 chip（世界坐标，随缩放自适应）
+      const drawRoute = (aId: string | null, bId: string | null, label: string) => {
+        routeLayer.removeChildren();
+        const A = aId ? nodeIndex.get(aId) : undefined;
+        const B = bId ? nodeIndex.get(bId) : undefined;
+        if (A) {
+          const ma = new Graphics();
+          ma.circle(A.gx, A.gy, 9).fill({ color: 0xf4d796, alpha: 0.95 });
+          ma.circle(A.gx, A.gy, 15).stroke({ width: 3, color: 0xf4d796, alpha: 0.6 });
+          routeLayer.addChild(ma);
+        }
+        if (A && B) {
+          const line = new Graphics();
+          line.moveTo(A.gx, A.gy).lineTo(B.gx, B.gy).stroke({ width: 5, color: 0xf4d796, alpha: 0.9 });
+          line.circle(B.gx, B.gy, 9).fill({ color: 0xffe9b0, alpha: 0.98 });
+          line.circle(B.gx, B.gy, 15).stroke({ width: 3, color: 0xffe9b0, alpha: 0.6 });
+          routeLayer.addChild(line);
+          if (label) {
+            const t = new Text({
+              text: label,
+              style: { fontFamily: 'Noto Serif SC, serif', fontSize: 18, fill: 0x231708, fontWeight: '700' },
+            });
+            t.anchor.set(0.5);
+            const bg = new Graphics();
+            bg
+              .roundRect(-t.width / 2 - 11, -t.height / 2 - 6, t.width + 22, t.height + 12, 9)
+              .fill({ color: 0xf4d796, alpha: 0.96 })
+              .stroke({ width: 1.5, color: 0x6b4f1d, alpha: 0.85 });
+            const chip = new Container();
+            chip.addChild(bg, t);
+            chip.position.set((A.gx + B.gx) / 2, (A.gy + B.gy) / 2);
+            routeLayer.addChild(chip);
+          }
+        }
+      };
+
+      // 初始：恢复当前选中态与动线（重建场景如分区切换时也照此对齐），不动画
+      setSelection(selectedIdRef.current, false);
+      drawRoute(routeRef.current?.aId ?? null, routeRef.current?.bId ?? null, routeRef.current?.label ?? '');
       setSceneReady(true);
 
-      // 暴露 reset / zoom 给工具栏按钮
+      // 暴露给工具栏 / 选中 / 动线副作用
       const ctl = app as unknown as {
-        _fit?: () => void;
         _reset?: () => void;
         _zoom?: (factor: number) => void;
+        _select?: (id: string | null) => void;
+        _route?: (a: string | null, b: string | null, label: string) => void;
       };
-      ctl._fit = fit;
+      ctl._select = (id: string | null) => setSelection(id, true);
       ctl._reset = () => {
-        focusPoint = null;
-        viewRef.current = null;
-        fitDefault();
+        restoreRef.current = null;
+        setSelection(null, true);
       };
       ctl._zoom = (factor: number) =>
         zoomAround(factor, app.screen.width / 2, app.screen.height / 2);
+      ctl._route = drawRoute;
       } catch (e) {
         if (!disposed) {
           setSceneError(e instanceof Error ? e.message : '沙盘渲染失败');
@@ -685,7 +1263,37 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
         appRef.current = null;
       }
     };
-  }, [scene, visibleBuildings, npcs, buildingById, compactLabels, selected?.id]);
+  }, [scene, visibleBuildings, npcs, buildingById, compactLabels]);
+
+  // 选中态变化：不重建场景，仅切换高亮 + 补间相机
+  useEffect(() => {
+    const app = appRef.current as (Application & { _select?: (id: string | null) => void }) | null;
+    app?._select?.(selected?.id ?? null);
+  }, [selected?.id]);
+
+  // 动线变化：不重建场景，仅在 routeLayer 重绘连线 + 步数
+  useEffect(() => {
+    const app = appRef.current as
+      | (Application & { _route?: (a: string | null, b: string | null, label: string) => void })
+      | null;
+    app?._route?.(routeA?.id ?? null, routeB?.id ?? null, routeLabel);
+  }, [routeA?.id, routeB?.id, routeLabel]);
+
+  // Esc：按层级收起画廊 / 动线 / 详情 / 对白
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      if (galleryOpen) setGalleryOpen(false);
+      else if (routeMode) {
+        setRouteMode(false);
+        setRouteA(null);
+        setRouteB(null);
+      } else if (selected) setSelected(null);
+      else if (dialogue) setDialogue(null);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [galleryOpen, routeMode, selected, dialogue]);
 
   const resetView = () => {
     setSelected(null);
@@ -697,6 +1305,8 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
     const app = appRef.current as (Application & { _zoom?: (f: number) => void }) | null;
     app?._zoom?.(factor);
   };
+
+  const selectedSprite = selected ? SCENE_ASSETS[archetypeFor(selected)] : null;
 
   return (
     <div
@@ -734,7 +1344,7 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
           <div className="mt-1 text-xs leading-relaxed text-slate-500">{scene.scale_note}</div>
         )}
         <div className="mt-1.5 text-xs text-slate-500">
-          点院名标签看方位距离 · 点人物随机说一句 · 滚轮缩放 · 拖拽平移
+          点建筑放大看详情 · 点人物随机说一句 · 动线量两点距离 · 滚轮/＋−缩放 · 拖拽平移 · Esc 收起
         </div>
         {bookSlug === 'honglou' && (
           <div className="pointer-events-auto mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs font-medium">
@@ -744,12 +1354,6 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
               style={{ color: gt.accentSoft }}
             >
               对照 2D 地图 →
-            </a>
-            <a
-              href="/honglou/t/scan地图与项目坐标对照"
-              className="underline decoration-dotted underline-offset-2 text-slate-400 hover:text-slate-200"
-            >
-              scan 参考图对照表 →
             </a>
           </div>
         )}
@@ -781,15 +1385,18 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
             美术画廊
           </button>
         )}
-        {scene.scan_reference && (
-          <button
-            type="button"
-            onClick={() => setScanOpen(true)}
-            className="rounded-lg border border-white/10 bg-slate-900/80 px-3.5 py-2 text-sm font-medium text-slate-200 backdrop-blur-sm hover:border-white/25 hover:text-white"
-          >
-            scan 参考图
-          </button>
-        )}
+        <button
+          type="button"
+          onClick={toggleRoute}
+          aria-pressed={routeMode}
+          className={`rounded-lg border px-3.5 py-2 text-sm font-medium backdrop-blur-sm ${
+            routeMode
+              ? 'border-amber-300/70 bg-amber-300/15 text-amber-100'
+              : 'border-white/10 bg-slate-900/80 text-slate-200 hover:border-white/25 hover:text-white'
+          }`}
+        >
+          动线{routeMode ? ' · 开' : ''}
+        </button>
         <div className="flex items-center overflow-hidden rounded-lg border border-white/10 bg-slate-900/80 backdrop-blur-sm">
           <button
             type="button"
@@ -818,8 +1425,42 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
         </button>
       </div>
 
+      {/* 动线提示 / 结果条 */}
+      {routeMode && (
+        <div className="absolute left-1/2 top-16 z-10 -translate-x-1/2 rounded-xl border border-amber-300/40 bg-slate-900/92 px-4 py-2.5 text-center shadow-xl backdrop-blur-md">
+          {!routeA ? (
+            <span className="text-sm text-slate-200">动线模式 · 点选第一处建筑</span>
+          ) : !routeB ? (
+            <span className="text-sm text-slate-200">
+              起点 <b style={{ color: gt.accentSoft }}>{routeA.name}</b> · 再点选第二处建筑
+            </span>
+          ) : (
+            <div className="flex items-center gap-3">
+              <span className="text-sm">
+                <b style={{ color: gt.accentSoft }}>{routeA.name}</b>
+                <span className="mx-1.5 text-amber-200">→</span>
+                <b style={{ color: gt.accentSoft }}>{routeB.name}</b>
+                <span className="ml-2 text-slate-300">
+                  {routeInfo?.bearing} · 约 {routeInfo?.steps} 步
+                </span>
+              </span>
+              <button
+                type="button"
+                onClick={() => {
+                  setRouteA(null);
+                  setRouteB(null);
+                }}
+                className="rounded border border-white/15 px-2 py-0.5 text-xs text-slate-300 hover:border-white/30 hover:text-white"
+              >
+                重选
+              </button>
+            </div>
+          )}
+        </div>
+      )}
+
       {/* 建筑详情 */}
-      {selected && (
+      {!routeMode && selected && (
         <aside
           className="absolute right-3 top-16 z-10 w-72 rounded-xl border bg-slate-900/90 p-4 shadow-xl backdrop-blur-md"
           style={{ borderColor: gt.accentLine }}
@@ -836,6 +1477,17 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
               关闭
             </button>
           </div>
+          {selectedSprite && (
+            <div className="mb-2 flex items-end justify-center overflow-hidden rounded-lg border border-white/5 bg-gradient-to-b from-emerald-900/25 via-slate-800/30 to-slate-950/60 pt-2">
+              <img
+                key={selectedSprite}
+                src={selectedSprite}
+                alt={`${selected.name} 等距立绘`}
+                loading="lazy"
+                className="h-24 w-auto object-contain drop-shadow-[0_8px_10px_rgba(0,0,0,0.55)]"
+              />
+            </div>
+          )}
           {selected.plaque && (
             <div className="mb-1 text-sm font-medium" style={{ color: gt.accentSoft }}>
               匾 · {selected.plaque}
@@ -860,9 +1512,14 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
           {selected.link && (
             <a
               href={selected.link}
-              className="inline-block rounded border border-white/10 px-3 py-1.5 text-sm font-medium text-slate-200 hover:border-white/25 hover:bg-white/5"
+              className="flex items-center justify-center rounded-lg border px-3 py-2 text-sm font-semibold transition-colors hover:bg-white/10"
+              style={{
+                borderColor: gt.accentLine,
+                backgroundColor: 'rgba(255,255,255,0.06)',
+                color: gt.accentSoft,
+              }}
             >
-              查看建筑词条 →
+              进入词条页 →
             </a>
           )}
         </aside>
@@ -930,43 +1587,6 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
             <img
               src={scene.gallery}
               alt="大观园整园美术大图（方位仅示意）"
-              className="mx-auto max-w-full rounded-lg border border-white/10"
-            />
-          </div>
-        </div>
-      )}
-
-      {/* scan 等距参考图（方位不可采信，仅视觉对照） */}
-      {scanOpen && scene.scan_reference && (
-        <div
-          className="absolute inset-0 z-20 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
-          role="dialog"
-          aria-modal="true"
-          aria-label="scan 参考图"
-        >
-          <div className="relative max-h-[92vh] w-[min(96vw,920px)] overflow-auto rounded-xl border border-white/15 bg-slate-900/95 p-4 shadow-2xl">
-            <div className="mb-3 flex items-start justify-between gap-3">
-              <div>
-                <div className="text-lg font-bold text-slate-100">raw/scan 等距参考图</div>
-                <p className="mt-1 text-sm leading-relaxed text-slate-400">
-                  AI 生成示意图，23 处编号。建筑落位以本页 Pixi 场景与{' '}
-                  <a href="/honglou/map" className="underline decoration-dotted underline-offset-2 text-amber-200/90">
-                    2D 地图
-                  </a>{' '}
-                  为准，勿按此图方位理解。
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={() => setScanOpen(false)}
-                className="shrink-0 text-sm text-slate-400 hover:text-white"
-              >
-                关闭
-              </button>
-            </div>
-            <img
-              src={scene.scan_reference}
-              alt="大观园 scan 等距参考图（方位仅供参考）"
               className="mx-auto max-w-full rounded-lg border border-white/10"
             />
           </div>

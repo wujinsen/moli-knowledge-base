@@ -1,5 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import BackLink from '../../components/BackLink.astro';
@@ -8,6 +7,8 @@ import SilverDashboard from '../../components/SilverDashboard.tsx';
 import { formatLiang } from '../../lib/currency';
 import { amountDisplay } from '../../lib/transactions';
 import type { SilverData } from '../../lib/silver';
+import { loadEvents } from '../../lib/loadEvents';
+import { loadTransactions } from '../../lib/loadTransactions';
 import jpmSilver from '../../data/jinpingmei.silver.json';
 
 export async function getStaticPaths() {
@@ -19,9 +20,7 @@ export async function getStaticPaths() {
 
 const { book } = Astro.props;
 const meta = book.data;
-const txs = (await getCollection('transactions'))
-  .filter((t) => t.data.book === meta.book)
-  .sort((a, b) => a.data.chapter - b.data.chapter);
+const txs = (await loadTransactions(meta.book)).sort((a, b) => a.data.chapter - b.data.chapter);
 
 const silverBySlug: Record<string, SilverData> = {
   jinpingmei: jpmSilver as SilverData,
@@ -41,8 +40,8 @@ const txRows = txs.map((t) => ({
   href: `/${meta.slug}/read/cihua/${t.data.chapter}`,
 }));
 
-const finEvents = (await getCollection('events'))
-  .filter((e) => e.data.book === meta.book && e.data.subtype === 'financial')
+const finEvents = (await loadEvents(meta.book))
+  .filter((e) => e.data.subtype === 'financial')
   .sort((a, b) => (a.data.chapters[0] ?? 0) - (b.data.chapters[0] ?? 0));
 
 const eventTxMap = Object.fromEntries(finEvents.map((e) => [e.data.id, e.data.transaction_refs]));

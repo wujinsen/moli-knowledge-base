@@ -1,9 +1,8 @@
-import { getCollection } from 'astro:content';
 import {
-  DEFAULT_EDITION,
   maxChapterForEdition,
   readChapterPath,
 } from './editions';
+import { filterChaptersByEdition, loadChapterList } from './loadChapters';
 
 export type ReaderChapterItem = {
   number: number;
@@ -29,11 +28,10 @@ export async function listReaderChapters(
   options?: { edition?: string; bookTotal?: number },
 ): Promise<ReaderChapterItem[]> {
   const { edition, bookTotal } = options ?? {};
-  const all = await getCollection('chapters');
-
-  let list = all.filter((c) => c.data.book === book);
+  const lite = await loadChapterList(book);
+  let list = lite;
   if (edition) {
-    list = list.filter((c) => (c.data.edition ?? DEFAULT_EDITION) === edition);
+    list = filterChaptersByEdition(lite, edition);
   }
 
   const max =
@@ -42,11 +40,11 @@ export async function listReaderChapters(
       : undefined;
 
   return list
-    .filter((c) => max == null || c.data.number <= max)
-    .sort((a, b) => a.data.number - b.data.number)
+    .filter((c) => max == null || c.number <= max)
+    .sort((a, b) => a.number - b.number)
     .map((c) => ({
-      number: c.data.number,
-      title: c.data.title,
-      href: readChapterPath(slug, book, c.data.number, edition),
+      number: c.number,
+      title: c.title,
+      href: readChapterPath(slug, book, c.number, edition),
     }));
 }

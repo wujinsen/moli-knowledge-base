@@ -1,5 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import GraphLayout from '../../layouts/GraphLayout.astro';
 import BackLink from '../../components/BackLink.astro';
@@ -7,6 +6,8 @@ import RouteMap from '../../components/RouteMap.tsx';
 import { buildRouteEdges, type RouteNode } from '../../lib/route';
 import { projectRouteLayout } from '../../lib/routeGeo';
 import { sortEvents } from '../../lib/events';
+import { loadEvents } from '../../lib/loadEvents';
+import { loadLocations } from '../../lib/loadLocations';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -18,14 +19,12 @@ export async function getStaticPaths() {
 const { book } = Astro.props;
 const meta = book.data;
 
-const locations = (await getCollection('locations')).filter(
-  (l) => l.data.book === meta.book && l.data.layer && (l.data.coord || l.data.geo),
+const locations = (await loadLocations(meta.book)).filter(
+  (l) => l.data.layer && (l.data.coord || l.data.geo),
 );
 
 const tribulations = sortEvents(
-  (await getCollection('events')).filter(
-    (e) => e.data.book === meta.book && e.data.subtype === 'tribulation',
-  ),
+  (await loadEvents(meta.book)).filter((e) => e.data.subtype === 'tribulation'),
 );
 
 // 章回 → 劫难（按章回交叠把劫难落到地点）

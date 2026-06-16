@@ -1,9 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import GraphLayout from '../../layouts/GraphLayout.astro';
 import BackLink from '../../components/BackLink.astro';
 import ManorMap from '../../components/ManorMap.tsx';
+import { loadEvents } from '../../lib/loadEvents';
+import { loadLocations } from '../../lib/loadLocations';
 import {
   MANOR_ZONE_ORDER,
   attachManorEvents,
@@ -22,13 +23,11 @@ export async function getStaticPaths() {
 const { book } = Astro.props;
 const meta = book.data;
 
-const locations = (await getCollection('locations')).filter(
-  (l) => l.data.book === meta.book && l.data.coord && l.data.manor_zone,
+const locations = (await loadLocations(meta.book)).filter(
+  (l) => l.data.coord && l.data.manor_zone,
 );
 
-const manorEvents: ManorEventRef[] = (await getCollection('events'))
-  .filter((e) => e.data.book === meta.book)
-  .map((e) => ({
+const manorEvents: ManorEventRef[] = (await loadEvents(meta.book)).map((e) => ({
     id: e.data.id,
     title: e.data.title,
     chapters: e.data.chapters,

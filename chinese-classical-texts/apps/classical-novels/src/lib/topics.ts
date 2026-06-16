@@ -1,6 +1,10 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import topicsIndex from '../data/topics_index.json';
+import { snapshotEntries, wrapEntry, type SnapshotIndex } from './contentSnapshot';
 
 export type TopicEntry = CollectionEntry<'topics'>;
+
+type TopicSnapshotRow = TopicEntry['data'] & { _entry_id?: string };
 
 /** glob loader 的 id 形如「西游记/狮驼岭三魔总览」；取末段作为书内 slug */
 export function topicSlug(entry: TopicEntry): string {
@@ -42,10 +46,26 @@ export const STANCE_LABEL: Record<string, string> = {
   已弃: '已弃',
 };
 
-/** 加载某书全部 topic */
+function fromSnapshot(book: string): TopicEntry[] {
+  const rows = snapshotEntries(topicsIndex as SnapshotIndex<TopicSnapshotRow>, book);
+  return rows.map((data) => {
+    const { _entry_id, ...rest } = data;
+    const id = _entry_id ? `${_entry_id}.md` : `${rest.title}.md`;
+    return wrapEntry('topics', id, rest as TopicEntry['data']) as TopicEntry;
+  });
+}
+
+/** 加载某书全部 topic；content store 为空时回退 topics_index.json */
 export async function loadTopics(book: string): Promise<TopicEntry[]> {
-  const all = await getCollection('topics');
-  return all.filter((t) => t.data.book === book);
+  try {
+    const all = await getCollection('topics');
+    if (all.length > 0) {
+      return all.filter((t) => t.data.book === book);
+    }
+  } catch {
+    /* content store unavailable */
+  }
+  return fromSnapshot(book);
 }
 
 export function byCategory(topics: TopicEntry[], category: string): TopicEntry[] {

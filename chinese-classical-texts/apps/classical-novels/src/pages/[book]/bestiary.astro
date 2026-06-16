@@ -1,30 +1,30 @@
 ---
-import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import CharacterCard from '../../components/CharacterCard.astro';
 import { cardOutcome } from '../../lib/bestiary';
 import { bestiaryStatsFor, buildBestiaryGroupings, isBestiaryRestBucket } from '../../lib/bestiaryGroups';
 import { buildFullRosterList, loadCharacterRoster, loadCharacterScope } from '../../lib/characterRoster';
+import { loadCharacters } from '../../lib/loadCharacters';
+import { loadLocations } from '../../lib/loadLocations';
 
 export async function getStaticPaths() {
   const books = await getBooks();
-  return books.map((b) => ({
-    params: { book: b.data.slug },
-    props: { book: b },
-  }));
+  return books
+    .filter((b) => b.data.features.includes('bestiary'))
+    .map((b) => ({
+      params: { book: b.data.slug },
+      props: { book: b },
+    }));
 }
 
 const { book } = Astro.props;
 const meta = book.data;
 const slug = meta.slug;
 
-const entries = (await getCollection('characters'))
-  .filter((c) => c.data.book === meta.book)
-  .sort((a, b) => (b.data.weight ?? 0) - (a.data.weight ?? 0));
+const entries = await loadCharacters(meta.book);
 
-const placeIds = (await getCollection('locations'))
-  .filter((l) => l.data.book === meta.book)
+const placeIds = (await loadLocations(meta.book))
   .flatMap((l) => [l.data.id, ...l.data.aliases]);
 
 /** SNA 中心度（若存在 <slug>.sna.json）→ id → degree_norm */
@@ -139,6 +139,20 @@ function cardProps(c: (typeof entries)[number]) {
   }
 
   <div class="bestiary-page">
+  {
+    entries.length === 0 && (
+      <div class="surface mb-8 p-8 text-center text-sm text-muted">
+        <p class="mb-2">暂无人物图鉴数据。</p>
+        <p>
+          若 dev 下 content store 为空，请运行
+          <code class="mx-1 rounded px-2 py-0.5" style="background: var(--base)">
+            python scripts/build_content_snapshots.py --write
+          </code>
+          后刷新；或检查人物页 YAML 是否通过 schema 校验。
+        </p>
+      </div>
+    )
+  }
   <details class="bestiary-roster surface mb-8" open>
     <summary class="bestiary-roster-summary">
       <span class="bestiary-roster-title">全部人物名录</span>
@@ -253,6 +267,10 @@ function cardProps(c: (typeof entries)[number]) {
     </div>
   </div>
 
+  <p class="bestiary-fold-hint mb-4 hidden text-sm text-muted" data-bestiary-fold-hint hidden>
+    分组已折叠 — 点击「全部展开」查看人物卡片
+  </p>
+
   {
     groupings.map((g, i) => (
       <div
@@ -306,6 +324,9 @@ function cardProps(c: (typeof entries)[number]) {
           document.querySelector('.bestiary-grouping:not([hidden])') ?? document;
         active.querySelectorAll('details.bestiary-group').forEach((d) => {
           (d as HTMLDetailsElement).open = open;
+        });
+        document.querySelectorAll<HTMLElement>('[data-bestiary-fold-hint]').forEach((hint) => {
+          hint.hidden = open;
         });
       });
     });

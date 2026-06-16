@@ -215,7 +215,7 @@
       "id": "刁钻古怪儿",
       "type": "monster",
       "faction": "妖魔",
-      "weight": 24
+      "weight": 22
     },
     {
       "id": "刘伯钦",
@@ -497,7 +497,7 @@
       "id": "娄金狗",
       "type": "character",
       "faction": "天庭",
-      "weight": 34
+      "weight": 36
     },
     {
       "id": "孙悟空",
@@ -1643,7 +1643,7 @@
       "id": "雪狮",
       "type": "monster",
       "faction": "妖魔",
-      "weight": 28
+      "weight": 30
     },
     {
       "id": "雷公",
@@ -2315,12 +2315,6 @@
     },
     {
       "source": "五城兵马官",
-      "target": "孙悟空",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "五城兵马官",
       "target": "羽林军",
       "type": "同僚",
       "contradiction": false
@@ -2681,32 +2675,8 @@
     },
     {
       "source": "仪制司",
-      "target": "天竺国国王",
-      "type": "君臣",
-      "contradiction": false
-    },
-    {
-      "source": "仪制司",
       "target": "当驾官",
       "type": "同僚",
-      "contradiction": false
-    },
-    {
-      "source": "仪制司",
-      "target": "唐僧",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "仪制司",
-      "target": "孙悟空",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "仪制司",
-      "target": "护驾",
-      "type": "朋友",
       "contradiction": false
     },
     {
@@ -3022,18 +2992,6 @@
       "contradiction": false
     },
     {
-      "source": "关元帅",
-      "target": "孙悟空",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "关元帅",
-      "target": "护国天王",
-      "type": "同僚",
-      "contradiction": false
-    },
-    {
       "source": "兴烘掀",
       "target": "红孩儿",
       "type": "主仆",
@@ -3055,12 +3013,6 @@
       "source": "兴烘掀",
       "target": "掀烘兴",
       "type": "同僚",
-      "contradiction": false
-    },
-    {
-      "source": "内宫官",
-      "target": "天竺国国王",
-      "type": "君臣",
       "contradiction": false
     },
     {
@@ -3114,12 +3066,6 @@
     {
       "source": "凌空子",
       "target": "猪八戒",
-      "type": "敌对",
-      "contradiction": false
-    },
-    {
-      "source": "凌空子",
-      "target": "孙悟空",
       "type": "敌对",
       "contradiction": false
     },
@@ -3251,12 +3197,6 @@
     },
     {
       "source": "刘元帅",
-      "target": "孙悟空",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "刘元帅",
       "target": "可韩丈人",
       "type": "同僚",
       "contradiction": false
@@ -3378,12 +3318,6 @@
     {
       "source": "十八公",
       "target": "猪八戒",
-      "type": "敌对",
-      "contradiction": false
-    },
-    {
-      "source": "十八公",
-      "target": "孙悟空",
       "type": "敌对",
       "contradiction": false
     },
@@ -4306,12 +4240,6 @@
       "contradiction": false
     },
     {
-      "source": "地涌夫人",
-      "target": "镇海寺方丈",
-      "type": "敌对",
-      "contradiction": false
-    },
-    {
       "source": "地藏王菩萨",
       "target": "孙悟空",
       "type": "朋友",
@@ -4355,13 +4283,13 @@
     },
     {
       "source": "增长天王",
-      "target": "广目天王",
-      "type": "同僚",
+      "target": "孙悟空",
+      "type": "敌对",
       "contradiction": false
     },
     {
       "source": "增长天王",
-      "target": "多闻天王",
+      "target": "哪吒",
       "type": "同僚",
       "contradiction": false
     },
@@ -4387,18 +4315,6 @@
       "source": "增长天王",
       "target": "苟元帅",
       "type": "主仆",
-      "contradiction": false
-    },
-    {
-      "source": "增长天王",
-      "target": "孙悟空",
-      "type": "敌对",
-      "contradiction": false
-    },
-    {
-      "source": "增长天王",
-      "target": "哪吒",
-      "type": "同僚",
       "contradiction": false
     },
     {
@@ -4507,6 +4423,12 @@
       "source": "多闻天王",
       "target": "玉皇大帝",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "多闻天王",
+      "target": "增长天王",
+      "type": "同僚",
       "contradiction": false
     },
     {
@@ -4637,12 +4559,6 @@
     },
     {
       "source": "天竺国国王",
-      "target": "宣召官",
-      "type": "君臣",
-      "contradiction": false
-    },
-    {
-      "source": "天竺国国王",
       "target": "光禄寺",
       "type": "君臣",
       "contradiction": false
@@ -4656,18 +4572,6 @@
     {
       "source": "天竺国国王",
       "target": "教坊司",
-      "type": "君臣",
-      "contradiction": false
-    },
-    {
-      "source": "天竺国国王",
-      "target": "仪制司",
-      "type": "君臣",
-      "contradiction": false
-    },
-    {
-      "source": "天竺国国王",
-      "target": "内宫官",
       "type": "君臣",
       "contradiction": false
     },
@@ -4732,12 +4636,6 @@
       "contradiction": false
     },
     {
-      "source": "太乙救苦天尊",
-      "target": "荡魔天尊",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
       "source": "太医官",
       "target": "朱紫国国王",
       "type": "君臣",
@@ -4795,12 +4693,6 @@
       "source": "太监",
       "target": "孙悟空",
       "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "太监",
-      "target": "宣召官",
-      "type": "同僚",
       "contradiction": false
     },
     {
@@ -5153,49 +5045,37 @@
     },
     {
       "source": "姚公麟",
-      "target": "张太尉",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "姚公麟",
-      "target": "李太尉",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "姚公麟",
-      "target": "郭申将军",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "姚公麟",
-      "target": "直健将军",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "姚公麟",
       "target": "二郎神",
       "type": "主仆",
       "contradiction": false
     },
     {
       "source": "姚公麟",
-      "target": "梅山六兄弟",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "姚公麟",
-      "target": "孙悟空",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "姚公麟",
       "target": "康太尉",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "姚公麟",
+      "target": "张太尉",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "姚公麟",
+      "target": "李太尉",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "姚公麟",
+      "target": "郭申将军",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "姚公麟",
+      "target": "直健将军",
       "type": "同僚",
       "contradiction": false
     },
@@ -5261,6 +5141,18 @@
     },
     {
       "source": "娄金狗",
+      "target": "毕月乌",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "娄金狗",
+      "target": "胃土彘",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "娄金狗",
       "target": "黄眉怪",
       "type": "敌对",
       "contradiction": false
@@ -5269,12 +5161,6 @@
       "source": "娄金狗",
       "target": "玉皇大帝",
       "type": "主仆",
-      "contradiction": false
-    },
-    {
-      "source": "娄金狗",
-      "target": "毕月乌",
-      "type": "同僚",
       "contradiction": false
     },
     {
@@ -5538,42 +5424,6 @@
     {
       "source": "孙悟空",
       "target": "护国天王",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "孙悟空",
-      "target": "马元帅",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "孙悟空",
-      "target": "温元帅",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "孙悟空",
-      "target": "赵元帅",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "孙悟空",
-      "target": "庞元帅",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "孙悟空",
-      "target": "毕元帅",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "孙悟空",
-      "target": "苟元帅",
       "type": "朋友",
       "contradiction": false
     },
@@ -5860,12 +5710,6 @@
       "contradiction": false
     },
     {
-      "source": "孤直公",
-      "target": "孙悟空",
-      "type": "敌对",
-      "contradiction": false
-    },
-    {
       "source": "宝林寺方丈",
       "target": "唐僧",
       "type": "朋友",
@@ -5911,12 +5755,6 @@
       "source": "宣召官",
       "target": "黄门官",
       "type": "同僚",
-      "contradiction": false
-    },
-    {
-      "source": "宣召官",
-      "target": "天竺国国王",
-      "type": "君臣",
       "contradiction": false
     },
     {
@@ -6581,18 +6419,6 @@
     },
     {
       "source": "广目天王",
-      "target": "李靖",
-      "type": "同僚",
-      "contradiction": false
-    },
-    {
-      "source": "广目天王",
-      "target": "护国天王",
-      "type": "同僚",
-      "contradiction": false
-    },
-    {
-      "source": "广目天王",
       "target": "马元帅",
       "type": "同僚",
       "contradiction": false
@@ -6606,24 +6432,6 @@
     {
       "source": "广目天王",
       "target": "赵元帅",
-      "type": "同僚",
-      "contradiction": false
-    },
-    {
-      "source": "广目天王",
-      "target": "庞元帅",
-      "type": "同僚",
-      "contradiction": false
-    },
-    {
-      "source": "广目天王",
-      "target": "刘元帅",
-      "type": "同僚",
-      "contradiction": false
-    },
-    {
-      "source": "广目天王",
-      "target": "毕元帅",
       "type": "同僚",
       "contradiction": false
     },
@@ -6738,6 +6546,12 @@
     {
       "source": "张太尉",
       "target": "梅山六兄弟",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "张太尉",
+      "target": "姚公麟",
       "type": "朋友",
       "contradiction": false
     },
@@ -7468,12 +7282,6 @@
       "contradiction": false
     },
     {
-      "source": "拂云叟",
-      "target": "孙悟空",
-      "type": "敌对",
-      "contradiction": false
-    },
-    {
       "source": "掀烘兴",
       "target": "红孩儿",
       "type": "主仆",
@@ -8009,6 +7817,12 @@
     },
     {
       "source": "李太尉",
+      "target": "姚公麟",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "李太尉",
       "target": "孙悟空",
       "type": "敌对",
       "contradiction": false
@@ -8081,6 +7895,12 @@
     },
     {
       "source": "李靖",
+      "target": "广目天王",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "李靖",
       "target": "虚日鼠",
       "type": "同僚",
       "contradiction": false
@@ -8100,12 +7920,6 @@
     {
       "source": "杏仙",
       "target": "猪八戒",
-      "type": "敌对",
-      "contradiction": false
-    },
-    {
-      "source": "杏仙",
-      "target": "孙悟空",
       "type": "敌对",
       "contradiction": false
     },
@@ -8179,6 +7993,12 @@
       "source": "梅山六兄弟",
       "target": "二郎神",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "梅山六兄弟",
+      "target": "姚公麟",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -8650,12 +8470,6 @@
       "contradiction": false
     },
     {
-      "source": "流元帅",
-      "target": "马元帅",
-      "type": "同僚",
-      "contradiction": false
-    },
-    {
       "source": "浪荡游神",
       "target": "铜台府刺史",
       "type": "朋友",
@@ -9101,12 +8915,6 @@
     },
     {
       "source": "猪八戒",
-      "target": "高翠兰",
-      "type": "敌对",
-      "contradiction": false
-    },
-    {
-      "source": "猪八戒",
       "target": "猱狮",
       "type": "敌对",
       "contradiction": false
@@ -9324,54 +9132,6 @@
     {
       "source": "玉皇大帝",
       "target": "护国天王",
-      "type": "主仆",
-      "contradiction": false
-    },
-    {
-      "source": "玉皇大帝",
-      "target": "马元帅",
-      "type": "主仆",
-      "contradiction": false
-    },
-    {
-      "source": "玉皇大帝",
-      "target": "温元帅",
-      "type": "主仆",
-      "contradiction": false
-    },
-    {
-      "source": "玉皇大帝",
-      "target": "关元帅",
-      "type": "主仆",
-      "contradiction": false
-    },
-    {
-      "source": "玉皇大帝",
-      "target": "赵元帅",
-      "type": "主仆",
-      "contradiction": false
-    },
-    {
-      "source": "玉皇大帝",
-      "target": "庞元帅",
-      "type": "主仆",
-      "contradiction": false
-    },
-    {
-      "source": "玉皇大帝",
-      "target": "刘元帅",
-      "type": "主仆",
-      "contradiction": false
-    },
-    {
-      "source": "玉皇大帝",
-      "target": "毕元帅",
-      "type": "主仆",
-      "contradiction": false
-    },
-    {
-      "source": "玉皇大帝",
-      "target": "苟元帅",
       "type": "主仆",
       "contradiction": false
     },
@@ -9875,26 +9635,8 @@
     },
     {
       "source": "精细鬼",
-      "target": "金角大王",
-      "type": "主仆",
-      "contradiction": false
-    },
-    {
-      "source": "精细鬼",
-      "target": "银角大王",
-      "type": "主仆",
-      "contradiction": false
-    },
-    {
-      "source": "精细鬼",
       "target": "孙悟空",
       "type": "敌对",
-      "contradiction": false
-    },
-    {
-      "source": "精细鬼",
-      "target": "小钻风",
-      "type": "朋友",
       "contradiction": false
     },
     {
@@ -10024,12 +9766,6 @@
       "contradiction": false
     },
     {
-      "source": "羽林军",
-      "target": "锦衣卫",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
       "source": "翼火蛇",
       "target": "角木蛟",
       "type": "同僚",
@@ -10092,12 +9828,6 @@
     {
       "source": "胃土彘",
       "target": "角木蛟",
-      "type": "同僚",
-      "contradiction": false
-    },
-    {
-      "source": "胃土彘",
-      "target": "娄金狗",
       "type": "同僚",
       "contradiction": false
     },
@@ -10734,12 +10464,6 @@
     {
       "source": "赤身鬼",
       "target": "猪八戒",
-      "type": "敌对",
-      "contradiction": false
-    },
-    {
-      "source": "赤身鬼",
-      "target": "孙悟空",
       "type": "敌对",
       "contradiction": false
     },
@@ -11404,12 +11128,6 @@
       "contradiction": false
     },
     {
-      "source": "馆使",
-      "target": "驿丞",
-      "type": "朋友",
-      "contradiction": false
-    },
-    {
       "source": "马三宝",
       "target": "唐太宗",
       "type": "君臣",
@@ -11424,7 +11142,7 @@
     {
       "source": "马元帅",
       "target": "张道陵",
-      "type": "主仆",
+      "type": "同僚",
       "contradiction": false
     },
     {

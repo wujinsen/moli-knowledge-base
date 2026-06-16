@@ -1,5 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import { THEME_BY_SLUG, modulesFor } from '../../lib/books';
@@ -12,6 +11,7 @@ import {
   readIndexPath,
   ZHIBEN_MAX,
 } from '../../lib/editions';
+import { filterChaptersByEdition, loadChapterList } from '../../lib/loadChapters';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -29,15 +29,13 @@ const slug = meta.slug as BookSlug;
 const preferredEdition = defaultEditionForBook(meta.book);
 const readEdition = defaultEditionSlug(meta.book);
 
-const chapters = (await getCollection('chapters'))
-  .filter((c) => c.data.book === meta.book)
+const chapterLite = await loadChapterList(meta.book);
+const chapters = filterChaptersByEdition(chapterLite, preferredEdition)
   .filter((c) => {
     if (!hasMultipleEditions(meta.book)) return true;
-    const ed = c.data.edition ?? preferredEdition;
-    return ed === preferredEdition;
+    return c.edition === preferredEdition;
   })
-  .sort((a, b) => a.data.number - b.data.number);
-
+  .sort((a, b) => a.number - b.number);
 const first = chapters[0];
 const multiEd = hasMultipleEditions(meta.book);
 const t = THEME_BY_SLUG[meta.slug];
@@ -87,21 +85,21 @@ const modules = modulesFor(meta.slug, meta.features);
       <div class="mt-6 flex flex-wrap gap-3">
         {first && (
           <a
-            href={readChapterPath(meta.slug, meta.book, first.data.number)}
+            href={readChapterPath(meta.slug, meta.book, first.number)}
             class="btn btn-primary"
             data-i18n-reading
             data-i18n-book={slug}
-            data-i18n-chapter={first.data.number}
+            data-i18n-chapter={first.number}
             data-i18n-edition={multiEd ? readEdition : undefined}
           >
             {
               multiEd
                 ? meta.book === '红楼梦'
-                  ? `开始阅读 · 脂本第${first.data.number}回`
+                  ? `开始阅读 · 脂本第${first.number}回`
                   : meta.book === '金瓶梅'
-                    ? `开始阅读 · 词话本第${first.data.number}回`
-                    : `开始阅读 · 第${first.data.number}回`
-                : `开始阅读 · 第${first.data.number}回`
+                    ? `开始阅读 · 词话本第${first.number}回`
+                    : `开始阅读 · 第${first.number}回`
+                : `开始阅读 · 第${first.number}回`
             }
           </a>
         )}
@@ -156,13 +154,13 @@ const modules = modulesFor(meta.slug, meta.features);
         {chapters.map((c) => (
           <li>
             <a
-              href={readChapterPath(meta.slug, meta.book, c.data.number, multiEd ? preferredEdition : undefined)}
+              href={readChapterPath(meta.slug, meta.book, c.number, multiEd ? preferredEdition : undefined)}
               class="flex items-baseline gap-2 rounded px-2.5 py-1.5 text-sm transition hover:bg-[color-mix(in_srgb,var(--primary)_8%,transparent)]"
             >
               <span class="brand shrink-0 text-xs" style="color: var(--primary)">
-                {String(c.data.number).padStart(3, '0')}
+                {String(c.number).padStart(3, '0')}
               </span>
-              <span class="truncate" style="color: var(--ink)">{c.data.title}</span>
+              <span class="truncate" style="color: var(--ink)">{c.title}</span>
             </a>
           </li>
         ))}

@@ -1,5 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import BackLink from '../../components/BackLink.astro';
@@ -13,6 +12,7 @@ import {
   subtypeLabel,
 } from '../../lib/imagery';
 import type { ImageryGraphEdge } from '../../lib/imagery';
+import { loadImagery } from '../../lib/loadImagery';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -23,9 +23,7 @@ export async function getStaticPaths() {
 
 const { book } = Astro.props;
 const meta = book.data;
-const items = sortImagery(
-  (await getCollection('imagery')).filter((i) => i.data.book === meta.book),
-);
+const items = sortImagery(await loadImagery(meta.book));
 
 const linkFiles = import.meta.glob('../../data/*.imagery-links.json', { eager: true });
 const linkKey = Object.keys(linkFiles).find((k) => k.includes(meta.book));

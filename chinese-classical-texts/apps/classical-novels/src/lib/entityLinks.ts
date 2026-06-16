@@ -1,5 +1,5 @@
-import { getCollection } from 'astro:content';
 import { createMarkdownProcessor } from '@astrojs/markdown-remark';
+import { loadCharacters } from './loadCharacters';
 import { loadBookItems } from './items';
 import { loadBookPlaces } from './places';
 
@@ -14,7 +14,7 @@ const indexCache = new Map<string, Promise<EntityIndex>>();
 
 async function loadEntityIndex(book: string): Promise<EntityIndex> {
   const [characters, items, places] = await Promise.all([
-    getCollection('characters', ({ data }) => data.book === book),
+    loadCharacters(book),
     loadBookItems(book),
     loadBookPlaces(book),
   ]);

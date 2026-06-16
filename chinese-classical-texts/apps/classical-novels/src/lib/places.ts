@@ -1,4 +1,5 @@
 import type { CollectionEntry } from 'astro:content';
+import { loadLocations } from './loadLocations';
 
 export type PlaceEntry = CollectionEntry<'locations'>;
 
@@ -15,10 +16,8 @@ export function typeLabel(type: string): string {
 }
 
 export async function loadBookPlaces(bookName: string): Promise<PlaceEntry[]> {
-  const { getCollection } = await import('astro:content');
-  return (await getCollection('locations'))
-    .filter((l) => l.data.book === bookName)
-    .sort((a, b) => a.data.name.localeCompare(b.data.name, 'zh-CN'));
+  const places = await loadLocations(bookName);
+  return places.sort((a, b) => a.data.name.localeCompare(b.data.name, 'zh-CN'));
 }
 
 const CATEGORY_ORDER = [

@@ -1,5 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import BackLink from '../../components/BackLink.astro';
@@ -11,6 +10,7 @@ import {
   sagaPhasesForBook,
   sortChainEvents,
 } from '../../lib/events';
+import { loadSagaEvents } from '../../lib/loadSagaEvents';
 import { readChapterPath } from '../../lib/editions';
 import { graphFocusHref } from '../../lib/sna';
 
@@ -25,11 +25,7 @@ const { book } = Astro.props;
 const meta = book.data;
 const isHonglou = meta.book === '红楼梦';
 
-const events = sortChainEvents(
-  (await getCollection('events')).filter(
-    (e) => e.data.book === meta.book && e.data.subtype === 'milestone',
-  ),
-);
+const events = sortChainEvents(await loadSagaEvents(meta.book));
 
 const phases = sagaPhasesForBook(meta.book);
 const noById = new Map(events.map((e, i) => [e.data.id, i + 1]));
@@ -98,6 +94,21 @@ const readerLabel = isHonglou
       }
     </p>
   </section>
+
+  {
+    events.length === 0 && (
+      <div class="surface mb-8 p-8 text-center text-sm text-muted">
+        <p class="mb-2">暂无大事记节点数据。</p>
+        <p>
+          若 dev 下 content store 为空，请运行
+          <code class="mx-1 rounded px-2 py-0.5" style="background: var(--base)">
+            python scripts/build_content_snapshots.py --write
+          </code>
+          生成快照后刷新。
+        </p>
+      </div>
+    )
+  }
 
   {/* 阶段概览 */}
   <div class="mb-8 flex flex-wrap gap-2">

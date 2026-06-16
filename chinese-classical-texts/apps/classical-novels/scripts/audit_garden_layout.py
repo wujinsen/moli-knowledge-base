@@ -59,7 +59,7 @@ def steps(a: dict, b: dict) -> int:
 def bearing(from_n: dict, to_n: dict) -> str:
     dx = to_n["x"] - from_n["x"]
     dy = to_n["y"] - from_n["y"]
-    deg = math.degrees(math.atan2(dx, dy))
+    deg = math.degrees(math.atan2(dx, -dy))
     dirs = ["北", "东北", "东", "东南", "南", "西南", "西", "西北"]
     return dirs[round(deg / 45) % 8]
 
@@ -90,9 +90,7 @@ def main() -> None:
             print(f"  SKIP {id1}/{anchor}")
             continue
         if id1 == "省亲别墅":
-            br = bearing(a, b)  # 省亲在怡红之北
-        elif id1 == "怡红院":
-            br = bearing(b, a)  # 怡红在闸之南
+            br = bearing(b, a)  # 省亲在怡红之北
         else:
             br = bearing(b, a)  # id1 相对 anchor
         ok = dir_ok(br, expected)

@@ -1,0 +1,4833 @@
+{
+  "generated_by": "build_content_snapshots.py",
+  "books": {
+    "honglou": {
+      "book": "红楼梦",
+      "slug": "honglou",
+      "count": 12,
+      "entries": [
+        {
+          "id": "hlm-e-001",
+          "type": "event",
+          "book": "红楼梦",
+          "subtype": "milestone",
+          "edition": "脂砚斋本",
+          "title": "林黛玉进贾府",
+          "chapters": [
+            3
+          ],
+          "characters": [
+            "林黛玉",
+            "贾宝玉",
+            "贾母",
+            "王熙凤"
+          ],
+          "locations": [
+            "荣国府",
+            "金陵城"
+          ],
+          "next": "hlm-e-009",
+          "tags": [
+            "木石前盟",
+            "初会",
+            "序幕"
+          ],
+          "summary": "黛玉别父进京入荣国府，宝黛初会「这个妹妹我曾见过的」，木石前盟于人间重逢；并借黛玉之眼全景展开贾府烈火烹油之盛与错综人际。",
+          "source": "chapters/红楼梦/003.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "hlm-e-009",
+          "type": "event",
+          "book": "红楼梦",
+          "subtype": "milestone",
+          "edition": "脂砚斋本",
+          "title": "秦可卿之死与凤姐协理",
+          "aliases": [
+            "秦可卿死封龙禁尉",
+            "王熙凤协理宁国府"
+          ],
+          "chapters": [
+            13
+          ],
+          "characters": [
+            "秦可卿",
+            "王熙凤",
+            "贾珍"
+          ],
+          "locations": [
+            "宁国府",
+            "会芳园",
+            "天香楼"
+          ],
+          "prev": "hlm-e-001",
+          "next": "hlm-e-002",
+          "tags": [
+            "丧礼",
+            "协理宁国府",
+            "盛极前奏"
+          ],
+          "summary": "秦可卿病逝（天香楼疑案），贾珍倾家治丧、为丧仪体面替贾蓉捐官；王熙凤受托协理宁国府，尽显治家威权。宁府的奢靡与隐秽并陈，为家族盛极埋下伏笔。",
+          "source": "chapters/红楼梦/013.md",
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "hlm-e-002",
+          "type": "event",
+          "book": "红楼梦",
+          "subtype": "milestone",
+          "edition": "脂砚斋本",
+          "title": "元妃省亲",
+          "chapters": [
+            16,
+            17,
+            18
+          ],
+          "characters": [
+            "贾元春",
+            "贾政",
+            "贾宝玉",
+            "贾母"
+          ],
+          "locations": [
+            "大观园",
+            "荣国府",
+            "省亲别墅",
+            "曲径通幽",
+            "沁芳亭",
+            "潇湘馆",
+            "稻香村",
+            "蓼溆",
+            "蘅芜苑",
+            "怡红院"
+          ],
+          "prev": "hlm-e-009",
+          "next": "hlm-e-003",
+          "tags": [
+            "省亲",
+            "大观园",
+            "鼎盛"
+          ],
+          "summary": "贾元春加封贤德妃归省，贾府斥巨资建大观园迎驾；鲜花着锦、烈火烹油之极盛，然耗尽内囊，伏后来经济崩塌之线。",
+          "source": "chapters/红楼梦/018.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "hlm-e-003",
+          "type": "event",
+          "book": "红楼梦",
+          "subtype": "milestone",
+          "edition": "脂砚斋本",
+          "title": "共读西厢与黛玉葬花",
+          "aliases": [
+            "西厢记妙词通戏语",
+            "埋香冢飞燕泣残红"
+          ],
+          "chapters": [
+            23,
+            27
+          ],
+          "characters": [
+            "贾宝玉",
+            "林黛玉"
+          ],
+          "locations": [
+            "大观园",
+            "怡红院",
+            "潇湘馆",
+            "滴翠亭",
+            "沁芳闸"
+          ],
+          "prev": "hlm-e-002",
+          "next": "hlm-e-010",
+          "tags": [
+            "西厢记",
+            "葬花吟",
+            "觉醒"
+          ],
+          "summary": "桃花树下共读《西厢记》，宝黛冲破礼教、爱情意识真正觉醒；继以黛玉葬花、《葬花吟》自伤寄人篱下，预示「花落人亡两不知」的群芳结局。",
+          "source": "chapters/红楼梦/027.md",
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "hlm-e-010",
+          "type": "event",
+          "book": "红楼梦",
+          "subtype": "milestone",
+          "edition": "脂砚斋本",
+          "title": "宝玉挨打",
+          "aliases": [
+            "手足耽耽小动唇舌",
+            "不肖种种大承笞挞"
+          ],
+          "chapters": [
+            33
+          ],
+          "characters": [
+            "贾宝玉",
+            "贾政",
+            "王夫人",
+            "贾母"
+          ],
+          "locations": [
+            "荣国府",
+            "怡红院",
+            "潇湘馆"
+          ],
+          "prev": "hlm-e-003",
+          "next": "hlm-e-011",
+          "tags": [
+            "笞挞",
+            "父子冲突",
+            "钗黛探伤"
+          ],
+          "summary": "因金钏投井、忠顺王府索蒋玉菡、贾环进谗三事叠加，贾政盛怒笞挞宝玉几至殒命。王夫人哭金钏、贾母震怒护孙，宝钗黛玉先后探伤，叛逆与正统的冲突彻底激化。",
+          "source": "chapters/红楼梦/033.md",
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "hlm-e-011",
+          "type": "event",
+          "book": "红楼梦",
+          "subtype": "milestone",
+          "edition": "脂砚斋本",
+          "title": "刘姥姥进大观园",
+          "aliases": [
+            "史太君两宴大观园",
+            "金鸳鸯三宣牙牌令"
+          ],
+          "chapters": [
+            39,
+            40,
+            41
+          ],
+          "characters": [
+            "刘姥姥",
+            "贾母",
+            "王熙凤",
+            "贾宝玉"
+          ],
+          "locations": [
+            "大观园",
+            "荣国府",
+            "曲径通幽",
+            "沁芳亭",
+            "潇湘馆",
+            "紫菱洲",
+            "秋爽斋",
+            "藕香榭",
+            "缀锦楼",
+            "栊翠庵",
+            "蘅芜苑",
+            "怡红院"
+          ],
+          "prev": "hlm-e-010",
+          "next": "hlm-e-012",
+          "tags": [
+            "刘姥姥",
+            "大观园",
+            "盛世行乐"
+          ],
+          "summary": "刘姥姥二进荣国府，贾母携其遍游大观园、两宴行牙牌令，凤姐鸳鸯插科取笑。烈火烹油的鼎盛行乐图，亦借村妪之眼反照贾府的奢靡无度，伏「白茫茫」之结。",
+          "source": "chapters/红楼梦/040.md",
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "hlm-e-012",
+          "type": "event",
+          "book": "红楼梦",
+          "subtype": "milestone",
+          "edition": "脂砚斋本",
+          "title": "探春理家",
+          "aliases": [
+            "敏探春兴利除宿弊",
+            "时宝钗小惠全大体"
+          ],
+          "chapters": [
+            55,
+            56
+          ],
+          "characters": [
+            "贾探春",
+            "李纨",
+            "薛宝钗",
+            "王熙凤"
+          ],
+          "locations": [
+            "大观园",
+            "秋爽斋",
+            "稻香村",
+            "议事厅",
+            "大观园厨房"
+          ],
+          "prev": "hlm-e-011",
+          "next": "hlm-e-004",
+          "tags": [
+            "兴利除宿弊",
+            "改革",
+            "末世才情"
+          ],
+          "summary": "王熙凤病中，探春偕李纨、宝钗暂理家政，免重账、承包园圃、兴利除弊。改革虽显探春的精明决断，却也照见贾府入不敷出的颓势，纵有才情亦回天乏术。",
+          "source": "chapters/红楼梦/056.md",
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "hlm-e-004",
+          "type": "event",
+          "book": "红楼梦",
+          "subtype": "milestone",
+          "edition": "脂砚斋本",
+          "title": "紫鹃试玉",
+          "aliases": [
+            "慧紫鹃情辞试忙玉"
+          ],
+          "chapters": [
+            57
+          ],
+          "characters": [
+            "紫鹃",
+            "贾宝玉",
+            "林黛玉",
+            "贾母"
+          ],
+          "locations": [
+            "大观园",
+            "怡红院",
+            "潇湘馆",
+            "沁芳亭"
+          ],
+          "prev": "hlm-e-012",
+          "next": "hlm-e-005",
+          "tags": [
+            "慧紫鹃",
+            "试玉",
+            "危机"
+          ],
+          "summary": "紫鹃谎称黛玉将回苏州老家，宝玉听后痴狂几死；情深「同生共死」尽显，亦惊动贾母王夫人，间接催化日后「金玉良缘」的强制干预。",
+          "source": "chapters/红楼梦/057.md",
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "hlm-e-005",
+          "type": "event",
+          "book": "红楼梦",
+          "subtype": "milestone",
+          "edition": "脂砚斋本",
+          "title": "抄检大观园",
+          "aliases": [
+            "惑奸谗抄检大观园"
+          ],
+          "chapters": [
+            74
+          ],
+          "characters": [
+            "王夫人",
+            "王熙凤",
+            "贾探春",
+            "晴雯",
+            "司棋"
+          ],
+          "locations": [
+            "大观园",
+            "怡红院",
+            "潇湘馆",
+            "秋爽斋",
+            "稻香村",
+            "蓼风轩",
+            "缀锦楼",
+            "大观园厨房"
+          ],
+          "prev": "hlm-e-004",
+          "next": "hlm-e-006",
+          "tags": [
+            "绣春囊",
+            "抄检",
+            "自杀自灭"
+          ],
+          "summary": "因绣春囊出现，王夫人偕王熙凤连夜抄检大观园；探春痛言「必须先从家里自杀自灭起来，才能一败涂地」。晴雯被撵惨死、司棋遭逐，青春乌托邦被撕裂——贾府由盛转衰的绝对分水岭。",
+          "source": "chapters/红楼梦/074.md",
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "hlm-e-006",
+          "type": "event",
+          "book": "红楼梦",
+          "subtype": "milestone",
+          "edition": "程高本",
+          "title": "调包计与黛玉焚稿",
+          "aliases": [
+            "苦绛珠魂归离恨天",
+            "病神瑛泪洒相思地"
+          ],
+          "chapters": [
+            97,
+            98
+          ],
+          "characters": [
+            "贾母",
+            "王熙凤",
+            "王夫人",
+            "贾宝玉",
+            "薛宝钗",
+            "林黛玉"
+          ],
+          "locations": [
+            "大观园",
+            "潇湘馆",
+            "怡红院",
+            "蘅芜苑"
+          ],
+          "prev": "hlm-e-005",
+          "next": "hlm-e-007",
+          "tags": [
+            "调包计",
+            "焚稿",
+            "程高本"
+          ],
+          "summary": "为给疯癫的宝玉冲喜，贾母王夫人采王熙凤「调包计」令其娶薛宝钗；黛玉病榻闻成婚鼓乐绝望，焚诗稿与旧帕含恨而亡，木石前盟彻底破灭。",
+          "source": "chapters/红楼梦/098.md",
+          "variants": [
+            {
+              "edition": "程高本",
+              "claim": "贾母、王夫人用王熙凤「调包计」令宝玉娶宝钗冲喜；黛玉病榻闻喜乐，焚稿绝粒而亡，宝玉揭盖见是宝钗，木石前盟尽碎。",
+              "source": "chapters/红楼梦/098.md"
+            },
+            {
+              "edition": "脂本探佚",
+              "claim": "脂批屡示黛玉「泪尽而逝」以了「还泪」之约；宝黛之别未必因「调包」骗局，金玉良缘如何促成、黛玉死于宝玉婚前抑或婚后皆有异说，「调包计」被疑非曹雪芹原构。",
+              "source": "脂砚斋评语；俞平伯《红楼梦辨》"
+            }
+          ],
+          "contradicts": [
+            "情节-黛玉结局"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "hlm-e-007",
+          "type": "event",
+          "book": "红楼梦",
+          "subtype": "milestone",
+          "edition": "程高本",
+          "title": "查抄宁国府",
+          "aliases": [
+            "锦衣军查抄宁国府"
+          ],
+          "chapters": [
+            105
+          ],
+          "characters": [
+            "贾赦",
+            "贾珍",
+            "贾政",
+            "王熙凤"
+          ],
+          "locations": [
+            "宁国府",
+            "荣国府"
+          ],
+          "prev": "hlm-e-006",
+          "next": "hlm-e-008",
+          "tags": [
+            "查抄",
+            "大厦倾",
+            "程高本"
+          ],
+          "summary": "锦衣军奉旨查抄贾府，贾赦贾珍等革职拿问，百年家产尽数没官；赫赫望族彻底倒塌，印证判词「忽喇喇似大厦倾」。",
+          "source": "chapters/红楼梦/105.md",
+          "variants": [
+            {
+              "edition": "程高本",
+              "claim": "锦衣军奉旨查抄，贾赦、贾珍革职拿问、家产没官；后文又有沐皇恩、复世职、家道复初之转圜（第106-107、119回）。",
+              "source": "chapters/红楼梦/105.md"
+            },
+            {
+              "edition": "脂本探佚",
+              "claim": "脂批「家亡人散各奔腾」「落了片白茫茫大地真干净」，探佚多主彻底败落、子孙流散，并无程高本式「兰桂齐芳、家道复初」的回暖。",
+              "source": "脂砚斋评语；红学探佚（如周汝昌说）"
+            }
+          ],
+          "contradicts": [
+            "情节-贾府结局"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "hlm-e-008",
+          "type": "event",
+          "book": "红楼梦",
+          "subtype": "milestone",
+          "edition": "程高本",
+          "title": "宝玉悬崖撒手",
+          "aliases": [
+            "甄士隐详说太虚情",
+            "贾雨村归结红楼梦"
+          ],
+          "chapters": [
+            120
+          ],
+          "characters": [
+            "贾宝玉",
+            "贾政"
+          ],
+          "locations": [
+            "金陵城"
+          ],
+          "prev": "hlm-e-007",
+          "tags": [
+            "悬崖撒手",
+            "出家",
+            "归彼大荒",
+            "程高本"
+          ],
+          "summary": "历家族覆灭、红颜惨死、世态炎凉后，宝玉中乡魁却抛却功名家室，于毗陵驿雪中拜别贾政，随一僧一道遁入空门，消失在白茫茫大雪中，完成「色」入「空」的闭环。",
+          "source": "chapters/红楼梦/120.md",
+          "variants": [
+            {
+              "edition": "程高本",
+              "claim": "宝玉中乡魁后弃家出走、随僧道而去，贾府「兰桂齐芳、家道复初」，结局含中兴回暖。",
+              "source": "chapters/红楼梦/120.md"
+            },
+            {
+              "edition": "脂本探佚",
+              "claim": "脂批示宝玉「悬崖撒手」，第一回「寒冬噎酸齑，雪夜围破毡」「贫穷难耐凄凉」诸语，多主宝玉沦落、宝钗独守，先历贫寒方出家，结局远为凄寒，无「兰桂齐芳」。",
+              "source": "脂砚斋评语；曹雪芹《红楼梦》第一回脂批"
+            }
+          ],
+          "contradicts": [
+            "情节-宝玉结局"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "scoped_relations": []
+        }
+      ]
+    },
+    "jinpingmei": {
+      "book": "金瓶梅",
+      "slug": "jinpingmei",
+      "count": 24,
+      "entries": [
+        {
+          "id": "jpm-fe-001",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "financial",
+          "financial_kind": "药铺",
+          "title": "西门庆生药铺经营",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "西门庆"
+          ],
+          "locations": [
+            "西门庆生药铺"
+          ],
+          "amount_liang": 500,
+          "transaction_refs": [],
+          "next": "jpm-fe-006",
+          "tags": [
+            "经营投资",
+            "西门府"
+          ],
+          "summary": "清河县五间门面生药铺，西门庆家业根基，后扩绒线铺、酒店。",
+          "source": "chapters/金瓶梅/",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-fe-006",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "financial",
+          "financial_kind": "经营",
+          "title": "结拜十弟兄买办",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "西门庆",
+            "应伯爵",
+            "花子虚"
+          ],
+          "locations": [
+            "玉皇庙",
+            "西门府"
+          ],
+          "amount_liang": 4,
+          "transaction_refs": [
+            "jpm-tx-019",
+            "jpm-tx-015"
+          ],
+          "prev": "jpm-fe-001",
+          "next": "jpm-fe-005",
+          "tags": [
+            "结拜",
+            "帮闲"
+          ],
+          "summary": "初三玉皇庙结拜，猪羊酒礼与分资汇聚帮闲圈。",
+          "source": "chapters/金瓶梅/",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-ms-001",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "milestone",
+          "title": "毒杀武大郎与潘金莲入府",
+          "chapters": [
+            5,
+            9
+          ],
+          "characters": [
+            "西门庆",
+            "潘金莲",
+            "武大郎",
+            "武松"
+          ],
+          "locations": [
+            "清河县",
+            "狮子街"
+          ],
+          "next": "jpm-ms-002",
+          "tags": [
+            "罪恶开端",
+            "通奸",
+            "谋杀"
+          ],
+          "summary": "西门庆与潘金莲通奸，合王婆毒死武大郎，事后将潘金莲娶入府中。全书罪恶的起点，亦为西门府后院残酷内斗埋下最大的定时炸弹。",
+          "source": "chapters/金瓶梅/词话本/009.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-ms-002",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "milestone",
+          "title": "李瓶儿改嫁",
+          "chapters": [
+            14,
+            19
+          ],
+          "characters": [
+            "李瓶儿",
+            "西门庆",
+            "花子虚"
+          ],
+          "locations": [
+            "西门府",
+            "花家"
+          ],
+          "prev": "jpm-ms-001",
+          "next": "jpm-ms-008",
+          "tags": [
+            "人财两得",
+            "横财",
+            "暴富"
+          ],
+          "summary": "花子虚死后，李瓶儿带巨额家产（含大内库银）改嫁西门庆。这笔横财令西门庆经济实力质变，得以扩宅、结交权贵，开启暴发户式狂欢。",
+          "source": "chapters/金瓶梅/词话本/019.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-fe-005",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "financial",
+          "financial_kind": "遗产",
+          "title": "李瓶儿私房物资变现",
+          "chapters": [
+            16,
+            17
+          ],
+          "characters": [
+            "西门庆",
+            "李瓶儿"
+          ],
+          "locations": [
+            "李瓶儿房"
+          ],
+          "amount_liang": 380,
+          "transaction_refs": [
+            "jpm-tx-021"
+          ],
+          "prev": "jpm-fe-006",
+          "next": "jpm-fe-007",
+          "tags": [
+            "李瓶儿",
+            "经营投资"
+          ],
+          "summary": "李瓶儿箱藏香蜡水银等，经经纪变卖三百八十两，凑盖房与过门。",
+          "source": "chapters/金瓶梅/",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-fe-007",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "financial",
+          "financial_kind": "贿赂",
+          "title": "认翟管家干亲",
+          "chapters": [
+            23
+          ],
+          "characters": [
+            "西门庆",
+            "翟管家"
+          ],
+          "locations": [
+            "清河县"
+          ],
+          "amount_liang": 100,
+          "transaction_refs": [
+            "jpm-tx-018"
+          ],
+          "prev": "jpm-fe-005",
+          "next": "jpm-fe-009",
+          "tags": [
+            "政商",
+            "干亲"
+          ],
+          "summary": "西门庆百两认干礼，打通蔡京府门路。",
+          "source": "chapters/金瓶梅/",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-ms-008",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "milestone",
+          "title": "来旺遭陷与宋蕙莲之死",
+          "chapters": [
+            25,
+            26
+          ],
+          "characters": [
+            "来旺",
+            "潘金莲",
+            "西门庆",
+            "孙雪娥"
+          ],
+          "locations": [
+            "西门府"
+          ],
+          "prev": "jpm-ms-002",
+          "next": "jpm-ms-003",
+          "tags": [
+            "构陷",
+            "家奴内斗",
+            "凉薄"
+          ],
+          "summary": "西门庆勾搭来旺之妻宋蕙莲，事泄后潘金莲反诬来旺图谋行凶，西门庆将其诬陷下狱、递解原籍；宋蕙莲羞愤自缢。家奴内斗暴露西门府的凉薄与金莲的狠毒。",
+          "source": "chapters/金瓶梅/词话本/026.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-fe-009",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "financial",
+          "financial_kind": "经营",
+          "title": "来旺酒店本钱拨付",
+          "chapters": [
+            26
+          ],
+          "characters": [
+            "西门庆",
+            "来旺"
+          ],
+          "locations": [
+            "西门府"
+          ],
+          "amount_liang": 300,
+          "transaction_refs": [
+            "jpm-tx-002"
+          ],
+          "prev": "jpm-fe-007",
+          "next": "jpm-fe-002",
+          "tags": [
+            "经营投资",
+            "酒店"
+          ],
+          "summary": "付来旺三百两作酒店本钱，由生药铺向多业扩张。",
+          "source": "chapters/金瓶梅/",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-fe-002",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "financial",
+          "financial_kind": "贿赂",
+          "title": "蔡京寿礼行贿链",
+          "chapters": [
+            27
+          ],
+          "characters": [
+            "西门庆",
+            "蔡京",
+            "翟管家"
+          ],
+          "locations": [
+            "蔡太师府"
+          ],
+          "amount_liang": 300,
+          "transaction_refs": [
+            "jpm-tx-003",
+            "jpm-tx-011"
+          ],
+          "prev": "jpm-fe-009",
+          "next": "jpm-fe-008",
+          "tags": [
+            "政商",
+            "白银流"
+          ],
+          "summary": "西门庆经翟管家向蔡太师进寿礼三百两，换得官场庇护。",
+          "source": "chapters/金瓶梅/",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-ms-003",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "milestone",
+          "title": "生子与升官",
+          "chapters": [
+            30
+          ],
+          "characters": [
+            "西门庆",
+            "李瓶儿",
+            "蔡京"
+          ],
+          "locations": [
+            "西门府",
+            "东京"
+          ],
+          "prev": "jpm-ms-008",
+          "next": "jpm-ms-009",
+          "tags": [
+            "巅峰",
+            "官商合一",
+            "贿赂"
+          ],
+          "summary": "李瓶儿为西门庆生下官哥儿，同时西门庆重金贿赂太师蔡京，得任山东提刑所理刑副千户。权力、财富、子嗣三丰收，达烈火烹油的极盛顶点。",
+          "source": "chapters/金瓶梅/词话本/030.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-fe-008",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "financial",
+          "financial_kind": "放债",
+          "title": "吴典恩借债",
+          "chapters": [
+            31
+          ],
+          "characters": [
+            "西门庆",
+            "吴典恩"
+          ],
+          "locations": [
+            "西门府"
+          ],
+          "amount_liang": 100,
+          "transaction_refs": [
+            "jpm-tx-006"
+          ],
+          "prev": "jpm-fe-002",
+          "next": "jpm-fe-004",
+          "tags": [
+            "帮闲圈",
+            "借贷"
+          ],
+          "summary": "吴典恩借西门庆一百两银子，约期归还，府内放债典型。",
+          "source": "chapters/金瓶梅/",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-fe-004",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "financial",
+          "financial_kind": "经营",
+          "title": "绒线铺本钱拨付",
+          "chapters": [
+            33
+          ],
+          "characters": [
+            "西门庆",
+            "韩道国"
+          ],
+          "locations": [
+            "绒线铺"
+          ],
+          "amount_liang": 450,
+          "transaction_refs": [
+            "jpm-tx-004"
+          ],
+          "prev": "jpm-fe-008",
+          "next": "jpm-fe-003",
+          "tags": [
+            "经营投资"
+          ],
+          "summary": "西门庆付韩道国绒线铺本钱四百五十两，扩大家业经营面。",
+          "source": "chapters/金瓶梅/",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-fe-003",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "financial",
+          "financial_kind": "放债",
+          "title": "李智应伯爵转贷",
+          "chapters": [
+            38
+          ],
+          "characters": [
+            "西门庆",
+            "李智",
+            "应伯爵",
+            "黄四"
+          ],
+          "locations": [
+            "西门府"
+          ],
+          "amount_liang": 1000,
+          "transaction_refs": [
+            "jpm-tx-010"
+          ],
+          "prev": "jpm-fe-004",
+          "next": "jpm-pe-001",
+          "tags": [
+            "帮闲圈",
+            "借贷"
+          ],
+          "summary": "应伯爵牵线，西门庆借出一千两与李智、黄四，帮闲圈核心放贷链。",
+          "source": "chapters/金瓶梅/",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-pe-001",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "plot",
+          "title": "西门庆赴京得官",
+          "chapters": [
+            39
+          ],
+          "characters": [
+            "西门庆",
+            "蔡京",
+            "翟管家"
+          ],
+          "locations": [
+            "清河县"
+          ],
+          "prev": "jpm-fe-003",
+          "next": "jpm-pe-002",
+          "tags": [
+            "情节",
+            "官场"
+          ],
+          "summary": "西门庆进京贺寿后授提刑千户，政商合流达于顶点。",
+          "source": "chapters/金瓶梅/词话本/039.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-ms-009",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "milestone",
+          "title": "盛宴接待两巡按",
+          "chapters": [
+            49
+          ],
+          "characters": [
+            "西门庆",
+            "应伯爵"
+          ],
+          "locations": [
+            "西门府",
+            "东京"
+          ],
+          "prev": "jpm-ms-003",
+          "next": "jpm-ms-004",
+          "tags": [
+            "巴结权贵",
+            "官商勾结",
+            "巅峰"
+          ],
+          "summary": "西门庆于家中盛宴接待巡盐御史蔡蕴、巡按御史宋乔年，妓女侑酒、极尽逢迎，并借此打通盐引专卖。官商勾结、权钱交易至此达于鼎盛。",
+          "source": "chapters/金瓶梅/词话本/049.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-ms-004",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "milestone",
+          "title": "官哥儿受惊与李瓶儿病逝",
+          "chapters": [
+            59,
+            62
+          ],
+          "characters": [
+            "潘金莲",
+            "李瓶儿",
+            "西门庆"
+          ],
+          "locations": [
+            "李瓶儿房",
+            "西门府"
+          ],
+          "prev": "jpm-ms-009",
+          "next": "jpm-ms-005",
+          "tags": [
+            "致命拐点",
+            "嫉妒",
+            "病逝"
+          ],
+          "summary": "潘金莲出于嫉妒训练雪狮子猫惊吓官哥儿致其夭折；李瓶儿在悲痛与血崩中凄惨死去。这是全书情感高潮，也是西门庆唯一真情流露之时，西门府生机自此被抽干。",
+          "source": "chapters/金瓶梅/词话本/062.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-pe-002",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "plot",
+          "title": "李瓶儿丧礼",
+          "chapters": [
+            60
+          ],
+          "characters": [
+            "西门庆",
+            "李瓶儿",
+            "吴月娘",
+            "潘金莲"
+          ],
+          "locations": [
+            "西门府",
+            "李瓶儿房"
+          ],
+          "prev": "jpm-pe-001",
+          "next": "jpm-fe-011",
+          "tags": [
+            "情节",
+            "丧礼"
+          ],
+          "summary": "李瓶儿病亡，西门庆大办丧仪，府内权力格局再洗牌。",
+          "source": "chapters/金瓶梅/词话本/060.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-fe-011",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "financial",
+          "financial_kind": "贿赂",
+          "title": "蔡府二次寿礼",
+          "chapters": [
+            75
+          ],
+          "characters": [
+            "西门庆",
+            "蔡京"
+          ],
+          "locations": [
+            "蔡太师府"
+          ],
+          "amount_liang": 500,
+          "transaction_refs": [
+            "jpm-tx-022"
+          ],
+          "prev": "jpm-pe-002",
+          "next": "jpm-pe-003",
+          "tags": [
+            "政商",
+            "寿礼"
+          ],
+          "summary": "蔡京寿辰，西门庆再送五百两寿礼银，巩固政商关系。",
+          "source": "chapters/金瓶梅/",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-fe-012",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "financial",
+          "financial_kind": "经营",
+          "title": "西门庆丧礼耗银",
+          "chapters": [
+            79
+          ],
+          "characters": [
+            "吴月娘",
+            "应伯爵"
+          ],
+          "locations": [
+            "西门府"
+          ],
+          "amount_liang": 200,
+          "transaction_refs": [
+            "jpm-tx-024"
+          ],
+          "prev": "jpm-pe-003",
+          "next": "jpm-pe-004",
+          "tags": [
+            "丧礼",
+            "衰败"
+          ],
+          "summary": "西门庆亡故，吴月娘治丧，帮闲张罗，耗费甚巨（摘记一笔）。",
+          "source": "chapters/金瓶梅/",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-ms-005",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "milestone",
+          "title": "西门庆纵欲身亡",
+          "chapters": [
+            79
+          ],
+          "characters": [
+            "西门庆",
+            "潘金莲"
+          ],
+          "locations": [
+            "西门府",
+            "潘金莲房"
+          ],
+          "prev": "jpm-ms-004",
+          "next": "jpm-ms-006",
+          "tags": [
+            "大厦崩塌",
+            "纵欲",
+            "暴亡"
+          ],
+          "summary": "李瓶儿死后西门庆愈加空虚纵欲，终在潘金莲过量春药催化下精尽人亡。一家之主死于非命，西门府的经济与权力支柱瞬间崩塌。",
+          "source": "chapters/金瓶梅/词话本/079.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-pe-003",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "plot",
+          "title": "西门庆暴亡",
+          "chapters": [
+            79
+          ],
+          "characters": [
+            "西门庆",
+            "潘金莲",
+            "吴月娘"
+          ],
+          "locations": [
+            "西门府"
+          ],
+          "prev": "jpm-fe-011",
+          "next": "jpm-fe-012",
+          "tags": [
+            "情节",
+            "结局"
+          ],
+          "summary": "西门庆纵欲而亡，西门府权力真空，家业急转直下。",
+          "source": "chapters/金瓶梅/词话本/079.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-ms-006",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "milestone",
+          "title": "武松杀嫂",
+          "chapters": [
+            87
+          ],
+          "characters": [
+            "武松",
+            "潘金莲",
+            "吴月娘"
+          ],
+          "locations": [
+            "清河县",
+            "狮子街"
+          ],
+          "prev": "jpm-ms-005",
+          "next": "jpm-ms-007",
+          "tags": [
+            "现世报",
+            "复仇",
+            "血腥闭环"
+          ],
+          "summary": "树倒猢狲散，潘金莲被吴月娘发卖。武松归来以残忍手段剖腹挖心，杀死潘金莲与王婆祭兄。开篇恩怨至此完成血腥闭环。",
+          "source": "chapters/金瓶梅/词话本/087.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-ms-007",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "milestone",
+          "title": "孝哥出家",
+          "chapters": [
+            100
+          ],
+          "characters": [
+            "吴月娘",
+            "西门庆"
+          ],
+          "locations": [
+            "永福寺"
+          ],
+          "prev": "jpm-ms-006",
+          "tags": [
+            "万法皆空",
+            "出家",
+            "归于虚无"
+          ],
+          "summary": "金兵南下，吴月娘携子孝哥（西门庆转世）逃难，途遇普静禅师，禅师点化孝哥出家，以化解西门庆生前无尽罪孽。繁华落尽，归于白茫茫的虚无。",
+          "source": "chapters/金瓶梅/词话本/100.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-pe-004",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "plot",
+          "title": "西门府散",
+          "chapters": [
+            100
+          ],
+          "characters": [
+            "吴月娘",
+            "陈经济",
+            "庞春梅",
+            "潘金莲"
+          ],
+          "locations": [
+            "西门府",
+            "清河县"
+          ],
+          "prev": "jpm-fe-012",
+          "tags": [
+            "情节",
+            "结局"
+          ],
+          "summary": "蔡京倒台牵连、家仆离散、妻妾各奔，西门庆一世荣华终归于尽。",
+          "source": "chapters/金瓶梅/词话本/100.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        }
+      ]
+    },
+    "xiyouji": {
+      "book": "西游记",
+      "slug": "xiyouji",
+      "count": 90,
+      "entries": [
+        {
+          "id": "xy-e-001",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 1,
+          "title": "金蝉遭贬",
+          "chapters": [
+            1
+          ],
+          "locations": [],
+          "characters": [
+            "观音菩萨"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "next": "xy-e-002",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "如来贬金蝉子下凡，观音领旨寻取经人。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-002",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 2,
+          "title": "出胎几杀",
+          "chapters": [
+            1
+          ],
+          "locations": [],
+          "characters": [
+            "唐僧"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-001",
+          "next": "xy-e-003",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "取经人出胎，贼人欲害其命。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-003",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 3,
+          "title": "满月抛江",
+          "chapters": [
+            1
+          ],
+          "locations": [],
+          "characters": [
+            "唐僧"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-002",
+          "next": "xy-e-004",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "满月抛江，金山寺长老收养江流儿。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-004",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 4,
+          "title": "寻亲报冤",
+          "chapters": [
+            1
+          ],
+          "locations": [],
+          "characters": [
+            "唐僧",
+            "唐太宗"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-003",
+          "next": "xy-e-005",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "长大成人，赴京寻亲报冤。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-ms-001",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "milestone",
+          "title": "大闹天宫",
+          "chapters": [
+            1,
+            7
+          ],
+          "characters": [
+            "孙悟空",
+            "如来佛祖"
+          ],
+          "locations": [
+            "灵霄宝殿",
+            "东海龙宫",
+            "幽冥地府",
+            "兜率宫"
+          ],
+          "next": "xy-ms-002",
+          "tags": [
+            "心猿",
+            "叛逆",
+            "镇压"
+          ],
+          "summary": "孙悟空出世、龙宫借宝、地府销名，反下天庭自号齐天大圣，代表最原始不羁的自由意志；终被如来压于五行山下，喻无序狂妄须受佛法制约。",
+          "source": "chapters/西游记/007.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-005",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 5,
+          "title": "出城逢虎",
+          "chapters": [
+            13
+          ],
+          "locations": [],
+          "characters": [
+            "唐僧"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-004",
+          "next": "xy-e-006",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "出长安边界，遇虎食从者。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-006",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 6,
+          "title": "折从落坑",
+          "chapters": [
+            13
+          ],
+          "locations": [],
+          "characters": [
+            "唐僧"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-005",
+          "next": "xy-e-007",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "从者落坑，唐僧孤身匹马。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-007",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 7,
+          "title": "双叉岭上",
+          "aliases": [
+            "双叉岭"
+          ],
+          "chapters": [
+            13
+          ],
+          "locations": [],
+          "characters": [
+            "唐僧"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-006",
+          "next": "xy-e-008",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "双叉岭遇寅将军、熊山君、特处士。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-008",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 8,
+          "title": "两界山头",
+          "aliases": [
+            "两界山"
+          ],
+          "chapters": [
+            14
+          ],
+          "locations": [
+            "两界山"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-007",
+          "next": "xy-e-009",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "两界山揭帖，收孙悟空为大徒弟。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-ms-002",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "milestone",
+          "title": "五行山获救与戴上紧箍",
+          "chapters": [
+            14
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "观音菩萨"
+          ],
+          "locations": [
+            "两界山"
+          ],
+          "prev": "xy-ms-001",
+          "next": "xy-ms-007",
+          "tags": [
+            "收心",
+            "紧箍咒",
+            "戒律"
+          ],
+          "summary": "唐僧于五行山救出孙悟空，观音赐紧箍咒。取经团队的基石就此奠定，「心猿」开始接受戒律与外在约束，踏上体制内的救赎之路。",
+          "source": "chapters/西游记/014.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-009",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 9,
+          "title": "陡涧换马",
+          "chapters": [
+            15
+          ],
+          "locations": [
+            "鹰愁涧"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "白龙马",
+            "观音菩萨"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-008",
+          "next": "xy-e-010",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "鹰愁涧失马，观音收玉龙为白龙马。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-010",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 10,
+          "title": "夜被火烧",
+          "chapters": [
+            16
+          ],
+          "locations": [],
+          "characters": [
+            "唐僧",
+            "孙悟空"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-009",
+          "next": "xy-e-011",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "观音院僧纵火，悟空借辟火罩护师。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-011",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 11,
+          "title": "失却袈裟",
+          "chapters": [
+            17
+          ],
+          "locations": [
+            "黑风山",
+            "观音院"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "黑熊精",
+            "观音菩萨"
+          ],
+          "monsters": [
+            "黑熊精"
+          ],
+          "artifacts": [
+            "锦襴袈裟"
+          ],
+          "prev": "xy-e-010",
+          "next": "xy-e-012",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "观音院失火，黑熊精盗锦襴袈裟；观音收为守山大神。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-012",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 12,
+          "title": "收降八戒",
+          "aliases": [
+            "高老庄"
+          ],
+          "chapters": [
+            19
+          ],
+          "locations": [
+            "高老庄"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "观音菩萨"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-011",
+          "next": "xy-e-013",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "浮屠山受心经，云栈洞收猪八戒为二徒弟。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-ms-007",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "milestone",
+          "title": "收八戒沙僧·五众齐整",
+          "aliases": [
+            "云栈洞悟空收八戒",
+            "流沙河木叉奉法收悟净"
+          ],
+          "chapters": [
+            19,
+            22
+          ],
+          "characters": [
+            "唐僧",
+            "猪八戒",
+            "沙僧",
+            "孙悟空"
+          ],
+          "locations": [
+            "高老庄",
+            "流沙河"
+          ],
+          "prev": "xy-ms-002",
+          "next": "xy-ms-008",
+          "tags": [
+            "取经团队",
+            "收徒",
+            "五众齐"
+          ],
+          "summary": "唐僧师徒于高老庄云栈洞收伏猪八戒、流沙河收伏沙僧（连白龙马），取经五众至此齐整。团队成型，西行由孤旅转为协作修行。",
+          "source": "chapters/西游记/022.md",
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-013",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 13,
+          "title": "黄风怪阻",
+          "chapters": [
+            20
+          ],
+          "locations": [
+            "黄风岭"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "黄风怪",
+            "灵吉菩萨"
+          ],
+          "monsters": [
+            "黄风怪"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-012",
+          "next": "xy-e-014",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "黄风岭黄风怪三昧神风伤悟空眼，灵吉菩萨降伏。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-014",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 14,
+          "title": "请求灵吉",
+          "chapters": [
+            21
+          ],
+          "locations": [
+            "黄风岭"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "黄风怪",
+            "灵吉菩萨"
+          ],
+          "monsters": [
+            "黄风怪"
+          ],
+          "artifacts": [
+            "定风丹"
+          ],
+          "prev": "xy-e-013",
+          "next": "xy-e-015",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "悟空小须弥山请灵吉，飞龙杖收黄风怪，定风丹留后效。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-015",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 15,
+          "title": "流沙难渡",
+          "aliases": [
+            "流沙河"
+          ],
+          "chapters": [
+            22
+          ],
+          "locations": [
+            "流沙河"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-014",
+          "next": "xy-e-016",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "流沙河波浪阻路，唐僧不得渡，九骷髅浮水。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-016",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 16,
+          "title": "收得沙僧",
+          "chapters": [
+            22,
+            23
+          ],
+          "locations": [
+            "流沙河"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "观音菩萨"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-015",
+          "next": "xy-e-017",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "观音释疑，沙悟净归队，取经五众凑齐。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-017",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 17,
+          "title": "四圣显化",
+          "aliases": [
+            "四圣试禅心"
+          ],
+          "chapters": [
+            23
+          ],
+          "locations": [
+            "五庄观"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-016",
+          "next": "xy-e-018",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "四圣试禅心；五庄观留宿，为后人参果难埋伏笔。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-018",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 18,
+          "title": "五庄观中",
+          "chapters": [
+            24,
+            25
+          ],
+          "locations": [
+            "五庄观"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "镇元子",
+            "观音菩萨"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-017",
+          "next": "xy-e-019",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "悟空偷人参果、推树；观音甘露救树，镇元与悟空结拜。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-ms-008",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "milestone",
+          "title": "五庄观偷人参果",
+          "aliases": [
+            "万寿山大仙留故友",
+            "五庄观行者窃人参"
+          ],
+          "chapters": [
+            24,
+            25,
+            26
+          ],
+          "characters": [
+            "孙悟空",
+            "镇元子",
+            "唐僧",
+            "猪八戒"
+          ],
+          "locations": [
+            "五庄观"
+          ],
+          "prev": "xy-ms-007",
+          "next": "xy-ms-003",
+          "tags": [
+            "人参果",
+            "镇元子",
+            "医树"
+          ],
+          "summary": "孙悟空偷打人参果、一怒推倒仙树，与地仙之祖镇元子结怨被擒，遍求医树之方不得，终请观音以甘露救活仙树。悟空之顽与求援之路并显，亦结下仙缘。",
+          "source": "chapters/西游记/026.md",
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-019",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 19,
+          "title": "难活人参",
+          "chapters": [
+            25,
+            26
+          ],
+          "locations": [
+            "五庄观"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "镇元子",
+            "观音菩萨"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-018",
+          "next": "xy-e-020",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "难活人参：偷果推树后镇元擒师徒，甘露救树方解。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-020",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 20,
+          "title": "贬退心猿",
+          "aliases": [
+            "三打白骨精"
+          ],
+          "chapters": [
+            27
+          ],
+          "locations": [
+            "白虎岭"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧"
+          ],
+          "monsters": [
+            "白骨精"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-019",
+          "next": "xy-e-021",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "白虎岭三打白骨精，唐僧肉眼凡胎怒贬悟空（贬退心猿）。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-ms-003",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "milestone",
+          "title": "三打白骨精",
+          "chapters": [
+            27
+          ],
+          "characters": [
+            "孙悟空",
+            "唐僧",
+            "白骨精",
+            "猪八戒"
+          ],
+          "locations": [
+            "白虎岭"
+          ],
+          "prev": "xy-ms-008",
+          "next": "xy-ms-004",
+          "tags": [
+            "信任危机",
+            "火眼金睛",
+            "驱逐"
+          ],
+          "summary": "孙悟空三次识破白骨精化身，却被肉眼凡胎的唐僧误解并狠心驱逐。这是取经团队内部矛盾最激烈的一次爆发，暴露盲目慈悲与霹雳手段的不可调和。",
+          "source": "chapters/西游记/027.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-021",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 21,
+          "title": "黑松林失散",
+          "chapters": [
+            28
+          ],
+          "locations": [
+            "碗子山"
+          ],
+          "characters": [
+            "唐僧",
+            "猪八戒",
+            "沙僧",
+            "白龙马",
+            "奎木狼"
+          ],
+          "monsters": [
+            "奎木狼"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-020",
+          "next": "xy-e-022",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "悟空被贬后黑松林失散，唐僧入波月洞被擒。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-022",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 22,
+          "title": "宝象国捎书",
+          "chapters": [
+            29,
+            30
+          ],
+          "locations": [
+            "碗子山",
+            "宝象国"
+          ],
+          "characters": [
+            "唐僧",
+            "猪八戒",
+            "沙僧",
+            "白龙马",
+            "奎木狼"
+          ],
+          "monsters": [
+            "奎木狼"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-021",
+          "next": "xy-e-023",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "宝象国捎书，百花羞公主求救。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-023",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 23,
+          "title": "金銮殿变虎",
+          "chapters": [
+            30,
+            31
+          ],
+          "locations": [
+            "宝象国"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "奎木狼",
+            "猪八戒",
+            "沙僧"
+          ],
+          "monsters": [
+            "奎木狼"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-022",
+          "next": "xy-e-024",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "奎木狼变虎囚唐僧，悟空上天收奎星。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-024",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 24,
+          "title": "平顶山逢魔",
+          "aliases": [
+            "平顶山"
+          ],
+          "chapters": [
+            32
+          ],
+          "locations": [
+            "平顶山",
+            "莲花洞"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "金角大王",
+            "银角大王"
+          ],
+          "monsters": [
+            "金角大王",
+            "银角大王"
+          ],
+          "artifacts": [
+            "紫金红葫芦",
+            "幌金绳",
+            "七星剑"
+          ],
+          "prev": "xy-e-023",
+          "next": "xy-e-025",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "平顶山莲花洞金角银角，五件宝贝斗悟空。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-025",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 25,
+          "title": "莲花洞高悬",
+          "chapters": [
+            33,
+            34
+          ],
+          "locations": [
+            "平顶山",
+            "莲花洞"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "金角大王",
+            "银角大王"
+          ],
+          "monsters": [
+            "金角大王",
+            "银角大王"
+          ],
+          "artifacts": [
+            "紫金红葫芦",
+            "幌金绳",
+            "七星剑",
+            "羊脂玉净瓶"
+          ],
+          "prev": "xy-e-024",
+          "next": "xy-e-026",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "莲花洞高悬，悟空骗宝换名。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-026",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 26,
+          "title": "乌鸡国救主",
+          "aliases": [
+            "乌鸡国"
+          ],
+          "chapters": [
+            36,
+            37
+          ],
+          "locations": [
+            "乌鸡国"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "狮猁怪"
+          ],
+          "monsters": [
+            "狮猁怪"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-025",
+          "next": "xy-e-027",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "乌鸡国救主，文殊收青毛狮子。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-027",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 27,
+          "title": "被魔化身",
+          "chapters": [
+            37
+          ],
+          "locations": [
+            "乌鸡国"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "狮猁怪",
+            "文殊菩萨"
+          ],
+          "monsters": [
+            "狮猁怪"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-026",
+          "next": "xy-e-028",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "狮猁怪化身假王，殿上现形，文殊收青毛狮子。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-028",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 28,
+          "title": "号山逢怪",
+          "aliases": [
+            "火云洞"
+          ],
+          "chapters": [
+            40,
+            41
+          ],
+          "locations": [
+            "火云洞"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "红孩儿"
+          ],
+          "monsters": [
+            "红孩儿"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-027",
+          "next": "xy-e-029",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "号山枯松涧，红孩儿变童子骗唐僧。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-029",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 29,
+          "title": "风摄圣僧",
+          "chapters": [
+            41
+          ],
+          "locations": [
+            "火云洞"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "红孩儿"
+          ],
+          "monsters": [
+            "红孩儿"
+          ],
+          "artifacts": [
+            "火尖枪"
+          ],
+          "prev": "xy-e-028",
+          "next": "xy-e-030",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "风摄圣僧入洞，悟空战红孩儿。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-030",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 30,
+          "title": "心猿遭害",
+          "chapters": [
+            41,
+            42
+          ],
+          "locations": [
+            "火云洞"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "红孩儿",
+            "观音菩萨"
+          ],
+          "monsters": [
+            "红孩儿"
+          ],
+          "artifacts": [
+            "火尖枪"
+          ],
+          "prev": "xy-e-029",
+          "next": "xy-e-031",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "红孩儿三昧真火擒唐僧，观音收为善财童子。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-031",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 31,
+          "title": "请圣降妖",
+          "chapters": [
+            42
+          ],
+          "locations": [
+            "火云洞"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "红孩儿",
+            "观音菩萨"
+          ],
+          "monsters": [
+            "红孩儿"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-030",
+          "next": "xy-e-032",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "观音请圣降妖，收善财童子。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-032",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 32,
+          "title": "黑河沉没",
+          "aliases": [
+            "黑水河"
+          ],
+          "chapters": [
+            43
+          ],
+          "locations": [
+            "黑水河"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "鼍龙",
+            "东海龙王"
+          ],
+          "monsters": [
+            "鼍龙"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-031",
+          "next": "xy-e-033",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "黑水河鼍龙沉僧，西海龙王收子。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-033",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 33,
+          "title": "搬运车迟",
+          "aliases": [
+            "车迟国"
+          ],
+          "chapters": [
+            44,
+            45
+          ],
+          "locations": [
+            "车迟国"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "虎力大仙",
+            "鹿力大仙",
+            "羊力大仙"
+          ],
+          "monsters": [
+            "虎力大仙",
+            "鹿力大仙",
+            "羊力大仙"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-032",
+          "next": "xy-e-034",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "车迟国三力大仙与悟空赌斗求雨、砍头、剖腹、下油锅。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-034",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 34,
+          "title": "大赌输赢",
+          "chapters": [
+            45,
+            46
+          ],
+          "locations": [
+            "车迟国"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "虎力大仙",
+            "鹿力大仙",
+            "羊力大仙"
+          ],
+          "monsters": [
+            "虎力大仙",
+            "鹿力大仙",
+            "羊力大仙"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-033",
+          "next": "xy-e-035",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "车迟国赌斗续：砍头、隔板猜物，虎力败亡。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-035",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 35,
+          "title": "祛道兴僧",
+          "chapters": [
+            46
+          ],
+          "locations": [
+            "车迟国"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "鹿力大仙",
+            "羊力大仙"
+          ],
+          "monsters": [
+            "鹿力大仙",
+            "羊力大仙"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-034",
+          "next": "xy-e-036",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "剖腹、下油锅，三力俱灭，国王改信佛教。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-036",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 36,
+          "title": "路逢大水",
+          "aliases": [
+            "通天河"
+          ],
+          "chapters": [
+            47
+          ],
+          "locations": [
+            "通天河"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "灵感大王",
+            "观音菩萨"
+          ],
+          "monsters": [
+            "灵感大王"
+          ],
+          "artifacts": [
+            "九瓣铜锤"
+          ],
+          "prev": "xy-e-035",
+          "next": "xy-e-037",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "通天河阻路，灵感大王（金鱼）要吃童男童女。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-037",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 37,
+          "title": "身落天河",
+          "chapters": [
+            47,
+            48
+          ],
+          "locations": [
+            "通天河"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "灵感大王"
+          ],
+          "monsters": [
+            "灵感大王"
+          ],
+          "artifacts": [
+            "九瓣铜锤"
+          ],
+          "prev": "xy-e-036",
+          "next": "xy-e-038",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "唐僧落水，悟空请观音。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-038",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 38,
+          "title": "鱼篮现身",
+          "chapters": [
+            49
+          ],
+          "locations": [
+            "通天河"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "灵感大王",
+            "观音菩萨"
+          ],
+          "monsters": [
+            "灵感大王"
+          ],
+          "artifacts": [
+            "九瓣铜锤"
+          ],
+          "prev": "xy-e-037",
+          "next": "xy-e-039",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "观音鱼篮收金鱼，通天河复渡。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-039",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 39,
+          "title": "山遇怪",
+          "chapters": [
+            50,
+            51
+          ],
+          "locations": [
+            "金兜洞"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "青牛精"
+          ],
+          "monsters": [
+            "青牛精"
+          ],
+          "artifacts": [
+            "金刚琢"
+          ],
+          "prev": "xy-e-038",
+          "next": "xy-e-040",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "金兜山遇兕大王，金刚琢收兵器。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-040",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 40,
+          "title": "普天神难伏",
+          "aliases": [
+            "金兜洞"
+          ],
+          "chapters": [
+            51,
+            52
+          ],
+          "locations": [
+            "金兜洞"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "青牛精"
+          ],
+          "monsters": [
+            "青牛精"
+          ],
+          "artifacts": [
+            "金刚琢"
+          ],
+          "prev": "xy-e-039",
+          "next": "xy-e-041",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "天兵天将亦难伏，金刚琢尽收。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-041",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 41,
+          "title": "问佛根源",
+          "chapters": [
+            52,
+            53
+          ],
+          "locations": [
+            "金兜洞"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "青牛精",
+            "太上老君"
+          ],
+          "monsters": [
+            "青牛精"
+          ],
+          "artifacts": [
+            "金刚琢"
+          ],
+          "prev": "xy-e-040",
+          "next": "xy-e-042",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "悟空问佛根源，老君下界收青牛。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-042",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 42,
+          "title": "吃水遭毒",
+          "aliases": [
+            "子母河"
+          ],
+          "chapters": [
+            53
+          ],
+          "locations": [
+            "西梁女国"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "如意真仙"
+          ],
+          "monsters": [
+            "如意真仙"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-041",
+          "next": "xy-e-043",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "子母河水饮成胎，解阳山落胎泉，悟空智取。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-043",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 43,
+          "title": "西梁国留婚",
+          "aliases": [
+            "西梁国留婚"
+          ],
+          "chapters": [
+            54
+          ],
+          "locations": [
+            "西梁女国"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "女儿国国王"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-042",
+          "next": "xy-e-044",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "西梁女国女王招赘，悟空假亲脱网。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-044",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 44,
+          "title": "琵琶洞受苦",
+          "chapters": [
+            55
+          ],
+          "locations": [
+            "琵琶洞"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "蝎子精"
+          ],
+          "monsters": [
+            "蝎子精"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-043",
+          "next": "xy-e-045",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "琵琶洞蝎子精倒马毒，昴日星官收伏。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-045",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 45,
+          "title": "再贬心猿",
+          "chapters": [
+            56,
+            57
+          ],
+          "locations": [],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "观音菩萨"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-044",
+          "next": "xy-e-046",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "悟空打死草寇，唐僧再念紧箍逐徒；假悟空摄假尸夺行李。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-046",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 46,
+          "title": "难辨猕猴",
+          "aliases": [
+            "真假悟空"
+          ],
+          "chapters": [
+            57,
+            58
+          ],
+          "locations": [
+            "灵山"
+          ],
+          "characters": [
+            "孙悟空",
+            "六耳猕猴",
+            "如来佛祖",
+            "唐僧",
+            "观音菩萨"
+          ],
+          "monsters": [
+            "六耳猕猴"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-045",
+          "next": "xy-e-047",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "真假悟空上天入地不能辨，如来点破二心，悟空打死六耳。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-ms-004",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "milestone",
+          "title": "真假美猴王",
+          "chapters": [
+            57,
+            58
+          ],
+          "characters": [
+            "孙悟空",
+            "六耳猕猴",
+            "如来佛祖",
+            "唐僧"
+          ],
+          "locations": [
+            "灵山"
+          ],
+          "prev": "xy-ms-003",
+          "next": "xy-ms-005",
+          "tags": [
+            "二心",
+            "内心搏杀",
+            "心猿归一"
+          ],
+          "summary": "六耳猕猴是孙悟空内心「恶念」「二心」的具象。两猴上天入地无人能辨，终在如来面前被识破打死。此后悟空叛逆之心彻底消除，师徒再无二心，取经由被动转为主动。",
+          "source": "chapters/西游记/058.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-047",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 47,
+          "title": "路阻火焰山",
+          "aliases": [
+            "火焰山"
+          ],
+          "chapters": [
+            59
+          ],
+          "locations": [
+            "火焰山"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "铁扇公主"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-046",
+          "next": "xy-e-048",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "火焰山八百里火障阻路，须借芭蕉扇方过。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-048",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 48,
+          "title": "求取芭蕉扇",
+          "aliases": [
+            "三借芭蕉扇"
+          ],
+          "chapters": [
+            59,
+            60
+          ],
+          "locations": [
+            "火焰山"
+          ],
+          "characters": [
+            "孙悟空",
+            "铁扇公主",
+            "牛魔王",
+            "唐僧",
+            "猪八戒",
+            "沙僧"
+          ],
+          "monsters": [],
+          "artifacts": [
+            "芭蕉扇",
+            "定风丹"
+          ],
+          "prev": "xy-e-047",
+          "next": "xy-e-049",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "悟空三借芭蕉扇，天兵降伏牛魔王，熄火西行。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-ms-005",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "milestone",
+          "title": "三借芭蕉扇",
+          "chapters": [
+            59,
+            61
+          ],
+          "characters": [
+            "孙悟空",
+            "牛魔王",
+            "铁扇公主"
+          ],
+          "locations": [
+            "火焰山"
+          ],
+          "prev": "xy-ms-004",
+          "next": "xy-ms-009",
+          "tags": [
+            "欲火",
+            "斗法",
+            "灭贪嗔痴"
+          ],
+          "summary": "路阻火焰山，悟空与昔日结拜大哥牛魔王及铁扇公主展开全书最宏大漫长的斗法。火焰山隐喻内心焦躁欲火，借扇灭火象征熄灭贪嗔痴，是修行的重要里程碑。",
+          "source": "chapters/西游记/061.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-049",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 49,
+          "title": "收缚魔王",
+          "aliases": [
+            "祭赛国"
+          ],
+          "chapters": [
+            61
+          ],
+          "locations": [
+            "祭赛国"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "万圣龙王",
+            "九头虫"
+          ],
+          "monsters": [
+            "九头虫",
+            "万圣龙王"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-048",
+          "next": "xy-e-050",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "祭赛国金光寺失宝，悟空扫塔获线索。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-050",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 50,
+          "title": "赛城扫塔",
+          "chapters": [
+            62,
+            63
+          ],
+          "locations": [
+            "祭赛国"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "万圣龙王",
+            "九头虫"
+          ],
+          "monsters": [
+            "九头虫",
+            "万圣龙王"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-049",
+          "next": "xy-e-051",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "赛城扫塔辨冤，擒塔顶小妖。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-051",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 51,
+          "title": "取宝救僧",
+          "chapters": [
+            63
+          ],
+          "locations": [
+            "祭赛国",
+            "碧波潭"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "万圣龙王",
+            "九头虫",
+            "二郎神"
+          ],
+          "monsters": [
+            "九头虫",
+            "万圣龙王"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-050",
+          "next": "xy-e-052",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "碧波潭闹龙宫取宝，二郎细犬咬九头，龙王被灭。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-052",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 52,
+          "title": "棘林吟咏",
+          "aliases": [
+            "荆棘岭"
+          ],
+          "chapters": [
+            64
+          ],
+          "locations": [],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-051",
+          "next": "xy-e-053",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "荆棘岭八戒开路，木仙庵四老谈诗，树精打媒，悟空识破。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-053",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 53,
+          "title": "小雷音遇难",
+          "aliases": [
+            "小雷音寺"
+          ],
+          "chapters": [
+            65,
+            66
+          ],
+          "locations": [
+            "小雷音寺"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "黄眉怪"
+          ],
+          "monsters": [
+            "黄眉怪"
+          ],
+          "artifacts": [
+            "人种袋",
+            "金铙",
+            "白布搭包"
+          ],
+          "prev": "xy-e-052",
+          "next": "xy-e-054",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "小雷音寺黄眉怪人种袋困悟空，弥勒收之。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-054",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 54,
+          "title": "诸天神遭困",
+          "chapters": [
+            66
+          ],
+          "locations": [
+            "小雷音寺"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "黄眉怪"
+          ],
+          "monsters": [
+            "黄眉怪"
+          ],
+          "artifacts": [
+            "白布搭包",
+            "人种袋"
+          ],
+          "prev": "xy-e-053",
+          "next": "xy-e-055",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "二十八宿掀金铙，黄眉白布搭包装众神。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-055",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 55,
+          "title": "稀柿同秽阻",
+          "aliases": [
+            "稀柿关",
+            "七绝山"
+          ],
+          "chapters": [
+            67
+          ],
+          "locations": [],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-054",
+          "next": "xy-e-056",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "七绝山稀柿同秽气阻路，八戒变猪拱开旧路。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-056",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 56,
+          "title": "朱紫国行医",
+          "chapters": [
+            68,
+            69
+          ],
+          "locations": [
+            "朱紫国"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "赛太岁"
+          ],
+          "monsters": [
+            "赛太岁"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-055",
+          "next": "xy-e-057",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "朱紫国倒换关文，国王问妖；悟空悬丝诊脉。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-057",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 57,
+          "title": "拯救疲癃",
+          "chapters": [
+            69,
+            70
+          ],
+          "locations": [
+            "朱紫国",
+            "麒麟山"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "赛太岁"
+          ],
+          "monsters": [
+            "赛太岁"
+          ],
+          "artifacts": [
+            "紫金铃",
+            "五彩仙衣"
+          ],
+          "prev": "xy-e-056",
+          "next": "xy-e-058",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "悟空盗紫金铃，与赛太岁赌斗。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-058",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 58,
+          "title": "降妖取后",
+          "chapters": [
+            70,
+            71
+          ],
+          "locations": [
+            "朱紫国"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "赛太岁",
+            "观音菩萨"
+          ],
+          "monsters": [
+            "赛太岁"
+          ],
+          "artifacts": [
+            "紫金铃"
+          ],
+          "prev": "xy-e-057",
+          "next": "xy-e-059",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "观音释拆凤之冤，收金毛犼，金圣宫娘娘还宫。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-059",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 59,
+          "title": "七情迷没",
+          "aliases": [
+            "盘丝洞"
+          ],
+          "chapters": [
+            72
+          ],
+          "locations": [],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "蜘蛛精"
+          ],
+          "monsters": [
+            "蜘蛛精"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-058",
+          "next": "xy-e-060",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "盘丝洞七情迷，蜘蛛精欲吃唐僧。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-060",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 60,
+          "title": "多目遭伤",
+          "chapters": [
+            73
+          ],
+          "locations": [],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "百眼魔君",
+            "蜘蛛精"
+          ],
+          "monsters": [
+            "百眼魔君"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-059",
+          "next": "xy-e-061",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "黄花观百眼魔君金光困悟空，毗蓝婆收之。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-061",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 61,
+          "title": "路阻狮驼",
+          "aliases": [
+            "狮驼岭"
+          ],
+          "chapters": [
+            74,
+            75
+          ],
+          "locations": [
+            "狮驼岭"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "青狮精",
+            "白象精",
+            "大鹏精"
+          ],
+          "monsters": [
+            "青狮精",
+            "白象精",
+            "大鹏精"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-060",
+          "next": "xy-e-062",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "狮驼岭三魔阻路，青狮吞悟空。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-ms-009",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "milestone",
+          "title": "狮驼岭三魔",
+          "aliases": [
+            "心猿遭火败",
+            "群魔欺本性"
+          ],
+          "chapters": [
+            74,
+            75,
+            76,
+            77
+          ],
+          "characters": [
+            "孙悟空",
+            "青狮精",
+            "唐僧"
+          ],
+          "locations": [
+            "狮驼岭"
+          ],
+          "prev": "xy-ms-005",
+          "next": "xy-ms-006",
+          "tags": [
+            "三魔",
+            "阴云阵",
+            "最险一难"
+          ],
+          "summary": "狮驼岭青狮、白象、大鹏三魔联手，洞中积骨如山，势力之大几令取经绝望，悟空一度恸哭奔灵山求告。终赖文殊、普贤收青狮白象，如来亲降大鹏。全书妖魔声势的顶点。",
+          "source": "chapters/西游记/077.md",
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-062",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 62,
+          "title": "怪分三色",
+          "chapters": [
+            75,
+            76
+          ],
+          "locations": [
+            "狮驼岭"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "青狮精",
+            "白象精",
+            "大鹏精"
+          ],
+          "monsters": [
+            "青狮精",
+            "白象精",
+            "大鹏精"
+          ],
+          "artifacts": [
+            "阴阳二气瓶"
+          ],
+          "prev": "xy-e-061",
+          "next": "xy-e-063",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "三魔分色，阴阳二气瓶困悟空。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-063",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 63,
+          "title": "城里遇灾",
+          "chapters": [
+            76
+          ],
+          "locations": [
+            "狮驼岭"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "青狮精",
+            "白象精",
+            "大鹏精"
+          ],
+          "monsters": [
+            "青狮精",
+            "白象精",
+            "大鹏精"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-062",
+          "next": "xy-e-064",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "狮驼城妖众，唐僧再被擒。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-064",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 64,
+          "title": "请佛收魔",
+          "chapters": [
+            77
+          ],
+          "locations": [
+            "狮驼岭",
+            "灵山"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "青狮精",
+            "白象精",
+            "大鹏精",
+            "如来佛祖"
+          ],
+          "monsters": [
+            "青狮精",
+            "白象精",
+            "大鹏精"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-063",
+          "next": "xy-e-065",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "悟空请佛，文殊普贤收狮象，如来收大鹏。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-065",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 65,
+          "title": "比丘救子",
+          "aliases": [
+            "比丘国"
+          ],
+          "chapters": [
+            78,
+            79
+          ],
+          "locations": [
+            "比丘国"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "白鹿精"
+          ],
+          "monsters": [
+            "白鹿精"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-064",
+          "next": "xy-e-066",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "比丘国白鹿精要小儿心肝，悟空阴神护幼。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-066",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 66,
+          "title": "辨认真邪",
+          "chapters": [
+            79
+          ],
+          "locations": [
+            "比丘国"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "白鹿精"
+          ],
+          "monsters": [
+            "白鹿精"
+          ],
+          "artifacts": [
+            "蟠龙拐"
+          ],
+          "prev": "xy-e-065",
+          "next": "xy-e-067",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "清华洞擒鹿，南极寿星收坐骑，小儿还家。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-067",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 67,
+          "title": "松林救怪",
+          "aliases": [
+            "镇海寺"
+          ],
+          "chapters": [
+            80,
+            81
+          ],
+          "locations": [],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "地涌夫人"
+          ],
+          "monsters": [
+            "地涌夫人"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-066",
+          "next": "xy-e-068",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "黑松林绑女，唐僧坚持相救，入镇海禅林寺。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-068",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 68,
+          "title": "僧房卧病",
+          "chapters": [
+            81
+          ],
+          "locations": [],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "地涌夫人"
+          ],
+          "monsters": [
+            "地涌夫人"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-067",
+          "next": "xy-e-069",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "僧房三日病，寺中妖精吃小和尚，悟空夜捉。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-069",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 69,
+          "title": "无底洞遭困",
+          "aliases": [
+            "无底洞"
+          ],
+          "chapters": [
+            81
+          ],
+          "locations": [
+            "陷空山",
+            "无底洞"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "李靖",
+            "哪吒",
+            "地涌夫人"
+          ],
+          "monsters": [
+            "地涌夫人"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-068",
+          "next": "xy-e-070",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "陷空山无底洞老鼠精摄唐僧，天王收义女。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-070",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 70,
+          "title": "灭法国难行",
+          "chapters": [
+            82
+          ],
+          "locations": [
+            "灭法国"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-069",
+          "next": "xy-e-071",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "灭法国万僧之愿，悟空劝善改号钦法国。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-071",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 71,
+          "title": "隐雾山遇魔",
+          "aliases": [
+            "隐雾山"
+          ],
+          "chapters": [
+            83
+          ],
+          "locations": [],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "南山大王"
+          ],
+          "monsters": [
+            "南山大王"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-070",
+          "next": "xy-e-072",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "隐雾山南山大王分瓣梅花计摄唐僧，豹精被灭。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-072",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 72,
+          "title": "凤仙郡求雨",
+          "chapters": [
+            84
+          ],
+          "locations": [
+            "凤仙郡"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "东海龙王"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-071",
+          "next": "xy-e-073",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "凤仙郡三年不雨，[[凤仙郡郡侯]] 善念倒断三事，天降甘霖。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-073",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 73,
+          "title": "失落兵器",
+          "chapters": [
+            85
+          ],
+          "locations": [
+            "玉华州"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "黄狮精"
+          ],
+          "monsters": [],
+          "artifacts": [
+            "金箍棒",
+            "九齿钉钯",
+            "降妖宝杖"
+          ],
+          "prev": "xy-e-072",
+          "next": "xy-e-074",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "豹头山黄狮精趁夜盗走三兵器。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-074",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 74,
+          "title": "会庆钉钯",
+          "chapters": [
+            86
+          ],
+          "locations": [
+            "玉华州"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "黄狮精"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-073",
+          "next": "xy-e-075",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "黄狮精设钉钯宴庆盗宝，悟空等寻至豹头山。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-075",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 75,
+          "title": "竹节山遭难",
+          "aliases": [
+            "玉华州"
+          ],
+          "chapters": [
+            87,
+            88
+          ],
+          "locations": [
+            "玉华州",
+            "竹节山"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "九灵元圣",
+            "黄狮精"
+          ],
+          "monsters": [
+            "九灵元圣",
+            "黄狮精"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-074",
+          "next": "xy-e-076",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "玉华州失兵器，九灵元圣衔走师徒，天尊收狮。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-076",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 76,
+          "title": "玄英洞受苦",
+          "chapters": [
+            89,
+            90
+          ],
+          "locations": [
+            "竹节山"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "九灵元圣"
+          ],
+          "monsters": [
+            "九灵元圣"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-075",
+          "next": "xy-e-077",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "竹节山遭难，太乙救苦天尊收九头狮。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-077",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 77,
+          "title": "赶捉犀牛",
+          "aliases": [
+            "金平府"
+          ],
+          "chapters": [
+            91,
+            92
+          ],
+          "locations": [
+            "金平府",
+            "青龙山"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "辟寒大王",
+            "辟暑大王",
+            "辟尘大王"
+          ],
+          "monsters": [
+            "辟寒大王",
+            "辟暑大王",
+            "辟尘大王"
+          ],
+          "artifacts": [],
+          "prev": "xy-e-076",
+          "next": "xy-e-078",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "金平府三犀牛假佛偷油，四木禽星收伏。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-078",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 78,
+          "title": "天竺招婚",
+          "aliases": [
+            "天竺招婚"
+          ],
+          "chapters": [
+            93,
+            94,
+            95
+          ],
+          "locations": [
+            "天竺国"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "玉兔精"
+          ],
+          "monsters": [],
+          "artifacts": [
+            "捣药杵"
+          ],
+          "prev": "xy-e-077",
+          "next": "xy-e-079",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "天竺国玉兔精假公主招亲，太阴星君收之。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-079",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 79,
+          "title": "铜台府监禁",
+          "aliases": [
+            "铜台府"
+          ],
+          "chapters": [
+            96
+          ],
+          "locations": [],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-078",
+          "next": "xy-e-080",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "铜台府寇员外斋僧，夜贼杀主嫁祸，寇洪还阳昭雪。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-080",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 80,
+          "title": "凌云渡脱胎",
+          "aliases": [
+            "凌云渡"
+          ],
+          "chapters": [
+            98
+          ],
+          "locations": [
+            "灵山"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "如来佛祖"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-079",
+          "next": "xy-e-081",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "独木桥凌云渡，唐僧脱凡胎；见如来传经。",
+          "source": "chapters/西游记/099.md",
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-ms-006",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "milestone",
+          "title": "凌云渡脱胎与五圣成真",
+          "chapters": [
+            98,
+            100
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "如来佛祖"
+          ],
+          "locations": [
+            "灵山",
+            "通天河",
+            "长安城"
+          ],
+          "prev": "xy-ms-009",
+          "tags": [
+            "脱胎换骨",
+            "功德圆满",
+            "五圣成真"
+          ],
+          "summary": "灵山脚下凌云渡，唐僧目送自己肉身顺水漂去，完成由凡入佛的脱胎换骨；继历第八十一难（通天河落水），取经回长安，师徒五人各受封赏，修成正果。",
+          "source": "chapters/西游记/100.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "xy-e-081",
+          "type": "event",
+          "book": "西游记",
+          "subtype": "tribulation",
+          "tribulation_no": 81,
+          "title": "通天河湿经",
+          "chapters": [
+            99
+          ],
+          "locations": [
+            "通天河"
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "观音菩萨"
+          ],
+          "monsters": [],
+          "artifacts": [],
+          "prev": "xy-e-080",
+          "tags": [
+            "八十一难"
+          ],
+          "summary": "观音令揭谛还生一难；老鼋嗔问寿数淬水，经书落水晒经石留痕。",
+          "source": "chapters/西游记/099.md",
+          "aliases": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        }
+      ]
+    }
+  }
+}

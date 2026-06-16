@@ -61,6 +61,8 @@ const keyEvents = features.includes('saga')
 
   {d.aliases.length > 0 && <p class="mt-2 text-sm">别名：{d.aliases.join('、')}</p>}
 
+  {d.summary && <p class="page-lead mt-2">{d.summary}</p>}
+
   <dl class="entity-spec entity-spec-dl surface mt-4">
     {
       (d.faction || d.first_appear || d.ximen_proximity || d.靠山 || d.依附) && (

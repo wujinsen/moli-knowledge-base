@@ -79,42 +79,12 @@
       "events": []
     },
     {
-      "id": "栊翠庵",
-      "name": "栊翠庵",
-      "zone": "寺观",
-      "category": "庵",
-      "x": 515,
-      "y": 105,
-      "tourOrder": null,
-      "summary": "大观园内庵堂，妙玉居此，刘姥姥游时在此品茶为全书名段。",
-      "chapters": [
-        41,
-        50,
-        87,
-        95
-      ],
-      "occupants": [
-        "妙玉"
-      ],
-      "plants": [
-        "红梅",
-        "梅花"
-      ],
-      "plaque": "栊翠庵",
-      "couplet": null,
-      "nearby": [
-        "暖香坞",
-        "稻香村"
-      ],
-      "events": []
-    },
-    {
       "id": "稻香村",
       "name": "稻香村",
       "zone": "居所",
       "category": "院落",
-      "x": 255,
-      "y": 125,
+      "x": 320,
+      "y": 105,
       "tourOrder": 5,
       "summary": "李纨在大观园中的住所，仿田园杏花村，匾题「杏帘在望」。",
       "chapters": [
@@ -143,6 +113,36 @@
         "栊翠庵",
         "芦雪庵",
         "议事厅"
+      ],
+      "events": []
+    },
+    {
+      "id": "栊翠庵",
+      "name": "栊翠庵",
+      "zone": "寺观",
+      "category": "庵",
+      "x": 515,
+      "y": 105,
+      "tourOrder": null,
+      "summary": "大观园内庵堂，妙玉居此，刘姥姥游时在此品茶为全书名段。",
+      "chapters": [
+        41,
+        50,
+        87,
+        95
+      ],
+      "occupants": [
+        "妙玉"
+      ],
+      "plants": [
+        "红梅",
+        "梅花"
+      ],
+      "plaque": "栊翠庵",
+      "couplet": null,
+      "nearby": [
+        "暖香坞",
+        "稻香村"
       ],
       "events": []
     },

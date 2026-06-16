@@ -1,0 +1,4911 @@
+{
+  "generated_by": "build_content_snapshots.py",
+  "books": {
+    "honglou": {
+      "book": "红楼梦",
+      "slug": "honglou",
+      "count": 52,
+      "entries": [
+        {
+          "id": "hl-p-15",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "乐中悲",
+          "layer": "太虚",
+          "text": "襁褓中，寄人篱下，早离故乡。纵有，干霄凌云志，怎向，空门学步虚。……",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "史湘云"
+          ],
+          "links": [
+            {
+              "target": "史湘云",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "水逝云飞，双栖双飞"
+            },
+            {
+              "target": "hl-j-05",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": false,
+              "chapter": 5
+            }
+          ],
+          "tags": [
+            "诗词",
+            "红楼梦曲"
+          ],
+          "summary": "《红楼梦曲》第六支，写湘云漂泊、好梦易醒。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-p-15"
+        },
+        {
+          "id": "hl-s-bing",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "symbol",
+          "title": "冰",
+          "layer": "人间",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "薛宝钗"
+          ],
+          "links": [
+            {
+              "target": "薛宝钗",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 5,
+              "note": "冷香、晶莹雪与宝钗性情。"
+            }
+          ],
+          "tags": [
+            "象征物"
+          ],
+          "summary": "冷香、晶莹雪与宝钗性情。",
+          "_entry_id": "红楼梦/hl-s-bing"
+        },
+        {
+          "id": "hl-p-12",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "分骨肉",
+          "layer": "太虚",
+          "text": "一帆风雨路三千，把骨肉家园齐来抛闪。恐哭损残年，告爹娘，莫把儿消息传。……",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾探春"
+          ],
+          "links": [
+            {
+              "target": "贾探春",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "远嫁海疆"
+            },
+            {
+              "target": "hl-j-04",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": false,
+              "chapter": 5
+            }
+          ],
+          "tags": [
+            "诗词",
+            "红楼梦曲"
+          ],
+          "summary": "《红楼梦曲》第五支，写探春远嫁、骨肉分离。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-p-12"
+        },
+        {
+          "id": "hl-j-05",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "judgment",
+          "title": "史湘云判词",
+          "layer": "太虚",
+          "text": "富贵又何为，襁褓之间父母违。展眼吊斜晖，湘江水逝楚云飞。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "史湘云"
+          ],
+          "links": [
+            {
+              "target": "史湘云",
+              "target_kind": "character",
+              "predicate": "对应判词",
+              "inference": false,
+              "chapter": 5,
+              "note": "楚云飞、水逝与湘云名、命运漂泊相合。"
+            },
+            {
+              "target": "史湘云",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "判词谶语"
+            }
+          ],
+          "tags": [
+            "判词",
+            "金陵十二钗"
+          ],
+          "summary": "楚云飞、水逝与湘云名、命运漂泊相合。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-j-05"
+        },
+        {
+          "id": "hl-p-19",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "喜冤家",
+          "layer": "太虚",
+          "text": "中山狼，无情兽，全不念当日根由。一味的骄奢淫荡贪还构。觑着那，侯门艳质同蒲柳，作践的，公府千金似下流。叹芳魂艳魄，一载荡悠悠。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾迎春",
+            "孙绍祖"
+          ],
+          "links": [
+            {
+              "target": "贾迎春",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "侯门艳质同蒲柳，一载荡悠悠"
+            },
+            {
+              "target": "孙绍祖",
+              "target_kind": "character",
+              "predicate": "影射",
+              "inference": true,
+              "chapter": 5,
+              "note": "中山狼，无情兽"
+            },
+            {
+              "target": "hl-j-07",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": false,
+              "chapter": 5
+            }
+          ],
+          "tags": [
+            "诗词",
+            "红楼梦曲"
+          ],
+          "summary": "《红楼梦曲》第四支，写迎春误嫁中山狼、一载赴黄粱。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-p-19"
+        },
+        {
+          "id": "hl-env-daguanyuan",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "symbol",
+          "title": "大观园",
+          "layer": "人间",
+          "chapters": [
+            17,
+            18,
+            74
+          ],
+          "characters": [],
+          "links": [
+            {
+              "target": "hl-myth-taixu",
+              "target_kind": "imagery",
+              "predicate": "投影",
+              "inference": true,
+              "chapter": 18,
+              "note": "省亲别墅即太虚幻境的人间投影；元春命题、宝玉题咏，群芳入住。"
+            },
+            {
+              "target": "林黛玉",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 23,
+              "note": "诸芳的青春乌托邦与庇护所，潇湘馆、蘅芜苑各安其位。"
+            },
+            {
+              "target": "晴雯",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 74,
+              "note": "抄检大观园，晴雯被逐而亡——庇护所一破，关联诸芳的命运随之清零。"
+            }
+          ],
+          "tags": [
+            "环境节点",
+            "人间",
+            "青春乌托邦"
+          ],
+          "summary": "太虚幻境的人间投影、诸芳的青春庇护所；抄检大观园是由盛转衰的结构性崩点。",
+          "source": "chapters/红楼梦/074.md",
+          "_entry_id": "红楼梦/hl-env-daguanyuan"
+        },
+        {
+          "id": "hl-myth-taixu",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "myth",
+          "title": "太虚幻境 · 薄命司",
+          "layer": "太虚",
+          "chapters": [
+            5
+          ],
+          "characters": [],
+          "links": [
+            {
+              "target": "贾宝玉",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "宝玉梦游太虚，警幻仙姑以判词、仙曲示其结局，是全书命运的「系统底层」。"
+            },
+            {
+              "target": "hl-j-01",
+              "target_kind": "imagery",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "薄命司金陵十二钗正册，判词作为命运根节点逐一指向各人结局。"
+            },
+            {
+              "target": "hl-p-07",
+              "target_kind": "imagery",
+              "predicate": "归彼大荒",
+              "inference": true,
+              "chapter": 5,
+              "note": "《红楼梦引子》《好了歌》同旨：千红一窟、万艳同杯，众生终归虚无。"
+            }
+          ],
+          "tags": [
+            "神话本源",
+            "太虚",
+            "根节点",
+            "判词"
+          ],
+          "summary": "警幻仙姑掌薄命司，第5回以判词与仙曲录入全书人物命运，是双层宇宙的形而上根节点。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-myth-taixu"
+        },
+        {
+          "id": "hl-p-02",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "好了歌",
+          "layer": "太虚",
+          "text": "世人都晓神仙好，惟有功名忘不了！……",
+          "chapters": [
+            1
+          ],
+          "characters": [],
+          "links": [],
+          "tags": [
+            "诗词"
+          ],
+          "summary": "跛道人唱，盛衰无常总纲。",
+          "source": "chapters/红楼梦/001.md",
+          "_entry_id": "红楼梦/hl-p-02"
+        },
+        {
+          "id": "hl-p-18",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "好事终",
+          "layer": "太虚",
+          "text": "画梁春尽落香尘。擅权，攒家私，一时情。……",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "秦可卿"
+          ],
+          "links": [
+            {
+              "target": "秦可卿",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "情天情海，情海情天"
+            },
+            {
+              "target": "hl-j-12",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": false,
+              "chapter": 5
+            }
+          ],
+          "tags": [
+            "诗词",
+            "红楼梦曲"
+          ],
+          "summary": "《红楼梦曲》第十一支，写可卿淫丧、家私败露。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-p-18"
+        },
+        {
+          "id": "hl-j-06",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "judgment",
+          "title": "妙玉判词",
+          "layer": "太虚",
+          "text": "欲洁何曾洁，云空未必空。可怜金玉地，终陷污泥中。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "妙玉"
+          ],
+          "links": [
+            {
+              "target": "妙玉",
+              "target_kind": "character",
+              "predicate": "对应判词",
+              "inference": false,
+              "chapter": 5,
+              "note": "洁癖与终被污，栊翠庵与败局互照。"
+            },
+            {
+              "target": "妙玉",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "判词谶语"
+            }
+          ],
+          "tags": [
+            "判词",
+            "金陵十二钗"
+          ],
+          "summary": "洁癖与终被污，栊翠庵与败局互照。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-j-06"
+        },
+        {
+          "id": "hl-p-06",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "姽婳词",
+          "layer": "人间",
+          "text": "恒王好武兼好色，遂教美女习骑射……",
+          "chapters": [
+            78
+          ],
+          "characters": [
+            "贾宝玉",
+            "贾政"
+          ],
+          "links": [
+            {
+              "target": "贾宝玉",
+              "target_kind": "character",
+              "predicate": "作",
+              "inference": false,
+              "chapter": 78,
+              "note": "应贾政命作古体长篇"
+            },
+            {
+              "target": "hl-p-05",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": true,
+              "chapter": 78,
+              "note": "脂评：以姽婳词为宾，芙蓉诔为主"
+            },
+            {
+              "target": "晴雯",
+              "target_kind": "character",
+              "predicate": "影射",
+              "inference": true,
+              "chapter": 78,
+              "note": "林四娘忠义与晴雯夭逝对读"
+            }
+          ],
+          "tags": [
+            "诗词",
+            "挽词"
+          ],
+          "summary": "贾政命作林四娘挽词；与《芙蓉诔》同回，主宾互文。",
+          "source": "chapters/红楼梦/078.md",
+          "_entry_id": "红楼梦/hl-p-06"
+        },
+        {
+          "id": "hl-p-11",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "恨无常",
+          "layer": "太虚",
+          "text": "喜荣华正好，恨无常又到。眼见着把万类皆抛，乐极夭夭。……",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾元春"
+          ],
+          "links": [
+            {
+              "target": "贾元春",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "虎兕相逢大梦归"
+            },
+            {
+              "target": "hl-j-03",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": false,
+              "chapter": 5
+            }
+          ],
+          "tags": [
+            "诗词",
+            "红楼梦曲"
+          ],
+          "summary": "《红楼梦曲》第四支，写元春盛宠忽逝、家族恩宠无常。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-p-11"
+        },
+        {
+          "id": "hl-p-17",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "晚韶华",
+          "layer": "太虚",
+          "text": "梦里既相逢，偏是梦相随。谁知向，画梁春晚，落尽香尘。……",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "李纨"
+          ],
+          "links": [
+            {
+              "target": "李纨",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "镜里恩情，梦里功名"
+            },
+            {
+              "target": "hl-j-11",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": false,
+              "chapter": 5
+            }
+          ],
+          "tags": [
+            "诗词",
+            "红楼梦曲"
+          ],
+          "summary": "《红楼梦曲》第九支，写李纨青春守寡、晚景虚名。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-p-17"
+        },
+        {
+          "id": "hl-j-13",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "judgment",
+          "title": "晴雯判词",
+          "layer": "太虚",
+          "text": "霁月难逢，彩云易散。心比天高，身为下贱。风流灵巧招人怨，寿夭多因毁谤生。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "晴雯"
+          ],
+          "links": [
+            {
+              "target": "晴雯",
+              "target_kind": "character",
+              "predicate": "对应判词",
+              "inference": false,
+              "chapter": 5,
+              "note": "副册；与芙蓉、撕扇、夭逝互文。"
+            },
+            {
+              "target": "晴雯",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "判词谶语"
+            }
+          ],
+          "tags": [
+            "判词",
+            "金陵十二钗"
+          ],
+          "summary": "副册；与芙蓉、撕扇、夭逝互文。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-j-13"
+        },
+        {
+          "id": "hl-j-11",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "judgment",
+          "title": "李纨判词",
+          "layer": "太虚",
+          "text": "偶因济刘氏，巧得苟安食。春光忽已尽，命薄偏不遇。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "李纨"
+          ],
+          "links": [
+            {
+              "target": "李纨",
+              "target_kind": "character",
+              "predicate": "对应判词",
+              "inference": false,
+              "chapter": 5,
+              "note": "稻香村、课子守寡，与贾兰成器对照。"
+            },
+            {
+              "target": "李纨",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "判词谶语"
+            }
+          ],
+          "tags": [
+            "判词",
+            "金陵十二钗"
+          ],
+          "summary": "稻香村、课子守寡，与贾兰成器对照。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-j-11"
+        },
+        {
+          "id": "hl-f-04",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "flower_lot",
+          "title": "杏花花签",
+          "layer": "人间",
+          "text": "日边红杏倚云栽",
+          "chapters": [
+            63
+          ],
+          "characters": [
+            "贾探春"
+          ],
+          "links": [
+            {
+              "target": "贾探春",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 63,
+              "note": "日边红杏倚云栽"
+            }
+          ],
+          "tags": [
+            "花签",
+            "酒令"
+          ],
+          "summary": "占得杏花，暗合远嫁。",
+          "source": "chapters/红楼梦/063.md",
+          "_entry_id": "红楼梦/hl-f-04"
+        },
+        {
+          "id": "hl-p-03",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "枉凝眉",
+          "layer": "太虚",
+          "text": "一个是阆苑仙葩，一个是美玉无瑕。……",
+          "chapters": [
+            5
+          ],
+          "characters": [],
+          "links": [],
+          "tags": [
+            "诗词"
+          ],
+          "summary": "《红楼梦曲》第三支，宝黛「木石前盟」。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-p-03"
+        },
+        {
+          "id": "hl-j-01",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "judgment",
+          "title": "林黛玉判词",
+          "layer": "太虚",
+          "text": "可叹停机德，堪怜咏絮才。玉带林中挂，金簪雪里埋。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "林黛玉"
+          ],
+          "links": [
+            {
+              "target": "林黛玉",
+              "target_kind": "character",
+              "predicate": "对应判词",
+              "inference": false,
+              "chapter": 5,
+              "note": "咏絮才、玉带林暗示黛玉才名与姓名；与宝钗判合成钗黛对照。"
+            },
+            {
+              "target": "林黛玉",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "判词谶语"
+            }
+          ],
+          "tags": [
+            "判词",
+            "金陵十二钗"
+          ],
+          "summary": "咏絮才、玉带林暗示黛玉才名与姓名；与宝钗判合成钗黛对照。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-j-01"
+        },
+        {
+          "id": "hl-p-14",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "柳絮词",
+          "layer": "人间",
+          "text": "粉堕百花洲，香残燕子楼。……（诸钗各咏柳絮）",
+          "chapters": [
+            70
+          ],
+          "characters": [
+            "林黛玉",
+            "史湘云",
+            "薛宝钗",
+            "贾宝玉"
+          ],
+          "links": [
+            {
+              "target": "林黛玉",
+              "target_kind": "character",
+              "predicate": "作",
+              "inference": false,
+              "chapter": 70,
+              "note": "唐多令·柳絮"
+            },
+            {
+              "target": "史湘云",
+              "target_kind": "character",
+              "predicate": "作",
+              "inference": false,
+              "chapter": 70,
+              "note": "空挂纤纤缕"
+            },
+            {
+              "target": "薛宝钗",
+              "target_kind": "character",
+              "predicate": "作",
+              "inference": false,
+              "chapter": 70,
+              "note": "好风凭借力"
+            },
+            {
+              "target": "hl-p-01",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": true,
+              "chapter": 70,
+              "note": "桃花社后咏絮，春事将残"
+            }
+          ],
+          "tags": [
+            "诗词",
+            "诗社"
+          ],
+          "summary": "重建桃花社咏柳絮，钗黛湘各寄身世之感。",
+          "source": "chapters/红楼梦/070.md",
+          "_entry_id": "红楼梦/hl-p-14"
+        },
+        {
+          "id": "hl-s-meihua",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "symbol",
+          "title": "梅花",
+          "layer": "人间",
+          "chapters": [
+            50
+          ],
+          "characters": [
+            "李纨"
+          ],
+          "links": [
+            {
+              "target": "李纨",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 50,
+              "note": "稻香村、李纨寡居清寒。"
+            }
+          ],
+          "tags": [
+            "象征物"
+          ],
+          "summary": "稻香村、李纨寡居清寒。",
+          "_entry_id": "红楼梦/hl-s-meihua"
+        },
+        {
+          "id": "hl-f-03",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "flower_lot",
+          "title": "梅花花签",
+          "layer": "人间",
+          "text": "竹篱茅舍自甘心",
+          "chapters": [
+            63
+          ],
+          "characters": [
+            "李纨"
+          ],
+          "links": [
+            {
+              "target": "李纨",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 63,
+              "note": "竹篱茅舍自甘心"
+            }
+          ],
+          "tags": [
+            "花签",
+            "酒令"
+          ],
+          "summary": "占得梅花，合稻香村。",
+          "source": "chapters/红楼梦/063.md",
+          "_entry_id": "红楼梦/hl-f-03"
+        },
+        {
+          "id": "hl-s-shuini",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "symbol",
+          "title": "水与泥",
+          "layer": "人间",
+          "chapters": [
+            2
+          ],
+          "characters": [
+            "贾宝玉"
+          ],
+          "links": [
+            {
+              "target": "贾宝玉",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 2,
+              "note": "「女儿是水作的骨肉，男人是泥作的骨肉」——宝玉以清浊二元区分群芳与须眉。"
+            }
+          ],
+          "tags": [
+            "象征物",
+            "人间",
+            "清浊二元"
+          ],
+          "summary": "宝玉「水/泥」之论，是全书群芳（清净）与须眉（污浊）二元对立的分类标签。",
+          "source": "chapters/红楼梦/002.md",
+          "_entry_id": "红楼梦/hl-s-shuini"
+        },
+        {
+          "id": "hl-f-02",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "flower_lot",
+          "title": "牡丹花签",
+          "layer": "人间",
+          "text": "任是无情也动人",
+          "chapters": [
+            63
+          ],
+          "characters": [
+            "薛宝钗"
+          ],
+          "links": [
+            {
+              "target": "薛宝钗",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 63,
+              "note": "任是无情也动人"
+            }
+          ],
+          "tags": [
+            "花签",
+            "酒令"
+          ],
+          "summary": "占得牡丹，与宝钗富贵冷艳相应。",
+          "source": "chapters/红楼梦/063.md",
+          "_entry_id": "红楼梦/hl-f-02"
+        },
+        {
+          "id": "hl-s-yu",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "symbol",
+          "title": "玉",
+          "layer": "人间",
+          "chapters": [
+            3
+          ],
+          "characters": [
+            "贾宝玉"
+          ],
+          "links": [
+            {
+              "target": "贾宝玉",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 3,
+              "note": "通灵宝玉、金玉木石之「玉」。"
+            }
+          ],
+          "tags": [
+            "象征物"
+          ],
+          "summary": "通灵宝玉、金玉木石之「玉」。",
+          "_entry_id": "红楼梦/hl-s-yu"
+        },
+        {
+          "id": "hl-j-09",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "judgment",
+          "title": "王熙凤判词",
+          "layer": "太虚",
+          "text": "凡鸟偏从末世来，都知爱慕此生才。一从二令三人木，哭向金陵事更哀。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "王熙凤"
+          ],
+          "links": [
+            {
+              "target": "王熙凤",
+              "target_kind": "character",
+              "predicate": "对应判词",
+              "inference": false,
+              "chapter": 5,
+              "note": "凡鸟合「凤」字；一从二令三人木拆「休」字谶。"
+            },
+            {
+              "target": "王熙凤",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "判词谶语"
+            },
+            {
+              "target": "hl-p-09",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": false,
+              "chapter": 5
+            }
+          ],
+          "tags": [
+            "判词",
+            "金陵十二钗"
+          ],
+          "summary": "凡鸟合「凤」字；一从二令三人木拆「休」字谶。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-j-09"
+        },
+        {
+          "id": "hl-p-13",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "留余庆",
+          "layer": "太虚",
+          "text": "留余庆，留余庆，忽遇恩人；幸娘亲，幸娘亲，积得阴功。……",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾巧姐"
+          ],
+          "links": [
+            {
+              "target": "贾巧姐",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "遇恩人、刘姥姥救巧"
+            },
+            {
+              "target": "hl-j-10",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": false,
+              "chapter": 5
+            }
+          ],
+          "tags": [
+            "诗词",
+            "红楼梦曲"
+          ],
+          "summary": "《红楼梦曲》第十二支，写巧姐败落后得恩人相救。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-p-13"
+        },
+        {
+          "id": "hl-p-10",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "秋窗风雨夕",
+          "layer": "人间",
+          "text": "秋花惨淡秋草黄，已觉秋窗秋未凉。……",
+          "chapters": [
+            45
+          ],
+          "characters": [
+            "林黛玉"
+          ],
+          "links": [
+            {
+              "target": "林黛玉",
+              "target_kind": "character",
+              "predicate": "作",
+              "inference": false,
+              "chapter": 45,
+              "note": "秋窗风雨夕"
+            },
+            {
+              "target": "hl-p-01",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": true,
+              "chapter": 45,
+              "note": "与葬花吟同属秋夜悲音"
+            },
+            {
+              "target": "hl-s-zhu",
+              "target_kind": "imagery",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 45,
+              "note": "潇湘秋夜、风雨孤灯"
+            }
+          ],
+          "tags": [
+            "诗词"
+          ],
+          "summary": "黛玉秋夜独坐成诗，宝玉冒雨送灯，宝黛温情名段。",
+          "source": "chapters/红楼梦/045.md",
+          "_entry_id": "红楼梦/hl-p-10"
+        },
+        {
+          "id": "hl-j-12",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "judgment",
+          "title": "秦可卿判词",
+          "layer": "太虚",
+          "text": "情天情海幻情身，情既相逢必主淫。漫言不肖皆荣出，造衅开端实在宁。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "秦可卿"
+          ],
+          "links": [
+            {
+              "target": "秦可卿",
+              "target_kind": "character",
+              "predicate": "对应判词",
+              "inference": false,
+              "chapter": 5,
+              "note": "太虚幻境警幻，宁府败局之始。"
+            },
+            {
+              "target": "秦可卿",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "判词谶语"
+            }
+          ],
+          "tags": [
+            "判词",
+            "金陵十二钗"
+          ],
+          "summary": "太虚幻境警幻，宁府败局之始。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-j-12"
+        },
+        {
+          "id": "hl-s-zhu",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "symbol",
+          "title": "竹",
+          "layer": "人间",
+          "chapters": [
+            17
+          ],
+          "characters": [
+            "林黛玉"
+          ],
+          "links": [
+            {
+              "target": "林黛玉",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 17,
+              "note": "潇湘馆竹、黛玉气节与愁绪。"
+            }
+          ],
+          "tags": [
+            "象征物"
+          ],
+          "summary": "潇湘馆竹、黛玉气节与愁绪。",
+          "_entry_id": "红楼梦/hl-s-zhu"
+        },
+        {
+          "id": "hl-p-08",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "终身误",
+          "layer": "太虚",
+          "text": "都道是金玉良姻，俺只念木石前盟。空对着，山中高士晶莹雪；终不忘，世外仙姝寂寞林。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "薛宝钗",
+            "贾宝玉",
+            "林黛玉"
+          ],
+          "links": [
+            {
+              "target": "薛宝钗",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "金玉良姻"
+            },
+            {
+              "target": "林黛玉",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "木石前盟"
+            },
+            {
+              "target": "hl-s-jin",
+              "target_kind": "imagery",
+              "predicate": "象征",
+              "inference": false,
+              "chapter": 5
+            },
+            {
+              "target": "hl-s-yu",
+              "target_kind": "imagery",
+              "predicate": "象征",
+              "inference": false,
+              "chapter": 5
+            }
+          ],
+          "tags": [
+            "诗词",
+            "红楼梦曲"
+          ],
+          "summary": "《红楼梦曲》第二支，钗黛「金玉木石」悲剧母题。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-p-08"
+        },
+        {
+          "id": "hl-myth-jiangzhu",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "myth",
+          "title": "绛珠仙草",
+          "layer": "太虚",
+          "chapters": [
+            1
+          ],
+          "characters": [],
+          "links": [
+            {
+              "target": "林黛玉",
+              "target_kind": "character",
+              "predicate": "还泪",
+              "inference": true,
+              "chapter": 1,
+              "note": "受神瑛甘露灌溉，无以为报，愿下世以一生眼泪偿还；黛玉泪尽而亡。"
+            },
+            {
+              "target": "hl-s-zhu",
+              "target_kind": "imagery",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 1,
+              "note": "仙草／潇湘竹／湘妃泪，同一「木·灵」意象群。"
+            }
+          ],
+          "tags": [
+            "神话本源",
+            "太虚",
+            "还泪",
+            "木石前盟"
+          ],
+          "summary": "灵河岸上绛珠仙草，下世为林黛玉，以一生之泪偿还神瑛灌溉之恩。",
+          "source": "chapters/红楼梦/001.md",
+          "_entry_id": "红楼梦/hl-myth-jiangzhu"
+        },
+        {
+          "id": "hl-p-09",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "聪明累",
+          "layer": "太虚",
+          "text": "凡鸟偏从末世来，都知爱慕此生才。一从二令三人木，哭向金陵事更哀。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "王熙凤"
+          ],
+          "links": [
+            {
+              "target": "王熙凤",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "一从二令三人木"
+            },
+            {
+              "target": "hl-j-09",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": false,
+              "chapter": 5,
+              "note": "判词与曲互证"
+            }
+          ],
+          "tags": [
+            "诗词",
+            "红楼梦曲"
+          ],
+          "summary": "《红楼梦曲》第十支，写凤姐才高命薄、哭返金陵。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-p-09"
+        },
+        {
+          "id": "hl-s-furong",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "symbol",
+          "title": "芙蓉",
+          "layer": "人间",
+          "chapters": [],
+          "characters": [],
+          "links": [],
+          "tags": [
+            "象征物"
+          ],
+          "summary": "晴雯撕扇、花签、葬花互文的枢纽意象。",
+          "_entry_id": "红楼梦/hl-s-furong"
+        },
+        {
+          "id": "hl-p-05",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "芙蓉女儿诔",
+          "layer": "人间",
+          "text": "维太平不易之元，蓉桂竞芳之月……呜呼哀哉！尚飨！",
+          "chapters": [
+            78
+          ],
+          "characters": [
+            "贾宝玉",
+            "晴雯",
+            "林黛玉"
+          ],
+          "links": [
+            {
+              "target": "贾宝玉",
+              "target_kind": "character",
+              "predicate": "作",
+              "inference": false,
+              "chapter": 78,
+              "note": "杜撰长篇祭文，挂于芙蓉枝前"
+            },
+            {
+              "target": "晴雯",
+              "target_kind": "character",
+              "predicate": "影射",
+              "inference": false,
+              "chapter": 78,
+              "note": "以芙蓉女儿为晴雯招魂"
+            },
+            {
+              "target": "hl-s-furong",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": false,
+              "chapter": 78,
+              "note": "芙蓉花前奠祭"
+            },
+            {
+              "target": "hl-j-13",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": true,
+              "chapter": 78,
+              "note": "判词谶语在祭文中兑现"
+            },
+            {
+              "target": "林黛玉",
+              "target_kind": "character",
+              "predicate": "互文",
+              "inference": false,
+              "chapter": 78,
+              "note": "黛玉改「沁芳」等字，论诗"
+            }
+          ],
+          "tags": [
+            "诗词",
+            "祭文"
+          ],
+          "summary": "宝玉为晴雯作长篇祭文，别开生面；黛玉改字，钗黛诗学交锋。",
+          "source": "chapters/红楼梦/078.md",
+          "_entry_id": "红楼梦/hl-p-05"
+        },
+        {
+          "id": "hl-f-01",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "flower_lot",
+          "title": "芙蓉花签",
+          "layer": "人间",
+          "text": "莫怨东风当自嗟",
+          "chapters": [
+            63
+          ],
+          "characters": [
+            "林黛玉"
+          ],
+          "links": [
+            {
+              "target": "林黛玉",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 63,
+              "note": "莫怨东风当自嗟"
+            }
+          ],
+          "tags": [
+            "花签",
+            "酒令"
+          ],
+          "summary": "占得芙蓉，预示黛玉孤高夭逝。",
+          "source": "chapters/红楼梦/063.md",
+          "_entry_id": "红楼梦/hl-f-01"
+        },
+        {
+          "id": "hl-s-luohua",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "symbol",
+          "title": "落花 · 柳絮",
+          "layer": "人间",
+          "chapters": [
+            27,
+            70
+          ],
+          "characters": [
+            "林黛玉"
+          ],
+          "links": [
+            {
+              "target": "林黛玉",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 27,
+              "note": "黛玉葬花，「花落人亡两不知」，以落花喻青春与生命的消亡。"
+            },
+            {
+              "target": "hl-p-01",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": true,
+              "chapter": 27,
+              "note": "《葬花吟》——落花意象的诗化总纲。"
+            },
+            {
+              "target": "hl-p-14",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": true,
+              "chapter": 70,
+              "note": "柳絮词，飘零无依；同写命运的不能自主。"
+            },
+            {
+              "target": "贾探春",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 70,
+              "note": "「一帆风雨路三千」——柳絮飘零暗合探春远嫁。"
+            }
+          ],
+          "tags": [
+            "象征物",
+            "人间",
+            "青春消亡"
+          ],
+          "summary": "落花与柳絮，是青春消亡、命运飘零的共振意象，串起黛玉葬花与探春远嫁。",
+          "source": "chapters/红楼梦/027.md",
+          "_entry_id": "红楼梦/hl-s-luohua"
+        },
+        {
+          "id": "hl-p-01",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "葬花吟",
+          "layer": "人间",
+          "text": "花谢花飞飞满天，红消香断有谁怜？……",
+          "chapters": [
+            27
+          ],
+          "characters": [
+            "林黛玉"
+          ],
+          "links": [
+            {
+              "target": "林黛玉",
+              "target_kind": "character",
+              "predicate": "作",
+              "inference": false,
+              "chapter": 27,
+              "note": "葬花吟"
+            }
+          ],
+          "tags": [
+            "诗词"
+          ],
+          "summary": "黛玉葬花核心诗章，以花自喻，泪尽前身。",
+          "source": "chapters/红楼梦/027.md",
+          "_entry_id": "红楼梦/hl-p-01"
+        },
+        {
+          "id": "hl-j-02",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "judgment",
+          "title": "薛宝钗判词",
+          "layer": "太虚",
+          "text": "空对着，山中高士晶莹雪；终不忘，世外仙姝寂寞林。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "薛宝钗"
+          ],
+          "links": [
+            {
+              "target": "薛宝钗",
+              "target_kind": "character",
+              "predicate": "对应判词",
+              "inference": false,
+              "chapter": 5,
+              "note": "晶莹雪、金簪雪里埋诸说；与黛玉判词互文，金玉木石之谶。"
+            },
+            {
+              "target": "薛宝钗",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "判词谶语"
+            }
+          ],
+          "tags": [
+            "判词",
+            "金陵十二钗"
+          ],
+          "summary": "晶莹雪、金簪雪里埋诸说；与黛玉判词互文，金玉木石之谶。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-j-02"
+        },
+        {
+          "id": "hl-p-16",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "虚名利",
+          "layer": "太虚",
+          "text": "气质美如兰，才华阜比仙。天生成孤癖，世难合。……",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "妙玉"
+          ],
+          "links": [
+            {
+              "target": "妙玉",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "可怜金玉质，终陷泥淖中"
+            },
+            {
+              "target": "hl-j-06",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": false,
+              "chapter": 5
+            }
+          ],
+          "tags": [
+            "诗词",
+            "红楼梦曲"
+          ],
+          "summary": "《红楼梦曲》第七支，写妙玉孤高终败。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-p-16"
+        },
+        {
+          "id": "hl-p-20",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "虚花悟",
+          "layer": "太虚",
+          "text": "将那三春看破，桃红柳绿待如何？把这韶华打灭，觅那清淡天和。说什么，天上夭桃盛，云中杏蕊多。到头来，谁把秋捱过？……似这般，生关死劫谁能躲？闻说道，西方宝树唤婆娑，上结着长生果。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾惜春"
+          ],
+          "links": [
+            {
+              "target": "贾惜春",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "勘破三春，缁衣青灯"
+            },
+            {
+              "target": "hl-j-08",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": false,
+              "chapter": 5
+            }
+          ],
+          "tags": [
+            "诗词",
+            "红楼梦曲"
+          ],
+          "summary": "《红楼梦曲》第五支，写惜春勘破三春、出家求清净。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-p-20"
+        },
+        {
+          "id": "hl-p-04",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "螃蟹咏",
+          "layer": "人间",
+          "text": "持螯更喜桂阴凉，泼醋擂姜兴欲狂。……",
+          "chapters": [
+            38
+          ],
+          "characters": [
+            "贾宝玉"
+          ],
+          "links": [
+            {
+              "target": "贾宝玉",
+              "target_kind": "character",
+              "predicate": "作",
+              "inference": false,
+              "chapter": 38,
+              "note": "螃蟹咏"
+            }
+          ],
+          "tags": [
+            "诗词"
+          ],
+          "summary": "诗社讽喻，暗写贾府败象（后文续貂争议）。",
+          "source": "chapters/红楼梦/038.md",
+          "_entry_id": "红楼梦/hl-p-04"
+        },
+        {
+          "id": "hl-j-03",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "judgment",
+          "title": "贾元春判词",
+          "layer": "太虚",
+          "text": "二十年来辨是非，榴花深处照宫闱。三春争及初春景，虎兕相逢大梦归。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾元春"
+          ],
+          "links": [
+            {
+              "target": "贾元春",
+              "target_kind": "character",
+              "predicate": "对应判词",
+              "inference": false,
+              "chapter": 5,
+              "note": "宫闱、虎兕相逢预示元春薨逝与家族盛极而衰。"
+            },
+            {
+              "target": "贾元春",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "判词谶语"
+            }
+          ],
+          "tags": [
+            "判词",
+            "金陵十二钗"
+          ],
+          "summary": "宫闱、虎兕相逢预示元春薨逝与家族盛极而衰。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-j-03"
+        },
+        {
+          "id": "hl-j-10",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "judgment",
+          "title": "贾巧姐判词",
+          "layer": "太虚",
+          "text": "势败休云尊贵，家亡莫论亲疏。幸有贤妻，留得余生，巧傍贵人。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾巧姐"
+          ],
+          "links": [
+            {
+              "target": "贾巧姐",
+              "target_kind": "character",
+              "predicate": "对应判词",
+              "inference": false,
+              "chapter": 5,
+              "note": "刘姥姥相救，败落后得安。"
+            },
+            {
+              "target": "贾巧姐",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "判词谶语"
+            }
+          ],
+          "tags": [
+            "判词",
+            "金陵十二钗"
+          ],
+          "summary": "刘姥姥相救，败落后得安。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-j-10"
+        },
+        {
+          "id": "hl-j-08",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "judgment",
+          "title": "贾惜春判词",
+          "layer": "太虚",
+          "text": "勘破三春景不长，缁衣顿改昔年装。可怜绣户侯门女，独卧青灯古佛旁。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾惜春"
+          ],
+          "links": [
+            {
+              "target": "贾惜春",
+              "target_kind": "character",
+              "predicate": "对应判词",
+              "inference": false,
+              "chapter": 5,
+              "note": "出家为尼，三春景不长扣三春姊妹。"
+            },
+            {
+              "target": "贾惜春",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "判词谶语"
+            },
+            {
+              "target": "hl-p-20",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": false,
+              "chapter": 5
+            }
+          ],
+          "tags": [
+            "判词",
+            "金陵十二钗"
+          ],
+          "summary": "出家为尼，三春景不长扣三春姊妹。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-j-08"
+        },
+        {
+          "id": "hl-j-04",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "judgment",
+          "title": "贾探春判词",
+          "layer": "太虚",
+          "text": "才自精明志自高，生于末世运偏消。清明涕送江边望，千里东风一梦遥。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾探春"
+          ],
+          "links": [
+            {
+              "target": "贾探春",
+              "target_kind": "character",
+              "predicate": "对应判词",
+              "inference": false,
+              "chapter": 5,
+              "note": "远嫁海疆/和番，清明涕送为经典诠释。"
+            },
+            {
+              "target": "贾探春",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "判词谶语"
+            }
+          ],
+          "tags": [
+            "判词",
+            "金陵十二钗"
+          ],
+          "summary": "远嫁海疆/和番，清明涕送为经典诠释。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-j-04"
+        },
+        {
+          "id": "hl-j-07",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "judgment",
+          "title": "贾迎春判词",
+          "layer": "太虚",
+          "text": "子系中山狼，得志便猖狂。金闺花柳质，一载赴黄粱。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾迎春"
+          ],
+          "links": [
+            {
+              "target": "贾迎春",
+              "target_kind": "character",
+              "predicate": "对应判词",
+              "inference": false,
+              "chapter": 5,
+              "note": "中山狼指孙绍祖，一载赴黄粱言短命。"
+            },
+            {
+              "target": "贾迎春",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "判词谶语"
+            },
+            {
+              "target": "hl-p-19",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": false,
+              "chapter": 5
+            }
+          ],
+          "tags": [
+            "判词",
+            "金陵十二钗"
+          ],
+          "summary": "中山狼指孙绍祖，一载赴黄粱言短命。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-j-07"
+        },
+        {
+          "id": "hl-s-jin",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "symbol",
+          "title": "金",
+          "layer": "人间",
+          "chapters": [
+            3
+          ],
+          "characters": [
+            "薛宝钗"
+          ],
+          "links": [
+            {
+              "target": "薛宝钗",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 3,
+              "note": "金锁、金玉良缘之「金」。"
+            }
+          ],
+          "tags": [
+            "象征物"
+          ],
+          "summary": "金锁、金玉良缘之「金」。",
+          "_entry_id": "红楼梦/hl-s-jin"
+        },
+        {
+          "id": "hl-myth-stone",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "myth",
+          "title": "顽石 · 神瑛侍者",
+          "layer": "太虚",
+          "chapters": [
+            1
+          ],
+          "characters": [],
+          "links": [
+            {
+              "target": "贾宝玉",
+              "target_kind": "character",
+              "predicate": "历劫",
+              "inference": true,
+              "chapter": 1,
+              "note": "女娲补天弃石，幻形入世；神瑛侍者下凡历劫即贾宝玉的精神内核。"
+            },
+            {
+              "target": "hl-s-yu",
+              "target_kind": "imagery",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 1,
+              "note": "顽石幻化为通灵宝玉，是宝玉的肉身载体与命运凭证。"
+            },
+            {
+              "target": "hl-myth-jiangzhu",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": true,
+              "chapter": 1,
+              "note": "神瑛以甘露灌溉绛珠，结木石前盟。"
+            }
+          ],
+          "tags": [
+            "神话本源",
+            "太虚",
+            "木石前盟"
+          ],
+          "summary": "无材补天的顽石与赤瑕宫神瑛侍者，是贾宝玉「真（玉）」的神话本源。",
+          "source": "chapters/红楼梦/001.md",
+          "_entry_id": "红楼梦/hl-myth-stone"
+        },
+        {
+          "id": "hl-s-fengyue",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "symbol",
+          "title": "风月宝鉴",
+          "layer": "太虚",
+          "chapters": [
+            12
+          ],
+          "characters": [
+            "贾瑞"
+          ],
+          "links": [
+            {
+              "target": "贾瑞",
+              "target_kind": "character",
+              "predicate": "影射",
+              "inference": false,
+              "chapter": 12,
+              "note": "跛足道人持镜，正照美人、反照骷髅；贾瑞贪色照正面而亡。"
+            },
+            {
+              "target": "hl-myth-taixu",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": true,
+              "chapter": 12,
+              "note": "镜出太虚幻境空灵殿，专治邪思妄动；是「假作真时真亦假」的器物化身。"
+            }
+          ],
+          "tags": [
+            "象征物",
+            "太虚",
+            "真假色空"
+          ],
+          "summary": "正照风月、反照骷髅的双面镜，点醒全书「真与假、色与空」的镜相结构。",
+          "source": "chapters/红楼梦/012.md",
+          "_entry_id": "红楼梦/hl-s-fengyue"
+        },
+        {
+          "id": "hl-p-07",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "飞鸟各投林",
+          "layer": "太虚",
+          "text": "为官的，家业凋零；富贵的，金银散尽；……好一似食尽鸟投林，落了片白茫茫大地真干净！",
+          "chapters": [
+            5
+          ],
+          "characters": [],
+          "links": [
+            {
+              "target": "hl-j-01",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": true,
+              "chapter": 5,
+              "note": "十二钗曲总收"
+            },
+            {
+              "target": "hl-p-02",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": true,
+              "chapter": 5,
+              "note": "好了歌与曲词同旨"
+            }
+          ],
+          "tags": [
+            "诗词",
+            "红楼梦曲"
+          ],
+          "summary": "《红楼梦曲》末支，总写诸钗结局与盛衰归空。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-p-07"
+        },
+        {
+          "id": "hl-j-14",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "judgment",
+          "title": "香菱判词",
+          "layer": "太虚",
+          "text": "根并荷花一体香，平生遭际实堪伤。自从两地生孤木，致使香魂返故乡。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "香菱"
+          ],
+          "links": [
+            {
+              "target": "香菱",
+              "target_kind": "character",
+              "predicate": "对应判词",
+              "inference": false,
+              "chapter": 5,
+              "note": "副册；甄英莲身世，荷花意象。"
+            },
+            {
+              "target": "香菱",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "判词谶语"
+            },
+            {
+              "target": "hl-p-21",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": true,
+              "chapter": 49,
+              "note": "咏月「永团圆」反扣返故乡"
+            }
+          ],
+          "tags": [
+            "判词",
+            "金陵十二钗",
+            "副册"
+          ],
+          "summary": "副册；甄英莲身世，荷花意象。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-j-14"
+        },
+        {
+          "id": "hl-p-21",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "poem",
+          "title": "香菱咏月",
+          "layer": "人间",
+          "text": "精华欲掩料应难，影自娟娟魄自寒。一片砧敲千里白，半轮鸡唱五更残。绿蓑江上秋闻笛，红袖楼头夜倚栏。博得嫦娥应借问，缘何不使永团圆！",
+          "chapters": [
+            49
+          ],
+          "characters": [
+            "香菱"
+          ],
+          "links": [
+            {
+              "target": "香菱",
+              "target_kind": "character",
+              "predicate": "作",
+              "inference": false,
+              "chapter": 49,
+              "note": "学诗首篇，黛玉诸人评新巧有意趣"
+            },
+            {
+              "target": "hl-j-14",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": true,
+              "chapter": 49,
+              "note": "永团圆反扣判词香魂返故乡"
+            }
+          ],
+          "tags": [
+            "诗词",
+            "学诗"
+          ],
+          "summary": "香菱学诗首作；「永团圆」与第五回判词命运互文。",
+          "source": "chapters/红楼梦/049.md",
+          "_entry_id": "红楼梦/hl-p-21"
+        }
+      ]
+    },
+    "jinpingmei": {
+      "book": "金瓶梅",
+      "slug": "jinpingmei",
+      "count": 43,
+      "entries": [
+        {
+          "id": "jpm-tune-jisheng",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "tune_omen",
+          "title": "〔寄生草〕· 依附之叹",
+          "characters": [
+            "李桂姐",
+            "潘金莲"
+          ],
+          "links": [
+            {
+              "target": "李桂姐",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "phase": "聚敛",
+              "temperature": "热",
+              "note": "勾栏唱〔寄生草〕侑酒;寄生草攀附而活，喻妓家清客依附西门府的生存之态。"
+            }
+          ],
+          "tags": [
+            "曲牌谶",
+            "寄生草",
+            "依附"
+          ],
+          "summary": "〔寄生草〕等侑酒曲常见于西门府宴席;寄生草攀附而生，喻依附者随主荣枯。",
+          "_entry_id": "金瓶梅/jpm-tune-jisheng",
+          "chapters": []
+        },
+        {
+          "id": "jpm-tune-shanpoyang",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "tune_omen",
+          "title": "〔山坡羊〕· 幽怨自况",
+          "characters": [
+            "潘金莲"
+          ],
+          "links": [
+            {
+              "target": "潘金莲",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "phase": "极盛",
+              "temperature": "冷",
+              "note": "潘金莲屡唱〔山坡羊〕诉幽怨；曲词幽冷，是其孤注纵欲、终招杀身的画外音。"
+            }
+          ],
+          "tags": [
+            "曲牌谶",
+            "山坡羊",
+            "画外音"
+          ],
+          "summary": "潘金莲所唱〔山坡羊〕等幽怨曲词，是其情欲焦灼、命运幽冷的画外音。",
+          "_entry_id": "金瓶梅/jpm-tune-shanpoyang",
+          "chapters": []
+        },
+        {
+          "id": "jpm-obj-deng",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "object_omen",
+          "title": "元宵灯 · 极盛之象",
+          "chapters": [
+            15
+          ],
+          "characters": [
+            "李瓶儿"
+          ],
+          "links": [
+            {
+              "target": "李瓶儿",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 15,
+              "phase": "极盛",
+              "temperature": "热",
+              "note": "元宵灯市、灯楼笑赏是西门府繁华极盛的物象;灯火愈炽，散尽愈近。"
+            }
+          ],
+          "tags": [
+            "物象谶",
+            "元宵",
+            "繁华"
+          ],
+          "summary": "元宵灯市与灯楼笑赏是西门府极盛的标志物；火树银花处，正伏盛极而衰之机。",
+          "_entry_id": "金瓶梅/jpm-obj-deng"
+        },
+        {
+          "id": "jpm-tune-yuanxiao",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "tune_omen",
+          "title": "元宵灯词 · 乐极哀生",
+          "chapters": [
+            15,
+            24
+          ],
+          "characters": [
+            "李瓶儿",
+            "潘金莲"
+          ],
+          "links": [
+            {
+              "target": "李瓶儿",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 24,
+              "phase": "极盛",
+              "temperature": "热",
+              "note": "元宵灯节唱词热闹喧腾;乐极之处暗藏哀机，灯谢人散之兆。"
+            }
+          ],
+          "tags": [
+            "曲牌谶",
+            "元宵",
+            "乐极哀生"
+          ],
+          "summary": "元宵节令灯词唱曲热闹喧腾;乐极哀生，灯火阑珊处暗伏人散家败之兆。",
+          "source": "chapters/金瓶梅/词话本/024.md",
+          "_entry_id": "金瓶梅/jpm-tune-yuanxiao"
+        },
+        {
+          "id": "jpm-name-buzhidao",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "卜志道 · 不知道",
+          "characters": [
+            "卜志道"
+          ],
+          "links": [
+            {
+              "target": "卜志道",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "欲起",
+              "temperature": "冷",
+              "note": "「卜志道」谐「不知道」——十兄弟结拜之初即已亡故，名字谶其速朽。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "帮闲",
+            "谐音"
+          ],
+          "summary": "「卜志道」谐「不知道」，结拜十弟兄中最早亡者；名字谶其转瞬成空。",
+          "_entry_id": "金瓶梅/jpm-name-buzhidao",
+          "chapters": []
+        },
+        {
+          "id": "jpm-name-wudianen",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "吴典恩 · 无点恩",
+          "characters": [
+            "吴典恩"
+          ],
+          "links": [
+            {
+              "target": "吴典恩",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "反噬",
+              "temperature": "冷",
+              "note": "「吴典恩」谐「无点恩」——受西门庆提携却恩将仇报，落井下石。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "忘恩",
+            "谐音"
+          ],
+          "summary": "「吴典恩」谐「无点恩」，受西门庆之惠却反噬其家，世态炎凉之写照。",
+          "_entry_id": "金瓶梅/jpm-name-wudianen",
+          "chapters": []
+        },
+        {
+          "id": "jpm-name-wuyueniang",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "吴月娘",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "吴月娘"
+          ],
+          "links": [
+            {
+              "target": "吴月娘",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "散尽",
+              "temperature": "冷",
+              "note": "「吴」谐无、「月娘」谐无月／暗室；徒有正室之名而暗弱无主。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "谐音"
+          ],
+          "summary": "「吴月娘」谐无月、暗室；正室之名而暗弱，守不住散尽的家。",
+          "_entry_id": "金瓶梅/jpm-name-wuyueniang"
+        },
+        {
+          "id": "jpm-name-ruyi",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "如意儿 · 名实相违",
+          "characters": [
+            "如意儿"
+          ],
+          "links": [
+            {
+              "target": "如意儿",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "反噬",
+              "temperature": "冷",
+              "note": "「如意」之名反讽;乳母如意儿承欢上位，却随府败而不得如意。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "仆妇",
+            "反讽"
+          ],
+          "summary": "「如意儿」名「如意」实不如意；官哥儿乳母承宠上位，府败即漂零。",
+          "_entry_id": "金瓶梅/jpm-name-ruyi",
+          "chapters": []
+        },
+        {
+          "id": "jpm-name-sunxuee",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "孙雪娥 · 雪易消",
+          "characters": [
+            "孙雪娥"
+          ],
+          "links": [
+            {
+              "target": "孙雪娥",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "散尽",
+              "temperature": "冷",
+              "note": "「雪娥」之雪，易消易污；由妾沦为厨下、终被卖入娼门自缢，最卑微之结局。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "妻妾",
+            "雪"
+          ],
+          "summary": "「孙雪娥」之「雪」易消易污；妾位最卑、终被卖为娼而自缢，如雪之委地成泥。",
+          "_entry_id": "金瓶梅/jpm-name-sunxuee",
+          "chapters": []
+        },
+        {
+          "id": "jpm-name-xiaogeer",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "孝哥儿 · 出家偿业",
+          "chapters": [
+            79
+          ],
+          "characters": [
+            "孝哥儿"
+          ],
+          "links": [
+            {
+              "target": "孝哥儿",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "散尽",
+              "temperature": "冷",
+              "note": "孝哥儿生于西门庆死日、被普静度脱出家;一出一入，写尽因果轮回。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "子嗣",
+            "出家"
+          ],
+          "summary": "孝哥儿生于西门庆咽气之时，后被普静禅师度脱出家；西门庆托生于此，业债以出家了结。",
+          "_entry_id": "金瓶梅/jpm-name-xiaogeer"
+        },
+        {
+          "id": "jpm-name-mengyulou",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "孟玉楼 · 玉楼虚设",
+          "chapters": [
+            7
+          ],
+          "characters": [
+            "孟玉楼"
+          ],
+          "links": [
+            {
+              "target": "孟玉楼",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "极盛",
+              "temperature": "热",
+              "note": "「玉楼」华贵而终空；精明自保、三嫁两娶，是西门府妻妾中少数全身者。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "妻妾",
+            "玉楼"
+          ],
+          "summary": "「孟玉楼」之「玉楼」华美却虚；精明识时、改嫁李衙内得善终，富贵如楼终须易主。",
+          "_entry_id": "金瓶梅/jpm-name-mengyulou"
+        },
+        {
+          "id": "jpm-name-songhuilian",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "宋惠莲",
+          "chapters": [
+            26
+          ],
+          "characters": [],
+          "links": [
+            {
+              "target": "西门庆",
+              "target_kind": "character",
+              "predicate": "影射",
+              "inference": true,
+              "chapter": 26,
+              "phase": "极盛",
+              "temperature": "热",
+              "note": "命贱如草、可怜，被玩弄而自缢；预演府中女子的悲剧。"
+            },
+            {
+              "target": "来旺",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 26,
+              "note": "夫为仆、妻遭夺，来旺被构陷充军。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "谐音"
+          ],
+          "summary": "「惠莲」谐命贱可怜；自缢身亡，是西门府极盛期的第一道阴影。",
+          "source": "chapters/金瓶梅/026.md",
+          "_entry_id": "金瓶梅/jpm-name-songhuilian"
+        },
+        {
+          "id": "jpm-name-guangeer",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "官哥儿 · 求官之望",
+          "chapters": [
+            59
+          ],
+          "characters": [
+            "官哥儿"
+          ],
+          "links": [
+            {
+              "target": "官哥儿",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "反噬",
+              "temperature": "冷",
+              "note": "「官哥儿」寄西门庆求子求官之望;却被雪狮子惊吓、惊风夭折，盛极转衰之枢。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "子嗣",
+            "夭折"
+          ],
+          "summary": "「官哥儿」之名寄西门庆官运子嗣双全之望；被白猫惊死，是全书由盛转衰的转折。",
+          "_entry_id": "金瓶梅/jpm-name-guangeer"
+        },
+        {
+          "id": "jpm-tune-baojuan",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "tune_omen",
+          "title": "宝卷（尼姑说唱）",
+          "chapters": [
+            51,
+            74
+          ],
+          "characters": [
+            "吴月娘"
+          ],
+          "links": [
+            {
+              "target": "吴月娘",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 74,
+              "phase": "散尽",
+              "temperature": "冷",
+              "note": "尼姑宣卷讲因果，月娘虔听——伏后文出家舍子的清冷结局。"
+            }
+          ],
+          "tags": [
+            "曲牌宝卷谶",
+            "因果报应",
+            "画外音"
+          ],
+          "summary": "尼姑说唱的宝卷，是因果报应的画外音，预伏散尽结局。",
+          "source": "chapters/金瓶梅/074.md",
+          "_entry_id": "金瓶梅/jpm-tune-baojuan"
+        },
+        {
+          "id": "jpm-name-changzhijie",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "常峙节 · 常时借",
+          "characters": [
+            "常峙节"
+          ],
+          "links": [
+            {
+              "target": "常峙节",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "聚敛",
+              "temperature": "热",
+              "note": "「常峙节」谐「常时借」——常向西门庆借钱度日的穷帮闲。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "帮闲",
+            "谐音"
+          ],
+          "summary": "「常峙节」谐「常时借」，靠借贷度日、依附西门府的穷帮闲。",
+          "_entry_id": "金瓶梅/jpm-name-changzhijie",
+          "chapters": []
+        },
+        {
+          "id": "jpm-name-yingbojue",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "应伯爵 · 应白嚼",
+          "characters": [
+            "应伯爵"
+          ],
+          "links": [
+            {
+              "target": "应伯爵",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "聚敛",
+              "temperature": "热",
+              "note": "「应伯爵」谐「应白嚼」——白吃白喝的帮闲;西门庆死后即转投他门。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "帮闲",
+            "谐音"
+          ],
+          "summary": "「应伯爵」谐「应白嚼」，白吃白喝的头号帮闲；趋炎附势、人走茶凉。",
+          "_entry_id": "金瓶梅/jpm-name-yingbojue",
+          "chapters": []
+        },
+        {
+          "id": "jpm-name-lijiaoer",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "李娇儿 · 娇出勾栏",
+          "characters": [
+            "李娇儿"
+          ],
+          "links": [
+            {
+              "target": "李娇儿",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "散尽",
+              "temperature": "冷",
+              "note": "「娇」本勾栏旧家；西门庆死后窃财重归院中——来处即去处。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "妻妾",
+            "勾栏"
+          ],
+          "summary": "「李娇儿」之「娇」标其勾栏出身；西门庆一死即卷财归院，来处即归处。",
+          "_entry_id": "金瓶梅/jpm-name-lijiaoer",
+          "chapters": []
+        },
+        {
+          "id": "jpm-obj-pinger-cai",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "object_omen",
+          "title": "李瓶儿之财 · 向心聚敛",
+          "chapters": [
+            14
+          ],
+          "characters": [
+            "李瓶儿"
+          ],
+          "links": [
+            {
+              "target": "李瓶儿",
+              "target_kind": "character",
+              "predicate": "流转",
+              "inference": true,
+              "chapter": 14,
+              "phase": "聚敛",
+              "temperature": "热",
+              "note": "李瓶儿携花子虚、梁中书两笔横财入西门府;财物的流入是西门府暴发的引擎。"
+            }
+          ],
+          "tags": [
+            "物象谶",
+            "财",
+            "流转"
+          ],
+          "summary": "李瓶儿两番携巨资入府，是西门府财富暴涨的关键注入；其死即冷热转折点。",
+          "_entry_id": "金瓶梅/jpm-obj-pinger-cai"
+        },
+        {
+          "id": "jpm-name-chunmei",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "梅 · 庞春梅",
+          "chapters": [
+            96
+          ],
+          "characters": [
+            "庞春梅"
+          ],
+          "links": [
+            {
+              "target": "庞春梅",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "散尽",
+              "temperature": "冷",
+              "note": "「梅」喻严寒幸存、野蛮生长；府破后骤贵的残局见证者与上位者。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "书名嵌名",
+            "气",
+            "运"
+          ],
+          "summary": "书名「梅」字，喻寒中幸存、野蛮生长；春梅是西门府倾覆后的见证者与上位者。",
+          "source": "chapters/金瓶梅/096.md",
+          "_entry_id": "金瓶梅/jpm-name-chunmei"
+        },
+        {
+          "id": "jpm-obj-guancai",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "object_omen",
+          "title": "棺木 · 丧仪与财散",
+          "chapters": [
+            62
+          ],
+          "characters": [
+            "李瓶儿"
+          ],
+          "links": [
+            {
+              "target": "李瓶儿",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 62,
+              "phase": "反噬",
+              "temperature": "冷",
+              "note": "李瓶儿、西门庆两场盛大丧仪极尽奢靡;棺木与厚葬是财富外泄、繁华落幕的物象。"
+            }
+          ],
+          "tags": [
+            "物象谶",
+            "丧仪",
+            "财散"
+          ],
+          "summary": "两场极奢丧仪的棺木冥器，是西门府财富外泄、由盛入衰的显眼物象。",
+          "_entry_id": "金瓶梅/jpm-obj-guancai"
+        },
+        {
+          "id": "jpm-obj-hanjin",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "object_omen",
+          "title": "汗巾 · 私情信物",
+          "characters": [
+            "潘金莲"
+          ],
+          "links": [
+            {
+              "target": "潘金莲",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "phase": "极盛",
+              "temperature": "热",
+              "note": "汗巾、香囊、并头莲簪等是西门府男女私情的信物;物小而系命运起落。"
+            }
+          ],
+          "tags": [
+            "物象谶",
+            "私情",
+            "信物"
+          ],
+          "summary": "汗巾香囊一类贴身信物，是私通逾墙的凭证；物虽细微，却牵动人物命运。",
+          "_entry_id": "金瓶梅/jpm-obj-hanjin",
+          "chapters": []
+        },
+        {
+          "id": "jpm-name-wangliuer",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "王六儿",
+          "chapters": [
+            37
+          ],
+          "characters": [
+            "韩道国"
+          ],
+          "links": [
+            {
+              "target": "韩道国",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "phase": "极盛",
+              "temperature": "热",
+              "note": "「六儿」谐「溜儿」；夫妇逢迎、纵妻取利。"
+            },
+            {
+              "target": "西门庆",
+              "target_kind": "character",
+              "predicate": "影射",
+              "inference": true,
+              "phase": "极盛",
+              "temperature": "热",
+              "note": "以色事人、攀附取财，是帮闲附庸的市井样本。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "谐音",
+            "逢迎"
+          ],
+          "summary": "「王六儿」谐溜儿、逢迎；韩道国夫妇攀附西门府牟利。",
+          "source": "chapters/金瓶梅/037.md",
+          "_entry_id": "金瓶梅/jpm-name-wangliuer"
+        },
+        {
+          "id": "jpm-name-pinger",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "瓶 · 李瓶儿",
+          "chapters": [
+            17
+          ],
+          "characters": [
+            "李瓶儿"
+          ],
+          "links": [
+            {
+              "target": "李瓶儿",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "聚敛",
+              "temperature": "热",
+              "note": "「瓶」喻容器、聚财而易碎；瓶满则倾。"
+            },
+            {
+              "target": "西门庆",
+              "target_kind": "character",
+              "predicate": "流转",
+              "inference": true,
+              "phase": "聚敛",
+              "temperature": "热",
+              "note": "携花家、梁府财货注入西门府，是财富暴涨的主源。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "书名嵌名",
+            "财",
+            "酒"
+          ],
+          "summary": "书名「瓶」字，喻容器聚财而一碰即碎；瓶儿之财撑起西门府的暴涨。",
+          "source": "chapters/金瓶梅/017.md",
+          "_entry_id": "金瓶梅/jpm-name-pinger"
+        },
+        {
+          "id": "jpm-obj-piao",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "object_omen",
+          "title": "皮袄 · 遗物争夺",
+          "chapters": [
+            74
+          ],
+          "characters": [
+            "潘金莲"
+          ],
+          "links": [
+            {
+              "target": "潘金莲",
+              "target_kind": "character",
+              "predicate": "流转",
+              "inference": true,
+              "chapter": 74,
+              "phase": "反噬",
+              "temperature": "冷",
+              "note": "李瓶儿遗下的貂鼠皮袄被潘金莲讨去穿;遗物流转写尽人亡物在、争夺无情。"
+            }
+          ],
+          "tags": [
+            "物象谶",
+            "遗物",
+            "争夺"
+          ],
+          "summary": "李瓶儿遗下的貂鼠皮袄转到潘金莲身上；一件皮袄的流转，写尽人亡物在的凉薄。",
+          "_entry_id": "金瓶梅/jpm-obj-piao"
+        },
+        {
+          "id": "jpm-tune-pipa",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "tune_omen",
+          "title": "盲女琵琶曲",
+          "chapters": [
+            21
+          ],
+          "characters": [
+            "潘金莲"
+          ],
+          "links": [
+            {
+              "target": "潘金莲",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "phase": "极盛",
+              "temperature": "热",
+              "note": "筵席间盲女弹唱，曲词暗合在座者的情爱与命运。"
+            }
+          ],
+          "tags": [
+            "曲牌宝卷谶",
+            "画外音"
+          ],
+          "summary": "筵席上盲女的琵琶曲，是当下繁华中暗藏的命运画外音。",
+          "source": "chapters/金瓶梅/021.md",
+          "_entry_id": "金瓶梅/jpm-tune-pipa"
+        },
+        {
+          "id": "jpm-obj-zanzi",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "object_omen",
+          "title": "簪子",
+          "chapters": [
+            11
+          ],
+          "characters": [
+            "西门庆",
+            "孟玉楼"
+          ],
+          "links": [
+            {
+              "target": "西门庆",
+              "target_kind": "character",
+              "predicate": "流转",
+              "inference": true,
+              "phase": "聚敛",
+              "temperature": "热",
+              "note": "簪钗在妻妾之间转赐、争夺，标记宠幸与地位。"
+            },
+            {
+              "target": "孟玉楼",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "note": "玉楼的陪嫁与簪环，是妻妾经济的缩影。"
+            }
+          ],
+          "tags": [
+            "物象谶",
+            "信物",
+            "地位"
+          ],
+          "summary": "簪钗的转移是妻妾地位升降的物象记号。",
+          "source": "chapters/金瓶梅/011.md",
+          "_entry_id": "金瓶梅/jpm-obj-zanzi"
+        },
+        {
+          "id": "jpm-obj-honghua",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "object_omen",
+          "title": "红丸胎药 · 血崩催命",
+          "chapters": [
+            61
+          ],
+          "characters": [
+            "李瓶儿"
+          ],
+          "links": [
+            {
+              "target": "李瓶儿",
+              "target_kind": "character",
+              "predicate": "催命",
+              "inference": true,
+              "chapter": 61,
+              "phase": "反噬",
+              "temperature": "冷",
+              "note": "李瓶儿丧子后血崩;任医官诊治、胎前产后之疾终不治，药石难回欲海亏空。"
+            }
+          ],
+          "tags": [
+            "物象谶",
+            "医药",
+            "血崩"
+          ],
+          "summary": "李瓶儿丧子忧惧、血崩缠绵，任医官药石无效而亡；病与药皆是欲海亏空的反噬。",
+          "_entry_id": "金瓶梅/jpm-obj-honghua"
+        },
+        {
+          "id": "jpm-obj-husengyao",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "object_omen",
+          "title": "胡僧药（春药）",
+          "chapters": [
+            49,
+            79
+          ],
+          "characters": [
+            "西门庆",
+            "潘金莲"
+          ],
+          "links": [
+            {
+              "target": "西门庆",
+              "target_kind": "character",
+              "predicate": "催命",
+              "inference": true,
+              "chapter": 79,
+              "phase": "反噬",
+              "temperature": "冷",
+              "note": "第49回得胡僧春药，第79回过量纵欲暴亡——死于极乐。"
+            },
+            {
+              "target": "潘金莲",
+              "target_kind": "character",
+              "predicate": "反噬",
+              "inference": true,
+              "chapter": 79,
+              "phase": "反噬",
+              "temperature": "冷",
+              "note": "金莲贪欢强灌过量，加速催命。"
+            }
+          ],
+          "tags": [
+            "物象谶",
+            "春药",
+            "催命"
+          ],
+          "summary": "胡僧药是贪欲无度、饮鸩止渴的催命符；西门庆盛极而亡。",
+          "source": "chapters/金瓶梅/079.md",
+          "_entry_id": "金瓶梅/jpm-obj-husengyao"
+        },
+        {
+          "id": "jpm-name-huazixu",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "花子虚",
+          "chapters": [
+            14
+          ],
+          "characters": [
+            "花子虚",
+            "李瓶儿"
+          ],
+          "links": [
+            {
+              "target": "花子虚",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "欲起",
+              "temperature": "热",
+              "note": "「花」喻繁华，「子虚」即乌有；前期财富与权力的镜花水月。"
+            },
+            {
+              "target": "李瓶儿",
+              "target_kind": "character",
+              "predicate": "流转",
+              "inference": true,
+              "phase": "聚敛",
+              "temperature": "热",
+              "note": "花家财产经瓶儿之手流入西门庆，财富易主的第一环。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "镜花水月"
+          ],
+          "summary": "「花子虚」谐繁华虚妄、一场空；其家产是西门府财富的最初来源。",
+          "source": "chapters/金瓶梅/014.md",
+          "_entry_id": "金瓶梅/jpm-name-huazixu"
+        },
+        {
+          "id": "jpm-obj-putaojia",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "object_omen",
+          "title": "葡萄架",
+          "chapters": [
+            27
+          ],
+          "characters": [
+            "西门庆",
+            "潘金莲"
+          ],
+          "links": [
+            {
+              "target": "西门庆",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 27,
+              "phase": "极盛",
+              "temperature": "热",
+              "note": "第27回醉闹葡萄架，纵欲的巅峰场域。"
+            },
+            {
+              "target": "潘金莲",
+              "target_kind": "character",
+              "predicate": "影射",
+              "inference": true,
+              "chapter": 27,
+              "phase": "极盛",
+              "temperature": "热",
+              "note": "欲望的极致与庇荫倾覆。"
+            }
+          ],
+          "tags": [
+            "物象谶",
+            "纵欲",
+            "极盛"
+          ],
+          "summary": "葡萄架（第27回）是西门府纵欲巅峰，也是由盛转衰的物象坐标。",
+          "source": "chapters/金瓶梅/027.md",
+          "_entry_id": "金瓶梅/jpm-obj-putaojia"
+        },
+        {
+          "id": "jpm-obj-hongpao",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "object_omen",
+          "title": "蟒衣大红袍 · 僭越之服",
+          "chapters": [
+            70
+          ],
+          "characters": [
+            "西门庆"
+          ],
+          "links": [
+            {
+              "target": "西门庆",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 70,
+              "phase": "极盛",
+              "temperature": "热",
+              "note": "西门庆捐官得五品、僭服蟒衣大红袍;以衣冠夸耀，是暴发与逾分的物象。"
+            }
+          ],
+          "tags": [
+            "物象谶",
+            "衣冠",
+            "僭越"
+          ],
+          "summary": "西门庆以银捐官、僭着蟒衣红袍夸示门第；衣冠之盛恰是德不配位的反讽。",
+          "_entry_id": "金瓶梅/jpm-obj-hongpao"
+        },
+        {
+          "id": "jpm-name-ximenqing",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "西门庆 · 反讽之庆",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "西门庆"
+          ],
+          "links": [
+            {
+              "target": "西门庆",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "极盛",
+              "temperature": "热",
+              "note": "「庆」表喜庆，然一生纵欲聚敛、盛极暴亡，名实相反，是全书反讽的总枢。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "反讽",
+            "色财"
+          ],
+          "summary": "「庆」字表喜庆，西门庆却以纵欲暴亡收场；名实相反，是因果闭环的中心枢纽。",
+          "_entry_id": "金瓶梅/jpm-name-ximenqing"
+        },
+        {
+          "id": "jpm-tune-jiwen",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "tune_omen",
+          "title": "西门庆祭李瓶儿文 · 情真情假",
+          "chapters": [
+            63
+          ],
+          "characters": [
+            "西门庆",
+            "李瓶儿"
+          ],
+          "links": [
+            {
+              "target": "西门庆",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 63,
+              "phase": "反噬",
+              "temperature": "冷",
+              "note": "西门庆哭祭李瓶儿、读祭文恸绝;难得一段真情，却也是盛极转衰的挽歌。"
+            }
+          ],
+          "tags": [
+            "祭文",
+            "情真",
+            "挽歌"
+          ],
+          "summary": "第63回西门庆哭奠李瓶儿、亲读祭文恸绝;全书少见的真情流露，亦是由盛转衰的挽歌。",
+          "source": "chapters/金瓶梅/词话本/063.md",
+          "_entry_id": "金瓶梅/jpm-tune-jiwen"
+        },
+        {
+          "id": "jpm-name-xiexida",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "谢希大 · 些须大",
+          "characters": [
+            "谢希大"
+          ],
+          "links": [
+            {
+              "target": "谢希大",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "聚敛",
+              "temperature": "热",
+              "note": "「谢希大」谐「些须大」——本事些须、虚有其表的帮闲。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "帮闲",
+            "谐音"
+          ],
+          "summary": "「谢希大」谐「些须大」，本事些微、虚张声势的帮闲之一。",
+          "_entry_id": "金瓶梅/jpm-name-xiexida",
+          "chapters": []
+        },
+        {
+          "id": "jpm-obj-jiu",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "object_omen",
+          "title": "酒 · 四气之首",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "西门庆"
+          ],
+          "links": [
+            {
+              "target": "西门庆",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 1,
+              "phase": "聚敛",
+              "temperature": "热",
+              "note": "宴饮纵酒贯穿全书,是「酒色财气」之「酒」;觥筹交错处即家业蚀空时。"
+            }
+          ],
+          "tags": [
+            "物象谶",
+            "酒",
+            "宴饮"
+          ],
+          "summary": "无日不宴、无宴不酒，是「酒色财气」之首；繁华酒筵正是家业暗蚀的场域。",
+          "_entry_id": "金瓶梅/jpm-obj-jiu"
+        },
+        {
+          "id": "jpm-tune-jiusecaiqi",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "tune_omen",
+          "title": "酒色财气歌",
+          "text": "酒损精神破丧家，语言无状闹喧哗……财帛动人多丧志，多少英雄受其累……",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "西门庆"
+          ],
+          "links": [
+            {
+              "target": "西门庆",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 1,
+              "phase": "欲起",
+              "temperature": "热",
+              "note": "开篇《四贪词》定调酒色财气，是西门庆纵欲暴亡的命运坐标。"
+            },
+            {
+              "target": "jpm-name-jinlian",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": true,
+              "chapter": 1,
+              "phase": "欲起",
+              "temperature": "热",
+              "note": "「色」之极，由潘金莲承载。"
+            }
+          ],
+          "tags": [
+            "曲牌宝卷谶",
+            "总纲",
+            "酒色财气"
+          ],
+          "summary": "第一回《四贪词》（酒色财气），全书意象总纲与命运坐标。",
+          "source": "chapters/金瓶梅/001.md",
+          "_entry_id": "金瓶梅/jpm-tune-jiusecaiqi"
+        },
+        {
+          "id": "jpm-name-jinlian",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "金 · 潘金莲",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "潘金莲"
+          ],
+          "links": [
+            {
+              "target": "潘金莲",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "极盛",
+              "temperature": "热",
+              "note": "「金」喻锐利、杀伐、贪欲；金莲是西门府内斗的「刀」。"
+            },
+            {
+              "target": "西门庆",
+              "target_kind": "character",
+              "predicate": "反噬",
+              "inference": true,
+              "phase": "反噬",
+              "temperature": "冷",
+              "note": "勾结害命、淫纵无度，是毁灭西门府的引擎之一。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "书名嵌名",
+            "色",
+            "财"
+          ],
+          "summary": "书名「金」字，喻锐利杀伐与贪欲；金莲是西门府内斗的刀与毁灭引擎。",
+          "_entry_id": "金瓶梅/jpm-name-jinlian"
+        },
+        {
+          "id": "jpm-obj-yinzi",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "object_omen",
+          "title": "银子 · 财之聚散",
+          "characters": [
+            "西门庆"
+          ],
+          "links": [
+            {
+              "target": "西门庆",
+              "target_kind": "character",
+              "predicate": "流转",
+              "inference": true,
+              "phase": "聚敛",
+              "temperature": "热",
+              "note": "白银是西门府的命脉;药铺放债、贿赂买官皆以银运转，死后又被瓜分殆尽。"
+            }
+          ],
+          "tags": [
+            "物象谶",
+            "财",
+            "白银"
+          ],
+          "summary": "白银贯穿西门府聚敛与崩解——生时滚雪球般聚拢，死后旬月即被卷分一空。",
+          "_entry_id": "金瓶梅/jpm-obj-yinzi",
+          "chapters": []
+        },
+        {
+          "id": "jpm-obj-jingzi",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "object_omen",
+          "title": "镜 · 镜花水月",
+          "characters": [
+            "花子虚"
+          ],
+          "links": [
+            {
+              "target": "花子虚",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "phase": "欲起",
+              "temperature": "冷",
+              "note": "花子虚之名谐「花子虚」,繁华虚妄如镜花水月;其财其妻终归西门庆，一场空。"
+            }
+          ],
+          "tags": [
+            "物象谶",
+            "虚妄",
+            "镜花水月"
+          ],
+          "summary": "镜花水月喻繁华虚妄；花子虚财、妻俱被西门庆夺去，正是「一场空」的注脚。",
+          "_entry_id": "金瓶梅/jpm-obj-jingzi",
+          "chapters": []
+        },
+        {
+          "id": "jpm-name-chenjingji",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "陈经济",
+          "chapters": [
+            80
+          ],
+          "characters": [
+            "陈经济"
+          ],
+          "links": [
+            {
+              "target": "陈经济",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "散尽",
+              "temperature": "冷",
+              "note": "「经济」反讽：经世济家之名，行败家之实。"
+            },
+            {
+              "target": "西门庆",
+              "target_kind": "character",
+              "predicate": "反噬",
+              "inference": true,
+              "phase": "散尽",
+              "temperature": "冷",
+              "note": "翁婿乱伦、侵吞家产，是西门家业从内部溃烂的引线。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "反讽",
+            "败家"
+          ],
+          "summary": "「经济」反讽败家；陈经济是西门家业由内部溃烂的引线。",
+          "source": "chapters/金瓶梅/080.md",
+          "_entry_id": "金瓶梅/jpm-name-chenjingji"
+        },
+        {
+          "id": "jpm-obj-xueshizi",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "object_omen",
+          "title": "雪狮子（白猫）",
+          "chapters": [
+            59
+          ],
+          "characters": [
+            "潘金莲",
+            "李瓶儿"
+          ],
+          "links": [
+            {
+              "target": "潘金莲",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 59,
+              "phase": "极盛",
+              "temperature": "热",
+              "note": "金莲驯养的白猫，是其嫉妒与阴险杀心的物理延伸。"
+            },
+            {
+              "target": "李瓶儿",
+              "target_kind": "character",
+              "predicate": "反噬",
+              "inference": true,
+              "chapter": 59,
+              "phase": "反噬",
+              "temperature": "冷",
+              "note": "雪狮子惊扑官哥儿致死，瓶儿哀毁而亡——全府由盛转衰的转折。"
+            }
+          ],
+          "tags": [
+            "物象谶",
+            "嫉妒",
+            "转折"
+          ],
+          "summary": "雪狮子是潘金莲嫉妒的物理延伸；扑惊官哥儿，引发瓶儿之死的大崩塌。",
+          "source": "chapters/金瓶梅/059.md",
+          "_entry_id": "金瓶梅/jpm-obj-xueshizi"
+        },
+        {
+          "id": "jpm-obj-xie",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "object_omen",
+          "title": "鞋 · 三寸金莲",
+          "chapters": [
+            8
+          ],
+          "characters": [
+            "潘金莲"
+          ],
+          "links": [
+            {
+              "target": "潘金莲",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "phase": "欲起",
+              "temperature": "热",
+              "note": "三寸金莲的绣鞋，是勾引与私情的载体（情挑、量鞋、藏鞋）。"
+            }
+          ],
+          "tags": [
+            "物象谶",
+            "信物",
+            "情欲"
+          ],
+          "summary": "「鞋」是三寸金莲的信物，勾引与私情的载体。",
+          "source": "chapters/金瓶梅/008.md",
+          "_entry_id": "金瓶梅/jpm-obj-xie"
+        },
+        {
+          "id": "jpm-name-handaoguo",
+          "type": "imagery",
+          "book": "金瓶梅",
+          "subtype": "name_omen",
+          "title": "韩道国 · 憨/汉盗国",
+          "characters": [
+            "韩道国"
+          ],
+          "links": [
+            {
+              "target": "韩道国",
+              "target_kind": "character",
+              "predicate": "谐音",
+              "inference": true,
+              "phase": "聚敛",
+              "temperature": "热",
+              "note": "「韩道国」谐「憨道国/汉盗国」——纵妻王六儿与西门庆私通以图利。"
+            }
+          ],
+          "tags": [
+            "名字谶",
+            "纵妻",
+            "谐音"
+          ],
+          "summary": "「韩道国」谐「憨/汉盗国」，纵容妻子王六儿与西门庆私通牟利的伙计。",
+          "_entry_id": "金瓶梅/jpm-name-handaoguo",
+          "chapters": []
+        }
+      ]
+    },
+    "xiyouji": {
+      "book": "西游记",
+      "slug": "xiyouji",
+      "count": 41,
+      "entries": [
+        {
+          "id": "xyj-place-liangjie",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "两界山 · 五行山",
+          "chapters": [
+            13,
+            14
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "links": [
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 13,
+              "note": "五行山（两界山）压心猿五百年；山名「两界」，喻凡圣之界、放心收心之关。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "五行山",
+            "心猿"
+          ],
+          "summary": "五行山压心猿、唐僧揭帖放出，山名两界——凡圣两界、由放心到收心之关口。",
+          "source": "chapters/西游记/014.md",
+          "_entry_id": "西游记/xyj-place-liangjie"
+        },
+        {
+          "id": "xyj-verse-xinjing",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "poem",
+          "title": "乌巢禅师《心经》",
+          "chapters": [
+            19
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空"
+          ],
+          "links": [
+            {
+              "target": "唐僧",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 19,
+              "note": "浮屠山乌巢禅师授《多心经》，修心要诀；唐僧持诵。"
+            },
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "note": "唯心猿能解经——明心见性者是悟空，而非诵经的唐僧。"
+            }
+          ],
+          "tags": [
+            "证道偈",
+            "心经",
+            "修心"
+          ],
+          "summary": "乌巢禅师所授《心经》，是师徒修心的证道偈。",
+          "source": "chapters/西游记/019.md",
+          "_entry_id": "西游记/xyj-verse-xinjing"
+        },
+        {
+          "id": "xyj-dan-erxin",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "alchemy",
+          "title": "二心 · 真假美猴王",
+          "chapters": [
+            57,
+            58
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "links": [
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 58,
+              "note": "第58回〈二心搅乱大乾坤〉，六耳猕猴即悟空起的第二个心，去二心方得一心。"
+            }
+          ],
+          "tags": [
+            "丹道意象",
+            "二心",
+            "真假"
+          ],
+          "summary": "真假美猴王即「二心」之喻；第58回二心搅乱乾坤，打死六耳、复归一心，是修心关键。",
+          "source": "chapters/西游记/058.md",
+          "_entry_id": "西游记/xyj-dan-erxin"
+        },
+        {
+          "id": "xyj-place-wuzhuangguan",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "五庄观 · 地仙之祖",
+          "chapters": [
+            24,
+            25,
+            26
+          ],
+          "characters": [
+            "镇元子"
+          ],
+          "links": [
+            {
+              "target": "镇元子",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 24,
+              "note": "万寿山五庄观镇元子号「地仙之祖」，与悟空结拜；草还丹、清风明月，喻根本道场。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "五庄观",
+            "地仙"
+          ],
+          "summary": "五庄观镇元子为地仙之祖，藏人参果（草还丹）；推树医活后与悟空结为兄弟。",
+          "source": "chapters/西游记/024.md",
+          "_entry_id": "西游记/xyj-place-wuzhuangguan"
+        },
+        {
+          "id": "xyj-dan-wuxing",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "alchemy",
+          "title": "五行 · 师徒配属",
+          "chapters": [
+            22
+          ],
+          "characters": [
+            "孙悟空",
+            "猪八戒",
+            "沙僧",
+            "白龙马",
+            "唐僧"
+          ],
+          "links": [
+            {
+              "target": "xyj-dan-xinyuan",
+              "target_kind": "imagery",
+              "predicate": "交并",
+              "inference": true,
+              "note": "金（心猿）木（木母）土（黄婆）水（意马）相生相克，五行攒簇方成丹。"
+            },
+            {
+              "target": "xyj-dan-mumu",
+              "target_kind": "imagery",
+              "predicate": "相克",
+              "inference": true
+            },
+            {
+              "target": "xyj-dan-huangpo",
+              "target_kind": "imagery",
+              "predicate": "调和",
+              "inference": true
+            }
+          ],
+          "tags": [
+            "丹道意象",
+            "五行",
+            "攒簇"
+          ],
+          "summary": "师徒五众分属五行：心猿金、木母木、黄婆土、意马水；五行攒簇、生克调和方成内丹。",
+          "_entry_id": "西游记/xyj-dan-wuxing"
+        },
+        {
+          "id": "xyj-dan-renshenguo",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "alchemy",
+          "title": "人参果 · 草还丹",
+          "chapters": [
+            24,
+            25,
+            26
+          ],
+          "characters": [
+            "镇元子",
+            "孙悟空"
+          ],
+          "links": [
+            {
+              "target": "镇元子",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 24,
+              "note": "万寿山五庄观人参果，三千年一开花、三千年一结果，闻一闻活三百六十岁——草还丹。"
+            }
+          ],
+          "tags": [
+            "丹道意象",
+            "人参果",
+            "草还丹"
+          ],
+          "summary": "五庄观人参果即「草还丹」，九千年一熟、长生之果；推倒果树又医活，喻丹基失而复得。",
+          "source": "chapters/西游记/024.md",
+          "_entry_id": "西游记/xyj-dan-renshenguo"
+        },
+        {
+          "id": "xyj-dan-baguelu",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "alchemy",
+          "title": "八卦炉 · 火眼金睛",
+          "chapters": [
+            7
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "links": [
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 7,
+              "note": "第7回太上老君以八卦炉炼悟空，反炼成火眼金睛——烈火淬炼的丹道功夫。"
+            }
+          ],
+          "tags": [
+            "丹道意象",
+            "八卦炉",
+            "火候"
+          ],
+          "summary": "八卦炉炼悟空不死，反得火眼金睛；喻丹道「火候」淬炼、烈火铸真金。",
+          "source": "chapters/西游记/007.md",
+          "_entry_id": "西游记/xyj-dan-baguelu"
+        },
+        {
+          "id": "xyj-dan-liuzei",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "alchemy",
+          "title": "六贼 · 眼耳鼻舌身意",
+          "chapters": [
+            14
+          ],
+          "characters": [
+            "孙悟空",
+            "唐僧"
+          ],
+          "links": [
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 14,
+              "note": "第14回〈心猿归正，六贼无踪〉，六个毛贼即眼耳鼻舌身意六根之贼。"
+            }
+          ],
+          "tags": [
+            "丹道意象",
+            "六贼",
+            "六根"
+          ],
+          "summary": "第14回悟空打杀六个剪径毛贼，喻斩除眼耳鼻舌身意「六根之贼」，心猿初归正。",
+          "source": "chapters/西游记/014.md",
+          "_entry_id": "西游记/xyj-dan-liuzei"
+        },
+        {
+          "id": "xyj-verse-huiqian",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "poem",
+          "title": "回前诗 · 灵根心性",
+          "text": "灵根育孕源流出，心性修持大道生。",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "links": [
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 1,
+              "note": "第一回回前诗，标举「灵根/心性」——全书修心总纲。"
+            }
+          ],
+          "tags": [
+            "回前诗",
+            "修心总纲"
+          ],
+          "summary": "第一回回前诗，标举灵根心性，是全书修心总纲。",
+          "source": "chapters/西游记/001.md",
+          "_entry_id": "西游记/xyj-verse-huiqian"
+        },
+        {
+          "id": "xyj-dan-jingubang",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "symbol",
+          "title": "如意金箍棒 · 定海神针",
+          "chapters": [
+            3
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "links": [
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 3,
+              "note": "定海神针能大能小、随心如意，喻已得自在之心力（定与慧）。"
+            }
+          ],
+          "tags": [
+            "丹道意象",
+            "金箍棒",
+            "如意"
+          ],
+          "summary": "金箍棒本东海定海神针，随心大小如意；喻收放自如的心力，与紧箍儿一放一收成对。",
+          "source": "chapters/西游记/003.md",
+          "_entry_id": "西游记/xyj-dan-jingubang"
+        },
+        {
+          "id": "xyj-dan-chanv",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "alchemy",
+          "title": "姹女",
+          "chapters": [
+            72
+          ],
+          "characters": [
+            "蜘蛛精"
+          ],
+          "links": [
+            {
+              "target": "蜘蛛精",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 72,
+              "note": "「姹女」即真汞，喻消耗元阳的杂念；盘丝洞七女。"
+            },
+            {
+              "target": "xyj-dan-mumu",
+              "target_kind": "imagery",
+              "predicate": "相克",
+              "inference": true,
+              "chapter": 72,
+              "note": "第72回〈盘丝洞姹女求阳，木母忘形落底〉——杂念耗木母之精。"
+            }
+          ],
+          "tags": [
+            "丹道意象",
+            "姹女"
+          ],
+          "summary": "姹女（真汞）象征消耗元阳的杂念，对应盘丝洞蜘蛛精。",
+          "source": "chapters/西游记/072.md",
+          "_entry_id": "西游记/xyj-dan-chanv"
+        },
+        {
+          "id": "xyj-dan-yinger",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "alchemy",
+          "title": "婴儿",
+          "chapters": [
+            41
+          ],
+          "characters": [
+            "红孩儿"
+          ],
+          "links": [
+            {
+              "target": "红孩儿",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 41,
+              "note": "「婴儿」即真铅·火性，狂躁难制；红孩儿（圣婴大王）为其化身。"
+            },
+            {
+              "target": "xyj-dan-xinyuan",
+              "target_kind": "imagery",
+              "predicate": "相克",
+              "inference": true,
+              "chapter": 41,
+              "note": "三昧真火克心猿：第41回〈心猿遭火败，木母被魔擒〉。"
+            }
+          ],
+          "tags": [
+            "丹道意象",
+            "五行-火",
+            "婴儿"
+          ],
+          "summary": "婴儿（真铅·火性）象征难制的火性，对应红孩儿（圣婴大王）。",
+          "source": "chapters/西游记/041.md",
+          "_entry_id": "西游记/xyj-dan-yinger"
+        },
+        {
+          "id": "xyj-place-zimuhe",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "子母河 · 阴阳错乱",
+          "chapters": [
+            53
+          ],
+          "characters": [
+            "猪八戒"
+          ],
+          "links": [
+            {
+              "target": "猪八戒",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 53,
+              "note": "西梁女国子母河，男子饮水成胎；阴阳颠倒之地，喻元阳为情欲所乱。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "子母河",
+            "阴阳"
+          ],
+          "summary": "子母河水使男子怀胎，落胎泉方解；阴阳错乱之象，喻情关一近、元阳即损。",
+          "source": "chapters/西游记/053.md",
+          "_entry_id": "西游记/xyj-place-zimuhe"
+        },
+        {
+          "id": "xyj-place-xiaoleiyin",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "小雷音寺 · 真假佛",
+          "chapters": [
+            65,
+            66
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "links": [
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 65,
+              "note": "黄眉怪假设小雷音寺、伪作如来；真假难辨之地，喻认假为真之大障。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "小雷音",
+            "真假"
+          ],
+          "summary": "黄眉怪伪建小雷音、假冒如来诳唐僧下拜；真假佛之辨，最易迷人。",
+          "source": "chapters/西游记/065.md",
+          "_entry_id": "西游记/xyj-place-xiaoleiyin"
+        },
+        {
+          "id": "xyj-place-pingding",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "平顶山莲花洞 · 金银",
+          "chapters": [
+            32,
+            33,
+            34,
+            35
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "links": [
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 32,
+              "note": "金角银角踞平顶山莲花洞，五件宝贝（葫芦/净瓶等）；喻金银财货、名相之执。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "平顶山",
+            "金银"
+          ],
+          "summary": "平顶山金角银角大王、五般法宝；以「金银」为名，喻财货名相对修行的羁绊。",
+          "source": "chapters/西游记/032.md",
+          "_entry_id": "西游记/xyj-place-pingding"
+        },
+        {
+          "id": "xyj-dan-xinyuan",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "alchemy",
+          "title": "心猿 · 金公",
+          "chapters": [
+            7,
+            14
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "links": [
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "note": "「心猿」即修心主体，金公金性刚锐——心神。"
+            },
+            {
+              "target": "xyj-dan-mumu",
+              "target_kind": "imagery",
+              "predicate": "相克",
+              "inference": true,
+              "chapter": 85,
+              "note": "金木相克：第85回〈心猿妒木母〉；和好则金木交并。"
+            },
+            {
+              "target": "xyj-dan-yima",
+              "target_kind": "imagery",
+              "predicate": "相济",
+              "inference": true,
+              "note": "水火相济：心猿（火/金）与意马（水），抽坎填离。"
+            }
+          ],
+          "tags": [
+            "丹道意象",
+            "五行-金",
+            "心猿"
+          ],
+          "summary": "心猿/金公象征刚锐的心神，是修心主体，对应孙悟空。",
+          "source": "chapters/西游记/014.md",
+          "_entry_id": "西游记/xyj-dan-xinyuan"
+        },
+        {
+          "id": "xyj-dan-yima",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "alchemy",
+          "title": "意马",
+          "chapters": [
+            15
+          ],
+          "characters": [
+            "白龙马"
+          ],
+          "links": [
+            {
+              "target": "白龙马",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 15,
+              "note": "「意马」即难驭之念；鹰愁涧收龙马，意随心驭。"
+            }
+          ],
+          "tags": [
+            "丹道意象",
+            "意马"
+          ],
+          "summary": "意马象征难驭的意念，对应白龙马。",
+          "source": "chapters/西游记/015.md",
+          "_entry_id": "西游记/xyj-dan-yima"
+        },
+        {
+          "id": "xyj-dan-kanli",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "alchemy",
+          "title": "抽坎填离 · 水火既济",
+          "characters": [
+            "孙悟空",
+            "白龙马"
+          ],
+          "links": [
+            {
+              "target": "xyj-dan-xinyuan",
+              "target_kind": "imagery",
+              "predicate": "相济",
+              "inference": true,
+              "note": "心猿（离火）与意马（坎水）相济，抽坎中之阳填离中之阴。"
+            },
+            {
+              "target": "xyj-dan-yima",
+              "target_kind": "imagery",
+              "predicate": "相济",
+              "inference": true
+            }
+          ],
+          "tags": [
+            "丹道意象",
+            "坎离",
+            "水火既济"
+          ],
+          "summary": "抽坎填离、水火既济——心猿意马相济的丹道工夫，劫难即考验场。",
+          "_entry_id": "西游记/xyj-dan-kanli",
+          "chapters": []
+        },
+        {
+          "id": "xyj-place-xieyue",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "斜月三星洞 · 心",
+          "chapters": [
+            1,
+            2
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "links": [
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 1,
+              "note": "灵台方寸山斜月三星洞，「斜月三星」拆字即「心」——修心起点。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "心",
+            "修心起点"
+          ],
+          "summary": "斜月三星洞拆字为「心」字，须菩提祖师授道之所；西游修心，自此发端。",
+          "source": "chapters/西游记/001.md",
+          "_entry_id": "西游记/xyj-place-xieyue"
+        },
+        {
+          "id": "xyj-poem-wuzizhenjing",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "symbol",
+          "title": "无字真经 · 色空",
+          "chapters": [
+            98
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "如来佛祖"
+          ],
+          "links": [
+            {
+              "target": "如来佛祖",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 98,
+              "note": "第98回初传无字真经，如来言「无字者乃是真经」——色空不二之旨。"
+            }
+          ],
+          "tags": [
+            "证道",
+            "无字真经",
+            "色空"
+          ],
+          "summary": "第98回先得无字真经，如来谓「无字乃真经」；后换有字本，喻色空不二、有为无为之辨。",
+          "source": "chapters/西游记/098.md",
+          "_entry_id": "西游记/xyj-poem-wuzizhenjing"
+        },
+        {
+          "id": "xyj-place-wudidong",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "无底洞 · 色陷无底",
+          "chapters": [
+            80,
+            81,
+            82,
+            83
+          ],
+          "characters": [
+            "唐僧"
+          ],
+          "links": [
+            {
+              "target": "唐僧",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 80,
+              "note": "金鼻白毛老鼠精居无底洞，欲配唐僧元阳；洞名「无底」，喻色欲深陷难填。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "无底洞",
+            "色欲"
+          ],
+          "summary": "无底洞老鼠精欲夺唐僧元阳成亲；洞深无底，喻情色之陷、欲壑难填。",
+          "source": "chapters/西游记/080.md",
+          "_entry_id": "西游记/xyj-place-wudidong"
+        },
+        {
+          "id": "xyj-dan-mumu",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "alchemy",
+          "title": "木母",
+          "chapters": [
+            19
+          ],
+          "characters": [
+            "猪八戒"
+          ],
+          "links": [
+            {
+              "target": "猪八戒",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 19,
+              "note": "「木母」即情/性，木性柔而易生欲——对应贪馋好色的八戒。"
+            }
+          ],
+          "tags": [
+            "丹道意象",
+            "五行-木",
+            "木母"
+          ],
+          "summary": "木母象征柔而易生欲的木性，对应猪八戒。",
+          "source": "chapters/西游记/019.md",
+          "_entry_id": "西游记/xyj-dan-mumu"
+        },
+        {
+          "id": "xyj-place-bikou",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "比丘国 · 婴儿为药",
+          "chapters": [
+            78,
+            79
+          ],
+          "characters": [
+            "唐僧"
+          ],
+          "links": [
+            {
+              "target": "唐僧",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 78,
+              "note": "比丘国（小子城）国丈欲取一千一百小儿心肝作药引；喻邪术戕生、以婴为药之大恶。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "比丘国",
+            "婴儿"
+          ],
+          "summary": "比丘国白鹿精国丈欲用小儿心肝作药、再取唐僧心；喻贪寿戕生的至恶。",
+          "source": "chapters/西游记/078.md",
+          "_entry_id": "西游记/xyj-place-bikou"
+        },
+        {
+          "id": "xyj-place-bopo",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "波月洞 · 情移自性",
+          "chapters": [
+            28,
+            29,
+            30
+          ],
+          "characters": [
+            "唐僧"
+          ],
+          "links": [
+            {
+              "target": "唐僧",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 28,
+              "note": "黄袍怪（奎木狼）思凡下界、与百花羞结情；星宿失位坠魔，喻一念情移即落凡魔。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "波月洞",
+            "情移"
+          ],
+          "summary": "奎木狼思凡为黄袍怪、夺百花羞；天将坠魔，喻一念之情便能移人本性。",
+          "source": "chapters/西游记/028.md",
+          "_entry_id": "西游记/xyj-place-bopo"
+        },
+        {
+          "id": "xyj-place-liusha",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "流沙河 · 收土",
+          "chapters": [
+            22
+          ],
+          "characters": [
+            "沙僧"
+          ],
+          "links": [
+            {
+              "target": "沙僧",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 22,
+              "note": "流沙河收沙僧（土/黄婆）；鹅毛不浮的弱水，喻浊念难渡、须土德调和。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "流沙河",
+            "黄婆"
+          ],
+          "summary": "流沙河弱水三千、鹅毛不浮，收伏沙僧（黄婆/土）；喻五行得土、调和金木之始。",
+          "source": "chapters/西游记/022.md",
+          "_entry_id": "西游记/xyj-place-liusha"
+        },
+        {
+          "id": "xyj-place-huoyanshan",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "火焰山",
+          "chapters": [
+            59,
+            60,
+            61
+          ],
+          "characters": [
+            "孙悟空",
+            "牛魔王"
+          ],
+          "links": [
+            {
+              "target": "xyj-dan-xinyuan",
+              "target_kind": "imagery",
+              "predicate": "隐喻",
+              "inference": true,
+              "note": "火焰山即心头无明业火；火本悟空蹬翻丹炉而起，火由心生。"
+            },
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 61,
+              "note": "三调芭蕉扇（真水）方熄——心火须真水方济。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "环境节点",
+            "五行-火"
+          ],
+          "summary": "火焰山象征心头无明业火，是降伏火性的考验场（环境节点）。",
+          "source": "chapters/西游记/061.md",
+          "_entry_id": "西游记/xyj-place-huoyanshan"
+        },
+        {
+          "id": "xyj-place-lingtai",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "灵台方寸山 · 斜月三星洞",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "links": [
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 1,
+              "note": "「灵台方寸」「斜月三星」拆字皆指「心」——修心的起点。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "环境节点",
+            "心"
+          ],
+          "summary": "灵台方寸山·斜月三星洞，拆字即「心」，是修心起点。",
+          "source": "chapters/西游记/001.md",
+          "_entry_id": "西游记/xyj-place-lingtai"
+        },
+        {
+          "id": "xyj-place-shituoling",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "狮驼岭 · 最险魔关",
+          "chapters": [
+            74,
+            75,
+            76,
+            77
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "links": [
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 74,
+              "note": "狮驼岭三魔（青狮/白象/大鹏）实力最强、几陷绝境；喻修行将成时的大魔考。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "狮驼岭",
+            "魔考"
+          ],
+          "summary": "狮驼岭青狮白象金翅大鹏三魔，凶险冠诸难；喻道高一尺、魔考愈烈。",
+          "source": "chapters/西游记/074.md",
+          "_entry_id": "西游记/xyj-place-shituoling"
+        },
+        {
+          "id": "xyj-place-pansidong",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "盘丝洞 · 姹女耗阳",
+          "chapters": [
+            72,
+            73
+          ],
+          "characters": [
+            "猪八戒"
+          ],
+          "links": [
+            {
+              "target": "猪八戒",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 72,
+              "note": "盘丝洞七女妖（姹女）以丝缠人、以情耗阳；第72回木母忘形落底。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "盘丝洞",
+            "姹女"
+          ],
+          "summary": "盘丝洞蜘蛛精即「姹女」，丝缠肉身、情耗元阳；木母（八戒）忘形几殆。",
+          "source": "chapters/西游记/072.md",
+          "_entry_id": "西游记/xyj-place-pansidong"
+        },
+        {
+          "id": "xyj-dan-qianhong",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "alchemy",
+          "title": "真铅真汞 · 铅汞",
+          "characters": [
+            "孙悟空",
+            "猪八戒"
+          ],
+          "links": [
+            {
+              "target": "xyj-dan-yinger",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": true,
+              "note": "真铅即元神（婴儿），真汞即元精（姹女），铅汞相投乃结丹之本。"
+            },
+            {
+              "target": "xyj-dan-chanv",
+              "target_kind": "imagery",
+              "predicate": "互文",
+              "inference": true
+            }
+          ],
+          "tags": [
+            "丹道意象",
+            "铅汞",
+            "婴姹"
+          ],
+          "summary": "真铅（元神/婴儿）与真汞（元精/姹女）相投结丹；西游屡以婴儿姹女写铅汞抽添。",
+          "_entry_id": "西游记/xyj-dan-qianhong",
+          "chapters": []
+        },
+        {
+          "id": "xyj-place-jisaiguo",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "祭赛国 · 扫塔辨冤",
+          "chapters": [
+            62,
+            63
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "links": [
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 62,
+              "note": "祭赛国金光寺宝塔失舍利、僧众蒙冤；悟空扫塔擒贼、还塔光明，喻涤心见性。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "扫塔",
+            "辨冤"
+          ],
+          "summary": "悟空夜扫金光寺宝塔、擒奔波儿灞辨明盗宝之冤；扫塔即扫心，层层涤垢见光明。",
+          "source": "chapters/西游记/062.md",
+          "_entry_id": "西游记/xyj-place-jisaiguo"
+        },
+        {
+          "id": "xyj-poem-c14",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "poem",
+          "title": "第14回回前诗 · 心猿",
+          "chapters": [
+            14
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "links": [
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "吟",
+              "inference": true,
+              "chapter": 14,
+              "note": "第14回〈心猿归正，六贼无踪〉，回前诗直点「心即猿猴」。"
+            }
+          ],
+          "tags": [
+            "回前诗",
+            "心猿",
+            "修心"
+          ],
+          "summary": "第14回回前诗以「佛即心兮心即佛」直点心猿主旨，为全书修心总纲之一。",
+          "source": "chapters/西游记/014.md",
+          "_entry_id": "西游记/xyj-poem-c14"
+        },
+        {
+          "id": "xyj-poem-kaipian",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "poem",
+          "title": "第1回开篇 · 混沌未分",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "links": [
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "吟",
+              "inference": false,
+              "chapter": 1,
+              "note": "开篇「混沌未分天地乱，茫茫渺渺无人见」总起天地、丹道本源。"
+            }
+          ],
+          "tags": [
+            "回前诗",
+            "丹道本源",
+            "宇宙生成"
+          ],
+          "summary": "第1回开篇诗「混沌未分天地乱」总起宇宙生成；全书以丹道宇宙观立基。",
+          "source": "chapters/西游记/001.md",
+          "_entry_id": "西游记/xyj-poem-kaipian"
+        },
+        {
+          "id": "xyj-dan-jingu",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "alchemy",
+          "title": "紧箍儿 · 定心真言",
+          "chapters": [
+            14
+          ],
+          "characters": [
+            "孙悟空",
+            "唐僧",
+            "观音菩萨"
+          ],
+          "links": [
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 14,
+              "note": "紧箍儿与紧箍咒（定心真言）专定心猿，喻以戒律约束狂心。"
+            }
+          ],
+          "tags": [
+            "丹道意象",
+            "紧箍儿",
+            "定心"
+          ],
+          "summary": "紧箍儿即「定心」之具，紧箍咒乃定心真言；专制心猿狂躁，喻以戒律收放心。",
+          "source": "chapters/西游记/014.md",
+          "_entry_id": "西游记/xyj-dan-jingu"
+        },
+        {
+          "id": "xyj-place-jingjieling",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "荆棘岭木仙庵 · 木性谈诗",
+          "chapters": [
+            64
+          ],
+          "characters": [
+            "唐僧"
+          ],
+          "links": [
+            {
+              "target": "唐僧",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 64,
+              "note": "荆棘岭木仙庵四树精（十八公等）邀唐僧谈诗论道；木性绊脚，喻文字情趣之障。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "荆棘岭",
+            "木"
+          ],
+          "summary": "荆棘岭四树精以诗会留唐僧，雅而生绊；木性缠人，风雅亦成修行之障。",
+          "source": "chapters/西游记/064.md",
+          "_entry_id": "西游记/xyj-place-jingjieling"
+        },
+        {
+          "id": "xyj-place-xiliang",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "西梁女国 · 情关",
+          "chapters": [
+            54
+          ],
+          "characters": [
+            "唐僧"
+          ],
+          "links": [
+            {
+              "target": "唐僧",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 54,
+              "note": "西梁女国女王欲招唐僧为夫；纯阴之地、富贵温柔，喻情欲一关最难破。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "女儿国",
+            "情关"
+          ],
+          "summary": "西梁女国女王以一国之富招赘唐僧；情关当前，唐僧不动心方过此劫。",
+          "source": "chapters/西游记/054.md",
+          "_entry_id": "西游记/xyj-place-xiliang"
+        },
+        {
+          "id": "xyj-place-tongtianhe",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "通天河",
+          "chapters": [
+            47,
+            48,
+            49
+          ],
+          "characters": [
+            "白龙马",
+            "唐僧"
+          ],
+          "links": [
+            {
+              "target": "xyj-dan-yima",
+              "target_kind": "imagery",
+              "predicate": "相济",
+              "inference": true,
+              "note": "通天河即意念之大水；意马渡水，水火相济之考验。"
+            },
+            {
+              "target": "唐僧",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 49,
+              "note": "八百里通天，落水之劫；渡河即渡心。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "环境节点",
+            "五行-水"
+          ],
+          "summary": "通天河象征意念之大水，是水火相济的考验场（环境节点）。",
+          "source": "chapters/西游记/049.md",
+          "_entry_id": "西游记/xyj-place-tongtianhe"
+        },
+        {
+          "id": "xyj-dan-jindan",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "alchemy",
+          "title": "金丹 · 九转大还丹",
+          "chapters": [
+            2,
+            7
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "links": [
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 2,
+              "note": "悟空学得长生、又偷吃太上老君金丹，身具金丹之体——内丹修成的象征。"
+            }
+          ],
+          "tags": [
+            "丹道意象",
+            "金丹",
+            "长生"
+          ],
+          "summary": "金丹喻内丹修成之果；悟空偷丹、炉中炼就金刚之躯，是丹道大道的具象。",
+          "source": "chapters/西游记/007.md",
+          "_entry_id": "西游记/xyj-dan-jindan"
+        },
+        {
+          "id": "xyj-dan-longhu",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "alchemy",
+          "title": "降龙伏虎 · 龙虎",
+          "characters": [
+            "孙悟空",
+            "白龙马"
+          ],
+          "links": [
+            {
+              "target": "孙悟空",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "note": "虎喻心火（铅），龙喻肾水（汞）；降龙伏虎即调和水火。"
+            },
+            {
+              "target": "白龙马",
+              "target_kind": "character",
+              "predicate": "相济",
+              "inference": true
+            }
+          ],
+          "tags": [
+            "丹道意象",
+            "龙虎",
+            "水火"
+          ],
+          "summary": "龙（水/汞）虎（火/铅）相交即降龙伏虎，丹道调和水火、抽坎填离之喻。",
+          "_entry_id": "西游记/xyj-dan-longhu",
+          "chapters": []
+        },
+        {
+          "id": "xyj-dan-huangpo",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "alchemy",
+          "title": "黄婆",
+          "chapters": [
+            22
+          ],
+          "characters": [
+            "沙僧"
+          ],
+          "links": [
+            {
+              "target": "沙僧",
+              "target_kind": "character",
+              "predicate": "象征",
+              "inference": true,
+              "chapter": 22,
+              "note": "「黄婆」即脾土，居中调和金木（真铅真汞）。"
+            },
+            {
+              "target": "xyj-dan-xinyuan",
+              "target_kind": "imagery",
+              "predicate": "调和",
+              "inference": true,
+              "note": "土调金：每劝悟空，即丹道「土调金」。"
+            },
+            {
+              "target": "xyj-dan-mumu",
+              "target_kind": "imagery",
+              "predicate": "调和",
+              "inference": true,
+              "note": "土调木：每劝八戒，即丹道「土调木」。"
+            }
+          ],
+          "tags": [
+            "丹道意象",
+            "五行-土",
+            "黄婆"
+          ],
+          "summary": "黄婆象征调和金木的脾土，对应沙僧。",
+          "source": "chapters/西游记/022.md",
+          "_entry_id": "西游记/xyj-dan-huangpo"
+        },
+        {
+          "id": "xyj-place-huangfengling",
+          "type": "imagery",
+          "book": "西游记",
+          "subtype": "place_omen",
+          "title": "黄风岭 · 三昧神风",
+          "chapters": [
+            20,
+            21
+          ],
+          "characters": [
+            "唐僧"
+          ],
+          "links": [
+            {
+              "target": "唐僧",
+              "target_kind": "character",
+              "predicate": "隐喻",
+              "inference": true,
+              "chapter": 20,
+              "note": "黄风怪三昧神风吹得天昏地暗、悟空眼伤；喻一阵昏风蔽却自性灵明。"
+            }
+          ],
+          "tags": [
+            "地名隐喻",
+            "黄风岭",
+            "昏蔽"
+          ],
+          "summary": "黄风岭黄风怪施三昧神风，吹昏天地、伤悟空眼；喻邪风一起、自性灵明顿失。",
+          "source": "chapters/西游记/020.md",
+          "_entry_id": "西游记/xyj-place-huangfengling"
+        }
+      ]
+    }
+  }
+}

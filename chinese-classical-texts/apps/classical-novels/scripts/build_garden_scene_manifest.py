@@ -15,6 +15,7 @@ from pathlib import Path
 from _common import DATA_DIR, parse_frontmatter
 
 ROOT = Path(__file__).resolve().parents[1]
+LOC_DIR = ROOT / "src" / "content" / "locations" / "红楼梦"
 OUT = DATA_DIR / "红楼梦.garden_scene_full.json"
 PILOT = DATA_DIR / "红楼梦.garden_scene.json"
 
@@ -30,6 +31,11 @@ SIZE_BY_ZONE: dict[str, tuple[int, int]] = {
 }
 
 PRIORITY = ["仪典", "居所", "亭榭", "水系", "寺观", "路径", "服务"]
+
+GARDEN_LAYOUT_DISCLAIMER = (
+    "坐标属红学 inference（南北中轴说）；第17回游线顺序来自正文。"
+    "院间「步数」为逻辑换算，非测绘尺度，不可与原文丈尺对勘。scan/复原园图不参与落位。"
+)
 
 
 def load_garden_nodes() -> list[dict]:
@@ -49,7 +55,7 @@ def load_garden_nodes() -> list[dict]:
                 "plaque": fm.get("plaque"),
                 "zone": zone,
                 "logical": {"x": int(coord["x"]), "y": int(coord["y"])},
-                "summary": (fm.get("summary") or "")[:120],
+                "summary": (fm.get("summary") or "")[:160],
             }
         )
     nodes.sort(
@@ -69,9 +75,8 @@ def build_manifest() -> dict:
     buildings = []
     for n in nodes:
         w, h = SIZE_BY_ZONE.get(n["zone"], (120, 90))
+        # note 直接用词条 summary（清洁版，不再前缀「匾…」——匾额在 plaque 字段单列）
         note = n["summary"]
-        if n.get("plaque"):
-            note = f"匾「{n['plaque']}」· {note}" if note else f"匾「{n['plaque']}」"
         entry: dict = {
             "id": n["id"],
             "name": n["name"],
@@ -109,10 +114,7 @@ def build_manifest() -> dict:
         "scan_reference": "/honglou/scene/scan-reference.png",
         "px_per_step": 6,
         "coord_basis": "seed_garden_coords",
-        "scale_note": (
-            "建筑位置来自知识库 logical 坐标（seed_garden_coords.py），与 ECharts 地图一致。"
-            "raw/scan 等距参考图仅作视觉风格对照，其内 1–23 号标注方位不可直接采信。"
-        ),
+        "scale_note": GARDEN_LAYOUT_DISCLAIMER,
         "buildings": buildings,
         "npcs": pilot.get("npcs") or [],
         "paths": paths,

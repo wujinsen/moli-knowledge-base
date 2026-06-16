@@ -1,6 +1,8 @@
 import hlmCrosslinks from '../data/hongloumeng.crosslinks.json';
 import jpmCrosslinks from '../data/jinpingmei.crosslinks.json';
 import xyjCrosslinks from '../data/xiyouji.crosslinks.json';
+import { loadEvents } from './loadEvents';
+import { loadTransactions } from './loadTransactions';
 import { loadBookItems, type ItemEntry } from './items';
 
 export type ItemRef = { id: string; name: string; kind: ItemEntry['kind'] };
@@ -132,11 +134,8 @@ export async function relatedTransactionsForCharacter(
   const ids = cl?.occupant_transactions?.[charId];
   if (!ids?.length) return [];
 
-  const { getCollection } = await import('astro:content');
-  const txs = await getCollection('transactions');
-  const byId = new Map(
-    txs.filter((t) => t.data.book === book).map((t) => [t.data.id, t])
-  );
+  const txs = await loadTransactions(book);
+  const byId = new Map(txs.map((t) => [t.data.id, t]));
 
   const out: TransactionRef[] = [];
   for (const id of ids) {
@@ -165,8 +164,7 @@ async function milestoneEventsBy(
   predicate: (ids: string[]) => boolean,
   getIds: (data: { characters: string[]; locations: string[] }) => string[],
 ): Promise<EventRef[]> {
-  const { getCollection } = await import('astro:content');
-  const events = await getCollection('events');
+  const events = await loadEvents(book);
   return events
     .filter(
       (e) =>
@@ -209,10 +207,9 @@ export async function relatedTransactionsForChapter(
   book: string,
   chapter: number
 ): Promise<TransactionRef[]> {
-  const { getCollection } = await import('astro:content');
-  const txs = await getCollection('transactions');
+  const txs = await loadTransactions(book);
   return txs
-    .filter((t) => t.data.book === book && t.data.chapter === chapter)
+    .filter((t) => t.data.chapter === chapter)
     .map((t) => {
       const d = t.data;
       return {
