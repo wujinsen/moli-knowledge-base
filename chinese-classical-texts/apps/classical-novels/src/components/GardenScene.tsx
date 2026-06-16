@@ -7,6 +7,7 @@ import {
   Rectangle,
   Sprite,
   Text,
+  TilingSprite,
   type Texture,
 } from 'pixi.js';
 import { graphTheme } from '../lib/graphTheme';
@@ -54,7 +55,10 @@ export interface GardenSceneData {
   subtitle?: string;
   width: number;
   height: number;
+  /** 旧：整园 AI 大图当画布底图。沙盘模式下不再使用，保留兼容。 */
   background?: string;
+  /** 美术画廊：整园 AI 工笔大图，仅作展示弹窗（方位仅示意）。 */
+  gallery?: string;
   scan_reference?: string;
   px_per_step: number;
   coord_basis?: string;
@@ -86,19 +90,75 @@ const ZONE_FILL: Record<string, number> = {
   服务: 0x596273,
 };
 
-/** 底图模式：不可见点击热区半径（按分区） */
-const HIT_RADIUS: Record<string, number> = {
-  仪典: 38,
-  居所: 32,
-  水系: 24,
-  亭榭: 28,
-  寺观: 26,
-  路径: 18,
-  服务: 20,
-};
+/** 写实等距美术资产（与 daguanyuan-full-bg-scan-style.png 同调；坐标仍用项目数据） */
+const SCENE_ASSETS = {
+  grass: '/honglou/scene/grass.png',
+  water: '/honglou/scene/water.png',
+  trees: '/honglou/scene/trees.png',
+  grandhall: '/honglou/scene/grandhall.png',
+  courtyard: '/honglou/scene/courtyard.png',
+  farmstead: '/honglou/scene/farmstead.png',
+  temple: '/honglou/scene/temple.png',
+  xie: '/honglou/scene/xie.png',
+  pavilion: '/honglou/scene/pavilion.png',
+  bridge: '/honglou/scene/bridge.png',
+  cottage: '/honglou/scene/cottage.png',
+} as const;
+
+type ArchetypeKey =
+  | 'grandhall'
+  | 'courtyard'
+  | 'farmstead'
+  | 'temple'
+  | 'xie'
+  | 'pavilion'
+  | 'bridge'
+  | 'cottage';
+
+/** 按 id/名称/分区为每栋建筑选一个等距 sprite 原型 */
+function archetypeFor(b: { id: string; name: string; zone: string }): ArchetypeKey {
+  const { id, name, zone } = b;
+  if (id === '省亲别墅') return 'grandhall';
+  if (id === '稻香村') return 'farmstead';
+  if (/桥|石梯/.test(name)) return 'bridge';
+  if (/榭|堂|厅|阁/.test(name)) return 'xie';
+  switch (zone) {
+    case '仪典':
+      return 'grandhall';
+    case '居所':
+      return 'courtyard';
+    case '亭榭':
+      return /亭/.test(name) ? 'pavilion' : 'xie';
+    case '水系':
+      if (/亭/.test(name)) return 'pavilion';
+      if (/闸/.test(name)) return 'bridge';
+      if (/坞/.test(name)) return 'cottage';
+      return 'pavilion';
+    case '寺观':
+      return 'temple';
+    case '路径':
+      return 'bridge';
+    case '服务':
+      return 'cottage';
+    default:
+      return 'courtyard';
+  }
+}
 
 function center(b: SceneBuilding) {
   return { x: b.x + b.w / 2, y: b.y + b.h / 2 };
+}
+
+/** 确定性随机（沙盘林木散点用，保证每次构建一致、可复现） */
+function mulberry32(seed: number): () => number {
+  let a = seed >>> 0;
+  return () => {
+    a |= 0;
+    a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
 }
 
 function hexToNum(hex?: string): number | undefined {
@@ -138,6 +198,7 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
   const [sceneError, setSceneError] = useState<string | null>(null);
   const [zoneFilter, setZoneFilter] = useState<string>('all');
   const [scanOpen, setScanOpen] = useState(false);
+  const [galleryOpen, setGalleryOpen] = useState(false);
 
   const graphHeight = 'calc(100dvh - var(--graph-chrome, 10.5rem))';
 
@@ -229,184 +290,186 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
       host.appendChild(app.canvas);
       app.canvas.style.touchAction = 'none';
 
+      try {
       const world = new Container();
       app.stage.addChild(world);
 
-      const baseMapMode = Boolean(scene.background);
+      // 载入写实等距美术资产（sprite + 平铺纹理）
+      const assetUrls = Array.from(new Set(Object.values(SCENE_ASSETS)));
+      const tex = (await Assets.load(assetUrls)) as Record<string, Texture>;
+      if (disposed) return;
 
-      // ---- 背景 ----
-      const bg = new Graphics();
-      bg.rect(0, 0, scene.width, scene.height).fill({ color: 0x141d22 });
-      if (!baseMapMode) {
-        // 无 P0 底图时：矢量占位园界 + 沁芳溪
-        bg.roundRect(20, 20, scene.width - 40, scene.height - 40, 18).fill({ color: 0x20302a });
-        const axis = logicalToScene(400, 300, scene.width, scene.height);
-        bg.moveTo(axis.x - 55, 40);
-        bg.bezierCurveTo(axis.x - 80, 180, axis.x + 70, 320, axis.x + 45, scene.height - 40);
-        bg.lineTo(axis.x - 25, scene.height - 40);
-        bg.bezierCurveTo(axis.x - 50, 320, axis.x + 60, 180, axis.x + 35, 40);
-        bg.closePath();
-        bg.fill({ color: 0x2c5a73, alpha: 0.55 });
+      // ============ 沙盘底（按真坐标，北在上，与 /honglou/map 同源）============
+      const margin = 26;
+      const gX = margin;
+      const gY = margin;
+      const gW = scene.width - margin * 2;
+      const gH = scene.height - margin * 2;
+
+      // 园外暗色林地
+      const outer = new Graphics();
+      outer.rect(0, 0, scene.width, scene.height).fill({ color: 0x0f1519 });
+      outer.roundRect(gX - 18, gY - 18, gW + 36, gH + 36, 30).fill({ color: 0x223524 });
+      world.addChild(outer);
+
+      // 园内草地纹理（圆角裁切）
+      const grassMask = new Graphics().roundRect(gX, gY, gW, gH, 18).fill({ color: 0xffffff });
+      const grass = new TilingSprite({ texture: tex[SCENE_ASSETS.grass], width: gW, height: gH });
+      grass.position.set(gX, gY);
+      grass.tileScale.set(0.42);
+      grass.mask = grassMask;
+      world.addChild(grassMask, grass);
+      // 暖光叠加 + 内描边
+      const grassTone = new Graphics();
+      grassTone.roundRect(gX, gY, gW, gH, 18).fill({ color: 0x2f4a2c, alpha: 0.16 });
+      grassTone.roundRect(gX, gY, gW, gH, 18).stroke({ width: 1, color: 0xb9c79f, alpha: 0.18 });
+      world.addChild(grassTone);
+
+      // 水系：中轴溪 + 主湖（环绕「水系」节点质心），用水面纹理填充
+      const waterNodes = buildings.filter((b) => b.zone === '水系');
+      const axisN = logicalToScene(400, 85, scene.width, scene.height);
+      const axisS = logicalToScene(400, 535, scene.width, scene.height);
+      let lake = logicalToScene(470, 245, scene.width, scene.height);
+      if (waterNodes.length) {
+        lake = {
+          x: waterNodes.reduce((s, b) => s + center(b).x, 0) / waterNodes.length,
+          y: waterNodes.reduce((s, b) => s + center(b).y, 0) / waterNodes.length,
+        };
       }
-      world.addChild(bg);
+      const waterShape = new Graphics();
+      waterShape.moveTo(axisN.x - 24, axisN.y);
+      waterShape.bezierCurveTo(axisN.x - 58, lake.y - 90, lake.x + 30, lake.y + 60, axisS.x + 16, axisS.y);
+      waterShape.lineTo(axisS.x - 22, axisS.y);
+      waterShape.bezierCurveTo(lake.x - 26, lake.y + 70, axisN.x - 86, lake.y - 70, axisN.x - 64, axisN.y);
+      waterShape.closePath();
+      waterShape.fill({ color: 0xffffff });
+      waterShape.ellipse(lake.x, lake.y, 170, 110).fill({ color: 0xffffff });
+      const waterFill = new TilingSprite({ texture: tex[SCENE_ASSETS.water], width: gW, height: gH });
+      waterFill.position.set(gX, gY);
+      waterFill.tileScale.set(0.55);
+      waterFill.mask = waterShape;
+      world.addChild(waterShape, waterFill);
+      // 水岸描边
+      const waterEdge = new Graphics();
+      waterEdge.ellipse(lake.x, lake.y, 170, 110).stroke({ width: 3, color: 0xe2f3ec, alpha: 0.28 });
+      world.addChild(waterEdge);
 
-      // 背景贴图（若存在则覆盖占位）
-      if (scene.background) {
-        Assets.load(scene.background)
-          .then((tex: Texture) => {
-            if (disposed) return;
-            const sp = new Sprite(tex);
-            sp.width = scene.width;
-            sp.height = scene.height;
-            sp.alpha = 1; // P0 底图作为主视觉；方位以逻辑坐标/罗盘为准
-            world.addChildAt(sp, 1);
-          })
-          .catch(() => {
-            /* 占位背景保留 */
-          });
-      }
+      // 园墙（双线）
+      const wall = new Graphics();
+      wall.roundRect(gX, gY, gW, gH, 18).stroke({ width: 7, color: 0x6b5f54 });
+      wall.roundRect(gX, gY, gW, gH, 18).stroke({ width: 2, color: 0x9c8e7d, alpha: 0.7 });
+      world.addChild(wall);
 
-      // ---- 距离连线（无底图时才显示，避免与 P0 视觉叠层） ----
-      if (!baseMapMode) {
-        const lines = new Graphics();
-        world.addChild(lines);
-        for (const p of scene.paths) {
+      // 第17回游线（淡）
+      if (scene.paths.length) {
+        const tline = new Graphics();
+        scene.paths.forEach((p) => {
           const a = buildingById.get(p.from);
           const b = buildingById.get(p.to);
-          if (!a || !b) continue;
+          if (!a || !b) return;
           const ca = center(a);
           const cb = center(b);
-          lines.moveTo(ca.x, ca.y).lineTo(cb.x, cb.y);
-          lines.stroke({ width: 3, color: 0xe0b059, alpha: 0.35 });
-
-          const steps = logicalSteps(a.logical, b.logical, scene.px_per_step);
-          const mid = { x: (ca.x + cb.x) / 2, y: (ca.y + cb.y) / 2 };
-          const tag = new Container();
-          const label = new Text({
-            text: `约 ${steps} 步`,
-            style: {
-              fontFamily: 'Noto Serif SC, serif',
-              fontSize: 16,
-              fill: 0xf4d796,
-              fontWeight: '600',
-            },
-          });
-          label.anchor.set(0.5);
-          const pad = new Graphics();
-          pad
-            .roundRect(-label.width / 2 - 8, -label.height / 2 - 4, label.width + 16, label.height + 8, 6)
-            .fill({ color: 0x0a0608, alpha: 0.78 });
-          tag.addChild(pad, label);
-          tag.position.set(mid.x, mid.y);
-          world.addChild(tag);
-        }
+          tline.moveTo(ca.x, ca.y).lineTo(cb.x, cb.y);
+        });
+        tline.stroke({ width: 2, color: 0xe7c873, alpha: 0.22 });
+        world.addChild(tline);
       }
 
+      // ============ 林木 + 建筑：按 baseY 统一深度排序 ============
+      const labelSize = compactLabels ? 13 : 17;
+      const drawables: Array<{ baseY: number; node: Container }> = [];
+      const labelLayer = new Container();
+
+      // 林木散点（确定性；避开建筑与水面）
+      const rnd = mulberry32(20260616);
+      const treeTex = tex[SCENE_ASSETS.trees];
+      const treeRatio = treeTex.height / treeTex.width;
+      let placed = 0;
+      for (let i = 0; i < 900 && placed < 120; i++) {
+        const tx = gX + 24 + rnd() * (gW - 48);
+        const ty = gY + 24 + rnd() * (gH - 48);
+        const nearBuilding = buildings.some(
+          (b) => Math.hypot(center(b).x - tx, center(b).y - ty) < 50,
+        );
+        const inLake = Math.hypot((lake.x - tx) / 1.6, lake.y - ty) < 108;
+        if (nearBuilding || inLake) continue;
+        const tw = 56 + rnd() * 48;
+        const sp = new Sprite(treeTex);
+        sp.anchor.set(0.5, 0.86);
+        sp.width = tw;
+        sp.height = tw * treeRatio;
+        sp.position.set(tx, ty);
+        const node = new Container();
+        node.addChild(sp);
+        drawables.push({ baseY: ty, node });
+        placed++;
+      }
+
+      // 建筑（真坐标摆等距 sprite）
       for (const b of visibleBuildings) {
+        const ground = logicalToScene(b.logical.x, b.logical.y, scene.width, scene.height);
+        const isSelected = selected?.id === b.id;
         const node = new Container();
         node.eventMode = 'static';
         node.cursor = 'pointer';
-        const isSelected = selected?.id === b.id;
-        const c = center(b);
-        const labelSize = baseMapMode ? (compactLabels ? 12 : 14) : compactLabels ? 13 : 18;
+        node.position.set(ground.x, ground.y);
 
-        if (baseMapMode) {
-          // P0 底图模式：不可见热区 + 院名标签，不叠矢量/sprite 建筑
-          const hitR = HIT_RADIUS[b.zone] ?? 22;
-          node.position.set(c.x, c.y);
-
-          const hit = new Graphics();
-          hit.circle(0, 0, hitR).fill({ color: 0xffffff, alpha: 0.001 });
-          if (isSelected) {
-            hit.circle(0, 0, hitR + 5).stroke({ width: 2.5, color: 0xe0b059, alpha: 0.95 });
-          }
-          node.addChild(hit);
-
-          const nameTag = new Container();
-          const nameText = new Text({
-            text: b.name,
-            style: {
-              fontFamily: 'Noto Serif SC, serif',
-              fontSize: labelSize,
-              fill: isSelected ? 0xf4d796 : 0xfdf6e3,
-              fontWeight: isSelected ? 700 : 600,
-            },
-          });
-          nameText.anchor.set(0.5, 0);
-          const nameBg = new Graphics();
-          nameBg
-            .roundRect(-nameText.width / 2 - 8, -3, nameText.width + 16, nameText.height + 6, 5)
-            .fill({ color: 0x0a0608, alpha: isSelected ? 0.82 : 0.62 });
-          nameTag.addChild(nameBg, nameText);
-          nameTag.position.set(0, hitR + 4);
-          node.addChild(nameTag);
-        } else {
-          node.position.set(b.x, b.y);
-
-          const drawPlaceholderBuilding = () => {
-            const g = new Graphics();
-            const fill = ZONE_FILL[b.zone] ?? 0x8a6f4a;
-            g.roundRect(0, b.h * 0.55, b.w, b.h * 0.45, 4).fill({ color: 0xcdbf9e, alpha: 0.95 });
-            g.roundRect(b.w * 0.08, b.h * 0.32, b.w * 0.84, b.h * 0.3, 3).fill({ color: 0xeae3d2 });
-            g.rect(b.w * 0.12, b.h * 0.32, b.w * 0.04, b.h * 0.3).fill({ color: 0x7a3b2e });
-            g.rect(b.w * 0.84, b.h * 0.32, b.w * 0.04, b.h * 0.3).fill({ color: 0x7a3b2e });
-            g.moveTo(-b.w * 0.1, b.h * 0.34);
-            g.lineTo(b.w * 1.1, b.h * 0.34);
-            g.lineTo(b.w * 0.78, 0);
-            g.lineTo(b.w * 0.22, 0);
-            g.closePath();
-            g.fill({ color: fill });
-            g.roundRect(b.w * 0.22, -6, b.w * 0.56, 8, 4).fill({ color: 0x2c2420 });
-            return g;
-          };
-
-          const placeholder = drawPlaceholderBuilding();
-          node.addChild(placeholder);
-
-          const nameTag = new Container();
-          const nameText = new Text({
-            text: b.name,
-            style: {
-              fontFamily: 'Noto Serif SC, serif',
-              fontSize: labelSize,
-              fill: 0xfdf6e3,
-              fontWeight: '700',
-            },
-          });
-          nameText.anchor.set(0.5, 0);
-          const nameBg = new Graphics();
-          nameBg
-            .roundRect(-nameText.width / 2 - 10, -4, nameText.width + 20, nameText.height + 8, 6)
-            .fill({ color: 0x0a0608, alpha: 0.7 });
-          nameTag.addChild(nameBg, nameText);
-          nameTag.position.set(b.w / 2, b.h + 6);
-          node.addChild(nameTag);
-
-          if (b.sprite) {
-            Assets.load(b.sprite)
-              .then((tex: Texture) => {
-                if (disposed) return;
-                const sp = new Sprite(tex);
-                const ratio = tex.height / tex.width;
-                sp.width = b.w;
-                sp.height = b.w * ratio;
-                sp.x = 0;
-                sp.y = b.h - sp.height;
-                node.removeChild(placeholder);
-                node.addChildAt(sp, 0);
-              })
-              .catch(() => {
-                /* 占位建筑保留 */
-              });
-          }
+        if (isSelected) {
+          const ring = new Graphics();
+          ring.ellipse(0, 0, b.w * 0.6, b.h * 0.3).fill({ color: 0xf4d796, alpha: 0.16 });
+          ring.ellipse(0, 0, b.w * 0.6, b.h * 0.3).stroke({ width: 2.5, color: 0xf4d796, alpha: 0.85 });
+          node.addChild(ring);
         }
+
+        const archTex = tex[SCENE_ASSETS[archetypeFor(b)]];
+        let dispW = b.w * 1.2;
+        let dispH = b.h;
+        if (archTex) {
+          const ratio = archTex.height / archTex.width;
+          dispH = dispW * ratio;
+          const sp = new Sprite(archTex);
+          sp.anchor.set(0.5, 0.9);
+          sp.width = dispW;
+          sp.height = dispH;
+          node.addChild(sp);
+        } else {
+          const g = new Graphics();
+          g.roundRect(-b.w / 2, -b.h, b.w, b.h, 6).fill({ color: ZONE_FILL[b.zone] ?? 0x8a6f4a });
+          node.addChild(g);
+        }
+        node.hitArea = new Rectangle(-dispW / 2, -dispH * 0.9, dispW, dispH);
 
         node.on('pointertap', () => {
           setSelected(b);
           setDialogue(null);
         });
-        world.addChild(node);
+        drawables.push({ baseY: ground.y, node });
+
+        // 名称标签（统一置顶层，避免被南侧建筑遮挡）
+        const nameText = new Text({
+          text: b.name,
+          style: {
+            fontFamily: 'Noto Serif SC, serif',
+            fontSize: labelSize,
+            fill: isSelected ? 0xf4d796 : 0xfdf6e3,
+            fontWeight: isSelected ? 700 : 600,
+          },
+        });
+        nameText.anchor.set(0.5, 0);
+        const nameBg = new Graphics();
+        nameBg
+          .roundRect(-nameText.width / 2 - 8, -3, nameText.width + 16, nameText.height + 6, 5)
+          .fill({ color: isSelected ? 0x1a120d : 0x16110e, alpha: isSelected ? 0.8 : 0.52 })
+          .stroke({ width: 1, color: 0xc5b08f, alpha: isSelected ? 0.65 : 0.3 });
+        const nameTag = new Container();
+        nameTag.addChild(nameBg, nameText);
+        nameTag.position.set(ground.x, ground.y + 8);
+        labelLayer.addChild(nameTag);
       }
+
+      drawables.sort((a, b) => a.baseY - b.baseY);
+      for (const d of drawables) world.addChild(d.node);
+      world.addChild(labelLayer);
 
       // ---- NPC ----
       for (const n of npcs) {
@@ -531,6 +594,11 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
 
       // 暴露 reset
       (app as unknown as { _fit?: () => void })._fit = fit;
+      } catch (e) {
+        if (!disposed) {
+          setSceneError(e instanceof Error ? e.message : '沙盘渲染失败');
+        }
+      }
     })();
 
     return () => {
@@ -621,6 +689,15 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
               ))}
             </select>
           </label>
+        )}
+        {scene.gallery && (
+          <button
+            type="button"
+            onClick={() => setGalleryOpen(true)}
+            className="rounded-lg border border-white/10 bg-slate-900/80 px-3.5 py-2 text-sm font-medium text-slate-200 backdrop-blur-sm hover:border-white/25 hover:text-white"
+          >
+            美术画廊
+          </button>
         )}
         {scene.scan_reference && (
           <button
@@ -720,6 +797,43 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
         </div>
         <span className="mt-1 text-[10px] text-slate-500">南北中轴说 · inference</span>
       </div>
+
+      {/* 美术画廊：整园 AI 工笔大图（方位仅示意，非交互层） */}
+      {galleryOpen && scene.gallery && (
+        <div
+          className="absolute inset-0 z-20 flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-label="大观园美术画廊"
+        >
+          <div className="relative max-h-[92vh] w-[min(96vw,1100px)] overflow-auto rounded-xl border border-white/15 bg-slate-900/95 p-4 shadow-2xl">
+            <div className="mb-3 flex items-start justify-between gap-3">
+              <div>
+                <div className="text-lg font-bold text-slate-100">大观园 · 美术画廊</div>
+                <p className="mt-1 text-sm leading-relaxed text-slate-400">
+                  整园工笔风格大图，仅作美术欣赏；方位与距离以左侧沙盘 /{' '}
+                  <a href="/honglou/map" className="underline decoration-dotted underline-offset-2 text-amber-200/90">
+                    2D 地图
+                  </a>{' '}
+                  为准，勿按此图理解方位。
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setGalleryOpen(false)}
+                className="shrink-0 text-sm text-slate-400 hover:text-white"
+              >
+                关闭
+              </button>
+            </div>
+            <img
+              src={scene.gallery}
+              alt="大观园整园美术大图（方位仅示意）"
+              className="mx-auto max-w-full rounded-lg border border-white/10"
+            />
+          </div>
+        </div>
+      )}
 
       {/* scan 等距参考图（方位不可采信，仅视觉对照） */}
       {scanOpen && scene.scan_reference && (

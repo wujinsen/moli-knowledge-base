@@ -106,7 +106,7 @@ def build_manifest() -> dict:
         "subtitle": f"共 {len(buildings)} 处 · 坐标同源 /honglou/map · 非 scan 图方位",
         "width": 1680,
         "height": 980,
-        "background": "/honglou/scene/garden-bg.png",
+        "gallery": "/honglou/daguanyuan-full-bg-scan-style.png",
         "scan_reference": "/honglou/scene/scan-reference.png",
         "px_per_step": 6,
         "coord_basis": "seed_garden_coords",

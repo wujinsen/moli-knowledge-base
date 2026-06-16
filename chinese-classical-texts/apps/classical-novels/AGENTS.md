@@ -193,7 +193,11 @@ summary: 一句话说明本页价值
 运行 `python scripts/trust_guard.py <书>`，双层校验：
 
 - **form（形式）**：frontmatter 字段合规（Astro 构建期 Zod 已强校验）。
-- **content（内容）**：每条带出处的关系 / 情节，回原文核对确有佐证；
+- **content（内容）**：
+  - `first_appear` 回目原文是否出现人物名（含 `CHARACTER_EXTRA_ANCHORS` 别称）
+  - `## 关键情节` 各条是否在标注回目命中锚词（含人物弱校验 fallback）
+  - `relations` 逐边：在情节回目 / `first_appear` 回目或全书回扫中双方是否同现
+  - `transactions/`：`amount_normalized` 与 `source`（金瓶梅）
   查不到的标 `unverified` 并报告，不得凭空编造。
 
 ---
