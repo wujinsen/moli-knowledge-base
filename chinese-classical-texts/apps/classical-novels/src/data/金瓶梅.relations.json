@@ -23,6 +23,13 @@
       "ximen_proximity": "利益交换"
     },
     {
+      "id": "云理守",
+      "type": "character",
+      "faction": "济南",
+      "weight": 20,
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "何九",
       "type": "character",
       "faction": "清河市井",
@@ -296,6 +303,13 @@
       "ximen_proximity": "雇佣"
     },
     {
+      "id": "来兴儿",
+      "type": "character",
+      "faction": "西门府",
+      "weight": 14,
+      "ximen_proximity": "雇佣"
+    },
+    {
       "id": "来旺",
       "type": "character",
       "faction": "西门府",
@@ -527,6 +541,13 @@
       "ximen_proximity": "利益交换"
     },
     {
+      "id": "苗天秀",
+      "type": "character",
+      "faction": "扬州",
+      "weight": 18,
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "苗青",
       "type": "character",
       "faction": "商贾",
@@ -616,6 +637,13 @@
       "faction": "勾栏",
       "weight": 22,
       "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "陆秉义",
+      "type": "character",
+      "faction": "临清",
+      "weight": 16,
+      "ximen_proximity": "外人"
     },
     {
       "id": "陈洪",
@@ -838,6 +866,30 @@
       "contradiction": false
     },
     {
+      "source": "云理守",
+      "target": "西门庆",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "云理守",
+      "target": "吴月娘",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "云理守",
+      "target": "乔大户",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "云理守",
+      "target": "玳安",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "何九",
       "target": "武松",
       "type": "朋友",
@@ -869,14 +921,14 @@
     },
     {
       "source": "保儿",
-      "target": "西门庆",
+      "target": "应伯爵",
       "type": "朋友",
       "contradiction": false
     },
     {
       "source": "保儿",
-      "target": "应伯爵",
-      "type": "朋友",
+      "target": "西门庆",
+      "type": "帮闲",
       "contradiction": false
     },
     {
@@ -1984,6 +2036,24 @@
       "contradiction": false
     },
     {
+      "source": "来兴儿",
+      "target": "西门庆",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "来兴儿",
+      "target": "吴月娘",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "来兴儿",
+      "target": "官哥儿",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "来旺",
       "target": "西门庆",
       "type": "主仆",
@@ -2022,6 +2092,12 @@
     {
       "source": "杨光彦",
       "target": "陈经济",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "杨光彦",
+      "target": "陆秉义",
       "type": "敌对",
       "contradiction": false
     },
@@ -2608,6 +2684,24 @@
       "contradiction": false
     },
     {
+      "source": "苗天秀",
+      "target": "苗青",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "苗天秀",
+      "target": "安童",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "苗天秀",
+      "target": "西门庆",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "苗青",
       "target": "西门庆",
       "type": "朋友",
@@ -2626,9 +2720,15 @@
       "contradiction": false
     },
     {
+      "source": "苗青",
+      "target": "苗天秀",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "荣娇儿",
       "target": "秦玉芝",
-      "type": "嫉妒",
+      "type": "敌对",
       "contradiction": false
     },
     {
@@ -2977,6 +3077,18 @@
       "source": "郑爱香",
       "target": "西门庆",
       "type": "情人",
+      "contradiction": false
+    },
+    {
+      "source": "陆秉义",
+      "target": "陈经济",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "陆秉义",
+      "target": "庞春梅",
+      "type": "朋友",
       "contradiction": false
     },
     {
