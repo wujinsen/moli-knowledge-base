@@ -89,7 +89,7 @@
       "id": "周守备",
       "type": "character",
       "faction": "官场",
-      "weight": 30,
+      "weight": 34,
       "ximen_proximity": "利益交换"
     },
     {
@@ -117,7 +117,7 @@
       "id": "如意儿",
       "type": "character",
       "faction": "西门府",
-      "weight": 26,
+      "weight": 28,
       "ximen_proximity": "雇佣"
     },
     {
@@ -166,7 +166,7 @@
       "id": "官哥儿",
       "type": "character",
       "faction": "西门府",
-      "weight": 34,
+      "weight": 36,
       "ximen_proximity": "亲缘"
     },
     {
@@ -175,6 +175,13 @@
       "faction": "帮闲圈",
       "weight": 18,
       "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "崔本",
+      "type": "character",
+      "faction": "商贾",
+      "weight": 22,
+      "ximen_proximity": "雇佣"
     },
     {
       "id": "常峙节",
@@ -201,7 +208,7 @@
       "id": "张大户",
       "type": "character",
       "faction": "清河市井",
-      "weight": 22,
+      "weight": 24,
       "ximen_proximity": "外人"
     },
     {
@@ -250,7 +257,7 @@
       "id": "来旺",
       "type": "character",
       "faction": "西门府",
-      "weight": 26,
+      "weight": 32,
       "ximen_proximity": "雇佣"
     },
     {
@@ -425,7 +432,7 @@
       "id": "翟管家",
       "type": "character",
       "faction": "帮闲圈",
-      "weight": 32,
+      "weight": 34,
       "ximen_proximity": "利益交换"
     },
     {
@@ -457,6 +464,13 @@
       "ximen_proximity": "利益交换"
     },
     {
+      "id": "苗青",
+      "type": "character",
+      "faction": "商贾",
+      "weight": 28,
+      "ximen_proximity": "利益交换"
+    },
+    {
       "id": "荣娇儿",
       "type": "character",
       "faction": "勾栏",
@@ -474,14 +488,14 @@
       "id": "蔡京",
       "type": "character",
       "faction": "朝廷",
-      "weight": 32,
+      "weight": 36,
       "ximen_proximity": "外人"
     },
     {
       "id": "蔡御史",
       "type": "character",
       "faction": "官场",
-      "weight": 32,
+      "weight": 34,
       "ximen_proximity": "利益交换"
     },
     {
@@ -579,7 +593,7 @@
       "id": "黄四",
       "type": "character",
       "faction": "商贾",
-      "weight": 22,
+      "weight": 24,
       "ximen_proximity": "利益交换"
     },
     {
@@ -1036,6 +1050,24 @@
       "contradiction": false
     },
     {
+      "source": "周守备",
+      "target": "吴月娘",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "周守备",
+      "target": "夏提刑",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "周守备",
+      "target": "陈经济",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "周肖儿",
       "target": "李桂姐",
       "type": "朋友",
@@ -1057,6 +1089,24 @@
       "source": "夏提刑",
       "target": "西门庆",
       "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "夏提刑",
+      "target": "蔡京",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "夏提刑",
+      "target": "翟管家",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "夏提刑",
+      "target": "苗青",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -1085,8 +1135,20 @@
     },
     {
       "source": "如意儿",
+      "target": "官哥儿",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "如意儿",
       "target": "西门庆",
       "type": "情人",
+      "contradiction": false
+    },
+    {
+      "source": "如意儿",
+      "target": "潘金莲",
+      "type": "敌对",
       "contradiction": false
     },
     {
@@ -1147,6 +1209,12 @@
       "source": "孙雪娥",
       "target": "潘金莲",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙雪娥",
+      "target": "来旺",
+      "type": "情人",
       "contradiction": false
     },
     {
@@ -1222,6 +1290,18 @@
       "contradiction": false
     },
     {
+      "source": "官哥儿",
+      "target": "潘金莲",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "官哥儿",
+      "target": "如意儿",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "小张闲",
       "target": "西门庆",
       "type": "敌对",
@@ -1278,6 +1358,42 @@
     {
       "source": "小张闲",
       "target": "李桂姐",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "崔本",
+      "target": "西门庆",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "崔本",
+      "target": "韩道国",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "崔本",
+      "target": "来保",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "崔本",
+      "target": "乔大户",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "崔本",
+      "target": "苗青",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "崔本",
+      "target": "楚云",
       "type": "朋友",
       "contradiction": false
     },
@@ -1408,6 +1524,12 @@
       "contradiction": false
     },
     {
+      "source": "张大户",
+      "target": "西门庆",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "文嫂",
       "target": "西门庆",
       "type": "帮闲",
@@ -1459,6 +1581,12 @@
       "source": "李智",
       "target": "西门庆",
       "type": "借贷",
+      "contradiction": false
+    },
+    {
+      "source": "李智",
+      "target": "黄四",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -1594,9 +1722,39 @@
       "contradiction": false
     },
     {
+      "source": "来保",
+      "target": "苗青",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "来保",
+      "target": "吴月娘",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "来旺",
       "target": "西门庆",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "来旺",
+      "target": "潘金莲",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "来旺",
+      "target": "吴月娘",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "来旺",
+      "target": "来昭",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -1633,6 +1791,12 @@
       "source": "楚云",
       "target": "西门庆",
       "type": "情人",
+      "contradiction": false
+    },
+    {
+      "source": "楚云",
+      "target": "苗青",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -1836,6 +2000,12 @@
     {
       "source": "王六儿",
       "target": "申二姐",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "王六儿",
+      "target": "苗青",
       "type": "朋友",
       "contradiction": false
     },
@@ -2045,6 +2215,12 @@
     },
     {
       "source": "翟管家",
+      "target": "蔡御史",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "翟管家",
       "target": "版本-认干礼百两",
       "type": "矛盾",
       "contradiction": true
@@ -2110,6 +2286,30 @@
       "contradiction": false
     },
     {
+      "source": "苗青",
+      "target": "西门庆",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "苗青",
+      "target": "韩道国",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "苗青",
+      "target": "蔡御史",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "苗青",
+      "target": "安童",
+      "type": "仇敌",
+      "contradiction": false
+    },
+    {
       "source": "荣娇儿",
       "target": "秦玉芝",
       "type": "嫉妒",
@@ -2155,6 +2355,12 @@
       "source": "蔡京",
       "target": "翟管家",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "蔡京",
+      "target": "蔡御史",
+      "type": "师徒",
       "contradiction": false
     },
     {
@@ -2251,6 +2457,12 @@
       "source": "西门庆",
       "target": "韩道国",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "西门庆",
+      "target": "来保",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -2376,7 +2588,13 @@
     {
       "source": "谢希大",
       "target": "西门庆",
-      "type": "帮闲",
+      "type": "结拜",
+      "contradiction": false
+    },
+    {
+      "source": "谢希大",
+      "target": "花子虚",
+      "type": "结拜",
       "contradiction": false
     },
     {
@@ -2519,14 +2737,14 @@
     },
     {
       "source": "黄四",
-      "target": "李智",
-      "type": "朋友",
+      "target": "西门庆",
+      "type": "借贷",
       "contradiction": false
     },
     {
       "source": "黄四",
-      "target": "西门庆",
-      "type": "借贷",
+      "target": "应伯爵",
+      "type": "朋友",
       "contradiction": false
     },
     {

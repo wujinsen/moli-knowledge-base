@@ -24,9 +24,10 @@ const liveCount = entries.filter((e) => e.status === 'live').length;
   bookSlug={meta.slug}
   bookName={meta.book}
   features={meta.features}
+  moduleKey="maps"
   moduleLabel="空间地图"
 >
-  <div class="mx-auto max-w-3xl px-4 py-10">
+  <div class="mx-auto max-w-6xl px-4 py-10">
     <p class="mb-8 text-sm leading-relaxed text-slate-400">
       逻辑拓扑示意（非测绘定稿）。各子地图独立维护坐标与导览线；后续都外、王府等图层在此汇总，不再占用顶栏位。
     </p>

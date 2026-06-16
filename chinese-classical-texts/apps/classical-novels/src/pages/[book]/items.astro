@@ -37,7 +37,7 @@ const activeSections = sections.filter(({ key }) => grouped[key].length > 0);
 ---
 
 <Base title={`${meta.book} · ${indexTitle}`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
-  <p slot="module-extra" class="mt-2 text-sm text-muted">
+  <p slot="module-extra" class="mt-2 text-sm text-muted" data-i18n-items-extra={items.length}>
     {
       isXiyouji
         ? `兵器、容器、符咒类法宝实体（共 ${items.length} 条）`
@@ -47,6 +47,9 @@ const activeSections = sections.filter(({ key }) => grouped[key].length > 0);
 
   <div class="content-page catalog-fold-page">
     {activeSections.length > 0 && <CatalogFoldBar label="名物分类" />}
+    <p class="mb-4 text-sm" style="color: var(--seal)" data-i18n-fold-hint data-i18n="ui.itemsFoldHint" hidden>
+      分类已折叠 — 点击「全部展开」查看名物卡片
+    </p>
 
     <nav class="mb-6 flex flex-wrap gap-2 text-sm">
       {
@@ -79,7 +82,7 @@ const activeSections = sections.filter(({ key }) => grouped[key].length > 0);
 
     {
       items.length === 0 && (
-        <p class="text-sm text-muted">
+        <p class="text-sm text-muted" data-i18n="ui.itemsEmpty">
           {isXiyouji ? '本书暂无法宝实体页。' : '本书暂无名物实体页。'}
         </p>
       )

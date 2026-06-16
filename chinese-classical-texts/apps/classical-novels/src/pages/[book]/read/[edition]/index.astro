@@ -1,5 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
 import { getBooks } from '../../../../lib/getBooks';
 import Base from '../../../../layouts/Base.astro';
 import EditionTabs from '../../../../components/EditionTabs.astro';
@@ -14,6 +13,7 @@ import {
   readIndexPath,
   ZHIBEN_MAX,
 } from '../../../../lib/editions';
+import { loadChapterList, type ChapterLite } from '../../../../lib/loadChapters';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -26,13 +26,11 @@ export async function getStaticPaths() {
     const slug = honglou.data.slug;
     const book = honglou.data.book;
     const total = honglou.data.chapter_count;
-    const chapters = (await getCollection('chapters'))
-      .filter((c) => c.data.book === book)
-      .sort((a, b) => a.data.number - b.data.number);
+    const allChapters = await loadChapterList(book);
 
-    const byEdition = new Map<string, typeof chapters>();
-    for (const c of chapters) {
-      const ed = c.data.edition ?? DEFAULT_EDITION;
+    const byEdition = new Map<string, ChapterLite[]>();
+    for (const c of allChapters) {
+      const ed = c.edition ?? DEFAULT_EDITION;
       const edSlug = editionSlug(ed);
       if (!editionFromSlug(edSlug)) continue;
       if (!byEdition.has(ed)) byEdition.set(ed, []);
@@ -48,7 +46,7 @@ export async function getStaticPaths() {
           slug,
           book,
           editionName,
-          chapters: list.filter((c) => c.data.number <= max),
+          chapters: list.filter((c) => c.number <= max),
           total,
         },
       });
@@ -62,7 +60,7 @@ const { slug, book, editionName, chapters, total } = Astro.props as {
   slug: string;
   book: string;
   editionName: string;
-  chapters: Awaited<ReturnType<typeof getCollection<'chapters'>>>;
+  chapters: ChapterLite[];
   total: number;
 };
 
@@ -94,8 +92,8 @@ const max = maxChapterForEdition(book, editionName, total);
   {
     first && (
       <div class="mb-8">
-        <a href={readChapterPath(slug, book, first.data.number, editionName)} class="btn btn-primary">
-          开始阅读 · 第{first.data.number}回
+        <a href={readChapterPath(slug, book, first.number, editionName)} class="btn btn-primary">
+          开始阅读 · 第{first.number}回
         </a>
       </div>
     )
@@ -109,13 +107,13 @@ const max = maxChapterForEdition(book, editionName, total);
       chapters.map((c) => (
         <li>
           <a
-            href={`/${slug}/read/${edSlug}/${c.data.number}`}
+            href={`/${slug}/read/${edSlug}/${c.number}`}
             class="flex items-baseline gap-2 rounded px-2.5 py-1.5 text-sm transition hover:bg-[color-mix(in_srgb,var(--primary)_8%,transparent)]"
           >
             <span class="brand shrink-0 text-xs" style="color: var(--primary)">
-              {String(c.data.number).padStart(3, '0')}
+              {String(c.number).padStart(3, '0')}
             </span>
-            <span class="truncate" style="color: var(--ink)">{c.data.title}</span>
+            <span class="truncate" style="color: var(--ink)">{c.title}</span>
           </a>
         </li>
       ))

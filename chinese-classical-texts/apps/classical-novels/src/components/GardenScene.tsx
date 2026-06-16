@@ -86,6 +86,17 @@ const ZONE_FILL: Record<string, number> = {
   服务: 0x596273,
 };
 
+/** 底图模式：不可见点击热区半径（按分区） */
+const HIT_RADIUS: Record<string, number> = {
+  仪典: 38,
+  居所: 32,
+  水系: 24,
+  亭榭: 28,
+  寺观: 26,
+  路径: 18,
+  服务: 20,
+};
+
 function center(b: SceneBuilding) {
   return { x: b.x + b.w / 2, y: b.y + b.h / 2 };
 }
@@ -221,19 +232,22 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
       const world = new Container();
       app.stage.addChild(world);
 
+      const baseMapMode = Boolean(scene.background);
+
       // ---- 背景 ----
       const bg = new Graphics();
       bg.rect(0, 0, scene.width, scene.height).fill({ color: 0x141d22 });
-      // 园地暖色块
-      bg.roundRect(20, 20, scene.width - 40, scene.height - 40, 18).fill({ color: 0x20302a });
-      // 沁芳溪：沿逻辑中轴（北→南），与 /honglou/map 水系一致
-      const axis = logicalToScene(400, 300, scene.width, scene.height);
-      bg.moveTo(axis.x - 55, 40);
-      bg.bezierCurveTo(axis.x - 80, 180, axis.x + 70, 320, axis.x + 45, scene.height - 40);
-      bg.lineTo(axis.x - 25, scene.height - 40);
-      bg.bezierCurveTo(axis.x - 50, 320, axis.x + 60, 180, axis.x + 35, 40);
-      bg.closePath();
-      bg.fill({ color: 0x2c5a73, alpha: 0.55 });
+      if (!baseMapMode) {
+        // 无 P0 底图时：矢量占位园界 + 沁芳溪
+        bg.roundRect(20, 20, scene.width - 40, scene.height - 40, 18).fill({ color: 0x20302a });
+        const axis = logicalToScene(400, 300, scene.width, scene.height);
+        bg.moveTo(axis.x - 55, 40);
+        bg.bezierCurveTo(axis.x - 80, 180, axis.x + 70, 320, axis.x + 45, scene.height - 40);
+        bg.lineTo(axis.x - 25, scene.height - 40);
+        bg.bezierCurveTo(axis.x - 50, 320, axis.x + 60, 180, axis.x + 35, 40);
+        bg.closePath();
+        bg.fill({ color: 0x2c5a73, alpha: 0.55 });
+      }
       world.addChild(bg);
 
       // 背景贴图（若存在则覆盖占位）
@@ -252,109 +266,139 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
           });
       }
 
-      // ---- 距离连线 ----
-      const lines = new Graphics();
-      world.addChild(lines);
-      for (const p of scene.paths) {
-        const a = buildingById.get(p.from);
-        const b = buildingById.get(p.to);
-        if (!a || !b) continue;
-        const ca = center(a);
-        const cb = center(b);
-        lines.moveTo(ca.x, ca.y).lineTo(cb.x, cb.y);
-        lines.stroke({ width: 3, color: 0xe0b059, alpha: 0.35 });
+      // ---- 距离连线（无底图时才显示，避免与 P0 视觉叠层） ----
+      if (!baseMapMode) {
+        const lines = new Graphics();
+        world.addChild(lines);
+        for (const p of scene.paths) {
+          const a = buildingById.get(p.from);
+          const b = buildingById.get(p.to);
+          if (!a || !b) continue;
+          const ca = center(a);
+          const cb = center(b);
+          lines.moveTo(ca.x, ca.y).lineTo(cb.x, cb.y);
+          lines.stroke({ width: 3, color: 0xe0b059, alpha: 0.35 });
 
-        const steps = logicalSteps(a.logical, b.logical, scene.px_per_step);
-        const mid = { x: (ca.x + cb.x) / 2, y: (ca.y + cb.y) / 2 };
-        const tag = new Container();
-        const label = new Text({
-          text: `约 ${steps} 步`,
-          style: {
-            fontFamily: 'Noto Serif SC, serif',
-            fontSize: 16,
-            fill: 0xf4d796,
-            fontWeight: '600',
-          },
-        });
-        label.anchor.set(0.5);
-        const pad = new Graphics();
-        pad
-          .roundRect(-label.width / 2 - 8, -label.height / 2 - 4, label.width + 16, label.height + 8, 6)
-          .fill({ color: 0x0a0608, alpha: 0.78 });
-        tag.addChild(pad, label);
-        tag.position.set(mid.x, mid.y);
-        world.addChild(tag);
+          const steps = logicalSteps(a.logical, b.logical, scene.px_per_step);
+          const mid = { x: (ca.x + cb.x) / 2, y: (ca.y + cb.y) / 2 };
+          const tag = new Container();
+          const label = new Text({
+            text: `约 ${steps} 步`,
+            style: {
+              fontFamily: 'Noto Serif SC, serif',
+              fontSize: 16,
+              fill: 0xf4d796,
+              fontWeight: '600',
+            },
+          });
+          label.anchor.set(0.5);
+          const pad = new Graphics();
+          pad
+            .roundRect(-label.width / 2 - 8, -label.height / 2 - 4, label.width + 16, label.height + 8, 6)
+            .fill({ color: 0x0a0608, alpha: 0.78 });
+          tag.addChild(pad, label);
+          tag.position.set(mid.x, mid.y);
+          world.addChild(tag);
+        }
       }
-
-      // ---- 建筑 ----
-      const drawPlaceholderBuilding = (b: SceneBuilding) => {
-        const g = new Graphics();
-        g.alpha = scene.background ? 0.42 : 1;
-        const fill = ZONE_FILL[b.zone] ?? 0x8a6f4a;
-        // 台基
-        g.roundRect(0, b.h * 0.55, b.w, b.h * 0.45, 4).fill({ color: 0xcdbf9e, alpha: 0.95 });
-        // 墙身
-        g.roundRect(b.w * 0.08, b.h * 0.32, b.w * 0.84, b.h * 0.3, 3).fill({ color: 0xeae3d2 });
-        // 立柱
-        g.rect(b.w * 0.12, b.h * 0.32, b.w * 0.04, b.h * 0.3).fill({ color: 0x7a3b2e });
-        g.rect(b.w * 0.84, b.h * 0.32, b.w * 0.04, b.h * 0.3).fill({ color: 0x7a3b2e });
-        // 歇山屋顶 + 飞檐
-        g.moveTo(-b.w * 0.1, b.h * 0.34);
-        g.lineTo(b.w * 1.1, b.h * 0.34);
-        g.lineTo(b.w * 0.78, 0);
-        g.lineTo(b.w * 0.22, 0);
-        g.closePath();
-        g.fill({ color: fill });
-        // 屋脊
-        g.roundRect(b.w * 0.22, -6, b.w * 0.56, 8, 4).fill({ color: 0x2c2420 });
-        return g;
-      };
 
       for (const b of visibleBuildings) {
         const node = new Container();
-        node.position.set(b.x, b.y);
         node.eventMode = 'static';
         node.cursor = 'pointer';
+        const isSelected = selected?.id === b.id;
+        const c = center(b);
+        const labelSize = baseMapMode ? (compactLabels ? 12 : 14) : compactLabels ? 13 : 18;
 
-        const placeholder = drawPlaceholderBuilding(b);
-        node.addChild(placeholder);
+        if (baseMapMode) {
+          // P0 底图模式：不可见热区 + 院名标签，不叠矢量/sprite 建筑
+          const hitR = HIT_RADIUS[b.zone] ?? 22;
+          node.position.set(c.x, c.y);
 
-        // 名称（全园模式仅显示院名，匾在侧栏）
-        const nameTag = new Container();
-        const nameText = new Text({
-          text: b.name,
-          style: {
-            fontFamily: 'Noto Serif SC, serif',
-            fontSize: compactLabels ? 13 : 18,
-            fill: 0xfdf6e3,
-            fontWeight: '700',
-          },
-        });
-        nameText.anchor.set(0.5, 0);
-        const nameBg = new Graphics();
-        nameBg
-          .roundRect(-nameText.width / 2 - 10, -4, nameText.width + 20, nameText.height + 8, 6)
-          .fill({ color: 0x0a0608, alpha: scene.background ? 0.52 : 0.7 });
-        nameTag.addChild(nameBg, nameText);
-        nameTag.position.set(b.w / 2, b.h + 6);
-        node.addChild(nameTag);
+          const hit = new Graphics();
+          hit.circle(0, 0, hitR).fill({ color: 0xffffff, alpha: 0.001 });
+          if (isSelected) {
+            hit.circle(0, 0, hitR + 5).stroke({ width: 2.5, color: 0xe0b059, alpha: 0.95 });
+          }
+          node.addChild(hit);
 
-        if (b.sprite) {
-          Assets.load(b.sprite)
-            .then((tex: Texture) => {
-              if (disposed) return;
-              const sp = new Sprite(tex);
-              const ratio = tex.height / tex.width;
-              sp.width = b.w;
-              sp.height = b.w * ratio;
-              sp.x = 0;
-              sp.y = b.h - sp.height;
-              node.removeChild(placeholder);
-              node.addChildAt(sp, 0);
-            })
-            .catch(() => {
-              /* 占位建筑保留 */
-            });
+          const nameTag = new Container();
+          const nameText = new Text({
+            text: b.name,
+            style: {
+              fontFamily: 'Noto Serif SC, serif',
+              fontSize: labelSize,
+              fill: isSelected ? 0xf4d796 : 0xfdf6e3,
+              fontWeight: isSelected ? 700 : 600,
+            },
+          });
+          nameText.anchor.set(0.5, 0);
+          const nameBg = new Graphics();
+          nameBg
+            .roundRect(-nameText.width / 2 - 8, -3, nameText.width + 16, nameText.height + 6, 5)
+            .fill({ color: 0x0a0608, alpha: isSelected ? 0.82 : 0.62 });
+          nameTag.addChild(nameBg, nameText);
+          nameTag.position.set(0, hitR + 4);
+          node.addChild(nameTag);
+        } else {
+          node.position.set(b.x, b.y);
+
+          const drawPlaceholderBuilding = () => {
+            const g = new Graphics();
+            const fill = ZONE_FILL[b.zone] ?? 0x8a6f4a;
+            g.roundRect(0, b.h * 0.55, b.w, b.h * 0.45, 4).fill({ color: 0xcdbf9e, alpha: 0.95 });
+            g.roundRect(b.w * 0.08, b.h * 0.32, b.w * 0.84, b.h * 0.3, 3).fill({ color: 0xeae3d2 });
+            g.rect(b.w * 0.12, b.h * 0.32, b.w * 0.04, b.h * 0.3).fill({ color: 0x7a3b2e });
+            g.rect(b.w * 0.84, b.h * 0.32, b.w * 0.04, b.h * 0.3).fill({ color: 0x7a3b2e });
+            g.moveTo(-b.w * 0.1, b.h * 0.34);
+            g.lineTo(b.w * 1.1, b.h * 0.34);
+            g.lineTo(b.w * 0.78, 0);
+            g.lineTo(b.w * 0.22, 0);
+            g.closePath();
+            g.fill({ color: fill });
+            g.roundRect(b.w * 0.22, -6, b.w * 0.56, 8, 4).fill({ color: 0x2c2420 });
+            return g;
+          };
+
+          const placeholder = drawPlaceholderBuilding();
+          node.addChild(placeholder);
+
+          const nameTag = new Container();
+          const nameText = new Text({
+            text: b.name,
+            style: {
+              fontFamily: 'Noto Serif SC, serif',
+              fontSize: labelSize,
+              fill: 0xfdf6e3,
+              fontWeight: '700',
+            },
+          });
+          nameText.anchor.set(0.5, 0);
+          const nameBg = new Graphics();
+          nameBg
+            .roundRect(-nameText.width / 2 - 10, -4, nameText.width + 20, nameText.height + 8, 6)
+            .fill({ color: 0x0a0608, alpha: 0.7 });
+          nameTag.addChild(nameBg, nameText);
+          nameTag.position.set(b.w / 2, b.h + 6);
+          node.addChild(nameTag);
+
+          if (b.sprite) {
+            Assets.load(b.sprite)
+              .then((tex: Texture) => {
+                if (disposed) return;
+                const sp = new Sprite(tex);
+                const ratio = tex.height / tex.width;
+                sp.width = b.w;
+                sp.height = b.w * ratio;
+                sp.x = 0;
+                sp.y = b.h - sp.height;
+                node.removeChild(placeholder);
+                node.addChildAt(sp, 0);
+              })
+              .catch(() => {
+                /* 占位建筑保留 */
+              });
+          }
         }
 
         node.on('pointertap', () => {
@@ -498,7 +542,7 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
         appRef.current = null;
       }
     };
-  }, [scene, visibleBuildings, npcs, buildingById, compactLabels]);
+  }, [scene, visibleBuildings, npcs, buildingById, compactLabels, selected?.id]);
 
   const resetView = () => {
     const app = appRef.current as (Application & { _fit?: () => void }) | null;
@@ -540,7 +584,7 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
           <div className="mt-1.5 text-xs leading-relaxed text-slate-400">{scene.scale_note}</div>
         )}
         <div className="mt-1.5 text-xs text-slate-500">
-          点建筑看方位距离 · 点人物（黛玉 / 宝玉）随机说一句 · 滚轮缩放 · 拖拽平移
+          点院名标签看方位距离 · 点人物随机说一句 · 滚轮缩放 · 拖拽平移
         </div>
         {bookSlug === 'honglou' && (
           <div className="pointer-events-auto mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs font-medium">

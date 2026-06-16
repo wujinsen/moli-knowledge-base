@@ -137,7 +137,7 @@ export default function RelationGraph({ bookSlug }: Props) {
   const [query, setQuery] = useState('');
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [hiddenFactions, setHiddenFactions] = useState<Set<string>>(new Set());
-  const [physics, setPhysics] = useState(false);
+  const [physics, setPhysics] = useState(true);
   const [expandedEdgeTypes, setExpandedEdgeTypes] = useState<Set<string>>(new Set());
 
   useEffect(() => {

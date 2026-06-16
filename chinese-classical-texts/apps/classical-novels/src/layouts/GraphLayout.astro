@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import TopModuleNav from '../components/TopModuleNav.astro';
+import LangSwitch from '../components/LangSwitch';
 import { themeFor, modulesFor } from '../lib/books';
 import { graphTheme } from '../lib/graphTheme';
 
@@ -9,13 +10,23 @@ interface Props {
   bookSlug: string;
   bookName: string;
   features?: string[];
+  /** 模块 i18n key，如 graph / maps */
+  moduleKey?: string;
   moduleLabel?: string;
 }
-const { title, bookSlug, bookName, features = [], moduleLabel = '关系图谱' } = Astro.props;
+const {
+  title,
+  bookSlug,
+  bookName,
+  features = [],
+  moduleKey,
+  moduleLabel = '关系图谱',
+} = Astro.props;
 const theme = themeFor(bookSlug);
 const gt = graphTheme(bookSlug);
 const navModules = modulesFor(bookSlug, features).filter((m) => m.status === 'live');
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const moduleI18nKey = moduleKey ? `modules.${bookSlug}.${moduleKey}.title` : undefined;
 ---
 
 <!doctype html>
@@ -30,10 +41,17 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
       href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap"
       rel="stylesheet"
     />
+    <script is:inline>
+      try {
+        var l = localStorage.getItem('kb-home-locale');
+        if (l === 'en' || l === 'ja') document.documentElement.lang = l === 'ja' ? 'ja' : 'en';
+      } catch (e) {}
+    </script>
   </head>
   <body
     class="graph-shell min-h-screen text-slate-100"
     style={`background-color:${gt.base};--graph-chrome:10.5rem`}
+    data-page-title={title}
   >
     <script is:inline>
       (function () {
@@ -62,22 +80,25 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     >
       <div class="mx-auto max-w-6xl px-4">
         <nav class="flex items-center gap-3 py-2.5" aria-label="站点导航">
-          <a href="/" class="text-sm opacity-80 hover:opacity-100" style="color: color-mix(in srgb, #fdf7ec 75%, transparent)">
+          <a href="/" class="text-sm opacity-80 hover:opacity-100" style="color: color-mix(in srgb, #fdf7ec 75%, transparent)" data-i18n="nav.canon">
             典籍
           </a>
           <span class="opacity-40">·</span>
           <a href={`/${bookSlug}`} class="brand text-xl" style={`color:${gt.accentSoft}`}>
             {bookName}
           </a>
-          <span class="ml-1 text-sm opacity-60" style={`color:${gt.accent}`}>
+          <span class="ml-1 text-sm opacity-60" style={`color:${gt.accent}`} data-i18n={moduleI18nKey}>
             {moduleLabel}
           </span>
-          <a href="/search" class="graph-nav-search ml-auto">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd" />
-            </svg>
-            检索
-          </a>
+          <div class="ml-auto flex items-center gap-2">
+            <LangSwitch client:load />
+            <a href="/search" class="graph-nav-search">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd" />
+              </svg>
+              <span data-i18n="nav.search">检索</span>
+            </a>
+          </div>
         </nav>
         {navModules.length > 0 && (
           <TopModuleNav bookSlug={bookSlug} modules={navModules} path={path} />

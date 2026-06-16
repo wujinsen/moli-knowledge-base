@@ -144,6 +144,38 @@ html:has(.reader-shell[data-reader-theme="dark"]) {
   .topbar a:hover { color: #fff; }
   .topbar .brand-link { color: #fff; text-shadow: 0 1px 8px color-mix(in srgb, var(--gold) 40%, transparent); }
 
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    padding: 0.15rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, #000 22%, transparent);
+    border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+  }
+  .lang-switch-btn {
+    min-width: 2rem;
+    padding: 0.2rem 0.45rem;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: color-mix(in srgb, #fdf7ec 78%, transparent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .lang-switch-btn:hover {
+    color: #fff;
+    background: color-mix(in srgb, #fff 12%, transparent);
+  }
+  .lang-switch-btn.is-active {
+    color: var(--primary);
+    background: #fdf7ec;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  }
+
   /* 顶栏模块卡片（与书目页 module-card 同语汇，紧凑横滑） */
   .topbar-modules {
     display: flex;
@@ -1710,7 +1742,6 @@ a.linked-item-chip:hover {
 .reader-shell {
   --reader-line-height: 2.45;
   --reader-letter-spacing: 0.04em;
-  --reader-measure: 40em;
 }
 
 .reader-shell[data-reader-leading="compact"] {
@@ -1730,14 +1761,10 @@ a.linked-item-chip:hover {
   --reader-letter-spacing: 0.05em;
 }
 
-.reader-shell[data-reader-layout="scroll"] .reader-body {
-  max-width: min(var(--reader-measure), 100%);
-  margin-inline: auto;
-}
-
-.reader-shell[data-reader-layout="columns"] .reader-body {
-  max-width: none;
-  margin-inline: 0;
+/* 滚动：全宽单栏（与双栏同版心，仅 column-count 不同） */
+.reader-shell[data-reader-layout="scroll"] .reader-content {
+  column-count: 1;
+  column-rule: none;
 }
 
 .reader-shell .reader-body.prose-cn p,

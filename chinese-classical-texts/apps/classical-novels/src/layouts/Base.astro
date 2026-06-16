@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import TopModuleNav from '../components/TopModuleNav.astro';
 import ModuleContext from '../components/ModuleContext.astro';
+import LangSwitch from '../components/LangSwitch';
 import { themeFor, modulesFor, activeModule } from '../lib/books';
 
 interface Props {
@@ -9,9 +10,7 @@ interface Props {
   bookSlug?: string;
   bookName?: string;
   features?: string[];
-  /** 阅读页双栏时放宽主栏宽度 */
   readerWide?: boolean;
-  /** 子页自动渲染模块上下文条（与首页卡片呼应）；有独立 hero 的页设 false */
   moduleContext?: boolean;
 }
 const {
@@ -26,6 +25,7 @@ const theme = themeFor(bookSlug);
 const navModules =
   bookSlug && bookName ? modulesFor(bookSlug, features).filter((m) => m.status === 'live') : [];
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isHome = path === '/';
 const currentModule =
   bookSlug && bookName ? activeModule(path, bookSlug, modulesFor(bookSlug, features)) : undefined;
 const showModuleContext = Boolean(
@@ -45,31 +45,43 @@ const showModuleContext = Boolean(
       href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap"
       rel="stylesheet"
     />
+    <script is:inline>
+      try {
+        var l = localStorage.getItem('kb-home-locale');
+        if (l === 'en' || l === 'ja') document.documentElement.lang = l === 'ja' ? 'ja' : 'en';
+      } catch (e) {}
+    </script>
   </head>
-  <body class="min-h-screen">
+  <body class="min-h-screen" data-page-title={title}>
     <header class="topbar sticky top-0 z-30">
       <div class="topbar-inner mx-auto max-w-6xl px-4">
         <nav class="flex items-center gap-3 py-2.5" aria-label="站点导航">
           {
             bookSlug && bookName ? (
               <>
-                <a href="/" class="text-sm opacity-80 hover:opacity-100">典籍</a>
+                <a href="/" class="text-sm opacity-80 hover:opacity-100" data-i18n="nav.canon">典籍</a>
                 <span class="opacity-40">·</span>
                 <a href={`/${bookSlug}`} class="brand-link brand text-xl">
                   {bookName}
                 </a>
-                <a href="/search" class="ml-auto rounded px-2.5 py-1 text-sm hover:bg-white/10">
-                  检索
-                </a>
+                <div class="ml-auto flex items-center gap-2">
+                  <LangSwitch client:load />
+                  <a href="/search" class="rounded px-2.5 py-1 text-sm hover:bg-white/10" data-i18n="nav.search">
+                    检索
+                  </a>
+                </div>
               </>
             ) : (
               <>
-                <a href="/" class="brand-link brand text-xl">
+                <a href="/" class="brand-link brand text-xl" data-i18n={isHome ? 'siteTitle' : 'nav.canon'}>
                   古典名著知识库
                 </a>
-                <a href="/search" class="ml-auto rounded px-2.5 py-1 text-sm hover:bg-white/10">
-                  检索
-                </a>
+                <div class="ml-auto flex items-center gap-2">
+                  <LangSwitch client:load />
+                  <a href="/search" class="rounded px-2.5 py-1 text-sm hover:bg-white/10" data-i18n="nav.search">
+                    检索
+                  </a>
+                </div>
               </>
             )
           }
@@ -90,8 +102,8 @@ const showModuleContext = Boolean(
         ]}
       >
         {
-          showModuleContext && currentModule && bookName && (
-            <ModuleContext module={currentModule} bookName={bookName}>
+          showModuleContext && currentModule && bookName && bookSlug && (
+            <ModuleContext module={currentModule} bookName={bookName} bookSlug={bookSlug}>
               <slot name="module-extra" />
             </ModuleContext>
           )
@@ -109,7 +121,9 @@ const showModuleContext = Boolean(
         <div class="rule-seal mb-4">
           <span class="brand text-base">墨</span>
         </div>
-        数据由 LLM 按 AGENTS.md 维护 · 原文只读真相源 · 事实与推论分层
+        <p data-i18n="footer">
+          数据由 LLM 按 AGENTS.md 维护 · 原文只读真相源 · 事实与推论分层
+        </p>
       </footer>
     </div>
   </body>

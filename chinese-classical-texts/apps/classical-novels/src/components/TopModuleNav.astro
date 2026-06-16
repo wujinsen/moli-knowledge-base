@@ -21,7 +21,9 @@ const { bookSlug, modules, path } = Astro.props;
           aria-current={active ? 'page' : undefined}
         >
           <span class="nav-module-glyph">{m.glyph}</span>
-          <span class="nav-module-title">{m.title}</span>
+          <span class="nav-module-title" data-i18n={`modules.${bookSlug}.${m.key}.title`}>
+            {m.title}
+          </span>
         </a>
       );
     })

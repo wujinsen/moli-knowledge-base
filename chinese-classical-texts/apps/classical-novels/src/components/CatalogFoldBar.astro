@@ -25,6 +25,9 @@ const { label = '分组列表' } = Astro.props;
         scope.querySelectorAll('details.catalog-fold-group').forEach((d) => {
           (d as HTMLDetailsElement).open = open;
         });
+        scope.querySelectorAll<HTMLElement>('[data-i18n-fold-hint]').forEach((hint) => {
+          hint.hidden = open;
+        });
       });
     });
   }

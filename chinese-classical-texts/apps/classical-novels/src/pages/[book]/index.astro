@@ -6,6 +6,7 @@ import { THEME_BY_SLUG, modulesFor } from '../../lib/books';
 import EditionTabs from '../../components/EditionTabs.astro';
 import {
   defaultEditionForBook,
+  defaultEditionSlug,
   hasMultipleEditions,
   readChapterPath,
   readIndexPath,
@@ -22,8 +23,11 @@ export async function getStaticPaths() {
 
 const { book } = Astro.props;
 const meta = book.data;
+type BookSlug = 'honglou' | 'xiyouji' | 'jinpingmei';
+const slug = meta.slug as BookSlug;
 
 const preferredEdition = defaultEditionForBook(meta.book);
+const readEdition = defaultEditionSlug(meta.book);
 
 const chapters = (await getCollection('chapters'))
   .filter((c) => c.data.book === meta.book)
@@ -41,7 +45,6 @@ const modules = modulesFor(meta.slug, meta.features);
 ---
 
 <Base title={meta.book} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
-  {/* 英雄区 */}
   <section class="surface relative mb-10 overflow-hidden px-6 py-8 sm:px-10 sm:py-10">
     <span
       class="brand pointer-events-none absolute -right-4 -top-10 select-none text-[12rem] leading-none opacity-[0.06] sm:text-[16rem]"
@@ -51,28 +54,45 @@ const modules = modulesFor(meta.slug, meta.features);
       {meta.book.slice(0, 1)}
     </span>
     <div class="relative max-w-2xl">
-      <p class="mb-2 text-sm tracking-widest text-muted">{t?.tagline}</p>
+      <p class="mb-2 text-sm tracking-widest text-muted" data-i18n={`books.${slug}.tagline`}>
+        {t?.tagline}
+      </p>
       <h1 class="brand text-5xl sm:text-6xl" style="color: var(--primary)">{meta.book}</h1>
-      <p class="mt-3 text-base" style="color: var(--accent)">{t?.essence}</p>
+      <p class="mt-3 text-base" style="color: var(--accent)" data-i18n={`books.${slug}.essence`}>
+        {t?.essence}
+      </p>
       <p class="mt-1 text-sm text-muted">
-        {meta.author} ·         {meta.chapter_count} 回
+        {meta.author} · {meta.chapter_count}
+        <span data-i18n="chapterUnit">回</span>
         {
-          multiEd &&
-            (meta.book === '红楼梦'
-              ? ' · 脂本优先 · 程高本续书'
-              : meta.book === '金瓶梅'
-                ? ' · 词话本优先 · 三版本'
-                : '')
+          multiEd && (
+            <span data-i18n={`books.${slug}.editionNote`}>
+              {meta.book === '红楼梦'
+                ? ' · 脂本优先 · 程高本续书'
+                : meta.book === '金瓶梅'
+                  ? ' · 词话本优先 · 三版本'
+                  : ''}
+            </span>
+          )
         }
       </p>
       {meta.summary && (
-        <p class="mt-4 leading-relaxed text-muted">{meta.summary}</p>
+        <p class="mt-4 leading-relaxed text-muted" data-i18n={`books.${slug}.summary`}>
+          {meta.summary}
+        </p>
       )}
+      <p class="mt-3 text-xs text-muted" data-i18n="ui.contentNote">
+        条目正文与章回原文保持中文；切换语言仅影响界面导航与模块说明。
+      </p>
       <div class="mt-6 flex flex-wrap gap-3">
         {first && (
           <a
             href={readChapterPath(meta.slug, meta.book, first.data.number)}
             class="btn btn-primary"
+            data-i18n-reading
+            data-i18n-book={slug}
+            data-i18n-chapter={first.data.number}
+            data-i18n-edition={multiEd ? readEdition : undefined}
           >
             {
               multiEd
@@ -85,13 +105,12 @@ const modules = modulesFor(meta.slug, meta.features);
             }
           </a>
         )}
-        <a href="/search" class="btn btn-ghost">全文检索</a>
+        <a href="/search" class="btn btn-ghost" data-i18n="ui.fullTextSearch">全文检索</a>
       </div>
     </div>
   </section>
 
-  {/* 探索模块：与顶栏模块卡片同语汇，首页作详细入口 */}
-  <h2 class="section-title mb-4 text-lg">探索模块</h2>
+  <h2 class="section-title mb-4 text-lg" data-i18n="ui.exploreModules">探索模块</h2>
   <div class="mb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
     {
       modules.map((m) => (
@@ -99,10 +118,19 @@ const modules = modulesFor(meta.slug, meta.features);
           <span class="glyph">{m.glyph}</span>
           <span class="min-w-0">
             <span class="flex items-center gap-2">
-              <span class="font-bold">{m.title}</span>
-              {m.status === 'planned' && <span class="seal seal-planned">未做</span>}
+              <span class="font-bold" data-i18n={`modules.${slug}.${m.key}.title`}>
+                {m.title}
+              </span>
+              {m.status === 'planned' && (
+                <span class="seal seal-planned" data-i18n="ui.planned">
+                  未做
+                </span>
+              )}
             </span>
-            <span class="mt-1 block text-sm leading-snug text-muted">
+            <span
+              class="mt-1 block text-sm leading-snug text-muted"
+              data-i18n={`modules.${slug}.${m.key}.desc`}
+            >
               {m.desc}
             </span>
           </span>
@@ -111,8 +139,7 @@ const modules = modulesFor(meta.slug, meta.features);
     }
   </div>
 
-  {/* 回目目录 */}
-  <h2 class="section-title mb-4 text-lg">回目目录</h2>
+  <h2 class="section-title mb-4 text-lg" data-i18n="ui.chapterIndex">回目目录</h2>
   {multiEd && (
     <EditionTabs slug={meta.slug} book={meta.book} currentEdition={preferredEdition} />
   )}
