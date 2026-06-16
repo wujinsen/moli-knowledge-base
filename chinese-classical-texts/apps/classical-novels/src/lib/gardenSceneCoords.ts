@@ -35,12 +35,17 @@ export function logicalSteps(a: LogicalPoint, b: LogicalPoint, pxPerStep: number
   return Math.round(Math.hypot(b.x - a.x, b.y - a.y) / pxPerStep);
 }
 
-/** 相对方位（北在上） */
+/** 地图/实景页统一免责声明（inference 坐标，非测绘） */
+export const GARDEN_LAYOUT_DISCLAIMER =
+  '坐标属红学 inference（南北中轴说）；第17回游线顺序来自正文。院间「步数」为逻辑换算，非测绘尺度，不可与原文丈尺对勘。scan/复原园图不参与落位。';
+
+/** 相对方位（北在上；y 增大为向南） */
 export function bearingLabel(from: LogicalPoint, to: LogicalPoint): string {
   const dx = to.x - from.x;
   const dy = to.y - from.y;
   if (Math.hypot(dx, dy) < 8) return '此处';
-  const deg = (Math.atan2(dx, dy) * 180) / Math.PI; // 0=北, 90=东
+  // y 北小南大：目标在 from 之北时 dy<0，须用 -dy 使 0°=北
+  const deg = (Math.atan2(dx, -dy) * 180) / Math.PI;
   const dirs = ['北', '东北', '东', '东南', '南', '西南', '西', '西北'] as const;
   const idx = Math.round(deg / 45);
   return dirs[((idx % 8) + 8) % 8];

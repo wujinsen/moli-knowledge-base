@@ -19,7 +19,7 @@ LOC_DIR = ROOT / "src" / "content" / "locations" / "红楼梦"
 NODES: list[dict] = [
     # —— 仪典 / 北 ——
     dict(id="省亲别墅", garden_zone="仪典", coord=(400, 85), tour_order=9),
-    dict(id="稻香村", garden_zone="居所", coord=(255, 125), tour_order=5),
+    dict(id="稻香村", garden_zone="居所", coord=(320, 105), tour_order=5),
     dict(id="议事厅", garden_zone="亭榭", coord=(455, 155)),
     dict(id="大观园厨房", garden_zone="服务", coord=(335, 165)),
     dict(id="茶房", garden_zone="服务", coord=(295, 185)),

@@ -15,7 +15,6 @@ from pathlib import Path
 from _common import DATA_DIR, parse_frontmatter
 
 ROOT = Path(__file__).resolve().parents[1]
-LOC_DIR = ROOT / "src" / "content" / "locations" / "红楼梦"
 OUT = DATA_DIR / "红楼梦.garden_scene_full.json"
 PILOT = DATA_DIR / "红楼梦.garden_scene.json"
 
@@ -104,8 +103,8 @@ def build_manifest() -> dict:
         "slug": "honglou",
         "title": "大观园·等距全园",
         "subtitle": f"共 {len(buildings)} 处 · 坐标同源 /honglou/map · 非 scan 图方位",
-        "width": 1680,
-        "height": 980,
+        "width": 2400,
+        "height": 1500,
         "gallery": "/honglou/daguanyuan-full-bg-scan-style.png",
         "scan_reference": "/honglou/scene/scan-reference.png",
         "px_per_step": 6,

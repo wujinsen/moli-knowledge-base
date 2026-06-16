@@ -14,6 +14,7 @@ import {
   type GardenMapNode,
   type GardenZone,
 } from '../lib/gardenMap';
+import { GARDEN_LAYOUT_DISCLAIMER } from '../lib/gardenSceneCoords';
 import GardenZoneCatalog from './GardenZoneCatalog';
 
 interface Props {
@@ -347,6 +348,10 @@ export default function GardenMap({ data, bookSlug }: Props) {
         </div>
       </div>
 
+      <div className="pointer-events-none absolute left-3 top-3 z-10 max-w-sm rounded-lg border border-amber-500/25 bg-slate-900/85 px-3 py-2 backdrop-blur-md">
+        <p className="text-xs leading-relaxed text-amber-100/90">{GARDEN_LAYOUT_DISCLAIMER}</p>
+      </div>
+
       <div className="absolute bottom-4 left-3 z-10 max-w-lg flex flex-wrap gap-x-4 gap-y-2 rounded-lg border border-white/10 bg-slate-900/85 p-3 backdrop-blur-md">
         {zones.map((z) => (
           <span key={z} className="flex items-center gap-2 text-sm font-medium text-slate-200">
@@ -493,8 +498,14 @@ export default function GardenMap({ data, bookSlug }: Props) {
 
       <div ref={chartRef} className="absolute inset-0 h-full w-full" style={{ minHeight: 'calc(100vh - 3rem)' }} />
 
-      <p className="pointer-events-none absolute bottom-20 left-1/2 z-0 max-w-xl -translate-x-1/2 select-none text-center text-sm text-slate-500">
-        坐标属 inference（南北中轴说），非曹氏定稿地图 · 滚轮缩放 · 点击地点
+      <p className="pointer-events-none absolute bottom-20 left-1/2 z-0 max-w-2xl -translate-x-1/2 select-none px-4 text-center text-xs leading-relaxed text-slate-500">
+        滚轮缩放 · 点击地点 ·{' '}
+        <a
+          href={`/${bookSlug}/topics/大观园游线与间数摘录`}
+          className="pointer-events-auto underline decoration-dotted underline-offset-2 hover:text-slate-300"
+        >
+          第17回游线 fact 与 inference 分层说明
+        </a>
       </p>
     </div>
   );

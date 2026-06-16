@@ -191,6 +191,7 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
   const gt = useMemo(() => graphTheme(bookSlug), [bookSlug]);
   const hostRef = useRef<HTMLDivElement>(null);
   const appRef = useRef<Application | null>(null);
+  const viewRef = useRef<{ x: number; y: number; scale: number } | null>(null);
 
   const [selected, setSelected] = useState<SceneBuilding | null>(null);
   const [dialogue, setDialogue] = useState<{ npc: SceneNpc; line: DialogueLine } | null>(null);
@@ -325,34 +326,56 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
       grassTone.roundRect(gX, gY, gW, gH, 18).stroke({ width: 1, color: 0xb9c79f, alpha: 0.18 });
       world.addChild(grassTone);
 
-      // 水系：中轴溪 + 主湖（环绕「水系」节点质心），用水面纹理填充
-      const waterNodes = buildings.filter((b) => b.zone === '水系');
-      const axisN = logicalToScene(400, 85, scene.width, scene.height);
-      const axisS = logicalToScene(400, 535, scene.width, scene.height);
-      let lake = logicalToScene(470, 245, scene.width, scene.height);
-      if (waterNodes.length) {
-        lake = {
-          x: waterNodes.reduce((s, b) => s + center(b).x, 0) / waterNodes.length,
-          y: waterNodes.reduce((s, b) => s + center(b).y, 0) / waterNodes.length,
-        };
-      }
+      // 水系：沿真实「水系」节点的蜿蜒沁芳溪（不再用大椭圆湖，避免淹没中央建筑）
+      const sceneOf = (id: string) => {
+        const n = buildingById.get(id);
+        return n ? logicalToScene(n.logical.x, n.logical.y, scene.width, scene.height) : null;
+      };
+      // 溪流中心线段（按园记水道：沁芳闸→沁芳亭中轴，东出蓼溆·船坞，西南入柳叶渚）
+      const streamSegs: Array<[string, string]> = [
+        ['沁芳亭', '沁芳闸'],
+        ['沁芳闸', '柳叶渚'],
+        ['沁芳亭', '蓼溆'],
+        ['蓼溆', '船坞'],
+      ];
       const waterShape = new Graphics();
-      waterShape.moveTo(axisN.x - 24, axisN.y);
-      waterShape.bezierCurveTo(axisN.x - 58, lake.y - 90, lake.x + 30, lake.y + 60, axisS.x + 16, axisS.y);
-      waterShape.lineTo(axisS.x - 22, axisS.y);
-      waterShape.bezierCurveTo(lake.x - 26, lake.y + 70, axisN.x - 86, lake.y - 70, axisN.x - 64, axisN.y);
-      waterShape.closePath();
-      waterShape.fill({ color: 0xffffff });
-      waterShape.ellipse(lake.x, lake.y, 170, 110).fill({ color: 0xffffff });
-      const waterFill = new TilingSprite({ texture: tex[SCENE_ASSETS.water], width: gW, height: gH });
-      waterFill.position.set(gX, gY);
-      waterFill.tileScale.set(0.55);
-      waterFill.mask = waterShape;
-      world.addChild(waterShape, waterFill);
-      // 水岸描边
-      const waterEdge = new Graphics();
-      waterEdge.ellipse(lake.x, lake.y, 170, 110).stroke({ width: 3, color: 0xe2f3ec, alpha: 0.28 });
-      world.addChild(waterEdge);
+      const STREAM_R = 24;
+      const addCapsule = (a: LogicalPoint, b: LogicalPoint, r: number) => {
+        const dx = b.x - a.x;
+        const dy = b.y - a.y;
+        const len = Math.hypot(dx, dy) || 1;
+        const nx = (-dy / len) * r;
+        const ny = (dx / len) * r;
+        waterShape
+          .poly([a.x + nx, a.y + ny, b.x + nx, b.y + ny, b.x - nx, b.y - ny, a.x - nx, a.y - ny])
+          .fill({ color: 0xffffff });
+        waterShape.circle(a.x, a.y, r).fill({ color: 0xffffff });
+        waterShape.circle(b.x, b.y, r).fill({ color: 0xffffff });
+      };
+      let waterDrawn = 0;
+      for (const [from, to] of streamSegs) {
+        const a = sceneOf(from);
+        const b = sceneOf(to);
+        if (a && b) {
+          addCapsule(a, b, STREAM_R);
+          waterDrawn += 1;
+        }
+      }
+      // 沁芳亭 / 沁芳闸 处微微放宽成小潭
+      for (const id of ['沁芳亭', '沁芳闸']) {
+        const p = sceneOf(id);
+        if (p) {
+          waterShape.circle(p.x, p.y, 40).fill({ color: 0xffffff });
+          waterDrawn += 1;
+        }
+      }
+      if (waterDrawn > 0) {
+        const waterFill = new TilingSprite({ texture: tex[SCENE_ASSETS.water], width: gW, height: gH });
+        waterFill.position.set(gX, gY);
+        waterFill.tileScale.set(0.5);
+        waterFill.mask = waterShape;
+        world.addChild(waterShape, waterFill);
+      }
 
       // 园墙（双线）
       const wall = new Graphics();
@@ -381,18 +404,21 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
       const labelLayer = new Container();
 
       // 林木散点（确定性；避开建筑与水面）
+      const waterPts = buildings
+        .filter((b) => b.zone === '水系')
+        .map((b) => logicalToScene(b.logical.x, b.logical.y, scene.width, scene.height));
       const rnd = mulberry32(20260616);
       const treeTex = tex[SCENE_ASSETS.trees];
       const treeRatio = treeTex.height / treeTex.width;
       let placed = 0;
-      for (let i = 0; i < 900 && placed < 120; i++) {
+      for (let i = 0; i < 1500 && placed < 190; i++) {
         const tx = gX + 24 + rnd() * (gW - 48);
         const ty = gY + 24 + rnd() * (gH - 48);
         const nearBuilding = buildings.some(
-          (b) => Math.hypot(center(b).x - tx, center(b).y - ty) < 50,
+          (b) => Math.hypot(center(b).x - tx, center(b).y - ty) < 64,
         );
-        const inLake = Math.hypot((lake.x - tx) / 1.6, lake.y - ty) < 108;
-        if (nearBuilding || inLake) continue;
+        const nearWater = waterPts.some((p) => Math.hypot(p.x - tx, p.y - ty) < 60);
+        if (nearBuilding || nearWater) continue;
         const tw = 56 + rnd() * 48;
         const sp = new Sprite(treeTex);
         sp.anchor.set(0.5, 0.86);
@@ -406,27 +432,33 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
       }
 
       // 建筑（真坐标摆等距 sprite）
+      let focusPoint: { x: number; y: number } | null = null;
       for (const b of visibleBuildings) {
         const ground = logicalToScene(b.logical.x, b.logical.y, scene.width, scene.height);
         const isSelected = selected?.id === b.id;
+        if (isSelected) focusPoint = { x: ground.x, y: ground.y };
         const node = new Container();
         node.eventMode = 'static';
         node.cursor = 'pointer';
         node.position.set(ground.x, ground.y);
 
+        const archTex = tex[SCENE_ASSETS[archetypeFor(b)]];
+        const dispW = b.w * 1.05;
+        const dispH = archTex ? dispW * (archTex.height / archTex.width) : b.h;
+
+        // 程序化接地软投影（sprite 已去掉烘焙阴影）
+        const shadow = new Graphics();
+        shadow.ellipse(dispW * 0.05, 0, dispW * 0.38, dispW * 0.12).fill({ color: 0x0a0f0a, alpha: 0.26 });
+        node.addChild(shadow);
+
         if (isSelected) {
           const ring = new Graphics();
-          ring.ellipse(0, 0, b.w * 0.6, b.h * 0.3).fill({ color: 0xf4d796, alpha: 0.16 });
-          ring.ellipse(0, 0, b.w * 0.6, b.h * 0.3).stroke({ width: 2.5, color: 0xf4d796, alpha: 0.85 });
+          ring.ellipse(0, 0, b.w * 0.6, b.h * 0.34).fill({ color: 0xf4d796, alpha: 0.16 });
+          ring.ellipse(0, 0, b.w * 0.6, b.h * 0.34).stroke({ width: 2.5, color: 0xf4d796, alpha: 0.85 });
           node.addChild(ring);
         }
 
-        const archTex = tex[SCENE_ASSETS[archetypeFor(b)]];
-        let dispW = b.w * 1.2;
-        let dispH = b.h;
         if (archTex) {
-          const ratio = archTex.height / archTex.width;
-          dispH = dispW * ratio;
           const sp = new Sprite(archTex);
           sp.anchor.set(0.5, 0.9);
           sp.width = dispW;
@@ -532,13 +564,39 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
       }
 
       // ---- 适配缩放 + 平移 + 滚轮 ----
+      const MIN_SCALE = 0.16;
+      const MAX_SCALE = 4;
+      const clampScale = (v: number) => Math.max(MIN_SCALE, Math.min(MAX_SCALE, v));
+      const baseFitScale = () =>
+        Math.min(app.screen.width / scene.width, app.screen.height / scene.height) * 0.94;
+      const saveView = () => {
+        viewRef.current = { x: world.x, y: world.y, scale: world.scale.x };
+      };
+      const fitDefault = () => {
+        const sw = app.screen.width;
+        const sh = app.screen.height;
+        const s = baseFitScale();
+        world.scale.set(s);
+        world.position.set((sw - scene.width * s) / 2, (sh - scene.height * s) / 2);
+      };
+      // fit：选中建筑→对焦放大；否则恢复上次手动视图；都没有→整园铺满
       const fit = () => {
         const sw = app.screen.width;
         const sh = app.screen.height;
-        const s = Math.min(sw / scene.width, sh / scene.height) * 0.94;
-        world.scale.set(s);
-        world.position.set((sw - scene.width * s) / 2, (sh - scene.height * s) / 2);
         app.stage.hitArea = new Rectangle(0, 0, sw, sh);
+        if (focusPoint) {
+          const s = clampScale(baseFitScale() * 2.6);
+          world.scale.set(s);
+          // 略偏左，避免被右侧详情面板遮住
+          world.position.set(sw * 0.42 - focusPoint.x * s, sh * 0.46 - focusPoint.y * s);
+          return;
+        }
+        if (viewRef.current) {
+          world.scale.set(viewRef.current.scale);
+          world.position.set(viewRef.current.x, viewRef.current.y);
+          return;
+        }
+        fitDefault();
       };
       fit();
 
@@ -548,10 +606,12 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
       let origin = { x: 0, y: 0 };
       app.stage.on('pointerdown', (e) => {
         dragging = true;
+        focusPoint = null; // 手动平移后不再强制对焦
         startP = { x: e.global.x, y: e.global.y };
         origin = { x: world.x, y: world.y };
       });
       const endDrag = () => {
+        if (dragging) saveView();
         dragging = false;
       };
       app.stage.on('pointerup', endDrag);
@@ -562,18 +622,21 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
         world.y = origin.y + (e.global.y - startP.y);
       });
 
-      const onWheel = (e: WheelEvent) => {
-        e.preventDefault();
-        const rect = app.canvas.getBoundingClientRect();
-        const px = e.clientX - rect.left;
-        const py = e.clientY - rect.top;
+      const zoomAround = (factor: number, px: number, py: number) => {
+        focusPoint = null;
         const wx = (px - world.x) / world.scale.x;
         const wy = (py - world.y) / world.scale.y;
-        const factor = e.deltaY < 0 ? 1.12 : 0.89;
-        const next = Math.max(0.25, Math.min(4, world.scale.x * factor));
+        const next = clampScale(world.scale.x * factor);
         world.scale.set(next);
         world.x = px - wx * next;
         world.y = py - wy * next;
+        saveView();
+      };
+
+      const onWheel = (e: WheelEvent) => {
+        e.preventDefault();
+        const rect = app.canvas.getBoundingClientRect();
+        zoomAround(e.deltaY < 0 ? 1.12 : 0.89, e.clientX - rect.left, e.clientY - rect.top);
       };
       app.canvas.addEventListener('wheel', onWheel, { passive: false });
       cleanups.push(() => app.canvas.removeEventListener('wheel', onWheel));
@@ -592,8 +655,20 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
 
       setSceneReady(true);
 
-      // 暴露 reset
-      (app as unknown as { _fit?: () => void })._fit = fit;
+      // 暴露 reset / zoom 给工具栏按钮
+      const ctl = app as unknown as {
+        _fit?: () => void;
+        _reset?: () => void;
+        _zoom?: (factor: number) => void;
+      };
+      ctl._fit = fit;
+      ctl._reset = () => {
+        focusPoint = null;
+        viewRef.current = null;
+        fitDefault();
+      };
+      ctl._zoom = (factor: number) =>
+        zoomAround(factor, app.screen.width / 2, app.screen.height / 2);
       } catch (e) {
         if (!disposed) {
           setSceneError(e instanceof Error ? e.message : '沙盘渲染失败');
@@ -613,8 +688,14 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
   }, [scene, visibleBuildings, npcs, buildingById, compactLabels, selected?.id]);
 
   const resetView = () => {
-    const app = appRef.current as (Application & { _fit?: () => void }) | null;
-    app?._fit?.();
+    setSelected(null);
+    const app = appRef.current as (Application & { _reset?: () => void }) | null;
+    app?._reset?.();
+  };
+
+  const zoomView = (factor: number) => {
+    const app = appRef.current as (Application & { _zoom?: (f: number) => void }) | null;
+    app?._zoom?.(factor);
   };
 
   return (
@@ -648,8 +729,9 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
         {scene.subtitle && (
           <div className="mt-0.5 text-sm font-medium text-slate-300">{scene.subtitle}</div>
         )}
-        {scene.scale_note && (
-          <div className="mt-1.5 text-xs leading-relaxed text-slate-400">{scene.scale_note}</div>
+        <div className="mt-1.5 text-xs leading-relaxed text-amber-100/85">{GARDEN_LAYOUT_DISCLAIMER}</div>
+        {scene.scale_note && scene.scale_note !== GARDEN_LAYOUT_DISCLAIMER && (
+          <div className="mt-1 text-xs leading-relaxed text-slate-500">{scene.scale_note}</div>
         )}
         <div className="mt-1.5 text-xs text-slate-500">
           点院名标签看方位距离 · 点人物随机说一句 · 滚轮缩放 · 拖拽平移
@@ -708,6 +790,25 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
             scan 参考图
           </button>
         )}
+        <div className="flex items-center overflow-hidden rounded-lg border border-white/10 bg-slate-900/80 backdrop-blur-sm">
+          <button
+            type="button"
+            onClick={() => zoomView(0.8)}
+            aria-label="缩小"
+            className="px-3 py-2 text-base font-semibold text-slate-200 hover:bg-white/10 hover:text-white"
+          >
+            −
+          </button>
+          <span className="px-1 text-xs text-slate-500">缩放</span>
+          <button
+            type="button"
+            onClick={() => zoomView(1.25)}
+            aria-label="放大"
+            className="px-3 py-2 text-base font-semibold text-slate-200 hover:bg-white/10 hover:text-white"
+          >
+            ＋
+          </button>
+        </div>
         <button
           type="button"
           onClick={resetView}
