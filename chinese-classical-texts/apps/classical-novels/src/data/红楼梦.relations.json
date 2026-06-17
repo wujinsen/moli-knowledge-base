@@ -2140,6 +2140,12 @@
       "contradiction": false
     },
     {
+      "source": "多官",
+      "target": "王熙凤",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
       "source": "妙玉",
       "target": "贾宝玉",
       "type": "朋友",
@@ -2299,6 +2305,12 @@
       "source": "小吉祥儿",
       "target": "玉钏儿",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "小吉祥儿",
+      "target": "雪雁",
+      "type": "同僚",
       "contradiction": false
     },
     {
