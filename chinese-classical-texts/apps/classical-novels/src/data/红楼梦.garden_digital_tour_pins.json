@@ -9,7 +9,8 @@
     { "id": "倒厅", "xPct": 50.0, "yPct": 86.5, "anchor": "south" },
     { "id": "角门", "xPct": 42.0, "yPct": 82.5, "anchor": "south", "href": "/honglou/manor" },
     { "id": "宁国府", "xPct": 80.0, "yPct": 88.0, "anchor": "south", "href": "/honglou/manor" },
-    { "id": "梨香院", "xPct": 16.0, "yPct": 72.0, "anchor": "west", "href": "/honglou/manor" }
+    { "id": "梨香院", "xPct": 16.0, "yPct": 72.0, "anchor": "west", "href": "/honglou/manor" },
+    { "id": "家塾", "xPct": 11.0, "yPct": 58.0, "anchor": "west", "href": "/honglou/manor" }
   ],
   "pins": {
     "省亲别墅": { "xPct": 50.0, "yPct": 19.0, "tier": "primary" },

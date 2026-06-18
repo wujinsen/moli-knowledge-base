@@ -3,281 +3,321 @@
   "metrics": [
     {
       "id": "西门庆",
-      "degree": 178,
+      "degree": 183,
       "degree_norm": 1.0,
-      "betweenness": 1.4592,
+      "betweenness": 1.4506,
       "faction": "西门府",
       "ximen_proximity": "亲缘"
     },
     {
       "id": "陈经济",
       "degree": 45,
-      "degree_norm": 0.253,
-      "betweenness": 0.2149,
+      "degree_norm": 0.246,
+      "betweenness": 0.1984,
       "faction": "西门府",
       "ximen_proximity": "亲缘"
     },
     {
       "id": "庞春梅",
       "degree": 38,
-      "degree_norm": 0.213,
-      "betweenness": 0.1882,
+      "degree_norm": 0.208,
+      "betweenness": 0.1743,
       "faction": "西门府",
       "ximen_proximity": "雇佣"
     },
     {
+      "id": "韩道国",
+      "degree": 34,
+      "degree_norm": 0.186,
+      "betweenness": 0.137,
+      "faction": "帮闲圈",
+      "ximen_proximity": "利益交换"
+    },
+    {
       "id": "吴月娘",
       "degree": 56,
-      "degree_norm": 0.315,
-      "betweenness": 0.1373,
+      "degree_norm": 0.306,
+      "betweenness": 0.124,
       "faction": "西门府",
       "ximen_proximity": "亲缘"
     },
     {
-      "id": "韩道国",
-      "degree": 30,
-      "degree_norm": 0.169,
-      "betweenness": 0.1035,
+      "id": "应伯爵",
+      "degree": 33,
+      "degree_norm": 0.18,
+      "betweenness": 0.0567,
       "faction": "帮闲圈",
       "ximen_proximity": "利益交换"
     },
     {
       "id": "武松",
       "degree": 11,
-      "degree_norm": 0.062,
-      "betweenness": 0.0589,
+      "degree_norm": 0.06,
+      "betweenness": 0.0549,
       "faction": "清河县",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "潘金莲",
+      "degree": 30,
+      "degree_norm": 0.164,
+      "betweenness": 0.0532,
+      "faction": "西门府",
+      "ximen_proximity": "亲缘"
+    },
+    {
+      "id": "车淡",
+      "degree": 11,
+      "degree_norm": 0.06,
+      "betweenness": 0.0487,
+      "faction": "清河县",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "苗天秀",
+      "degree": 12,
+      "degree_norm": 0.066,
+      "betweenness": 0.048,
+      "faction": "扬州",
       "ximen_proximity": "外人"
     },
     {
       "id": "李瓶儿",
       "degree": 39,
-      "degree_norm": 0.219,
-      "betweenness": 0.0534,
+      "degree_norm": 0.213,
+      "betweenness": 0.0478,
       "faction": "西门府",
       "ximen_proximity": "亲缘"
     },
     {
-      "id": "潘金莲",
-      "degree": 29,
-      "degree_norm": 0.163,
-      "betweenness": 0.0513,
-      "faction": "西门府",
-      "ximen_proximity": "亲缘"
-    },
-    {
-      "id": "苗天秀",
-      "degree": 10,
-      "degree_norm": 0.056,
-      "betweenness": 0.0446,
-      "faction": "扬州",
-      "ximen_proximity": "外人"
+      "id": "李桂姐",
+      "degree": 28,
+      "degree_norm": 0.153,
+      "betweenness": 0.0464,
+      "faction": "勾栏",
+      "ximen_proximity": "利益交换"
     },
     {
       "id": "韩爱姐",
       "degree": 14,
-      "degree_norm": 0.079,
-      "betweenness": 0.0428,
+      "degree_norm": 0.077,
+      "betweenness": 0.042,
       "faction": "勾栏",
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "王六儿",
+      "degree": 19,
+      "degree_norm": 0.104,
+      "betweenness": 0.0405,
+      "faction": "情妇圈",
       "ximen_proximity": "利益交换"
     },
     {
       "id": "周守备",
       "degree": 18,
-      "degree_norm": 0.101,
-      "betweenness": 0.0408,
+      "degree_norm": 0.098,
+      "betweenness": 0.0379,
       "faction": "官场",
       "ximen_proximity": "利益交换"
     },
     {
       "id": "苗青",
-      "degree": 17,
-      "degree_norm": 0.096,
-      "betweenness": 0.0357,
+      "degree": 19,
+      "degree_norm": 0.104,
+      "betweenness": 0.036,
       "faction": "商贾",
-      "ximen_proximity": "利益交换"
-    },
-    {
-      "id": "王六儿",
-      "degree": 16,
-      "degree_norm": 0.09,
-      "betweenness": 0.0323,
-      "faction": "情妇圈",
       "ximen_proximity": "利益交换"
     },
     {
       "id": "陶妈妈",
       "degree": 7,
-      "degree_norm": 0.039,
-      "betweenness": 0.0291,
+      "degree_norm": 0.038,
+      "betweenness": 0.0276,
       "faction": "清河县",
       "ximen_proximity": "外人"
     },
     {
-      "id": "文嫂",
-      "degree": 10,
-      "degree_norm": 0.056,
-      "betweenness": 0.0234,
-      "faction": "清河市井",
-      "ximen_proximity": "利益交换"
-    },
-    {
       "id": "来保",
-      "degree": 13,
-      "degree_norm": 0.073,
-      "betweenness": 0.0211,
+      "degree": 14,
+      "degree_norm": 0.077,
+      "betweenness": 0.0254,
       "faction": "西门府",
       "ximen_proximity": "雇佣"
     },
     {
-      "id": "李拱极",
-      "degree": 9,
-      "degree_norm": 0.051,
-      "betweenness": 0.0206,
-      "faction": "清河县",
-      "ximen_proximity": "外人"
-    },
-    {
-      "id": "李桂姐",
-      "degree": 27,
-      "degree_norm": 0.152,
-      "betweenness": 0.0204,
-      "faction": "勾栏",
+      "id": "文嫂",
+      "degree": 10,
+      "degree_norm": 0.055,
+      "betweenness": 0.0218,
+      "faction": "清河市井",
       "ximen_proximity": "利益交换"
     },
     {
-      "id": "安童",
-      "degree": 8,
-      "degree_norm": 0.045,
-      "betweenness": 0.0178,
-      "faction": "扬州",
+      "id": "李拱极",
+      "degree": 9,
+      "degree_norm": 0.049,
+      "betweenness": 0.019,
+      "faction": "清河县",
       "ximen_proximity": "外人"
     },
     {
       "id": "小张闲",
       "degree": 16,
-      "degree_norm": 0.09,
-      "betweenness": 0.0173,
+      "degree_norm": 0.087,
+      "betweenness": 0.0167,
       "faction": "帮闲圈",
       "ximen_proximity": "利益交换"
     },
     {
-      "id": "应伯爵",
-      "degree": 28,
-      "degree_norm": 0.157,
-      "betweenness": 0.0161,
-      "faction": "帮闲圈",
+      "id": "安童",
+      "degree": 8,
+      "degree_norm": 0.044,
+      "betweenness": 0.0162,
+      "faction": "扬州",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "夏提刑",
+      "degree": 16,
+      "degree_norm": 0.087,
+      "betweenness": 0.015,
+      "faction": "官场",
       "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "向五",
+      "degree": 5,
+      "degree_norm": 0.027,
+      "betweenness": 0.0142,
+      "faction": "清河县",
+      "ximen_proximity": "外人"
     },
     {
       "id": "乔大户",
       "degree": 17,
-      "degree_norm": 0.096,
-      "betweenness": 0.0156,
+      "degree_norm": 0.093,
+      "betweenness": 0.014,
       "faction": "清河县",
       "ximen_proximity": "外人"
     },
     {
       "id": "孟玉楼",
       "degree": 15,
-      "degree_norm": 0.084,
-      "betweenness": 0.0156,
+      "degree_norm": 0.082,
+      "betweenness": 0.014,
       "faction": "西门府",
       "ximen_proximity": "亲缘"
     },
     {
       "id": "林承勋",
       "degree": 3,
-      "degree_norm": 0.017,
-      "betweenness": 0.0151,
+      "degree_norm": 0.016,
+      "betweenness": 0.014,
       "faction": "怀庆府",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "丁双桥",
+      "degree": 2,
+      "degree_norm": 0.011,
+      "betweenness": 0.014,
+      "faction": "杭州",
       "ximen_proximity": "外人"
     },
     {
       "id": "孙雪娥",
       "degree": 11,
-      "degree_norm": 0.062,
-      "betweenness": 0.0136,
+      "degree_norm": 0.06,
+      "betweenness": 0.0125,
       "faction": "西门府",
       "ximen_proximity": "亲缘"
     },
     {
+      "id": "申二姐",
+      "degree": 9,
+      "degree_norm": 0.049,
+      "betweenness": 0.0122,
+      "faction": "勾栏",
+      "ximen_proximity": "利益交换"
+    },
+    {
       "id": "李衙内",
       "degree": 9,
-      "degree_norm": 0.051,
-      "betweenness": 0.0135,
+      "degree_norm": 0.049,
+      "betweenness": 0.0118,
       "faction": "官场",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "薛姑子",
+      "degree": 8,
+      "degree_norm": 0.044,
+      "betweenness": 0.0118,
+      "faction": "方外",
       "ximen_proximity": "外人"
     },
     {
       "id": "冯金宝儿",
       "degree": 9,
-      "degree_norm": 0.051,
-      "betweenness": 0.0126,
+      "degree_norm": 0.049,
+      "betweenness": 0.0115,
       "faction": "勾栏",
       "ximen_proximity": "利益交换"
-    },
-    {
-      "id": "薛姑子",
-      "degree": 8,
-      "degree_norm": 0.045,
-      "betweenness": 0.0125,
-      "faction": "方外",
-      "ximen_proximity": "外人"
     },
     {
       "id": "陈洪",
       "degree": 6,
-      "degree_norm": 0.034,
-      "betweenness": 0.012,
+      "degree_norm": 0.033,
+      "betweenness": 0.0115,
       "faction": "陈家",
       "ximen_proximity": "外人"
     },
     {
-      "id": "申二姐",
-      "degree": 9,
-      "degree_norm": 0.051,
-      "betweenness": 0.0107,
-      "faction": "勾栏",
-      "ximen_proximity": "利益交换"
-    },
-    {
       "id": "崔本",
       "degree": 11,
-      "degree_norm": 0.062,
-      "betweenness": 0.0106,
+      "degree_norm": 0.06,
+      "betweenness": 0.0103,
       "faction": "商贾",
       "ximen_proximity": "雇佣"
     },
     {
+      "id": "冯妈妈",
+      "degree": 8,
+      "degree_norm": 0.044,
+      "betweenness": 0.009,
+      "faction": "牙婆",
+      "ximen_proximity": "利益交换"
+    },
+    {
       "id": "玳安",
       "degree": 16,
-      "degree_norm": 0.09,
-      "betweenness": 0.0098,
+      "degree_norm": 0.087,
+      "betweenness": 0.0089,
       "faction": "西门府",
       "ximen_proximity": "雇佣"
     },
     {
       "id": "夏恭基",
       "degree": 7,
-      "degree_norm": 0.039,
-      "betweenness": 0.0093,
+      "degree_norm": 0.038,
+      "betweenness": 0.0086,
       "faction": "清河县",
       "ximen_proximity": "外人"
     },
     {
-      "id": "夏提刑",
-      "degree": 14,
-      "degree_norm": 0.079,
-      "betweenness": 0.0092,
-      "faction": "官场",
-      "ximen_proximity": "利益交换"
+      "id": "张安",
+      "degree": 7,
+      "degree_norm": 0.038,
+      "betweenness": 0.0079,
+      "faction": "西门府",
+      "ximen_proximity": "雇佣"
     },
     {
       "id": "曾孝序",
       "degree": 6,
-      "degree_norm": 0.034,
-      "betweenness": 0.0084,
+      "degree_norm": 0.033,
+      "betweenness": 0.0078,
       "faction": "东昌府",
       "ximen_proximity": "外人"
     },
@@ -285,215 +325,183 @@
       "id": "王杏庵",
       "degree": 4,
       "degree_norm": 0.022,
-      "betweenness": 0.0084,
+      "betweenness": 0.0078,
       "faction": "清河市井",
       "ximen_proximity": "外人"
     },
     {
       "id": "张二老爹",
       "degree": 6,
-      "degree_norm": 0.034,
-      "betweenness": 0.0076,
+      "degree_norm": 0.033,
+      "betweenness": 0.0075,
       "faction": "清河县",
       "ximen_proximity": "外人"
     },
     {
-      "id": "张安",
-      "degree": 5,
-      "degree_norm": 0.028,
-      "betweenness": 0.0072,
-      "faction": "西门府",
-      "ximen_proximity": "雇佣"
+      "id": "苗实",
+      "degree": 6,
+      "degree_norm": 0.033,
+      "betweenness": 0.007,
+      "faction": "扬州",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "韩二",
+      "degree": 8,
+      "degree_norm": 0.044,
+      "betweenness": 0.0067,
+      "faction": "清河县",
+      "ximen_proximity": "外人"
     },
     {
       "id": "官哥儿",
       "degree": 13,
-      "degree_norm": 0.073,
-      "betweenness": 0.0071,
+      "degree_norm": 0.071,
+      "betweenness": 0.0066,
       "faction": "西门府",
       "ximen_proximity": "亲缘"
     },
     {
       "id": "张团练",
       "degree": 6,
-      "degree_norm": 0.034,
-      "betweenness": 0.0064,
-      "faction": "官场",
-      "ximen_proximity": "利益交换"
-    },
-    {
-      "id": "老虔婆",
-      "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.033,
       "betweenness": 0.0059,
-      "faction": "勾栏",
+      "faction": "官场",
       "ximen_proximity": "利益交换"
     },
     {
       "id": "刘二",
       "degree": 11,
-      "degree_norm": 0.062,
-      "betweenness": 0.0054,
+      "degree_norm": 0.06,
+      "betweenness": 0.0058,
       "faction": "清河市井",
       "ximen_proximity": "外人"
     },
     {
-      "id": "冯妈妈",
-      "degree": 7,
-      "degree_norm": 0.039,
-      "betweenness": 0.0051,
-      "faction": "牙婆",
+      "id": "老虔婆",
+      "degree": 5,
+      "degree_norm": 0.027,
+      "betweenness": 0.0055,
+      "faction": "勾栏",
       "ximen_proximity": "利益交换"
     },
     {
       "id": "李娇儿",
       "degree": 10,
-      "degree_norm": 0.056,
-      "betweenness": 0.0048,
+      "degree_norm": 0.055,
+      "betweenness": 0.0049,
       "faction": "清河县",
       "ximen_proximity": "利益交换"
     },
     {
       "id": "何官人",
       "degree": 6,
-      "degree_norm": 0.034,
-      "betweenness": 0.0047,
+      "degree_norm": 0.033,
+      "betweenness": 0.0049,
       "faction": "临清",
       "ximen_proximity": "外人"
     },
     {
       "id": "黄四",
       "degree": 10,
-      "degree_norm": 0.056,
-      "betweenness": 0.0046,
+      "degree_norm": 0.055,
+      "betweenness": 0.0048,
       "faction": "商贾",
       "ximen_proximity": "利益交换"
     },
     {
       "id": "武大郎",
       "degree": 7,
-      "degree_norm": 0.039,
-      "betweenness": 0.0045,
+      "degree_norm": 0.038,
+      "betweenness": 0.0041,
       "faction": "清河县",
       "ximen_proximity": "外人"
     },
     {
+      "id": "春鸿",
+      "degree": 7,
+      "degree_norm": 0.038,
+      "betweenness": 0.0039,
+      "faction": "西门府",
+      "ximen_proximity": "雇佣"
+    },
+    {
+      "id": "贲四",
+      "degree": 10,
+      "degree_norm": 0.055,
+      "betweenness": 0.0037,
+      "faction": "西门府",
+      "ximen_proximity": "雇佣"
+    },
+    {
       "id": "吴舜臣",
       "degree": 6,
-      "degree_norm": 0.034,
-      "betweenness": 0.0038,
+      "degree_norm": 0.033,
+      "betweenness": 0.0035,
       "faction": "清河县",
+      "ximen_proximity": "亲缘"
+    },
+    {
+      "id": "韩玉钏儿",
+      "degree": 8,
+      "degree_norm": 0.044,
+      "betweenness": 0.0034,
+      "faction": "勾栏",
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "孝哥儿",
+      "degree": 6,
+      "degree_norm": 0.033,
+      "betweenness": 0.0034,
+      "faction": "西门府",
       "ximen_proximity": "亲缘"
     },
     {
       "id": "朱台官",
       "degree": 4,
       "degree_norm": 0.022,
-      "betweenness": 0.0037,
+      "betweenness": 0.0034,
       "faction": "清河县",
       "ximen_proximity": "外人"
     },
     {
-      "id": "孝哥儿",
-      "degree": 6,
-      "degree_norm": 0.034,
-      "betweenness": 0.0036,
-      "faction": "西门府",
-      "ximen_proximity": "亲缘"
-    },
-    {
-      "id": "薛嫂儿",
-      "degree": 6,
-      "degree_norm": 0.034,
-      "betweenness": 0.0035,
-      "faction": "牙婆",
-      "ximen_proximity": "利益交换"
-    },
-    {
       "id": "王三官",
       "degree": 13,
-      "degree_norm": 0.073,
-      "betweenness": 0.0034,
+      "degree_norm": 0.071,
+      "betweenness": 0.0032,
       "faction": "招宣府",
       "ximen_proximity": "外人"
     },
     {
-      "id": "贲四",
-      "degree": 9,
-      "degree_norm": 0.051,
-      "betweenness": 0.0028,
-      "faction": "西门府",
-      "ximen_proximity": "雇佣"
-    },
-    {
-      "id": "韩玉钏儿",
-      "degree": 8,
-      "degree_norm": 0.045,
-      "betweenness": 0.0028,
-      "faction": "勾栏",
+      "id": "薛嫂儿",
+      "degree": 6,
+      "degree_norm": 0.033,
+      "betweenness": 0.0032,
+      "faction": "牙婆",
       "ximen_proximity": "利益交换"
     },
     {
       "id": "陈三",
       "degree": 7,
-      "degree_norm": 0.039,
-      "betweenness": 0.0027,
+      "degree_norm": 0.038,
+      "betweenness": 0.0029,
       "faction": "江湖",
       "ximen_proximity": "外人"
     },
     {
-      "id": "春鸿",
-      "degree": 5,
-      "degree_norm": 0.028,
-      "betweenness": 0.0026,
-      "faction": "西门府",
-      "ximen_proximity": "雇佣"
-    },
-    {
-      "id": "迎儿",
-      "degree": 4,
-      "degree_norm": 0.022,
-      "betweenness": 0.0026,
-      "faction": "清河县",
-      "ximen_proximity": "外人"
-    },
-    {
-      "id": "郑三姐",
-      "degree": 4,
-      "degree_norm": 0.022,
-      "betweenness": 0.0026,
-      "faction": "清河县",
-      "ximen_proximity": "亲缘"
-    },
-    {
       "id": "花子由",
       "degree": 8,
-      "degree_norm": 0.045,
-      "betweenness": 0.0024,
+      "degree_norm": 0.044,
+      "betweenness": 0.0027,
       "faction": "清河县",
       "ximen_proximity": "利益交换"
     },
     {
-      "id": "刘婆子",
-      "degree": 5,
-      "degree_norm": 0.028,
-      "betweenness": 0.0024,
-      "faction": "清河县",
-      "ximen_proximity": "外人"
-    },
-    {
-      "id": "来兴儿",
-      "degree": 4,
-      "degree_norm": 0.022,
-      "betweenness": 0.0023,
-      "faction": "西门府",
-      "ximen_proximity": "雇佣"
-    },
-    {
       "id": "八老",
       "degree": 5,
-      "degree_norm": 0.028,
-      "betweenness": 0.0021,
+      "degree_norm": 0.027,
+      "betweenness": 0.0026,
       "faction": "临清",
       "ximen_proximity": "外人"
     },
@@ -501,103 +509,143 @@
       "id": "僧宝儿",
       "degree": 4,
       "degree_norm": 0.022,
-      "betweenness": 0.002,
+      "betweenness": 0.0024,
       "faction": "西门府",
       "ximen_proximity": "雇佣"
+    },
+    {
+      "id": "迎儿",
+      "degree": 4,
+      "degree_norm": 0.022,
+      "betweenness": 0.0024,
+      "faction": "清河县",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "郑三姐",
+      "degree": 4,
+      "degree_norm": 0.022,
+      "betweenness": 0.0024,
+      "faction": "清河县",
+      "ximen_proximity": "亲缘"
+    },
+    {
+      "id": "郑爱月儿",
+      "degree": 14,
+      "degree_norm": 0.077,
+      "betweenness": 0.0022,
+      "faction": "勾栏",
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "刘婆子",
+      "degree": 5,
+      "degree_norm": 0.027,
+      "betweenness": 0.0022,
+      "faction": "清河县",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "来兴儿",
+      "degree": 4,
+      "degree_norm": 0.022,
+      "betweenness": 0.0022,
+      "faction": "西门府",
+      "ximen_proximity": "雇佣"
+    },
+    {
+      "id": "吴银儿",
+      "degree": 13,
+      "degree_norm": 0.071,
+      "betweenness": 0.0018,
+      "faction": "勾栏",
+      "ximen_proximity": "利益交换"
     },
     {
       "id": "来旺",
       "degree": 11,
-      "degree_norm": 0.062,
-      "betweenness": 0.0019,
+      "degree_norm": 0.06,
+      "betweenness": 0.0017,
       "faction": "西门府",
-      "ximen_proximity": "雇佣"
-    },
-    {
-      "id": "温秀才",
-      "degree": 6,
-      "degree_norm": 0.034,
-      "betweenness": 0.0019,
-      "faction": "清河县",
       "ximen_proximity": "雇佣"
     },
     {
       "id": "樊百奴儿",
       "degree": 6,
-      "degree_norm": 0.034,
-      "betweenness": 0.0018,
+      "degree_norm": 0.033,
+      "betweenness": 0.0017,
+      "faction": "勾栏",
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "荣娇儿",
+      "degree": 5,
+      "degree_norm": 0.027,
+      "betweenness": 0.0017,
+      "faction": "勾栏",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "温秀才",
+      "degree": 6,
+      "degree_norm": 0.033,
+      "betweenness": 0.0016,
+      "faction": "清河县",
+      "ximen_proximity": "雇佣"
+    },
+    {
+      "id": "吕赛儿",
+      "degree": 5,
+      "degree_norm": 0.027,
+      "betweenness": 0.0016,
       "faction": "勾栏",
       "ximen_proximity": "利益交换"
     },
     {
       "id": "李贵",
       "degree": 5,
-      "degree_norm": 0.028,
-      "betweenness": 0.0018,
+      "degree_norm": 0.027,
+      "betweenness": 0.0016,
       "faction": "市井",
       "ximen_proximity": "外人"
     },
     {
       "id": "张胜",
       "degree": 7,
-      "degree_norm": 0.039,
-      "betweenness": 0.0017,
+      "degree_norm": 0.038,
+      "betweenness": 0.0015,
       "faction": "官场",
       "ximen_proximity": "雇佣"
     },
     {
       "id": "李安",
       "degree": 6,
-      "degree_norm": 0.034,
-      "betweenness": 0.0017,
+      "degree_norm": 0.033,
+      "betweenness": 0.0015,
       "faction": "官场",
       "ximen_proximity": "雇佣"
     },
     {
-      "id": "荣娇儿",
-      "degree": 5,
-      "degree_norm": 0.028,
-      "betweenness": 0.0017,
-      "faction": "勾栏",
-      "ximen_proximity": "外人"
-    },
-    {
-      "id": "郑爱月儿",
-      "degree": 14,
-      "degree_norm": 0.079,
-      "betweenness": 0.0016,
-      "faction": "勾栏",
-      "ximen_proximity": "利益交换"
-    },
-    {
-      "id": "吕赛儿",
-      "degree": 5,
-      "degree_norm": 0.028,
-      "betweenness": 0.0016,
-      "faction": "勾栏",
-      "ximen_proximity": "利益交换"
-    },
-    {
-      "id": "吴银儿",
-      "degree": 13,
-      "degree_norm": 0.073,
-      "betweenness": 0.0015,
+      "id": "李铭",
+      "degree": 10,
+      "degree_norm": 0.055,
+      "betweenness": 0.0014,
       "faction": "勾栏",
       "ximen_proximity": "利益交换"
     },
     {
       "id": "王姑子",
       "degree": 5,
-      "degree_norm": 0.028,
-      "betweenness": 0.0015,
+      "degree_norm": 0.027,
+      "betweenness": 0.0014,
       "faction": "方外",
       "ximen_proximity": "外人"
     },
     {
       "id": "消愁儿",
       "degree": 6,
-      "degree_norm": 0.034,
-      "betweenness": 0.0014,
+      "degree_norm": 0.033,
+      "betweenness": 0.0012,
       "faction": "勾栏",
       "ximen_proximity": "利益交换"
     },
@@ -605,121 +653,137 @@
       "id": "元宵儿",
       "degree": 4,
       "degree_norm": 0.022,
-      "betweenness": 0.0014,
+      "betweenness": 0.0012,
       "faction": "西门府",
       "ximen_proximity": "雇佣"
     },
     {
       "id": "葛翠屏",
       "degree": 6,
-      "degree_norm": 0.034,
-      "betweenness": 0.0011,
+      "degree_norm": 0.033,
+      "betweenness": 0.001,
       "faction": "西门府",
       "ximen_proximity": "亲缘"
     },
     {
       "id": "郑娇儿",
       "degree": 6,
-      "degree_norm": 0.034,
-      "betweenness": 0.0011,
+      "degree_norm": 0.033,
+      "betweenness": 0.001,
       "faction": "勾栏",
       "ximen_proximity": "利益交换"
     },
     {
       "id": "黄主事",
       "degree": 5,
-      "degree_norm": 0.028,
-      "betweenness": 0.0011,
+      "degree_norm": 0.027,
+      "betweenness": 0.001,
       "faction": "官场",
       "ximen_proximity": "利益交换"
     },
     {
-      "id": "杨光彦",
+      "id": "王海峰",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0009,
-      "faction": "清河市井",
+      "faction": "扬州",
       "ximen_proximity": "外人"
     },
     {
       "id": "聂钺儿",
       "degree": 11,
-      "degree_norm": 0.062,
+      "degree_norm": 0.06,
       "betweenness": 0.0008,
       "faction": "帮闲圈",
       "ximen_proximity": "利益交换"
     },
     {
-      "id": "李铭",
-      "degree": 10,
-      "degree_norm": 0.056,
+      "id": "杨光彦",
+      "degree": 5,
+      "degree_norm": 0.027,
       "betweenness": 0.0008,
-      "faction": "勾栏",
-      "ximen_proximity": "利益交换"
+      "faction": "清河市井",
+      "ximen_proximity": "外人"
     },
     {
-      "id": "翟管家",
-      "degree": 7,
-      "degree_norm": 0.039,
-      "betweenness": 0.0008,
+      "id": "谢希大",
+      "degree": 9,
+      "degree_norm": 0.049,
+      "betweenness": 0.0007,
       "faction": "帮闲圈",
       "ximen_proximity": "利益交换"
     },
     {
       "id": "张氏",
       "degree": 5,
-      "degree_norm": 0.028,
-      "betweenness": 0.0008,
+      "degree_norm": 0.027,
+      "betweenness": 0.0007,
       "faction": "陈家",
       "ximen_proximity": "外人"
     },
     {
+      "id": "萧成",
+      "degree": 5,
+      "degree_norm": 0.027,
+      "betweenness": 0.0007,
+      "faction": "清河县",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "韩金钏儿",
+      "degree": 8,
+      "degree_norm": 0.044,
+      "betweenness": 0.0006,
+      "faction": "勾栏",
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "翟管家",
+      "degree": 7,
+      "degree_norm": 0.038,
+      "betweenness": 0.0006,
+      "faction": "帮闲圈",
+      "ximen_proximity": "利益交换"
+    },
+    {
       "id": "蔡御史",
       "degree": 7,
-      "degree_norm": 0.039,
-      "betweenness": 0.0007,
+      "degree_norm": 0.038,
+      "betweenness": 0.0006,
       "faction": "官场",
       "ximen_proximity": "利益交换"
     },
     {
       "id": "李安母",
       "degree": 3,
-      "degree_norm": 0.017,
-      "betweenness": 0.0007,
+      "degree_norm": 0.016,
+      "betweenness": 0.0006,
       "faction": "清河市井",
       "ximen_proximity": "外人"
     },
     {
       "id": "郑爱香",
       "degree": 10,
-      "degree_norm": 0.056,
-      "betweenness": 0.0006,
+      "degree_norm": 0.055,
+      "betweenness": 0.0005,
       "faction": "勾栏",
-      "ximen_proximity": "利益交换"
-    },
-    {
-      "id": "谢希大",
-      "degree": 9,
-      "degree_norm": 0.051,
-      "betweenness": 0.0006,
-      "faction": "帮闲圈",
       "ximen_proximity": "利益交换"
     },
     {
       "id": "周忠",
       "degree": 6,
-      "degree_norm": 0.034,
-      "betweenness": 0.0006,
+      "degree_norm": 0.033,
+      "betweenness": 0.0005,
       "faction": "守备府",
       "ximen_proximity": "外人"
     },
     {
-      "id": "吴典恩",
-      "degree": 5,
-      "degree_norm": 0.028,
+      "id": "来爵",
+      "degree": 4,
+      "degree_norm": 0.022,
       "betweenness": 0.0005,
-      "faction": "官场",
-      "ximen_proximity": "利益交换"
+      "faction": "西门庆府",
+      "ximen_proximity": "府内"
     },
     {
       "id": "金钱儿",
@@ -732,15 +796,23 @@
     {
       "id": "宋惠莲",
       "degree": 8,
-      "degree_norm": 0.045,
+      "degree_norm": 0.044,
       "betweenness": 0.0004,
       "faction": "西门府",
       "ximen_proximity": "雇佣"
     },
     {
+      "id": "花子虚",
+      "degree": 8,
+      "degree_norm": 0.044,
+      "betweenness": 0.0004,
+      "faction": "清河县",
+      "ximen_proximity": "利益交换"
+    },
+    {
       "id": "周宣",
       "degree": 6,
-      "degree_norm": 0.034,
+      "degree_norm": 0.033,
       "betweenness": 0.0004,
       "faction": "守备府",
       "ximen_proximity": "外人"
@@ -748,23 +820,15 @@
     {
       "id": "孔嫂儿",
       "degree": 6,
-      "degree_norm": 0.034,
+      "degree_norm": 0.033,
       "betweenness": 0.0004,
       "faction": "清河县",
       "ximen_proximity": "外人"
     },
     {
-      "id": "来安儿",
-      "degree": 6,
-      "degree_norm": 0.034,
-      "betweenness": 0.0004,
-      "faction": "清河县",
-      "ximen_proximity": "雇佣"
-    },
-    {
-      "id": "荆都监",
+      "id": "吴典恩",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0004,
       "faction": "官场",
       "ximen_proximity": "利益交换"
@@ -778,33 +842,33 @@
       "ximen_proximity": "外人"
     },
     {
-      "id": "花子虚",
-      "degree": 8,
-      "degree_norm": 0.045,
-      "betweenness": 0.0003,
-      "faction": "清河县",
-      "ximen_proximity": "利益交换"
-    },
-    {
-      "id": "韩金钏儿",
-      "degree": 8,
-      "degree_norm": 0.045,
-      "betweenness": 0.0003,
-      "faction": "勾栏",
-      "ximen_proximity": "利益交换"
-    },
-    {
       "id": "云理守",
       "degree": 6,
-      "degree_norm": 0.034,
+      "degree_norm": 0.033,
       "betweenness": 0.0003,
       "faction": "济南",
       "ximen_proximity": "外人"
     },
     {
+      "id": "来安儿",
+      "degree": 6,
+      "degree_norm": 0.033,
+      "betweenness": 0.0003,
+      "faction": "清河县",
+      "ximen_proximity": "雇佣"
+    },
+    {
+      "id": "段绵纱",
+      "degree": 6,
+      "degree_norm": 0.033,
+      "betweenness": 0.0003,
+      "faction": "帮闲圈",
+      "ximen_proximity": "利益交换"
+    },
+    {
       "id": "秦玉芝",
       "degree": 6,
-      "degree_norm": 0.034,
+      "degree_norm": 0.033,
       "betweenness": 0.0003,
       "faction": "勾栏",
       "ximen_proximity": "利益交换"
@@ -812,10 +876,18 @@
     {
       "id": "尚举人",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0003,
       "faction": "清河县",
       "ximen_proximity": "外人"
+    },
+    {
+      "id": "荆都监",
+      "degree": 5,
+      "degree_norm": 0.027,
+      "betweenness": 0.0003,
+      "faction": "官场",
+      "ximen_proximity": "利益交换"
     },
     {
       "id": "王经",
@@ -826,17 +898,9 @@
       "ximen_proximity": "雇佣"
     },
     {
-      "id": "王海峰",
-      "degree": 3,
-      "degree_norm": 0.017,
-      "betweenness": 0.0003,
-      "faction": "扬州",
-      "ximen_proximity": "外人"
-    },
-    {
       "id": "董娇儿",
       "degree": 8,
-      "degree_norm": 0.045,
+      "degree_norm": 0.044,
       "betweenness": 0.0002,
       "faction": "勾栏",
       "ximen_proximity": "利益交换"
@@ -844,7 +908,15 @@
     {
       "id": "齐香儿",
       "degree": 8,
-      "degree_norm": 0.045,
+      "degree_norm": 0.044,
+      "betweenness": 0.0002,
+      "faction": "勾栏",
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "洪四儿",
+      "degree": 7,
+      "degree_norm": 0.038,
       "betweenness": 0.0002,
       "faction": "勾栏",
       "ximen_proximity": "利益交换"
@@ -852,7 +924,7 @@
     {
       "id": "桂卿",
       "degree": 6,
-      "degree_norm": 0.034,
+      "degree_norm": 0.033,
       "betweenness": 0.0002,
       "faction": "勾栏",
       "ximen_proximity": "利益交换"
@@ -860,7 +932,7 @@
     {
       "id": "王婆",
       "degree": 6,
-      "degree_norm": 0.034,
+      "degree_norm": 0.033,
       "betweenness": 0.0002,
       "faction": "清河市井",
       "ximen_proximity": "利益交换"
@@ -868,7 +940,7 @@
     {
       "id": "雷启元",
       "degree": 6,
-      "degree_norm": 0.034,
+      "degree_norm": 0.033,
       "betweenness": 0.0002,
       "faction": "东昌府",
       "ximen_proximity": "外人"
@@ -876,23 +948,47 @@
     {
       "id": "乐和安",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0002,
       "faction": "清河县",
       "ximen_proximity": "外人"
     },
     {
-      "id": "阴骘",
+      "id": "王玉枝",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0002,
-      "faction": "清河县",
+      "faction": "扬州",
       "ximen_proximity": "外人"
+    },
+    {
+      "id": "白秃子",
+      "degree": 5,
+      "degree_norm": 0.027,
+      "betweenness": 0.0002,
+      "faction": "帮闲圈",
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "祝实念",
+      "degree": 5,
+      "degree_norm": 0.027,
+      "betweenness": 0.0002,
+      "faction": "帮闲圈",
+      "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "罗回子",
+      "degree": 5,
+      "degree_norm": 0.027,
+      "betweenness": 0.0002,
+      "faction": "帮闲圈",
+      "ximen_proximity": "利益交换"
     },
     {
       "id": "韩先生",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0002,
       "faction": "清河县",
       "ximen_proximity": "外人"
@@ -922,41 +1018,25 @@
       "ximen_proximity": "府内"
     },
     {
-      "id": "来爵",
+      "id": "杜中书",
       "degree": 4,
       "degree_norm": 0.022,
       "betweenness": 0.0002,
-      "faction": "西门庆府",
-      "ximen_proximity": "府内"
-    },
-    {
-      "id": "王玉枝",
-      "degree": 4,
-      "degree_norm": 0.022,
-      "betweenness": 0.0002,
-      "faction": "扬州",
+      "faction": "清河县",
       "ximen_proximity": "外人"
     },
     {
-      "id": "中秋儿",
-      "degree": 3,
-      "degree_norm": 0.017,
+      "id": "贾仁清",
+      "degree": 4,
+      "degree_norm": 0.022,
       "betweenness": 0.0002,
-      "faction": "西门府",
-      "ximen_proximity": "雇佣"
+      "faction": "清河县",
+      "ximen_proximity": "外人"
     },
     {
       "id": "吴惠",
       "degree": 7,
-      "degree_norm": 0.039,
-      "betweenness": 0.0001,
-      "faction": "勾栏",
-      "ximen_proximity": "利益交换"
-    },
-    {
-      "id": "洪四儿",
-      "degree": 7,
-      "degree_norm": 0.039,
+      "degree_norm": 0.038,
       "betweenness": 0.0001,
       "faction": "勾栏",
       "ximen_proximity": "利益交换"
@@ -964,23 +1044,15 @@
     {
       "id": "来昭",
       "degree": 6,
-      "degree_norm": 0.034,
+      "degree_norm": 0.033,
       "betweenness": 0.0001,
       "faction": "西门府",
       "ximen_proximity": "雇佣"
     },
     {
-      "id": "段绵纱",
-      "degree": 6,
-      "degree_norm": 0.034,
-      "betweenness": 0.0001,
-      "faction": "帮闲圈",
-      "ximen_proximity": "利益交换"
-    },
-    {
       "id": "郁大姐",
       "degree": 6,
-      "degree_norm": 0.034,
+      "degree_norm": 0.033,
       "betweenness": 0.0001,
       "faction": "勾栏",
       "ximen_proximity": "利益交换"
@@ -988,7 +1060,7 @@
     {
       "id": "郑奉",
       "degree": 6,
-      "degree_norm": 0.034,
+      "degree_norm": 0.033,
       "betweenness": 0.0001,
       "faction": "勾栏",
       "ximen_proximity": "利益交换"
@@ -996,15 +1068,23 @@
     {
       "id": "书童",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0001,
       "faction": "西门府",
       "ximen_proximity": "雇佣"
     },
     {
+      "id": "保儿",
+      "degree": 5,
+      "degree_norm": 0.027,
+      "betweenness": 0.0001,
+      "faction": "勾栏",
+      "ximen_proximity": "利益交换"
+    },
+    {
       "id": "周肖儿",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0001,
       "faction": "勾栏",
       "ximen_proximity": "利益交换"
@@ -1012,7 +1092,7 @@
     {
       "id": "安郎中",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0001,
       "faction": "清河县",
       "ximen_proximity": "外人"
@@ -1020,23 +1100,15 @@
     {
       "id": "段大姐",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0001,
       "faction": "清河县",
       "ximen_proximity": "外人"
     },
     {
-      "id": "祝实念",
-      "degree": 5,
-      "degree_norm": 0.028,
-      "betweenness": 0.0001,
-      "faction": "帮闲圈",
-      "ximen_proximity": "利益交换"
-    },
-    {
       "id": "秋菊",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0001,
       "faction": "西门府",
       "ximen_proximity": "雇佣"
@@ -1044,7 +1116,7 @@
     {
       "id": "荣海",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0001,
       "faction": "商贾",
       "ximen_proximity": "雇佣"
@@ -1052,10 +1124,18 @@
     {
       "id": "贲四嫂",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0001,
       "faction": "西门府",
       "ximen_proximity": "雇佣"
+    },
+    {
+      "id": "阴骘",
+      "degree": 5,
+      "degree_norm": 0.027,
+      "betweenness": 0.0001,
+      "faction": "清河县",
+      "ximen_proximity": "外人"
     },
     {
       "id": "任医官",
@@ -1074,36 +1154,20 @@
       "ximen_proximity": "外人"
     },
     {
-      "id": "崔亲家母",
+      "id": "孙天化",
       "degree": 4,
       "degree_norm": 0.022,
       "betweenness": 0.0001,
-      "faction": "清河县",
-      "ximen_proximity": "外人"
+      "faction": "帮闲圈",
+      "ximen_proximity": "利益交换"
     },
     {
-      "id": "杜中书",
+      "id": "甘伙计",
       "degree": 4,
       "degree_norm": 0.022,
       "betweenness": 0.0001,
-      "faction": "清河县",
-      "ximen_proximity": "外人"
-    },
-    {
-      "id": "王皇亲",
-      "degree": 4,
-      "degree_norm": 0.022,
-      "betweenness": 0.0001,
-      "faction": "清河县",
-      "ximen_proximity": "外人"
-    },
-    {
-      "id": "聂两湖",
-      "degree": 4,
-      "degree_norm": 0.022,
-      "betweenness": 0.0001,
-      "faction": "东京",
-      "ximen_proximity": "外人"
+      "faction": "商贾",
+      "ximen_proximity": "雇佣"
     },
     {
       "id": "胡师文",
@@ -1122,14 +1186,6 @@
       "ximen_proximity": "外人"
     },
     {
-      "id": "贾仁清",
-      "degree": 4,
-      "degree_norm": 0.022,
-      "betweenness": 0.0001,
-      "faction": "清河县",
-      "ximen_proximity": "外人"
-    },
-    {
       "id": "鲍太医",
       "degree": 4,
       "degree_norm": 0.022,
@@ -1138,9 +1194,25 @@
       "ximen_proximity": "外人"
     },
     {
+      "id": "中秋儿",
+      "degree": 3,
+      "degree_norm": 0.016,
+      "betweenness": 0.0001,
+      "faction": "西门府",
+      "ximen_proximity": "雇佣"
+    },
+    {
       "id": "李昌期",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
+      "betweenness": 0.0001,
+      "faction": "清河县",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "潘道士",
+      "degree": 3,
+      "degree_norm": 0.016,
       "betweenness": 0.0001,
       "faction": "清河县",
       "ximen_proximity": "外人"
@@ -1148,7 +1220,7 @@
     {
       "id": "王和尚",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0001,
       "faction": "方外",
       "ximen_proximity": "外人"
@@ -1156,7 +1228,7 @@
     {
       "id": "王潮",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0001,
       "faction": "清河县",
       "ximen_proximity": "外人"
@@ -1164,7 +1236,7 @@
     {
       "id": "花大嫂",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0001,
       "faction": "清河县",
       "ximen_proximity": "利益交换"
@@ -1172,7 +1244,7 @@
     {
       "id": "于宽",
       "degree": 6,
-      "degree_norm": 0.034,
+      "degree_norm": 0.033,
       "betweenness": 0.0,
       "faction": "帮闲圈",
       "ximen_proximity": "利益交换"
@@ -1180,7 +1252,7 @@
     {
       "id": "向三",
       "degree": 6,
-      "degree_norm": 0.034,
+      "degree_norm": 0.033,
       "betweenness": 0.0,
       "faction": "帮闲圈",
       "ximen_proximity": "利益交换"
@@ -1188,7 +1260,7 @@
     {
       "id": "白回子",
       "degree": 6,
-      "degree_norm": 0.034,
+      "degree_norm": 0.033,
       "betweenness": 0.0,
       "faction": "帮闲圈",
       "ximen_proximity": "利益交换"
@@ -1196,7 +1268,7 @@
     {
       "id": "任良贵",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "外人"
@@ -1204,23 +1276,15 @@
     {
       "id": "何九",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0,
       "faction": "清河市井",
       "ximen_proximity": "利益交换"
     },
     {
-      "id": "保儿",
-      "degree": 5,
-      "degree_norm": 0.028,
-      "betweenness": 0.0,
-      "faction": "勾栏",
-      "ximen_proximity": "利益交换"
-    },
-    {
       "id": "平安儿",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "雇佣"
@@ -1228,7 +1292,7 @@
     {
       "id": "楚云",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0,
       "faction": "勾栏",
       "ximen_proximity": "利益交换"
@@ -1236,31 +1300,15 @@
     {
       "id": "画童",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "雇佣"
     },
     {
-      "id": "白秃子",
-      "degree": 5,
-      "degree_norm": 0.028,
-      "betweenness": 0.0,
-      "faction": "帮闲圈",
-      "ximen_proximity": "利益交换"
-    },
-    {
-      "id": "罗回子",
-      "degree": 5,
-      "degree_norm": 0.028,
-      "betweenness": 0.0,
-      "faction": "帮闲圈",
-      "ximen_proximity": "利益交换"
-    },
-    {
       "id": "胡秀",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0,
       "faction": "商贾",
       "ximen_proximity": "雇佣"
@@ -1268,7 +1316,7 @@
     {
       "id": "花子光",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "利益交换"
@@ -1276,7 +1324,7 @@
     {
       "id": "花子华",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "利益交换"
@@ -1284,7 +1332,7 @@
     {
       "id": "郑春",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0,
       "faction": "勾栏",
       "ximen_proximity": "利益交换"
@@ -1292,7 +1340,7 @@
     {
       "id": "钱斯成",
       "degree": 5,
-      "degree_norm": 0.028,
+      "degree_norm": 0.027,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "外人"
@@ -1394,14 +1442,6 @@
       "ximen_proximity": "雇佣"
     },
     {
-      "id": "孙天化",
-      "degree": 4,
-      "degree_norm": 0.022,
-      "betweenness": 0.0,
-      "faction": "帮闲圈",
-      "ximen_proximity": "利益交换"
-    },
-    {
       "id": "孙文相",
       "degree": 4,
       "degree_norm": 0.022,
@@ -1426,12 +1466,36 @@
       "ximen_proximity": "外人"
     },
     {
+      "id": "小红",
+      "degree": 4,
+      "degree_norm": 0.022,
+      "betweenness": 0.0,
+      "faction": "扬州",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "崔亲家母",
+      "degree": 4,
+      "degree_norm": 0.022,
+      "betweenness": 0.0,
+      "faction": "清河县",
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "徐先生",
       "degree": 4,
       "degree_norm": 0.022,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "外人"
+    },
+    {
+      "id": "春燕",
+      "degree": 4,
+      "degree_norm": 0.022,
+      "betweenness": 0.0,
+      "faction": "西门府",
+      "ximen_proximity": "雇佣"
     },
     {
       "id": "李智",
@@ -1447,6 +1511,14 @@
       "degree_norm": 0.022,
       "betweenness": 0.0,
       "faction": "招宣府",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "林彩虹",
+      "degree": 4,
+      "degree_norm": 0.022,
+      "betweenness": 0.0,
+      "faction": "扬州",
       "ximen_proximity": "外人"
     },
     {
@@ -1474,19 +1546,19 @@
       "ximen_proximity": "利益交换"
     },
     {
+      "id": "王皇亲",
+      "degree": 4,
+      "degree_norm": 0.022,
+      "betweenness": 0.0,
+      "faction": "清河县",
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "琴童",
       "degree": 4,
       "degree_norm": 0.022,
       "betweenness": 0.0,
       "faction": "西门府",
-      "ximen_proximity": "雇佣"
-    },
-    {
-      "id": "甘伙计",
-      "degree": 4,
-      "degree_norm": 0.022,
-      "betweenness": 0.0,
-      "faction": "商贾",
       "ximen_proximity": "雇佣"
     },
     {
@@ -1503,6 +1575,14 @@
       "degree_norm": 0.022,
       "betweenness": 0.0,
       "faction": "江湖",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "聂两湖",
+      "degree": 4,
+      "degree_norm": 0.022,
+      "betweenness": 0.0,
+      "faction": "东京",
       "ximen_proximity": "外人"
     },
     {
@@ -1564,7 +1644,7 @@
     {
       "id": "乐三嫂",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "清河市井",
       "ximen_proximity": "外人"
@@ -1572,7 +1652,7 @@
     {
       "id": "乔通",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "外人"
@@ -1580,7 +1660,7 @@
     {
       "id": "伊勉慈",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "外人"
@@ -1588,7 +1668,7 @@
     {
       "id": "倪秀才",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "雇佣"
@@ -1596,7 +1676,7 @@
     {
       "id": "吴二舅",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "亲缘"
@@ -1604,7 +1684,7 @@
     {
       "id": "吴神仙",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "方外",
       "ximen_proximity": "外人"
@@ -1612,7 +1692,7 @@
     {
       "id": "夏花儿",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "西门府",
       "ximen_proximity": "雇佣"
@@ -1620,7 +1700,7 @@
     {
       "id": "妙凤",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "方外",
       "ximen_proximity": "外人"
@@ -1628,7 +1708,7 @@
     {
       "id": "妙趣",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "方外",
       "ximen_proximity": "外人"
@@ -1636,7 +1716,7 @@
     {
       "id": "孟锐",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "亲缘"
@@ -1644,7 +1724,7 @@
     {
       "id": "小姜儿",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "守备府",
       "ximen_proximity": "外人"
@@ -1652,7 +1732,7 @@
     {
       "id": "小铁棍儿",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "西门府",
       "ximen_proximity": "雇佣"
@@ -1660,7 +1740,7 @@
     {
       "id": "崔中书",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "朝廷",
       "ximen_proximity": "外人"
@@ -1668,7 +1748,7 @@
     {
       "id": "常峙节",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "帮闲圈",
       "ximen_proximity": "利益交换"
@@ -1676,7 +1756,7 @@
     {
       "id": "张叔夜",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "济南府",
       "ximen_proximity": "外人"
@@ -1684,7 +1764,7 @@
     {
       "id": "张大户",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "清河市井",
       "ximen_proximity": "外人"
@@ -1692,7 +1772,7 @@
     {
       "id": "春香",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "清河市井",
       "ximen_proximity": "外人"
@@ -1700,15 +1780,15 @@
     {
       "id": "月桂",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "守备府",
       "ximen_proximity": "外人"
     },
     {
-      "id": "林彩虹",
+      "id": "汪东桥",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "扬州",
       "ximen_proximity": "外人"
@@ -1716,7 +1796,7 @@
     {
       "id": "汪伯彦",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "东昌府",
       "ximen_proximity": "外人"
@@ -1724,15 +1804,23 @@
     {
       "id": "海棠",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "守备府",
       "ximen_proximity": "外人"
     },
     {
+      "id": "游守",
+      "degree": 3,
+      "degree_norm": 0.016,
+      "betweenness": 0.0,
+      "faction": "清河县",
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "满堂儿",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "严州",
       "ximen_proximity": "外人"
@@ -1740,23 +1828,15 @@
     {
       "id": "满重喜",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "西门府",
       "ximen_proximity": "雇佣"
     },
     {
-      "id": "潘道士",
-      "degree": 3,
-      "degree_norm": 0.017,
-      "betweenness": 0.0,
-      "faction": "清河县",
-      "ximen_proximity": "外人"
-    },
-    {
       "id": "狄斯彬",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "阳谷县",
       "ximen_proximity": "外人"
@@ -1764,7 +1844,7 @@
     {
       "id": "玉簪儿",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "外人"
@@ -1772,15 +1852,23 @@
     {
       "id": "王一妈",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "扬州",
       "ximen_proximity": "外人"
     },
     {
+      "id": "王屠",
+      "degree": 3,
+      "degree_norm": 0.016,
+      "betweenness": 0.0,
+      "faction": "清河县",
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "王显",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "商贾",
       "ximen_proximity": "雇佣"
@@ -1788,7 +1876,7 @@
     {
       "id": "白赉光",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "帮闲圈",
       "ximen_proximity": "利益交换"
@@ -1796,7 +1884,7 @@
     {
       "id": "蒋聪",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "外人"
@@ -1804,7 +1892,7 @@
     {
       "id": "蔡老娘",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "外人"
@@ -1812,7 +1900,7 @@
     {
       "id": "蕙秀",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "西门府",
       "ximen_proximity": "雇佣"
@@ -1820,7 +1908,7 @@
     {
       "id": "谢三郎",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "临清",
       "ximen_proximity": "外人"
@@ -1828,7 +1916,7 @@
     {
       "id": "贺千户",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "外人"
@@ -1836,15 +1924,23 @@
     {
       "id": "金匮",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "守备府",
       "ximen_proximity": "外人"
     },
     {
+      "id": "钱晴川",
+      "degree": 3,
+      "degree_norm": 0.016,
+      "betweenness": 0.0,
+      "faction": "扬州",
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "锦儿",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "清河市井",
       "ximen_proximity": "外人"
@@ -1852,7 +1948,7 @@
     {
       "id": "陈千户",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "外人"
@@ -1860,23 +1956,15 @@
     {
       "id": "陈定",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "临清",
       "ximen_proximity": "外人"
     },
     {
-      "id": "韩二",
-      "degree": 3,
-      "degree_norm": 0.017,
-      "betweenness": 0.0,
-      "faction": "清河县",
-      "ximen_proximity": "外人"
-    },
-    {
       "id": "韩姨夫",
       "degree": 3,
-      "degree_norm": 0.017,
+      "degree_norm": 0.016,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "亲缘"
@@ -1891,6 +1979,22 @@
     },
     {
       "id": "乔皇亲",
+      "degree": 2,
+      "degree_norm": 0.011,
+      "betweenness": 0.0,
+      "faction": "清河县",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "何两峰",
+      "degree": 2,
+      "degree_norm": 0.011,
+      "betweenness": 0.0,
+      "faction": "湖州",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "何金蝉儿",
       "degree": 2,
       "degree_norm": 0.011,
       "betweenness": 0.0,
@@ -2010,6 +2114,14 @@
       "ximen_proximity": "外人"
     },
     {
+      "id": "管世宽",
+      "degree": 2,
+      "degree_norm": 0.011,
+      "betweenness": 0.0,
+      "faction": "清河县",
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "翠花",
       "degree": 2,
       "degree_norm": 0.011,
@@ -2026,12 +2138,44 @@
       "ximen_proximity": "外人"
     },
     {
+      "id": "赵寡妇",
+      "degree": 2,
+      "degree_norm": 0.011,
+      "betweenness": 0.0,
+      "faction": "清河县",
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "赵裁",
       "degree": 2,
       "degree_norm": 0.011,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "雇佣"
+    },
+    {
+      "id": "车老儿",
+      "degree": 2,
+      "degree_norm": 0.011,
+      "betweenness": 0.0,
+      "faction": "清河县",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "郝贤",
+      "degree": 2,
+      "degree_norm": 0.011,
+      "betweenness": 0.0,
+      "faction": "清河县",
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "门管先生",
+      "degree": 2,
+      "degree_norm": 0.011,
+      "betweenness": 0.0,
+      "faction": "扬州",
+      "ximen_proximity": "外人"
     },
     {
       "id": "陆三郎",
@@ -2058,9 +2202,17 @@
       "ximen_proximity": "外人"
     },
     {
+      "id": "丁相公",
+      "degree": 1,
+      "degree_norm": 0.005,
+      "betweenness": 0.0,
+      "faction": "杭州",
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "大街皇亲",
       "degree": 1,
-      "degree_norm": 0.006,
+      "degree_norm": 0.005,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "外人"
@@ -2068,7 +2220,7 @@
     {
       "id": "徐州婆婆",
       "degree": 1,
-      "degree_norm": 0.006,
+      "degree_norm": 0.005,
       "betweenness": 0.0,
       "faction": "江湖",
       "ximen_proximity": "外人"
@@ -2076,7 +2228,7 @@
     {
       "id": "王昭宣",
       "degree": 1,
-      "degree_norm": 0.006,
+      "degree_norm": 0.005,
       "betweenness": 0.0,
       "faction": "清河县",
       "ximen_proximity": "外人"
@@ -2084,15 +2236,23 @@
     {
       "id": "王汉",
       "degree": 1,
-      "degree_norm": 0.006,
+      "degree_norm": 0.005,
       "betweenness": 0.0,
       "faction": "商贾",
       "ximen_proximity": "雇佣"
     },
     {
+      "id": "罗存儿",
+      "degree": 1,
+      "degree_norm": 0.005,
+      "betweenness": 0.0,
+      "faction": "清河县",
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "荷花儿",
       "degree": 1,
-      "degree_norm": 0.006,
+      "degree_norm": 0.005,
       "betweenness": 0.0,
       "faction": "守备府",
       "ximen_proximity": "外人"
@@ -2100,7 +2260,7 @@
     {
       "id": "谢恩",
       "degree": 1,
-      "degree_norm": 0.006,
+      "degree_norm": 0.005,
       "betweenness": 0.0,
       "faction": "怀庆府",
       "ximen_proximity": "外人"
@@ -2108,7 +2268,7 @@
     {
       "id": "黄美",
       "degree": 1,
-      "degree_norm": 0.006,
+      "degree_norm": 0.005,
       "betweenness": 0.0,
       "faction": "东京",
       "ximen_proximity": "外人"
@@ -2126,7 +2286,7 @@
     "西门庆",
     "陈经济",
     "庞春梅",
-    "吴月娘",
-    "韩道国"
+    "韩道国",
+    "吴月娘"
   ]
 }

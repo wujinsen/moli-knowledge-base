@@ -2,6 +2,20 @@
   "book": "金瓶梅",
   "nodes": [
     {
+      "id": "丁双桥",
+      "type": "character",
+      "faction": "杭州",
+      "weight": 10,
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "丁相公",
+      "type": "character",
+      "faction": "杭州",
+      "weight": 6,
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "严四哥",
       "type": "character",
       "faction": "清河县",
@@ -128,6 +142,13 @@
       "ximen_proximity": "外人"
     },
     {
+      "id": "何两峰",
+      "type": "character",
+      "faction": "湖州",
+      "weight": 8,
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "何九",
       "type": "character",
       "faction": "清河市井",
@@ -153,6 +174,13 @@
       "type": "character",
       "faction": "临清",
       "weight": 14,
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "何金蝉儿",
+      "type": "character",
+      "faction": "清河县",
+      "weight": 6,
       "ximen_proximity": "外人"
     },
     {
@@ -259,6 +287,13 @@
       "faction": "帮闲圈",
       "weight": 16,
       "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "向五",
+      "type": "character",
+      "faction": "清河县",
+      "weight": 10,
+      "ximen_proximity": "外人"
     },
     {
       "id": "吕赛儿",
@@ -548,6 +583,13 @@
       "ximen_proximity": "利益交换"
     },
     {
+      "id": "小红",
+      "type": "character",
+      "faction": "扬州",
+      "weight": 8,
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "小铁棍儿",
       "type": "character",
       "faction": "西门府",
@@ -700,6 +742,13 @@
       "faction": "清河市井",
       "weight": 28,
       "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "春燕",
+      "type": "character",
+      "faction": "西门府",
+      "weight": 10,
+      "ximen_proximity": "雇佣"
     },
     {
       "id": "春香",
@@ -989,6 +1038,13 @@
       "ximen_proximity": "外人"
     },
     {
+      "id": "汪东桥",
+      "type": "character",
+      "faction": "扬州",
+      "weight": 6,
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "汪伯彦",
       "type": "character",
       "faction": "东昌府",
@@ -1029,6 +1085,13 @@
       "faction": "清河县",
       "weight": 16,
       "ximen_proximity": "雇佣"
+    },
+    {
+      "id": "游守",
+      "type": "character",
+      "faction": "清河县",
+      "weight": 8,
+      "ximen_proximity": "外人"
     },
     {
       "id": "满堂儿",
@@ -1120,6 +1183,13 @@
       "faction": "清河市井",
       "weight": 44,
       "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "王屠",
+      "type": "character",
+      "faction": "清河县",
+      "weight": 8,
+      "ximen_proximity": "外人"
     },
     {
       "id": "王昭宣",
@@ -1283,11 +1353,25 @@
       "ximen_proximity": "外人"
     },
     {
+      "id": "管世宽",
+      "type": "character",
+      "faction": "清河县",
+      "weight": 8,
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "罗回子",
       "type": "character",
       "faction": "帮闲圈",
       "weight": 14,
       "ximen_proximity": "利益交换"
+    },
+    {
+      "id": "罗存儿",
+      "type": "character",
+      "faction": "清河县",
+      "weight": 6,
+      "ximen_proximity": "外人"
     },
     {
       "id": "翁八",
@@ -1402,6 +1486,13 @@
       "ximen_proximity": "外人"
     },
     {
+      "id": "苗实",
+      "type": "character",
+      "faction": "扬州",
+      "weight": 10,
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "苗青",
       "type": "character",
       "faction": "商贾",
@@ -1433,6 +1524,13 @@
       "id": "荷花儿",
       "type": "character",
       "faction": "守备府",
+      "weight": 10,
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "萧成",
+      "type": "character",
+      "faction": "清河县",
       "weight": 10,
       "ximen_proximity": "外人"
     },
@@ -1570,11 +1668,32 @@
       "ximen_proximity": "外人"
     },
     {
+      "id": "赵寡妇",
+      "type": "character",
+      "faction": "清河县",
+      "weight": 6,
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "赵裁",
       "type": "character",
       "faction": "清河县",
       "weight": 11,
       "ximen_proximity": "雇佣"
+    },
+    {
+      "id": "车淡",
+      "type": "character",
+      "faction": "清河县",
+      "weight": 12,
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "车老儿",
+      "type": "character",
+      "faction": "清河县",
+      "weight": 8,
+      "ximen_proximity": "外人"
     },
     {
       "id": "迎儿",
@@ -1633,6 +1752,13 @@
       "ximen_proximity": "利益交换"
     },
     {
+      "id": "郝贤",
+      "type": "character",
+      "faction": "清河县",
+      "weight": 8,
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "金匮",
       "type": "character",
       "faction": "守备府",
@@ -1668,10 +1794,24 @@
       "ximen_proximity": "外人"
     },
     {
+      "id": "钱晴川",
+      "type": "character",
+      "faction": "扬州",
+      "weight": 6,
+      "ximen_proximity": "外人"
+    },
+    {
       "id": "锦儿",
       "type": "character",
       "faction": "清河市井",
       "weight": 8,
+      "ximen_proximity": "外人"
+    },
+    {
+      "id": "门管先生",
+      "type": "character",
+      "faction": "扬州",
+      "weight": 6,
       "ximen_proximity": "外人"
     },
     {
@@ -1936,6 +2076,24 @@
     }
   ],
   "edges": [
+    {
+      "source": "丁双桥",
+      "target": "李桂姐",
+      "type": "情人",
+      "contradiction": false
+    },
+    {
+      "source": "丁双桥",
+      "target": "丁相公",
+      "type": "父子",
+      "contradiction": false
+    },
+    {
+      "source": "丁相公",
+      "target": "丁双桥",
+      "type": "父子",
+      "contradiction": false
+    },
     {
       "source": "严四哥",
       "target": "韩道国",
@@ -2399,6 +2557,18 @@
       "contradiction": false
     },
     {
+      "source": "何两峰",
+      "target": "应伯爵",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "何两峰",
+      "target": "何金蝉儿",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "何九",
       "target": "武松",
       "type": "朋友",
@@ -2497,6 +2667,12 @@
     {
       "source": "何官人",
       "target": "陈三",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "何金蝉儿",
+      "target": "应伯爵",
       "type": "朋友",
       "contradiction": false
     },
@@ -2893,6 +3069,36 @@
     {
       "source": "向三",
       "target": "白回子",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "向五",
+      "target": "西门庆",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "向五",
+      "target": "贲四",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "向五",
+      "target": "张安",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "向五",
+      "target": "应伯爵",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "向五",
+      "target": "罗存儿",
       "type": "朋友",
       "contradiction": false
     },
@@ -4073,6 +4279,30 @@
       "contradiction": false
     },
     {
+      "source": "小红",
+      "target": "林彩虹",
+      "type": "姐妹",
+      "contradiction": false
+    },
+    {
+      "source": "小红",
+      "target": "来保",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "小红",
+      "target": "韩道国",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "小红",
+      "target": "王玉枝",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "小铁棍儿",
       "target": "来昭",
       "type": "母子",
@@ -4285,6 +4515,18 @@
     {
       "source": "应伯爵",
       "target": "洪四儿",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "应伯爵",
+      "target": "车淡",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "应伯爵",
+      "target": "车老儿",
       "type": "朋友",
       "contradiction": false
     },
@@ -4748,6 +4990,30 @@
       "source": "文嫂",
       "target": "李桂姐",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "春燕",
+      "target": "西门庆",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "春燕",
+      "target": "春鸿",
+      "type": "姐妹",
+      "contradiction": false
+    },
+    {
+      "source": "春燕",
+      "target": "苗青",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "春燕",
+      "target": "苗实",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -5729,6 +5995,24 @@
       "contradiction": false
     },
     {
+      "source": "汪东桥",
+      "target": "韩道国",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "汪东桥",
+      "target": "钱晴川",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "汪东桥",
+      "target": "王海峰",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "汪伯彦",
       "target": "西门庆",
       "type": "同僚",
@@ -5831,6 +6115,24 @@
       "contradiction": false
     },
     {
+      "source": "游守",
+      "target": "车淡",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "游守",
+      "target": "韩二",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "游守",
+      "target": "萧成",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "满堂儿",
       "target": "李衙内",
       "type": "主仆",
@@ -5912,6 +6214,12 @@
       "source": "潘金莲",
       "target": "迎儿",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "潘金莲",
+      "target": "车淡",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -6012,6 +6320,12 @@
     },
     {
       "source": "王六儿",
+      "target": "王屠",
+      "type": "兄弟",
+      "contradiction": false
+    },
+    {
+      "source": "王六儿",
       "target": "西门庆",
       "type": "情人",
       "contradiction": false
@@ -6071,6 +6385,12 @@
       "contradiction": false
     },
     {
+      "source": "王六儿",
+      "target": "车淡",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "王和尚",
       "target": "薛姑子",
       "type": "嫉妒",
@@ -6121,6 +6441,18 @@
     {
       "source": "王婆",
       "target": "薛嫂儿",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "王屠",
+      "target": "韩道国",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "王屠",
+      "target": "冯妈妈",
       "type": "朋友",
       "contradiction": false
     },
@@ -6527,6 +6859,18 @@
       "contradiction": false
     },
     {
+      "source": "管世宽",
+      "target": "车淡",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "管世宽",
+      "target": "韩二",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "罗回子",
       "target": "西门庆",
       "type": "朋友",
@@ -6857,8 +7201,50 @@
       "contradiction": false
     },
     {
+      "source": "苗天秀",
+      "target": "苗实",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "苗天秀",
+      "target": "门管先生",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "苗实",
+      "target": "苗天秀",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "苗实",
+      "target": "春燕",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "苗实",
+      "target": "春鸿",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "苗实",
+      "target": "西门庆",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "苗青",
       "target": "西门庆",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "苗青",
+      "target": "苗实",
       "type": "朋友",
       "contradiction": false
     },
@@ -6950,6 +7336,30 @@
       "source": "荷花儿",
       "target": "庞春梅",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "萧成",
+      "target": "夏提刑",
+      "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "萧成",
+      "target": "韩二",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "萧成",
+      "target": "王六儿",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "萧成",
+      "target": "车淡",
+      "type": "朋友",
       "contradiction": false
     },
     {
@@ -7379,6 +7789,18 @@
       "contradiction": false
     },
     {
+      "source": "赵寡妇",
+      "target": "西门庆",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "赵寡妇",
+      "target": "张安",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "赵裁",
       "target": "西门庆",
       "type": "主仆",
@@ -7388,6 +7810,42 @@
       "source": "赵裁",
       "target": "官哥儿",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "车淡",
+      "target": "韩二",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "车淡",
+      "target": "西门庆",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "车淡",
+      "target": "夏提刑",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "车淡",
+      "target": "车老儿",
+      "type": "父子",
+      "contradiction": false
+    },
+    {
+      "source": "车淡",
+      "target": "萧成",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "车老儿",
+      "target": "车淡",
+      "type": "父子",
       "contradiction": false
     },
     {
@@ -7535,6 +7993,18 @@
       "contradiction": false
     },
     {
+      "source": "郝贤",
+      "target": "车淡",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "郝贤",
+      "target": "韩二",
+      "type": "敌对",
+      "contradiction": false
+    },
+    {
       "source": "金匮",
       "target": "庞春梅",
       "type": "主仆",
@@ -7613,6 +8083,18 @@
       "contradiction": false
     },
     {
+      "source": "钱晴川",
+      "target": "韩道国",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "钱晴川",
+      "target": "王海峰",
+      "type": "朋友",
+      "contradiction": false
+    },
+    {
       "source": "锦儿",
       "target": "王六儿",
       "type": "主仆",
@@ -7622,6 +8104,18 @@
       "source": "锦儿",
       "target": "韩道国",
       "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "门管先生",
+      "target": "苗天秀",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "门管先生",
+      "target": "苗实",
+      "type": "同僚",
       "contradiction": false
     },
     {
@@ -7838,12 +8332,6 @@
       "source": "韩二",
       "target": "韩爱姐",
       "type": "朋友",
-      "contradiction": false
-    },
-    {
-      "source": "韩二",
-      "target": "车淡",
-      "type": "敌对",
       "contradiction": false
     },
     {
