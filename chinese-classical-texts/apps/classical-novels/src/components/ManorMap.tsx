@@ -15,6 +15,7 @@ import {
   type ManorZone,
 } from '../lib/manorMap';
 import ManorZoneCatalog from './ManorZoneCatalog';
+import MapCrossLinks from './MapCrossLinks';
 
 interface Props {
   data: ManorMapData;
@@ -428,19 +429,11 @@ export default function ManorMap({ data, bookSlug }: Props) {
             >
               两府间数考证
             </a>
-            <a href={`/${bookSlug}/maps`} className="text-xs text-slate-500 hover:text-slate-300">
-              全部空间地图 →
-            </a>
-            {selectedNode.id === '大观园' && (
-              <a href={`/${bookSlug}/map`} className="text-xs text-slate-500 hover:text-slate-300">
-                大观园地图 →
-              </a>
-            )}
-            {(selectedNode.zone === '荣府侧' || selectedNode.zone === '荣府轴') && (
-              <a href={`/${bookSlug}/map`} className="text-xs text-slate-500 hover:text-slate-300">
-                大观园地图 →
-              </a>
-            )}
+            <MapCrossLinks
+              bookSlug={bookSlug}
+              current="manor"
+              nodeId={selectedNode.id}
+            />
           </div>
         </aside>
       )}

@@ -20,6 +20,8 @@ import {
   type PinTier,
 } from '../lib/gardenDigitalTourPins';
 import { bearingLabel, logicalSteps } from '../lib/gardenSceneCoords';
+import { BRIDGE_NODE_REASONS, isBridgeNode } from '../lib/bookMapCrosslinks';
+import MapCrossLinks from './MapCrossLinks';
 
 const SCENE_W = 1536;
 const SCENE_H = 1024;
@@ -54,6 +56,7 @@ export default function GardenDigitalTour({ data, bookSlug, baseImage }: Props) 
   const [showTour, setShowTour] = useState(false);
   const [activeGuide, setActiveGuide] = useState<string>('ch17');
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [exteriorBridgeId, setExteriorBridgeId] = useState<string | null>(null);
   const [scale, setScale] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [viewReady, setViewReady] = useState(false);
@@ -121,13 +124,17 @@ export default function GardenDigitalTour({ data, bookSlug, baseImage }: Props) 
         y: rect.height / 2 - p.y * targetScale,
       });
       setSelectedId(id);
+      setExteriorBridgeId(null);
     },
     [scale],
   );
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setSelectedId(null);
+      if (e.key === 'Escape') {
+        setSelectedId(null);
+        setExteriorBridgeId(null);
+      }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -248,6 +255,7 @@ export default function GardenDigitalTour({ data, bookSlug, baseImage }: Props) 
           )}
 
           {GARDEN_DIGITAL_TOUR_EXTERIOR.map((lab) => {
+            const bridge = isBridgeNode(lab.id);
             const pill = (
               <span className="whitespace-nowrap rounded-md border border-amber-500/35 bg-amber-950/88 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-amber-100 shadow-lg backdrop-blur-sm">
                 {lab.id}
@@ -260,7 +268,19 @@ export default function GardenDigitalTour({ data, bookSlug, baseImage }: Props) 
                 className="pointer-events-auto absolute z-[9] -translate-x-1/2 -translate-y-1/2"
                 style={{ left: `${lab.xPct}%`, top: `${lab.yPct}%` }}
               >
-                {lab.href ? (
+                {bridge ? (
+                  <button
+                    type="button"
+                    className="block hover:opacity-90"
+                    onClick={() => {
+                      setSelectedId(null);
+                      setExteriorBridgeId(lab.id);
+                    }}
+                    title={BRIDGE_NODE_REASONS[lab.id]}
+                  >
+                    {pill}
+                  </button>
+                ) : lab.href ? (
                   <a href={lab.href} className="block hover:opacity-90">
                     {pill}
                   </a>
@@ -345,6 +365,7 @@ export default function GardenDigitalTour({ data, bookSlug, baseImage }: Props) 
                 }}
                 onClick={(e) => {
                   e.stopPropagation();
+                  setExteriorBridgeId(null);
                   setSelectedId(n.id);
                 }}
                 aria-label={n.name}
@@ -459,6 +480,27 @@ export default function GardenDigitalTour({ data, bookSlug, baseImage }: Props) 
         </div>
       )}
 
+      {exteriorBridgeId && !selected && (
+        <div className="absolute right-3 top-[4.5rem] z-20 w-72 rounded-xl border border-amber-500/25 bg-slate-900/92 p-4 shadow-xl backdrop-blur-md">
+          <h3 className="text-lg font-bold text-amber-100">{exteriorBridgeId}</h3>
+          <p className="mt-1 text-xs text-amber-200/70">{BRIDGE_NODE_REASONS[exteriorBridgeId]}</p>
+          <MapCrossLinks
+            bookSlug={bookSlug}
+            current="digital-tour"
+            nodeId={exteriorBridgeId}
+            size="sm"
+            className="mt-3"
+          />
+          <button
+            type="button"
+            className="mt-3 text-xs text-slate-500 hover:text-slate-300"
+            onClick={() => setExteriorBridgeId(null)}
+          >
+            关闭
+          </button>
+        </div>
+      )}
+
       {selected && (
         <div className="absolute right-3 top-[4.5rem] z-20 max-h-[calc(100%-8rem)] w-72 overflow-y-auto rounded-xl border border-white/15 bg-slate-900/92 p-4 shadow-xl backdrop-blur-md">
           <h3 className="text-xl font-bold" style={{ color: gt.accentSoft }}>
@@ -500,13 +542,13 @@ export default function GardenDigitalTour({ data, bookSlug, baseImage }: Props) 
             >
               词条 →
             </a>
-            <a
-              href={`/${bookSlug}/scene`}
-              className="rounded-md border border-white/20 px-3 py-1.5 text-xs text-slate-200 hover:bg-white/10"
-            >
-              2.5D →
-            </a>
           </div>
+          <MapCrossLinks
+            bookSlug={bookSlug}
+            current="digital-tour"
+            nodeId={selected.id}
+            className="mt-3 border-t border-white/10 pt-3"
+          />
         </div>
       )}
 

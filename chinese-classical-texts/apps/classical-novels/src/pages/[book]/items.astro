@@ -5,7 +5,10 @@ import Base from '../../layouts/Base.astro';
 import ItemCard from '../../components/ItemCard.astro';
 import CatalogFoldBar from '../../components/CatalogFoldBar.astro';
 import CatalogFoldSection from '../../components/CatalogFoldSection.astro';
+import ItemsCrossIndex from '../../components/ItemsCrossIndex.tsx';
 import { groupByKind, itemsIndexTitle, kindLabel, loadBookItems } from '../../lib/items';
+import { getItemsCrossIndex } from '../../lib/itemsCrossIndex';
+import { itemTopicHubForBook } from '../../lib/itemsTopicLinks';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -23,6 +26,8 @@ const items = await loadBookItems(meta.book);
 const grouped = groupByKind(items);
 const indexTitle = itemsIndexTitle(meta.book);
 const isXiyouji = meta.book === '西游记';
+const itemsCrossIndex = getItemsCrossIndex(meta.slug);
+const topicHub = itemTopicHubForBook(meta.slug);
 
 const sections: { key: keyof typeof grouped; anchor: string }[] = isXiyouji
   ? [{ key: 'artifact', anchor: 'artifact' }]
@@ -46,6 +51,45 @@ const activeSections = sections.filter(({ key }) => grouped[key].length > 0);
   </p>
 
   <div class="content-page catalog-fold-page">
+    {
+      topicHub.length > 0 && (
+        <section class="surface mb-8 p-4 sm:p-6">
+          <h2 class="section-title mb-2 text-lg">纵切主题</h2>
+          <p class="mb-3 max-w-2xl text-sm text-muted">
+            名物按宴席时间线、诊脉链、信物链等主题纵切；详情页可反查相关主题。
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {
+              topicHub.map((t) => (
+                <a href={`/${meta.slug}/topics/${t.slug}`} class="chip chip-md hover:underline">
+                  {t.title}
+                </a>
+              ))
+            }
+          </div>
+        </section>
+      )
+    }
+
+    {
+      itemsCrossIndex && (
+        <>
+          <h2 class="section-title mb-2 text-lg">交叉索引</h2>
+          <p class="mb-4 max-w-2xl text-sm text-muted">
+            名物按<strong>章回</strong>与<strong>人物</strong>互链；可跳转读回、人物页或名物详情。
+          </p>
+          <div class="kb-dashboard surface mb-10 p-4 sm:p-6">
+            <ItemsCrossIndex
+              index={itemsCrossIndex}
+              bookSlug={meta.slug}
+              bookName={meta.book}
+              client:load
+            />
+          </div>
+        </>
+      )
+    }
+
     {activeSections.length > 0 && <CatalogFoldBar label="名物分类" />}
     <p class="mb-4 text-sm" style="color: var(--seal)" data-i18n-fold-hint data-i18n="ui.itemsFoldHint" hidden>
       分类已折叠 — 点击「全部展开」查看名物卡片

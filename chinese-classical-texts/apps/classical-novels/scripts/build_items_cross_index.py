@@ -111,7 +111,8 @@ def scan_topic_links(book: str, item_ids: set[str]) -> dict[str, list[dict]]:
         fm, body = parse_frontmatter(p)
         title = fm.get("title", p.stem)
         slug = p.stem
-        text = body + json.dumps(fm, ensure_ascii=False)
+        derived = " ".join(str(x) for x in (fm.get("derived_from") or []))
+        text = body + derived
         for iid in item_ids:
             if f"[[{iid}]]" in text or f"/i/{iid}" in text or f"/d/{iid}" in text:
                 by_item[iid].append({"title": title, "slug": slug})
@@ -196,9 +197,12 @@ def main() -> None:
         for slug, b in books_payload.items():
             print(
                 f"  {slug}: {b['count']} items, "
-                f"{len(b['byChapter'])} chapters, {len(b['byCharacter'])} characters, "
-                f"{sum(len(v) for v in topics_payload['links'].values())} topic links"
+                f"{len(b['byChapter'])} chapters, {len(b['byCharacter'])} characters"
             )
+        print(
+            f"  topic links (honglou): {sum(len(v) for v in topics_payload['links'].values())} "
+            f"→ {len(topics_payload['links'])} items"
+        )
         print(f"written → {OUT_INDEX.name}, {OUT_TOPICS.name}")
     else:
         print(json.dumps({k: v["count"] for k, v in books_payload.items()}, ensure_ascii=False))

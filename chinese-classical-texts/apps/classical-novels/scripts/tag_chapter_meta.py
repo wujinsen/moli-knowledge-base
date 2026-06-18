@@ -515,6 +515,22 @@ def ensure_frontmatter_fields(raw: str) -> str:
     return raw
 
 
+def replace_list_field(raw: str, field: str, items: list[str]) -> str:
+    line = format_list(field, items)
+    if re.search(rf"^{re.escape(field)}:\s*\[", raw, re.M):
+        return re.sub(rf"^{re.escape(field)}:\s*\[.*\]\s*$", line, raw, count=1, flags=re.M)
+    block = re.search(rf"^{re.escape(field)}:\s*\n((?:[ \t]*-[ \t].+\n?)+)", raw, re.M)
+    if block:
+        return re.sub(
+            rf"^{re.escape(field)}:\s*\n((?:[ \t]*-[ \t].+\n?)+)",
+            line + "\n",
+            raw,
+            count=1,
+            flags=re.M,
+        )
+    return raw
+
+
 def patch_chapter(
     raw: str,
     *,
@@ -532,11 +548,10 @@ def patch_chapter(
         existing = parse_list_field(raw, "locations")
         if existing is not None:
             detected = find_ids(text, loc_pairs, LOCATION_BLOCK)
-            merged = merge_lists(existing, detected)
-            merged = canonicalize_ids(merged, loc_pairs)
-            if merged != existing:
-                line = format_list("locations", merged)
-                new_raw = re.sub(r"^locations:\s*\[.*\]\s*$", line, new_raw, count=1, flags=re.M)
+            canonical_existing = canonicalize_ids(existing, loc_pairs)
+            merged = canonicalize_ids(merge_lists(existing, detected), loc_pairs)
+            if merged != canonical_existing or existing != canonical_existing:
+                new_raw = replace_list_field(new_raw, "locations", merged)
                 changed = True
 
     if "items" in fields:

@@ -287,9 +287,9 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
             phases: [
               'J1 transaction / financial_event schema 落地',
               'J2 /ingest 货币换算标准化（amount_normalized）',
-              'J3 白银流向桑基图 / 资金池可视化',
-              'J4 构建期 silver.json · 回目筛选 · 累计曲线 · 衰败链互链',
-              'J6 与 chain 专题轨 / financial_event 互证',
+              'J3 白银流向桑基图 / 资金池条形图 · 专题轨筛选',
+              'J4 构建期 silver.json · ?chapter= 回目筛选 · 累计曲线 · 衰败链 ?event= 互链',
+              'J6 与 chain 专题轨 / financial_event 互证（本页 + /chain）',
             ],
             relatedDoc: '金瓶梅-知识图谱架构.md（§四–§六）',
           },

@@ -12,6 +12,7 @@ import {
   type Texture,
 } from 'pixi.js';
 import { graphTheme } from '../lib/graphTheme';
+import MapCrossLinks from './MapCrossLinks';
 import {
   bearingLabel,
   GARDEN_LAYOUT_DISCLAIMER,
@@ -1524,6 +1525,13 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
               进入词条页 →
             </a>
           )}
+          <MapCrossLinks
+            bookSlug={bookSlug}
+            current="scene"
+            nodeId={selected.id}
+            size="sm"
+            className="mt-3 border-t border-white/10 pt-3"
+          />
         </aside>
       )}
 

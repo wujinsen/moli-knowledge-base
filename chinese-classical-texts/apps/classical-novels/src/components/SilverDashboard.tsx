@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import * as echarts from 'echarts';
 import type { EChartsOption } from 'echarts';
 import {
-  filterSilverByChapter,
+  filterSilver,
   toSankey,
   type SilverData,
   POOL_COLORS,
@@ -19,6 +19,13 @@ export interface TxRow {
   href: string;
 }
 
+export interface SilverTrackFilter {
+  id: string;
+  label: string;
+  color: string;
+  txIds: string[];
+}
+
 interface Props {
   data: SilverData;
   bookSlug: string;
@@ -27,6 +34,8 @@ interface Props {
   highlightTx?: string;
   /** event id → transaction_refs（chain P4 互链） */
   eventTxMap?: Record<string, string[]>;
+  /** build_financial.json 专题轨（J3 筛选） */
+  tracks?: SilverTrackFilter[];
 }
 
 function scrollToTx(id: string) {
@@ -37,18 +46,66 @@ function scrollToTx(id: string) {
   window.setTimeout(() => el.classList.remove('silver-row-active'), 2400);
 }
 
-export default function SilverDashboard({ data, bookSlug, txRows, initialChapter, highlightTx, eventTxMap = {} }: Props) {
+function readUrlState() {
+  const params = new URLSearchParams(window.location.search);
+  const ch = params.get('chapter');
+  const track = params.get('track');
+  return {
+    chapter: ch ? Number(ch) : null,
+    track,
+  };
+}
+
+function syncUrl(chapter: number, trackId: string | null) {
+  const url = new URL(window.location.href);
+  url.searchParams.set('chapter', String(chapter));
+  if (trackId) url.searchParams.set('track', trackId);
+  else url.searchParams.delete('track');
+  window.history.replaceState({}, '', url.toString());
+}
+
+export default function SilverDashboard({
+  data,
+  bookSlug,
+  txRows,
+  initialChapter,
+  highlightTx,
+  eventTxMap = {},
+  tracks = [],
+}: Props) {
   const sankeyRef = useRef<HTMLDivElement>(null);
+  const poolRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   const sankeyInst = useRef<echarts.ECharts | null>(null);
+  const poolInst = useRef<echarts.ECharts | null>(null);
   const timelineInst = useRef<echarts.ECharts | null>(null);
 
   const [maxChapter, setMaxChapter] = useState(initialChapter ?? data.chapter_max);
+  const [activeTrack, setActiveTrack] = useState<string | null>(null);
   const [activeTxs, setActiveTxs] = useState<string[]>(highlightTx ? [highlightTx] : []);
   const [linkedEvent, setLinkedEvent] = useState<string | null>(null);
 
-  const filtered = useMemo(() => filterSilverByChapter(data, maxChapter), [data, maxChapter]);
+  const trackTxSet = useMemo(() => {
+    if (!activeTrack) return null;
+    const t = tracks.find((x) => x.id === activeTrack);
+    return t ? new Set(t.txIds) : null;
+  }, [activeTrack, tracks]);
+
+  const filtered = useMemo(
+    () => filterSilver(data, { maxChapter, trackTxIds: trackTxSet }),
+    [data, maxChapter, trackTxSet],
+  );
   const sankey = useMemo(() => toSankey(filtered), [filtered]);
+
+  useEffect(() => {
+    const { chapter, track } = readUrlState();
+    if (chapter && chapter >= data.chapter_min && chapter <= data.chapter_max) {
+      setMaxChapter(chapter);
+    }
+    if (track && tracks.some((t) => t.id === track)) {
+      setActiveTrack(track);
+    }
+  }, [data.chapter_min, data.chapter_max, tracks]);
 
   useEffect(() => {
     const fromHash = () => {
@@ -93,6 +150,10 @@ export default function SilverDashboard({ data, bookSlug, txRows, initialChapter
       setActiveTxs([highlightTx]);
     }
   }, [highlightTx]);
+
+  useEffect(() => {
+    syncUrl(maxChapter, activeTrack);
+  }, [maxChapter, activeTrack]);
 
   const sankeyOption = useMemo((): EChartsOption => {
     const nodeColors = sankey.nodes.map((n) => POOL_COLORS[n.name] ?? '#607a67');
@@ -155,6 +216,54 @@ export default function SilverDashboard({ data, bookSlug, txRows, initialChapter
     };
   }, [sankey, filtered]);
 
+  const poolOption = useMemo((): EChartsOption => {
+    const sorted = [...filtered.pools]
+      .filter((p) => p.name !== filtered.hub.name)
+      .sort((a, b) => Math.max(b.inflow, b.outflow) - Math.max(a.inflow, a.outflow))
+      .slice(0, 10);
+    return {
+      backgroundColor: 'transparent',
+      grid: { left: 88, right: 16, top: 8, bottom: 24 },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: { type: 'shadow' },
+        backgroundColor: 'rgba(31, 38, 31, 0.92)',
+        borderColor: 'rgba(156, 132, 80, 0.4)',
+        textStyle: { color: '#ecece1', fontSize: 13 },
+      },
+      legend: {
+        data: ['流入', '流出'],
+        bottom: 0,
+        textStyle: { color: '#5c6359', fontSize: 12 },
+      },
+      xAxis: {
+        type: 'value',
+        name: '两',
+        nameTextStyle: { color: '#5c6359', fontSize: 12 },
+        axisLabel: { color: '#5c6359', fontSize: 12 },
+        splitLine: { lineStyle: { color: 'rgba(92, 99, 89, 0.12)' } },
+      },
+      yAxis: {
+        type: 'category',
+        data: sorted.map((p) => p.name),
+        axisLabel: { color: '#1f261f', fontSize: 12 },
+        axisLine: { lineStyle: { color: 'rgba(92, 99, 89, 0.35)' } },
+      },
+      series: [
+        {
+          name: '流入',
+          type: 'bar',
+          data: sorted.map((p) => ({ value: p.inflow, itemStyle: { color: p.color } })),
+        },
+        {
+          name: '流出',
+          type: 'bar',
+          data: sorted.map((p) => ({ value: p.outflow, itemStyle: { color: '#74332c' } })),
+        },
+      ],
+    };
+  }, [filtered]);
+
   const timelineOption = useMemo((): EChartsOption => {
     const pts = filtered.timeline;
     return {
@@ -169,7 +278,7 @@ export default function SilverDashboard({ data, bookSlug, txRows, initialChapter
           const idx = params[0]?.dataIndex ?? 0;
           const p = pts[idx];
           if (!p) return '';
-          return `第 ${p.chapter} 回<br/>本回 +${p.delta} 两<br/>累计 ${p.cumulative} 两`;
+          return `第 ${p.chapter} 回<br/>本回 +${p.delta} 两<br/>累计 ${p.cumulative} 两<br/><span style="opacity:0.7">点击筛选截止此回</span>`;
         },
       },
       xAxis: {
@@ -210,31 +319,51 @@ export default function SilverDashboard({ data, bookSlug, txRows, initialChapter
     });
   }, []);
 
+  const bindTimelineClick = useCallback(() => {
+    timelineInst.current?.off('click');
+    timelineInst.current?.on('click', (p: { dataIndex?: number }) => {
+      const ch = filtered.timeline[p.dataIndex ?? 0]?.chapter;
+      if (ch != null) {
+        setMaxChapter(ch);
+        setActiveTxs([]);
+      }
+    });
+  }, [filtered.timeline]);
+
   const renderCharts = useCallback(() => {
     if (sankeyRef.current) {
       if (!sankeyInst.current) sankeyInst.current = echarts.init(sankeyRef.current);
       sankeyInst.current.setOption(sankeyOption, true);
       bindSankeyClick();
     }
+    if (poolRef.current) {
+      if (!poolInst.current) poolInst.current = echarts.init(poolRef.current);
+      poolInst.current.setOption(poolOption, true);
+    }
     if (timelineRef.current) {
       if (!timelineInst.current) timelineInst.current = echarts.init(timelineRef.current);
       timelineInst.current.setOption(timelineOption, true);
+      bindTimelineClick();
     }
-  }, [sankeyOption, timelineOption, bindSankeyClick]);
+  }, [sankeyOption, poolOption, timelineOption, bindSankeyClick, bindTimelineClick]);
 
   useEffect(() => {
     renderCharts();
     const ro = new ResizeObserver(() => {
       sankeyInst.current?.resize();
+      poolInst.current?.resize();
       timelineInst.current?.resize();
     });
     if (sankeyRef.current) ro.observe(sankeyRef.current);
+    if (poolRef.current) ro.observe(poolRef.current);
     if (timelineRef.current) ro.observe(timelineRef.current);
     return () => {
       ro.disconnect();
       sankeyInst.current?.dispose();
+      poolInst.current?.dispose();
       timelineInst.current?.dispose();
       sankeyInst.current = null;
+      poolInst.current = null;
       timelineInst.current = null;
     };
   }, [renderCharts]);
@@ -267,6 +396,7 @@ export default function SilverDashboard({ data, bookSlug, txRows, initialChapter
           <span className="text-xs">
             第 {data.chapter_min}–{data.chapter_max} 回 · {filtered.transaction_count} 笔
             {filtered.disputed_count > 0 && ` · ${filtered.disputed_count} 笔存疑`}
+            {activeTrack && ' · 专题轨筛选中'}
           </span>
         </label>
         <div className="surface px-4 py-2 text-sm" style={{ borderColor: 'var(--line)' }}>
@@ -277,6 +407,42 @@ export default function SilverDashboard({ data, bookSlug, txRows, initialChapter
           </span>
         </div>
       </div>
+
+      {tracks.length > 0 && (
+        <div className="mb-4">
+          <p className="mb-2 text-xs text-muted">专题轨筛选（来自 build_financial.json）</p>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              className={`chip text-xs transition ${!activeTrack ? 'ring-2 ring-[var(--accent)]' : ''}`}
+              onClick={() => {
+                setActiveTrack(null);
+                setActiveTxs([]);
+              }}
+            >
+              全部
+            </button>
+            {tracks.map((t) => (
+              <button
+                key={t.id}
+                type="button"
+                className={`chip text-xs transition ${activeTrack === t.id ? 'ring-2' : ''}`}
+                style={{
+                  borderColor: t.color,
+                  ...(activeTrack === t.id ? { boxShadow: `0 0 0 2px ${t.color}` } : {}),
+                }}
+                onClick={() => {
+                  setActiveTrack(activeTrack === t.id ? null : t.id);
+                  setActiveTxs([]);
+                }}
+                title={`${t.txIds.length} 笔关联交易`}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="mb-3 flex flex-wrap gap-2">
         {topPools.map((p) => (
@@ -295,25 +461,42 @@ export default function SilverDashboard({ data, bookSlug, txRows, initialChapter
         ))}
       </div>
 
-      <div
-        ref={sankeyRef}
-        className="w-full rounded-xl border"
-        style={{
-          height: 440,
-          borderColor: 'var(--line)',
-          background: 'color-mix(in srgb, var(--paper-2) 80%, white)',
-        }}
-      />
+      <div className="grid gap-4 lg:grid-cols-5">
+        <div className="lg:col-span-3">
+          <h3 className="section-title mb-2 text-sm">桑基流向（J3）</h3>
+          <div
+            ref={sankeyRef}
+            className="w-full rounded-xl border"
+            style={{
+              height: 440,
+              borderColor: 'var(--line)',
+              background: 'color-mix(in srgb, var(--paper-2) 80%, white)',
+            }}
+          />
+        </div>
+        <div className="lg:col-span-2">
+          <h3 className="section-title mb-2 text-sm">资金池入出（J3）</h3>
+          <div
+            ref={poolRef}
+            className="w-full rounded-xl border"
+            style={{
+              height: 440,
+              borderColor: 'var(--line)',
+              background: 'color-mix(in srgb, var(--paper-2) 90%, white)',
+            }}
+          />
+        </div>
+      </div>
 
       <p className="mt-2 text-xs text-muted">
-        节点宽度 ∝ 流量；点击流向带可定位下方交易。与{' '}
+        桑基节点宽度 ∝ 流量；点击流向带可定位下方交易。与{' '}
         <a href={`/${bookSlug}/chain`} className="hover:underline" style={{ color: 'var(--accent)' }}>
           衰败链
         </a>{' '}
-        白银节点互证。
+        白银节点互证（<code>?event=</code> · <code>#jpm-tx-*</code>）。
       </p>
 
-      <h3 className="section-title mb-2 mt-8 text-base">累计白银（按回）</h3>
+      <h3 className="section-title mb-2 mt-8 text-base">累计白银（按回 · J4）</h3>
       <div
         ref={timelineRef}
         className="w-full rounded-xl border"
@@ -350,7 +533,6 @@ export default function SilverDashboard({ data, bookSlug, txRows, initialChapter
         }
       `}</style>
 
-      {/* sync table row highlight via data attribute */}
       <TableHighlight activeTxs={activeTxs} txRows={txRows} />
     </div>
   );

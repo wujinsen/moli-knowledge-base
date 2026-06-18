@@ -16,6 +16,7 @@ import {
 } from '../lib/gardenMap';
 import { GARDEN_LAYOUT_DISCLAIMER } from '../lib/gardenSceneCoords';
 import GardenZoneCatalog from './GardenZoneCatalog';
+import MapCrossLinks from './MapCrossLinks';
 
 interface Props {
   data: GardenMapData;
@@ -486,9 +487,12 @@ export default function GardenMap({ data, bookSlug }: Props) {
             >
               第17回游线考证
             </a>
-            <a href={`/${bookSlug}/maps`} className="text-sm text-slate-400 hover:text-slate-200">
-              全部空间地图 →
-            </a>
+            <MapCrossLinks
+              bookSlug={bookSlug}
+              current="garden"
+              nodeId={selectedNode.id}
+              size="sm"
+            />
             <a href={`/${bookSlug}/places`} className="text-sm text-slate-400 hover:text-slate-200">
               建筑图鉴
             </a>

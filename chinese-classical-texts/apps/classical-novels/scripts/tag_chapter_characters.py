@@ -364,22 +364,21 @@ def patch_frontmatter(raw: str, chars: list[str], *, force: bool = False, merge:
     if merge:
         existing: list[str] = []
         m = re.search(r"^characters:\s*\[(.*?)\]\s*$", raw, re.M | re.S)
+        block = re.search(r"^characters:\s*\n((?:[ \t]*-[ \t].+\n?)+)", raw, re.M)
         if m:
             inner = m.group(1).strip()
             if inner:
                 existing = re.findall(r"[\u4e00-\u9fff]+", inner)
-        else:
-            block = re.search(r"^characters:\s*\n((?:[ \t]*-[ \t].+\n?)+)", raw, re.M)
-            if block:
-                for line in block.group(1).splitlines():
-                    line = line.strip()
-                    if line.startswith("- "):
-                        item = line[2:].strip().strip('"').strip("'")
-                        if item:
-                            existing.append(item)
+        elif block:
+            for line in block.group(1).splitlines():
+                line = line.strip()
+                if line.startswith("- "):
+                    item = line[2:].strip().strip('"').strip("'")
+                    if item:
+                        existing.append(item)
         chars = merge_char_lists(existing, chars)
         line = format_characters_line(chars)
-        if re.search(r"^characters:\s*\[.*\]\s*$", raw, re.M):
+        if m:
             return re.sub(r"^characters:\s*\[.*\]\s*$", line, raw, count=1, flags=re.M)
         if block:
             return re.sub(

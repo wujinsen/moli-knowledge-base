@@ -45,8 +45,7 @@ export interface SilverData {
 
 export { POOL_COLORS };
 
-export function filterSilverByChapter(data: SilverData, maxChapter: number): SilverData {
-  const txs = data.transactions.filter((t) => t.chapter <= maxChapter && t.liang > 0);
+function buildSilverSlice(data: SilverData, txs: SilverTransaction[]): SilverData {
   const linkMap = new Map<string, { value: number; txs: string[] }>();
 
   for (const t of txs) {
@@ -90,14 +89,31 @@ export function filterSilverByChapter(data: SilverData, maxChapter: number): Sil
     return { source, target, value: Math.round(v.value * 100) / 100, txs: v.txs };
   });
 
-  const timeline = data.timeline.filter((p) => p.chapter <= maxChapter);
-  const cumulative = timeline.length ? timeline[timeline.length - 1].cumulative : 0;
+  const byCh = new Map<number, string[]>();
+  for (const t of txs) {
+    const list = byCh.get(t.chapter) ?? [];
+    list.push(t.id);
+    byCh.set(t.chapter, list);
+  }
+  const timeline: SilverTimelinePoint[] = [];
+  let cumulative = 0;
+  for (const ch of [...byCh.keys()].sort((a, b) => a - b)) {
+    const chTxs = txs.filter((t) => t.chapter === ch);
+    const delta = chTxs.reduce((s, t) => s + t.liang, 0);
+    cumulative += delta;
+    timeline.push({
+      chapter: ch,
+      delta: Math.round(delta * 100) / 100,
+      cumulative: Math.round(cumulative * 100) / 100,
+      tx_ids: byCh.get(ch)!,
+    });
+  }
 
   return {
     ...data,
     transaction_count: txs.length,
     disputed_count: txs.filter((t) => t.disputed).length,
-    total_liang: Math.round(cumulative * 100) / 100,
+    total_liang: timeline.length ? timeline[timeline.length - 1].cumulative : 0,
     pools,
     links,
     timeline,
@@ -113,6 +129,27 @@ export function filterSilverByChapter(data: SilverData, maxChapter: number): Sil
       ) / 100,
     },
   };
+}
+
+export function filterSilverByChapter(data: SilverData, maxChapter: number): SilverData {
+  const txs = data.transactions.filter((t) => t.chapter <= maxChapter && t.liang > 0);
+  return buildSilverSlice(data, txs);
+}
+
+export function filterSilverByTrack(data: SilverData, txIds: Set<string> | null): SilverData {
+  if (!txIds?.size) return data;
+  const txs = data.transactions.filter((t) => txIds.has(t.id) && t.liang > 0);
+  return buildSilverSlice(data, txs);
+}
+
+export function filterSilver(
+  data: SilverData,
+  opts: { maxChapter?: number; trackTxIds?: Set<string> | null },
+): SilverData {
+  let txs = data.transactions.filter((t) => t.liang > 0);
+  if (opts.maxChapter != null) txs = txs.filter((t) => t.chapter <= opts.maxChapter);
+  if (opts.trackTxIds?.size) txs = txs.filter((t) => opts.trackTxIds!.has(t.id));
+  return buildSilverSlice(data, txs);
 }
 
 export function toSankey(data: SilverData): SankeyData {

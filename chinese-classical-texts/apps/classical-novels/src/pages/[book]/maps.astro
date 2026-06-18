@@ -3,6 +3,7 @@ import { getBooks } from '../../lib/getBooks';
 import GraphLayout from '../../layouts/GraphLayout.astro';
 import BackLink from '../../components/BackLink.astro';
 import { bookHasLiveMaps, bookMapEntries } from '../../lib/bookMaps';
+import { MAP_BRIDGE_SUMMARY, MAP_LAYER_NESTING } from '../../lib/bookMapCrosslinks';
 import { graphTheme } from '../../lib/graphTheme';
 
 export async function getStaticPaths() {
@@ -28,8 +29,16 @@ const liveCount = entries.filter((e) => e.status === 'live').length;
   moduleLabel="空间地图"
 >
   <div class="mx-auto max-w-6xl px-4 py-10">
-    <p class="mb-8 text-sm leading-relaxed text-slate-400">
-      逻辑拓扑示意（非测绘定稿）。各子地图独立维护坐标与导览线；后续都外、王府等图层在此汇总，不再占用顶栏位。
+    <p class="mb-3 text-sm leading-relaxed text-slate-300">
+      五张图层均已上线：逻辑拓扑示意（非测绘定稿），坐标以 wiki inference 为准；各图独立维护导览线与视觉标注。
+    </p>
+    <p class="mb-8 rounded-lg border border-white/10 bg-slate-900/50 px-4 py-3 text-xs leading-relaxed text-slate-400">
+      <span class="font-medium text-slate-300">嵌套关系：</span>
+      {MAP_LAYER_NESTING}
+      <span class="mt-1 block text-slate-500">
+        {MAP_BRIDGE_SUMMARY}
+        · 侧栏选节点或数字文旅墙外标注可见跨图链接
+      </span>
     </p>
 
     <div class="grid gap-4 sm:grid-cols-2">
@@ -74,7 +83,7 @@ const liveCount = entries.filter((e) => e.status === 'live').length;
     </div>
 
     <p class="mt-8 text-center text-xs text-slate-600">
-      已上线 {liveCount} 张 · 坐标脚本见各书 log / index
+      已上线 {liveCount} 张 · seed 脚本：garden / manor / capital coords · 数字文旅 pin JSON
     </p>
 
     <BackLink href={`/${meta.slug}`} label={meta.book} variant="dark" class="mt-8" />

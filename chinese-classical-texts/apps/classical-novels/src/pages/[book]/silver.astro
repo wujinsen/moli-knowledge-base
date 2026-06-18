@@ -4,12 +4,15 @@ import Base from '../../layouts/Base.astro';
 import BackLink from '../../components/BackLink.astro';
 import JpmModuleNav from '../../components/JpmModuleNav.astro';
 import SilverDashboard from '../../components/SilverDashboard.tsx';
+import FinancialTracks from '../../components/FinancialTracks.tsx';
 import { formatLiang } from '../../lib/currency';
 import { amountDisplay } from '../../lib/transactions';
 import type { SilverData } from '../../lib/silver';
+import type { FinancialData } from '../../lib/financial';
 import { loadEvents } from '../../lib/loadEvents';
 import { loadTransactions } from '../../lib/loadTransactions';
 import jpmSilver from '../../data/jinpingmei.silver.json';
+import jpmFinancial from '../../data/jinpingmei.financial.json';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -26,8 +29,20 @@ const silverBySlug: Record<string, SilverData> = {
   jinpingmei: jpmSilver as SilverData,
 };
 
+const financialBySlug: Record<string, FinancialData> = {
+  jinpingmei: jpmFinancial as FinancialData,
+};
+
 const silverData = silverBySlug[meta.slug];
+const financialData = financialBySlug[meta.slug];
 const totalLiang = silverData?.total_liang ?? txs.reduce((s, t) => s + (t.data.amount_normalized ?? 0), 0);
+
+const trackFilters = financialData?.tracks.map((t) => ({
+  id: t.id,
+  label: t.label,
+  color: t.color,
+  txIds: t.events.flatMap((e) => e.transaction_refs),
+})) ?? [];
 
 const txRows = txs.map((t) => ({
   id: t.data.id,
@@ -87,8 +102,31 @@ const eventTxMap = Object.fromEntries(finEvents.map((e) => [e.data.id, e.data.tr
       <>
         <h2 class="section-title mb-4 text-lg">白银流向</h2>
         <div class="kb-dashboard surface mb-10 p-4 sm:p-6">
-          <SilverDashboard data={silverData} bookSlug={meta.slug} txRows={txRows} eventTxMap={eventTxMap} client:only="react" />
+          <SilverDashboard
+            data={silverData}
+            bookSlug={meta.slug}
+            txRows={txRows}
+            eventTxMap={eventTxMap}
+            tracks={trackFilters}
+            client:only="react"
+          />
         </div>
+
+        {
+          financialData && financialData.tracks.length > 0 && (
+            <>
+              <h2 class="section-title mb-4 text-lg">
+                经济专题轨
+                <a href={`/${meta.slug}/chain`} class="ml-2 text-sm font-normal hover:underline" style="color: var(--accent)">
+                  衰败链时间轴 →
+                </a>
+              </h2>
+              <div class="kb-dashboard surface mb-10 p-4 sm:p-6">
+                <FinancialTracks data={financialData} bookSlug={meta.slug} client:only="react" />
+              </div>
+            </>
+          )
+        }
 
         <h2 class="section-title mb-4 text-lg">交易清单</h2>
         <div class="mb-6 overflow-x-auto">

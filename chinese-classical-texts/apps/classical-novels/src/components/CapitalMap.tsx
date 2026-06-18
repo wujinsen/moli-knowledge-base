@@ -15,6 +15,7 @@ import {
   type CapitalZone,
 } from '../lib/capitalMap';
 import CapitalZoneCatalog from './CapitalZoneCatalog';
+import MapCrossLinks from './MapCrossLinks';
 
 interface Props {
   data: CapitalMapData;
@@ -445,14 +446,11 @@ export default function CapitalMap({ data, bookSlug }: Props) {
             >
               地点详情 →
             </a>
-            <a href={`/${bookSlug}/maps`} className="text-xs text-slate-500 hover:text-slate-300">
-              全部空间地图 →
-            </a>
-            {selectedNode.id === '宁荣街' && (
-              <a href={`/${bookSlug}/manor`} className="text-xs text-slate-500 hover:text-slate-300">
-                宁荣两府地图 →
-              </a>
-            )}
+            <MapCrossLinks
+              bookSlug={bookSlug}
+              current="capital"
+              nodeId={selectedNode.id}
+            />
           </div>
         </aside>
       )}

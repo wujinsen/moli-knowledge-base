@@ -14,6 +14,7 @@ import {
   isEntityMetaLabel,
   renderWikiMarkdownBody,
 } from '../../../lib/entityLinks';
+import { getItemTopicLinks } from '../../../lib/itemsTopicLinks';
 import EntityNameLink from '../../../components/EntityNameLink.astro';
 import EntityNameLinks from '../../../components/EntityNameLinks.astro';
 
@@ -89,6 +90,7 @@ const indexTitle = itemsIndexTitle(d.book);
 const artifactData = kind === 'artifact' ? (d as typeof d & { abilities?: string[]; counters?: string[]; relations?: { target: string; type: string; note?: string }[] }) : null;
 const allItems = await loadBookItems(d.book);
 const counterRefs = artifactData?.counters?.map((id) => allItems.find((i) => i.entry.data.id === id)).filter(Boolean) ?? [];
+const relatedTopics = getItemTopicLinks(d.id);
 ---
 
 <Base title={d.name} bookSlug={slug} bookName={d.book} features={features}>
@@ -200,6 +202,21 @@ const counterRefs = artifactData?.counters?.map((id) => allItems.find((i) => i.e
             {samePlace.map((item) => (
               <a href={`/${slug}/i/${item.id}`} class="chip chip-md hover:underline">
                 {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    {
+      relatedTopics.length > 0 && (
+        <div class="entity-detail-links mt-6">
+          <h2 class="section-title mb-2.5">相关纵切主题</h2>
+          <div class="flex flex-wrap gap-2.5">
+            {relatedTopics.map((t) => (
+              <a href={`/${slug}/topics/${t.slug}`} class="chip chip-md hover:underline">
+                {t.title}
               </a>
             ))}
           </div>
