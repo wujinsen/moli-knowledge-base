@@ -37,6 +37,7 @@ source: chapters/红楼梦/005.md
 
 - 第5回 · 对应判词 → [[贾元春]] — 宫闱、虎兕相逢预示元春薨逝与家族盛极而衰。
 - 第5回 · 推论 · 预示 → [[贾元春]] — 判词谶语
+- 跨书 · 推论 · 互文 → [jpm-obj-hongpao](/jinpingmei/imagery/jpm-obj-hongpao) — 宫闱盛宠 ↔ 僭服蟒袍
 
 ## 评析
 

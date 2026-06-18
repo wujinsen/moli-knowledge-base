@@ -50,6 +50,7 @@ source: chapters/红楼梦/005.md
 
 - 第5回 · 推论 · 预示 → [[史湘云]] — 水逝云飞，双栖双飞
 - 第5回 · 互文 → [[hl-j-05]]
+- 跨书 · 推论 · 互文 → [xyj-place-xiliang](/xiyouji/imagery/xyj-place-xiliang) — 才貌仙郎 ↔ 女王招赘情关
 
 ## 评析
 

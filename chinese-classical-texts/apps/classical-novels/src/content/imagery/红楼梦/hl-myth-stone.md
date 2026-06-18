@@ -51,6 +51,7 @@ source: chapters/红楼梦/001.md
 - 跨书 · 推论 · 互文 → [xyj-dan-xinyuan](/xiyouji/imagery/xyj-dan-xinyuan) — 顽石历劫 ↔ 心猿金公
 - 跨书 · 推论 · 互文 → [xyj-dan-jinzi](/xiyouji/imagery/xyj-dan-jinzi) — 顽石待劫 ↔ 五行山压心猿
 - 跨书 · 推论 · 互文 → [xyj-verse-huiqian](/xiyouji/imagery/xyj-verse-huiqian) — 顽石历劫 ↔ 心性修持大道生
+- 跨书 · 推论 · 互文 → [xyj-dan-jingubang](/xiyouji/imagery/xyj-dan-jingubang) — 顽石幻玉 ↔ 神针随心
 
 ## 评析
 

@@ -44,6 +44,7 @@ source: chapters/红楼梦/005.md
 
 - 第5回 · 推论 · 预示 → [[贾探春]] — 远嫁海疆
 - 第5回 · 互文 → [[hl-j-04]]
+- 跨书 · 推论 · 互文 → [jpm-obj-piao](/jinpingmei/imagery/jpm-obj-piao) — 分骨肉 ↔ 皮袄遗物争夺
 
 ## 评析
 

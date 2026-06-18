@@ -1,6 +1,7 @@
 # build output
 dist/
 .astro/
+.astro-build.lock
 
 # deps
 node_modules/

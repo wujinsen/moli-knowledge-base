@@ -66,6 +66,7 @@ source: chapters/金瓶梅/词话本/001.md
 - 第70回 · 推论 · 互文 → [jpm-obj-hongpao](/jinpingmei/imagery/jpm-obj-hongpao)（极盛·热） — 蟒衣红袍，气焰外显
 - 跨书 · 推论 · 互文 → [hl-p-09](/honglou/imagery/hl-p-09) — 气焰雷火 ↔ 聪明累才高命薄
 - 跨书 · 推论 · 互文 → [xyj-place-huoyanshan](/xiyouji/imagery/xyj-place-huoyanshan) — 气焰雷火 ↔ 心头火焰山
+- 跨书 · 推论 · 互文 → [xyj-dan-yinger](/xiyouji/imagery/xyj-dan-yinger) — 雷火气焰 ↔ 婴儿三昧真火
 
 ## 评析
 

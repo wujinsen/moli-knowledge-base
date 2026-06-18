@@ -25,6 +25,7 @@ source: chapters/西游记/072.md
 ## 互文
 
 - 第72回 · 推论 · 隐喻 → [[猪八戒]] — 盘丝洞七女妖（姹女）以丝缠人、以情耗阳；第72回木母忘形落底。
+- 跨书 · 推论 · 互文 → [hl-s-fengyue](/honglou/imagery/hl-s-fengyue) — 盘丝色陷 ↔ 风月宝鉴
 
 ## 评析
 

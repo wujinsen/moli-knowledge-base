@@ -31,6 +31,7 @@ source: chapters/西游记/041.md
 
 - 第41回 · 推论 · 隐喻 → [[红孩儿]] — 「婴儿」即真铅·火性，狂躁难制；红孩儿（圣婴大王）为其化身。
 - 第41回 · 推论 · 相克 → [xyj-dan-xinyuan](/xiyouji/imagery/xyj-dan-xinyuan) — 三昧真火克心猿：第41回〈心猿遭火败，木母被魔擒〉。
+- 跨书 · 推论 · 互文 → [jpm-obj-qi](/jinpingmei/imagery/jpm-obj-qi) — 婴儿真火 ↔ 四贪气·雷火
 
 ## 评析
 

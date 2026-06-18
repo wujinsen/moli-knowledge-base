@@ -25,6 +25,7 @@ source: chapters/西游记/078.md
 ## 互文
 
 - 第78回 · 推论 · 隐喻 → [[唐僧]] — 比丘国（小子城）国丈欲取一千一百小儿心肝作药引；喻邪术戕生、以婴为药之大恶。
+- 跨书 · 推论 · 互文 → [jpm-obj-xueshizi](/jinpingmei/imagery/jpm-obj-xueshizi) — 戕婴取心 ↔ 雪狮子扑官哥
 
 ## 评析
 

@@ -492,6 +492,566 @@
       "predicate": "互文",
       "inference": true,
       "note": "渡心之水 ↔ 寒塘鹤影"
+    },
+    {
+      "source": "hl-s-luohua",
+      "target": "jpm-tune-erba",
+      "predicate": "互文",
+      "inference": true,
+      "note": "花落人亡 ↔ 暗里骨髓枯"
+    },
+    {
+      "source": "jpm-tune-erba",
+      "target": "hl-s-luohua",
+      "predicate": "互文",
+      "inference": true,
+      "note": "色谶红颜 ↔ 落花柳絮飘零"
+    },
+    {
+      "source": "hl-p-05",
+      "target": "jpm-tune-jiwen",
+      "predicate": "互文",
+      "inference": true,
+      "note": "芙蓉女儿诔 ↔ 祭李瓶儿挽歌"
+    },
+    {
+      "source": "jpm-tune-jiwen",
+      "target": "hl-p-05",
+      "predicate": "互文",
+      "inference": true,
+      "note": "情真祭文 ↔ 宝玉诔晴雯"
+    },
+    {
+      "source": "jpm-tune-yuanxiao",
+      "target": "hl-env-daguanyuan",
+      "predicate": "互文",
+      "inference": true,
+      "note": "元宵乐极 ↔ 大观园极盛容器"
+    },
+    {
+      "source": "hl-env-daguanyuan",
+      "target": "jpm-tune-yuanxiao",
+      "predicate": "互文",
+      "inference": true,
+      "note": "园毁先兆 ↔ 灯谢人散"
+    },
+    {
+      "source": "hl-p-03",
+      "target": "jpm-obj-jingzi",
+      "predicate": "互文",
+      "inference": true,
+      "note": "镜中花 ↔ 镜花水月"
+    },
+    {
+      "source": "jpm-obj-jingzi",
+      "target": "hl-p-03",
+      "predicate": "互文",
+      "inference": true,
+      "note": "繁华虚妄 ↔ 水中月镜中花"
+    },
+    {
+      "source": "hl-s-yu",
+      "target": "xyj-dan-jindan",
+      "predicate": "互文",
+      "inference": true,
+      "note": "美玉无瑕 ↔ 金丹修成"
+    },
+    {
+      "source": "xyj-dan-jindan",
+      "target": "hl-s-yu",
+      "predicate": "互文",
+      "inference": true,
+      "note": "内丹之果 ↔ 通灵之玉"
+    },
+    {
+      "source": "xyj-place-pansidong",
+      "target": "hl-s-fengyue",
+      "predicate": "互文",
+      "inference": true,
+      "note": "盘丝色陷 ↔ 风月宝鉴"
+    },
+    {
+      "source": "hl-s-fengyue",
+      "target": "xyj-place-pansidong",
+      "predicate": "互文",
+      "inference": true,
+      "note": "宝鉴照色 ↔ 姹女耗阳"
+    },
+    {
+      "source": "xyj-dan-erxin",
+      "target": "hl-p-34",
+      "predicate": "互文",
+      "inference": true,
+      "note": "二心搅乱 ↔ 诗魔入迷"
+    },
+    {
+      "source": "hl-p-34",
+      "target": "xyj-dan-erxin",
+      "predicate": "互文",
+      "inference": true,
+      "note": "立意诗魔 ↔ 去二心方一心"
+    },
+    {
+      "source": "jpm-obj-jiu",
+      "target": "xyj-dan-liuzei",
+      "predicate": "互文",
+      "inference": true,
+      "note": "纵酒宴饮 ↔ 斩六贼六根"
+    },
+    {
+      "source": "xyj-dan-liuzei",
+      "target": "jpm-obj-jiu",
+      "predicate": "互文",
+      "inference": true,
+      "note": "六根之贼 ↔ 酒色财气之酒"
+    },
+    {
+      "source": "xyj-dan-jingubang",
+      "target": "hl-myth-stone",
+      "predicate": "互文",
+      "inference": true,
+      "note": "定海神针 ↔ 女娲神石：石性兵器"
+    },
+    {
+      "source": "hl-myth-stone",
+      "target": "xyj-dan-jingubang",
+      "predicate": "互文",
+      "inference": true,
+      "note": "顽石幻玉 ↔ 神针随心"
+    },
+    {
+      "source": "jpm-obj-honghua",
+      "target": "hl-p-18",
+      "predicate": "互文",
+      "inference": true,
+      "note": "血崩催命 ↔ 好事终宿孽"
+    },
+    {
+      "source": "hl-p-18",
+      "target": "jpm-obj-honghua",
+      "predicate": "互文",
+      "inference": true,
+      "note": "情海情天 ↔ 欲海亏空反噬"
+    },
+    {
+      "source": "hl-p-06",
+      "target": "xyj-poem-c14",
+      "predicate": "互文",
+      "inference": true,
+      "note": "姽婳挽战 ↔ 心猿归正：忠义与修心"
+    },
+    {
+      "source": "xyj-poem-c14",
+      "target": "hl-p-06",
+      "predicate": "互文",
+      "inference": true,
+      "note": "佛即心兮 ↔ 巾帼林四娘"
+    },
+    {
+      "source": "xyj-dan-huangpo",
+      "target": "hl-env-daguanyuan",
+      "predicate": "互文",
+      "inference": true,
+      "note": "黄婆调和 ↔ 大观园容器"
+    },
+    {
+      "source": "hl-env-daguanyuan",
+      "target": "xyj-dan-huangpo",
+      "predicate": "互文",
+      "inference": true,
+      "note": "诸芳庇护 ↔ 土德调和金木"
+    },
+    {
+      "source": "hl-s-meihua",
+      "target": "jpm-tune-shanpoyang",
+      "predicate": "互文",
+      "inference": true,
+      "note": "清寒孤高 ↔ 幽怨自况"
+    },
+    {
+      "source": "jpm-tune-shanpoyang",
+      "target": "hl-s-meihua",
+      "predicate": "互文",
+      "inference": true,
+      "note": "曲词幽冷 ↔ 竹篱茅舍"
+    },
+    {
+      "source": "xyj-place-liusha",
+      "target": "hl-s-shuini",
+      "predicate": "互文",
+      "inference": true,
+      "note": "弱水三千 ↔ 水作骨肉清浊"
+    },
+    {
+      "source": "hl-s-shuini",
+      "target": "xyj-place-liusha",
+      "predicate": "互文",
+      "inference": true,
+      "note": "质本洁来 ↔ 鹅毛不浮弱水"
+    },
+    {
+      "source": "xyj-poem-kaipian",
+      "target": "hl-myth-taixu",
+      "predicate": "互文",
+      "inference": true,
+      "note": "混沌未分 ↔ 太虚幻境根节点"
+    },
+    {
+      "source": "hl-myth-taixu",
+      "target": "xyj-poem-kaipian",
+      "predicate": "互文",
+      "inference": true,
+      "note": "薄命司录入 ↔ 丹道宇宙立基"
+    },
+    {
+      "source": "jpm-tune-pipa",
+      "target": "hl-p-10",
+      "predicate": "互文",
+      "inference": true,
+      "note": "琵琶画外音 ↔ 秋窗风雨悲音"
+    },
+    {
+      "source": "hl-p-10",
+      "target": "jpm-tune-pipa",
+      "predicate": "互文",
+      "inference": true,
+      "note": "潇湘秋夜 ↔ 筵席曲词谶"
+    },
+    {
+      "source": "hl-p-16",
+      "target": "xyj-place-xiaoleiyin",
+      "predicate": "互文",
+      "inference": true,
+      "note": "过洁终污 ↔ 小雷音假佛"
+    },
+    {
+      "source": "xyj-place-xiaoleiyin",
+      "target": "hl-p-16",
+      "predicate": "互文",
+      "inference": true,
+      "note": "认假为真 ↔ 无瑕白玉遭泥陷"
+    },
+    {
+      "source": "hl-p-08",
+      "target": "jpm-name-jinlian",
+      "predicate": "互文",
+      "inference": true,
+      "note": "金玉良姻 ↔ 书名之金杀伐"
+    },
+    {
+      "source": "jpm-name-jinlian",
+      "target": "hl-p-08",
+      "predicate": "互文",
+      "inference": true,
+      "note": "金莲内斗 ↔ 终身误悲剧"
+    },
+    {
+      "source": "jpm-obj-putaojia",
+      "target": "hl-env-daguanyuan",
+      "predicate": "互文",
+      "inference": true,
+      "note": "纵欲极盛 ↔ 青春乌托邦"
+    },
+    {
+      "source": "hl-env-daguanyuan",
+      "target": "jpm-obj-putaojia",
+      "predicate": "互文",
+      "inference": true,
+      "note": "园毁 ↔ 葡萄架倾覆"
+    },
+    {
+      "source": "hl-myth-jiangzhu",
+      "target": "xyj-dan-renshenguo",
+      "predicate": "互文",
+      "inference": true,
+      "note": "甘露灌溉 ↔ 草还丹长生"
+    },
+    {
+      "source": "xyj-dan-renshenguo",
+      "target": "hl-myth-jiangzhu",
+      "predicate": "互文",
+      "inference": true,
+      "note": "仙草还泪 ↔ 人参果三千年一熟"
+    },
+    {
+      "source": "xyj-place-lingtai",
+      "target": "hl-myth-taixu",
+      "predicate": "互文",
+      "inference": true,
+      "note": "灵台方寸 ↔ 太虚幻境：修心/录入双起点"
+    },
+    {
+      "source": "hl-myth-taixu",
+      "target": "xyj-place-lingtai",
+      "predicate": "互文",
+      "inference": true,
+      "note": "薄命司 ↔ 斜月三星洞"
+    },
+    {
+      "source": "hl-p-11",
+      "target": "jpm-tune-haohua",
+      "predicate": "互文",
+      "inference": true,
+      "note": "恨无常 ↔ 豪华去后盛衰谶"
+    },
+    {
+      "source": "jpm-tune-haohua",
+      "target": "hl-p-11",
+      "predicate": "互文",
+      "inference": true,
+      "note": "歌舞人不回 ↔ 喜荣华恨无常"
+    },
+    {
+      "source": "jpm-obj-hongpao",
+      "target": "hl-j-03",
+      "predicate": "互文",
+      "inference": true,
+      "note": "僭服蟒衣 ↔ 元春盛宠忽逝"
+    },
+    {
+      "source": "hl-j-03",
+      "target": "jpm-obj-hongpao",
+      "predicate": "互文",
+      "inference": true,
+      "note": "虎兕大梦归 ↔ 暴发衣冠"
+    },
+    {
+      "source": "hl-p-12",
+      "target": "jpm-obj-piao",
+      "predicate": "互文",
+      "inference": true,
+      "note": "分骨肉远嫁 ↔ 皮袄遗物流转"
+    },
+    {
+      "source": "jpm-obj-piao",
+      "target": "hl-p-12",
+      "predicate": "互文",
+      "inference": true,
+      "note": "人亡物在 ↔ 奴去也莫牵连"
+    },
+    {
+      "source": "hl-s-furong",
+      "target": "jpm-obj-hanjin",
+      "predicate": "互文",
+      "inference": true,
+      "note": "芙蓉女儿 ↔ 汗巾私情信物"
+    },
+    {
+      "source": "jpm-obj-hanjin",
+      "target": "hl-s-furong",
+      "predicate": "互文",
+      "inference": true,
+      "note": "逾墙凭证 ↔ 诔文奠祭"
+    },
+    {
+      "source": "xyj-dan-wuxing",
+      "target": "hl-p-07",
+      "predicate": "互文",
+      "inference": true,
+      "note": "五行攒簇 ↔ 飞鸟各投林色空总收"
+    },
+    {
+      "source": "hl-p-07",
+      "target": "xyj-dan-wuxing",
+      "predicate": "互文",
+      "inference": true,
+      "note": "白茫茫真干净 ↔ 师徒五行归位"
+    },
+    {
+      "source": "xyj-dan-yinger",
+      "target": "jpm-obj-qi",
+      "predicate": "互文",
+      "inference": true,
+      "note": "婴儿真火 ↔ 四贪气·雷火"
+    },
+    {
+      "source": "jpm-obj-qi",
+      "target": "xyj-dan-yinger",
+      "predicate": "互文",
+      "inference": true,
+      "note": "气焰雷火 ↔ 三昧真火"
+    },
+    {
+      "source": "hl-j-01",
+      "target": "jpm-tune-erba",
+      "predicate": "互文",
+      "inference": true,
+      "note": "咏絮才/玉带林 ↔ 色谶红颜"
+    },
+    {
+      "source": "jpm-tune-erba",
+      "target": "hl-j-01",
+      "predicate": "互文",
+      "inference": true,
+      "note": "暗里骨髓枯 ↔ 黛玉判词"
+    },
+    {
+      "source": "xyj-dan-yima",
+      "target": "hl-p-26",
+      "predicate": "互文",
+      "inference": true,
+      "note": "意马难驭 ↔ 雪夜争联鹿肉助兴"
+    },
+    {
+      "source": "hl-p-26",
+      "target": "xyj-dan-yima",
+      "predicate": "互文",
+      "inference": true,
+      "note": "即景联句 ↔ 渡水意马"
+    },
+    {
+      "source": "hl-s-bing",
+      "target": "jpm-obj-hongpao",
+      "predicate": "互文",
+      "inference": true,
+      "note": "冷香晶莹 ↔ 蟒衣红袍极热"
+    },
+    {
+      "source": "jpm-obj-hongpao",
+      "target": "hl-s-bing",
+      "predicate": "互文",
+      "inference": true,
+      "note": "僭越之服 ↔ 冷香之质"
+    },
+    {
+      "source": "hl-j-02",
+      "target": "jpm-obj-zanzi",
+      "predicate": "互文",
+      "inference": true,
+      "note": "金簪雪里埋 ↔ 簪钗流转争夺"
+    },
+    {
+      "source": "jpm-obj-zanzi",
+      "target": "hl-j-02",
+      "predicate": "互文",
+      "inference": true,
+      "note": "妻妾簪环 ↔ 宝钗判词"
+    },
+    {
+      "source": "hl-p-15",
+      "target": "xyj-place-xiliang",
+      "predicate": "互文",
+      "inference": true,
+      "note": "才貌仙郎 ↔ 女王招赘情关"
+    },
+    {
+      "source": "xyj-place-xiliang",
+      "target": "hl-p-15",
+      "predicate": "互文",
+      "inference": true,
+      "note": "富贵温柔 ↔ 乐中悲好梦易醒"
+    },
+    {
+      "source": "hl-p-13",
+      "target": "jpm-obj-pinger-cai",
+      "predicate": "互文",
+      "inference": true,
+      "note": "阴功济困 ↔ 瓶儿携财入府"
+    },
+    {
+      "source": "jpm-obj-pinger-cai",
+      "target": "hl-p-13",
+      "predicate": "互文",
+      "inference": true,
+      "note": "爱银钱忘骨肉 ↔ 留余庆劝济困"
+    },
+    {
+      "source": "hl-p-17",
+      "target": "xyj-place-jingjieling",
+      "predicate": "互文",
+      "inference": true,
+      "note": "镜里梦里功名 ↔ 谈诗木性之障"
+    },
+    {
+      "source": "xyj-place-jingjieling",
+      "target": "hl-p-17",
+      "predicate": "互文",
+      "inference": true,
+      "note": "风雅绊脚 ↔ 晚韶华虚名"
+    },
+    {
+      "source": "xyj-place-bikou",
+      "target": "jpm-obj-xueshizi",
+      "predicate": "互文",
+      "inference": true,
+      "note": "戕婴取心 ↔ 雪狮子扑婴"
+    },
+    {
+      "source": "jpm-obj-xueshizi",
+      "target": "xyj-place-bikou",
+      "predicate": "互文",
+      "inference": true,
+      "note": "官哥儿惊死 ↔ 小儿心肝药引"
+    },
+    {
+      "source": "hl-j-05",
+      "target": "xyj-place-zimuhe",
+      "predicate": "互文",
+      "inference": true,
+      "note": "湘江水逝 ↔ 子母河阴阳错乱"
+    },
+    {
+      "source": "xyj-place-zimuhe",
+      "target": "hl-j-05",
+      "predicate": "互文",
+      "inference": true,
+      "note": "元阳为乱 ↔ 楚云飞漂泊"
+    },
+    {
+      "source": "jpm-obj-xie",
+      "target": "xyj-place-xiliang",
+      "predicate": "互文",
+      "inference": true,
+      "note": "金莲情挑 ↔ 女儿国情关"
+    },
+    {
+      "source": "xyj-place-xiliang",
+      "target": "jpm-obj-xie",
+      "predicate": "互文",
+      "inference": true,
+      "note": "纯阴招赘 ↔ 三寸绣鞋私情"
+    },
+    {
+      "source": "jpm-obj-husengyao",
+      "target": "hl-j-06",
+      "predicate": "互文",
+      "inference": true,
+      "note": "纵欲催命 ↔ 过洁终污"
+    },
+    {
+      "source": "hl-j-06",
+      "target": "jpm-obj-husengyao",
+      "predicate": "互文",
+      "inference": true,
+      "note": "洁癖终陷 ↔ 胡僧春药"
+    },
+    {
+      "source": "xyj-place-wuzhuangguan",
+      "target": "hl-s-yu",
+      "predicate": "互文",
+      "inference": true,
+      "note": "人参果灵根 ↔ 通灵宝玉"
+    },
+    {
+      "source": "hl-s-yu",
+      "target": "xyj-place-wuzhuangguan",
+      "predicate": "互文",
+      "inference": true,
+      "note": "美玉证命 ↔ 草还丹根本"
+    },
+    {
+      "source": "hl-p-19",
+      "target": "jpm-name-ximenqing",
+      "predicate": "互文",
+      "inference": true,
+      "note": "中山狼无情 ↔ 西门庆反讽之庆"
+    },
+    {
+      "source": "jpm-name-ximenqing",
+      "target": "hl-p-19",
+      "predicate": "互文",
+      "inference": true,
+      "note": "纵欲暴亡 ↔ 侯门艳质同蒲柳"
     }
   ]
 }

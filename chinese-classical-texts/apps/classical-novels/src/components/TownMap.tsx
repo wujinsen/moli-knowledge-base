@@ -128,25 +128,64 @@ export default function TownMap({ data, bookSlug }: Props) {
   }, [visibleNodes, visibleEdges, selectedId, nodeById, gt]);
 
   useEffect(() => {
-    if (!chartRef.current) return;
-    const chart = echarts.init(chartRef.current, undefined, { renderer: 'canvas' });
-    chartInstance.current = chart;
-    chart.on('click', (params) => {
-      if (params.dataType === 'node' && params.data && typeof params.data === 'object') {
-        const id = (params.data as { id?: string }).id;
-        if (id) setSelectedId((prev) => (prev === id ? null : id));
+    const el = chartRef.current;
+    const container = containerRef.current;
+    if (!el) return;
+
+    let chart: echarts.ECharts | null = null;
+    let rafId = 0;
+    let attempts = 0;
+    let cancelled = false;
+
+    const mountChart = () => {
+      if (cancelled || chart) return;
+      if (el.clientWidth < 16 || el.clientHeight < 16) {
+        attempts += 1;
+        if (attempts > 240) return;
+        cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(mountChart);
+        return;
       }
-    });
-    chart.getZr().on('click', (e) => {
-      if (!e.target) setSelectedId(null);
-    });
-    const onResize = () => chart.resize();
+      chart = echarts.init(el, undefined, { renderer: 'canvas' });
+      chartInstance.current = chart;
+      chart.on('click', (params) => {
+        if (params.dataType === 'node' && params.data && typeof params.data === 'object') {
+          const id = (params.data as { id?: string }).id;
+          if (id) setSelectedId((prev) => (prev === id ? null : id));
+        }
+      });
+      chart.getZr().on('click', (e) => {
+        if (!e.target) setSelectedId(null);
+      });
+      chart.setOption(buildOption(), { notMerge: true });
+      window.setTimeout(() => chart?.resize(), 0);
+    };
+
+    const onResize = () => {
+      if (!chart) {
+        attempts = 0;
+        mountChart();
+      } else chart.resize();
+    };
+
+    const ro = new ResizeObserver(onResize);
+    ro.observe(el);
+    if (container && container !== el) ro.observe(container);
+
+    mountChart();
     window.addEventListener('resize', onResize);
+    window.addEventListener('graph-chrome-sync', onResize);
+
     return () => {
+      cancelled = true;
+      cancelAnimationFrame(rafId);
+      ro.disconnect();
       window.removeEventListener('resize', onResize);
-      chart.dispose();
+      window.removeEventListener('graph-chrome-sync', onResize);
+      chart?.dispose();
       chartInstance.current = null;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- mount once; option updates in separate effect
   }, []);
 
   useEffect(() => {
@@ -165,10 +204,7 @@ export default function TownMap({ data, bookSlug }: Props) {
   ];
 
   return (
-    <div
-      ref={containerRef}
-      className="graph-explorer relative min-h-[calc(100vh-3rem)] overflow-hidden"
-    >
+    <div ref={containerRef} className="relative h-full w-full overflow-hidden">
       <div className="pointer-events-none absolute inset-0" aria-hidden style={{ background: gt.backdrop }} />
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04]"
@@ -180,7 +216,7 @@ export default function TownMap({ data, bookSlug }: Props) {
         }}
       />
 
-      <div className="absolute left-0 right-0 top-0 z-10 flex flex-wrap items-center gap-2 p-3">
+      <div className="absolute left-0 right-0 top-12 z-10 flex flex-wrap items-center gap-2 p-3">
         <div className="flex flex-wrap gap-1 rounded-lg border border-white/10 bg-slate-900/80 p-1 backdrop-blur-sm">
           {zoneButtons.map((b) => (
             <button
@@ -222,7 +258,7 @@ export default function TownMap({ data, bookSlug }: Props) {
 
       {selectedNode && (
         <aside
-          className="absolute right-3 top-16 z-10 max-h-[calc(100vh-6rem)] w-64 overflow-y-auto rounded-xl border bg-slate-900/90 p-4 shadow-xl backdrop-blur-md"
+          className="absolute right-3 top-28 z-10 max-h-[calc(100vh-6rem)] w-64 overflow-y-auto rounded-xl border bg-slate-900/90 p-4 shadow-xl backdrop-blur-md"
           style={{ borderColor: gt.accentLine }}
         >
           <div className="mb-1 text-lg font-semibold" style={{ color: gt.accentSoft }}>
@@ -297,7 +333,7 @@ export default function TownMap({ data, bookSlug }: Props) {
         </aside>
       )}
 
-      <div ref={chartRef} className="absolute inset-0 h-full w-full" style={{ minHeight: 'calc(100vh - 3rem)' }} />
+      <div ref={chartRef} className="absolute inset-0 h-full w-full" />
 
       <p className="pointer-events-none absolute bottom-4 left-1/2 z-0 -translate-x-1/2 select-none text-center text-xs text-slate-600/70">
         清河 · 西门府 · 东京政商链 · 滚轮缩放 · 点击地点

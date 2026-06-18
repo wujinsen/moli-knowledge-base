@@ -48,6 +48,7 @@ source: chapters/红楼梦/005.md
 
 - 第5回 · 推论 · 预示 → [[妙玉]] — 可怜金玉质，终陷泥淖中
 - 第5回 · 互文 → [[hl-j-06]]
+- 跨书 · 推论 · 互文 → [xyj-place-xiaoleiyin](/xiyouji/imagery/xyj-place-xiaoleiyin) — 过洁终污 ↔ 小雷音假佛
 
 ## 评析
 

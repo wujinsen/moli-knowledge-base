@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "node scripts/ensure-pagefind.mjs && astro dev",
-    "clean": "node -e \"const fs=require('fs');function rm(p){if(!fs.existsSync(p))return;for(let i=0;i<5;i++){try{fs.rmSync(p,{recursive:true,force:true,maxRetries:3,retryDelay:200});return}catch(e){if(i===4)throw e}}}for(const d of ['dist','.astro','node_modules/.vite'])rm(d);console.log('cleared dist + .astro + node_modules/.vite')\"",
+    "dev:lite": "astro dev",
+    "clean": "node -e \"const fs=require('fs');function rm(p){if(!fs.existsSync(p))return;for(let i=0;i<5;i++){try{fs.rmSync(p,{recursive:true,force:true,maxRetries:3,retryDelay:200});return}catch(e){if(i===4)throw e}}}for(const d of ['dist','.astro','node_modules/.vite','.astro-build.lock'])rm(d);console.log('cleared dist + .astro + node_modules/.vite')\"",
     "dev:clean": "npm run clean && npm run dev",
     "build": "npm run clean && astro build",
     "build:fast": "astro build",
@@ -21,7 +22,6 @@
   },
   "dependencies": {
     "@astrojs/react": "^5.0.7",
-    "@tailwindcss/postcss": "^4.3.1",
     "@types/leaflet": "^1.9.21",
     "astro": "^6.4.6",
     "echarts": "^6.1.0",
@@ -32,6 +32,7 @@
     "tailwindcss": "^4.3.1"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.3.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "astro-pagefind": "^2.0.0",

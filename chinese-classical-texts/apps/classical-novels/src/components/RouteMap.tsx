@@ -16,6 +16,7 @@ import {
   type RouteLayer,
   type RouteNode,
 } from '../lib/route';
+import { schematicMapLabel } from '../lib/routeGeo';
 
 interface Props {
   data: RouteData;
@@ -136,7 +137,7 @@ export default function RouteMap({ data, bookSlug }: Props) {
       return;
     }
     const leg = routeLegs.find((l) => l.key === mapLabelLegKey);
-    if (!leg?.edge?.bearing || leg.edge.distanceLi == null) {
+    if (!leg?.edge?.schematicBearing) {
       setPathLabels([]);
       return;
     }
@@ -173,8 +174,8 @@ export default function RouteMap({ data, bookSlug }: Props) {
           key: leg.key,
           x,
           y,
-          bearing: leg.edge.bearing,
-          distanceLi: leg.edge.distanceLi,
+          bearing: leg.edge.schematicBearing,
+          distanceLi: 0,
           active: activeLegKey === leg.key,
         },
       ]);
@@ -205,8 +206,12 @@ export default function RouteMap({ data, bookSlug }: Props) {
             const meta = edgeByKey.get(`${src}→${tgt}`);
             const from = nodeById.get(src)?.name ?? src;
             const to = nodeById.get(tgt)?.name ?? tgt;
-            if (!meta?.bearing) return `<strong>${from}</strong> → ${to}`;
-            return `<strong>${from}</strong> → ${to}<br/><span style="color:${gt.accent};font-size:17px;font-weight:700">${meta.bearing} · ${meta.distanceLi ?? '?'} 里</span>${meta.distanceKm != null ? `<span style="color:#94a3b8;font-size:14px">（约 ${meta.distanceKm} km）</span>` : ''}`;
+            if (!meta?.schematicBearing) return `<strong>${from}</strong> → ${to}`;
+            const silk =
+              meta.bearing && meta.distanceLi != null
+                ? `<br/><span style="color:#64748b;font-size:12px">丝路约 ${meta.bearing} · ${meta.distanceLi} 里</span>`
+                : '';
+            return `<strong>${from}</strong> → ${to}<br/><span style="color:${gt.accent};font-size:17px;font-weight:700">图向 ${meta.schematicBearing}</span>${silk}`;
           }
           const d = params.data ?? {};
           const node = nodeById.get((d.id as string) ?? '');
@@ -253,7 +258,7 @@ export default function RouteMap({ data, bookSlug }: Props) {
                 color: selected ? '#fff' : '#e8eef7',
                 fontSize: selected ? 13 : 11,
                 fontWeight: selected || !isReal ? 600 : 400,
-                formatter: () => n.name.replace(/^.*·/, ''),
+                formatter: () => schematicMapLabel(n.name, n.order, isReal),
               },
             };
           }),
@@ -449,7 +454,7 @@ export default function RouteMap({ data, bookSlug }: Props) {
         <aside className="absolute bottom-4 right-3 top-14 z-10 flex w-[22rem] flex-col overflow-hidden rounded-xl border border-white/10 bg-slate-900/94 shadow-xl backdrop-blur-md">
           <div className="shrink-0 border-b border-white/10 px-3 py-2.5">
             <div className="text-sm font-semibold text-slate-100">路段一览</div>
-            <div className="text-xs text-slate-400">点击行高亮该段 · 悬停连线显示距离</div>
+            <div className="text-xs text-slate-400">点击行高亮 · 地图标叙事走向 · 栏内附丝路约数</div>
           </div>
 
           {activeLegEntry && activeLeg && (
@@ -463,12 +468,15 @@ export default function RouteMap({ data, bookSlug }: Props) {
                 <span className="text-slate-500"> → </span>
                 {activeLegEntry.to.name.replace(/^.*·/, '')}
               </div>
-              {activeLeg.bearing && (
+              {activeLeg.schematicBearing && (
                 <div className="mt-1 text-base font-bold text-white">
-                  <span style={{ color: gt.accentSoft }}>{activeLeg.bearing}</span>
-                  <span className="ml-2">{activeLeg.distanceLi} 里</span>
-                  {activeLeg.distanceKm != null && (
-                    <span className="ml-1 text-sm font-normal text-slate-400">（约 {activeLeg.distanceKm} km）</span>
+                  <span className="text-xs font-normal text-slate-400">图向 </span>
+                  <span style={{ color: gt.accentSoft }}>{activeLeg.schematicBearing}</span>
+                  {activeLeg.bearing && activeLeg.distanceLi != null && (
+                    <span className="mt-1 block text-sm font-normal text-slate-400">
+                      丝路约 {activeLeg.bearing} · {activeLeg.distanceLi} 里
+                      {activeLeg.distanceKm != null && `（${activeLeg.distanceKm} km）`}
+                    </span>
                   )}
                 </div>
               )}
@@ -520,12 +528,16 @@ export default function RouteMap({ data, bookSlug }: Props) {
                       <span className="block truncate">{fromName}</span>
                       <span className="block truncate text-xs text-slate-500">→ {toName}</span>
                     </span>
-                    {leg.edge?.bearing && (
+                    {leg.edge?.schematicBearing && (
                       <span className="shrink-0 text-right leading-tight">
                         <span className="block text-xs font-medium" style={{ color: gt.accentSoft }}>
-                          {leg.edge.bearing}
+                          {leg.edge.schematicBearing}
                         </span>
-                        <span className="block text-sm font-bold text-white">{leg.edge.distanceLi}里</span>
+                        {leg.edge.bearing && leg.edge.distanceLi != null && (
+                          <span className="block text-[10px] text-slate-500">
+                            丝路 {leg.edge.bearing} {leg.edge.distanceLi}里
+                          </span>
+                        )}
                       </span>
                     )}
                   </button>
@@ -580,14 +592,14 @@ export default function RouteMap({ data, bookSlug }: Props) {
               }}
             >
               <span style={{ color: gt.accentSoft }}>{l.bearing}</span>
-              <span className="ml-2">{l.distanceLi}里</span>
+              <span className="ml-1 text-sm font-normal text-slate-400">图向</span>
             </div>
           ))}
         </div>
       )}
 
       <p className="pointer-events-none absolute bottom-4 left-1/2 z-0 -translate-x-1/2 select-none text-center text-xs text-slate-600/70">
-        右栏查全路段 · 悬停/选中连线显示距离 · 滚轮缩放
+        叙事示意图 · 章回序布局（非经纬投影）· 神话层并置 · 切换「真实地理」看丝路比附
       </p>
     </div>
   );

@@ -37,6 +37,7 @@ source: chapters/红楼梦/005.md
 
 - 第5回 · 对应判词 → [[史湘云]] — 楚云飞、水逝与湘云名、命运漂泊相合。
 - 第5回 · 推论 · 预示 → [[史湘云]] — 判词谶语
+- 跨书 · 推论 · 互文 → [xyj-place-zimuhe](/xiyouji/imagery/xyj-place-zimuhe) — 湘江水逝 ↔ 子母河阴阳错乱
 
 ## 评析
 

@@ -24,6 +24,7 @@ source: chapters/西游记/003.md
 ## 互文
 
 - 第3回 · 推论 · 象征 → [[孙悟空]] — 定海神针能大能小、随心如意，喻已得自在之心力（定与慧）。
+- 跨书 · 推论 · 互文 → [hl-myth-stone](/honglou/imagery/hl-myth-stone) — 定海神针 ↔ 女娲神石
 
 ## 评析
 

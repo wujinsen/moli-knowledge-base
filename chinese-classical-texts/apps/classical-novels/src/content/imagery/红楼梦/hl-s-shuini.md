@@ -45,6 +45,7 @@ source: chapters/红楼梦/002.md
 - 第27回 · 推论 · 隐喻 → [[林黛玉]] — 「质本洁来还洁去」——水性与洁来洁去互文。
 - 第27回 · 推论 · 互文 → [[hl-s-luohua]] — 葬花、水/泥清浊与落花飘零同属群芳命运母题。
 - 跨书 · 推论 · 互文 → [xyj-place-tongtianhe](/xiyouji/imagery/xyj-place-tongtianhe) — 水作骨肉 ↔ 意念之大水
+- 跨书 · 推论 · 互文 → [xyj-place-liusha](/xiyouji/imagery/xyj-place-liusha) — 质本洁来 ↔ 弱水三千
 
 ## 评析
 

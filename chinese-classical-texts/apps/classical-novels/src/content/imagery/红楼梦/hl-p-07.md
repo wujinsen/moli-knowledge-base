@@ -151,6 +151,7 @@ source: chapters/红楼梦/005.md
 - 跨书 · 推论 · 互文 → [jpm-tune-haohua](/jinpingmei/imagery/jpm-tune-haohua) — 白茫茫真干净 ↔ 歌舞人不回
 - 跨书 · 推论 · 互文 → [xyj-poem-c100](/xiyouji/imagery/xyj-poem-c100) — 白茫茫真干净 ↔ 五圣成真不二门
 - 跨书 · 推论 · 互文 → [jpm-obj-guancai](/jinpingmei/imagery/jpm-obj-guancai) — 白茫茫真干净 ↔ 棺木财散
+- 跨书 · 推论 · 互文 → [xyj-dan-wuxing](/xiyouji/imagery/xyj-dan-wuxing) — 飞鸟各投林 ↔ 五行归位色空
 
 ## 评析
 

@@ -44,6 +44,7 @@ source: chapters/红楼梦/005.md
 
 - 第5回 · 推论 · 预示 → [[贾元春]] — 虎兕相逢大梦归
 - 第5回 · 互文 → [[hl-j-03]]
+- 跨书 · 推论 · 互文 → [jpm-tune-haohua](/jinpingmei/imagery/jpm-tune-haohua) — 恨无常 ↔ 豪华歌舞终灰
 
 ## 评析
 

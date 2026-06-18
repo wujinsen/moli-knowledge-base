@@ -44,6 +44,7 @@ source: chapters/红楼梦/005.md
 
 - 第5回 · 推论 · 预示 → [[巧姐]] — 遇恩人、刘姥姥救巧
 - 第5回 · 互文 → [[hl-j-10]]
+- 跨书 · 推论 · 互文 → [jpm-obj-pinger-cai](/jinpingmei/imagery/jpm-obj-pinger-cai) — 阴功济困 ↔ 瓶儿携财入府
 
 ## 评析
 

@@ -37,6 +37,7 @@ source: chapters/红楼梦/005.md
 
 - 第5回 · 对应判词 → [[妙玉]] — 洁癖与终被污，栊翠庵与败局互照。
 - 第5回 · 推论 · 预示 → [[妙玉]] — 判词谶语
+- 跨书 · 推论 · 互文 → [jpm-obj-husengyao](/jinpingmei/imagery/jpm-obj-husengyao) — 过洁终污 ↔ 胡僧春药纵欲
 
 ## 评析
 

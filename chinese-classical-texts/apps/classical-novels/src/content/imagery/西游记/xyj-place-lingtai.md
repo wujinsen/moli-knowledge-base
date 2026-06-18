@@ -24,6 +24,7 @@ source: chapters/西游记/001.md
 ## 互文
 
 - 第1回 · 推论 · 隐喻 → [[孙悟空]] — 「灵台方寸」「斜月三星」拆字皆指「心」——修心的起点。
+- 跨书 · 推论 · 互文 → [hl-myth-taixu](/honglou/imagery/hl-myth-taixu) — 灵台修心起点 ↔ 太虚录入薄命
 
 ## 评析
 

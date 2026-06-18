@@ -36,6 +36,7 @@ source: chapters/西游记/022.md
 - 第22回 · 推论 · 象征 → [[沙僧]] — 「黄婆」即脾土，居中调和金木（真铅真汞）。
 - 推论 · 调和 → [xyj-dan-xinyuan](/xiyouji/imagery/xyj-dan-xinyuan) — 土调金：每劝悟空，即丹道「土调金」。
 - 推论 · 调和 → [xyj-dan-mumu](/xiyouji/imagery/xyj-dan-mumu) — 土调木：每劝八戒，即丹道「土调木」。
+- 跨书 · 推论 · 互文 → [hl-env-daguanyuan](/honglou/imagery/hl-env-daguanyuan) — 黄婆调和 ↔ 大观园容器
 
 ## 评析
 

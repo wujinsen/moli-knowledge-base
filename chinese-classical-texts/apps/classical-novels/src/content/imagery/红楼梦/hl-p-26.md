@@ -156,6 +156,7 @@ source: chapters/红楼梦/050.md
 - 第50回 · 推论 · 互文 → [hl-p-28](/honglou/imagery/hl-p-28) — 联毕咏红梅三律
 - 第50回 · 推论 · 互文 → [hl-p-29](/honglou/imagery/hl-p-29) — 罚宝玉栊翠庵乞梅
 - 第50回 · 推论 · 互文 → [hl-p-32](/honglou/imagery/hl-p-32) — 联句后贾母倡暖香坞灯谜
+- 跨书 · 推论 · 互文 → [xyj-dan-yima](/xiyouji/imagery/xyj-dan-yima) — 即景联句 ↔ 渡水意马
 
 ## 评析
 

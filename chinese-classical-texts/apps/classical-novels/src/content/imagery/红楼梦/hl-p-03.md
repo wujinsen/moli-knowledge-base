@@ -64,6 +64,7 @@ source: chapters/红楼梦/005.md
 - 第5回 · 推论 · 预示 → [[林黛玉]] — 阆苑仙葩
 - 第5回 · 推论 · 互文 → [[hl-j-01]] — 黛玉判词与枉凝眉
 - 第5回 · 推论 · 互文 → [[hl-p-08]] — 钗黛悲剧母题
+- 跨书 · 推论 · 互文 → [jpm-obj-jingzi](/jinpingmei/imagery/jpm-obj-jingzi) — 镜中花 ↔ 镜花水月
 
 ## 评析
 

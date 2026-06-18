@@ -48,6 +48,7 @@ source: chapters/红楼梦/005.md
 
 - 第5回 · 推论 · 预示 → [[李纨]] — 镜里恩情，梦里功名
 - 第5回 · 互文 → [[hl-j-11]]
+- 跨书 · 推论 · 互文 → [xyj-place-jingjieling](/xiyouji/imagery/xyj-place-jingjieling) — 镜里功名 ↔ 谈诗木性之障
 
 ## 评析
 

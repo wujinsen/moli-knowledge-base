@@ -31,6 +31,7 @@ summary: "冷香、晶莹雪与宝钗性情。"
 
 - 第5回 · 推论 · 象征 → [[薛宝钗]] — 冷香、晶莹雪与宝钗性情。
 - 第5回 · 推论 · 互文 → [[hl-s-jin]] — 冷香/晶莹雪与金锁
+- 跨书 · 推论 · 互文 → [jpm-obj-hongpao](/jinpingmei/imagery/jpm-obj-hongpao) — 冷香晶莹 ↔ 蟒衣红袍极热
 
 ## 评析
 

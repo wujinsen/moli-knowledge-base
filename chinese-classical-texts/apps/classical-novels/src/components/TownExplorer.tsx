@@ -12,6 +12,8 @@ interface Props {
 
 type ViewMode = 'gis' | 'schematic';
 
+const graphHeight = 'calc(100dvh - var(--graph-chrome, 10.5rem))';
+
 export default function TownExplorer({ data, gis, bookSlug, initialView = 'gis' }: Props) {
   const [view, setView] = useState<ViewMode>(initialView);
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -26,7 +28,10 @@ export default function TownExplorer({ data, gis, bookSlug, initialView = 'gis' 
   const onSelect = useCallback((id: string | null) => setSelectedId(id), []);
 
   return (
-    <div className="graph-explorer town-explorer relative overflow-hidden">
+    <div
+      className="graph-explorer town-explorer relative overflow-hidden"
+      style={{ height: graphHeight, minHeight: graphHeight }}
+    >
       <div className="absolute left-0 right-0 top-3 z-[600] flex flex-wrap items-center justify-center gap-2 px-3">
         <div className="flex rounded-lg border border-white/10 bg-slate-900/85 p-1 backdrop-blur-sm">
           <button
@@ -71,7 +76,9 @@ export default function TownExplorer({ data, gis, bookSlug, initialView = 'gis' 
           )}
         </>
       ) : (
-        <TownMap data={data} bookSlug={bookSlug} />
+        <div className="absolute inset-0">
+          <TownMap data={data} bookSlug={bookSlug} />
+        </div>
       )}
     </div>
   );

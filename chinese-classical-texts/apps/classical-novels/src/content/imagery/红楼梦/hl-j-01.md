@@ -44,6 +44,7 @@ source: chapters/红楼梦/005.md
 - 第5回 · 对应判词 → [[林黛玉]] — 咏絮才、玉带林暗示黛玉才名与姓名；与宝钗判合成钗黛对照。
 - 第5回 · 推论 · 预示 → [[林黛玉]] — 判词谶语
 - 第64回 · 推论 · 互文 → [hl-p-27](/honglou/imagery/hl-p-27) — 咏絮才于五美吟中翻案
+- 跨书 · 推论 · 互文 → [jpm-tune-erba](/jinpingmei/imagery/jpm-tune-erba) — 咏絮才/玉带林 ↔ 色谶红颜
 
 ## 评析
 

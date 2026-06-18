@@ -39,3 +39,4 @@ source: chapters/红楼梦/012.md
 - 第12回 · 推论 · 互文 → [hl-myth-taixu](/honglou/imagery/hl-myth-taixu) — 镜出太虚幻境空灵殿，专治邪思妄动。
 - 跨书 · 推论 · 互文 → [jpm-obj-se](/jinpingmei/imagery/jpm-obj-se) — 风月宝鉴 ↔ 色·刮骨钢刀
 - 跨书 · 推论 · 互文 → [jpm-obj-jingzi](/jinpingmei/imagery/jpm-obj-jingzi) — 宝鉴照色空 ↔ 镜花水月
+- 跨书 · 推论 · 互文 → [xyj-place-pansidong](/xiyouji/imagery/xyj-place-pansidong) — 宝鉴照色 ↔ 姹女耗阳

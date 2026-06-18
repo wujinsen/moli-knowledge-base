@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef } from 'react';
 import 'leaflet/dist/leaflet.css';
 import L from '../lib/leafletClient';
 import { realmColor, type RouteData } from '../lib/route';
+import { formatGeoCoord, geoAnchor, geoMapLabel } from '../lib/routeGeo';
 
 interface Props {
   data: RouteData;
@@ -64,16 +65,20 @@ export default function RouteLeafletMap({ data, bookSlug }: Props) {
         .join('');
       const orderTxt = n.order != null ? `第 ${n.order} 站 · ` : '';
       const chTxt = n.chapters.length ? `第${n.chapters.join('、')}回` : '';
+      const anchor = geoAnchor(n.id);
+      const coordTxt = n.geo ? formatGeoCoord(n.geo) : '';
       marker.bindPopup(
         `<div style="min-width:180px">
-           <strong style="font-size:14px">${n.name}</strong><br/>
-           <span style="color:#64748b;font-size:12px">${orderTxt}${n.realm} ${chTxt}</span>
+           <strong style="font-size:14px">${n.name}</strong>
+           ${anchor ? `<br/><span style="color:#c2410c;font-size:12px">比附今地：${anchor}</span>` : ''}
+           ${coordTxt ? `<br/><span style="color:#64748b;font-size:11px;font-family:monospace">${coordTxt}</span>` : ''}
+           <br/><span style="color:#64748b;font-size:12px">${orderTxt}${n.realm} ${chTxt}</span>
            ${n.summary ? `<p style="margin:.4em 0;font-size:12px;line-height:1.5">${n.summary}</p>` : ''}
            ${tribs ? `<ul style="margin:.2em 0 .4em 1em;padding:0;font-size:12px">${tribs}</ul>` : ''}
            <a href="/${bookSlug}/l/${encodeURIComponent(n.id)}" style="font-size:12px;color:#c2410c">地点详情 →</a>
          </div>`,
       );
-      marker.bindTooltip(n.name.replace(/^.*·/, ''), {
+      marker.bindTooltip(geoMapLabel(n.id, n.name, n.order), {
         permanent: n.order != null,
         direction: 'bottom',
         offset: [0, 6],
@@ -103,8 +108,8 @@ export default function RouteLeafletMap({ data, bookSlug }: Props) {
   return (
     <div className="relative h-full w-full">
       <div ref={elRef} className="absolute inset-0 h-full w-full" style={{ minHeight: 'calc(100vh - 3rem)' }} />
-      <div className="pointer-events-none absolute bottom-4 left-1/2 z-[500] -translate-x-1/2 rounded-md bg-slate-900/80 px-3 py-1 text-center text-xs text-slate-400">
-        真实瓦片底图 · 西游地理多为近似/象征坐标（火焰山=吐鲁番等少数为实测）
+      <div className="pointer-events-none absolute bottom-4 left-1/2 z-[500] -translate-x-1/2 rounded-md bg-slate-900/80 px-3 py-1.5 text-center text-xs text-slate-400">
+        真实瓦片底图 · 标注为「小说名→比附今地」+ 经纬度 · 坐标多为近似/象征
       </div>
     </div>
   );

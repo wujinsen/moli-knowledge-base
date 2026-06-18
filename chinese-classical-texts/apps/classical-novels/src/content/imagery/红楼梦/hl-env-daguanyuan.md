@@ -41,6 +41,9 @@ source: chapters/红楼梦/074.md
 - 第23回 · 推论 · 象征 → [[林黛玉]] — 诸芳的青春乌托邦与庇护所，潇湘馆、蘅芜苑各安其位。
 - 第74回 · 推论 · 预示 → [[晴雯]] — 抄检大观园，晴雯被逐而亡——庇护所一破，关联诸芳的命运随之清零。
 - 跨书 · 推论 · 互文 → [jpm-obj-deng](/jinpingmei/imagery/jpm-obj-deng) — 园毁 ↔ 元宵灯极盛
+- 跨书 · 推论 · 互文 → [jpm-tune-yuanxiao](/jinpingmei/imagery/jpm-tune-yuanxiao) — 园毁先兆 ↔ 灯谢人散
+- 跨书 · 推论 · 互文 → [jpm-obj-putaojia](/jinpingmei/imagery/jpm-obj-putaojia) — 园毁 ↔ 葡萄架倾覆
+- 跨书 · 推论 · 互文 → [xyj-dan-huangpo](/xiyouji/imagery/xyj-dan-huangpo) — 诸芳庇护 ↔ 黄婆调和
 
 ## 评析
 

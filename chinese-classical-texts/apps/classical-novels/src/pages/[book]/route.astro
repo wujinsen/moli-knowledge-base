@@ -78,7 +78,9 @@ const nodes: RouteNode[] = locations.map((l) => {
   };
 });
 
-projectRouteLayout(nodes);
+// 示意图用叙事 coord；仅缺 coord 的凡间站才回退 geo 投影
+const needsGeoFallback = nodes.some((n) => n.layer === 'real' && n.order != null && n.x === 0 && n.y === 0 && n.geo);
+if (needsGeoFallback) projectRouteLayout(nodes);
 
 const routeData = { nodes, edges: buildRouteEdges(nodes) };
 const realCount = nodes.filter((n) => n.layer === 'real').length;

@@ -44,6 +44,7 @@ source: chapters/红楼梦/005.md
 - 第5回 · 推论 · 预示 → [[贾迎春]] — 侯门艳质同蒲柳，一载荡悠悠
 - 第5回 · 推论 · 影射 → [[孙绍祖]] — 中山狼，无情兽
 - 第5回 · 互文 → [[hl-j-07]]
+- 跨书 · 推论 · 互文 → [jpm-name-ximenqing](/jinpingmei/imagery/jpm-name-ximenqing) — 中山狼 ↔ 西门庆反讽之庆
 
 ## 评析
 

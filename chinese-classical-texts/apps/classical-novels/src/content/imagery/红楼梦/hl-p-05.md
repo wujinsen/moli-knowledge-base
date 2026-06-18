@@ -80,6 +80,7 @@ source: chapters/红楼梦/078.md
 - 第78回 · 推论 · 互文 → [[hl-s-furong]] — 芙蓉花前奠祭
 - 第78回 · 推论 · 互文 → [[hl-j-13]] — 判词谶语在祭文中兑现
 - 第78回 · 推论 · 隐喻 → [[林黛玉]] — 改字论诗，与诔文主宾互文
+- 跨书 · 推论 · 互文 → [jpm-tune-jiwen](/jinpingmei/imagery/jpm-tune-jiwen) — 诔文 ↔ 祭李瓶儿挽歌
 
 ## 评析
 

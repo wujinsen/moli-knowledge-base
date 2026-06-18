@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import pagefind from 'astro-pagefind';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://chinese-classical-texts.wu-jinsen.com',
@@ -10,6 +11,7 @@ export default defineConfig({
   // Windows 上高并发 prerender 偶发 .prerender/chunks 引用缺失（ERR_MODULE_NOT_FOUND）
   build: { concurrency: 1 },
   vite: {
+    plugins: [tailwindcss()],
     optimizeDeps: {
       include: ['leaflet', 'react', 'react-dom', 'echarts'],
     },

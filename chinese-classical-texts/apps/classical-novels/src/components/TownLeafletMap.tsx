@@ -55,6 +55,7 @@ export default function TownLeafletMap({ data, gis, bookSlug, selectedId, onSele
   selectedIdRef.current = selectedId;
 
   const [extent, setExtent] = useState<GisExtent>('core');
+  const [mapError, setMapError] = useState<string | null>(null);
   extentRef.current = extent;
 
   const { height, width } = gis.bounds;
@@ -141,11 +142,24 @@ export default function TownLeafletMap({ data, gis, bookSlug, selectedId, onSele
 
     let map: L.Map | null = null;
     let ro: ResizeObserver | null = null;
+    let rafId = 0;
+    let attempts = 0;
     let cancelled = false;
 
     const ensureView = (animate = false) => {
       if (cancelled || !map) return;
-      if (el.clientWidth < MIN_CONTAINER || el.clientHeight < MIN_CONTAINER) return;
+      if (el.clientWidth < MIN_CONTAINER || el.clientHeight < MIN_CONTAINER) {
+        attempts += 1;
+        if (attempts > 240) {
+          setMapError('地图画布高度为 0，请刷新页面或切换到「示意图」');
+          return;
+        }
+        setMapError(null);
+        cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => ensureView(animate));
+        return;
+      }
+      setMapError(null);
       map.invalidateSize({ animate: false });
       setupMapViewRef.current(map, extentRef.current, animate);
     };
@@ -240,6 +254,7 @@ export default function TownLeafletMap({ data, gis, bookSlug, selectedId, onSele
 
     return () => {
       cancelled = true;
+      cancelAnimationFrame(rafId);
       window.clearTimeout(t);
       ro?.disconnect();
       window.removeEventListener('graph-chrome-sync', onLayout);
@@ -279,6 +294,14 @@ export default function TownLeafletMap({ data, gis, bookSlug, selectedId, onSele
   return (
     <div className="absolute inset-0">
       <div ref={elRef} className="h-full w-full" />
+
+      {mapError && (
+        <div className="absolute inset-0 z-[700] flex items-center justify-center p-4">
+          <p className="max-w-md rounded-xl border border-amber-500/30 bg-slate-900/92 px-4 py-3 text-center text-sm text-amber-100">
+            {mapError}
+          </p>
+        </div>
+      )}
 
       <div className="absolute right-3 top-14 z-[600] flex flex-col gap-1">
         {(

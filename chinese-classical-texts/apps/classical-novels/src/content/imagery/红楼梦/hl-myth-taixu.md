@@ -49,6 +49,8 @@ source: chapters/红楼梦/005.md
 - 第5回 · 推论 · 预示 → [[hl-j-01]] — 薄命司金陵十二钗正册，判词作为命运根节点逐一指向各人结局。
 - 第5回 · 推论 · 归彼大荒 → [[hl-p-07]] — 《红楼梦引子》《好了歌》同旨：千红一窟、万艳同杯，众生终归虚无。
 - 跨书 · 推论 · 互文 → [xyj-place-lingshan](/xiyouji/imagery/xyj-place-lingshan) — 薄命司 ↔ 大雷音寺：终极命运空间
+- 跨书 · 推论 · 互文 → [xyj-poem-kaipian](/xiyouji/imagery/xyj-poem-kaipian) — 薄命司录入 ↔ 混沌未分立基
+- 跨书 · 推论 · 互文 → [xyj-place-lingtai](/xiyouji/imagery/xyj-place-lingtai) — 太虚 ↔ 灵台方寸修心起点
 
 ## 评析
 

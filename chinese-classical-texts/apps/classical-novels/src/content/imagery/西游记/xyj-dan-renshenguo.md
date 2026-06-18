@@ -27,6 +27,7 @@ source: chapters/西游记/024.md
 ## 互文
 
 - 第24回 · 推论 · 象征 → [[镇元子]] — 万寿山五庄观人参果，三千年一开花、三千年一结果，闻一闻活三百六十岁——草还丹。
+- 跨书 · 推论 · 互文 → [hl-myth-jiangzhu](/honglou/imagery/hl-myth-jiangzhu) — 草还丹 ↔ 绛珠仙草还泪
 
 ## 评析
 

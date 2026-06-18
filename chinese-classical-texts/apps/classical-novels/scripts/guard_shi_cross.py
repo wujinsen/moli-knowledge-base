@@ -36,7 +36,7 @@ def main() -> int:
 
     data = json.loads(path.read_text(encoding="utf-8"))
     links = data.get("links") or []
-    if len(links) < 65:
+    if len(links) < 145:
         errors.append(f"links 过少: {len(links)}")
 
     seen: set[tuple[str, str, str]] = set()

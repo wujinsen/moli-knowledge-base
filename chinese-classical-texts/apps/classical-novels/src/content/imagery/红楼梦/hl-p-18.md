@@ -42,6 +42,7 @@ source: chapters/红楼梦/005.md
 
 - 第5回 · 推论 · 预示 → [[秦可卿]] — 情天情海，情海情天
 - 第5回 · 互文 → [[hl-j-12]]
+- 跨书 · 推论 · 互文 → [jpm-obj-honghua](/jinpingmei/imagery/jpm-obj-honghua) — 情海情天 ↔ 欲海亏空反噬
 
 ## 评析
 

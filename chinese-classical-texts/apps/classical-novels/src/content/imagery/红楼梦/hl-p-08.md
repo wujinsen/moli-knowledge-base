@@ -55,6 +55,7 @@ source: chapters/红楼梦/005.md
 - 第5回 · 推论 · 预示 → [[林黛玉]] — 木石前盟
 - 第5回 · 象征 → [[hl-s-jin]]
 - 第5回 · 象征 → [[hl-s-yu]]
+- 跨书 · 推论 · 互文 → [jpm-name-jinlian](/jinpingmei/imagery/jpm-name-jinlian) — 金玉良姻 ↔ 书名之金杀伐
 
 ## 评析
 

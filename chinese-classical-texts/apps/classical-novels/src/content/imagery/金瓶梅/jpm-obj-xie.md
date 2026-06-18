@@ -25,6 +25,7 @@ source: chapters/金瓶梅/008.md
 ## 互文
 
 - 推论 · 隐喻 → [[潘金莲]]（欲起·热） — 三寸金莲的绣鞋，是勾引与私情的载体（情挑、量鞋、藏鞋）。
+- 跨书 · 推论 · 互文 → [xyj-place-xiliang](/xiyouji/imagery/xyj-place-xiliang) — 金莲情挑 ↔ 女儿国情关
 
 ## 评析
 

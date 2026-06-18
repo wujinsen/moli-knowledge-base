@@ -28,6 +28,7 @@ source: chapters/金瓶梅/词话本/024.md
 ## 互文
 
 - 第24回 · 推论 · 预示 → [[李瓶儿]]（极盛·热） — 元宵灯节唱词热闹喧腾;乐极之处暗藏哀机，灯谢人散之兆。
+- 跨书 · 推论 · 互文 → [hl-env-daguanyuan](/honglou/imagery/hl-env-daguanyuan) — 元宵乐极 ↔ 大观园极盛
 
 ## 评析
 

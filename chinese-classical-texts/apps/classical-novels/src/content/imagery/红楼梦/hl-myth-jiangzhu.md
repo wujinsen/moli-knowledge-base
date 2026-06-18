@@ -41,6 +41,7 @@ source: chapters/红楼梦/001.md
 - 第1回 · 推论 · 象征 → [[hl-s-zhu]] — 仙草／潇湘竹／湘妃泪，同一「木·灵」意象群。
 - 跨书 · 推论 · 互文 → [xyj-place-tongtianhe](/xiyouji/imagery/xyj-place-tongtianhe) — 还泪 ↔ 通天大水
 - 跨书 · 推论 · 互文 → [xyj-dan-chanv](/xiyouji/imagery/xyj-dan-chanv) — 还泪/甘露 ↔ 姹女真汞
+- 跨书 · 推论 · 互文 → [xyj-dan-renshenguo](/xiyouji/imagery/xyj-dan-renshenguo) — 仙草还泪 ↔ 草还丹长生
 
 ## 评析
 

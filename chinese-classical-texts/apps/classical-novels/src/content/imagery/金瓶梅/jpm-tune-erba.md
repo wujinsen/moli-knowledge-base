@@ -54,6 +54,8 @@ source: chapters/金瓶梅/词话本/001.md
 - 第1回 · 推论 · 互文 → [jpm-obj-se](/jinpingmei/imagery/jpm-obj-se)（欲起·热） — 色之利害，画外音
 - 第79回 · 推论 · 反噬 → [[西门庆]]（反噬·冷） — 纵欲暴亡，暗里骨髓枯
 - 跨书 · 推论 · 互文 → [hl-p-01](/honglou/imagery/hl-p-01) — 暗里骨髓枯 ↔ 红颜老死葬花
+- 跨书 · 推论 · 互文 → [hl-s-luohua](/honglou/imagery/hl-s-luohua) — 色谶红颜 ↔ 落花柳絮飘零
+- 跨书 · 推论 · 互文 → [hl-j-01](/honglou/imagery/hl-j-01) — 暗里骨髓枯 ↔ 黛玉判词咏絮才
 
 ## 评析
 

@@ -24,6 +24,8 @@ source: chapters/西游记/054.md
 ## 互文
 
 - 第54回 · 推论 · 隐喻 → [[唐僧]] — 西梁女国女王欲招唐僧为夫；纯阴之地、富贵温柔，喻情欲一关最难破。
+- 跨书 · 推论 · 互文 → [hl-p-15](/honglou/imagery/hl-p-15) — 女王招赘 ↔ 乐中悲才貌仙郎
+- 跨书 · 推论 · 互文 → [jpm-obj-xie](/jinpingmei/imagery/jpm-obj-xie) — 纯阴招赘 ↔ 三寸绣鞋私情
 
 ## 评析
 

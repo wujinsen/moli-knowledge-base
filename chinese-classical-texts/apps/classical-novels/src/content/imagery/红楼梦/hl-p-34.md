@@ -59,6 +59,7 @@ source: chapters/红楼梦/048.md
 - 第48回 · 推论 · 隐喻 → [[香菱]] — 诗魔入迷，才思与副册命运对照
 - 第49回 · 推论 · 互文 → [hl-p-21](/honglou/imagery/hl-p-21) — 学诗成果见咏月首作
 - 第48回 · 推论 · 互文 → [hl-j-14](/honglou/imagery/hl-j-14) — 副册才思线，永团圆反讽
+- 跨书 · 推论 · 互文 → [xyj-dan-erxin](/xiyouji/imagery/xyj-dan-erxin) — 诗魔入迷 ↔ 去二心方一心
 
 ## 评析
 

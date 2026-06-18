@@ -29,7 +29,7 @@ export default function RouteExplorer({ data, bookSlug }: Props) {
   return (
     <div className="relative h-full w-full">
       {/* 视图切换：示意图 / 真实地理 */}
-      <div className="absolute left-1/2 top-3 z-[600] -translate-x-1/2">
+      <div className="absolute left-1/2 top-3 z-[600] -translate-x-1/2 text-center">
         <div className="flex gap-1 rounded-lg border border-white/10 bg-slate-900/85 p-1 backdrop-blur-sm">
           <button
             type="button"
@@ -56,6 +56,11 @@ export default function RouteExplorer({ data, bookSlug }: Props) {
             真实地理
           </button>
         </div>
+        <p className="pointer-events-none mt-1.5 text-xs text-slate-500">
+          {mode === 'schematic'
+            ? '章回叙事布局：神话并置、火焰山北折等读法，≠ 地球仪'
+            : '丝路比附：瓦片底图 + 今地 + 经纬度'}
+        </p>
       </div>
 
       {mode === 'schematic' ? (

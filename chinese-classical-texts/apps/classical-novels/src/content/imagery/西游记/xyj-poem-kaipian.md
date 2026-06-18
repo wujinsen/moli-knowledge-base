@@ -24,6 +24,7 @@ source: chapters/西游记/001.md
 ## 互文
 
 - 第1回 · 吟 → [[孙悟空]] — 开篇「混沌未分天地乱，茫茫渺渺无人见」总起天地、丹道本源。
+- 跨书 · 推论 · 互文 → [hl-myth-taixu](/honglou/imagery/hl-myth-taixu) — 混沌未分 ↔ 太虚幻境根节点
 
 ## 评析
 

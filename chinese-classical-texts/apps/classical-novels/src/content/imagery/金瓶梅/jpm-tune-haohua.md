@@ -67,6 +67,7 @@ source: chapters/金瓶梅/词话本/001.md
 - 第62回 · 推论 · 互文 → [jpm-obj-guancai](/jinpingmei/imagery/jpm-obj-guancai)（散尽·冷） — 丧仪极奢而财散
 - 跨书 · 推论 · 互文 → [hl-p-25](/honglou/imagery/hl-p-25) — 西陵灰 ↔ 乱烘烘你方唱罢
 - 跨书 · 推论 · 互文 → [hl-p-07](/honglou/imagery/hl-p-07) — 歌舞人不回 ↔ 白茫茫真干净
+- 跨书 · 推论 · 互文 → [hl-p-11](/honglou/imagery/hl-p-11) — 盛宠无常 ↔ 西陵灰
 
 ## 评析
 
