@@ -10,6 +10,8 @@ import {
   silverHref,
   type SnaData,
 } from '../lib/sna';
+import { chainEventsForCharacter } from '../lib/chainIndex';
+import { chainEventHref } from '../lib/chain';
 
 interface Props {
   data: SnaData;
@@ -201,6 +203,7 @@ export default function SnaDashboard({ data, bookSlug }: Props) {
           <tbody>
             {rows.map((m, i) => {
               const txs = silverLinks[m.id] ?? [];
+              const chainEvts = chainEventsForCharacter(bookSlug, m.id);
               const isFocus = focusId === m.id;
               return (
                 <tr
@@ -239,9 +242,20 @@ export default function SnaDashboard({ data, bookSlug }: Props) {
                         银 {txs.length} 笔
                       </a>
                     )}
-                    <a href={`/${bookSlug}/chain`} className="hover:underline" style={{ color: 'var(--accent)' }}>
-                      链
-                    </a>
+                    {chainEvts.length > 0 ? (
+                      <a
+                        href={chainEventHref(bookSlug, chainEvts[0]!.id)}
+                        className="hover:underline"
+                        style={{ color: 'var(--accent)' }}
+                        title={chainEvts.map((e) => e.title).join(' · ')}
+                      >
+                        链 {chainEvts.length}
+                      </a>
+                    ) : (
+                      <a href={`/${bookSlug}/chain`} className="hover:underline" style={{ color: 'var(--accent)' }}>
+                        链
+                      </a>
+                    )}
                   </td>
                 </tr>
               );

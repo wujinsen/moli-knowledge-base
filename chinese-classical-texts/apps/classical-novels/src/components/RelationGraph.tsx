@@ -3,6 +3,8 @@ import * as echarts from 'echarts';
 import type { EChartsOption } from 'echarts';
 import { factionColor, relationColor, graphTheme } from '../lib/graphTheme';
 import { relationGraphForSlug } from '../lib/relations';
+import { chainEventsForCharacter } from '../lib/chainIndex';
+import { chainEventHref, silverEventHref } from '../lib/chain';
 
 interface Node {
   id: string;
@@ -168,6 +170,13 @@ export default function RelationGraph({ bookSlug }: Props) {
   const factionLeaders = useMemo(() => factionLeaderIds(visibleNodes), [visibleNodes]);
 
   const selectedNode = selectedId ? data.nodes.find((n) => n.id === selectedId) : null;
+  const chainEvents = useMemo(
+    () =>
+      selectedNode && selectedNode.type !== 'topic'
+        ? chainEventsForCharacter(bookSlug, selectedNode.id)
+        : [],
+    [bookSlug, selectedNode],
+  );
   const selectedEdges = useMemo(
     () =>
       selectedId
@@ -801,7 +810,7 @@ export default function RelationGraph({ bookSlug }: Props) {
               </a>
             </div>
           ) : selectedNode.type !== 'topic' ? (
-            <div className="shrink-0 border-t border-white/5 px-4 py-3">
+            <div className="shrink-0 space-y-2 border-t border-white/5 px-4 py-3">
               <a
                 href={`/${bookSlug}/c/${encodeURIComponent(selectedNode.id)}`}
                 className="inline-block text-sm hover:underline"
@@ -809,6 +818,29 @@ export default function RelationGraph({ bookSlug }: Props) {
               >
                 查看人物页 →
               </a>
+              {bookSlug === 'jinpingmei' && chainEvents.length > 0 && (
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  <span className="text-xs text-slate-500">衰败链</span>
+                  {chainEvents.slice(0, 3).map((ev) => (
+                    <a
+                      key={ev.id}
+                      href={chainEventHref(bookSlug, ev.id)}
+                      className="rounded px-2 py-0.5 text-xs hover:underline"
+                      style={{ color: gt.accent, background: `${gt.accent}18` }}
+                    >
+                      {ev.title.length > 10 ? `${ev.title.slice(0, 10)}…` : ev.title}
+                    </a>
+                  ))}
+                  {chainEvents.some((e) => e.transaction_refs.length > 0) && (
+                    <a
+                      href={silverEventHref(bookSlug, chainEvents.find((e) => e.transaction_refs.length)?.id ?? chainEvents[0]!.id)}
+                      className="rounded px-2 py-0.5 text-xs text-slate-400 hover:underline"
+                    >
+                      白银流
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           ) : null}
         </aside>
