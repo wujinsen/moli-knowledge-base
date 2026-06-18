@@ -26,6 +26,8 @@ source: chapters/西游记/098.md
 ## 互文
 
 - 第98回 · 推论 · 象征 → [[如来佛祖]] — 第98回初传无字真经，如来言「无字者乃是真经」——色空不二之旨。
+- 跨书 · 推论 · 互文 → [hl-p-02](/honglou/imagery/hl-p-02) — 无字乃真经 ↔ 好了歌色空
+- 跨书 · 推论 · 互文 → [jpm-tune-baojuan](/jinpingmei/imagery/jpm-tune-baojuan) — 色空不二 ↔ 宝卷散尽预伏
 
 ## 评析
 

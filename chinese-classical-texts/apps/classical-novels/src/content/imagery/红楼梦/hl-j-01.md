@@ -23,6 +23,12 @@ links:
     inference: true
     chapter: 5
     note: "判词谶语"
+  - target: hl-p-27
+    target_kind: imagery
+    predicate: 互文
+    inference: true
+    chapter: 64
+    note: "咏絮才于五美吟中翻案"
 tags: [判词, 金陵十二钗]
 summary: "咏絮才、玉带林暗示黛玉才名与姓名；与宝钗判合成钗黛对照。"
 source: chapters/红楼梦/005.md
@@ -37,6 +43,7 @@ source: chapters/红楼梦/005.md
 
 - 第5回 · 对应判词 → [[林黛玉]] — 咏絮才、玉带林暗示黛玉才名与姓名；与宝钗判合成钗黛对照。
 - 第5回 · 推论 · 预示 → [[林黛玉]] — 判词谶语
+- 第64回 · 推论 · 互文 → [hl-p-27](/honglou/imagery/hl-p-27) — 咏絮才于五美吟中翻案
 
 ## 评析
 
@@ -45,5 +52,6 @@ source: chapters/红楼梦/005.md
 ## 相关
 
 - [[林黛玉]]
+- 意象：[hl-p-27](/honglou/imagery/hl-p-27)
 - 出处：`chapters/红楼梦/005.md`
 - 标签：判词, 金陵十二钗

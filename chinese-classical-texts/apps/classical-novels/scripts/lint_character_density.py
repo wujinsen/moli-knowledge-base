@@ -13,6 +13,19 @@ from pathlib import Path
 
 from _common import CONTENT, DATA_DIR, count_plot_entries, iter_characters
 
+VARIANT_TOPICS_SLUG = {"金瓶梅": "jinpingmei", "红楼梦": "honglou"}
+
+
+def load_variant_topic_ids(book: str) -> set[str]:
+    slug = VARIANT_TOPICS_SLUG.get(book)
+    if not slug:
+        return set()
+    path = DATA_DIR / f"{slug}.variant-topics.json"
+    if not path.exists():
+        return set()
+    data = json.loads(path.read_text(encoding="utf-8-sig"))
+    return {t["id"] for t in data.get("topics", [])}
+
 SYMMETRIC = {
     "夫妻", "兄弟", "姐妹", "妯娌", "师兄弟", "同僚", "朋友", "结拜", "情人", "仇敌", "敌对",
 }
@@ -77,11 +90,14 @@ def _scan_pages(book: str) -> tuple[dict[str, dict], set[str], dict, list[str], 
 
     rel_path = DATA_DIR / f"{book}.relations.json"
     rel_json = json.loads(rel_path.read_text(encoding="utf-8-sig"))
+    variant_ids = load_variant_topic_ids(book)
     missing_targets = sorted(
         {
             e["target"]
             for e in rel_json["edges"]
-            if e["target"] not in ids and not str(e["target"]).startswith("版本-")
+            if e["target"] not in ids
+            and not str(e["target"]).startswith("版本-")
+            and e["target"] not in variant_ids
         }
     )
 

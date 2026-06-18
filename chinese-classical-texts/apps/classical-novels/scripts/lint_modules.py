@@ -7,9 +7,10 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
-from _common import CHAPTER_DIR, CONTENT, DATA_DIR, parse_frontmatter
+from _common import CHAPTER_DIR, CONTENT, DATA_DIR, iter_characters, parse_frontmatter
 from ingest_common import find_item_wiki
-from tag_chapter_meta import parse_list_field
+from tag_chapter_characters import split_body, strip_html
+from tag_chapter_meta import find_ids, load_item_pairs, load_location_pairs, parse_list_field
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -28,6 +29,28 @@ XYJ_WUXING_CORE = {
     "xyj-dan-huangpo": "土",
     "xyj-dan-yima": "水",
     "xyj-dan-yinger": "火",
+}
+
+# 名物覆盖 lint（内容扩面，非结构断链）
+CHARACTER_ITEM_WEIGHT_MIN: dict[str, int] = {"红楼梦": 35, "金瓶梅": 40, "西游记": 45}
+CHARACTER_ITEM_IMPORTANT_STATUS = frozenset({"主角", "重要"})
+LINT_BODY_UNLISTED_MAX = 25
+LINT_CHARACTER_GAPS_MAX = 30
+IMAGERY_ITEM_ALIASES: dict[str, dict[str, str]] = {
+    "金瓶梅": {
+        "簪子": "簪环",
+        "鞋": "红睡鞋",
+        "蟒衣大红袍": "大红妆花袍",
+        "皮袄": "貂鼠里皮袄",
+        "镜": "妆镜",
+        "酒": "宴饮纵酒",
+        "银子": "白银",
+        "红丸胎药": "薛姑子种子方",
+        "色 · 刮骨钢刀": "四贪词",
+        "气 · 颐指气使": "四贪词",
+        "财 · 夺命绳索": "四贪词",
+        "贯朽粟红 · 皮囊粪土": "四贪词",
+    },
 }
 
 
@@ -213,6 +236,132 @@ def lint_items_orphans(book: str) -> list[str]:
         if len(inbound.get(iid, ())) >= 2:
             continue
         issues.append(f"名物孤儿: {iid} · 无回目/crosslinks · 入链={len(inbound.get(iid, ()))}")
+    return issues
+
+
+def _char_item_ids(fm: dict) -> list[str]:
+    if fm.get("type") == "monster":
+        return list(fm.get("法宝") or []) + list(fm.get("关键物品") or []) + list(fm.get("服饰") or [])
+    return list(fm.get("关键物品") or []) + list(fm.get("服饰") or [])
+
+
+def _item_location_skip(book: str) -> set[str]:
+    """名物 id 若与地点/别名重合，不应写入 items[]。"""
+    from tag_chapter_meta import load_location_ids
+
+    skip = load_location_ids(book)
+    for alias, lid in load_location_pairs(book):
+        if alias:
+            skip.add(alias)
+        if lid:
+            skip.add(lid)
+    return skip
+
+
+def lint_items_body_unlisted(book: str) -> list[str]:
+    """正文扫描到已有名物 id，但回目 frontmatter items[] 未列。"""
+    pairs = load_item_pairs(book)
+    known = list_known_item_ids(book)
+    loc_skip = _item_location_skip(book)
+    issues: list[str] = []
+    seen: set[tuple[int, str]] = set()
+    base = CHAPTER_DIR / book
+    if not base.exists():
+        return issues
+    for p in sorted(base.rglob("*.md")):
+        m = re.search(r"(\d+)\.md$", p.name)
+        if not m:
+            continue
+        ch = int(m.group(1))
+        raw = p.read_text(encoding="utf-8-sig")
+        listed = set(parse_list_field(raw, "items") or [])
+        body = strip_html(split_body(raw))
+        if not body.strip():
+            continue
+        for iid in find_ids(body, pairs, {}):
+            if iid not in known or iid in listed or iid in loc_skip:
+                continue
+            key = (ch, iid)
+            if key in seen:
+                continue
+            seen.add(key)
+            issues.append(f"正文有名物未入 items[]: {iid} @ 第{ch}回")
+            if len(issues) >= LINT_BODY_UNLISTED_MAX:
+                return sorted(issues)
+    return sorted(issues)
+
+
+def lint_items_character_gaps(book: str) -> list[str]:
+    """重要人物缺 服饰/关键物品（或 crosslinks 有名物但 frontmatter 未写）。"""
+    min_w = CHARACTER_ITEM_WEIGHT_MIN.get(book, 40)
+    occupant = (_load_crosslinks(book).get("occupant_items") or {})
+    drift: list[tuple[int, str, int]] = []
+    gaps: list[tuple[int, str, str]] = []
+    for _path, fm, _body in iter_characters(book):
+        cid = fm.get("id") or _path.stem
+        if _char_item_ids(fm):
+            continue
+        occ = occupant.get(cid) or []
+        weight = int(fm.get("weight") or 0)
+        status = fm.get("status") or ""
+        if occ:
+            drift.append((weight, cid, len(occ)))
+            continue
+        if status in CHARACTER_ITEM_IMPORTANT_STATUS or weight >= min_w:
+            gaps.append((weight, cid, status or "配角"))
+    issues: list[str] = []
+    for weight, cid, n in sorted(drift, key=lambda x: (-x[0], x[1])):
+        issues.append(f"人物缺 frontmatter 名物: {cid} · crosslinks 已有 {n} 件")
+        if len(issues) >= LINT_CHARACTER_GAPS_MAX:
+            return issues
+    for weight, cid, status in sorted(gaps, key=lambda x: (-x[0], x[1])):
+        issues.append(f"人物缺名物链: {cid} · weight={weight} · {status}")
+        if len(issues) >= LINT_CHARACTER_GAPS_MAX:
+            break
+    return issues
+
+
+def _omen_covered_by_item(
+    book: str, title: str, known: set[str], pair_dict: dict[str, str]
+) -> bool:
+    aliases = IMAGERY_ITEM_ALIASES.get(book, {})
+    head = re.split(r"[·（(]", title, 1)[0].strip()
+    for cand in (head, title):
+        if cand in aliases and aliases[cand] in known:
+            return True
+        if cand in known:
+            return True
+        mapped = pair_dict.get(cand)
+        if mapped and mapped in known:
+            return True
+    for iid in known:
+        if len(iid) >= 2 and iid in title:
+            return True
+    for alias, iid in pair_dict.items():
+        if len(alias) >= 2 and alias in title and iid in known:
+            return True
+    return False
+
+
+def lint_items_imagery_unmaterialized(book: str) -> list[str]:
+    """object_omen 意象尚无对应名物实体页（/i/）。"""
+    if "poems" not in book_features(book):
+        return []
+    known = list_known_item_ids(book)
+    pair_dict = dict(load_item_pairs(book))
+    issues: list[str] = []
+    d = CONTENT / "imagery" / book
+    if not d.is_dir():
+        return issues
+    for p in sorted(d.glob("*.md")):
+        fm, _ = parse_frontmatter(p)
+        if fm.get("subtype") != "object_omen":
+            continue
+        img_id = fm.get("id") or p.stem
+        title = (fm.get("title") or fm.get("name") or img_id).strip()
+        if _omen_covered_by_item(book, title, known, pair_dict):
+            continue
+        issues.append(f"物象谶缺实体页: {title} ({img_id})")
     return issues
 
 
@@ -536,6 +685,9 @@ def module_sections(book: str) -> list[tuple[str, str, str, object]]:
                 ("items_field_gaps", "名物 · 字段缺漏", "items", lint_items_field_gaps),
                 ("items_orphans", "名物 · 孤儿页", "items", lint_items_orphans),
                 ("items_crosslinks", "名物 · crosslinks 缺口", "items", lint_items_crosslinks_gap),
+                ("items_body_unlisted", "名物 · 正文未入 items[]", "items", lint_items_body_unlisted),
+                ("items_character_gaps", "名物 · 人物缺链", "items", lint_items_character_gaps),
+                ("items_imagery_unmaterialized", "名物 · 物象谶缺实体", "items", lint_items_imagery_unmaterialized),
             ]
         )
     if _has_places_module(book):

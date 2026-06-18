@@ -2479,6 +2479,19 @@ mark.compare-highlight--active {
   text-decoration: underline;
 }
 
+/* 金瓶梅市井 · Leaflet GIS */
+.town-leaflet-label {
+  background: rgba(15, 23, 42, 0.88) !important;
+  border: 1px solid rgba(212, 160, 23, 0.35) !important;
+  color: #e2e8f0 !important;
+  font-size: 11px !important;
+  padding: 2px 6px !important;
+  box-shadow: none !important;
+}
+.town-leaflet-label::before {
+  border-top-color: rgba(15, 23, 42, 0.88) !important;
+}
+
 .graph-topbar .topbar-modules {
   scrollbar-color: color-mix(in srgb, var(--gold) 35%, transparent) transparent;
 }
@@ -2628,7 +2641,8 @@ mark.compare-highlight--active {
   font-family: var(--font-serif, 'Noto Serif SC', serif);
 }
 
-/* 大观园实景：与 graph-explorer 同高，防画布 0 高空白 */
+/* 市井 GIS / 实景：与 graph-explorer 同高，防 Leaflet / Pixi 0 高空白 */
+.graph-shell .town-explorer.graph-explorer,
 .graph-shell .garden-scene.graph-explorer,
 .graph-shell .scene-shell-fallback.graph-explorer,
 .graph-shell .garden-digital-tour.graph-explorer,

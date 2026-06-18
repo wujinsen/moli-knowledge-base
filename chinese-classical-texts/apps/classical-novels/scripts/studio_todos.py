@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
@@ -158,14 +159,18 @@ def collect_ingest_todos(book: str, *, limit: int = 6) -> list[dict]:
     return todos
 
 
-def collect_module_todos(book: str, *, limit: int = 10) -> list[dict]:
+def collect_module_todos(book: str, *, limit: int = 15) -> list[dict]:
     """名物 / 建筑 / 意象 lint 优先待办。"""
     from lint_modules import (
         _has_places_module,
         book_features,
+        lint_items_body_unlisted,
+        lint_items_character_gaps,
         lint_items_crosslinks_gap,
         lint_items_field_gaps,
+        lint_items_imagery_unmaterialized,
         lint_items_missing_pages,
+        lint_items_orphans,
         lint_places_field_gaps,
         lint_places_graph,
         lint_shi_field_gaps,
@@ -176,7 +181,47 @@ def collect_module_todos(book: str, *, limit: int = 10) -> list[dict]:
     todos: list[dict] = []
 
     if "items" in feats:
-        for line in lint_items_missing_pages(book)[:4]:
+        for line in lint_items_character_gaps(book)[:5]:
+            if "人物缺 frontmatter 名物: " in line:
+                cid = line.split("人物缺 frontmatter 名物: ", 1)[1].split(" ·")[0]
+            elif "人物缺名物链: " in line:
+                cid = line.split("人物缺名物链: ", 1)[1].split(" ·")[0]
+            else:
+                cid = line.split(": ", 1)[-1].split(" ·")[0]
+            todos.append(
+                {
+                    "id": f"todo_item_char_{cid}",
+                    "kind": "fix_key_item",
+                    "entityId": cid,
+                    "message": line,
+                    "suggestedPrompt": f"为 {cid} 补 服饰/关键物品（或运行 sync_character_items_from_wiki.py）",
+                    "severity": "warn",
+                }
+            )
+        for line in lint_items_body_unlisted(book)[:4]:
+            iid = line.split(": ", 1)[-1].split(" @")[0].replace("正文有名物未入 items[]: ", "")
+            ch_m = re.search(r"第(\d+)回", line)
+            todos.append(
+                {
+                    "id": f"todo_item_body_{iid}_{ch_m.group(1) if ch_m else len(todos)}",
+                    "kind": "fix_key_item",
+                    "entityId": iid,
+                    "message": line,
+                    "suggestedPrompt": f"第{ch_m.group(1) if ch_m else '?'}回 items[] 补 {iid}，或核对正文误匹配",
+                    "severity": "info",
+                }
+            )
+        for line in lint_items_imagery_unmaterialized(book)[:3]:
+            todos.append(
+                {
+                    "id": f"todo_item_omen_{len(todos)}",
+                    "kind": "fix_key_item",
+                    "message": line,
+                    "suggestedPrompt": f"为物象谶建名物页并互链：{line}",
+                    "severity": "info",
+                }
+            )
+        for line in lint_items_missing_pages(book)[:3]:
             iid = line.split(": ", 1)[-1].split(" @")[0].replace("缺实体页: ", "")
             todos.append(
                 {
@@ -188,7 +233,19 @@ def collect_module_todos(book: str, *, limit: int = 10) -> list[dict]:
                     "severity": "warn",
                 }
             )
-        for line in lint_items_crosslinks_gap(book)[:3]:
+        for line in lint_items_orphans(book)[:2]:
+            iid = line.split(":", 1)[-1].split(" ·")[0].replace("名物孤儿: ", "").strip()
+            todos.append(
+                {
+                    "id": f"todo_item_orphan_{iid}",
+                    "kind": "fix_key_item",
+                    "entityId": iid,
+                    "message": line,
+                    "suggestedPrompt": f"为孤儿名物 {iid} 补回目 items[]、wearer 或 topic 入链",
+                    "severity": "info",
+                }
+            )
+        for line in lint_items_crosslinks_gap(book)[:2]:
             todos.append(
                 {
                     "id": f"todo_item_xlink_{len(todos)}",

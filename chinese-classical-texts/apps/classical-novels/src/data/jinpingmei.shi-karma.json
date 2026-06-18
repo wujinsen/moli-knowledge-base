@@ -16,7 +16,7 @@
         "title": "卜志道 · 不知道",
         "subtype": "name_omen",
         "temperature": "冷",
-        "chapter": null,
+        "chapter": 1,
         "predicate": "谐音",
         "target": "卜志道"
       },
@@ -30,13 +30,40 @@
         "target": "花子虚"
       },
       {
+        "id": "jpm-obj-cai",
+        "title": "财 · 夺命绳索",
+        "subtype": "object_omen",
+        "temperature": "热",
+        "chapter": 1,
+        "predicate": "互文",
+        "target": "jpm-tune-jiusecaiqi"
+      },
+      {
         "id": "jpm-obj-jingzi",
         "title": "镜 · 镜花水月",
         "subtype": "object_omen",
         "temperature": "冷",
-        "chapter": null,
+        "chapter": 60,
         "predicate": "象征",
         "target": "花子虚"
+      },
+      {
+        "id": "jpm-obj-qi",
+        "title": "气 · 颐指气使",
+        "subtype": "object_omen",
+        "temperature": "热",
+        "chapter": 1,
+        "predicate": "互文",
+        "target": "jpm-tune-jiusecaiqi"
+      },
+      {
+        "id": "jpm-obj-se",
+        "title": "色 · 刮骨钢刀",
+        "subtype": "object_omen",
+        "temperature": "热",
+        "chapter": 1,
+        "predicate": "隐喻",
+        "target": "西门庆"
       },
       {
         "id": "jpm-obj-xie",
@@ -46,6 +73,24 @@
         "chapter": 8,
         "predicate": "隐喻",
         "target": "潘金莲"
+      },
+      {
+        "id": "jpm-tune-erba",
+        "title": "二八佳人诗",
+        "subtype": "tune_omen",
+        "temperature": "热",
+        "chapter": 1,
+        "predicate": "预示",
+        "target": "潘金莲"
+      },
+      {
+        "id": "jpm-tune-haohua",
+        "title": "豪华去后诗",
+        "subtype": "tune_omen",
+        "temperature": "冷",
+        "chapter": 1,
+        "predicate": "互文",
+        "target": "jpm-tune-jiusecaiqi"
       },
       {
         "id": "jpm-tune-jiusecaiqi",
@@ -63,7 +108,7 @@
         "title": "常峙节 · 常时借",
         "subtype": "name_omen",
         "temperature": "热",
-        "chapter": null,
+        "chapter": 1,
         "predicate": "谐音",
         "target": "常峙节"
       },
@@ -72,7 +117,7 @@
         "title": "韩道国 · 憨/汉盗国",
         "subtype": "name_omen",
         "temperature": "热",
-        "chapter": null,
+        "chapter": 1,
         "predicate": "谐音",
         "target": "韩道国"
       },
@@ -99,7 +144,7 @@
         "title": "谢希大 · 些须大",
         "subtype": "name_omen",
         "temperature": "热",
-        "chapter": null,
+        "chapter": 1,
         "predicate": "谐音",
         "target": "谢希大"
       },
@@ -108,9 +153,18 @@
         "title": "应伯爵 · 应白嚼",
         "subtype": "name_omen",
         "temperature": "热",
-        "chapter": null,
+        "chapter": 1,
         "predicate": "谐音",
         "target": "应伯爵"
+      },
+      {
+        "id": "jpm-obj-cai",
+        "title": "财 · 夺命绳索",
+        "subtype": "object_omen",
+        "temperature": "热",
+        "chapter": 1,
+        "predicate": "隐喻",
+        "target": "西门庆"
       },
       {
         "id": "jpm-obj-jiu",
@@ -131,11 +185,20 @@
         "target": "李瓶儿"
       },
       {
+        "id": "jpm-obj-qi",
+        "title": "气 · 颐指气使",
+        "subtype": "object_omen",
+        "temperature": "热",
+        "chapter": 1,
+        "predicate": "隐喻",
+        "target": "西门庆"
+      },
+      {
         "id": "jpm-obj-yinzi",
         "title": "银子 · 财之聚散",
         "subtype": "object_omen",
         "temperature": "热",
-        "chapter": null,
+        "chapter": 60,
         "predicate": "流转",
         "target": "西门庆"
       },
@@ -153,9 +216,18 @@
         "title": "〔寄生草〕· 依附之叹",
         "subtype": "tune_omen",
         "temperature": "热",
-        "chapter": null,
+        "chapter": 49,
         "predicate": "隐喻",
         "target": "李桂姐"
+      },
+      {
+        "id": "jpm-tune-jiusecaiqi",
+        "title": "酒色财气歌",
+        "subtype": "tune_omen",
+        "temperature": "热",
+        "chapter": 1,
+        "predicate": "互文",
+        "target": "jpm-obj-qi"
       }
     ],
     "极盛": [
@@ -205,6 +277,15 @@
         "target": "西门庆"
       },
       {
+        "id": "jpm-obj-cai",
+        "title": "财 · 夺命绳索",
+        "subtype": "object_omen",
+        "temperature": "热",
+        "chapter": 60,
+        "predicate": "流转",
+        "target": "jpm-obj-yinzi"
+      },
+      {
         "id": "jpm-obj-deng",
         "title": "元宵灯 · 极盛之象",
         "subtype": "object_omen",
@@ -214,11 +295,20 @@
         "target": "李瓶儿"
       },
       {
+        "id": "jpm-obj-guanmian",
+        "title": "贯朽粟红 · 皮囊粪土",
+        "subtype": "object_omen",
+        "temperature": "热",
+        "chapter": 70,
+        "predicate": "反讽",
+        "target": "jpm-obj-hongpao"
+      },
+      {
         "id": "jpm-obj-hanjin",
         "title": "汗巾 · 私情信物",
         "subtype": "object_omen",
         "temperature": "热",
-        "chapter": null,
+        "chapter": 60,
         "predicate": "象征",
         "target": "潘金莲"
       },
@@ -239,6 +329,15 @@
         "chapter": 27,
         "predicate": "隐喻",
         "target": "西门庆"
+      },
+      {
+        "id": "jpm-obj-qi",
+        "title": "气 · 颐指气使",
+        "subtype": "object_omen",
+        "temperature": "热",
+        "chapter": 70,
+        "predicate": "互文",
+        "target": "jpm-obj-hongpao"
       },
       {
         "id": "jpm-obj-xueshizi",
@@ -263,7 +362,7 @@
         "title": "〔山坡羊〕· 幽怨自况",
         "subtype": "tune_omen",
         "temperature": "冷",
-        "chapter": null,
+        "chapter": 49,
         "predicate": "预示",
         "target": "潘金莲"
       },
@@ -301,7 +400,7 @@
         "title": "如意儿 · 名实相违",
         "subtype": "name_omen",
         "temperature": "冷",
-        "chapter": null,
+        "chapter": 1,
         "predicate": "谐音",
         "target": "如意儿"
       },
@@ -310,7 +409,7 @@
         "title": "吴典恩 · 无点恩",
         "subtype": "name_omen",
         "temperature": "冷",
-        "chapter": null,
+        "chapter": 1,
         "predicate": "谐音",
         "target": "吴典恩"
       },
@@ -322,6 +421,15 @@
         "chapter": 62,
         "predicate": "象征",
         "target": "李瓶儿"
+      },
+      {
+        "id": "jpm-obj-guanmian",
+        "title": "贯朽粟红 · 皮囊粪土",
+        "subtype": "object_omen",
+        "temperature": "冷",
+        "chapter": 1,
+        "predicate": "隐喻",
+        "target": "西门庆"
       },
       {
         "id": "jpm-obj-honghua",
@@ -360,6 +468,24 @@
         "target": "李瓶儿"
       },
       {
+        "id": "jpm-tune-erba",
+        "title": "二八佳人诗",
+        "subtype": "tune_omen",
+        "temperature": "冷",
+        "chapter": 79,
+        "predicate": "反噬",
+        "target": "西门庆"
+      },
+      {
+        "id": "jpm-tune-haohua",
+        "title": "豪华去后诗",
+        "subtype": "tune_omen",
+        "temperature": "冷",
+        "chapter": 79,
+        "predicate": "反噬",
+        "target": "西门庆"
+      },
+      {
         "id": "jpm-tune-jiwen",
         "title": "西门庆祭李瓶儿文 · 情真情假",
         "subtype": "tune_omen",
@@ -393,7 +519,7 @@
         "title": "李娇儿 · 娇出勾栏",
         "subtype": "name_omen",
         "temperature": "冷",
-        "chapter": null,
+        "chapter": 1,
         "predicate": "谐音",
         "target": "李娇儿"
       },
@@ -402,7 +528,7 @@
         "title": "孙雪娥 · 雪易消",
         "subtype": "name_omen",
         "temperature": "冷",
-        "chapter": null,
+        "chapter": 1,
         "predicate": "谐音",
         "target": "孙雪娥"
       },
@@ -425,6 +551,15 @@
         "target": "孝哥儿"
       },
       {
+        "id": "jpm-obj-guanmian",
+        "title": "贯朽粟红 · 皮囊粪土",
+        "subtype": "object_omen",
+        "temperature": "冷",
+        "chapter": 1,
+        "predicate": "互文",
+        "target": "jpm-obj-cai"
+      },
+      {
         "id": "jpm-tune-baojuan",
         "title": "宝卷（尼姑说唱）",
         "subtype": "tune_omen",
@@ -432,15 +567,24 @@
         "chapter": 74,
         "predicate": "预示",
         "target": "吴月娘"
+      },
+      {
+        "id": "jpm-tune-haohua",
+        "title": "豪华去后诗",
+        "subtype": "tune_omen",
+        "temperature": "冷",
+        "chapter": 1,
+        "predicate": "互文",
+        "target": "jpm-obj-cai"
       }
     ]
   },
   "counts": {
-    "欲起": 5,
-    "聚敛": 11,
-    "极盛": 13,
-    "反噬": 10,
-    "散尽": 7
+    "欲起": 10,
+    "聚敛": 14,
+    "极盛": 16,
+    "反噬": 13,
+    "散尽": 9
   },
   "chains": [
     {
@@ -448,7 +592,13 @@
       "name": "总纲：酒色财气→西门庆",
       "summary": "色财气歌总纲→西门庆聚敛",
       "path": [
+        "jpm-tune-haohua",
         "jpm-tune-jiusecaiqi",
+        "jpm-obj-jiu",
+        "jpm-obj-se",
+        "jpm-obj-cai",
+        "jpm-obj-qi",
+        "jpm-obj-guanmian",
         "西门庆"
       ]
     },

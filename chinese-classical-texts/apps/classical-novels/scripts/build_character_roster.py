@@ -18,7 +18,7 @@ from collections import defaultdict
 from datetime import date
 from pathlib import Path
 
-from _common import BOOKS, CHAPTER_DIR, CONTENT, DATA_DIR, iter_characters
+from _common import BOOKS, CHAPTER_DIR, CONTENT, DATA_DIR, iter_characters, parse_frontmatter
 from tag_chapter_characters import BOOK_EXTRA_ALIASES, split_body, strip_html
 
 BOOK_SLUG = {"红楼梦": "honglou", "金瓶梅": "jinpingmei", "西游记": "xiyouji"}
@@ -69,6 +69,24 @@ def known_ids(book: str) -> set[str]:
     for alias, cid in BOOK_EXTRA_ALIASES.get(book, {}).items():
         ids.add(alias)
         ids.add(cid)
+    # 地点/建筑已建页者不计入人物 pending
+    loc_dir = CONTENT / "locations" / book
+    if loc_dir.is_dir():
+        for p in loc_dir.glob("*.md"):
+            fm, _ = parse_frontmatter(p)
+            lid = fm.get("id") or p.stem
+            ids.add(lid)
+            for a in fm.get("aliases") or []:
+                if a:
+                    ids.add(a)
+    # 人工 dismiss discover 噪声
+    dismiss_path = DATA_DIR / f"{BOOK_SLUG.get(book, book)}.roster_dismissed.json"
+    if dismiss_path.is_file():
+        try:
+            data = json.loads(dismiss_path.read_text(encoding="utf-8-sig"))
+            ids.update(data.get("dismissed") or [])
+        except json.JSONDecodeError:
+            pass
     return ids
 
 
@@ -80,7 +98,8 @@ def load_seed(book: str) -> list[dict]:
     data = json.loads(path.read_text(encoding="utf-8-sig"))
     if isinstance(data, list):
         return [x if isinstance(x, dict) else {"name": x} for x in data]
-    return data.get("names", [])
+    names = list(data.get("names") or []) + list(data.get("pending") or [])
+    return [{"name": n} if isinstance(n, str) else n for n in names]
 
 
 def iter_main_chapters(book: str) -> list[tuple[int, Path]]:

@@ -48,6 +48,18 @@ links:
     inference: true
     chapter: 27
     note: "花谢花飞、红消香断，以花自喻泪尽前身"
+  - target: hl-s-luohua
+    target_kind: imagery
+    predicate: 互文
+    inference: true
+    chapter: 27
+    note: "落花意象诗化总纲"
+  - target: hl-p-27
+    target_kind: imagery
+    predicate: 互文
+    inference: true
+    chapter: 27
+    note: "红颜老死；后写五美吟命薄母题"
 tags: [诗词]
 summary: "黛玉葬花核心诗章，以花自喻，泪尽前身。"
 source: chapters/红楼梦/027.md
@@ -87,6 +99,9 @@ source: chapters/红楼梦/027.md
 
 - 第27回 · 作 → [[林黛玉]] — 葬花吟
 - 第27回 · 推论 · 隐喻 → [[林黛玉]] — 花谢花飞、红消香断，以花自喻泪尽前身
+- 第27回 · 推论 · 互文 → [[hl-s-luohua]] — 落花意象诗化总纲
+- 第27回 · 推论 · 互文 → [hl-p-27](/honglou/imagery/hl-p-27) — 红颜老死；后写五美吟命薄母题
+- 跨书 · 推论 · 互文 → [jpm-tune-erba](/jinpingmei/imagery/jpm-tune-erba) — 色谶总括 ↔ 葬花情死
 
 ## 评析
 
@@ -95,5 +110,6 @@ source: chapters/红楼梦/027.md
 ## 相关
 
 - [[林黛玉]]
+- 意象：[hl-s-luohua](/honglou/imagery/hl-s-luohua) · [hl-p-27](/honglou/imagery/hl-p-27)
 - 出处：`chapters/红楼梦/027.md`
 - 标签：诗词

@@ -128,6 +128,7 @@
           "book": "金瓶梅",
           "subtype": "奴婢买卖",
           "amount": 0,
+          "amount_normalized": 0,
           "currency": "银",
           "conversion_note": "正文未写身价钱银，不计入白银流；薛嫂追索所许大布为媒钱",
           "buyer": "西门庆",

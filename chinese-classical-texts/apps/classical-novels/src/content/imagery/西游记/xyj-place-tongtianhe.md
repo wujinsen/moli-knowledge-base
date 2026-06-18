@@ -33,6 +33,9 @@ source: chapters/西游记/049.md
 
 - 推论 · 相济 → [xyj-dan-yima](/xiyouji/imagery/xyj-dan-yima) — 通天河即意念之大水；意马渡水，水火相济之考验。
 - 第49回 · 推论 · 隐喻 → [[唐僧]] — 八百里通天，落水之劫；渡河即渡心。
+- 跨书 · 推论 · 互文 → [hl-myth-jiangzhu](/honglou/imagery/hl-myth-jiangzhu) — 渡河即渡心 ↔ 还泪之约
+- 跨书 · 推论 · 互文 → [hl-s-shuini](/honglou/imagery/hl-s-shuini) — 水火相济 ↔ 水/泥清浊
+- 跨书 · 推论 · 互文 → [hl-p-24](/honglou/imagery/hl-p-24) — 渡心之水 ↔ 寒塘鹤影
 
 ## 评析
 

@@ -2129,7 +2129,7 @@
     "jinpingmei": {
       "book": "金瓶梅",
       "slug": "jinpingmei",
-      "count": 25,
+      "count": 60,
       "entries": [
         {
           "id": "五灵脂",
@@ -2176,11 +2176,106 @@
           "kind": "medicine"
         },
         {
+          "id": "元宵圆子",
+          "type": "dish",
+          "name": "元宵圆子",
+          "book": "金瓶梅",
+          "category": "节令食",
+          "ingredients": [
+            "糯米",
+            "馅"
+          ],
+          "process": "正月十五元宵节所食圆子，席上先上后客散",
+          "eaters": [
+            "吴大舅",
+            "应伯爵",
+            "谢希大",
+            "常峙节",
+            "荆统制娘子",
+            "张团练娘子",
+            "乔亲家母",
+            "崔亲家母",
+            "吴大妗子",
+            "段大姐"
+          ],
+          "location": "西门府卷棚",
+          "first_appear": "第79回",
+          "appear_in": [
+            "第79回"
+          ],
+          "tags": [
+            "饮食",
+            "元宵",
+            "宴席"
+          ],
+          "summary": "第79回荆统制娘子等客坐至晚，「上罢元宵圆子，方才起身去了」；写西门庆晚年元宵家宴与官场女眷往来。",
+          "kind": "dish"
+        },
+        {
+          "id": "元宵灯",
+          "type": "ritual",
+          "name": "元宵灯",
+          "book": "金瓶梅",
+          "participants": [
+            "吴月娘",
+            "李瓶儿",
+            "李娇儿",
+            "孟玉楼",
+            "潘金莲",
+            "西门庆"
+          ],
+          "procedure": [
+            "灯市观灯",
+            "临街楼悬挂花灯",
+            "围屏桌席"
+          ],
+          "location": "狮子街灯市",
+          "first_appear": "第15回",
+          "appear_in": [
+            "第15回"
+          ],
+          "tags": [
+            "节令",
+            "物象谶",
+            "繁华"
+          ],
+          "summary": "第15回元宵灯市，六房登李瓶儿临街楼观灯，火树银花是西门府极盛之象（jpm-obj-deng）。",
+          "kind": "custom"
+        },
+        {
+          "id": "吴典恩借银",
+          "type": "ritual",
+          "name": "吴典恩借银",
+          "book": "金瓶梅",
+          "participants": [
+            "吴典恩",
+            "应伯爵",
+            "西门庆"
+          ],
+          "procedure": [
+            "应伯爵说合",
+            "吴典恩写借据一百两",
+            "免利钱",
+            "备上任参官贽见"
+          ],
+          "location": "西门府",
+          "economic": "一百两银（jpm-tx-006）",
+          "first_appear": "第31回",
+          "appear_in": [
+            "第31回"
+          ],
+          "tags": [
+            "借贷",
+            "帮闲"
+          ],
+          "summary": "吴典恩经应伯爵向西门庆借银一百两，备驿丞上任用度（第31回）；帮闲圈与主家资金往来的典型一笔。",
+          "kind": "custom"
+        },
+        {
           "id": "大红妆花袍",
           "type": "costume",
           "name": "大红妆花通袖袍",
           "book": "金瓶梅",
-          "wearer": "西门府妻妾",
           "material": "大红妆花缎",
           "color": "大红",
           "occasion": "庆典 / 命妇礼服",
@@ -2195,6 +2290,14 @@
           "first_appear": "第46回",
           "appear_in": [
             "第46回"
+          ],
+          "wearers": [
+            "吴月娘",
+            "李娇儿",
+            "孟玉楼",
+            "孙雪娥",
+            "潘金莲",
+            "李瓶儿"
           ],
           "kind": "costume"
         },
@@ -2216,6 +2319,250 @@
           ],
           "summary": "刻丝段子对衿圆领，名物描写极细。",
           "kind": "costume"
+        },
+        {
+          "id": "大红遍地金鹤袖",
+          "type": "costume",
+          "name": "大红遍地金鹤袖",
+          "book": "金瓶梅",
+          "wearers": [
+            "潘金莲"
+          ],
+          "material": "遍地金织锦",
+          "color": "大红",
+          "occasion": "冬宴外出",
+          "rank_signal": "妻妾盛装",
+          "description": "大红遍地金织就的鹤袖（宽袖饰片），缀于白绫袄之外，华贵耀目",
+          "tags": [
+            "服饰",
+            "奢侈"
+          ],
+          "summary": "潘金莲第74回欲将李瓶儿貂鼠皮袄改缀「两个大红遍地金鹤袖」，衬白绫袄赴应二家宴，写其借衣装门面、争脸面的手段。",
+          "first_appear": "第74回",
+          "appear_in": [
+            "第74回"
+          ],
+          "kind": "costume"
+        },
+        {
+          "id": "妆镜",
+          "type": "accessory",
+          "name": "妆镜",
+          "book": "金瓶梅",
+          "holders": [
+            "潘金莲",
+            "李瓶儿",
+            "孟玉楼"
+          ],
+          "material": "铜",
+          "occasion": "梳妆",
+          "rank_signal": "闺阁日常",
+          "description": "闺阁妆台铜镜，对镜匀粉、整云鬟；「镜花水月」喻繁华虚妄",
+          "tags": [
+            "物象谶",
+            "闺阁",
+            "虚妄"
+          ],
+          "summary": "妆镜是妻妾匀粉整鬟的日常器；「镜花水月」谐花子虚之名，喻繁华一场空（jpm-obj-jingzi）。",
+          "first_appear": "第73回",
+          "appear_in": [
+            "第73回"
+          ],
+          "kind": "costume"
+        },
+        {
+          "id": "宴饮纵酒",
+          "type": "ritual",
+          "name": "宴饮纵酒",
+          "book": "金瓶梅",
+          "participants": [
+            "西门庆",
+            "应伯爵",
+            "花子虚"
+          ],
+          "procedure": [
+            "结拜酒席",
+            "院中宴饮",
+            "无日不宴"
+          ],
+          "location": "玉皇庙 / 西门府 / 勾栏",
+          "first_appear": "第1回",
+          "appear_in": [
+            "第1回"
+          ],
+          "tags": [
+            "物象谶",
+            "酒",
+            "宴饮"
+          ],
+          "summary": "无日不宴、无宴不酒，是开篇「酒色财气」之「酒」；觥筹交错处即家业暗蚀的场域（jpm-obj-jiu）。",
+          "kind": "custom"
+        },
+        {
+          "id": "寿星博浪鼓",
+          "type": "accessory",
+          "name": "寿星博浪鼓",
+          "book": "金瓶梅",
+          "wearer": "官哥儿",
+          "material": "木, 皮",
+          "first_appear": "第59回",
+          "appear_in": [
+            "第59回"
+          ],
+          "tags": [
+            "玩具",
+            "官哥儿"
+          ],
+          "summary": "官哥儿常玩博浪鼓，挂在床头；官哥夭折后李瓶儿睹物痛哭（第59回）。",
+          "kind": "costume"
+        },
+        {
+          "id": "帮闲凑分",
+          "type": "ritual",
+          "name": "帮闲凑分",
+          "book": "金瓶梅",
+          "participants": [
+            "应伯爵",
+            "谢希大",
+            "花子繇",
+            "祝实念",
+            "孙天化",
+            "常峙节",
+            "白赉光"
+          ],
+          "procedure": [
+            "七人各出一钱银子",
+            "凑七钱办祭礼",
+            "买轴子",
+            "央水秀才作祭文",
+            "灵前祭奠"
+          ],
+          "location": "西门庆灵前",
+          "economic": "七钱银（每人一钱）",
+          "first_appear": "第80回",
+          "appear_in": [
+            "第80回"
+          ],
+          "tags": [
+            "帮闲",
+            "祭奠",
+            "负恩"
+          ],
+          "summary": "西门庆首七，应伯爵等七帮闲「各出一钱银子，七人共凑上七钱」办祭礼（第80回）；生前吃用借、死后凑分祭，水秀才祭文暗讽。",
+          "kind": "custom"
+        },
+        {
+          "id": "拣金挑牙",
+          "type": "accessory",
+          "name": "拣金挑牙",
+          "book": "金瓶梅",
+          "wearer": "郑爱月儿",
+          "material": "金",
+          "first_appear": "第59回",
+          "appear_in": [
+            "第59回"
+          ],
+          "tags": [
+            "首饰",
+            "勾栏"
+          ],
+          "summary": "紫绉纱汗巾上拴的拣金挑牙，西门庆扬州带来，第59回赠郑爱月儿（第59回）。",
+          "kind": "costume"
+        },
+        {
+          "id": "月琴",
+          "type": "accessory",
+          "name": "月琴",
+          "book": "金瓶梅",
+          "wearer": "孟玉楼",
+          "material": "木, 丝弦",
+          "occasion": "宴饮",
+          "first_appear": "第27回",
+          "appear_in": [
+            "第27回"
+          ],
+          "tags": [
+            "乐器",
+            "妻妾"
+          ],
+          "summary": "孟玉楼所擅，第27回与潘金莲琵琶合奏，后潘金莲抱至葡萄架（第27回）。",
+          "kind": "costume"
+        },
+        {
+          "id": "李娇儿皮袄",
+          "type": "costume",
+          "name": "李娇儿皮袄",
+          "book": "金瓶梅",
+          "wearers": [
+            "李娇儿",
+            "孙雪娥"
+          ],
+          "material": "皮",
+          "occasion": "冬令",
+          "rank_signal": "妻妾冬衣",
+          "description": "李娇儿所藏皮袄，后由西门庆调拨与孙雪娥穿着",
+          "tags": [
+            "服饰",
+            "冬衣"
+          ],
+          "summary": "李娇儿皮袄在第74回皮袄流转中被拨给孙雪娥；潘金莲不要当铺皮袄，专索李瓶儿貂鼠皮袄，写六房冬衣再分配。",
+          "first_appear": "第74回",
+          "appear_in": [
+            "第74回"
+          ],
+          "kind": "costume"
+        },
+        {
+          "id": "果馅金饼",
+          "type": "dish",
+          "name": "果馅金饼",
+          "book": "金瓶梅",
+          "category": "点心",
+          "ingredients": [
+            "面",
+            "果馅",
+            "金"
+          ],
+          "process": "以果馅为馅，饼面贴金，作年节馈礼",
+          "eaters": [],
+          "location": "西门府",
+          "first_appear": "第78回",
+          "appear_in": [
+            "第78回"
+          ],
+          "tags": [
+            "饮食",
+            "年节",
+            "馈礼"
+          ],
+          "summary": "一百果馅金饼，与浙江酒、员领等一并谢宋御史（第78回）；年节官场往来中的贵重点心馈礼。",
+          "kind": "dish"
+        },
+        {
+          "id": "桂花饼",
+          "type": "tea",
+          "name": "桂花饼香茶",
+          "book": "金瓶梅",
+          "category": "茶点",
+          "ingredients": [
+            "桂花",
+            "茶"
+          ],
+          "eaters": [
+            "西门庆",
+            "郑爱月儿"
+          ],
+          "location": "郑爱月儿房",
+          "first_appear": "第59回",
+          "appear_in": [
+            "第59回"
+          ],
+          "tags": [
+            "饮食",
+            "勾栏"
+          ],
+          "summary": "西门庆袖中纸包香茶，递郑爱月儿；与穿心盒春药对照，是第59回勾栏茶点（第59回）。",
+          "kind": "dish"
         },
         {
           "id": "梅汤",
@@ -2246,11 +2593,94 @@
           "kind": "dish"
         },
         {
+          "id": "棺木",
+          "type": "ritual",
+          "name": "棺木",
+          "book": "金瓶梅",
+          "participants": [
+            "李瓶儿",
+            "西门庆",
+            "吴月娘"
+          ],
+          "procedure": [
+            "厚葬",
+            "棺椁念经",
+            "水陆法事",
+            "冥器"
+          ],
+          "location": "西门府",
+          "first_appear": "第62回",
+          "appear_in": [
+            "第62回",
+            "第64回",
+            "第79回"
+          ],
+          "tags": [
+            "丧仪",
+            "物象谶",
+            "财散"
+          ],
+          "summary": "李瓶儿、西门庆两场极奢丧仪的棺椁冥器，是财富外泄、繁华落幕的物象（jpm-obj-guancai）。",
+          "kind": "custom"
+        },
+        {
+          "id": "汗巾",
+          "type": "accessory",
+          "name": "汗巾",
+          "book": "金瓶梅",
+          "holders": [
+            "潘金莲",
+            "陈敬济",
+            "西门庆",
+            "吴月娘"
+          ],
+          "material": "绸缎",
+          "occasion": "私情信物 / 节赏",
+          "rank_signal": "贴身信物",
+          "description": "汗巾、手帕一类贴身织物，可作私通信物，亦作年节赏赐",
+          "tags": [
+            "信物",
+            "物象谶",
+            "私情"
+          ],
+          "summary": "汗巾香囊一类贴身信物，是私通逾墙的凭证；亦见年节赏下人（jpm-obj-hanjin · 第78回等）。",
+          "first_appear": "第11回",
+          "appear_in": [
+            "第11回",
+            "第23回",
+            "第78回"
+          ],
+          "kind": "costume"
+        },
+        {
+          "id": "浙江酒",
+          "type": "dish",
+          "name": "浙江酒",
+          "book": "金瓶梅",
+          "category": "酒",
+          "ingredients": [
+            "米"
+          ],
+          "process": "浙江所产名酒，坛装馈送",
+          "eaters": [],
+          "location": "西门府",
+          "first_appear": "第78回",
+          "appear_in": [
+            "第78回"
+          ],
+          "tags": [
+            "饮食",
+            "年节",
+            "馈礼"
+          ],
+          "summary": "两坛浙江酒与果馅金饼、员领等谢宋御史（第78回）；写西门庆年节官场馈礼中的名酒规格。",
+          "kind": "dish"
+        },
+        {
           "id": "满池娇分心",
           "type": "accessory",
           "name": "满池娇分心",
           "book": "金瓶梅",
-          "wearer": "西门府妻妾",
           "material": "金镶玉",
           "occasion": "礼仪 / 盛装",
           "rank_signal": "头面首饰",
@@ -2265,7 +2695,35 @@
           "appear_in": [
             "第21回"
           ],
+          "wearers": [
+            "吴月娘",
+            "李娇儿",
+            "孟玉楼",
+            "孙雪娥",
+            "潘金莲",
+            "李瓶儿"
+          ],
           "kind": "costume"
+        },
+        {
+          "id": "灯心薄荷金银汤",
+          "type": "medicine",
+          "name": "灯心薄荷金银汤",
+          "book": "金瓶梅",
+          "category": "急惊风",
+          "patient": "官哥儿",
+          "prescriber": "刘婆子",
+          "physician": "刘婆子",
+          "first_appear": "第59回",
+          "appear_in": [
+            "第59回"
+          ],
+          "tags": [
+            "药材",
+            "官哥儿"
+          ],
+          "summary": "官哥儿被雪狮子猫惊搐后，刘婆子令熬此汤，并灸五醮；终未救（第59回）。",
+          "kind": "medicine"
         },
         {
           "id": "烧猪头",
@@ -2343,6 +2801,27 @@
           "kind": "costume"
         },
         {
+          "id": "琵琶",
+          "type": "accessory",
+          "name": "琵琶",
+          "book": "金瓶梅",
+          "wearer": "潘金莲",
+          "material": "木, 丝弦",
+          "occasion": "宴饮、勾栏",
+          "first_appear": "第27回",
+          "appear_in": [
+            "第27回",
+            "第59回"
+          ],
+          "tags": [
+            "乐器",
+            "妻妾",
+            "勾栏"
+          ],
+          "summary": "潘金莲善弹，第27回翡翠轩唱《雁过沙》；郑爱月儿姊妹亦以琵琶承欢（第27、59回）。",
+          "kind": "costume"
+        },
+        {
           "id": "白绫袄儿",
           "type": "costume",
           "name": "白绫袄儿",
@@ -2361,6 +2840,44 @@
           "appear_in": [
             "第74回"
           ],
+          "kind": "costume"
+        },
+        {
+          "id": "穿心盒",
+          "type": "accessory",
+          "name": "穿心盒",
+          "book": "金瓶梅",
+          "wearer": "西门庆",
+          "material": "金",
+          "occasion": "随身补药",
+          "first_appear": "第59回",
+          "appear_in": [
+            "第59回"
+          ],
+          "tags": [
+            "首饰",
+            "春药"
+          ],
+          "summary": "白绫汗巾上束的金穿心盒，西门庆逐日所服补药容器，第59回郑家出示（第59回）。",
+          "kind": "costume"
+        },
+        {
+          "id": "簪环",
+          "type": "accessory",
+          "name": "簪环",
+          "book": "金瓶梅",
+          "wearer": "孟玉楼",
+          "material": "金, 玉",
+          "rank_signal": "妻妾陪嫁、宠幸转赐",
+          "first_appear": "第11回",
+          "appear_in": [
+            "第11回"
+          ],
+          "tags": [
+            "首饰",
+            "妻妾"
+          ],
+          "summary": "簪钗在妻妾间转赐争夺，孟玉楼陪嫁簪环是妻妾经济缩影（第11回；意象 jpm-obj-zanzi）。",
           "kind": "costume"
         },
         {
@@ -2392,6 +2909,25 @@
           "kind": "dish"
         },
         {
+          "id": "红牙象板",
+          "type": "accessory",
+          "name": "红牙象板",
+          "book": "金瓶梅",
+          "wearer": "李瓶儿",
+          "material": "象牙",
+          "occasion": "打板",
+          "first_appear": "第27回",
+          "appear_in": [
+            "第27回"
+          ],
+          "tags": [
+            "乐器",
+            "妻妾"
+          ],
+          "summary": "第27回唱《雁过沙》时李瓶儿代板，潘金莲、孟玉楼弹唱（第27回）。",
+          "kind": "costume"
+        },
+        {
           "id": "红睡鞋",
           "type": "accessory",
           "name": "红睡鞋",
@@ -2413,6 +2949,66 @@
           "kind": "costume"
         },
         {
+          "id": "织金莲五彩蟒衣",
+          "type": "costume",
+          "name": "织金莲五彩蟒衣",
+          "book": "金瓶梅",
+          "wearers": [
+            "李瓶儿"
+          ],
+          "material": "五彩罗缎",
+          "occasion": "贿赂 / 寿礼",
+          "rank_signal": "杭州织造上品",
+          "description": "杭州织造的大红五彩罗缎蟒衣，织金莲纹样，身分比新织者更强，为蔡府寿礼所用",
+          "tags": [
+            "服饰",
+            "奢侈",
+            "贿赂"
+          ],
+          "summary": "李瓶儿旧藏织金莲五彩蟒衣，比新打样更胜，补入蔡府寿礼担（第27回）；以私藏华服入官场贿赂链，写瓶儿财力与西门庆政商线。",
+          "first_appear": "第27回",
+          "appear_in": [
+            "第27回"
+          ],
+          "kind": "costume"
+        },
+        {
+          "id": "结拜分资",
+          "type": "ritual",
+          "name": "结拜分资",
+          "book": "金瓶梅",
+          "participants": [
+            "西门庆",
+            "花子虚",
+            "应伯爵",
+            "谢希大",
+            "祝实念",
+            "孙天化",
+            "常峙节",
+            "吴典恩",
+            "云里守",
+            "白赉光"
+          ],
+          "procedure": [
+            "十兄弟结拜",
+            "各出分资",
+            "玉皇庙设誓",
+            "凑酒席用度"
+          ],
+          "location": "玉皇庙",
+          "economic": "花子虚先送一两（jpm-tx-015）",
+          "first_appear": "第1回",
+          "appear_in": [
+            "第1回"
+          ],
+          "tags": [
+            "结拜",
+            "帮闲"
+          ],
+          "summary": "西门庆结拜十弟兄，花子虚先送分资一两（第1回）；帮闲圈与主家结盟的经济起点，链至后文凑分、借贷、负恩。",
+          "kind": "custom"
+        },
+        {
           "id": "胡僧药",
           "type": "medicine",
           "name": "胡僧春药",
@@ -2431,6 +3027,92 @@
           ],
           "summary": "胡僧所赠，西门庆纵欲之由，晚明纵欲心理切片。",
           "kind": "medicine"
+        },
+        {
+          "id": "药五香酒",
+          "type": "wine",
+          "name": "药五香酒",
+          "book": "金瓶梅",
+          "category": "wine",
+          "ingredients": [
+            "酒",
+            "五香",
+            "春药"
+          ],
+          "eaters": [
+            "西门庆",
+            "潘金莲"
+          ],
+          "location": "西门府",
+          "occasion": "葡萄架醉闹",
+          "first_appear": "第27回",
+          "appear_in": [
+            "第27回"
+          ],
+          "tags": [
+            "饮食",
+            "纵欲"
+          ],
+          "summary": "第27回葡萄架下所饮，掺春药成分，与胡僧药线呼应，是纵欲巅峰场域的助兴之酒（第27回）。",
+          "kind": "dish"
+        },
+        {
+          "id": "荷花细饼",
+          "type": "dish",
+          "name": "荷花细饼",
+          "book": "金瓶梅",
+          "category": "点心",
+          "ingredients": [
+            "面",
+            "肉丝"
+          ],
+          "process": "郑爱月儿亲手拣攒肉丝卷就，安放小泥金碟内递与西门庆",
+          "eaters": [
+            "西门庆",
+            "郑爱月儿"
+          ],
+          "location": "郑爱月儿房",
+          "first_appear": "第59回",
+          "appear_in": [
+            "第59回"
+          ],
+          "tags": [
+            "饮食",
+            "勾栏"
+          ],
+          "summary": "郑爱月儿房中专制小点，卷肉丝入饼，是第59回勾栏承迎的细写（第59回）。",
+          "kind": "dish"
+        },
+        {
+          "id": "蔡府寿礼",
+          "type": "ritual",
+          "name": "蔡府寿礼",
+          "book": "金瓶梅",
+          "participants": [
+            "西门庆",
+            "蔡京",
+            "来保"
+          ],
+          "procedure": [
+            "打四阳捧寿银人",
+            "金寿字壶",
+            "玉桃杯",
+            "五彩蟒衣",
+            "吴主管押送东京"
+          ],
+          "location": "东京",
+          "economic": "三百两金银打造，另备蟒衣、玉杯",
+          "first_appear": "第27回",
+          "appear_in": [
+            "第27回",
+            "第75回"
+          ],
+          "tags": [
+            "贿赂",
+            "政商"
+          ],
+          "summary": "西门庆打点寿礼上蔡太师，含银人、金壶、蟒衣等；来保五月二十八日押送东京（第27回），后复有五百两二次寿礼（第75回）。",
+          "kind": "custom"
         },
         {
           "id": "薛姑子种子方",
@@ -2542,6 +3224,61 @@
           "kind": "medicine"
         },
         {
+          "id": "认干亲礼",
+          "type": "ritual",
+          "name": "认干亲礼",
+          "book": "金瓶梅",
+          "participants": [
+            "西门庆",
+            "翟管家",
+            "蔡京"
+          ],
+          "procedure": [
+            "认翟管家为干爹",
+            "初次进百两礼银",
+            "打通蔡京门路"
+          ],
+          "location": "东京蔡府",
+          "economic": "百两银（jpm-tx-018）",
+          "first_appear": "第23回",
+          "appear_in": [
+            "第23回"
+          ],
+          "tags": [
+            "贿赂",
+            "政商",
+            "帮闲"
+          ],
+          "summary": "西门庆经翟管家认干亲，初次进百两礼银（第23回）；政商贿赂轨起点，链至蔡府寿礼与升官线。",
+          "kind": "custom"
+        },
+        {
+          "id": "貂鼠皮袄",
+          "type": "costume",
+          "name": "貂鼠皮袄",
+          "book": "金瓶梅",
+          "wearers": [
+            "李瓶儿",
+            "吴月娘"
+          ],
+          "material": "貂鼠皮",
+          "occasion": "冬令外出",
+          "rank_signal": "贵重冬衣",
+          "description": "貂鼠皮制成的皮袄，值数十两银子，为冬令外出、赴宴所穿",
+          "tags": [
+            "服饰",
+            "冬衣",
+            "奢侈"
+          ],
+          "summary": "李瓶儿貂鼠皮袄值六十两，潘金莲第74回强索以衬白绫袄、鹤袖赴宴；亦见吴月娘灯市观灯所穿（第15回），写冬衣流转与妻妾争衣。",
+          "first_appear": "第15回",
+          "appear_in": [
+            "第15回",
+            "第74回"
+          ],
+          "kind": "costume"
+        },
+        {
           "id": "貂鼠里皮袄",
           "type": "costume",
           "name": "貂鼠里皮袄",
@@ -2564,7 +3301,6 @@
           "type": "costume",
           "name": "遍地金比甲",
           "book": "金瓶梅",
-          "wearer": "西门府妻妾",
           "material": "遍地金织锦",
           "occasion": "节令 / 宴会",
           "rank_signal": "富室妻妾盛装",
@@ -2577,6 +3313,14 @@
           "first_appear": "第41回",
           "appear_in": [
             "第41回"
+          ],
+          "wearers": [
+            "吴月娘",
+            "李娇儿",
+            "孟玉楼",
+            "孙雪娥",
+            "潘金莲",
+            "李瓶儿"
           ],
           "kind": "costume"
         },
@@ -2680,6 +3424,93 @@
           "kind": "dish"
         },
         {
+          "id": "金箔丸",
+          "type": "medicine",
+          "name": "金箔丸",
+          "book": "金瓶梅",
+          "category": "急惊风",
+          "patient": "官哥儿",
+          "prescriber": "刘婆子",
+          "first_appear": "第59回",
+          "appear_in": [
+            "第59回"
+          ],
+          "tags": [
+            "药材",
+            "官哥儿"
+          ],
+          "summary": "刘婆子取金箔丸研化，撬开官哥儿牙关灌下，风搐未愈（第59回）。",
+          "kind": "medicine"
+        },
+        {
+          "id": "金锁",
+          "type": "accessory",
+          "name": "金锁",
+          "book": "金瓶梅",
+          "wearer": "李瓶儿",
+          "material": "金",
+          "first_appear": "第64回",
+          "appear_in": [
+            "第64回",
+            "第69回"
+          ],
+          "tags": [
+            "首饰",
+            "李瓶儿",
+            "丧仪"
+          ],
+          "summary": "李瓶儿入府所带金珠玩好之一；第64回玳安追述其嫁妆中有金锁等物，与犀角带、貂鼠皮袄同列。",
+          "kind": "costume"
+        },
+        {
+          "id": "银丝鬏髻",
+          "type": "accessory",
+          "name": "银丝鬏髻",
+          "book": "金瓶梅",
+          "wearers": [
+            "潘金莲",
+            "孟玉楼"
+          ],
+          "material": "银丝",
+          "occasion": "家常",
+          "rank_signal": "妻妾日常头面",
+          "description": "银丝编就的鬏髻，露四鬓，配青宝石坠子，为西门府内宅日常梳妆样式",
+          "tags": [
+            "服饰",
+            "头面"
+          ],
+          "summary": "银丝鬏髻是潘金莲、孟玉楼家常所戴头面（第11回）；西门庆戏称「好似一对儿粉头」，写内宅闲居时的妆饰与争宠底色。",
+          "first_appear": "第11回",
+          "appear_in": [
+            "第11回"
+          ],
+          "kind": "costume"
+        },
+        {
+          "id": "银红比甲",
+          "type": "costume",
+          "name": "银红比甲",
+          "book": "金瓶梅",
+          "wearers": [
+            "潘金莲",
+            "孟玉楼"
+          ],
+          "material": "银红织锦",
+          "color": "银红",
+          "occasion": "家常",
+          "rank_signal": "妻妾日常",
+          "description": "银红色对襟无袖比甲，罩于白纱衫、挑线裙之外，为内宅闲居常见装束",
+          "tags": [
+            "服饰"
+          ],
+          "summary": "银红比甲是潘金莲、孟玉楼第11回家常所穿背心（比甲），与白纱衫、挑线裙相配，写闲居下棋迎夫时的轻艳妆束。",
+          "first_appear": "第11回",
+          "appear_in": [
+            "第11回"
+          ],
+          "kind": "costume"
+        },
+        {
           "id": "销金裙带",
           "type": "accessory",
           "name": "销金裙带",
@@ -2696,6 +3527,64 @@
           ],
           "summary": "潘金莲所着，晚明销金工艺与妾室装扮。",
           "kind": "costume"
+        },
+        {
+          "id": "锦裙绣袄",
+          "type": "costume",
+          "name": "锦裙绣袄",
+          "book": "金瓶梅",
+          "wearers": [
+            "吴月娘",
+            "李娇儿",
+            "孟玉楼",
+            "孙雪娥",
+            "潘金莲",
+            "李瓶儿"
+          ],
+          "material": "锦缎",
+          "occasion": "年节拜年",
+          "rank_signal": "六房年节盛装",
+          "description": "锦缎绣袄配罗袜弓鞋，为正月初一拜年、施朱傅粉时的节令装束",
+          "tags": [
+            "服饰",
+            "节令"
+          ],
+          "summary": "重和元年元旦，吴月娘率众妇人「施朱傅粉，插花插翠，锦裙绣袄，罗袜弓鞋」行礼（第78回），写年节六房齐整出面的礼法场面。",
+          "first_appear": "第78回",
+          "appear_in": [
+            "第78回"
+          ],
+          "kind": "costume"
+        },
+        {
+          "id": "雪狮子",
+          "type": "ritual",
+          "name": "雪狮子（白猫）",
+          "book": "金瓶梅",
+          "participants": [
+            "潘金莲",
+            "官哥儿",
+            "李瓶儿",
+            "西门庆"
+          ],
+          "procedure": [
+            "金莲驯养白猫",
+            "红绢裹肉扑食",
+            "惊扑官哥儿",
+            "西门庆摔死"
+          ],
+          "location": "潘金莲房",
+          "first_appear": "第59回",
+          "appear_in": [
+            "第59回"
+          ],
+          "tags": [
+            "物象谶",
+            "嫉妒",
+            "转折"
+          ],
+          "summary": "潘金莲所养白狮子猫，额带龟背黑纹；第59回惊官哥儿致风搐夭折，西门庆摔死，全府由盛转衰（第59回）。",
+          "kind": "custom"
         },
         {
           "id": "面汤",
@@ -2719,13 +3608,48 @@
           ],
           "summary": "庞春梅等婢仆日常饮食，与主子宴席形成阶层对照。",
           "kind": "dish"
+        },
+        {
+          "id": "香蜡批文",
+          "type": "institution",
+          "name": "香蜡批文",
+          "book": "金瓶梅",
+          "participants": [
+            "李智",
+            "黄四",
+            "应伯爵",
+            "西门庆"
+          ],
+          "procedure": [
+            "应伯爵说合",
+            "李智黄四借本银",
+            "揽香蜡批文",
+            "关银子于西门府"
+          ],
+          "location": "西门府",
+          "economic": "本银由西门庆出，帮闲分利",
+          "legal_norm": "官商包揽盐引类批文",
+          "first_appear": "第38回",
+          "appear_in": [
+            "第38回",
+            "第43回",
+            "第55回",
+            "第97回"
+          ],
+          "tags": [
+            "放债",
+            "帮闲",
+            "官钱粮"
+          ],
+          "summary": "应伯爵说合，李智、黄四向西门庆借本揽香蜡批文；后官钱粮连坐追赃（第38–97回）。",
+          "kind": "custom"
         }
       ]
     },
     "xiyouji": {
       "book": "西游记",
       "slug": "xiyouji",
-      "count": 22,
+      "count": 23,
       "entries": [
         {
           "id": "七星剑",
@@ -3425,6 +4349,29 @@
             "黄眉怪"
           ],
           "summary": "佛门金铙，黄眉假佛掷下罩悟空；亢金龙钻角救出，悟空打碎，弥勒复聚。",
+          "kind": "artifact"
+        },
+        {
+          "id": "金锁",
+          "type": "implement",
+          "name": "金锁",
+          "book": "西游记",
+          "category": "法器",
+          "owner": "天庭",
+          "first_appear": "第12回",
+          "appear_in": [
+            "第12回",
+            "第71回",
+            "第87回",
+            "第92回",
+            "第95回"
+          ],
+          "tags": [
+            "法宝",
+            "天庭",
+            "披香殿"
+          ],
+          "summary": "披香殿铁架金锁（凤仙郡求雨）、玉关金锁（玉兔私开）、朱紫国娘娘金锁等；天庭戒律与凡间情锁并置的意象物。",
           "kind": "artifact"
         },
         {

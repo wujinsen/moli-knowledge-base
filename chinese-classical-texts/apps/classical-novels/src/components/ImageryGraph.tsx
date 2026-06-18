@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import * as echarts from 'echarts';
 import type { EChartsOption } from 'echarts';
 import type { ImageryGraph as GraphData } from '../lib/imagery';
-import { MAPPING_PREDICATES, SHADOW_PREDICATES, SUBTYPE_LABEL } from '../lib/imagery';
+import { MAPPING_PREDICATES, SHADOW_PREDICATES, SUBTYPE_LABEL, imageryBookSlugFromId } from '../lib/imagery';
 import type { ImageryChain } from '../lib/imageryChains';
 import { resolveChainHops } from '../lib/imageryChains';
 
@@ -42,9 +42,14 @@ function neighborSet(nodeId: string, edges: GraphData['edges']): Set<string> {
 
 function nodeHref(bookSlug: string, node: GraphData['nodes'][0]): string {
   if (node.kind === 'character') {
+    const slug = imageryBookSlugFromId(node.id) ?? bookSlug;
+    if (imageryBookSlugFromId(node.id)) {
+      return `/${slug}/imagery/${node.id}`;
+    }
     return `/${bookSlug}/c/${encodeURIComponent(node.id)}`;
   }
-  return `/${bookSlug}/imagery/${node.id}`;
+  const slug = imageryBookSlugFromId(node.id) ?? bookSlug;
+  return `/${slug}/imagery/${node.id}`;
 }
 
 interface Props {

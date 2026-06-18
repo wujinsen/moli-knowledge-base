@@ -28,6 +28,12 @@ links:
     inference: true
     chapter: 45
     note: "与葬花吟同属秋夜悲音"
+  - target: hl-p-27
+    target_kind: imagery
+    predicate: 互文
+    inference: true
+    chapter: 45
+    note: "黛玉悲音才思一脉"
   - target: hl-s-zhu
     target_kind: imagery
     predicate: 象征
@@ -59,6 +65,7 @@ source: chapters/红楼梦/045.md
 
 - 第45回 · 作 → [[林黛玉]] — 秋窗风雨夕
 - 第45回 · 推论 · 互文 → [[hl-p-01]] — 与葬花吟同属秋夜悲音
+- 第45回 · 推论 · 互文 → [hl-p-27](/honglou/imagery/hl-p-27) — 黛玉悲音才思一脉
 - 第45回 · 推论 · 象征 → [[hl-s-zhu]] — 潇湘秋夜、风雨孤灯
 - 第45回 · 推论 · 隐喻 → [[林黛玉]] — 秋窗孤灯自伤，与葬花一脉
 
@@ -69,7 +76,7 @@ source: chapters/红楼梦/045.md
 ## 相关
 
 - [[林黛玉]]
-- 意象：[hl-p-01](/honglou/imagery/hl-p-01)
+- 意象：[hl-p-01](/honglou/imagery/hl-p-01) · [hl-p-27](/honglou/imagery/hl-p-27)
 - 意象：[hl-s-zhu](/honglou/imagery/hl-s-zhu)
 - 出处：`chapters/红楼梦/045.md`
 - 标签：诗词

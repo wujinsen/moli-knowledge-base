@@ -29,6 +29,7 @@ source: chapters/西游记/001.md
 ## 互文
 
 - 第1回 · 推论 · 预示 → [[孙悟空]] — 第一回回前诗，标举「灵根/心性」——全书修心总纲。
+- 跨书 · 推论 · 互文 → [hl-myth-stone](/honglou/imagery/hl-myth-stone) — 灵根育孕 ↔ 女娲弃石
 
 ## 评析
 

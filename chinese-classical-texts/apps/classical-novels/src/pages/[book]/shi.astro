@@ -12,6 +12,7 @@ import JpmModuleNav from '../../components/JpmModuleNav.astro';
 import {
   buildImageryGraph,
   chapterLabel,
+  crossBookEdgesForSlug,
   sortImagery,
   subtypeLabel,
 } from '../../lib/imagery';
@@ -21,6 +22,8 @@ import { buildShiCrossIndex, getShiCrossIndex } from '../../lib/shiIndex';
 import { getShiKarma } from '../../lib/shiKarma';
 import { getShiWuxing } from '../../lib/shiWuxing';
 import { loadImageryChains } from '../../lib/imageryChains';
+import crossBookRaw from '../../data/cross-book.imagery-links.json';
+import imageryIndex from '../../data/imagery_index.json';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -38,7 +41,18 @@ const linkKey = Object.keys(linkFiles).find((k) => k.includes(meta.book));
 const extraRaw = linkKey ? (linkFiles[linkKey] as { default?: { links: ImageryGraphEdge[] }; links?: ImageryGraphEdge[] }) : null;
 const extraLinks: ImageryGraphEdge[] = extraRaw?.default?.links ?? extraRaw?.links ?? [];
 
-const graph = buildImageryGraph(items, extraLinks);
+const crossAll = (crossBookRaw as { links: ImageryGraphEdge[] }).links ?? [];
+const crossEdges = crossBookEdgesForSlug(crossAll, meta.slug);
+
+const labelById = new Map<string, string>();
+for (const b of Object.values((imageryIndex as { books: Record<string, { entries?: { id: string; title: string }[] }> }).books)) {
+  for (const e of b.entries ?? []) {
+    labelById.set(e.id, e.title);
+  }
+}
+
+const mergedExtraLinks = [...extraLinks, ...crossEdges];
+const graph = buildImageryGraph(items, mergedExtraLinks, labelById);
 const imageryChains = loadImageryChains(meta.slug, meta.book);
 const initialChainId = Astro.url.searchParams.get('chain');
 const shiCrossIndex = getShiCrossIndex(meta.slug) ?? buildShiCrossIndex(items, extraLinks);
@@ -77,7 +91,9 @@ const isXyj = meta.slug === 'xiyouji';
       <div>
         <h1 class="brand text-4xl" style="color: var(--primary)">{isJpm ? '名物谶纬 · 因果闭环' : isXyj ? '丹道意象 · 修心网络' : '诗词意象 · 互文网络'}</h1>
         <p class="mt-2 text-sm text-muted">
-          {items.length} 条意象实体 · {graph.edges.length} 条关联边 · {presentLabels}
+          {items.length} 条意象实体 · {graph.edges.length} 条关联边
+          {crossEdges.length > 0 && <>（含跨书 {crossEdges.length}）</>}
+          · {presentLabels}
         </p>
       </div>
     </div>

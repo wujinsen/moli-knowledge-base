@@ -17,7 +17,7 @@ from collections import defaultdict
 
 from _common import DATA_DIR, iter_characters, resolve_books
 
-VARIANT_TOPICS_SLUG = {"金瓶梅": "jinpingmei"}
+VARIANT_TOPICS_SLUG = {"金瓶梅": "jinpingmei", "红楼梦": "honglou"}
 
 
 def load_variant_topics(book: str) -> dict[str, dict]:

@@ -13,7 +13,7 @@
           "subtype": "poem",
           "title": "乐中悲",
           "layer": "太虚",
-          "text": "襁褓中，寄人篱下，早离故乡。纵有，干霄凌云志，怎向，空门学步虚。……",
+          "text": "襁褓中，父母叹双亡。 纵居那绮罗丛，谁知娇养？ 幸生来，英豪阔大宽宏量，从未将儿女私情略萦心上。 好一似，霁月光风耀玉堂。 厮配得才貌仙郎，博得个地久天长， 准折得幼年时坎坷形状。 终久是云散高唐，水涸湘江。 这是尘寰中消长数应当，何必枉悲伤！",
           "chapters": [
             5
           ],
@@ -81,7 +81,7 @@
           "subtype": "poem",
           "title": "分骨肉",
           "layer": "太虚",
-          "text": "一帆风雨路三千，把骨肉家园齐来抛闪。恐哭损残年，告爹娘，莫把儿消息传。……",
+          "text": "一帆风雨路三千，把骨肉家园齐来抛闪。 恐哭损残年，告爹娘，休把儿悬念。 自古穷通皆有定，离合岂无缘？ 从今分两地，各自保平安。 奴去也，莫牵连！",
           "chapters": [
             5
           ],
@@ -334,7 +334,7 @@
           "subtype": "poem",
           "title": "好事终",
           "layer": "太虚",
-          "text": "画梁春尽落香尘。擅权，攒家私，一时情。……",
+          "text": "画梁春尽落香尘。 擅风情，秉月貌，便是败家的根本。 箕裘颓堕皆从敬，家事消亡首罪宁。 宿孽总因情。",
           "chapters": [
             5
           ],
@@ -413,7 +413,7 @@
           "subtype": "poem",
           "title": "姽婳词",
           "layer": "人间",
-          "text": "恒王好武兼好色，遂教美女习骑射……",
+          "text": "恒王好武兼好色，遂教美女习骑射。 绣歌艳舞不成欢，列阵挽戈为自得。 眼前不见尘沙起，将军俏影红灯里。 叱咤时闻口舌香，霜矛雪剑娇难举。 丁香结子芙蓉绦，不系明珠系宝刀。 战罢夜阑心力怯，脂痕粉渍污鲛绡。 明年流寇走山东，强吞虎豹势如蜂。 王率天兵思剿灭，一战再战不成功。 腥风吹折陇头麦，日照旌旗虎帐空。 青山寂寂水澌澌，正是恒王战死时。 不期忠义明闺阁，愤起恒王得意人。 恒王得意数谁行，巾帼将军林四娘， 号令秦姬驱赵女，艳李秾桃临战场。 誓盟生死报前王，贼势猖獗不可敌， 柳折花残实可伤，魂依城郭家乡近，马践胭脂骨髓香。 天子惊慌恨失守，此时文武皆垂首。 何事文武立朝纲，不及闺中林四娘！ 我为四娘长太息，歌成馀意尚彷徨。",
           "chapters": [
             78
           ],
@@ -456,13 +456,53 @@
           "_entry_id": "红楼梦/hl-p-06"
         },
         {
+          "id": "hl-j-10",
+          "type": "imagery",
+          "book": "红楼梦",
+          "subtype": "judgment",
+          "title": "巧姐判词",
+          "layer": "太虚",
+          "text": "势败休云尊贵，家亡莫论亲疏。幸有贤妻，留得余生，巧傍贵人。",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "巧姐"
+          ],
+          "links": [
+            {
+              "target": "巧姐",
+              "target_kind": "character",
+              "predicate": "对应判词",
+              "inference": false,
+              "chapter": 5,
+              "note": "刘姥姥相救，败落后得安。"
+            },
+            {
+              "target": "巧姐",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "判词谶语"
+            }
+          ],
+          "tags": [
+            "判词",
+            "金陵十二钗"
+          ],
+          "summary": "刘姥姥相救，败落后得安。",
+          "source": "chapters/红楼梦/005.md",
+          "_entry_id": "红楼梦/hl-j-10"
+        },
+        {
           "id": "hl-p-11",
           "type": "imagery",
           "book": "红楼梦",
           "subtype": "poem",
           "title": "恨无常",
           "layer": "太虚",
-          "text": "喜荣华正好，恨无常又到。眼见着把万类皆抛，乐极夭夭。……",
+          "text": "喜荣华正好，恨无常又到。 眼睁睁，把万事全抛。 荡悠悠，把芳魂消耗。 望家乡，路远山高。 故向爹娘梦里相寻告：儿命已入黄泉，天伦呵，须要退步抽身早！",
           "chapters": [
             5
           ],
@@ -501,7 +541,7 @@
           "subtype": "poem",
           "title": "晚韶华",
           "layer": "太虚",
-          "text": "梦里既相逢，偏是梦相随。谁知向，画梁春晚，落尽香尘。……",
+          "text": "镜里恩情，更那堪梦里功名！ 那美韶华去之何迅！再休提绣帐鸳衾。 只这带珠冠，披凤袄，也抵不了无常性命。 虽说是，人生莫受老来贫，也须要阴骘积儿孙。 气昂昂头戴簪缨，光灿灿胸悬金印，威赫赫爵禄高登， 昏惨惨黄泉路近。 问古来将相可还存？也只是虚名儿与后人钦敬。",
           "chapters": [
             5
           ],
@@ -748,7 +788,7 @@
           "subtype": "poem",
           "title": "柳絮词",
           "layer": "人间",
-          "text": "粉堕百花洲，香残燕子楼。……（诸钗各咏柳絮）",
+          "text": "【薛宝钗·临江仙】 白玉堂前春解舞，东风卷得均匀。 蜂团蝶阵乱纷纷。几曾随逝水，岂肯委芳尘。 万缕千丝终不改，任他随聚随分。 韶华休笑本无根。好风凭借力，送我上青云。\n【林黛玉·唐多令】 粉堕百花洲，香残燕子楼。 一团团、逐对成球。飘泊亦如人命薄，空缱绻，说风流。 草木也知愁，韶华竟白头。 叹今生、谁舍谁收？ 嫁与东风春不管，凭尔去，忍淹留。\n【史湘云·如梦令】 空挂纤纤缕，徒垂络络丝。 也难绾系，也难羁束，也无情，也无力。",
           "chapters": [
             70
           ],
@@ -1032,16 +1072,16 @@
           "subtype": "poem",
           "title": "留余庆",
           "layer": "太虚",
-          "text": "留余庆，留余庆，忽遇恩人；幸娘亲，幸娘亲，积得阴功。……",
+          "text": "留余庆，留余庆，忽遇恩人； 幸娘亲，幸娘亲，积得阴功。 劝人生，济困扶穷， 休似俺那爱银钱忘骨肉的狠舅奸兄！ 正是乘除加减，上有苍穹。",
           "chapters": [
             5
           ],
           "characters": [
-            "贾巧姐"
+            "巧姐"
           ],
           "links": [
             {
-              "target": "贾巧姐",
+              "target": "巧姐",
               "target_kind": "character",
               "predicate": "预示",
               "inference": true,
@@ -1350,7 +1390,7 @@
           "subtype": "poem",
           "title": "芙蓉女儿诔",
           "layer": "人间",
-          "text": "维太平不易之元，蓉桂竞芳之月……呜呼哀哉！尚飨！",
+          "text": "维太平不易之元，蓉桂竞芳之月，无可奈何之日， 怡红院浊玉，谨以群花之蕊，冰鲛之帕，沁芳之泉，枫露之茗， 四者虽微，聊以达诚申信，乃致祭于白帝宫中抚司秋艳芙蓉女儿之前曰： 窃思女儿自临浊世，迄今凡十有六载。 其为质则金玉不足喻其贵，其为性则冰雪不足喻其洁， 其为神则星日不足喻其精，其为貌则花月不足喻其色。 （中略：追叙晴雯平生、撕扇补裘、夭逝诸节，见第78回原文。） 自为红绡帐里，公子情深，始信黄土垄中，女儿命薄！ 呜呼！固鬼蜮之为灾，岂神灵而亦妒。 天何苍苍，乘玉虬以游乎穹窿；地何茫茫，驾瑶象以降乎泉壤。 呜呼哀哉！尚飨！",
           "chapters": [
             78
           ],
@@ -1521,7 +1561,7 @@
           "subtype": "poem",
           "title": "葬花吟",
           "layer": "人间",
-          "text": "花谢花飞飞满天，红消香断有谁怜？……",
+          "text": "花谢花飞花满天，红消香断有谁怜？ 游丝软系飘春榭，落絮轻沾扑绣帘； 闺中女儿惜春暮，愁绪满怀无释处， 手把花锄出绣帘，忍踏落花来复去？ 柳丝榆荚自芳菲，不管桃飘与李飞； 桃李明年能再发，明年闺中知有谁？ 三月香巢已垒成，梁间燕子太无情！ 明年花开虽可啄，却不道人去楼空巢也倾。 一年三百六十日，风刀霜剑严相逼； 明媚鲜妍能几时，一朝漂泊难寻觅。 花开易见落难寻，阶前愁杀葬花人， 独倚花锄泪暗洒，洒上空枝见血痕。 杜鹃无语正黄昏，荷锄归去掩重门； 青灯照壁人初睡，冷雨敲窗被未温。 怪奴底事倍伤神？半为怜春半恼春： 怜春忽至恼忽去，至又无言去未闻。 昨宵庭外悲歌发，知是花魂与鸟魂？ 花魂鸟魂总难留，鸟自无言花自羞； 愿侬此日生双翼，随花飞到天尽头。 天尽头，何处有香丘？ 未若锦囊收艳骨，一抔净土掩风流。 质本洁来还洁去，强于污淖陷渠沟。 尔今死去侬收葬，未卜侬身何日丧？ 侬今葬花人笑痴，他年葬侬知是谁？ 试看春残花渐落，便是红颜老死时； 一朝春尽红颜老，花落人亡两不知！",
           "chapters": [
             27
           ],
@@ -1600,7 +1640,7 @@
           "subtype": "poem",
           "title": "虚名利",
           "layer": "太虚",
-          "text": "气质美如兰，才华阜比仙。天生成孤癖，世难合。……",
+          "text": "气质美如兰，才华阜比仙。 天生成孤癖人皆罕。 你道是啖肉食腥膻，视绮罗俗厌， 却不知太高人愈妒，过洁世同嫌。 可叹这，青灯古殿人将老，辜负了，红粉朱楼春色阑。 到头来，依旧是风尘肮脏违心愿。 好一似，无瑕白玉遭泥陷，又何须，王孙公子叹无缘。",
           "chapters": [
             5
           ],
@@ -1749,46 +1789,6 @@
           "summary": "宫闱、虎兕相逢预示元春薨逝与家族盛极而衰。",
           "source": "chapters/红楼梦/005.md",
           "_entry_id": "红楼梦/hl-j-03"
-        },
-        {
-          "id": "hl-j-10",
-          "type": "imagery",
-          "book": "红楼梦",
-          "subtype": "judgment",
-          "title": "贾巧姐判词",
-          "layer": "太虚",
-          "text": "势败休云尊贵，家亡莫论亲疏。幸有贤妻，留得余生，巧傍贵人。",
-          "chapters": [
-            5
-          ],
-          "characters": [
-            "贾巧姐"
-          ],
-          "links": [
-            {
-              "target": "贾巧姐",
-              "target_kind": "character",
-              "predicate": "对应判词",
-              "inference": false,
-              "chapter": 5,
-              "note": "刘姥姥相救，败落后得安。"
-            },
-            {
-              "target": "贾巧姐",
-              "target_kind": "character",
-              "predicate": "预示",
-              "inference": true,
-              "chapter": 5,
-              "note": "判词谶语"
-            }
-          ],
-          "tags": [
-            "判词",
-            "金陵十二钗"
-          ],
-          "summary": "刘姥姥相救，败落后得安。",
-          "source": "chapters/红楼梦/005.md",
-          "_entry_id": "红楼梦/hl-j-10"
         },
         {
           "id": "hl-j-08",
@@ -2050,7 +2050,21 @@
           "chapters": [
             5
           ],
-          "characters": [],
+          "characters": [
+            "林黛玉",
+            "贾宝玉",
+            "薛宝钗",
+            "贾元春",
+            "贾探春",
+            "史湘云",
+            "妙玉",
+            "贾迎春",
+            "贾惜春",
+            "王熙凤",
+            "巧姐",
+            "李纨",
+            "秦可卿"
+          ],
           "links": [
             {
               "target": "hl-j-01",
@@ -2058,7 +2072,7 @@
               "predicate": "互文",
               "inference": true,
               "chapter": 5,
-              "note": "十二钗曲总收"
+              "note": "十二钗判词总收"
             },
             {
               "target": "hl-p-02",
@@ -2067,6 +2081,110 @@
               "inference": true,
               "chapter": 5,
               "note": "好了歌与曲词同旨"
+            },
+            {
+              "target": "林黛玉",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "欠泪的，泪已尽"
+            },
+            {
+              "target": "贾宝玉",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "看破的，遁入空门；痴执历劫总收"
+            },
+            {
+              "target": "贾惜春",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "看破的，遁入空门"
+            },
+            {
+              "target": "贾迎春",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "无情的，生死空闻"
+            },
+            {
+              "target": "王熙凤",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "痴迷的，枉送了性命"
+            },
+            {
+              "target": "薛宝钗",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "富贵的，金银散尽"
+            },
+            {
+              "target": "贾元春",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "为官的，家业凋零"
+            },
+            {
+              "target": "贾探春",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "分骨肉收束，从今分两地"
+            },
+            {
+              "target": "史湘云",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "云散高唐，水涸湘江（乐中悲收束）"
+            },
+            {
+              "target": "妙玉",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "过洁终污（虚名利收束）"
+            },
+            {
+              "target": "巧姐",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "留余庆后劫余生"
+            },
+            {
+              "target": "李纨",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "虚名儿与后人钦敬（晚韶华收束）"
+            },
+            {
+              "target": "秦可卿",
+              "target_kind": "character",
+              "predicate": "预示",
+              "inference": true,
+              "chapter": 5,
+              "note": "宿孽总因情（好事终收束）"
             }
           ],
           "tags": [
@@ -2208,8 +2326,10 @@
             "依附"
           ],
           "summary": "〔寄生草〕等侑酒曲常见于西门府宴席;寄生草攀附而生，喻依附者随主荣枯。",
-          "_entry_id": "金瓶梅/jpm-tune-jisheng",
-          "chapters": []
+          "chapters": [
+            49
+          ],
+          "_entry_id": "金瓶梅/jpm-tune-jisheng"
         },
         {
           "id": "jpm-tune-shanpoyang",
@@ -2237,8 +2357,10 @@
             "画外音"
           ],
           "summary": "潘金莲所唱〔山坡羊〕等幽怨曲词，是其情欲焦灼、命运幽冷的画外音。",
-          "_entry_id": "金瓶梅/jpm-tune-shanpoyang",
-          "chapters": []
+          "chapters": [
+            49
+          ],
+          "_entry_id": "金瓶梅/jpm-tune-shanpoyang"
         },
         {
           "id": "jpm-obj-deng",
@@ -2333,8 +2455,10 @@
             "谐音"
           ],
           "summary": "「卜志道」谐「不知道」，结拜十弟兄中最早亡者；名字谶其转瞬成空。",
-          "_entry_id": "金瓶梅/jpm-name-buzhidao",
-          "chapters": []
+          "chapters": [
+            1
+          ],
+          "_entry_id": "金瓶梅/jpm-name-buzhidao"
         },
         {
           "id": "jpm-name-wudianen",
@@ -2362,8 +2486,10 @@
             "谐音"
           ],
           "summary": "「吴典恩」谐「无点恩」，受西门庆之惠却反噬其家，世态炎凉之写照。",
-          "_entry_id": "金瓶梅/jpm-name-wudianen",
-          "chapters": []
+          "chapters": [
+            1
+          ],
+          "_entry_id": "金瓶梅/jpm-name-wudianen"
         },
         {
           "id": "jpm-name-wuyueniang",
@@ -2421,8 +2547,10 @@
             "反讽"
           ],
           "summary": "「如意儿」名「如意」实不如意；官哥儿乳母承宠上位，府败即漂零。",
-          "_entry_id": "金瓶梅/jpm-name-ruyi",
-          "chapters": []
+          "chapters": [
+            1
+          ],
+          "_entry_id": "金瓶梅/jpm-name-ruyi"
         },
         {
           "id": "jpm-name-sunxuee",
@@ -2450,8 +2578,10 @@
             "雪"
           ],
           "summary": "「孙雪娥」之「雪」易消易污；妾位最卑、终被卖为娼而自缢，如雪之委地成泥。",
-          "_entry_id": "金瓶梅/jpm-name-sunxuee",
-          "chapters": []
+          "chapters": [
+            1
+          ],
+          "_entry_id": "金瓶梅/jpm-name-sunxuee"
         },
         {
           "id": "jpm-name-xiaogeer",
@@ -2646,8 +2776,10 @@
             "谐音"
           ],
           "summary": "「常峙节」谐「常时借」，靠借贷度日、依附西门府的穷帮闲。",
-          "_entry_id": "金瓶梅/jpm-name-changzhijie",
-          "chapters": []
+          "chapters": [
+            1
+          ],
+          "_entry_id": "金瓶梅/jpm-name-changzhijie"
         },
         {
           "id": "jpm-name-yingbojue",
@@ -2675,8 +2807,10 @@
             "谐音"
           ],
           "summary": "「应伯爵」谐「应白嚼」，白吃白喝的头号帮闲；趋炎附势、人走茶凉。",
-          "_entry_id": "金瓶梅/jpm-name-yingbojue",
-          "chapters": []
+          "chapters": [
+            1
+          ],
+          "_entry_id": "金瓶梅/jpm-name-yingbojue"
         },
         {
           "id": "jpm-name-lijiaoer",
@@ -2704,8 +2838,10 @@
             "勾栏"
           ],
           "summary": "「李娇儿」之「娇」标其勾栏出身；西门庆一死即卷财归院，来处即归处。",
-          "_entry_id": "金瓶梅/jpm-name-lijiaoer",
-          "chapters": []
+          "chapters": [
+            1
+          ],
+          "_entry_id": "金瓶梅/jpm-name-lijiaoer"
         },
         {
           "id": "jpm-obj-pinger-cai",
@@ -2830,8 +2966,10 @@
             "信物"
           ],
           "summary": "汗巾香囊一类贴身信物，是私通逾墙的凭证；物虽细微，却牵动人物命运。",
-          "_entry_id": "金瓶梅/jpm-obj-hanjin",
-          "chapters": []
+          "chapters": [
+            60
+          ],
+          "_entry_id": "金瓶梅/jpm-obj-hanjin"
         },
         {
           "id": "jpm-name-wangliuer",
@@ -3306,8 +3444,10 @@
             "谐音"
           ],
           "summary": "「谢希大」谐「些须大」，本事些微、虚张声势的帮闲之一。",
-          "_entry_id": "金瓶梅/jpm-name-xiexida",
-          "chapters": []
+          "chapters": [
+            1
+          ],
+          "_entry_id": "金瓶梅/jpm-name-xiexida"
         },
         {
           "id": "jpm-obj-jiu",
@@ -3347,7 +3487,7 @@
           "book": "金瓶梅",
           "subtype": "tune_omen",
           "title": "酒色财气歌",
-          "text": "酒损精神破丧家，语言无状闹喧哗……财帛动人多丧志，多少英雄受其累……",
+          "text": "酒损精神破丧家，语言无状闹喧哗。 拈针弄线难称意，对客挥拳敢怒加。 枕上同眠之语，被底私言， 都是丧身失命之源。\n色是刮骨钢刀，空教粉黛争娇； 财是夺命绳索，专把英雄困扰。 气是雷火，财是贪狼， 四者连环，跳不出酒色财气圈子。 西门庆一生，尽在此四句中。",
           "chapters": [
             1
           ],
@@ -3452,8 +3592,10 @@
             "白银"
           ],
           "summary": "白银贯穿西门府聚敛与崩解——生时滚雪球般聚拢，死后旬月即被卷分一空。",
-          "_entry_id": "金瓶梅/jpm-obj-yinzi",
-          "chapters": []
+          "chapters": [
+            60
+          ],
+          "_entry_id": "金瓶梅/jpm-obj-yinzi"
         },
         {
           "id": "jpm-obj-jingzi",
@@ -3481,8 +3623,10 @@
             "镜花水月"
           ],
           "summary": "镜花水月喻繁华虚妄；花子虚财、妻俱被西门庆夺去，正是「一场空」的注脚。",
-          "_entry_id": "金瓶梅/jpm-obj-jingzi",
-          "chapters": []
+          "chapters": [
+            60
+          ],
+          "_entry_id": "金瓶梅/jpm-obj-jingzi"
         },
         {
           "id": "jpm-name-chenjingji",
@@ -3627,8 +3771,10 @@
             "谐音"
           ],
           "summary": "「韩道国」谐「憨/汉盗国」，纵容妻子王六儿与西门庆私通牟利的伙计。",
-          "_entry_id": "金瓶梅/jpm-name-handaoguo",
-          "chapters": []
+          "chapters": [
+            1
+          ],
+          "_entry_id": "金瓶梅/jpm-name-handaoguo"
         }
       ]
     },
@@ -4259,8 +4405,11 @@
             "水火既济"
           ],
           "summary": "抽坎填离、水火既济——心猿意马相济的丹道工夫，劫难即考验场。",
-          "_entry_id": "西游记/xyj-dan-kanli",
-          "chapters": []
+          "chapters": [
+            14,
+            19
+          ],
+          "_entry_id": "西游记/xyj-dan-kanli"
         },
         {
           "id": "xyj-place-xieyue",
@@ -4657,8 +4806,11 @@
             "婴姹"
           ],
           "summary": "真铅（元神/婴儿）与真汞（元精/姹女）相投结丹；西游屡以婴儿姹女写铅汞抽添。",
-          "_entry_id": "西游记/xyj-dan-qianhong",
-          "chapters": []
+          "chapters": [
+            14,
+            19
+          ],
+          "_entry_id": "西游记/xyj-dan-qianhong"
         },
         {
           "id": "xyj-place-jisaiguo",
@@ -4953,8 +5105,11 @@
             "水火"
           ],
           "summary": "龙（水/汞）虎（火/铅）相交即降龙伏虎，丹道调和水火、抽坎填离之喻。",
-          "_entry_id": "西游记/xyj-dan-longhu",
-          "chapters": []
+          "chapters": [
+            14,
+            19
+          ],
+          "_entry_id": "西游记/xyj-dan-longhu"
         },
         {
           "id": "xyj-dan-huangpo",

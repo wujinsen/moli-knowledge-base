@@ -5,10 +5,11 @@
   "private": true,
   "scripts": {
     "dev": "node scripts/ensure-pagefind.mjs && astro dev",
-    "clean": "node -e \"const fs=require('fs');for(const d of ['dist','.astro','node_modules/.vite'])fs.rmSync(d,{recursive:true,force:true});console.log('cleared dist + .astro + node_modules/.vite')\"",
+    "clean": "node -e \"const fs=require('fs');function rm(p){if(!fs.existsSync(p))return;for(let i=0;i<5;i++){try{fs.rmSync(p,{recursive:true,force:true,maxRetries:3,retryDelay:200});return}catch(e){if(i===4)throw e}}}for(const d of ['dist','.astro','node_modules/.vite'])rm(d);console.log('cleared dist + .astro + node_modules/.vite')\"",
     "dev:clean": "npm run clean && npm run dev",
     "build": "npm run clean && astro build",
     "build:fast": "astro build",
+    "build:fast:clean": "node -e \"const fs=require('fs');for(const d of ['dist','.astro','node_modules/.vite'])fs.rmSync(d,{recursive:true,force:true})\" && astro build",
     "pagefind:index": "node scripts/ensure-pagefind.mjs",
     "pack": "npm run build && node scripts/pack-dist.mjs",
     "preview": "astro preview",

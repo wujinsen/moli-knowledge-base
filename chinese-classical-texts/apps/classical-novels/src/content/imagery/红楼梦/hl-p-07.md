@@ -23,7 +23,7 @@ characters:
   - 贾迎春
   - 贾惜春
   - 王熙凤
-  - 贾巧姐
+  - 巧姐
   - 李纨
   - 秦可卿
 links:
@@ -99,7 +99,7 @@ links:
     inference: true
     chapter: 5
     note: "过洁终污（虚名利收束）"
-  - target: 贾巧姐
+  - target: 巧姐
     target_kind: character
     predicate: 预示
     inference: true
@@ -145,9 +145,12 @@ source: chapters/红楼梦/005.md
 - 第5回 · 推论 · 预示 → [[贾探春]] — 分骨肉收束，从今分两地
 - 第5回 · 推论 · 预示 → [[史湘云]] — 云散高唐，水涸湘江（乐中悲收束）
 - 第5回 · 推论 · 预示 → [[妙玉]] — 过洁终污（虚名利收束）
-- 第5回 · 推论 · 预示 → [[贾巧姐]] — 留余庆后劫余生
+- 第5回 · 推论 · 预示 → [[巧姐]] — 留余庆后劫余生
 - 第5回 · 推论 · 预示 → [[李纨]] — 虚名儿与后人钦敬（晚韶华收束）
 - 第5回 · 推论 · 预示 → [[秦可卿]] — 宿孽总因情（好事终收束）
+- 跨书 · 推论 · 互文 → [jpm-tune-haohua](/jinpingmei/imagery/jpm-tune-haohua) — 白茫茫真干净 ↔ 歌舞人不回
+- 跨书 · 推论 · 互文 → [xyj-poem-c100](/xiyouji/imagery/xyj-poem-c100) — 白茫茫真干净 ↔ 五圣成真不二门
+- 跨书 · 推论 · 互文 → [jpm-obj-guancai](/jinpingmei/imagery/jpm-obj-guancai) — 白茫茫真干净 ↔ 棺木财散
 
 ## 评析
 
@@ -165,7 +168,7 @@ source: chapters/红楼梦/005.md
 - [[贾迎春]]
 - [[贾惜春]]
 - [[王熙凤]]
-- [[贾巧姐]]
+- [[巧姐]]
 - [[李纨]]
 - [[秦可卿]]
 - 意象：[hl-j-01](/honglou/imagery/hl-j-01)

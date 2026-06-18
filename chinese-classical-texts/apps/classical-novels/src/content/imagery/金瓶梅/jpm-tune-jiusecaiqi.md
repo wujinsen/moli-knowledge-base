@@ -35,6 +35,38 @@ links:
     phase: 欲起
     temperature: 热
     note: "「色」之极，由潘金莲承载。"
+  - target: jpm-obj-se
+    target_kind: imagery
+    predicate: 互文
+    inference: true
+    chapter: 1
+    phase: 欲起
+    temperature: 热
+    note: "四贪词「色」坐标"
+  - target: jpm-obj-qi
+    target_kind: imagery
+    predicate: 互文
+    inference: true
+    chapter: 1
+    phase: 聚敛
+    temperature: 热
+    note: "四贪词「气」坐标"
+  - target: jpm-tune-erba
+    target_kind: imagery
+    predicate: 互文
+    inference: true
+    chapter: 1
+    phase: 欲起
+    temperature: 热
+    note: "色谶总括，与四贪词并置"
+  - target: jpm-obj-cai
+    target_kind: imagery
+    predicate: 互文
+    inference: true
+    chapter: 1
+    phase: 聚敛
+    temperature: 热
+    note: "四贪词「财」坐标"
 tags: [曲牌宝卷谶, 总纲, 酒色财气]
 summary: "第一回《四贪词》（酒色财气），全书意象总纲与命运坐标。"
 source: chapters/金瓶梅/001.md
@@ -58,6 +90,11 @@ source: chapters/金瓶梅/001.md
 
 - 第1回 · 推论 · 预示 → [[西门庆]]（欲起·热） — 开篇《四贪词》定调酒色财气，是西门庆纵欲暴亡的命运坐标。
 - 第1回 · 推论 · 互文 → [jpm-name-jinlian](/jinpingmei/imagery/jpm-name-jinlian)（欲起·热） — 「色」之极，由潘金莲承载。
+- 第1回 · 推论 · 互文 → [jpm-obj-se](/jinpingmei/imagery/jpm-obj-se)（欲起·热） — 四贪词「色」坐标
+- 第1回 · 推论 · 互文 → [jpm-obj-qi](/jinpingmei/imagery/jpm-obj-qi)（聚敛·热） — 四贪词「气」坐标
+- 第1回 · 推论 · 互文 → [jpm-tune-erba](/jinpingmei/imagery/jpm-tune-erba)（欲起·热） — 色谶总括，与四贪词并置
+- 第1回 · 推论 · 互文 → [jpm-obj-cai](/jinpingmei/imagery/jpm-obj-cai)（聚敛·热） — 四贪词「财」坐标
+- 跨书 · 推论 · 互文 → [hl-p-02](/honglou/imagery/hl-p-02) — 四贪词 ↔ 好了歌色空坐标
 
 ## 评析
 

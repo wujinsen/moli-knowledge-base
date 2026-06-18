@@ -5,7 +5,7 @@
       "id": "jiusecaiqi",
       "name": "总纲：酒色财气→西门庆",
       "summary": "色财气歌总纲→西门庆聚敛",
-      "path": ["jpm-tune-jiusecaiqi", "西门庆"]
+      "path": ["jpm-tune-haohua", "jpm-tune-jiusecaiqi", "jpm-obj-jiu", "jpm-obj-se", "jpm-obj-cai", "jpm-obj-qi", "jpm-obj-guanmian", "西门庆"]
     },
     {
       "id": "pinger-bottle",

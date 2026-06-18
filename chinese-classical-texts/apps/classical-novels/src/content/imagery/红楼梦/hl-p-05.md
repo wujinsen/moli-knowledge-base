@@ -38,7 +38,7 @@ links:
   - target: hl-s-furong
     target_kind: imagery
     predicate: 互文
-    inference: false
+    inference: true
     chapter: 78
     note: "芙蓉花前奠祭"
   - target: hl-j-13
@@ -47,18 +47,6 @@ links:
     inference: true
     chapter: 78
     note: "判词谶语在祭文中兑现"
-  - target: 林黛玉
-    target_kind: character
-    predicate: 互文
-    inference: false
-    chapter: 78
-    note: "黛玉改「沁芳」等字，论诗"
-  - target: 晴雯
-    target_kind: character
-    predicate: 隐喻
-    inference: true
-    chapter: 78
-    note: "芙蓉女儿即晴雯，判词在祭文中兑现"
   - target: 林黛玉
     target_kind: character
     predicate: 隐喻
@@ -89,15 +77,13 @@ source: chapters/红楼梦/078.md
 
 - 第78回 · 作 → [[贾宝玉]] — 杜撰长篇祭文，挂于芙蓉枝前
 - 第78回 · 推论 · 影射 → [[晴雯]] — 以芙蓉女儿为晴雯招魂
-- 第78回 · 互文 → [[hl-s-furong]] — 芙蓉花前奠祭
+- 第78回 · 推论 · 互文 → [[hl-s-furong]] — 芙蓉花前奠祭
 - 第78回 · 推论 · 互文 → [[hl-j-13]] — 判词谶语在祭文中兑现
-- 第78回 · 互文 → [[林黛玉]] — 黛玉改「沁芳」等字，论诗
-- 第78回 · 推论 · 隐喻 → [[晴雯]] — 芙蓉女儿即晴雯，判词在祭文中兑现
 - 第78回 · 推论 · 隐喻 → [[林黛玉]] — 改字论诗，与诔文主宾互文
 
 ## 评析
 
-宝玉为晴雯作长篇祭文，别开生面；黛玉改字，钗黛诗学交锋。
+宝玉为晴雯作长篇祭文，别开生面；黛玉改字，钗黛诗学交锋。正文有意节录（中略追叙段），全本见 `chapters/红楼梦/078.md`。
 
 ## 相关
 

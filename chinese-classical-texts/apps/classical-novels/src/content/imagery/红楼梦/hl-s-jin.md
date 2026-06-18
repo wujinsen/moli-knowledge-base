@@ -24,6 +24,7 @@ summary: "金锁、金玉良缘之「金」。"
 ## 互文
 
 - 第3回 · 推论 · 象征 → [[薛宝钗]] — 金锁、金玉良缘之「金」。
+- 跨书 · 推论 · 互文 → [jpm-name-jinlian](/jinpingmei/imagery/jpm-name-jinlian) — 金锁良缘 ↔ 金莲内斗之刀
 
 ## 评析
 

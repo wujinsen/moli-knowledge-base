@@ -33,6 +33,7 @@ source: chapters/西游记/061.md
 
 - 推论 · 隐喻 → [xyj-dan-xinyuan](/xiyouji/imagery/xyj-dan-xinyuan) — 火焰山即心头无明业火；火本悟空蹬翻丹炉而起，火由心生。
 - 第61回 · 推论 · 隐喻 → [[孙悟空]] — 三调芭蕉扇（真水）方熄——心火须真水方济。
+- 跨书 · 推论 · 互文 → [jpm-obj-qi](/jinpingmei/imagery/jpm-obj-qi) — 无明业火 ↔ 四贪气·雷火
 
 ## 评析
 

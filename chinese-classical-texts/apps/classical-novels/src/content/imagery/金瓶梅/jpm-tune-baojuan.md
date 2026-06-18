@@ -27,6 +27,8 @@ source: chapters/金瓶梅/074.md
 ## 互文
 
 - 第74回 · 推论 · 预示 → [[吴月娘]]（散尽·冷） — 尼姑宣卷讲因果，月娘虔听——伏后文出家舍子的清冷结局。
+- 跨书 · 推论 · 互文 → [hl-p-02](/honglou/imagery/hl-p-02) — 宝卷因果 ↔ 好了歌色空
+- 跨书 · 推论 · 互文 → [xyj-poem-wuzizhenjing](/xiyouji/imagery/xyj-poem-wuzizhenjing) — 色空不二 ↔ 宝卷散尽预伏
 
 ## 评析
 

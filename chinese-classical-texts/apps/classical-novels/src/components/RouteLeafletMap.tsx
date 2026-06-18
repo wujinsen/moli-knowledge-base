@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef } from 'react';
 import 'leaflet/dist/leaflet.css';
+import L from '../lib/leafletClient';
 import { realmColor, type RouteData } from '../lib/route';
 
 interface Props {
@@ -11,7 +12,7 @@ interface Props {
  *  西游地理为「近似/象征坐标」，火焰山(吐鲁番)等少数为真实地名经纬度。 */
 export default function RouteLeafletMap({ data, bookSlug }: Props) {
   const elRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<unknown>(null);
+  const mapRef = useRef<L.Map | null>(null);
 
   const realNodes = useMemo(
     () => data.nodes.filter((n) => n.layer === 'real' && n.geo),
@@ -24,81 +25,69 @@ export default function RouteLeafletMap({ data, bookSlug }: Props) {
 
   useEffect(() => {
     if (!elRef.current || realNodes.length === 0) return;
-    let disposed = false;
-    let map: import('leaflet').Map | null = null;
 
-    (async () => {
-      const L = (await import('leaflet')).default;
-      if (disposed || !elRef.current) return;
+    const map = L.map(elRef.current, { zoomControl: true, attributionControl: true, scrollWheelZoom: true });
+    mapRef.current = map;
 
-      map = L.map(elRef.current, { zoomControl: true, attributionControl: true, scrollWheelZoom: true });
-      mapRef.current = map;
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 10,
+      minZoom: 2,
+    }).addTo(map);
 
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-        subdomains: 'abcd',
-        maxZoom: 10,
-        minZoom: 2,
+    const latlngs = path.filter((n) => n.geo).map((n) => [n.geo!.lat, n.geo!.lng] as [number, number]);
+    if (latlngs.length > 1) {
+      L.polyline(latlngs, {
+        color: '#e0a93a',
+        weight: 2.5,
+        opacity: 0.85,
+        dashArray: '6 6',
+      }).addTo(map);
+    }
+
+    for (const n of realNodes) {
+      if (!n.geo) continue;
+      const color = realmColor(n.realm);
+      const marker = L.circleMarker([n.geo.lat, n.geo.lng], {
+        radius: n.order != null ? 7 : 5,
+        color: '#0f172a',
+        weight: 1.5,
+        fillColor: color,
+        fillOpacity: 0.95,
       }).addTo(map);
 
-      // 取经折线（按 route_order）
-      const latlngs = path.filter((n) => n.geo).map((n) => [n.geo!.lat, n.geo!.lng] as [number, number]);
-      if (latlngs.length > 1) {
-        L.polyline(latlngs, {
-          color: '#e0a93a',
-          weight: 2.5,
-          opacity: 0.85,
-          dashArray: '6 6',
-        }).addTo(map);
-      }
+      const tribs = n.tribulations
+        .slice(0, 6)
+        .map((t) => `<li>第${t.no}难 ${t.title}</li>`)
+        .join('');
+      const orderTxt = n.order != null ? `第 ${n.order} 站 · ` : '';
+      const chTxt = n.chapters.length ? `第${n.chapters.join('、')}回` : '';
+      marker.bindPopup(
+        `<div style="min-width:180px">
+           <strong style="font-size:14px">${n.name}</strong><br/>
+           <span style="color:#64748b;font-size:12px">${orderTxt}${n.realm} ${chTxt}</span>
+           ${n.summary ? `<p style="margin:.4em 0;font-size:12px;line-height:1.5">${n.summary}</p>` : ''}
+           ${tribs ? `<ul style="margin:.2em 0 .4em 1em;padding:0;font-size:12px">${tribs}</ul>` : ''}
+           <a href="/${bookSlug}/l/${encodeURIComponent(n.id)}" style="font-size:12px;color:#c2410c">地点详情 →</a>
+         </div>`,
+      );
+      marker.bindTooltip(n.name.replace(/^.*·/, ''), {
+        permanent: n.order != null,
+        direction: 'bottom',
+        offset: [0, 6],
+        className: 'route-leaflet-label',
+      });
+    }
 
-      // 站点标记
-      for (const n of realNodes) {
-        if (!n.geo) continue;
-        const color = realmColor(n.realm);
-        const marker = L.circleMarker([n.geo.lat, n.geo.lng], {
-          radius: n.order != null ? 7 : 5,
-          color: '#0f172a',
-          weight: 1.5,
-          fillColor: color,
-          fillOpacity: 0.95,
-        }).addTo(map);
-
-        const tribs = n.tribulations
-          .slice(0, 6)
-          .map((t) => `<li>第${t.no}难 ${t.title}</li>`)
-          .join('');
-        const orderTxt = n.order != null ? `第 ${n.order} 站 · ` : '';
-        const chTxt = n.chapters.length ? `第${n.chapters.join('、')}回` : '';
-        marker.bindPopup(
-          `<div style="min-width:180px">
-             <strong style="font-size:14px">${n.name}</strong><br/>
-             <span style="color:#64748b;font-size:12px">${orderTxt}${n.realm} ${chTxt}</span>
-             ${n.summary ? `<p style="margin:.4em 0;font-size:12px;line-height:1.5">${n.summary}</p>` : ''}
-             ${tribs ? `<ul style="margin:.2em 0 .4em 1em;padding:0;font-size:12px">${tribs}</ul>` : ''}
-             <a href="/${bookSlug}/l/${encodeURIComponent(n.id)}" style="font-size:12px;color:#c2410c">地点详情 →</a>
-           </div>`,
-        );
-        marker.bindTooltip(n.name.replace(/^.*·/, ''), {
-          permanent: n.order != null,
-          direction: 'bottom',
-          offset: [0, 6],
-          className: 'route-leaflet-label',
-        });
-      }
-
-      const bounds = L.latLngBounds(realNodes.filter((n) => n.geo).map((n) => [n.geo!.lat, n.geo!.lng]));
-      map.fitBounds(bounds, { padding: [48, 48] });
-      setTimeout(() => map?.invalidateSize(), 60);
-    })();
+    const bounds = L.latLngBounds(realNodes.filter((n) => n.geo).map((n) => [n.geo!.lat, n.geo!.lng]));
+    map.fitBounds(bounds, { padding: [48, 48] });
+    const t = window.setTimeout(() => map.invalidateSize(), 60);
 
     return () => {
-      disposed = true;
-      if (map) {
-        map.remove();
-        map = null;
-      }
+      window.clearTimeout(t);
+      map.remove();
       mapRef.current = null;
     };
   }, [realNodes, path, bookSlug]);

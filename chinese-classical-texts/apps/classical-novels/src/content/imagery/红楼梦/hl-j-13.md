@@ -23,6 +23,12 @@ links:
     inference: true
     chapter: 5
     note: "判词谶语"
+  - target: hl-s-furong
+    target_kind: imagery
+    predicate: 互文
+    inference: true
+    chapter: 5
+    note: "副册谶语经芙蓉象征在诔文中兑现"
 tags: [判词, 金陵十二钗]
 summary: "副册；与芙蓉、撕扇、夭逝互文。"
 source: chapters/红楼梦/005.md
@@ -37,6 +43,7 @@ source: chapters/红楼梦/005.md
 
 - 第5回 · 对应判词 → [[晴雯]] — 副册；与芙蓉、撕扇、夭逝互文。
 - 第5回 · 推论 · 预示 → [[晴雯]] — 判词谶语
+- 第5回 · 推论 · 互文 → [[hl-s-furong]] — 副册谶语经芙蓉象征在诔文中兑现
 
 ## 评析
 
@@ -45,5 +52,6 @@ source: chapters/红楼梦/005.md
 ## 相关
 
 - [[晴雯]]
+- 意象：[hl-s-furong](/honglou/imagery/hl-s-furong)
 - 出处：`chapters/红楼梦/005.md`
 - 标签：判词, 金陵十二钗

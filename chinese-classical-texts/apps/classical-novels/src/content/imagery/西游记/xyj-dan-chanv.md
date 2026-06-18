@@ -31,6 +31,7 @@ source: chapters/西游记/072.md
 
 - 第72回 · 推论 · 隐喻 → [[蜘蛛精]] — 「姹女」即真汞，喻消耗元阳的杂念；盘丝洞七女。
 - 第72回 · 推论 · 相克 → [xyj-dan-mumu](/xiyouji/imagery/xyj-dan-mumu) — 第72回〈盘丝洞姹女求阳，木母忘形落底〉——杂念耗木母之精。
+- 跨书 · 推论 · 互文 → [hl-myth-jiangzhu](/honglou/imagery/hl-myth-jiangzhu) — 盘丝姹女 ↔ 绛珠还泪
 
 ## 评析
 

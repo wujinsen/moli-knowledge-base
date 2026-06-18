@@ -37,6 +37,7 @@ source: chapters/西游记/014.md
 - 推论 · 象征 → [[孙悟空]] — 「心猿」即修心主体，金公金性刚锐——心神。
 - 第85回 · 推论 · 相克 → [xyj-dan-mumu](/xiyouji/imagery/xyj-dan-mumu) — 金木相克：第85回〈心猿妒木母〉；和好则金木交并。
 - 推论 · 相济 → [xyj-dan-yima](/xiyouji/imagery/xyj-dan-yima) — 水火相济：心猿（火/金）与意马（水），抽坎填离。
+- 跨书 · 推论 · 互文 → [hl-myth-stone](/honglou/imagery/hl-myth-stone) — 心猿修心 ↔ 神瑛顽石
 
 ## 评析
 

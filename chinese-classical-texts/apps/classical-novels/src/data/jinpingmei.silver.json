@@ -1,7 +1,7 @@
 {
   "book": "金瓶梅",
   "generated": "2026-06-18",
-  "transaction_count": 24,
+  "transaction_count": 25,
   "disputed_count": 0,
   "total_liang": 3918.7,
   "chapter_min": 1,
@@ -447,6 +447,17 @@
       "disputed": false,
       "summary": "潘妈妈将潘金莲三十两转卖张大户家。",
       "source": "chapters/金瓶梅/001.md"
+    },
+    {
+      "id": "jpm-tx-012",
+      "chapter": 7,
+      "subtype": "奴婢买卖",
+      "liang": 0.0,
+      "pool_from": "西门庆府",
+      "pool_to": "妻妾奴婢",
+      "disputed": false,
+      "summary": "第7回薛嫂追索「去年买春梅」所许大布；身价钱银正文未载（旧库「三十两」已纠）。",
+      "source": "chapters/金瓶梅/词话本/007.md"
     },
     {
       "id": "jpm-tx-013",

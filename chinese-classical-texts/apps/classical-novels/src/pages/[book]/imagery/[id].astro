@@ -3,8 +3,10 @@ import { getCollection, render } from 'astro:content';
 import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
 import BackLink from '../../../components/BackLink.astro';
-import { chapterLabel, extraLinksFromJson, subtypeLabel } from '../../../lib/imagery';
+import { chapterLabel, crossBookLinksForEntity, extraLinksFromJson, imageryEntityHref, subtypeLabel } from '../../../lib/imagery';
 import type { ImageryGraphEdge, ImageryLink } from '../../../lib/imagery';
+import crossBookRaw from '../../../data/cross-book.imagery-links.json';
+import imageryIndex from '../../../data/imagery_index.json';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -34,11 +36,22 @@ const extraRaw = linkFileKey
   : null;
 const extraJson: ImageryGraphEdge[] = extraRaw?.default?.links ?? extraRaw?.links ?? [];
 const extraLinks: ImageryLink[] = extraLinksFromJson(d.id, extraJson);
+const crossLinks = crossBookLinksForEntity(
+  d.id,
+  (crossBookRaw as { links: ImageryGraphEdge[] }).links ?? [],
+);
+
+const labelById = new Map<string, string>();
+for (const b of Object.values((imageryIndex as { books: Record<string, { entries?: { id: string; title: string }[] }> }).books)) {
+  for (const e of b.entries ?? []) {
+    labelById.set(e.id, e.title);
+  }
+}
 
 const linkKey = (l: ImageryLink) => `${l.predicate}|${l.target}|${l.inference}`;
 const mergedLinks: ImageryLink[] = [...d.links];
 const seen = new Set(d.links.map(linkKey));
-for (const l of extraLinks) {
+for (const l of [...extraLinks, ...crossLinks]) {
   const k = linkKey(l);
   if (!seen.has(k)) {
     mergedLinks.push(l);
@@ -119,11 +132,11 @@ const displayCharacters = [...new Set([...d.characters, ...mergedLinks.filter((l
                     <td class="px-3 py-2.5">
                       {
                         l.target_kind === 'imagery' ? (
-                          <a href={`/${meta.slug}/imagery/${l.target}`} class="hover:underline" style="color: var(--accent)">
-                            {l.target}
+                          <a href={imageryEntityHref(l.target, meta.slug)} class="hover:underline" style="color: var(--accent)">
+                            {labelById.get(l.target) ?? l.target}
                           </a>
                         ) : (
-                          <a href={`/${meta.slug}/c/${l.target}`} class="hover:underline" style="color: var(--accent)">
+                          <a href={imageryEntityHref(l.target, meta.slug)} class="hover:underline" style="color: var(--accent)">
                             {l.target}
                           </a>
                         )

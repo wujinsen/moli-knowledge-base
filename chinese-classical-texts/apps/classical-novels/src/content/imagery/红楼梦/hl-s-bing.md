@@ -16,6 +16,12 @@ links:
     inference: true
     chapter: 5
     note: "冷香、晶莹雪与宝钗性情。"
+  - target: hl-s-jin
+    target_kind: imagery
+    predicate: 互文
+    inference: true
+    chapter: 5
+    note: "冷香/晶莹雪与金锁"
 tags: [象征物]
 summary: "冷香、晶莹雪与宝钗性情。"
 ---
@@ -24,6 +30,7 @@ summary: "冷香、晶莹雪与宝钗性情。"
 ## 互文
 
 - 第5回 · 推论 · 象征 → [[薛宝钗]] — 冷香、晶莹雪与宝钗性情。
+- 第5回 · 推论 · 互文 → [[hl-s-jin]] — 冷香/晶莹雪与金锁
 
 ## 评析
 
@@ -34,4 +41,5 @@ summary: "冷香、晶莹雪与宝钗性情。"
 ## 相关
 
 - [[薛宝钗]]
+- 意象：[hl-s-jin](/honglou/imagery/hl-s-jin)
 - 标签：象征物

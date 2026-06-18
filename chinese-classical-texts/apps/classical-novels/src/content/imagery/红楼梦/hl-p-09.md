@@ -37,6 +37,7 @@ source: chapters/红楼梦/005.md
 
 - 第5回 · 推论 · 预示 → [[王熙凤]] — 一从二令三人木
 - 第5回 · 互文 → [[hl-j-09]] — 判词与曲互证
+- 跨书 · 推论 · 互文 → [jpm-obj-qi](/jinpingmei/imagery/jpm-obj-qi) — 一从二令三人木 ↔ 颐指气使帮闲
 
 ## 评析
 

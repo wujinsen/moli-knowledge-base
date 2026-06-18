@@ -53,6 +53,12 @@ links:
     inference: true
     chapter: 70
     note: "桃花社后咏絮，春事将残"
+  - target: hl-p-30
+    target_kind: imagery
+    predicate: 互文
+    inference: true
+    chapter: 70
+    note: "桃花行引社，本回咏絮"
   - target: 林黛玉
     target_kind: character
     predicate: 隐喻
@@ -102,6 +108,7 @@ source: chapters/红楼梦/070.md
 - 第70回 · 作 → [[史湘云]] — 空挂纤纤缕
 - 第70回 · 作 → [[薛宝钗]] — 好风凭借力
 - 第70回 · 推论 · 互文 → [[hl-p-01]] — 桃花社后咏絮，春事将残
+- 第70回 · 推论 · 互文 → [hl-p-30](/honglou/imagery/hl-p-30) — 桃花行引社，本回咏絮
 - 第70回 · 推论 · 隐喻 → [[林黛玉]] — 唐多令：粉堕香残，春事将残
 - 第70回 · 推论 · 隐喻 → [[史湘云]] — 空挂纤纤缕，漂泊无着
 - 第70回 · 推论 · 隐喻 → [[薛宝钗]] — 好风凭借力，借势而上
@@ -116,6 +123,6 @@ source: chapters/红楼梦/070.md
 - [[史湘云]]
 - [[薛宝钗]]
 - [[贾宝玉]]
-- 意象：[hl-p-01](/honglou/imagery/hl-p-01)
+- 意象：[hl-p-01](/honglou/imagery/hl-p-01) · [hl-p-30](/honglou/imagery/hl-p-30)
 - 出处：`chapters/红楼梦/070.md`
 - 标签：诗词, 诗社

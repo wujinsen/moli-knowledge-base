@@ -17,6 +17,12 @@ links:
     inference: true
     chapter: 63
     note: "莫怨东风当自嗟"
+  - target: hl-s-furong
+    target_kind: imagery
+    predicate: 互文
+    inference: true
+    chapter: 63
+    note: "占得芙蓉，与芙蓉象征互证"
 tags: [花签, 酒令]
 summary: "占得芙蓉，预示黛玉孤高夭逝。"
 source: chapters/红楼梦/063.md
@@ -30,6 +36,7 @@ source: chapters/红楼梦/063.md
 ## 互文
 
 - 第63回 · 推论 · 隐喻 → [[林黛玉]] — 莫怨东风当自嗟
+- 第63回 · 推论 · 互文 → [[hl-s-furong]] — 占得芙蓉，与芙蓉象征互证
 
 ## 评析
 
@@ -38,5 +45,6 @@ source: chapters/红楼梦/063.md
 ## 相关
 
 - [[林黛玉]]
+- 意象：[hl-s-furong](/honglou/imagery/hl-s-furong)
 - 出处：`chapters/红楼梦/063.md`
 - 标签：花签, 酒令

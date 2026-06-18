@@ -13,9 +13,9 @@ text: "留余庆，留余庆，忽遇恩人；
 chapters:
   - 5
 characters:
-  - 贾巧姐
+  - 巧姐
 links:
-  - target: 贾巧姐
+  - target: 巧姐
     target_kind: character
     predicate: 预示
     inference: true
@@ -42,7 +42,7 @@ source: chapters/红楼梦/005.md
 
 ## 互文
 
-- 第5回 · 推论 · 预示 → [[贾巧姐]] — 遇恩人、刘姥姥救巧
+- 第5回 · 推论 · 预示 → [[巧姐]] — 遇恩人、刘姥姥救巧
 - 第5回 · 互文 → [[hl-j-10]]
 
 ## 评析
@@ -51,7 +51,7 @@ source: chapters/红楼梦/005.md
 
 ## 相关
 
-- [[贾巧姐]]
+- [[巧姐]]
 - 意象：[hl-j-10](/honglou/imagery/hl-j-10)
 - 出处：`chapters/红楼梦/005.md`
 - 标签：诗词, 红楼梦曲

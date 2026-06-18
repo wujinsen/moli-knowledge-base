@@ -17,6 +17,18 @@ links:
     inference: true
     chapter: 63
     note: "竹篱茅舍自甘心"
+  - target: hl-s-meihua
+    target_kind: imagery
+    predicate: 互文
+    inference: true
+    chapter: 63
+    note: "占得梅花，合稻香村"
+  - target: hl-p-28
+    target_kind: imagery
+    predicate: 互文
+    inference: true
+    chapter: 63
+    note: "芦雪咏红梅后占签互证"
 tags: [花签, 酒令]
 summary: "占得梅花，合稻香村。"
 source: chapters/红楼梦/063.md
@@ -30,6 +42,8 @@ source: chapters/红楼梦/063.md
 ## 互文
 
 - 第63回 · 推论 · 隐喻 → [[李纨]] — 竹篱茅舍自甘心
+- 第63回 · 推论 · 互文 → [[hl-s-meihua]] — 占得梅花，合稻香村
+- 第63回 · 推论 · 互文 → [hl-p-28](/honglou/imagery/hl-p-28) — 芦雪咏红梅后占签互证
 
 ## 评析
 
@@ -38,5 +52,6 @@ source: chapters/红楼梦/063.md
 ## 相关
 
 - [[李纨]]
+- 意象：[hl-s-meihua](/honglou/imagery/hl-s-meihua) · [hl-p-28](/honglou/imagery/hl-p-28)
 - 出处：`chapters/红楼梦/063.md`
 - 标签：花签, 酒令

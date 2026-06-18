@@ -142,10 +142,21 @@ function resolveTargetId(target: string, targetKind: string): string {
 export function buildImageryGraph(
   items: ImageryEntry[],
   extraLinks: ImageryGraphEdge[] = [],
+  labelById?: Map<string, string>,
 ): ImageryGraph {
   const nodeMap = new Map<string, ImageryGraphNode>();
   const edges: ImageryGraphEdge[] = [...extraLinks];
   const edgeKeys = new Set(extraLinks.map((e) => `${e.source}|${e.predicate}|${e.target}`));
+
+  const resolveLabel = (id: string, fallback: string) =>
+    labelById?.get(id) ?? items.find((i) => i.data.id === id)?.data.title ?? fallback;
+
+  const resolveKind = (id: string, defaultKind: ImageryGraphNode['kind']): ImageryGraphNode['kind'] => {
+    const item = items.find((i) => i.data.id === id);
+    if (item) return nodeKind(item.data.subtype);
+    if (id.startsWith('hl-') || id.startsWith('jpm-') || id.startsWith('xyj-')) return 'symbol';
+    return defaultKind;
+  };
 
   const addNode = (
     id: string,
@@ -169,8 +180,8 @@ export function buildImageryGraph(
     }
     for (const link of d.links) {
       const tid = resolveTargetId(link.target, link.target_kind);
-      const tlabel = link.target_kind === 'imagery' ? link.target : link.target;
-      addNode(tid, tlabel, link.target_kind === 'imagery' ? nodeKind('symbol') : 'character');
+      const tlabel = link.target_kind === 'imagery' ? resolveLabel(tid, link.target) : link.target;
+      addNode(tid, tlabel, resolveKind(tid, link.target_kind === 'imagery' ? 'symbol' : 'character'));
       const edge: ImageryGraphEdge = {
         source: d.id,
         target: tid,
@@ -190,8 +201,10 @@ export function buildImageryGraph(
   }
 
   for (const e of extraLinks) {
-    addNode(e.source, e.source.startsWith('hl-') ? e.source : e.source, e.source.startsWith('hl-') ? 'symbol' : 'character');
-    addNode(e.target, e.target, e.target.startsWith('hl-') ? 'symbol' : 'character');
+    const sk = resolveKind(e.source, e.source.startsWith('hl-') || e.source.startsWith('jpm-') || e.source.startsWith('xyj-') ? 'symbol' : 'character');
+    const tk = resolveKind(e.target, e.target.startsWith('hl-') || e.target.startsWith('jpm-') || e.target.startsWith('xyj-') ? 'symbol' : 'character');
+    addNode(e.source, resolveLabel(e.source, e.source), sk);
+    addNode(e.target, resolveLabel(e.target, e.target), tk);
   }
 
   // 修正 extra link 节点 label：用 items 里的 title
@@ -229,6 +242,73 @@ export function chapterLabel(chapters: number[]): string {
 
 function isImageryId(id: string): boolean {
   return id.startsWith('hl-') || id.startsWith('jpm-') || id.startsWith('xyj-');
+}
+
+/** imagery id 前缀 → 书 slug */
+export function imageryBookSlugFromId(id: string): string | null {
+  if (id.startsWith('hl-')) return 'honglou';
+  if (id.startsWith('jpm-')) return 'jinpingmei';
+  if (id.startsWith('xyj-')) return 'xiyouji';
+  return null;
+}
+
+/** 意象或人物详情页 href（跨书 id 自动解析 slug） */
+export function imageryEntityHref(id: string, fallbackBookSlug: string): string {
+  const bookSlug = imageryBookSlugFromId(id);
+  if (bookSlug) {
+    return `/${bookSlug}/imagery/${id}`;
+  }
+  return `/${fallbackBookSlug}/c/${encodeURIComponent(id)}`;
+}
+
+export interface CrossBookImageryLink extends ImageryGraphEdge {
+  crossBook?: boolean;
+}
+
+/** 某书 slug 相关的跨书边（source 或 target 属本书） */
+export function crossBookEdgesForSlug(
+  allLinks: CrossBookImageryLink[],
+  bookSlug: string,
+): CrossBookImageryLink[] {
+  return allLinks.filter((e) => {
+    const s = imageryBookSlugFromId(e.source);
+    const t = imageryBookSlugFromId(e.target);
+    return s === bookSlug || t === bookSlug;
+  });
+}
+
+/** 详情页：与 entityId 相关的跨书边 → ImageryLink */
+export function crossBookLinksForEntity(
+  entityId: string,
+  allLinks: CrossBookImageryLink[],
+): ImageryLink[] {
+  const out: ImageryLink[] = [];
+  for (const e of allLinks) {
+    if (e.source === entityId) {
+      out.push({
+        target: e.target,
+        target_kind: isImageryId(e.target) ? 'imagery' : 'character',
+        predicate: e.predicate,
+        inference: e.inference,
+        chapter: e.chapter,
+        note: e.note ? `[跨书] ${e.note}` : '[跨书]',
+        phase: e.phase,
+        temperature: e.temperature,
+      });
+    } else if (e.target === entityId) {
+      out.push({
+        target: e.source,
+        target_kind: isImageryId(e.source) ? 'imagery' : 'character',
+        predicate: e.predicate,
+        inference: e.inference,
+        chapter: e.chapter,
+        note: e.note ? `[跨书↩] ${e.note}` : '[跨书↩]',
+        phase: e.phase,
+        temperature: e.temperature,
+      });
+    }
+  }
+  return out;
 }
 
 /** 从 *.imagery-links.json 取出以 id 为 source 的额外边（详情页用） */
