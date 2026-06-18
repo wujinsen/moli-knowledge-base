@@ -2,7 +2,7 @@
 import { getBooks } from '../../lib/getBooks';
 import GraphLayout from '../../layouts/GraphLayout.astro';
 import BackLink from '../../components/BackLink.astro';
-import RouteExplorer from '../../components/RouteExplorer.tsx';
+import RouteMap from '../../components/RouteMap.tsx';
 import { buildRouteEdges, type RouteNode } from '../../lib/route';
 import { projectRouteLayout } from '../../lib/routeGeo';
 import { sortEvents } from '../../lib/events';
@@ -78,9 +78,7 @@ const nodes: RouteNode[] = locations.map((l) => {
   };
 });
 
-// 示意图用叙事 coord；仅缺 coord 的凡间站才回退 geo 投影
-const needsGeoFallback = nodes.some((n) => n.layer === 'real' && n.order != null && n.x === 0 && n.y === 0 && n.geo);
-if (needsGeoFallback) projectRouteLayout(nodes);
+projectRouteLayout(nodes);
 
 const routeData = { nodes, edges: buildRouteEdges(nodes) };
 const realCount = nodes.filter((n) => n.layer === 'real').length;
@@ -113,7 +111,7 @@ const mythCount = nodes.filter((n) => n.layer === 'myth').length;
         <div class="pointer-events-none absolute left-1/2 top-3 z-20 -translate-x-1/2 text-center sm:hidden">
           <span class="text-xs text-slate-400">{realCount} 凡间站 · {mythCount} 异界</span>
         </div>
-        <RouteExplorer data={routeData} bookSlug={meta.slug} client:only="react" />
+        <RouteMap data={routeData} bookSlug={meta.slug} client:only="react" />
       </>
     )
   }

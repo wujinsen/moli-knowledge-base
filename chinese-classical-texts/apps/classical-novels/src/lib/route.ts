@@ -1,4 +1,4 @@
-import { canvasBearing, formatSegment, type GeoPoint } from './routeGeo';
+import { formatSegment, type GeoPoint } from './routeGeo';
 
 export type RouteLayer = 'real' | 'myth';
 
@@ -26,14 +26,12 @@ export interface RouteNode {
 export interface RouteEdge {
   source: string;
   target: string;
-  /** 路段距离（km，丝路比附） */
+  /** 路段距离（km） */
   distanceKm?: number;
-  /** 传统里数（丝路比附） */
+  /** 传统里数 */
   distanceLi?: number;
-  /** 丝路相对方位 */
+  /** 相对方位，如「西南」 */
   bearing?: string;
-  /** 示意图画布上的走向 */
-  schematicBearing?: string;
 }
 
 export interface RouteData {
@@ -76,7 +74,6 @@ export function buildRouteEdges(nodes: RouteNode[]): RouteEdge[] {
       edge.distanceLi = seg.li;
       edge.bearing = seg.bearing;
     }
-    edge.schematicBearing = canvasBearing(a, b);
     edges.push(edge);
   }
   return edges;

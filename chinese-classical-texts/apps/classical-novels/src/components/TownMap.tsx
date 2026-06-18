@@ -204,7 +204,7 @@ export default function TownMap({ data, bookSlug }: Props) {
   ];
 
   return (
-    <div ref={containerRef} className="relative h-full w-full overflow-hidden">
+    <div ref={containerRef} className="graph-explorer town-explorer relative w-full overflow-hidden">
       <div className="pointer-events-none absolute inset-0" aria-hidden style={{ background: gt.backdrop }} />
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04]"
@@ -336,7 +336,7 @@ export default function TownMap({ data, bookSlug }: Props) {
       <div ref={chartRef} className="absolute inset-0 h-full w-full" />
 
       <p className="pointer-events-none absolute bottom-4 left-1/2 z-0 -translate-x-1/2 select-none text-center text-xs text-slate-600/70">
-        清河 · 西门府 · 东京政商链 · 滚轮缩放 · 点击地点
+        节点按原文方位摆放（上北下南·左西右东）· 滚轮缩放 · 点击地点
       </p>
     </div>
   );

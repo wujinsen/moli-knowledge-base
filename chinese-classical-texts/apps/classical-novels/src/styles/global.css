@@ -2450,7 +2450,7 @@ mark.compare-highlight--active {
   overflow: hidden;
 }
 
-/* 取经路线 · Leaflet 真实地理底图 */
+/* Leaflet 地图（金瓶梅市井 GIS 等） */
 .route-leaflet-label {
   background: rgba(15, 23, 42, 0.82);
   border: none;

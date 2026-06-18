@@ -182,21 +182,20 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
           },
         },
         {
-          key: 'route', glyph: '图', title: '取经路线', desc: '真实地理 + 神话地理双层 GIS', ...live(has('route'), slug, 'route', `/${slug}/route`),
+          key: 'route', glyph: '图', title: '取经路线', desc: '凡间路线 + 神话地理双层示意', ...live(has('route'), slug, 'route', `/${slug}/route`),
           preview: {
             intro:
-              '西行空间是「双层地理」：真实地理（长安→天竺）叠加神话地理（天界 / 幽冥 / 洞府）。本模块把每难的发生地落到地图，支持双层切换。',
+              '西行空间是「双层地理」：凡间取经线（长安→灵山）与神话异界（天界 / 幽冥 / 洞府）并置。本模块把每难发生地落到地图，支持凡间/神话图层切换。',
             dimensions: [
               { title: '凡间路线', desc: '长安、五行山、火焰山、车迟国… 途经国度' },
               { title: '神话坐标', desc: '天宫、灵山、地府、龙宫等异界' },
               { title: '事件落点', desc: '每难发生地与 location 实体绑定' },
-              { title: '双层叠加', desc: '真实 / 神话地理图层切换渲染' },
+              { title: '双层叠加', desc: '凡间 / 神话地理图层切换渲染' },
             ],
             phases: [
               '✅ X1 location 实体补全（26 凡间站 + 5 异界坐标）',
               '✅ X2 事件 — 地点绑定（按章回落点 + 难点叠加）',
-              '✅ X3 ECharts 双层地图渲染（凡间/神话图层切换）',
-              '✅ X4 Leaflet 真实瓦片底图（CARTO dark · 示意图/真实地理切换）',
+              '✅ X3 ECharts 双层地图（凡间/神话图层切换 · 路段方位里数）',
             ],
             relatedDoc: '西游记-知识图谱架构.md（地理坐标层）',
           },

@@ -22,7 +22,7 @@ const zh: Record<BookSlug, BookModules> = {
     bestiary: { title: '妖怪图鉴', desc: '五众神佛 · 妖王分组 · 性格法宝' },
     items: { title: '法宝谱系', desc: '制造 · 拥有 · 克制关系' },
     nan: { title: '八十一难', desc: '劫难单元时间轴' },
-    route: { title: '取经路线', desc: '真实地理 + 神话地理双层 GIS' },
+    route: { title: '取经路线', desc: '凡间路线 + 神话地理双层示意' },
     quanshi: { title: '诠释专题', desc: '内丹心性 · 政治隐喻 · 原型源流' },
     shi: { title: '丹道意象', desc: '心猿意马 · 五行生克 · 修心网络' },
     kaozheng: { title: '考证台', desc: '世德堂成书 · 吴承恩/丘处机公案' },
