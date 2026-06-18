@@ -1,0 +1,13 @@
+{
+  "name": "贾迎春",
+  "missing": [
+    "累丝金凤"
+  ],
+  "hints": [
+    {
+      "code": "crosslinks_missing_item",
+      "severity": "warn",
+      "message": "occupant_items 缺 累丝金凤，但 frontmatter 已列"
+    }
+  ]
+}

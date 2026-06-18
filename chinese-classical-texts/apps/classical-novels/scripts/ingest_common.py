@@ -29,7 +29,7 @@ LOCATION_DIR = "locations"
 
 # 尚无人物页、无法进 alias 表的配角名（正文 substring 检测）
 LITERAL_BODY_NAMES: dict[str, list[str]] = {
-    "红楼梦": ["绣桔", "绣鸾", "王住儿媳妇", "王住儿家的"],
+    "红楼梦": [],
 }
 
 
