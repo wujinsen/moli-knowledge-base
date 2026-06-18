@@ -265,8 +265,8 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
             ],
             phases: [
               'P2 chain 时间轴 UI（本页）',
-              'P3 每笔 transaction_refs 芯片 + ?event= 白银高亮',
-              'P4 chain ↔ 白银 / SNA / 图谱 ?focus= 联动',
+              'P3 交易芯片（金额+摘要）· ?event= 白银高亮 · build_chain.json',
+              'P4 ?focus= 深链 · 四阶段筛选 · 图谱/SNA/白银流反链',
               'J6 financial_event 专题轨 · build_financial.json · 药铺与放债链 topic',
               'J7 金红跨书 topic · 世情与贵族衰败对比',
             ],

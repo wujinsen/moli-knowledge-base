@@ -228,7 +228,7 @@ def main() -> None:
         subprocess.run([sys.executable, str(shi), "--write"], cwd=ROOT, check=True)
         items_x = ROOT / "scripts" / "build_items_cross_index.py"
         subprocess.run([sys.executable, str(items_x), "--write"], cwd=ROOT, check=True)
-        for script in ("build_silver.py", "build_financial.py"):
+        for script in ("build_silver.py", "build_financial.py", "build_chain.py"):
             p = ROOT / "scripts" / script
             subprocess.run([sys.executable, str(p), "金瓶梅"], cwd=ROOT, check=True)
     else:

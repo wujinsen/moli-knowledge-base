@@ -10,6 +10,7 @@ import {
   formatLiangAmount,
 } from '../../../lib/events';
 import { chainEventLinks, chainEventHref, silverEventHref } from '../../../lib/chain';
+import { getChainIndex, txChipLabel } from '../../../lib/chainIndex';
 import { graphFocusHref } from '../../../lib/sna';
 import { readChapterPath } from '../../../lib/editions';
 import jpmSna from '../../../data/jinpingmei.sna.json';
@@ -58,6 +59,7 @@ const nextLabel = isNan ? '下一难 →' : '下一节点 →';
 const amount = formatLiangAmount(d.amount_liang);
 const subtype = eventSubtypeLabel(d.subtype, d.financial_kind);
 const snaMeta = meta.slug === 'jinpingmei' ? (jpmSna as { hubs?: string[]; bangxian_hubs?: string[] }) : {};
+const chainIndex = getChainIndex(meta.slug);
 const moduleLinks = isChain
   ? chainEventLinks(d.characters, d.transaction_refs ?? [], {
       hubs: snaMeta.hubs ?? [],
@@ -174,11 +176,14 @@ const { Content } = await render(ev);
             <dt>关联交易</dt>
             <dd>
               {
-                d.transaction_refs.map((tid) => (
-                  <a href={`/${meta.slug}/silver#${tid}`} class="event-link mr-2 hover:underline">
-                    {tid}
-                  </a>
-                ))
+                d.transaction_refs.map((tid) => {
+                  const chip = chainIndex?.tx_chips[tid];
+                  return (
+                    <a href={`/${meta.slug}/silver#${tid}`} class="event-link mr-2 hover:underline" title={chip?.summary ?? tid}>
+                      {chip ? txChipLabel(chip, tid) : tid}
+                    </a>
+                  );
+                })
               }
             </dd>
           </>

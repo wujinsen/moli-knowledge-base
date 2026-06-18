@@ -29,6 +29,18 @@ BOOK_SLUG = "honglou"
 # 从新到旧；Studio 默认推荐 candidateCount>0 的第一项
 HLM_TIERS: list[dict] = [
     {
+        "id": "tier17",
+        "label": "第十七梯队",
+        "module": "patch_hlm_tier17_score31",
+        "script": "patch_hlm_tier17_score31.py",
+        "thinLabel": "score≤31",
+        "goal": "≥32",
+        "postApply": [
+            "python scripts/reciprocate_relations.py 红楼梦",
+            "python scripts/build_relations.py 红楼梦",
+        ],
+    },
+    {
         "id": "tier14",
         "label": "第十四梯队",
         "module": "patch_hlm_tier14_score29",
