@@ -12,7 +12,14 @@ from pydantic import BaseModel, Field
 from .apply import execute_apply
 from .config import NOVELS_ROOT
 from .context import build_maintenance_context
-from .dream_runner import DreamRunError, apply_dream_tier, dream_catalog, preview_dream_tier
+from .dream_runner import (
+    DreamRunError,
+    apply_dream_tier,
+    dream_catalog,
+    preview_dream_tier,
+    stream_dream_apply,
+    stream_dream_preview,
+)
 from .graph_runner import GraphRunError, apply_graph, preview_graph
 from .guard_runner import GuardRunError, run_guard_report
 from .ingest_runner import IngestRunError, run_ingest_report
@@ -150,6 +157,26 @@ def dream_apply(book_slug: str, tier_id: str, body: DreamApplyBody) -> dict:
         raise HTTPException(status_code=400, detail=str(e)) from e
     except DreamRunError as e:
         raise HTTPException(status_code=500, detail=str(e)) from e
+
+
+@app.get("/api/studio/dream/{book_slug}/{tier_id}/preview/stream")
+async def dream_preview_stream(book_slug: str, tier_id: str):
+    return StreamingResponse(
+        stream_dream_preview(book_slug, tier_id),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
+    )
+
+
+@app.post("/api/studio/dream/{book_slug}/{tier_id}/apply/stream")
+async def dream_apply_stream(book_slug: str, tier_id: str, body: DreamApplyBody):
+    if not body.confirm:
+        raise HTTPException(status_code=400, detail="confirm required")
+    return StreamingResponse(
+        stream_dream_apply(book_slug, tier_id),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
+    )
 
 
 @app.get("/api/studio/guard/{book_slug}")

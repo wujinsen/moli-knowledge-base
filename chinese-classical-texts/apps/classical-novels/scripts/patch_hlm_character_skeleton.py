@@ -191,9 +191,6 @@ def main() -> None:
     args = parser.parse_args()
 
     for book in resolve_books(args.book):
-        if book != "红楼梦":
-            print(f"[{book}] 暂仅支持红楼梦")
-            continue
         before = len(scan_thin(book))
         print(f"[{book}] 结构薄页 {before} 页" + (" (dry-run)" if args.dry_run else ""))
         n = patch_book(book, args.dry_run)

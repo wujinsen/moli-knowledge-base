@@ -2,12 +2,13 @@ import type {
   ApplyProposalRequest,
   ApplyProposalResponse,
   CreateSessionRequest,
-  LintReport,
-  GraphReport,
   DreamCatalog,
+  DreamProgressEvent,
   DreamTierPreview,
+  GraphReport,
   GuardReport,
   IngestReport,
+  LintReport,
   MaintenanceContext,
   PatchProposal,
   SendMessageRequest,
@@ -18,11 +19,17 @@ import type {
 const API_BASE = import.meta.env.PUBLIC_STUDIO_API ?? '';
 
 async function parseError(res: Response): Promise<string> {
+  if (res.status === 404) {
+    return (
+      '维护台 API 未连接 (404)。请确认：① 终端 A 已运行 npm run studio:api（浏览器可开 http://127.0.0.1:8787/api/studio/health）；' +
+      '② 本页来自 npm run dev（勿用 preview / 生产站点）；③ 重启 dev 以加载 .env.development 中的 PUBLIC_STUDIO_API。'
+    );
+  }
   try {
     const j = await res.json();
     return j.detail ?? j.message ?? res.statusText;
   } catch {
-    return res.statusText;
+    return res.statusText || `HTTP ${res.status}`;
   }
 }
 
@@ -85,6 +92,127 @@ export async function applyDreamTier(bookSlug: string, tierId: string): Promise<
   );
   if (!res.ok) throw new Error(await parseError(res));
   return res.json();
+}
+
+type DreamStreamHandlers = {
+  onProgress: (ev: DreamProgressEvent) => void;
+  onDone: (result: DreamTierPreview) => void;
+  onError: (err: Error) => void;
+};
+
+async function consumeDreamSSE(
+  res: Response,
+  handlers: DreamStreamHandlers,
+): Promise<void> {
+  if (!res.body) throw new Error('empty stream');
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = '';
+  let gotDone = false;
+
+  const dispatchBlock = (block: string) => {
+    const lines = block.split('\n');
+    let event = 'message';
+    let data = '';
+    for (const line of lines) {
+      if (line.startsWith('event:')) event = line.slice(6).trim();
+      if (line.startsWith('data:')) data = line.slice(5).trim();
+    }
+    if (!data) return;
+    const parsed = JSON.parse(data);
+    if (event === 'dream.progress') handlers.onProgress(parsed as DreamProgressEvent);
+    else if (event === 'dream.done') {
+      gotDone = true;
+      handlers.onDone(parsed as DreamTierPreview);
+    } else if (event === 'dream.error') {
+      throw new Error(parsed.message ?? 'dream stream error');
+    }
+  };
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    const parts = buffer.split('\n\n');
+    buffer = parts.pop() ?? '';
+
+    for (const block of parts) {
+      if (block.trim()) dispatchBlock(block);
+    }
+  }
+
+  if (buffer.trim()) dispatchBlock(buffer);
+
+  if (!gotDone) throw new Error('dream stream ended without result');
+}
+
+/** SSE dry-run 预览 — 逐条推送变更行与阶段进度 */
+export function streamDreamPreview(
+  bookSlug: string,
+  tierId: string,
+  handlers: DreamStreamHandlers,
+  signal?: AbortSignal,
+): () => void {
+  const controller = new AbortController();
+  const linked = signal
+    ? (() => {
+        if (signal.aborted) controller.abort();
+        else signal.addEventListener('abort', () => controller.abort(), { once: true });
+        return controller;
+      })()
+    : controller;
+
+  (async () => {
+    try {
+      const res = await fetch(
+        `${API_BASE}/api/studio/dream/${encodeURIComponent(bookSlug)}/${encodeURIComponent(tierId)}/preview/stream`,
+        { headers: { Accept: 'text/event-stream' }, signal: linked.signal },
+      );
+      if (!res.ok) throw new Error(await parseError(res));
+      await consumeDreamSSE(res, handlers);
+    } catch (e) {
+      if ((e as Error).name !== 'AbortError') handlers.onError(e as Error);
+    }
+  })();
+
+  return () => linked.abort();
+}
+
+/** SSE 应用批次 — 写盘 / postApply / 刷新预览分阶段推送 */
+export function streamDreamApply(
+  bookSlug: string,
+  tierId: string,
+  handlers: DreamStreamHandlers,
+  signal?: AbortSignal,
+): () => void {
+  const controller = new AbortController();
+  const linked = signal
+    ? (() => {
+        if (signal.aborted) controller.abort();
+        else signal.addEventListener('abort', () => controller.abort(), { once: true });
+        return controller;
+      })()
+    : controller;
+
+  (async () => {
+    try {
+      const res = await fetch(
+        `${API_BASE}/api/studio/dream/${encodeURIComponent(bookSlug)}/${encodeURIComponent(tierId)}/apply/stream`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'text/event-stream' },
+          body: JSON.stringify({ confirm: true }),
+          signal: linked.signal,
+        },
+      );
+      if (!res.ok) throw new Error(await parseError(res));
+      await consumeDreamSSE(res, handlers);
+    } catch (e) {
+      if ((e as Error).name !== 'AbortError') handlers.onError(e as Error);
+    }
+  })();
+
+  return () => linked.abort();
 }
 
 export async function fetchGuardReport(bookSlug: string): Promise<GuardReport> {

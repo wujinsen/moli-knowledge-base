@@ -2188,6 +2188,12 @@
       "contradiction": false
     },
     {
+      "source": "九灵元圣",
+      "target": "狮奴",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "二郎神",
       "target": "张太尉",
       "type": "主仆",
@@ -2257,6 +2263,12 @@
       "source": "二郎神",
       "target": "哪吒",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "二郎神",
+      "target": "祭赛国国王",
+      "type": "君臣",
       "contradiction": false
     },
     {
@@ -3928,6 +3940,18 @@
       "contradiction": false
     },
     {
+      "source": "唐僧",
+      "target": "杏仙",
+      "type": "恋慕",
+      "contradiction": false
+    },
+    {
+      "source": "唐僧",
+      "target": "灭法国国王",
+      "type": "师徒",
+      "contradiction": false
+    },
+    {
       "source": "唐太宗",
       "target": "唐僧",
       "type": "主仆",
@@ -4111,6 +4135,18 @@
       "source": "唐太宗",
       "target": "泾河龙王",
       "type": "仇敌",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "朱太尉",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "唐太宗",
+      "target": "秦广王",
+      "type": "君臣",
       "contradiction": false
     },
     {
@@ -4534,6 +4570,12 @@
       "contradiction": false
     },
     {
+      "source": "大鹏精",
+      "target": "小钻风",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "天竺国国王",
       "target": "玉兔精",
       "type": "敌对",
@@ -4572,6 +4614,12 @@
     {
       "source": "天竺国国王",
       "target": "教坊司",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "天竺国国王",
+      "target": "太阴星君",
       "type": "君臣",
       "contradiction": false
     },
@@ -4663,6 +4711,12 @@
       "source": "太宰",
       "target": "孙悟空",
       "type": "朋友",
+      "contradiction": false
+    },
+    {
+      "source": "太宰",
+      "target": "比丘国国王",
+      "type": "君臣",
       "contradiction": false
     },
     {
@@ -5040,6 +5094,12 @@
     {
       "source": "如来佛祖",
       "target": "罗汉",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "如来佛祖",
+      "target": "大鹏精",
       "type": "主仆",
       "contradiction": false
     },
@@ -5683,6 +5743,24 @@
       "source": "孙悟空",
       "target": "王灵官",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "崩将军",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "流元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "孙悟空",
+      "target": "芭将军",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -7804,6 +7882,12 @@
       "contradiction": false
     },
     {
+      "source": "朱紫国国王",
+      "target": "太监",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
       "source": "李太尉",
       "target": "二郎神",
       "type": "主仆",
@@ -8130,6 +8214,18 @@
     {
       "source": "比丘国国王",
       "target": "太宰",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "比丘国国王",
+      "target": "南极寿星",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "比丘国国王",
+      "target": "太监",
       "type": "君臣",
       "contradiction": false
     },
@@ -8562,6 +8658,12 @@
     {
       "source": "灭法国国王",
       "target": "光禄寺",
+      "type": "君臣",
+      "contradiction": false
+    },
+    {
+      "source": "灭法国国王",
+      "target": "东城兵马使",
       "type": "君臣",
       "contradiction": false
     },
@@ -9160,6 +9262,234 @@
       "contradiction": false
     },
     {
+      "source": "玉皇大帝",
+      "target": "东海龙王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "亢金龙",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "关元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "刘元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "危月燕",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "参水猿",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "壁水貐",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "多闻天王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "女土貉",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "娄金狗",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "室火猪",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "尾火虎",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "广目天王",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "庞元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "张月鹿",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "心月狐",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "房日兔",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "星日马",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "柳土獐",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "毕元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "毕月乌",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "氐土蝠",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "温元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "牛金牛",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "电母",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "箕水豹",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "翼火蛇",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "胃土彘",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "苟元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "荡魔天尊",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "虚日鼠",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "觜火猴",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "赤脚大仙",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "赵元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "轸水蚓",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "雷公",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "马元帅",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "玉皇大帝",
+      "target": "鬼金羊",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "玉面公主",
       "target": "铁扇公主",
       "type": "仇敌",
@@ -9187,6 +9517,12 @@
       "source": "王母娘娘",
       "target": "赤脚大仙",
       "type": "同僚",
+      "contradiction": false
+    },
+    {
+      "source": "王母娘娘",
+      "target": "许旌阳",
+      "type": "君臣",
       "contradiction": false
     },
     {
@@ -9292,6 +9628,12 @@
       "contradiction": false
     },
     {
+      "source": "白象精",
+      "target": "小钻风",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "白面狐狸",
       "target": "白鹿精",
       "type": "情人",
@@ -9337,6 +9679,12 @@
       "source": "白龙马",
       "target": "红孩儿",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "白龙马",
+      "target": "东海龙王",
+      "type": "父子",
       "contradiction": false
     },
     {
@@ -9637,6 +9985,12 @@
       "source": "精细鬼",
       "target": "孙悟空",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "精细鬼",
+      "target": "金角大王",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -10258,6 +10612,24 @@
       "contradiction": false
     },
     {
+      "source": "观音菩萨",
+      "target": "五方揭谛",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "观音菩萨",
+      "target": "揭谛",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "观音菩萨",
+      "target": "日值功曹",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "角木蛟",
       "target": "觜火猴",
       "type": "同僚",
@@ -10756,6 +11128,12 @@
       "contradiction": false
     },
     {
+      "source": "金角大王",
+      "target": "伶俐虫",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
       "source": "铁扇公主",
       "target": "红孩儿",
       "type": "母子",
@@ -10818,6 +11196,12 @@
     {
       "source": "银角大王",
       "target": "太上老君",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "银角大王",
+      "target": "伶俐虫",
       "type": "主仆",
       "contradiction": false
     },
@@ -11083,6 +11467,12 @@
       "source": "青狮精",
       "target": "孙悟空",
       "type": "敌对",
+      "contradiction": false
+    },
+    {
+      "source": "青狮精",
+      "target": "小钻风",
+      "type": "主仆",
       "contradiction": false
     },
     {
@@ -11376,6 +11766,12 @@
     {
       "source": "黑熊精",
       "target": "观音菩萨",
+      "type": "主仆",
+      "contradiction": false
+    },
+    {
+      "source": "黑熊精",
+      "target": "广智",
       "type": "主仆",
       "contradiction": false
     },

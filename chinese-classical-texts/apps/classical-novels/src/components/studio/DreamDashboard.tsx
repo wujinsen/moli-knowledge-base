@@ -1,11 +1,54 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import { applyDreamTier, fetchDreamCatalog, fetchDreamPreview } from '../../lib/studio/client';
-import type { BookSlug, DreamCatalog, DreamTierPreview } from '../../lib/studio/types';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  fetchDreamCatalog,
+  streamDreamApply,
+  streamDreamPreview,
+} from '../../lib/studio/client';
+import type { BookSlug, DreamCatalog, DreamProgressEvent, DreamTierPreview } from '../../lib/studio/types';
+import StudioProgressBanner, { type ProgressMetrics, useElapsedSeconds } from './StudioProgressBanner';
 
 type Props = {
   bookSlug: BookSlug;
   onOpenEntity?: (entityId: string) => void;
 };
+
+type StreamState = {
+  stage?: string;
+  label?: string;
+  lastLine?: string;
+  patchCount?: number;
+  progress: ProgressMetrics;
+};
+
+const STAGE_LABEL: Record<string, string> = {
+  preview: '预览',
+  patch: '写盘',
+  postApply: 'postApply',
+  refresh: '刷新预览',
+};
+
+function titleFromStream(stream: StreamState | null, applying: boolean): string {
+  if (!stream) return applying ? '正在应用批次…' : '正在生成 dry-run 预览…';
+  const stageName = STAGE_LABEL[stream.stage ?? ''] ?? stream.stage ?? '处理中';
+  const { progress, patchCount, lastLine } = stream;
+  if (stream.stage === 'preview' && progress.step && progress.total) {
+    return `${stageName} ${progress.step}/${progress.total}${lastLine ? ` · ${lastLine}` : ''}`;
+  }
+  if (stream.stage === 'patch' && progress.lineIndex) {
+    const totalHint = patchCount ? ` / 约 ${patchCount}` : progress.lineTotal ? ` / ${progress.lineTotal}` : '';
+    return `${stageName} · 第 ${progress.lineIndex} 条${totalHint}`;
+  }
+  if (stream.stage === 'postApply' && progress.step && progress.total) {
+    return `${stageName} ${progress.step}/${progress.total}`;
+  }
+  if (stream.label) return stream.label;
+  return applying ? '正在应用批次…' : '正在生成 dry-run 预览…';
+}
+
+function detailFromStream(stream: StreamState | null): string | undefined {
+  if (!stream?.lastLine) return undefined;
+  return stream.lastLine;
+}
 
 export default function DreamDashboard({ bookSlug, onOpenEntity }: Props) {
   const [catalog, setCatalog] = useState<DreamCatalog | null>(null);
@@ -16,6 +59,13 @@ export default function DreamDashboard({ bookSlug, onOpenEntity }: Props) {
   const [applying, setApplying] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [applyMsg, setApplyMsg] = useState<string | null>(null);
+  const [streamState, setStreamState] = useState<StreamState | null>(null);
+  const [liveChanges, setLiveChanges] = useState<Array<{ summary: string; characterId?: string | null }>>([]);
+
+  const streamAbortRef = useRef<(() => void) | null>(null);
+
+  const busy = loading || previewing || applying;
+  const elapsed = useElapsedSeconds(busy);
 
   const loadCatalog = useCallback(async () => {
     setLoading(true);
@@ -38,20 +88,81 @@ export default function DreamDashboard({ bookSlug, onOpenEntity }: Props) {
     loadCatalog();
   }, [loadCatalog]);
 
-  const runPreview = useCallback(async (id: string) => {
+  const handleProgress = useCallback((ev: DreamProgressEvent) => {
+    setStreamState((prev) => {
+      const base: StreamState = prev ?? { progress: {} };
+      if (ev.event === 'stage') {
+        return {
+          stage: ev.stage,
+          label: ev.label,
+          lastLine: ev.text ?? ev.command,
+          patchCount: base.patchCount,
+          progress: {
+            step: ev.step,
+            total: ev.total,
+            lineIndex: ev.stage === 'preview' ? ev.step : base.progress.lineIndex,
+            lineTotal: ev.stage === 'preview' ? ev.total : base.progress.lineTotal,
+          },
+        };
+      }
+      if (ev.event === 'line') {
+        return {
+          ...base,
+          stage: ev.stage ?? base.stage,
+          lastLine: ev.text,
+          progress: {
+            ...base.progress,
+            lineIndex: ev.index,
+            lineTotal: ev.total ?? base.progress.lineTotal,
+          },
+        };
+      }
+      if (ev.event === 'milestone') {
+        return {
+          ...base,
+          stage: ev.stage ?? base.stage,
+          lastLine: ev.text,
+          patchCount: ev.patchCount,
+          progress: base.progress,
+        };
+      }
+      if (ev.event === 'log' && ev.text) {
+        return { ...base, lastLine: ev.text };
+      }
+      return base;
+    });
+
+    if (ev.event === 'line' && ev.text) {
+      setLiveChanges((rows) => [...rows, { summary: ev.text!, characterId: ev.characterId }]);
+    }
+  }, []);
+
+  const runPreview = useCallback((id: string) => {
     if (!id) return;
+    streamAbortRef.current?.();
     setPreviewing(true);
     setError(null);
     setApplyMsg(null);
-    try {
-      const data = await fetchDreamPreview(bookSlug, id);
-      setPreview(data);
-    } catch (e) {
-      setError((e as Error).message);
-    } finally {
-      setPreviewing(false);
-    }
-  }, [bookSlug]);
+    setStreamState(null);
+    setLiveChanges([]);
+
+    streamAbortRef.current = streamDreamPreview(bookSlug, id, {
+      onProgress: handleProgress,
+      onDone: (data) => {
+        setPreview(data);
+        setPreviewing(false);
+        setStreamState(null);
+        setLiveChanges([]);
+        streamAbortRef.current = null;
+      },
+      onError: (e) => {
+        setError(e.message);
+        setPreviewing(false);
+        setStreamState(null);
+        streamAbortRef.current = null;
+      },
+    });
+  }, [bookSlug, handleProgress]);
 
   useEffect(() => {
     if (tierId && catalog?.supported !== false) {
@@ -59,31 +170,44 @@ export default function DreamDashboard({ bookSlug, onOpenEntity }: Props) {
     }
   }, [tierId, catalog?.supported, runPreview]);
 
+  useEffect(() => () => streamAbortRef.current?.(), []);
+
   const selectedTier = useMemo(
     () => catalog?.tiers.find((t) => t.id === tierId),
     [catalog, tierId],
   );
 
-  const handleApply = async () => {
+  const handleApply = () => {
     if (!tierId || !preview) return;
     const ok = window.confirm(
       `确认执行 ${preview.label}？\n\n将修改多个人物 md，并依次运行：\n${preview.postApply.map((c) => `· ${c}`).join('\n')}`,
     );
     if (!ok) return;
 
+    streamAbortRef.current?.();
     setApplying(true);
     setError(null);
     setApplyMsg(null);
-    try {
-      const data = await applyDreamTier(bookSlug, tierId);
-      setPreview(data);
-      setApplyMsg(`已应用 ${data.patchCount} 项变更 · postApply ${data.postApplyResults?.length ?? 0} 步`);
-      await loadCatalog();
-    } catch (e) {
-      setError((e as Error).message);
-    } finally {
-      setApplying(false);
-    }
+    setStreamState(null);
+    setLiveChanges([]);
+
+    streamAbortRef.current = streamDreamApply(bookSlug, tierId, {
+      onProgress: handleProgress,
+      onDone: async (data) => {
+        setPreview(data);
+        setApplyMsg(`已应用 ${data.patchCount} 项变更 · postApply ${data.postApplyResults?.length ?? 0} 步`);
+        setApplying(false);
+        setStreamState(null);
+        streamAbortRef.current = null;
+        await loadCatalog();
+      },
+      onError: (e) => {
+        setError(e.message);
+        setApplying(false);
+        setStreamState(null);
+        streamAbortRef.current = null;
+      },
+    });
   };
 
   if (catalog?.supported === false) {
@@ -99,13 +223,30 @@ export default function DreamDashboard({ bookSlug, onOpenEntity }: Props) {
     ? Math.max(...Object.values(catalog.scoreDistribution ?? {}).map(Number), 1)
     : 1;
 
+  const progressTitle = loading
+    ? '正在刷新梯队目录…'
+    : titleFromStream(streamState, applying);
+
+  const progressDetail = loading
+    ? '统计 score 分布与各梯队候选数'
+    : detailFromStream(streamState) ?? (
+      applying
+        ? `写盘 → postApply ${preview?.postApply.length ?? 0} 步 → 刷新预览`
+        : previewing
+          ? `扫描 ${selectedTier?.label ?? tierId} · 候选约 ${selectedTier?.candidateCount ?? '—'} 页`
+          : undefined
+    );
+
+  const displayChanges = previewing && liveChanges.length > 0 ? liveChanges : preview?.changes ?? [];
+  const displayPatchCount = previewing && liveChanges.length > 0 ? liveChanges.length : preview?.patchCount;
+
   return (
-    <div className="studio-dream">
+    <div className={`studio-dream${busy && !loading ? ' studio-dream-busy' : ''}`}>
       <div className="studio-lint-toolbar">
         <div>
           <h2 className="studio-batch-title">/dream tier 压平</h2>
           <p className="studio-batch-lead">
-            hub 互链 / trust_guard 可核 rel · dry-run 预览后再应用 · 仅红楼梦
+            hub 互链 / trust_guard 可核 rel · SSE 流式预览/应用 · 三书均支持
           </p>
         </div>
         <button type="button" className="studio-btn studio-btn-primary" disabled={loading} onClick={loadCatalog}>
@@ -113,8 +254,17 @@ export default function DreamDashboard({ bookSlug, onOpenEntity }: Props) {
         </button>
       </div>
 
+      {busy && progressTitle && (
+        <StudioProgressBanner
+          title={progressTitle}
+          detail={progressDetail}
+          elapsedSeconds={elapsed}
+          progress={loading ? null : streamState?.progress}
+        />
+      )}
+
       {error && <div className="studio-banner studio-banner-error">{error}</div>}
-      {applyMsg && <div className="studio-banner studio-banner-ok">{applyMsg}</div>}
+      {applyMsg && !applying && <div className="studio-banner studio-banner-ok">{applyMsg}</div>}
 
       {catalog && (
         <>
@@ -128,8 +278,8 @@ export default function DreamDashboard({ bookSlug, onOpenEntity }: Props) {
               <span className="studio-lint-stat-label">推荐批次</span>
             </div>
             <div className="studio-lint-stat">
-              <span className="studio-lint-stat-num">{preview?.patchCount ?? '—'}</span>
-              <span className="studio-lint-stat-label">预览变更</span>
+              <span className="studio-lint-stat-num">{displayPatchCount ?? '—'}</span>
+              <span className="studio-lint-stat-label">{previewing ? '已扫描' : '预览变更'}</span>
             </div>
           </div>
 
@@ -144,6 +294,7 @@ export default function DreamDashboard({ bookSlug, onOpenEntity }: Props) {
                       className={
                         tierId === t.id ? 'studio-lint-sec-btn studio-lint-sec-btn-active' : 'studio-lint-sec-btn'
                       }
+                      disabled={busy}
                       onClick={() => setTierId(t.id)}
                     >
                       <span>
@@ -194,7 +345,7 @@ export default function DreamDashboard({ bookSlug, onOpenEntity }: Props) {
                       </h3>
                       <p className="studio-lint-hint">
                         候选 {preview?.candidateCount ?? selectedTier.candidateCount} · 可改{' '}
-                        {preview?.patchCount ?? '…'} · stuck {preview?.stuckCount ?? '…'}
+                        {displayPatchCount ?? '…'} · stuck {preview?.stuckCount ?? '…'}
                       </p>
                     </div>
                     <button
@@ -213,18 +364,19 @@ export default function DreamDashboard({ bookSlug, onOpenEntity }: Props) {
                     </button>
                   </div>
 
-                  {previewing && <div className="studio-banner">生成 dry-run 预览…</div>}
-
-                  {preview && preview.candidateCount === 0 && (
+                  {preview && preview.candidateCount === 0 && !previewing && (
                     <p className="studio-lint-empty">该梯队无待压平人物（可能已完成）✓</p>
                   )}
 
-                  {preview && preview.patchCount > 0 && (
+                  {(displayPatchCount ?? 0) > 0 && (
                     <>
-                      <h4 className="studio-lint-subtitle">变更预览 ({preview.patchCount})</h4>
-                      <ul className="studio-lint-entity-list">
-                        {preview.changes.map((row) => (
-                          <li key={row.summary}>
+                      <h4 className="studio-lint-subtitle">
+                        变更预览 ({displayPatchCount})
+                        {previewing ? ' · 流式追加中' : ''}
+                      </h4>
+                      <ul className="studio-lint-entity-list studio-dream-live-list">
+                        {(previewing ? displayChanges.slice(-80) : displayChanges).map((row, idx) => (
+                          <li key={`${idx}-${row.summary}`}>
                             {row.characterId && onOpenEntity ? (
                               <button
                                 type="button"
@@ -238,14 +390,17 @@ export default function DreamDashboard({ bookSlug, onOpenEntity }: Props) {
                             )}
                           </li>
                         ))}
-                        {preview.truncatedChanges ? (
+                        {previewing && displayChanges.length > 80 ? (
+                          <li className="studio-lint-more">… 上方仅显示最近 80 条</li>
+                        ) : null}
+                        {!previewing && preview?.truncatedChanges ? (
                           <li className="studio-lint-more">… 另有 {preview.truncatedChanges} 条</li>
                         ) : null}
                       </ul>
                     </>
                   )}
 
-                  {preview && preview.stuckCount > 0 && (
+                  {preview && preview.stuckCount > 0 && !previewing && (
                     <>
                       <h4 className="studio-lint-subtitle">无法自动处理 ({preview.stuckCount})</h4>
                       <ul className="studio-lint-lines">

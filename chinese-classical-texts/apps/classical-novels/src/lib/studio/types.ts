@@ -320,6 +320,7 @@ export interface DreamCatalog {
   generatedAt: string;
   scoreDistribution?: Record<string, number>;
   totalCharacters?: number;
+  weakInboundTotal?: number;
   tiers: DreamTierCatalogEntry[];
   recommendedTierId?: string | null;
 }
@@ -362,6 +363,21 @@ export interface DreamTierPreview {
   }>;
   stdoutTail?: string;
   generatedAt: string;
+}
+
+export type DreamProgressStage = 'preview' | 'patch' | 'postApply' | 'refresh';
+
+export interface DreamProgressEvent {
+  event: 'stage' | 'line' | 'milestone' | 'log';
+  stage?: DreamProgressStage;
+  label?: string;
+  step?: number;
+  total?: number;
+  command?: string;
+  index?: number;
+  text?: string;
+  characterId?: string | null;
+  patchCount?: number;
 }
 
 export interface GuardIssueItem {

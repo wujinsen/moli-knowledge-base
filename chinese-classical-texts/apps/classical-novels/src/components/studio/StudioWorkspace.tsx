@@ -3,6 +3,7 @@ import StudioChatPanel from './StudioChatPanel';
 import StudioBatchPanel from './StudioBatchPanel';
 import StudioIngestPanel, { type ChapterOption } from './StudioIngestPanel';
 import StudioTodosBar, { type AutoSendPayload } from './StudioTodosBar';
+import StudioApiBanner from './StudioApiBanner';
 import type { BookSlug, StudioTodo } from '../../lib/studio/types';
 
 export type StudioEntity = {
@@ -150,6 +151,8 @@ export default function StudioWorkspace({
           </div>
         </div>
       </header>
+
+      <StudioApiBanner />
 
       {tab === 'workspace' ? (
         <div className="studio-workspace-body">

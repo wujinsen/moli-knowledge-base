@@ -36,7 +36,7 @@ def lint_items_location_dup(book: str) -> list[str]:
         locs = parse_list_field(raw, "locations") or []
         dup = [i for i in items if i in loc_ids or i in locs]
         if dup:
-            issues.append(f"items∩locations: {p.relative_to(CHAPTER_DIR)} → {dup}")
+            issues.append(f"items与locations: {p.relative_to(CHAPTER_DIR)} → {dup}")
     return issues
 
 
@@ -182,11 +182,11 @@ def lint_location_graph(book: str) -> list[str]:
 def main() -> None:
     book = sys.argv[1] if len(sys.argv) > 1 else "红楼梦"
     sections = [
-        ("items∩locations", lint_items_location_dup(book)),
+        ("items与locations", lint_items_location_dup(book)),
         ("chapter_summaries", lint_summary_keys(book)),
         ("character fields", lint_character_fields(book)),
         ("doc links", lint_broken_doc_links(book)),
-        ("unknown characters (脂本 sample)", lint_chapter_characters_unknown(book)),
+        ("unknown characters (脂评本抽样)", lint_chapter_characters_unknown(book)),
         ("location graph", lint_location_graph(book)),
     ]
     total = 0

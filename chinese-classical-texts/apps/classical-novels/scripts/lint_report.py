@@ -32,12 +32,12 @@ BOOK_SLUG = {
 }
 
 SECTIONS = [
-    ("items_locations", "items∩locations", lint_items_location_dup),
-    ("chapter_summaries", "chapter_summaries", lint_summary_keys),
-    ("character_fields", "character fields", lint_character_fields),
-    ("doc_links", "doc links", lint_broken_doc_links),
-    ("unknown_characters", "unknown characters (脂本 sample)", lint_chapter_characters_unknown),
-    ("location_graph", "location graph", lint_location_graph),
+    ("items_locations", "items 与 locations 重复", lint_items_location_dup),
+    ("chapter_summaries", "回目 summary 缺漏", lint_summary_keys),
+    ("character_fields", "人物字段缺漏", lint_character_fields),
+    ("doc_links", "文档内链断裂", lint_broken_doc_links),
+    ("unknown_characters", "未知人物（脂评本抽样）", lint_chapter_characters_unknown),
+    ("location_graph", "地点图谱", lint_location_graph),
 ]
 
 MAX_ITEMS = 50
@@ -79,6 +79,8 @@ def main() -> None:
 
     report = build_report(args.book)
     if args.json:
+        if hasattr(sys.stdout, "reconfigure"):
+            sys.stdout.reconfigure(encoding="utf-8")
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return
 

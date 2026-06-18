@@ -1,11 +1,11 @@
 from __future__ import annotations
 
 import json
-import subprocess
 import time
 from datetime import datetime, timezone
 
 from .config import NOVELS_ROOT, SLUG_BOOK
+from .subprocess_util import run_shell
 
 _CACHE: dict[str, tuple[float, dict]] = {}
 _CACHE_TTL_SEC = 300
@@ -25,17 +25,8 @@ def run_studio_todos(book_slug: str) -> dict:
     if cached and now - cached[0] < _CACHE_TTL_SEC:
         return cached[1]
 
-    cmd = f'python scripts/studio_todos.py "{book}" --json'
-    proc = subprocess.run(
-        cmd,
-        cwd=NOVELS_ROOT,
-        shell=True,
-        capture_output=True,
-        text=True,
-        encoding="utf-8",
-        errors="replace",
-        timeout=180,
-    )
+    cmd = f'python -X utf8 scripts/studio_todos.py "{book}" --json'
+    proc = run_shell(cmd, cwd=NOVELS_ROOT, timeout=180)
     if proc.returncode != 0:
         err = (proc.stderr or proc.stdout or "").strip()[-2500:]
         raise TodosRunError(err or f"studio_todos exited {proc.returncode}")

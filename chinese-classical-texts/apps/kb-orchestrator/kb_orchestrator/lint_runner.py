@@ -1,10 +1,10 @@
 from __future__ import annotations
 
 import json
-import subprocess
 from datetime import datetime, timezone
 
 from .config import NOVELS_ROOT, SLUG_BOOK
+from .subprocess_util import run_shell
 
 
 class LintRunError(Exception):
@@ -16,17 +16,8 @@ def run_lint_report(book_slug: str) -> dict:
     if not book:
         raise ValueError(f"unknown book slug: {book_slug}")
 
-    cmd = f'python scripts/lint_report.py "{book}" --json'
-    proc = subprocess.run(
-        cmd,
-        cwd=NOVELS_ROOT,
-        shell=True,
-        capture_output=True,
-        text=True,
-        encoding="utf-8",
-        errors="replace",
-        timeout=120,
-    )
+    cmd = f'python -X utf8 scripts/lint_report.py "{book}" --json'
+    proc = run_shell(cmd, cwd=NOVELS_ROOT, timeout=120)
     if proc.returncode != 0:
         err = (proc.stderr or proc.stdout or "").strip()[-2000:]
         raise LintRunError(err or f"lint_report exited {proc.returncode}")

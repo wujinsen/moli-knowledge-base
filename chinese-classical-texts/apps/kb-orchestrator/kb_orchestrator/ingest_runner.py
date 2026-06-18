@@ -1,10 +1,10 @@
 from __future__ import annotations
 
 import json
-import subprocess
 from datetime import datetime, timezone
 
 from .config import NOVELS_ROOT, SLUG_BOOK
+from .subprocess_util import run_shell
 
 
 class IngestRunError(Exception):
@@ -20,17 +20,8 @@ def run_ingest_report(book_slug: str, chapter: int, edition_slug: str | None = N
         raise ValueError("chapter must be >= 1")
 
     ed = f' --edition {edition_slug}' if edition_slug else ""
-    cmd = f'python scripts/ingest_report.py "{book}" {chapter}{ed} --json'
-    proc = subprocess.run(
-        cmd,
-        cwd=NOVELS_ROOT,
-        shell=True,
-        capture_output=True,
-        text=True,
-        encoding="utf-8",
-        errors="replace",
-        timeout=60,
-    )
+    cmd = f'python -X utf8 scripts/ingest_report.py "{book}" {chapter}{ed} --json'
+    proc = run_shell(cmd, cwd=NOVELS_ROOT, timeout=60)
     if proc.returncode != 0:
         err = (proc.stderr or proc.stdout or "").strip()[-2000:]
         raise IngestRunError(err or f"ingest_report exited {proc.returncode}")

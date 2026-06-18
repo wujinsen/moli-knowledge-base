@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-import os
 import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
+
+from .subprocess_util import run_shell
 
 
 @dataclass
@@ -32,17 +33,7 @@ def run_post_apply(root: Path, scripts: list[str], *, dry_run: bool = False) -> 
             continue
 
         # Windows: use shell for `python scripts/...`
-        proc = subprocess.run(
-            cmd,
-            cwd=root,
-            shell=True,
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-            errors="replace",
-            timeout=300,
-            env={**os.environ, "PYTHONIOENCODING": "utf-8"},
-        )
+        proc = run_shell(cmd, cwd=root, timeout=300)
         sr = ScriptResult(
             command=cmd,
             returncode=proc.returncode,

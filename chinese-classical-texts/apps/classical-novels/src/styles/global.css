@@ -2370,6 +2370,33 @@ a.edition-tab:hover {
   line-height: 1.85;
 }
 
+mark.compare-highlight {
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+mark.compare-highlight--a {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+mark.compare-highlight--b {
+  background: color-mix(in srgb, var(--primary) 18%, transparent);
+  box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--primary) 40%, transparent);
+}
+
+mark.compare-highlight--active {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.compare-chip-left,
+.compare-chip-right {
+  font-size: 0.65rem;
+  opacity: 0.75;
+  margin-right: 0.15rem;
+}
+
 @media (max-width: 768px) {
   .edition-compare-shell {
     grid-template-columns: 1fr;
@@ -2417,6 +2444,35 @@ a.edition-tab:hover {
   min-height: calc(100vh - var(--graph-chrome, 10.5rem));
   min-height: calc(100dvh - var(--graph-chrome, 10.5rem));
   overflow: hidden;
+}
+
+/* 取经路线 · Leaflet 真实地理底图 */
+.route-leaflet-label {
+  background: rgba(15, 23, 42, 0.82);
+  border: none;
+  border-radius: 4px;
+  color: #e8eef7;
+  font-size: 11px;
+  padding: 1px 5px;
+  box-shadow: none;
+}
+.route-leaflet-label::before {
+  display: none;
+}
+.leaflet-container {
+  background: #0b1120;
+  font-family: inherit;
+}
+.leaflet-popup-content-wrapper {
+  background: #0f172a;
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.leaflet-popup-tip {
+  background: #0f172a;
+}
+.leaflet-popup-content a {
+  text-decoration: underline;
 }
 
 .graph-topbar .topbar-modules {
@@ -3745,6 +3801,78 @@ a.edition-tab:hover {
 .studio-banner-ok a {
   color: inherit;
   font-weight: 600;
+}
+
+.studio-progress-banner {
+  margin: 0.5rem 1rem 0;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.35rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 35%, var(--line));
+  background: color-mix(in srgb, var(--primary) 7%, var(--paper-2));
+}
+
+.studio-progress-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35rem 0.75rem;
+}
+
+.studio-progress-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.studio-progress-elapsed {
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+}
+
+.studio-progress-detail {
+  margin: 0.35rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.studio-progress-bar-track {
+  height: 4px;
+  margin-top: 0.55rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--line) 80%, transparent);
+  overflow: hidden;
+}
+
+.studio-progress-bar-indeterminate {
+  height: 100%;
+  width: 38%;
+  border-radius: 999px;
+  background: var(--primary);
+  animation: studio-progress-slide 1.25s ease-in-out infinite;
+}
+
+.studio-progress-bar-determinate {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--primary);
+  transition: width 0.25s ease;
+}
+
+@keyframes studio-progress-slide {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(320%);
+  }
+}
+
+.studio-dream-busy .studio-lint-grid {
+  opacity: 0.55;
+  pointer-events: none;
 }
 
 .studio-graph-types {
