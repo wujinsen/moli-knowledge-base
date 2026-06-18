@@ -21,9 +21,9 @@ from lint_kb import (
     lint_chapter_characters_unknown,
     lint_character_fields,
     lint_items_location_dup,
-    lint_location_graph,
     lint_summary_keys,
 )
+from lint_modules import module_sections, module_stats
 
 BOOK_SLUG = {
     "红楼梦": "honglou",
@@ -31,13 +31,12 @@ BOOK_SLUG = {
     "西游记": "xiyouji",
 }
 
-SECTIONS = [
-    ("items_locations", "items 与 locations 重复", lint_items_location_dup),
-    ("chapter_summaries", "回目 summary 缺漏", lint_summary_keys),
-    ("character_fields", "人物字段缺漏", lint_character_fields),
-    ("doc_links", "文档内链断裂", lint_broken_doc_links),
-    ("unknown_characters", "未知人物（脂评本抽样）", lint_chapter_characters_unknown),
-    ("location_graph", "地点图谱", lint_location_graph),
+CORE_SECTIONS = [
+    ("items_locations", "回目卫生 · items∩locations", "core", lint_items_location_dup),
+    ("chapter_summaries", "回目 · summary 缺漏", "core", lint_summary_keys),
+    ("character_fields", "人物 · 字段缺漏", "core", lint_character_fields),
+    ("doc_links", "主题 · 文档内链断裂", "core", lint_broken_doc_links),
+    ("unknown_characters", "回目 · 未知人物（脂评本）", "core", lint_chapter_characters_unknown),
 ]
 
 MAX_ITEMS = 50
@@ -46,13 +45,14 @@ MAX_ITEMS = 50
 def build_report(book: str) -> dict:
     sections = []
     total = 0
-    for sid, title, fn in SECTIONS:
+    for sid, title, group, fn in CORE_SECTIONS + module_sections(book):
         items = fn(book)
         total += len(items)
         sections.append(
             {
                 "id": sid,
                 "title": title,
+                "group": group,
                 "count": len(items),
                 "items": items[:MAX_ITEMS],
                 "truncated": max(0, len(items) - MAX_ITEMS),
@@ -67,6 +67,7 @@ def build_report(book: str) -> dict:
         "totalIssues": total,
         "passed": total == 0,
         "sections": sections,
+        "moduleStats": module_stats(book),
         "density": density,
     }
 
@@ -86,8 +87,18 @@ def main() -> None:
 
     print(f"=== {args.book} lint report ===")
     print(f"totalIssues: {report['totalIssues']} passed={report['passed']}")
+    ms = report.get("moduleStats") or {}
+    if ms:
+        parts = []
+        if "items" in ms:
+            parts.append(f"名物 {ms['items']['count']}")
+        if "places" in ms:
+            parts.append(f"建筑 {ms['places']['count']}")
+        if "shi" in ms:
+            parts.append(f"意象 {ms['shi']['count']}")
+        print("modules: " + " · ".join(parts))
     for sec in report["sections"]:
-        print(f"\n--- {sec['title']} ({sec['count']}) ---")
+        print(f"\n--- [{sec.get('group', '?')}] {sec['title']} ({sec['count']}) ---")
         for line in sec["items"][:10]:
             print(line)
         if sec["truncated"]:

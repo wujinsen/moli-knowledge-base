@@ -54,6 +54,19 @@ const stanceClass = (s: string) =>
   {meta.slug === 'jinpingmei' && <JpmModuleNav bookSlug={meta.slug} features={meta.features} current="kaozheng" />}
 
   {
+    meta.slug === 'jinpingmei' && meta.features.includes('compare') && (
+      <div class="mb-6 flex flex-wrap gap-2">
+        <a href={`/${meta.slug}/compare`} class="chip" style="color: var(--accent)">
+          版本对勘 · 词话 / 崇祯 / 竹坡
+        </a>
+        <a href={`/${meta.slug}/topics/版本对勘样本`} class="chip" style="color: var(--primary)">
+          版本学专题 →
+        </a>
+      </div>
+    )
+  }
+
+  {
     meta.slug === 'xiyouji' && meta.features.includes('compare') && (
       <div class="mb-6 flex flex-wrap gap-2">
         <a href={`/${meta.slug}/compare`} class="chip" style="color: var(--accent)">

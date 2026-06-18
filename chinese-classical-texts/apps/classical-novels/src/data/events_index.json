@@ -1581,9 +1581,12 @@
           ],
           "locations": [],
           "characters": [
-            "唐僧"
+            "唐僧",
+            "寅将军"
           ],
-          "monsters": [],
+          "monsters": [
+            "寅将军"
+          ],
           "artifacts": [],
           "prev": "xy-e-004",
           "next": "xy-e-006",
@@ -1610,9 +1613,12 @@
           ],
           "locations": [],
           "characters": [
-            "唐僧"
+            "唐僧",
+            "寅将军"
           ],
-          "monsters": [],
+          "monsters": [
+            "寅将军"
+          ],
           "artifacts": [],
           "prev": "xy-e-005",
           "next": "xy-e-007",
@@ -1642,9 +1648,16 @@
           ],
           "locations": [],
           "characters": [
-            "唐僧"
+            "唐僧",
+            "寅将军",
+            "熊山君",
+            "特处士"
           ],
-          "monsters": [],
+          "monsters": [
+            "寅将军",
+            "熊山君",
+            "特处士"
+          ],
           "artifacts": [],
           "prev": "xy-e-006",
           "next": "xy-e-008",
@@ -2230,6 +2243,29 @@
           "artifacts": [],
           "prev": "xy-e-019",
           "next": "xy-e-021",
+          "scoped_relations": [
+            {
+              "subject": "白骨精",
+              "predicate": "化身",
+              "object": "送斋村姑",
+              "chapter": 27,
+              "ephemeral": true
+            },
+            {
+              "subject": "白骨精",
+              "predicate": "化身",
+              "object": "寻女老妪",
+              "chapter": 27,
+              "ephemeral": true
+            },
+            {
+              "subject": "白骨精",
+              "predicate": "化身",
+              "object": "寻亲老翁",
+              "chapter": 27,
+              "ephemeral": true
+            }
+          ],
           "tags": [
             "八十一难"
           ],
@@ -2237,8 +2273,7 @@
           "source": "chapters/西游记/099.md",
           "transaction_refs": [],
           "variants": [],
-          "contradicts": [],
-          "scoped_relations": []
+          "contradicts": []
         },
         {
           "id": "xy-ms-003",
@@ -2301,6 +2336,22 @@
           "artifacts": [],
           "prev": "xy-e-020",
           "next": "xy-e-022",
+          "scoped_relations": [
+            {
+              "subject": "奎木狼",
+              "predicate": "化身",
+              "object": "俊俏文人（入赘宝象国驸马）",
+              "chapter": 29,
+              "ephemeral": true
+            },
+            {
+              "subject": "奎木狼",
+              "predicate": "变身",
+              "object": "唐僧→猛虎",
+              "chapter": 30,
+              "ephemeral": true
+            }
+          ],
           "tags": [
             "八十一难"
           ],
@@ -2309,8 +2360,7 @@
           "aliases": [],
           "transaction_refs": [],
           "variants": [],
-          "contradicts": [],
-          "scoped_relations": []
+          "contradicts": []
         },
         {
           "id": "xy-e-022",
@@ -2425,6 +2475,15 @@
           ],
           "prev": "xy-e-023",
           "next": "xy-e-025",
+          "scoped_relations": [
+            {
+              "subject": "银角大王",
+              "predicate": "化身",
+              "object": "跌伤道士（诓骗唐僧）",
+              "chapter": 32,
+              "ephemeral": true
+            }
+          ],
           "tags": [
             "八十一难"
           ],
@@ -2432,8 +2491,7 @@
           "source": "chapters/西游记/099.md",
           "transaction_refs": [],
           "variants": [],
-          "contradicts": [],
-          "scoped_relations": []
+          "contradicts": []
         },
         {
           "id": "xy-e-025",
@@ -2589,6 +2647,29 @@
           "artifacts": [],
           "prev": "xy-e-027",
           "next": "xy-e-029",
+          "scoped_relations": [
+            {
+              "subject": "红孩儿",
+              "predicate": "化身",
+              "object": "受难红衣小儿（绑吊松树）",
+              "chapter": 40,
+              "ephemeral": true
+            },
+            {
+              "subject": "红孩儿",
+              "predicate": "假冒",
+              "object": "观音菩萨（赚猪八戒）",
+              "chapter": 42,
+              "ephemeral": true
+            },
+            {
+              "subject": "孙悟空",
+              "predicate": "变身",
+              "object": "牛魔王（赚红孩儿）",
+              "chapter": 42,
+              "ephemeral": true
+            }
+          ],
           "tags": [
             "八十一难"
           ],
@@ -2596,8 +2677,7 @@
           "source": "chapters/西游记/099.md",
           "transaction_refs": [],
           "variants": [],
-          "contradicts": [],
-          "scoped_relations": []
+          "contradicts": []
         },
         {
           "id": "xy-e-029",
@@ -3304,6 +3384,15 @@
           "artifacts": [],
           "prev": "xy-e-045",
           "next": "xy-e-047",
+          "scoped_relations": [
+            {
+              "subject": "六耳猕猴",
+              "predicate": "假冒",
+              "object": "孙悟空（真假难辨）",
+              "chapter": 57,
+              "ephemeral": true
+            }
+          ],
           "tags": [
             "八十一难"
           ],
@@ -3311,8 +3400,7 @@
           "source": "chapters/西游记/099.md",
           "transaction_refs": [],
           "variants": [],
-          "contradicts": [],
-          "scoped_relations": []
+          "contradicts": []
         },
         {
           "id": "xy-ms-004",
@@ -3408,11 +3496,15 @@
             "孙悟空",
             "铁扇公主",
             "牛魔王",
+            "玉面公主",
             "唐僧",
             "猪八戒",
             "沙僧"
           ],
-          "monsters": [],
+          "monsters": [
+            "牛魔王",
+            "玉面公主"
+          ],
           "artifacts": [
             "芭蕉扇",
             "定风丹"
@@ -3604,9 +3696,20 @@
             "唐僧",
             "孙悟空",
             "猪八戒",
-            "沙僧"
+            "沙僧",
+            "十八公",
+            "孤直公",
+            "凌空子",
+            "拂云叟",
+            "杏仙"
           ],
-          "monsters": [],
+          "monsters": [
+            "十八公",
+            "孤直公",
+            "凌空子",
+            "拂云叟",
+            "杏仙"
+          ],
           "artifacts": [],
           "prev": "xy-e-051",
           "next": "xy-e-053",
@@ -4463,7 +4566,9 @@
             "沙僧",
             "黄狮精"
           ],
-          "monsters": [],
+          "monsters": [
+            "黄狮精"
+          ],
           "artifacts": [
             "金箍棒",
             "九齿钉钯",
@@ -4502,7 +4607,9 @@
             "沙僧",
             "黄狮精"
           ],
-          "monsters": [],
+          "monsters": [
+            "黄狮精"
+          ],
           "artifacts": [],
           "prev": "xy-e-073",
           "next": "xy-e-075",
@@ -4668,12 +4775,23 @@
             "沙僧",
             "玉兔精"
           ],
-          "monsters": [],
+          "monsters": [
+            "玉兔精"
+          ],
           "artifacts": [
             "捣药杵"
           ],
           "prev": "xy-e-077",
           "next": "xy-e-079",
+          "scoped_relations": [
+            {
+              "subject": "玉兔精",
+              "predicate": "假冒",
+              "object": "天竺国公主（抛绣球招亲）",
+              "chapter": 95,
+              "ephemeral": true
+            }
+          ],
           "tags": [
             "八十一难"
           ],
@@ -4681,8 +4799,7 @@
           "source": "chapters/西游记/099.md",
           "transaction_refs": [],
           "variants": [],
-          "contradicts": [],
-          "scoped_relations": []
+          "contradicts": []
         },
         {
           "id": "xy-e-079",

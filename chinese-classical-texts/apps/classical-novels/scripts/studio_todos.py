@@ -158,15 +158,120 @@ def collect_ingest_todos(book: str, *, limit: int = 6) -> list[dict]:
     return todos
 
 
+def collect_module_todos(book: str, *, limit: int = 10) -> list[dict]:
+    """名物 / 建筑 / 意象 lint 优先待办。"""
+    from lint_modules import (
+        _has_places_module,
+        book_features,
+        lint_items_crosslinks_gap,
+        lint_items_field_gaps,
+        lint_items_missing_pages,
+        lint_places_field_gaps,
+        lint_places_graph,
+        lint_shi_field_gaps,
+        lint_shi_inference_gaps,
+    )
+
+    feats = book_features(book)
+    todos: list[dict] = []
+
+    if "items" in feats:
+        for line in lint_items_missing_pages(book)[:4]:
+            iid = line.split(": ", 1)[-1].split(" @")[0].replace("缺实体页: ", "")
+            todos.append(
+                {
+                    "id": f"todo_item_page_{iid}",
+                    "kind": "fix_key_item",
+                    "entityId": iid,
+                    "message": line,
+                    "suggestedPrompt": f"为名物 {iid} 建实体页并补回目 items[] 互链",
+                    "severity": "warn",
+                }
+            )
+        for line in lint_items_crosslinks_gap(book)[:3]:
+            todos.append(
+                {
+                    "id": f"todo_item_xlink_{len(todos)}",
+                    "kind": "fix_key_item",
+                    "message": line,
+                    "suggestedPrompt": f"补全 crosslinks：{line}",
+                    "severity": "info",
+                }
+            )
+        for line in lint_items_field_gaps(book)[:2]:
+            iid = line.split(": ", 1)[-1].split(" ·")[0].replace("字段缺漏: ", "")
+            todos.append(
+                {
+                    "id": f"todo_item_field_{iid}",
+                    "kind": "fix_key_item",
+                    "entityId": iid,
+                    "message": line,
+                    "suggestedPrompt": f"补全名物页 {iid} 的 summary / first_appear",
+                    "severity": "info",
+                }
+            )
+
+    if "places" in feats or _has_places_module(book):
+        for line in lint_places_graph(book)[:2]:
+            todos.append(
+                {
+                    "id": f"todo_place_graph_{len(todos)}",
+                    "kind": "query",
+                    "message": line,
+                    "suggestedPrompt": f"补建筑入链或回目 locations[]：{line}",
+                    "severity": "warn",
+                }
+            )
+        for line in lint_places_field_gaps(book)[:2]:
+            lid = line.split(": ", 1)[-1].split(" ·")[0].replace("字段缺漏: ", "")
+            todos.append(
+                {
+                    "id": f"todo_place_field_{lid}",
+                    "kind": "query",
+                    "entityId": lid,
+                    "message": line,
+                    "suggestedPrompt": f"补全地点页 {lid} 的 summary / first_appear",
+                    "severity": "info",
+                }
+            )
+
+    if "poems" in feats:
+        for line in lint_shi_inference_gaps(book)[:3]:
+            todos.append(
+                {
+                    "id": f"todo_shi_inf_{len(todos)}",
+                    "kind": "topic_fill",
+                    "message": line,
+                    "suggestedPrompt": f"补意象 inference 边：{line}",
+                    "severity": "warn",
+                }
+            )
+        for line in lint_shi_field_gaps(book)[:2]:
+            iid = line.split(": ", 1)[-1].split(" ·")[0].replace("字段缺漏: ", "")
+            todos.append(
+                {
+                    "id": f"todo_shi_field_{iid}",
+                    "kind": "topic_fill",
+                    "entityId": iid,
+                    "message": line,
+                    "suggestedPrompt": f"补全意象页 {iid} 的 summary / chapters",
+                    "severity": "info",
+                }
+            )
+
+    return todos[:limit]
+
+
 def collect_studio_todos(book: str) -> dict:
     book_slug = BOOK_SLUG.get(book, book)
     cross = collect_crosslink_todos(book)
     density = collect_density_todos(book)
     ingest = collect_ingest_todos(book)
+    modules = collect_module_todos(book)
 
     seen: set[str] = set()
     merged: list[dict] = []
-    for group in (cross, ingest, density):
+    for group in (modules, cross, ingest, density):
         for t in group:
             if t["id"] in seen:
                 continue
@@ -180,6 +285,7 @@ def collect_studio_todos(book: str) -> dict:
         "totalTodos": len(merged),
         "todos": merged[:25],
         "sources": {
+            "modules": len(modules),
             "crosslinks": len(cross),
             "ingest": len(ingest),
             "density": len(density),

@@ -1,0 +1,291 @@
+{
+  "book": "西游记",
+  "slug": "xiyouji",
+  "generated_by": "build_shi_wuxing.py",
+  "elements": [
+    "金",
+    "木",
+    "土",
+    "水",
+    "火"
+  ],
+  "by_element": {
+    "金": [
+      {
+        "id": "xyj-dan-xinyuan",
+        "title": "心猿 · 金公",
+        "characters": [
+          "孙悟空"
+        ]
+      }
+    ],
+    "木": [
+      {
+        "id": "xyj-dan-mumu",
+        "title": "木母",
+        "characters": [
+          "猪八戒"
+        ]
+      }
+    ],
+    "土": [
+      {
+        "id": "xyj-dan-huangpo",
+        "title": "黄婆",
+        "characters": [
+          "沙僧"
+        ]
+      }
+    ],
+    "水": [
+      {
+        "id": "xyj-dan-yima",
+        "title": "意马",
+        "characters": [
+          "白龙马"
+        ]
+      },
+      {
+        "id": "xyj-place-tongtianhe",
+        "title": "通天河",
+        "characters": [
+          "白龙马",
+          "唐僧"
+        ]
+      }
+    ],
+    "火": [
+      {
+        "id": "xyj-dan-yinger",
+        "title": "婴儿",
+        "characters": [
+          "红孩儿"
+        ]
+      },
+      {
+        "id": "xyj-place-huoyanshan",
+        "title": "火焰山",
+        "characters": [
+          "孙悟空",
+          "牛魔王"
+        ]
+      }
+    ]
+  },
+  "element_counts": {
+    "金": 1,
+    "木": 1,
+    "土": 1,
+    "水": 2,
+    "火": 2
+  },
+  "edges": [
+    {
+      "source": "xyj-dan-chanv",
+      "target": "xyj-dan-mumu",
+      "sourceTitle": "姹女",
+      "targetTitle": "木母",
+      "sourceElement": null,
+      "targetElement": "木",
+      "predicate": "相克",
+      "chapter": 72,
+      "note": "第72回〈盘丝洞姹女求阳，木母忘形落底〉——杂念耗木母之精。"
+    },
+    {
+      "source": "xyj-dan-huangpo",
+      "target": "xyj-dan-xinyuan",
+      "sourceTitle": "黄婆",
+      "targetTitle": "心猿 · 金公",
+      "sourceElement": "土",
+      "targetElement": "金",
+      "predicate": "调和",
+      "chapter": null,
+      "note": "土调金：每劝悟空，即丹道「土调金」。"
+    },
+    {
+      "source": "xyj-dan-huangpo",
+      "target": "xyj-dan-mumu",
+      "sourceTitle": "黄婆",
+      "targetTitle": "木母",
+      "sourceElement": "土",
+      "targetElement": "木",
+      "predicate": "调和",
+      "chapter": null,
+      "note": "土调木：每劝八戒，即丹道「土调木」。"
+    },
+    {
+      "source": "xyj-dan-kanli",
+      "target": "xyj-dan-xinyuan",
+      "sourceTitle": "抽坎填离 · 水火既济",
+      "targetTitle": "心猿 · 金公",
+      "sourceElement": null,
+      "targetElement": "金",
+      "predicate": "相济",
+      "chapter": null,
+      "note": "心猿（离火）与意马（坎水）相济，抽坎中之阳填离中之阴。"
+    },
+    {
+      "source": "xyj-dan-kanli",
+      "target": "xyj-dan-yima",
+      "sourceTitle": "抽坎填离 · 水火既济",
+      "targetTitle": "意马",
+      "sourceElement": null,
+      "targetElement": "水",
+      "predicate": "相济",
+      "chapter": null,
+      "note": null
+    },
+    {
+      "source": "xyj-dan-wuxing",
+      "target": "xyj-dan-xinyuan",
+      "sourceTitle": "五行 · 师徒配属",
+      "targetTitle": "心猿 · 金公",
+      "sourceElement": null,
+      "targetElement": "金",
+      "predicate": "交并",
+      "chapter": null,
+      "note": "金（心猿）木（木母）土（黄婆）水（意马）相生相克，五行攒簇方成丹。"
+    },
+    {
+      "source": "xyj-dan-wuxing",
+      "target": "xyj-dan-mumu",
+      "sourceTitle": "五行 · 师徒配属",
+      "targetTitle": "木母",
+      "sourceElement": null,
+      "targetElement": "木",
+      "predicate": "相克",
+      "chapter": null,
+      "note": null
+    },
+    {
+      "source": "xyj-dan-wuxing",
+      "target": "xyj-dan-huangpo",
+      "sourceTitle": "五行 · 师徒配属",
+      "targetTitle": "黄婆",
+      "sourceElement": null,
+      "targetElement": "土",
+      "predicate": "调和",
+      "chapter": null,
+      "note": null
+    },
+    {
+      "source": "xyj-dan-xinyuan",
+      "target": "xyj-dan-mumu",
+      "sourceTitle": "心猿 · 金公",
+      "targetTitle": "木母",
+      "sourceElement": "金",
+      "targetElement": "木",
+      "predicate": "相克",
+      "chapter": 85,
+      "note": "金木相克：第85回〈心猿妒木母〉；和好则金木交并。"
+    },
+    {
+      "source": "xyj-dan-xinyuan",
+      "target": "xyj-dan-yima",
+      "sourceTitle": "心猿 · 金公",
+      "targetTitle": "意马",
+      "sourceElement": "金",
+      "targetElement": "水",
+      "predicate": "相济",
+      "chapter": null,
+      "note": "水火相济：心猿（火/金）与意马（水），抽坎填离。"
+    },
+    {
+      "source": "xyj-dan-yinger",
+      "target": "xyj-dan-xinyuan",
+      "sourceTitle": "婴儿",
+      "targetTitle": "心猿 · 金公",
+      "sourceElement": "火",
+      "targetElement": "金",
+      "predicate": "相克",
+      "chapter": 41,
+      "note": "三昧真火克心猿：第41回〈心猿遭火败，木母被魔擒〉。"
+    },
+    {
+      "source": "xyj-place-tongtianhe",
+      "target": "xyj-dan-yima",
+      "sourceTitle": "通天河",
+      "targetTitle": "意马",
+      "sourceElement": "水",
+      "targetElement": "水",
+      "predicate": "相济",
+      "chapter": null,
+      "note": "通天河即意念之大水；意马渡水，水火相济之考验。"
+    }
+  ],
+  "relation_counts": {
+    "相克": 4,
+    "交并": 1,
+    "调和": 3,
+    "相济": 4
+  },
+  "chains": [
+    {
+      "id": "xinyuan-wukong",
+      "name": "心猿→悟空（金）",
+      "summary": "心猿金公→孙悟空",
+      "path": [
+        "xyj-dan-xinyuan",
+        "孙悟空"
+      ]
+    },
+    {
+      "id": "yima-longma",
+      "name": "意马→龙马",
+      "summary": "意马→白龙马",
+      "path": [
+        "xyj-dan-yima",
+        "白龙马"
+      ]
+    },
+    {
+      "id": "jinmu-ke",
+      "name": "金木相克：心猿—木母",
+      "summary": "心猿与木母（八戒）相克交并",
+      "path": [
+        "xyj-dan-xinyuan",
+        "xyj-dan-mumu",
+        "猪八戒"
+      ]
+    },
+    {
+      "id": "huangpo-tune",
+      "name": "黄婆调和金木",
+      "summary": "黄婆（土）调和心猿与木母",
+      "path": [
+        "xyj-dan-huangpo",
+        "xyj-dan-xinyuan",
+        "xyj-dan-mumu"
+      ]
+    },
+    {
+      "id": "shuihuo",
+      "name": "水火相济：心猿—意马",
+      "summary": "心猿与意马水火相济",
+      "path": [
+        "xyj-dan-xinyuan",
+        "xyj-dan-yima",
+        "白龙马"
+      ]
+    },
+    {
+      "id": "huoyanshan-hong",
+      "name": "婴儿火性：火焰山—红孩儿",
+      "summary": "火焰山→婴儿（火）→红孩儿",
+      "path": [
+        "xyj-place-huoyanshan",
+        "xyj-dan-yinger",
+        "红孩儿"
+      ]
+    },
+    {
+      "id": "lingtai-start",
+      "name": "修心起点：灵台方寸山",
+      "summary": "灵台方寸→悟空求道",
+      "path": [
+        "xyj-place-lingtai",
+        "孙悟空"
+      ]
+    }
+  ]
+}

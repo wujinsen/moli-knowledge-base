@@ -61,6 +61,14 @@ def enrich(book: str, slug: str) -> dict:
             "max_degree": max((m["degree"] for m in group), default=0),
         }
 
+    metrics.sort(key=lambda m: (-m["betweenness"], -m["degree"], m["id"]))
+    for rank, m in enumerate(metrics, start=1):
+        m["betweenness_rank"] = rank
+    by_degree = sorted(metrics, key=lambda x: (-x["degree"], -x["betweenness"], x["id"]))
+    for rank, m in enumerate(by_degree, start=1):
+        m["degree_rank"] = rank
+    degree_hubs = [m["id"] for m in by_degree[:5]]
+
     bangxian = [m for m in metrics if m.get("faction") == BANGXIAN_FACTION]
     bangxian.sort(key=lambda x: (-x["betweenness"], -x["degree"], x["id"]))
     bangxian_hubs = [m["id"] for m in bangxian[:5]]
@@ -76,6 +84,7 @@ def enrich(book: str, slug: str) -> dict:
         "node_count": len(char_nodes),
         "edge_count": len(edges),
         "hubs": base["hubs"],
+        "degree_hubs": degree_hubs,
         "bangxian_hubs": bangxian_hubs,
         "factions": factions_summary,
         "metrics": metrics,

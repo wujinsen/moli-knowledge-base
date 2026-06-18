@@ -75,36 +75,37 @@ export function relatedMapLinks(
   };
 
   const nodeId = opts?.nodeId;
+  const bridgeLayers = nodeId ? BRIDGE_NODES[nodeId] : undefined;
 
-  if (current === 'garden' || current === 'digital-tour' || current === 'scene') {
-    add('manor', '荣府侧院');
-    add('capital', '宁荣街以北');
-  }
-  if (current === 'manor') {
-    add('capital', '宁荣街 / 都外');
-    add('garden', '大观园侧院');
-    add('digital-tour', 'Archviz 标注');
-    add('scene', '可逛全园');
-  }
-  if (current === 'capital') {
-    add('manor', '两府内宅');
-    add('garden', '大观园');
-    add('digital-tour', '园内鸟瞰');
-  }
+  if (bridgeLayers) {
+    const reason = BRIDGE_NODE_REASONS[nodeId!];
+    for (const key of bridgeLayers) add(key, reason);
+  } else {
+    if (current === 'garden' || current === 'digital-tour' || current === 'scene') {
+      add('manor', '荣府侧院');
+      add('capital', '宁荣街以北');
+    }
+    if (current === 'manor') {
+      add('capital', '宁荣街 / 都外');
+      add('garden', '大观园侧院');
+      add('digital-tour', 'Archviz 标注');
+      add('scene', '可逛全园');
+    }
+    if (current === 'capital') {
+      add('manor', '两府内宅');
+      add('garden', '大观园');
+      add('digital-tour', '园内鸟瞰');
+    }
 
-  if (nodeId && BRIDGE_NODES[nodeId]) {
-    const reason = BRIDGE_NODE_REASONS[nodeId];
-    for (const key of BRIDGE_NODES[nodeId]) add(key, reason);
-  }
-
-  if (current === 'digital-tour') add('garden', '逻辑拓扑');
-  if (current === 'scene') {
-    add('garden', '逻辑拓扑');
-    add('digital-tour', 'Archviz 底图');
-  }
-  if (current === 'garden') {
-    add('digital-tour');
-    add('scene');
+    if (current === 'digital-tour') add('garden', '逻辑拓扑');
+    if (current === 'scene') {
+      add('garden', '逻辑拓扑');
+      add('digital-tour', 'Archviz 底图');
+    }
+    if (current === 'garden') {
+      add('digital-tour');
+      add('scene');
+    }
   }
 
   return out;

@@ -237,9 +237,21 @@ export interface ApplyProposalResponse {
 export interface LintSection {
   id: string;
   title: string;
+  group?: 'core' | 'items' | 'places' | 'shi';
   count: number;
   items: string[];
   truncated?: number;
+}
+
+export interface LintModuleStat {
+  enabled: boolean;
+  count: number;
+}
+
+export interface LintModuleStats {
+  items?: LintModuleStat;
+  places?: LintModuleStat;
+  shi?: LintModuleStat;
 }
 
 export interface DensityCharacterRow {
@@ -273,6 +285,7 @@ export interface LintReport {
   totalIssues: number;
   passed: boolean;
   sections: LintSection[];
+  moduleStats?: LintModuleStats;
   density: LintDensityReport;
 }
 

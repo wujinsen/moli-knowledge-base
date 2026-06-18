@@ -1,8 +1,10 @@
 import type { CollectionEntry } from 'astro:content';
 import itemsIndex from '../data/items_index.json';
 import { snapshotEntries, wrapEntry, type SnapshotIndex } from './contentSnapshot';
+import { type ItemKind, kindLabel, itemsIndexTitle } from './itemsKind';
 
-export type ItemKind = 'medicine' | 'dish' | 'costume' | 'custom' | 'artifact';
+export { kindLabel, itemsIndexTitle };
+export type { ItemKind };
 
 type ItemData = CollectionEntry<'medicines' | 'dishes' | 'costumes' | 'customs' | 'artifacts'>['data'];
 
@@ -12,22 +14,6 @@ export type ItemEntry = {
   kind: ItemKind;
   entry: CollectionEntry<'medicines' | 'dishes' | 'costumes' | 'customs' | 'artifacts'>;
 };
-
-const KIND_LABEL: Record<ItemKind, string> = {
-  medicine: '医药',
-  dish: '饮食',
-  costume: '服饰',
-  custom: '民俗',
-  artifact: '法宝',
-};
-
-export function kindLabel(kind: ItemKind): string {
-  return KIND_LABEL[kind];
-}
-
-export function itemsIndexTitle(book: string): string {
-  return book === '西游记' ? '法宝谱系' : '名物百科';
-}
 
 const COLLECTION_BY_KIND = {
   artifact: 'artifacts',

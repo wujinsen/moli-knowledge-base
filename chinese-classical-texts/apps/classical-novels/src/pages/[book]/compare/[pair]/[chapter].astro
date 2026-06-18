@@ -3,6 +3,8 @@ import { getCollection, render } from 'astro:content';
 import { getBooks } from '../../../../lib/getBooks';
 import Base from '../../../../layouts/Base.astro';
 import BackLink from '../../../../components/BackLink.astro';
+import JpmModuleNav from '../../../../components/JpmModuleNav.astro';
+import CompareChapterTools from '../../../../components/CompareChapterTools.tsx';
 import {
   comparePairSlugs,
   comparePairsFor,
@@ -10,7 +12,7 @@ import {
   editionLabel,
   editionSlug,
 } from '../../../../lib/editions';
-import { variantsForChapter } from '../../../../lib/variants';
+import { getCompareIndex, variantsForPairChapter } from '../../../../lib/compareIndex';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -65,12 +67,10 @@ const {
 
 const meta = bookMeta.data;
 const pair = comparePairsFor(meta.slug)[pairSlug];
-const variants = await variantsForChapter(meta.book, chapter);
-const relevantVariants = variants.filter(
-  (v) =>
-    (v.data.edition_a === pair.left && v.data.edition_b === pair.right) ||
-    (v.data.edition_a === pair.right && v.data.edition_b === pair.left),
-);
+const compareIndex = getCompareIndex(meta.slug);
+const relevantVariants = compareIndex
+  ? variantsForPairChapter(compareIndex, pairSlug, chapter)
+  : [];
 
 const { Content: LeftContent } = await render(leftEntry);
 const { Content: RightContent } = await render(rightEntry);
@@ -87,6 +87,8 @@ const next = chapter < meta.chapter_count ? chapter + 1 : undefined;
   features={meta.features}
 >
   <BackLink href={`/${meta.slug}/compare`} label="对勘目录" />
+
+  {meta.slug === 'jinpingmei' && <JpmModuleNav bookSlug={meta.slug} features={meta.features} current="compare" />}
 
   <section class="surface mt-3 mb-4 px-4 py-5 sm:px-6">
     <h1 class="brand text-2xl sm:text-3xl" style="color: var(--primary)">
@@ -120,30 +122,17 @@ const next = chapter < meta.chapter_count ? chapter + 1 : undefined;
     </nav>
   </section>
 
-  {
-    relevantVariants.length > 0 && (
-      <section class="surface mb-4 px-4 py-4 sm:px-6">
-        <h2 class="section-title mb-2 text-sm">本回异文锚点（{relevantVariants.length}）</h2>
-        <ul class="space-y-2 text-sm text-muted">
-          {
-            relevantVariants.map((v) => (
-              <li class="border-l-2 pl-3" style="border-color: var(--accent)">
-                <span class="chip mr-1 text-xs">{v.data.category}</span>
-                {v.data.summary}
-                {
-                  v.data.text_a && v.data.text_b && (
-                    <div class="mt-1 text-xs opacity-90">
-                      「{v.data.text_a}」↔「{v.data.text_b}」
-                    </div>
-                  )
-                }
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-    )
-  }
+  <CompareChapterTools
+    bookSlug={meta.slug}
+    pairSlug={pairSlug}
+    chapter={chapter}
+    pairLabel={pair.label}
+    leftLabel={editionLabel(pair.left)}
+    rightLabel={editionLabel(pair.right)}
+    variants={relevantVariants}
+    features={meta.features}
+    client:load
+  />
 
   <div class="edition-compare-shell" data-edition-compare>
     <div class="edition-compare-col">
@@ -190,23 +179,3 @@ const next = chapter < meta.chapter_count ? chapter + 1 : undefined;
     }
   </nav>
 </Base>
-
-<script>
-  const root = document.querySelector('[data-edition-compare]');
-  if (root) {
-    const left = root.querySelector('[data-compare-scroll="left"]');
-    const right = root.querySelector('[data-compare-scroll="right"]');
-    if (left && right) {
-      let syncing = false;
-      const sync = (src, dst) => {
-        if (syncing) return;
-        syncing = true;
-        const ratio = src.scrollTop / Math.max(1, src.scrollHeight - src.clientHeight);
-        dst.scrollTop = ratio * Math.max(0, dst.scrollHeight - dst.clientHeight);
-        syncing = false;
-      };
-      left.addEventListener('scroll', () => sync(left, right), { passive: true });
-      right.addEventListener('scroll', () => sync(right, left), { passive: true });
-    }
-  }
-</script>

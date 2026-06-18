@@ -1,0 +1,1892 @@
+{
+  "book": "西游记",
+  "slug": "xiyouji",
+  "generated_by": "build_compare.py",
+  "variant_total": 110,
+  "chapter_count_with_variants": 37,
+  "pairs": {
+    "shide-tongben": {
+      "left": "世德堂本",
+      "right": "通本",
+      "label": "世德堂 ↔ 通本",
+      "variant_count": 110,
+      "chapters_with_variants": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        36,
+        39,
+        52,
+        56,
+        62,
+        71,
+        75,
+        97,
+        99
+      ]
+    }
+  },
+  "by_chapter": {
+    "1": [
+      {
+        "id": "xyj-v-000",
+        "category": "删润",
+        "summary": "卷首作者署：世德堂无署 vs 通本署吴承恩。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "（卷首不署作者）",
+        "text_b": "《西游记》 明 吴承恩",
+        "topic_id": null,
+        "tags": [
+          "卷首"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-001",
+        "category": "措辞",
+        "summary": "第1回「扑蜡」↔「扑八蜡」措辞异文。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "扑蜡",
+        "text_b": "扑八蜡",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-002",
+        "category": "措辞",
+        "summary": "第1回「灵霄宝殿」↔「灵霄宝店」。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "灵霄宝殿",
+        "text_b": "灵霄宝店",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-003",
+        "category": "措辞",
+        "summary": "第1回「编草」↔「编草帓」。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "编草",
+        "text_b": "编草帓",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-028",
+        "category": "措辞",
+        "summary": "第1回「”。」↔「。”」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "”。",
+        "text_b": "。”",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "2": [
+      {
+        "id": "xyj-v-029",
+        "category": "措辞",
+        "summary": "第2回「之时」↔「功夫」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "之时",
+        "text_b": "功夫",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-030",
+        "category": "措辞",
+        "summary": "第2回「，呵呵」↔「呀呀」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "，呵呵",
+        "text_b": "呀呀",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "3": [
+      {
+        "id": "xyj-v-031",
+        "category": "措辞",
+        "summary": "第3回「，擡」↔「！抬」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "，擡",
+        "text_b": "！抬",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-032",
+        "category": "措辞",
+        "summary": "第3回「著。」↔「着，」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "著。",
+        "text_b": "着，",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-033",
+        "category": "措辞",
+        "summary": "第3回「吩咐」↔「分付」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "吩咐",
+        "text_b": "分付",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-034",
+        "category": "措辞",
+        "summary": "第3回「。攲」↔「，倚」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "。攲",
+        "text_b": "，倚",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-035",
+        "category": "措辞",
+        "summary": "第3回「抡著」↔「轮着」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "抡著",
+        "text_b": "轮着",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "4": [
+      {
+        "id": "xyj-v-036",
+        "category": "措辞",
+        "summary": "第4回「抡著」↔「轮着」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "抡著",
+        "text_b": "轮着",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-037",
+        "category": "措辞",
+        "summary": "第4回「扢叉」↔「呵嚓」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "扢叉",
+        "text_b": "呵嚓",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-038",
+        "category": "措辞",
+        "summary": "第4回「？著」↔「！着」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "？著",
+        "text_b": "！着",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-039",
+        "category": "措辞",
+        "summary": "第4回「与我」↔「有此‘」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "与我",
+        "text_b": "有此‘",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "5": [
+      {
+        "id": "xyj-v-040",
+        "category": "措辞",
+        "summary": "第5回「蹡蹡」↔「跄跄」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "蹡蹡",
+        "text_b": "跄跄",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-041",
+        "category": "措辞",
+        "summary": "第5回「著，」↔「着。」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "著，",
+        "text_b": "着。",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-042",
+        "category": "措辞",
+        "summary": "第5回「各各」↔「个个」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "各各",
+        "text_b": "个个",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "6": [
+      {
+        "id": "xyj-v-043",
+        "category": "措辞",
+        "summary": "第6回「抡著」↔「轮着」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "抡著",
+        "text_b": "轮着",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-044",
+        "category": "措辞",
+        "summary": "第6回「见著」↔「现着」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "见著",
+        "text_b": "现着",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-045",
+        "category": "措辞",
+        "summary": "第6回「吩咐」↔「分付」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "吩咐",
+        "text_b": "分付",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-046",
+        "category": "措辞",
+        "summary": "第6回「刃。」↔「刀！」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "刃。",
+        "text_b": "刀！",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-047",
+        "category": "措辞",
+        "summary": "第6回「。諕」↔「，唬」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "。諕",
+        "text_b": "，唬",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "7": [
+      {
+        "id": "xyj-v-048",
+        "category": "措辞",
+        "summary": "第7回「淆、」↔「肴，」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "淆、",
+        "text_b": "肴，",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-049",
+        "category": "措辞",
+        "summary": "第7回「著雷」↔「着云」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "著雷",
+        "text_b": "着云",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-050",
+        "category": "措辞",
+        "summary": "第7回「，玄」↔「、元」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "，玄",
+        "text_b": "、元",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-051",
+        "category": "措辞",
+        "summary": "第7回「捧著」↔「摔着」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "捧著",
+        "text_b": "摔着",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "8": [
+      {
+        "id": "xyj-v-052",
+        "category": "措辞",
+        "summary": "第8回「锺世」↔「钟也」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "锺世",
+        "text_b": "钟也",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-053",
+        "category": "措辞",
+        "summary": "第8回「俱卢」↔「巨芦」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "俱卢",
+        "text_b": "巨芦",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-054",
+        "category": "措辞",
+        "summary": "第8回「疏，」↔「流．」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "疏，",
+        "text_b": "流．",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-055",
+        "category": "措辞",
+        "summary": "第8回「曰：」↔「回；」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "曰：",
+        "text_b": "回；",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-056",
+        "category": "措辞",
+        "summary": "第8回「锦襴」↔「镜湖」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "锦襴",
+        "text_b": "镜湖",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "9": [
+      {
+        "id": "xyj-v-009",
+        "category": "回目",
+        "summary": "第9回回目完全不同（陈光蕊段 vs 袁守诚/龙王段）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "陈光蕊赴任逢灾　江流僧复雠报本",
+        "text_b": "袁守诚妙算无私曲　老龙王拙计犯天条",
+        "topic_id": null,
+        "tags": [
+          "结构重排"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "10": [
+      {
+        "id": "xyj-v-010",
+        "category": "回目",
+        "summary": "第10回回目异文（龙王冥吏 vs 镇鬼还魂）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "老龙王拙计犯天条　魏丞相遗书托冥吏",
+        "text_b": "二将军宫门镇鬼　唐太宗地府还魂",
+        "topic_id": null,
+        "tags": [
+          "结构重排"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "11": [
+      {
+        "id": "xyj-v-011",
+        "category": "回目",
+        "summary": "第11回回目异文（刘全续配 vs 萧瑀空门）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "游地府太宗还魂　进瓜果刘全续配",
+        "text_b": "还受生唐王遵善果　度孤魂萧瑀正空门",
+        "topic_id": null,
+        "tags": [
+          "结构重排"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "12": [
+      {
+        "id": "xyj-v-012",
+        "category": "回目",
+        "summary": "第12回回目：唐王/玄奘、显圣/显象异文。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "唐王秉诚修大会　观音显圣化金蝉",
+        "text_b": "玄奘秉诚建大会　观音显象化金蝉",
+        "topic_id": null,
+        "tags": [
+          "结构重排"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "13": [
+      {
+        "id": "xyj-v-013",
+        "category": "措辞",
+        "summary": "第13回回目标点/空格删润。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "陷虎穴金星解厄　　双叉岭伯钦留僧",
+        "text_b": "陷虎穴金星解厄　双叉岭伯钦留僧",
+        "topic_id": null,
+        "tags": [
+          "版式"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-057",
+        "category": "措辞",
+        "summary": "第13回「！”」↔「”，」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "！”",
+        "text_b": "”，",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-058",
+        "category": "措辞",
+        "summary": "第13回「。諕」↔「，唬」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "。諕",
+        "text_b": "，唬",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "14": [
+      {
+        "id": "xyj-v-059",
+        "category": "措辞",
+        "summary": "第14回「。諕」↔「，唬」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "。諕",
+        "text_b": "，唬",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-060",
+        "category": "措辞",
+        "summary": "第14回「时，」↔「，是」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "时，",
+        "text_b": "，是",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-061",
+        "category": "措辞",
+        "summary": "第14回「絮聒」↔「绪咶」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "絮聒",
+        "text_b": "绪咶",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-062",
+        "category": "措辞",
+        "summary": "第14回「拄著」↔「柱着」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "拄著",
+        "text_b": "柱着",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-063",
+        "category": "措辞",
+        "summary": "第14回「恓恓」↔「凄凄」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "恓恓",
+        "text_b": "凄凄",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "15": [
+      {
+        "id": "xyj-v-064",
+        "category": "措辞",
+        "summary": "第15回「。走」↔「，去」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "。走",
+        "text_b": "，去",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-065",
+        "category": "措辞",
+        "summary": "第15回「著，」↔「着！」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "著，",
+        "text_b": "着！",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-066",
+        "category": "措辞",
+        "summary": "第15回「抡著」↔「轮着」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "抡著",
+        "text_b": "轮着",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-067",
+        "category": "措辞",
+        "summary": "第15回「。著」↔「，着」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "。著",
+        "text_b": "，着",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-068",
+        "category": "措辞",
+        "summary": "第15回「著产」↔「刬着」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "著产",
+        "text_b": "刬着",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "16": [
+      {
+        "id": "xyj-v-069",
+        "category": "措辞",
+        "summary": "第16回「叠叠」↔「选迭」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "叠叠",
+        "text_b": "选迭",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-070",
+        "category": "措辞",
+        "summary": "第16回「查查」↔「揸揸」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "查查",
+        "text_b": "揸揸",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-071",
+        "category": "措辞",
+        "summary": "第16回「。諕」↔「，唬」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "。諕",
+        "text_b": "，唬",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-072",
+        "category": "措辞",
+        "summary": "第16回「；著」↔「，着」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "；著",
+        "text_b": "，着",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-073",
+        "category": "措辞",
+        "summary": "第16回「著，」↔「，着意」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "著，",
+        "text_b": "，着意",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "17": [
+      {
+        "id": "xyj-v-074",
+        "category": "措辞",
+        "summary": "第17回「著，」↔「着。」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "著，",
+        "text_b": "着。",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-075",
+        "category": "措辞",
+        "summary": "第17回「之。」↔「了！」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "之。",
+        "text_b": "了！",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-076",
+        "category": "措辞",
+        "summary": "第17回「。諕」↔「，唬」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "。諕",
+        "text_b": "，唬",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-077",
+        "category": "措辞",
+        "summary": "第17回「。”」↔「”。」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "。”",
+        "text_b": "”。",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-078",
+        "category": "措辞",
+        "summary": "第17回「著：」↔「着：“」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "著：",
+        "text_b": "着：“",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "18": [
+      {
+        "id": "xyj-v-018",
+        "category": "回目",
+        "summary": "第18回「大圣除魔」↔「行者降魔」。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "观音院唐僧脱难　高老庄大圣除魔",
+        "text_b": "观音院唐僧脱难　高老庄行者降魔",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-079",
+        "category": "措辞",
+        "summary": "第18回「褌札」↔「裩扎」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "褌札",
+        "text_b": "裩扎",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-080",
+        "category": "措辞",
+        "summary": "第18回「。”」↔「”。」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "。”",
+        "text_b": "”。",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-081",
+        "category": "措辞",
+        "summary": "第18回「师父」↔「三藏」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "师父",
+        "text_b": "三藏",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-082",
+        "category": "措辞",
+        "summary": "第18回「啧啧」↔「喷喷」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "啧啧",
+        "text_b": "喷喷",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-083",
+        "category": "措辞",
+        "summary": "第18回「著，」↔「着！」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "著，",
+        "text_b": "着！",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "19": [
+      {
+        "id": "xyj-v-084",
+        "category": "措辞",
+        "summary": "第19回「结局」↔「竭绝」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "结局",
+        "text_b": "竭绝",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-085",
+        "category": "措辞",
+        "summary": "第19回「窰。」↔「窑，」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "窰。",
+        "text_b": "窑，",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-086",
+        "category": "措辞",
+        "summary": "第19回「钳著」↔「拑着」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "钳著",
+        "text_b": "拑着",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-087",
+        "category": "措辞",
+        "summary": "第19回「傍；」↔「旁，」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "傍；",
+        "text_b": "旁，",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-088",
+        "category": "措辞",
+        "summary": "第19回「盘。」↔「槃，」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "盘。",
+        "text_b": "槃，",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "20": [
+      {
+        "id": "xyj-v-089",
+        "category": "措辞",
+        "summary": "第20回「媸媸」↔「姢姢」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "媸媸",
+        "text_b": "姢姢",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-090",
+        "category": "措辞",
+        "summary": "第20回「回身」↔「下头」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "回身",
+        "text_b": "下头",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-091",
+        "category": "措辞",
+        "summary": "第20回「抡起」↔「轮钉」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "抡起",
+        "text_b": "轮钉",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-092",
+        "category": "措辞",
+        "summary": "第20回「插著」↔「撇着」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "插著",
+        "text_b": "撇着",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-093",
+        "category": "措辞",
+        "summary": "第20回「擡著」↔「抬着」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "擡著",
+        "text_b": "抬着",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "21": [
+      {
+        "id": "xyj-v-094",
+        "category": "措辞",
+        "summary": "第21回「屣著」↔「躧着」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "屣著",
+        "text_b": "躧着",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-095",
+        "category": "措辞",
+        "summary": "第21回「出？」↔「唤！」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "出？",
+        "text_b": "唤！",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-096",
+        "category": "措辞",
+        "summary": "第21回「。”」↔「”。」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "。”",
+        "text_b": "”。",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-097",
+        "category": "措辞",
+        "summary": "第21回「傍留」↔「旁边」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "傍留",
+        "text_b": "旁边",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "22": [
+      {
+        "id": "xyj-v-098",
+        "category": "措辞",
+        "summary": "第22回「覆覆」↔「复复」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "覆覆",
+        "text_b": "复复",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-099",
+        "category": "措辞",
+        "summary": "第22回「鲠鮊」↔「鯾鲌」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "鲠鮊",
+        "text_b": "鯾鲌",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "23": [
+      {
+        "id": "xyj-v-100",
+        "category": "措辞",
+        "summary": "第23回「淅淅」↔「渐浙」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "淅淅",
+        "text_b": "渐浙",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-101",
+        "category": "措辞",
+        "summary": "第23回「，致」↔「。这」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "，致",
+        "text_b": "。这",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-102",
+        "category": "措辞",
+        "summary": "第23回「挡著」↔「汤着」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "挡著",
+        "text_b": "汤着",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-103",
+        "category": "措辞",
+        "summary": "第23回「著：“」↔「着：」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "著：“",
+        "text_b": "着：",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "24": [
+      {
+        "id": "xyj-v-104",
+        "category": "措辞",
+        "summary": "第24回「叠叠」↔「迭迭」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "叠叠",
+        "text_b": "迭迭",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-105",
+        "category": "措辞",
+        "summary": "第24回「湾湾」↔「弯弯」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "湾湾",
+        "text_b": "弯弯",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-106",
+        "category": "措辞",
+        "summary": "第24回「，够」↔「！彀」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "，够",
+        "text_b": "！彀",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "25": [
+      {
+        "id": "xyj-v-107",
+        "category": "措辞",
+        "summary": "第25回「。諕」↔「，唬」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "。諕",
+        "text_b": "，唬",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-108",
+        "category": "措辞",
+        "summary": "第25回「；任」↔「。这」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "；任",
+        "text_b": "。这",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-109",
+        "category": "措辞",
+        "summary": "第25回「打扮」↔「模样」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "打扮",
+        "text_b": "模样",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-110",
+        "category": "措辞",
+        "summary": "第25回「抡著」↔「轮着」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "抡著",
+        "text_b": "轮着",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-111",
+        "category": "措辞",
+        "summary": "第25回「著。」↔「着，」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "著。",
+        "text_b": "着，",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "26": [
+      {
+        "id": "xyj-v-112",
+        "category": "措辞",
+        "summary": "第26回「碁，」↔「棋：」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "碁，",
+        "text_b": "棋：",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-113",
+        "category": "措辞",
+        "summary": "第26回「一时」↔「因此」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "一时",
+        "text_b": "因此",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-114",
+        "category": "措辞",
+        "summary": "第26回「，悟空可」↔「！我」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "，悟空可",
+        "text_b": "！我",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "27": [
+      {
+        "id": "xyj-v-115",
+        "category": "措辞",
+        "summary": "第27回「师兄」↔「行者」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "师兄",
+        "text_b": "行者",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-116",
+        "category": "措辞",
+        "summary": "第27回「。那师兄」↔「；那行者」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "。那师兄",
+        "text_b": "；那行者",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "28": [
+      {
+        "id": "xyj-v-117",
+        "category": "措辞",
+        "summary": "第28回「当当」↔「噹噹」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "当当",
+        "text_b": "噹噹",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      },
+      {
+        "id": "xyj-v-118",
+        "category": "措辞",
+        "summary": "第28回「二只」↔「一双」（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "二只",
+        "text_b": "一双",
+        "topic_id": null,
+        "tags": [
+          "auto"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "36": [
+      {
+        "id": "xyj-v-019",
+        "category": "回目",
+        "summary": "第36回回目异文（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "心猿正处诸缘伏　劈破傍门见月明",
+        "text_b": "心猿正处诸缘伏　劈破旁门见月明",
+        "topic_id": null,
+        "tags": [
+          "auto",
+          "回目"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "39": [
+      {
+        "id": "xyj-v-020",
+        "category": "回目",
+        "summary": "第39回回目异文（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "一粒丹砂天上得　三年故主世间生",
+        "text_b": "一粒金丹天上得　三年故主世间生",
+        "topic_id": null,
+        "tags": [
+          "auto",
+          "回目"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "52": [
+      {
+        "id": "xyj-v-021",
+        "category": "回目",
+        "summary": "第52回回目异文（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "悟空大闹金兜洞　如来暗示主人公",
+        "text_b": "悟空大闹金山兜洞　如来暗示主人公",
+        "topic_id": null,
+        "tags": [
+          "auto",
+          "回目"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "56": [
+      {
+        "id": "xyj-v-022",
+        "category": "回目",
+        "summary": "第56回回目异文（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "神狂诛草寇　道迷放心猿",
+        "text_b": "神狂诛草寇　道昧放心猿",
+        "topic_id": null,
+        "tags": [
+          "auto",
+          "回目"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "62": [
+      {
+        "id": "xyj-v-023",
+        "category": "回目",
+        "summary": "第62回回目异文（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "涤垢洗心惟扫塔　缚魔归主乃修身",
+        "text_b": "涤垢洗心惟扫塔　缚魔归正乃修身",
+        "topic_id": null,
+        "tags": [
+          "auto",
+          "回目"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "71": [
+      {
+        "id": "xyj-v-024",
+        "category": "回目",
+        "summary": "第71回回目异文（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "行者假名降怪犼　观音现像伏妖王",
+        "text_b": "行者假名降怪犼　观音现象伏妖王",
+        "topic_id": null,
+        "tags": [
+          "auto",
+          "回目"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "75": [
+      {
+        "id": "xyj-v-025",
+        "category": "回目",
+        "summary": "第75回回目异文（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "心猿钻透阴阳体　魔王还归大道真",
+        "text_b": "心猿钻透阴阳窍　魔王还归大道真",
+        "topic_id": null,
+        "tags": [
+          "auto",
+          "回目"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "97": [
+      {
+        "id": "xyj-v-026",
+        "category": "回目",
+        "summary": "第97回回目异文（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "金酬外护遭魔蛰　圣显幽魂救本原",
+        "text_b": "金酬外护遭魔毒　圣显幽魂救本原",
+        "topic_id": null,
+        "tags": [
+          "auto",
+          "回目"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ],
+    "99": [
+      {
+        "id": "xyj-v-027",
+        "category": "回目",
+        "summary": "第99回回目异文（自动抽取）。",
+        "edition_a": "世德堂本",
+        "edition_b": "通本",
+        "text_a": "九九数完魔灭尽　三三行满道归根",
+        "text_b": "九九数完魔刬尽　三三行满道归根",
+        "topic_id": null,
+        "tags": [
+          "auto",
+          "回目"
+        ],
+        "pairs": [
+          "shide-tongben"
+        ]
+      }
+    ]
+  },
+  "topics": []
+}

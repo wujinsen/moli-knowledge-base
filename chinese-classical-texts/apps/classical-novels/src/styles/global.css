@@ -1998,6 +1998,10 @@ a.linked-item-chip:hover {
   color: color-mix(in srgb, var(--reader-ink) 72%, var(--reader-ink-soft));
   font-size: var(--reader-ui-sm);
 }
+.reader-chapter-links--footer {
+  margin-top: 2rem;
+  border-top: 1px solid color-mix(in srgb, var(--reader-line) 90%, transparent);
+}
 .reader-chapter-links-title {
   color: var(--reader-ink);
   font-size: var(--reader-ui-sm);
@@ -2736,6 +2740,239 @@ mark.compare-highlight--active {
   font-size: var(--type-xs);
   font-weight: var(--type-label-weight);
   color: color-mix(in srgb, var(--ink) 65%, var(--ink-soft));
+}
+
+/* 交叉索引（诗词意象 / 名物百科） */
+.cross-index-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.cross-index-tabs {
+  display: inline-flex;
+  padding: 0.15rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+}
+
+.cross-index-tabs button {
+  border: none;
+  background: transparent;
+  color: color-mix(in srgb, var(--ink) 55%, var(--ink-soft));
+  font-size: var(--type-sm);
+  font-weight: var(--type-label-weight);
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.cross-index-tabs button:hover {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--primary) 6%, transparent);
+}
+
+.cross-index-tabs button.is-active {
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 12%, var(--paper-2));
+}
+
+.cross-index-phases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.cross-index-search {
+  min-width: 11rem;
+  flex: 1 1 12rem;
+  padding: 0.4rem 0.7rem;
+  font-size: var(--type-sm);
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.cross-index-search::placeholder {
+  color: color-mix(in srgb, var(--ink-soft) 85%, transparent);
+}
+
+.cross-index-search:focus {
+  outline: 2px solid color-mix(in srgb, var(--primary) 35%, transparent);
+  outline-offset: 1px;
+}
+
+.cross-index-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: var(--type-xs);
+}
+
+.cross-index-link-btn {
+  border: none;
+  background: none;
+  padding: 0;
+  color: var(--accent);
+  font-size: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cross-index-link-btn:hover {
+  color: var(--primary);
+}
+
+.cross-index-sep {
+  color: color-mix(in srgb, var(--ink-soft) 70%, transparent);
+}
+
+.cross-index-stats {
+  font-size: var(--type-xs);
+  color: color-mix(in srgb, var(--ink) 48%, var(--ink-soft));
+  white-space: nowrap;
+}
+
+.cross-index-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.cross-index-empty {
+  font-size: var(--type-sm);
+  color: color-mix(in srgb, var(--ink) 48%, var(--ink-soft));
+  margin: 0;
+}
+
+.cross-index-group {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.cross-index-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.55rem;
+  padding: 0.42rem 0.65rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  background: color-mix(in srgb, var(--primary) 3%, var(--paper-2));
+}
+
+.cross-index-summary::-webkit-details-marker {
+  display: none;
+}
+
+.cross-index-chevron {
+  width: 0.85rem;
+  color: color-mix(in srgb, var(--ink) 45%, var(--ink-soft));
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.cross-index-summary-title {
+  font-size: var(--type-sm);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.cross-index-summary-link {
+  text-decoration: none;
+}
+
+.cross-index-summary-link:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.cross-index-read-link {
+  margin-left: auto;
+  font-size: var(--type-xs);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.cross-index-read-link:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.cross-index-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cross-index-table td {
+  padding: 0.32rem 0.65rem;
+  border-top: 1px solid var(--line);
+  vertical-align: middle;
+  font-size: var(--type-sm);
+}
+
+.cross-index-table tr:hover td {
+  background: color-mix(in srgb, var(--primary) 4%, transparent);
+}
+
+.cross-index-col-title {
+  width: 28%;
+  min-width: 7rem;
+}
+
+.cross-index-col-title a {
+  font-weight: var(--type-label-weight);
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.cross-index-col-title a:hover {
+  text-decoration: underline;
+}
+
+.cross-index-col-tags,
+.cross-index-col-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.cross-index-col-links {
+  justify-content: flex-end;
+}
+
+@media (max-width: 640px) {
+  .cross-index-table,
+  .cross-index-table tbody,
+  .cross-index-table tr,
+  .cross-index-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .cross-index-table tr {
+    padding: 0.35rem 0.65rem 0.45rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .cross-index-table td {
+    border: none;
+    padding: 0.15rem 0;
+  }
+
+  .cross-index-col-links {
+    justify-content: flex-start;
+  }
 }
 
 .financial-track h3 {
@@ -3644,6 +3881,28 @@ mark.compare-highlight--active {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+}
+
+.studio-lint-group-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0.65rem 0 0.2rem 0.05rem;
+}
+
+.studio-lint-sections > li:first-child .studio-lint-group-label {
+  margin-top: 0;
+}
+
+.studio-lint-sections-nested {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .studio-lint-sec-btn {

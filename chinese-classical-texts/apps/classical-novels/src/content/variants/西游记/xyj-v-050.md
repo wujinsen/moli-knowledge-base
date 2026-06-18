@@ -2,12 +2,12 @@
 id: xyj-v-050
 type: variant
 book: 西游记
-chapter: 8
+chapter: 7
 category: 措辞
 edition_a: 世德堂本
 edition_b: 通本
-text_a: "锺世"
-text_b: "钟也"
+text_a: "，玄"
+text_b: "、元"
 tags: [auto]
-summary: "第8回「锺世」↔「钟也」（自动抽取）。"
+summary: "第7回「，玄」↔「、元」（自动抽取）。"
 ---

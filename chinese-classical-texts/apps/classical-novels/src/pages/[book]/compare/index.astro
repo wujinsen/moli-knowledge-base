@@ -4,14 +4,14 @@ import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
 import BackLink from '../../../components/BackLink.astro';
 import JpmModuleNav from '../../../components/JpmModuleNav.astro';
+import CompareIndex from '../../../components/CompareIndex.tsx';
 import {
   comparePairSlugs,
   comparePairsFor,
   compareChapterPath,
   defaultComparePair,
-  editionLabel,
 } from '../../../lib/editions';
-import { variantCountByChapter } from '../../../lib/variants';
+import { getCompareIndex } from '../../../lib/compareIndex';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -28,9 +28,8 @@ const compareIntro =
   meta.slug === 'xiyouji'
     ? '世德堂 · 通本双版本双栏并排'
     : '词话 · 崇祯 · 竹坡三版本双栏并排';
-const variantMap = await variantCountByChapter(meta.book);
+const compareIndex = getCompareIndex(meta.slug);
 
-const chapters = Array.from({ length: meta.chapter_count }, (_, i) => i + 1);
 const jumpMarks = [1, 10, 20, 30, 50, 80, 100].filter((n) => n <= meta.chapter_count);
 ---
 
@@ -44,28 +43,30 @@ const jumpMarks = [1, 10, 20, 30, 50, 80, 100].filter((n) => n <= meta.chapter_c
       <div>
         <h1 class="brand text-4xl" style="color: var(--primary)">版本对勘</h1>
         <p class="mt-2 text-sm text-muted">
-          {compareIntro} · {variantMap.size} 回已标异文锚点
+          {compareIntro}
+          {
+            compareIndex
+              ? ` · ${compareIndex.variant_total} 处异文锚点 · ${compareIndex.chapter_count_with_variants} 回已标`
+              : ''
+          }
         </p>
       </div>
     </div>
     <p class="mt-5 max-w-2xl text-sm leading-relaxed" style="color: var(--ink)">
-      默认对勘 <strong>{pair.label}</strong>；可选版本组合见下方。已录入异文的回目标「异文」徽章。
+      默认对勘 <strong>{pair.label}</strong>；J3 支持三对组合切换、<strong>仅异文回</strong>筛选、双栏同步滚动与正文高亮。
     </p>
     <nav class="mt-4 flex flex-wrap gap-2 text-sm">
-      {
-        comparePairSlugs(meta.slug).map((slug) => (
-          <a
-            href={`/${meta.slug}/compare/${slug}/1`}
-            class:list={['chip', slug === pairSlug && 'ring-1 ring-[var(--accent)]']}
-          >
-            {comparePairsFor(meta.slug)[slug].label}
-          </a>
-        ))
-      }
       {
         meta.features.includes('graph') && (
           <a href={`/${meta.slug}/graph`} class="chip" style="color: var(--accent)">
             关系图谱 · 版本议题
+          </a>
+        )
+      }
+      {
+        meta.slug === 'jinpingmei' && (
+          <a href={`/${meta.slug}/topics/版本对勘样本`} class="chip" style="color: var(--primary)">
+            版本对勘样本 →
           </a>
         )
       }
@@ -81,53 +82,28 @@ const jumpMarks = [1, 10, 20, 30, 50, 80, 100].filter((n) => n <= meta.chapter_c
 
   {meta.slug === 'jinpingmei' && <JpmModuleNav bookSlug={meta.slug} features={meta.features} current="compare" />}
 
-  <div class="mb-4 flex flex-wrap items-center gap-2 text-sm text-muted">
-    <span>跳至回目：</span>
-    {
-      jumpMarks.map((n) => (
-        <a href={`#ch-${n}`} class="chip">{n}</a>
-      ))
-    }
-  </div>
-
-  <div class="surface overflow-hidden">
-    <table class="w-full border-collapse text-sm">
-      <thead>
-        <tr class="text-muted" style="border-bottom: 1.5px solid var(--line)">
-          <th class="px-4 py-2.5 text-left font-normal w-16">回</th>
-          <th class="px-4 py-2.5 text-left font-normal">对勘</th>
-          <th class="px-4 py-2.5 text-left font-normal w-24">异文</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          chapters.map((n) => {
-            const vc = variantMap.get(n) ?? 0;
-            return (
-              <tr id={`ch-${n}`} style="border-bottom: 1px solid var(--line)">
-                <td class="px-4 py-2 tabular-nums">{n}</td>
-                <td class="px-4 py-2">
-                  <a
-                    href={compareChapterPath(meta.slug, pairSlug, n)}
-                    class="hover:underline"
-                    style="color: var(--accent)"
-                  >
-                    第 {n} 回 · {editionLabel(pair.left)} / {editionLabel(pair.right)}
-                  </a>
-                </td>
-                <td class="px-4 py-2">
-                  {vc > 0 ? (
-                    <span class="chip text-xs">{vc} 处</span>
-                  ) : (
-                    <span>—</span>
-                  )}
-                </td>
-              </tr>
-            );
-          })
-        }
-      </tbody>
-    </table>
-  </div>
+  {
+    compareIndex ? (
+      <>
+        <div class="mb-4 flex flex-wrap items-center gap-2 text-sm text-muted">
+          <span>跳至回目：</span>
+          {
+            jumpMarks.map((n) => (
+              <a href={`#ch-${n}`} class="chip">{n}</a>
+            ))
+          }
+        </div>
+        <CompareIndex
+          index={compareIndex}
+          bookSlug={meta.slug}
+          chapterCount={meta.chapter_count}
+          initialPair={pairSlug}
+          client:load
+        />
+      </>
+    ) : (
+      <p class="text-sm text-muted">对勘索引尚未生成，请运行 build_compare.py --write</p>
+    )
+  }
   </div>
 </Base>

@@ -127,25 +127,24 @@
           "type": "transaction",
           "book": "金瓶梅",
           "subtype": "奴婢买卖",
-          "amount": 30,
+          "amount": 0,
           "currency": "银",
-          "amount_normalized": 30,
-          "conversion_note": "银两，直接计",
-          "conversion_disputed": true,
-          "buyer": "潘金莲",
-          "seller": "西门庆",
+          "conversion_note": "正文未写身价钱银，不计入白银流；薛嫂追索所许大布为媒钱",
+          "buyer": "西门庆",
+          "seller": "薛嫂儿",
           "payee": "庞春梅",
           "item_ref": "春梅身契",
           "pool_from": "西门庆府",
           "pool_to": "妻妾奴婢",
-          "chapter": 16,
-          "source": "docs/金瓶梅-知识图谱架构.md",
-          "edition": "词话本（架构文档示例，正文异文待勘）",
+          "chapter": 7,
+          "source": "chapters/金瓶梅/词话本/007.md",
+          "edition": "词话本、崇祯本（同文）",
           "tags": [
             "奴婢",
-            "春梅"
+            "春梅",
+            "薛嫂"
           ],
-          "summary": "买春梅身契三十两（架构文档 §7.1 示例，词话本回目待对勘）。"
+          "summary": "第7回薛嫂追索「去年买春梅」所许大布；身价钱银正文未载（旧库「三十两」已纠）。"
         },
         {
           "id": "jpm-tx-013",

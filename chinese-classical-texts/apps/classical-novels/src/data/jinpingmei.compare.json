@@ -1,0 +1,472 @@
+{
+  "book": "金瓶梅",
+  "slug": "jinpingmei",
+  "generated_by": "build_compare.py",
+  "variant_total": 21,
+  "chapter_count_with_variants": 12,
+  "pairs": {
+    "cihua-chongzhen": {
+      "left": "词话本",
+      "right": "崇祯本",
+      "label": "词话 ↔ 崇祯",
+      "variant_count": 12,
+      "chapters_with_variants": [
+        1,
+        2,
+        7,
+        16,
+        23,
+        27,
+        49
+      ]
+    },
+    "cihua-zhupo": {
+      "left": "词话本",
+      "right": "张竹坡评本",
+      "label": "词话 ↔ 竹坡",
+      "variant_count": 8,
+      "chapters_with_variants": [
+        1,
+        3,
+        25,
+        32,
+        44,
+        99
+      ]
+    },
+    "chongzhen-zhupo": {
+      "left": "崇祯本",
+      "right": "张竹坡评本",
+      "label": "崇祯 ↔ 竹坡",
+      "variant_count": 1,
+      "chapters_with_variants": [
+        1
+      ]
+    }
+  },
+  "by_chapter": {
+    "1": [
+      {
+        "id": "jpm-v-001",
+        "category": "回目",
+        "summary": "回目空格与全角空格差异（两本同回异排）。",
+        "edition_a": "词话本",
+        "edition_b": "崇祯本",
+        "text_a": "西门庆热结十弟兄　　武二郎冷遇亲哥嫂",
+        "text_b": "西门庆热结十弟兄　　 武二郎冷遇亲哥嫂",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "cihua-chongzhen"
+        ]
+      },
+      {
+        "id": "jpm-v-002",
+        "category": "删润",
+        "summary": "崇祯本对词话本大段连写做分段润色（全书通例）。",
+        "edition_a": "词话本",
+        "edition_b": "崇祯本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": null,
+        "tags": [
+          "版式"
+        ],
+        "pairs": [
+          "cihua-chongzhen"
+        ]
+      },
+      {
+        "id": "jpm-v-003",
+        "category": "措辞",
+        "summary": "「怎的」↔「怎勾」类晚明口语异写。",
+        "edition_a": "词话本",
+        "edition_b": "崇祯本",
+        "text_a": "怎能与人争气",
+        "text_b": "怎能勾与人争气",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "cihua-chongzhen"
+        ]
+      },
+      {
+        "id": "jpm-v-010",
+        "category": "批语",
+        "summary": "张评本批语层——非完整张竹坡全文评，但已具眉批/旁批结构。",
+        "edition_a": "词话本",
+        "edition_b": "张竹坡评本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "cihua-zhupo"
+        ]
+      },
+      {
+        "id": "jpm-v-011",
+        "category": "措辞",
+        "summary": "人名用字简繁差异（全书通例）。",
+        "edition_a": "词话本",
+        "edition_b": "张竹坡评本",
+        "text_a": "西门庆",
+        "text_b": "西門慶",
+        "topic_id": null,
+        "tags": [
+          "简繁"
+        ],
+        "pairs": [
+          "cihua-zhupo"
+        ]
+      },
+      {
+        "id": "jpm-v-012",
+        "category": "批语",
+        "summary": "绣像批评本 vs 张评批语 markup 层差异。",
+        "edition_a": "崇祯本",
+        "edition_b": "张竹坡评本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": null,
+        "tags": [
+          "批语"
+        ],
+        "pairs": [
+          "chongzhen-zhupo"
+        ]
+      },
+      {
+        "id": "jpm-v-013",
+        "category": "措辞",
+        "summary": "简繁 + 「怎的/怎勾」口语异写（张评本同崇祯系）。",
+        "edition_a": "词话本",
+        "edition_b": "张竹坡评本",
+        "text_a": "怎能与人争气",
+        "text_b": "怎能勾與人爭氣",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "cihua-zhupo"
+        ]
+      },
+      {
+        "id": "jpm-v-015",
+        "category": "情节",
+        "summary": "打虎赏银五十两——词话/崇祯同值异排。",
+        "edition_a": "词话本",
+        "edition_b": "崇祯本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": null,
+        "tags": [
+          "白银流"
+        ],
+        "pairs": [
+          "cihua-chongzhen"
+        ]
+      }
+    ],
+    "2": [
+      {
+        "id": "jpm-v-021",
+        "category": "措辞",
+        "summary": "「吩咐」↔「分付」系统性异体（全书通例，第2回为代表）。",
+        "edition_a": "词话本",
+        "edition_b": "崇祯本",
+        "text_a": "吩咐",
+        "text_b": "分付",
+        "topic_id": null,
+        "tags": [
+          "异体"
+        ],
+        "pairs": [
+          "cihua-chongzhen"
+        ]
+      }
+    ],
+    "3": [
+      {
+        "id": "jpm-v-016",
+        "category": "回目",
+        "summary": "第3回回目「王婆」↔「虔婆」用字异文。",
+        "edition_a": "词话本",
+        "edition_b": "张竹坡评本",
+        "text_a": "定挨光王婆受贿　　设圈套浪子私挑",
+        "text_b": "定挨光虔婆受賄 設圈套浪子私挑",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "cihua-zhupo"
+        ]
+      }
+    ],
+    "7": [
+      {
+        "id": "jpm-v-009",
+        "category": "情节",
+        "summary": "买春梅——第7回薛嫂追述同文，银价误植已纠（jpm-tx-012）。",
+        "edition_a": "词话本",
+        "edition_b": "崇祯本",
+        "text_a": "你老人家去年买春梅，许我几匹大布，还没与我",
+        "text_b": "你老人家去年买春梅，许我几匹大布，还没与我",
+        "topic_id": null,
+        "tags": [
+          "白银流",
+          "纠错"
+        ],
+        "pairs": [
+          "cihua-chongzhen"
+        ]
+      }
+    ],
+    "16": [
+      {
+        "id": "jpm-v-004",
+        "category": "措辞",
+        "summary": "词话本避讳符号 vs 崇祯本直写（删润/避讳策略差异）。",
+        "edition_a": "词话本",
+        "edition_b": "崇祯本",
+        "text_a": "［入日］捣了一夜",
+        "text_b": "肏捣了一夜",
+        "topic_id": null,
+        "tags": [
+          "避讳"
+        ],
+        "pairs": [
+          "cihua-chongzhen"
+        ]
+      },
+      {
+        "id": "jpm-v-005",
+        "category": "措辞",
+        "summary": "「钟/锺」异体字。",
+        "edition_a": "词话本",
+        "edition_b": "崇祯本",
+        "text_a": "大钟饮酒",
+        "text_b": "大锺饮酒",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "cihua-chongzhen"
+        ]
+      },
+      {
+        "id": "jpm-v-006",
+        "category": "情节",
+        "summary": "李瓶儿私房物资清单（两本情节同，版式异）。",
+        "edition_a": "词话本",
+        "edition_b": "崇祯本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "cihua-chongzhen"
+        ]
+      }
+    ],
+    "23": [
+      {
+        "id": "jpm-v-014",
+        "category": "物价",
+        "summary": "认干爹百两礼——政商链物价锚点。",
+        "edition_a": "词话本",
+        "edition_b": "崇祯本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": null,
+        "tags": [
+          "白银流"
+        ],
+        "pairs": [
+          "cihua-chongzhen"
+        ]
+      }
+    ],
+    "25": [
+      {
+        "id": "jpm-v-017",
+        "category": "回目",
+        "summary": "第25回回目「谤仙」↔「谤讪」异文（竹坡本于义为长）。",
+        "edition_a": "词话本",
+        "edition_b": "张竹坡评本",
+        "text_a": "吴月娘春昼秋千　　来旺儿醉中谤仙",
+        "text_b": "吳月娘春晝鞦韆 來旺兒醉中謗訕",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "cihua-zhupo"
+        ]
+      }
+    ],
+    "27": [
+      {
+        "id": "jpm-v-007",
+        "category": "物价",
+        "summary": "犀角带买卖——物价锚点（待持续补全异文金额）。",
+        "edition_a": "词话本",
+        "edition_b": "崇祯本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": null,
+        "tags": [
+          "白银流"
+        ],
+        "pairs": [
+          "cihua-chongzhen"
+        ]
+      }
+    ],
+    "32": [
+      {
+        "id": "jpm-v-018",
+        "category": "回目",
+        "summary": "第32回回目「怀妒」↔「怀嫉」近义异文。",
+        "edition_a": "词话本",
+        "edition_b": "张竹坡评本",
+        "text_a": "李桂姐趋炎认女　　潘金莲怀妒惊儿",
+        "text_b": "李桂姐趨炎認女 潘金蓮懷嫉驚兒",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "cihua-zhupo"
+        ]
+      }
+    ],
+    "44": [
+      {
+        "id": "jpm-v-019",
+        "category": "回目",
+        "summary": "第44回回目「消夜」↔「宵夜」异文。",
+        "edition_a": "词话本",
+        "edition_b": "张竹坡评本",
+        "text_a": "避马房侍女偷金　　下象棋佳人消夜",
+        "text_b": "避馬房侍女偸金 下象棋佳人宵夜",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "cihua-zhupo"
+        ]
+      }
+    ],
+    "49": [
+      {
+        "id": "jpm-v-008",
+        "category": "情节",
+        "summary": "胡僧春药——晚明纵欲心理切片，三版本批语层差异大。",
+        "edition_a": "词话本",
+        "edition_b": "崇祯本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "cihua-chongzhen"
+        ]
+      }
+    ],
+    "99": [
+      {
+        "id": "jpm-v-020",
+        "category": "回目",
+        "summary": "第99回回目「张敬济」↔「陈敬济」——词话本人名讹字，竹坡本校正。",
+        "edition_a": "词话本",
+        "edition_b": "张竹坡评本",
+        "text_a": "刘二醉骂王六儿张胜窃听张敬济",
+        "text_b": "劉二醉罵王六兒 張勝竊聽陳敬濟",
+        "topic_id": null,
+        "tags": [
+          "校正"
+        ],
+        "pairs": [
+          "cihua-zhupo"
+        ]
+      }
+    ]
+  },
+  "topics": [
+    {
+      "id": "版本-买春梅银价",
+      "chapter": 7,
+      "summary": "买春梅——第7回薛嫂追述同文，银价误植已纠（jpm-tx-012）",
+      "variant_ids": [
+        "jpm-v-009"
+      ],
+      "characters": [
+        "西门庆",
+        "庞春梅",
+        "薛嫂儿"
+      ]
+    },
+    {
+      "id": "版本-犀角带物价",
+      "chapter": 27,
+      "summary": "犀角带买卖——政商链物价锚点",
+      "variant_ids": [
+        "jpm-v-007"
+      ],
+      "characters": [
+        "西门庆"
+      ]
+    },
+    {
+      "id": "版本-认干礼百两",
+      "chapter": 23,
+      "summary": "认干爹百两礼——翟管家政商链物价锚点",
+      "variant_ids": [
+        "jpm-v-014"
+      ],
+      "characters": [
+        "西门庆",
+        "翟管家"
+      ]
+    },
+    {
+      "id": "版本-李瓶儿私房",
+      "chapter": 16,
+      "summary": "李瓶儿私房物资清单——两本情节同、版式异",
+      "variant_ids": [
+        "jpm-v-006"
+      ],
+      "characters": [
+        "西门庆",
+        "李瓶儿"
+      ]
+    },
+    {
+      "id": "版本-胡僧春药",
+      "chapter": 49,
+      "summary": "胡僧春药情节——三版本正文与批语层差异大",
+      "variant_ids": [
+        "jpm-v-008"
+      ],
+      "characters": [
+        "西门庆"
+      ]
+    },
+    {
+      "id": "版本-删润避讳",
+      "chapter": 1,
+      "summary": "崇祯删润分段 + 词话避讳符号 vs 崇祯直写",
+      "variant_ids": [
+        "jpm-v-002",
+        "jpm-v-004"
+      ],
+      "characters": [
+        "西门庆"
+      ]
+    },
+    {
+      "id": "版本-打虎赏银",
+      "chapter": 1,
+      "summary": "打虎赏银五十两——词话/崇祯同值异排",
+      "variant_ids": [
+        "jpm-v-015"
+      ],
+      "characters": [
+        "武松"
+      ]
+    }
+  ]
+}

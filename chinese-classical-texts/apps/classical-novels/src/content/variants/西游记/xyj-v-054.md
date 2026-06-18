@@ -2,12 +2,12 @@
 id: xyj-v-054
 type: variant
 book: 西游记
-chapter: 13
+chapter: 8
 category: 措辞
 edition_a: 世德堂本
 edition_b: 通本
-text_a: "！”"
-text_b: "”，"
+text_a: "疏，"
+text_b: "流．"
 tags: [auto]
-summary: "第13回「！”」↔「”，」（自动抽取）。"
+summary: "第8回「疏，」↔「流．」（自动抽取）。"
 ---

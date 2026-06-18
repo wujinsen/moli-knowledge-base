@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import ChainOverview from './ChainOverview';
 import {
   chainEventsForCharacter,
   txChipLabel,
@@ -256,6 +257,14 @@ export default function ChainTimeline({ index, bookSlug, readEdition, features }
 
   return (
     <div className="chain-timeline">
+      <ChainOverview
+        index={index}
+        phaseKey={phaseKey}
+        focusId={focusId}
+        onPhaseChange={setPhaseKey}
+        onEventFocus={applyFocus}
+      />
+
       <div className="mb-4 flex flex-wrap gap-2">
         <button
           type="button"

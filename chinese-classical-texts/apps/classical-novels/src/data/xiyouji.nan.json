@@ -1,0 +1,2467 @@
+{
+  "book": "西游记",
+  "slug": "xiyouji",
+  "generated_by": "build_nan.py",
+  "total": 81,
+  "phases": [
+    {
+      "key": "origin",
+      "label": "前世因缘",
+      "range": [
+        1,
+        4
+      ],
+      "count": 4
+    },
+    {
+      "key": "start",
+      "label": "初出长安",
+      "range": [
+        5,
+        16
+      ],
+      "count": 12
+    },
+    {
+      "key": "mid",
+      "label": "中途魔障",
+      "range": [
+        17,
+        55
+      ],
+      "count": 39
+    },
+    {
+      "key": "late",
+      "label": "后期险途",
+      "range": [
+        56,
+        79
+      ],
+      "count": 24
+    },
+    {
+      "key": "finish",
+      "label": "功果圆满",
+      "range": [
+        80,
+        81
+      ],
+      "count": 2
+    }
+  ],
+  "tribulations": [
+    {
+      "no": 1,
+      "id": "xy-e-001",
+      "title": "金蝉遭贬",
+      "aliases": [],
+      "chapters": [
+        1
+      ],
+      "phase": "origin",
+      "phaseLabel": "前世因缘",
+      "summary": "如来贬金蝉子下凡，观音领旨寻取经人。",
+      "monsters": [],
+      "locations": [],
+      "artifacts": []
+    },
+    {
+      "no": 2,
+      "id": "xy-e-002",
+      "title": "出胎几杀",
+      "aliases": [],
+      "chapters": [
+        1
+      ],
+      "phase": "origin",
+      "phaseLabel": "前世因缘",
+      "summary": "取经人出胎，贼人欲害其命。",
+      "monsters": [],
+      "locations": [],
+      "artifacts": []
+    },
+    {
+      "no": 3,
+      "id": "xy-e-003",
+      "title": "满月抛江",
+      "aliases": [],
+      "chapters": [
+        1
+      ],
+      "phase": "origin",
+      "phaseLabel": "前世因缘",
+      "summary": "满月抛江，金山寺长老收养江流儿。",
+      "monsters": [],
+      "locations": [],
+      "artifacts": []
+    },
+    {
+      "no": 4,
+      "id": "xy-e-004",
+      "title": "寻亲报冤",
+      "aliases": [],
+      "chapters": [
+        1
+      ],
+      "phase": "origin",
+      "phaseLabel": "前世因缘",
+      "summary": "长大成人，赴京寻亲报冤。",
+      "monsters": [],
+      "locations": [],
+      "artifacts": []
+    },
+    {
+      "no": 5,
+      "id": "xy-e-005",
+      "title": "出城逢虎",
+      "aliases": [],
+      "chapters": [
+        13
+      ],
+      "phase": "start",
+      "phaseLabel": "初出长安",
+      "summary": "出长安边界，遇虎食从者。",
+      "monsters": [
+        {
+          "name": "寅将军",
+          "原型": "老虎精",
+          "收服者": "",
+          "camp": "未知",
+          "法宝": []
+        }
+      ],
+      "locations": [],
+      "artifacts": []
+    },
+    {
+      "no": 6,
+      "id": "xy-e-006",
+      "title": "折从落坑",
+      "aliases": [],
+      "chapters": [
+        13
+      ],
+      "phase": "start",
+      "phaseLabel": "初出长安",
+      "summary": "从者落坑，唐僧孤身匹马。",
+      "monsters": [
+        {
+          "name": "寅将军",
+          "原型": "老虎精",
+          "收服者": "",
+          "camp": "未知",
+          "法宝": []
+        }
+      ],
+      "locations": [],
+      "artifacts": []
+    },
+    {
+      "no": 7,
+      "id": "xy-e-007",
+      "title": "双叉岭上",
+      "aliases": [
+        "双叉岭"
+      ],
+      "chapters": [
+        13
+      ],
+      "phase": "start",
+      "phaseLabel": "初出长安",
+      "summary": "双叉岭遇寅将军、熊山君、特处士。",
+      "monsters": [
+        {
+          "name": "寅将军",
+          "原型": "老虎精",
+          "收服者": "",
+          "camp": "未知",
+          "法宝": []
+        },
+        {
+          "name": "熊山君",
+          "原型": "熊罴精",
+          "收服者": "",
+          "camp": "未知",
+          "法宝": []
+        },
+        {
+          "name": "特处士",
+          "原型": "野牛精",
+          "收服者": "",
+          "camp": "未知",
+          "法宝": []
+        }
+      ],
+      "locations": [],
+      "artifacts": []
+    },
+    {
+      "no": 8,
+      "id": "xy-e-008",
+      "title": "两界山头",
+      "aliases": [
+        "两界山"
+      ],
+      "chapters": [
+        14
+      ],
+      "phase": "start",
+      "phaseLabel": "初出长安",
+      "summary": "两界山揭帖，收孙悟空为大徒弟。",
+      "monsters": [],
+      "locations": [
+        "两界山"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 9,
+      "id": "xy-e-009",
+      "title": "陡涧换马",
+      "aliases": [],
+      "chapters": [
+        15
+      ],
+      "phase": "start",
+      "phaseLabel": "初出长安",
+      "summary": "鹰愁涧失马，观音收玉龙为白龙马。",
+      "monsters": [],
+      "locations": [
+        "鹰愁涧"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 10,
+      "id": "xy-e-010",
+      "title": "夜被火烧",
+      "aliases": [],
+      "chapters": [
+        16
+      ],
+      "phase": "start",
+      "phaseLabel": "初出长安",
+      "summary": "观音院僧纵火，悟空借辟火罩护师。",
+      "monsters": [],
+      "locations": [],
+      "artifacts": []
+    },
+    {
+      "no": 11,
+      "id": "xy-e-011",
+      "title": "失却袈裟",
+      "aliases": [],
+      "chapters": [
+        17
+      ],
+      "phase": "start",
+      "phaseLabel": "初出长安",
+      "summary": "观音院失火，黑熊精盗锦襴袈裟；观音收为守山大神。",
+      "monsters": [
+        {
+          "name": "黑熊精",
+          "原型": "熊成精",
+          "收服者": "观音菩萨",
+          "camp": "佛门",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "黑风山",
+        "观音院"
+      ],
+      "artifacts": [
+        "锦襴袈裟"
+      ]
+    },
+    {
+      "no": 12,
+      "id": "xy-e-012",
+      "title": "收降八戒",
+      "aliases": [
+        "高老庄"
+      ],
+      "chapters": [
+        19
+      ],
+      "phase": "start",
+      "phaseLabel": "初出长安",
+      "summary": "浮屠山受心经，云栈洞收猪八戒为二徒弟。",
+      "monsters": [],
+      "locations": [
+        "高老庄"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 13,
+      "id": "xy-e-013",
+      "title": "黄风怪阻",
+      "aliases": [],
+      "chapters": [
+        20
+      ],
+      "phase": "start",
+      "phaseLabel": "初出长安",
+      "summary": "黄风岭黄风怪三昧神风伤悟空眼，灵吉菩萨降伏。",
+      "monsters": [
+        {
+          "name": "黄风怪",
+          "原型": "灵山偷油老鼠",
+          "收服者": "灵吉菩萨",
+          "camp": "佛门",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "黄风岭"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 14,
+      "id": "xy-e-014",
+      "title": "请求灵吉",
+      "aliases": [],
+      "chapters": [
+        21
+      ],
+      "phase": "start",
+      "phaseLabel": "初出长安",
+      "summary": "悟空小须弥山请灵吉，飞龙杖收黄风怪，定风丹留后效。",
+      "monsters": [
+        {
+          "name": "黄风怪",
+          "原型": "灵山偷油老鼠",
+          "收服者": "灵吉菩萨",
+          "camp": "佛门",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "黄风岭"
+      ],
+      "artifacts": [
+        "定风丹"
+      ]
+    },
+    {
+      "no": 15,
+      "id": "xy-e-015",
+      "title": "流沙难渡",
+      "aliases": [
+        "流沙河"
+      ],
+      "chapters": [
+        22
+      ],
+      "phase": "start",
+      "phaseLabel": "初出长安",
+      "summary": "流沙河波浪阻路，唐僧不得渡，九骷髅浮水。",
+      "monsters": [],
+      "locations": [
+        "流沙河"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 16,
+      "id": "xy-e-016",
+      "title": "收得沙僧",
+      "aliases": [],
+      "chapters": [
+        22,
+        23
+      ],
+      "phase": "start",
+      "phaseLabel": "初出长安",
+      "summary": "观音释疑，沙悟净归队，取经五众凑齐。",
+      "monsters": [],
+      "locations": [
+        "流沙河"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 17,
+      "id": "xy-e-017",
+      "title": "四圣显化",
+      "aliases": [
+        "四圣试禅心"
+      ],
+      "chapters": [
+        23
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "四圣试禅心；五庄观留宿，为后人参果难埋伏笔。",
+      "monsters": [],
+      "locations": [
+        "五庄观"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 18,
+      "id": "xy-e-018",
+      "title": "五庄观中",
+      "aliases": [],
+      "chapters": [
+        24,
+        25
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "悟空偷人参果、推树；观音甘露救树，镇元与悟空结拜。",
+      "monsters": [],
+      "locations": [
+        "五庄观"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 19,
+      "id": "xy-e-019",
+      "title": "难活人参",
+      "aliases": [],
+      "chapters": [
+        25,
+        26
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "难活人参：偷果推树后镇元擒师徒，甘露救树方解。",
+      "monsters": [],
+      "locations": [
+        "五庄观"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 20,
+      "id": "xy-e-020",
+      "title": "贬退心猿",
+      "aliases": [
+        "三打白骨精"
+      ],
+      "chapters": [
+        27
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "白虎岭三打白骨精，唐僧肉眼凡胎怒贬悟空（贬退心猿）。",
+      "monsters": [
+        {
+          "name": "白骨精",
+          "原型": "白骨成精",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "白虎岭"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 21,
+      "id": "xy-e-021",
+      "title": "黑松林失散",
+      "aliases": [],
+      "chapters": [
+        28
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "悟空被贬后黑松林失散，唐僧入波月洞被擒。",
+      "monsters": [
+        {
+          "name": "奎木狼",
+          "原型": "奎木狼星下界",
+          "收服者": "孙悟空",
+          "camp": "天庭",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "碗子山"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 22,
+      "id": "xy-e-022",
+      "title": "宝象国捎书",
+      "aliases": [],
+      "chapters": [
+        29,
+        30
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "宝象国捎书，百花羞公主求救。",
+      "monsters": [
+        {
+          "name": "奎木狼",
+          "原型": "奎木狼星下界",
+          "收服者": "孙悟空",
+          "camp": "天庭",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "碗子山",
+        "宝象国"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 23,
+      "id": "xy-e-023",
+      "title": "金銮殿变虎",
+      "aliases": [],
+      "chapters": [
+        30,
+        31
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "奎木狼变虎囚唐僧，悟空上天收奎星。",
+      "monsters": [
+        {
+          "name": "奎木狼",
+          "原型": "奎木狼星下界",
+          "收服者": "孙悟空",
+          "camp": "天庭",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "宝象国"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 24,
+      "id": "xy-e-024",
+      "title": "平顶山逢魔",
+      "aliases": [
+        "平顶山"
+      ],
+      "chapters": [
+        32
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "平顶山莲花洞金角银角，五件宝贝斗悟空。",
+      "monsters": [
+        {
+          "name": "金角大王",
+          "原型": "太上老君看炉童子",
+          "收服者": "太上老君",
+          "camp": "道门",
+          "法宝": [
+            "紫金红葫芦",
+            "幌金绳",
+            "七星剑",
+            "羊脂玉净瓶"
+          ]
+        },
+        {
+          "name": "银角大王",
+          "原型": "太上老君捣药童子",
+          "收服者": "太上老君",
+          "camp": "道门",
+          "法宝": [
+            "紫金红葫芦",
+            "幌金绳",
+            "七星剑",
+            "羊脂玉净瓶"
+          ]
+        }
+      ],
+      "locations": [
+        "平顶山",
+        "莲花洞"
+      ],
+      "artifacts": [
+        "紫金红葫芦",
+        "幌金绳",
+        "七星剑"
+      ]
+    },
+    {
+      "no": 25,
+      "id": "xy-e-025",
+      "title": "莲花洞高悬",
+      "aliases": [],
+      "chapters": [
+        33,
+        34
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "莲花洞高悬，悟空骗宝换名。",
+      "monsters": [
+        {
+          "name": "金角大王",
+          "原型": "太上老君看炉童子",
+          "收服者": "太上老君",
+          "camp": "道门",
+          "法宝": [
+            "紫金红葫芦",
+            "幌金绳",
+            "七星剑",
+            "羊脂玉净瓶"
+          ]
+        },
+        {
+          "name": "银角大王",
+          "原型": "太上老君捣药童子",
+          "收服者": "太上老君",
+          "camp": "道门",
+          "法宝": [
+            "紫金红葫芦",
+            "幌金绳",
+            "七星剑",
+            "羊脂玉净瓶"
+          ]
+        }
+      ],
+      "locations": [
+        "平顶山",
+        "莲花洞"
+      ],
+      "artifacts": [
+        "紫金红葫芦",
+        "幌金绳",
+        "七星剑",
+        "羊脂玉净瓶"
+      ]
+    },
+    {
+      "no": 26,
+      "id": "xy-e-026",
+      "title": "乌鸡国救主",
+      "aliases": [
+        "乌鸡国"
+      ],
+      "chapters": [
+        36,
+        37
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "乌鸡国救主，文殊收青毛狮子。",
+      "monsters": [
+        {
+          "name": "狮猁怪",
+          "原型": "文殊菩萨青毛狮子",
+          "收服者": "文殊菩萨",
+          "camp": "佛门",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "乌鸡国"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 27,
+      "id": "xy-e-027",
+      "title": "被魔化身",
+      "aliases": [],
+      "chapters": [
+        37
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "狮猁怪化身假王，殿上现形，文殊收青毛狮子。",
+      "monsters": [
+        {
+          "name": "狮猁怪",
+          "原型": "文殊菩萨青毛狮子",
+          "收服者": "文殊菩萨",
+          "camp": "佛门",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "乌鸡国"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 28,
+      "id": "xy-e-028",
+      "title": "号山逢怪",
+      "aliases": [
+        "火云洞"
+      ],
+      "chapters": [
+        40,
+        41
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "号山枯松涧，红孩儿变童子骗唐僧。",
+      "monsters": [
+        {
+          "name": "红孩儿",
+          "原型": "牛魔王子",
+          "收服者": "观音菩萨",
+          "camp": "佛门",
+          "法宝": [
+            "火尖枪"
+          ]
+        }
+      ],
+      "locations": [
+        "火云洞"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 29,
+      "id": "xy-e-029",
+      "title": "风摄圣僧",
+      "aliases": [],
+      "chapters": [
+        41
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "风摄圣僧入洞，悟空战红孩儿。",
+      "monsters": [
+        {
+          "name": "红孩儿",
+          "原型": "牛魔王子",
+          "收服者": "观音菩萨",
+          "camp": "佛门",
+          "法宝": [
+            "火尖枪"
+          ]
+        }
+      ],
+      "locations": [
+        "火云洞"
+      ],
+      "artifacts": [
+        "火尖枪"
+      ]
+    },
+    {
+      "no": 30,
+      "id": "xy-e-030",
+      "title": "心猿遭害",
+      "aliases": [],
+      "chapters": [
+        41,
+        42
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "红孩儿三昧真火擒唐僧，观音收为善财童子。",
+      "monsters": [
+        {
+          "name": "红孩儿",
+          "原型": "牛魔王子",
+          "收服者": "观音菩萨",
+          "camp": "佛门",
+          "法宝": [
+            "火尖枪"
+          ]
+        }
+      ],
+      "locations": [
+        "火云洞"
+      ],
+      "artifacts": [
+        "火尖枪"
+      ]
+    },
+    {
+      "no": 31,
+      "id": "xy-e-031",
+      "title": "请圣降妖",
+      "aliases": [],
+      "chapters": [
+        42
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "观音请圣降妖，收善财童子。",
+      "monsters": [
+        {
+          "name": "红孩儿",
+          "原型": "牛魔王子",
+          "收服者": "观音菩萨",
+          "camp": "佛门",
+          "法宝": [
+            "火尖枪"
+          ]
+        }
+      ],
+      "locations": [
+        "火云洞"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 32,
+      "id": "xy-e-032",
+      "title": "黑河沉没",
+      "aliases": [
+        "黑水河"
+      ],
+      "chapters": [
+        43
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "黑水河鼍龙沉僧，西海龙王收子。",
+      "monsters": [
+        {
+          "name": "鼍龙",
+          "原型": "西海龙王之子",
+          "收服者": "西海龙王",
+          "camp": "天庭",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "黑水河"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 33,
+      "id": "xy-e-033",
+      "title": "搬运车迟",
+      "aliases": [
+        "车迟国"
+      ],
+      "chapters": [
+        44,
+        45
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "车迟国三力大仙与悟空赌斗求雨、砍头、剖腹、下油锅。",
+      "monsters": [
+        {
+          "name": "虎力大仙",
+          "原型": "老虎成精",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": []
+        },
+        {
+          "name": "鹿力大仙",
+          "原型": "梅花鹿成精",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": []
+        },
+        {
+          "name": "羊力大仙",
+          "原型": "山羊成精",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "车迟国"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 34,
+      "id": "xy-e-034",
+      "title": "大赌输赢",
+      "aliases": [],
+      "chapters": [
+        45,
+        46
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "车迟国赌斗续：砍头、隔板猜物，虎力败亡。",
+      "monsters": [
+        {
+          "name": "虎力大仙",
+          "原型": "老虎成精",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": []
+        },
+        {
+          "name": "鹿力大仙",
+          "原型": "梅花鹿成精",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": []
+        },
+        {
+          "name": "羊力大仙",
+          "原型": "山羊成精",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "车迟国"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 35,
+      "id": "xy-e-035",
+      "title": "祛道兴僧",
+      "aliases": [],
+      "chapters": [
+        46
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "剖腹、下油锅，三力俱灭，国王改信佛教。",
+      "monsters": [
+        {
+          "name": "鹿力大仙",
+          "原型": "梅花鹿成精",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": []
+        },
+        {
+          "name": "羊力大仙",
+          "原型": "山羊成精",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "车迟国"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 36,
+      "id": "xy-e-036",
+      "title": "路逢大水",
+      "aliases": [
+        "通天河"
+      ],
+      "chapters": [
+        47
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "通天河阻路，灵感大王（金鱼）要吃童男童女。",
+      "monsters": [
+        {
+          "name": "灵感大王",
+          "原型": "观音莲花池金鱼",
+          "收服者": "观音菩萨",
+          "camp": "佛门",
+          "法宝": [
+            "九瓣铜锤"
+          ]
+        }
+      ],
+      "locations": [
+        "通天河"
+      ],
+      "artifacts": [
+        "九瓣铜锤"
+      ]
+    },
+    {
+      "no": 37,
+      "id": "xy-e-037",
+      "title": "身落天河",
+      "aliases": [],
+      "chapters": [
+        47,
+        48
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "唐僧落水，悟空请观音。",
+      "monsters": [
+        {
+          "name": "灵感大王",
+          "原型": "观音莲花池金鱼",
+          "收服者": "观音菩萨",
+          "camp": "佛门",
+          "法宝": [
+            "九瓣铜锤"
+          ]
+        }
+      ],
+      "locations": [
+        "通天河"
+      ],
+      "artifacts": [
+        "九瓣铜锤"
+      ]
+    },
+    {
+      "no": 38,
+      "id": "xy-e-038",
+      "title": "鱼篮现身",
+      "aliases": [],
+      "chapters": [
+        49
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "观音鱼篮收金鱼，通天河复渡。",
+      "monsters": [
+        {
+          "name": "灵感大王",
+          "原型": "观音莲花池金鱼",
+          "收服者": "观音菩萨",
+          "camp": "佛门",
+          "法宝": [
+            "九瓣铜锤"
+          ]
+        }
+      ],
+      "locations": [
+        "通天河"
+      ],
+      "artifacts": [
+        "九瓣铜锤"
+      ]
+    },
+    {
+      "no": 39,
+      "id": "xy-e-039",
+      "title": "山遇怪",
+      "aliases": [],
+      "chapters": [
+        50,
+        51
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "金兜山遇兕大王，金刚琢收兵器。",
+      "monsters": [
+        {
+          "name": "青牛精",
+          "原型": "太上老君坐骑",
+          "收服者": "太上老君",
+          "camp": "道门",
+          "法宝": [
+            "金刚琢"
+          ]
+        }
+      ],
+      "locations": [
+        "金兜洞"
+      ],
+      "artifacts": [
+        "金刚琢"
+      ]
+    },
+    {
+      "no": 40,
+      "id": "xy-e-040",
+      "title": "普天神难伏",
+      "aliases": [
+        "金兜洞"
+      ],
+      "chapters": [
+        51,
+        52
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "天兵天将亦难伏，金刚琢尽收。",
+      "monsters": [
+        {
+          "name": "青牛精",
+          "原型": "太上老君坐骑",
+          "收服者": "太上老君",
+          "camp": "道门",
+          "法宝": [
+            "金刚琢"
+          ]
+        }
+      ],
+      "locations": [
+        "金兜洞"
+      ],
+      "artifacts": [
+        "金刚琢"
+      ]
+    },
+    {
+      "no": 41,
+      "id": "xy-e-041",
+      "title": "问佛根源",
+      "aliases": [],
+      "chapters": [
+        52,
+        53
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "悟空问佛根源，老君下界收青牛。",
+      "monsters": [
+        {
+          "name": "青牛精",
+          "原型": "太上老君坐骑",
+          "收服者": "太上老君",
+          "camp": "道门",
+          "法宝": [
+            "金刚琢"
+          ]
+        }
+      ],
+      "locations": [
+        "金兜洞"
+      ],
+      "artifacts": [
+        "金刚琢"
+      ]
+    },
+    {
+      "no": 42,
+      "id": "xy-e-042",
+      "title": "吃水遭毒",
+      "aliases": [
+        "子母河"
+      ],
+      "chapters": [
+        53
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "子母河水饮成胎，解阳山落胎泉，悟空智取。",
+      "monsters": [
+        {
+          "name": "如意真仙",
+          "原型": "牛魔王兄弟",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "西梁女国"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 43,
+      "id": "xy-e-043",
+      "title": "西梁国留婚",
+      "aliases": [
+        "西梁国留婚"
+      ],
+      "chapters": [
+        54
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "西梁女国女王招赘，悟空假亲脱网。",
+      "monsters": [],
+      "locations": [
+        "西梁女国"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 44,
+      "id": "xy-e-044",
+      "title": "琵琶洞受苦",
+      "aliases": [],
+      "chapters": [
+        55
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "琵琶洞蝎子精倒马毒，昴日星官收伏。",
+      "monsters": [
+        {
+          "name": "蝎子精",
+          "原型": "蝎子成精",
+          "收服者": "昴日星官",
+          "camp": "天庭",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "琵琶洞"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 45,
+      "id": "xy-e-045",
+      "title": "再贬心猿",
+      "aliases": [],
+      "chapters": [
+        56,
+        57
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "悟空打死草寇，唐僧再念紧箍逐徒；假悟空摄假尸夺行李。",
+      "monsters": [],
+      "locations": [],
+      "artifacts": []
+    },
+    {
+      "no": 46,
+      "id": "xy-e-046",
+      "title": "难辨猕猴",
+      "aliases": [
+        "真假悟空"
+      ],
+      "chapters": [
+        57,
+        58
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "真假悟空上天入地不能辨，如来点破二心，悟空打死六耳。",
+      "monsters": [
+        {
+          "name": "六耳猕猴",
+          "原型": "六耳猕猴",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": [
+            "随心铁杆兵"
+          ]
+        }
+      ],
+      "locations": [
+        "灵山"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 47,
+      "id": "xy-e-047",
+      "title": "路阻火焰山",
+      "aliases": [
+        "火焰山"
+      ],
+      "chapters": [
+        59
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "火焰山八百里火障阻路，须借芭蕉扇方过。",
+      "monsters": [],
+      "locations": [
+        "火焰山"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 48,
+      "id": "xy-e-048",
+      "title": "求取芭蕉扇",
+      "aliases": [
+        "三借芭蕉扇"
+      ],
+      "chapters": [
+        59,
+        60
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "悟空三借芭蕉扇，天兵降伏牛魔王，熄火西行。",
+      "monsters": [
+        {
+          "name": "牛魔王",
+          "原型": "牛成精",
+          "收服者": "李天王父子",
+          "camp": "天庭",
+          "法宝": [
+            "混铁棍"
+          ]
+        },
+        {
+          "name": "玉面公主",
+          "原型": "狐狸成精",
+          "收服者": "猪八戒",
+          "camp": "打杀自死",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "火焰山"
+      ],
+      "artifacts": [
+        "芭蕉扇",
+        "定风丹"
+      ]
+    },
+    {
+      "no": 49,
+      "id": "xy-e-049",
+      "title": "收缚魔王",
+      "aliases": [
+        "祭赛国"
+      ],
+      "chapters": [
+        61
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "祭赛国金光寺失宝，悟空扫塔获线索。",
+      "monsters": [
+        {
+          "name": "九头虫",
+          "原型": "九头虫成精",
+          "收服者": "二郎神",
+          "camp": "天庭",
+          "法宝": []
+        },
+        {
+          "name": "万圣龙王",
+          "原型": "龙成精",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "祭赛国"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 50,
+      "id": "xy-e-050",
+      "title": "赛城扫塔",
+      "aliases": [],
+      "chapters": [
+        62,
+        63
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "赛城扫塔辨冤，擒塔顶小妖。",
+      "monsters": [
+        {
+          "name": "九头虫",
+          "原型": "九头虫成精",
+          "收服者": "二郎神",
+          "camp": "天庭",
+          "法宝": []
+        },
+        {
+          "name": "万圣龙王",
+          "原型": "龙成精",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "祭赛国"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 51,
+      "id": "xy-e-051",
+      "title": "取宝救僧",
+      "aliases": [],
+      "chapters": [
+        63
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "碧波潭闹龙宫取宝，二郎细犬咬九头，龙王被灭。",
+      "monsters": [
+        {
+          "name": "九头虫",
+          "原型": "九头虫成精",
+          "收服者": "二郎神",
+          "camp": "天庭",
+          "法宝": []
+        },
+        {
+          "name": "万圣龙王",
+          "原型": "龙成精",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "祭赛国",
+        "碧波潭"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 52,
+      "id": "xy-e-052",
+      "title": "棘林吟咏",
+      "aliases": [
+        "荆棘岭"
+      ],
+      "chapters": [
+        64
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "荆棘岭八戒开路，木仙庵四老谈诗，树精打媒，悟空识破。",
+      "monsters": [
+        {
+          "name": "十八公",
+          "原型": "松树",
+          "收服者": "猪八戒",
+          "camp": "打杀自死",
+          "法宝": []
+        },
+        {
+          "name": "孤直公",
+          "原型": "柏树",
+          "收服者": "猪八戒",
+          "camp": "打杀自死",
+          "法宝": []
+        },
+        {
+          "name": "凌空子",
+          "原型": "桧树",
+          "收服者": "猪八戒",
+          "camp": "打杀自死",
+          "法宝": []
+        },
+        {
+          "name": "拂云叟",
+          "原型": "竹",
+          "收服者": "猪八戒",
+          "camp": "打杀自死",
+          "法宝": []
+        },
+        {
+          "name": "杏仙",
+          "原型": "杏树",
+          "收服者": "猪八戒",
+          "camp": "打杀自死",
+          "法宝": []
+        }
+      ],
+      "locations": [],
+      "artifacts": []
+    },
+    {
+      "no": 53,
+      "id": "xy-e-053",
+      "title": "小雷音遇难",
+      "aliases": [
+        "小雷音寺"
+      ],
+      "chapters": [
+        65,
+        66
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "小雷音寺黄眉怪人种袋困悟空，弥勒收之。",
+      "monsters": [
+        {
+          "name": "黄眉怪",
+          "原型": "弥勒童子",
+          "收服者": "弥勒佛祖",
+          "camp": "佛门",
+          "法宝": [
+            "人种袋",
+            "金铙",
+            "白布搭包"
+          ]
+        }
+      ],
+      "locations": [
+        "小雷音寺"
+      ],
+      "artifacts": [
+        "人种袋",
+        "金铙",
+        "白布搭包"
+      ]
+    },
+    {
+      "no": 54,
+      "id": "xy-e-054",
+      "title": "诸天神遭困",
+      "aliases": [],
+      "chapters": [
+        66
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "二十八宿掀金铙，黄眉白布搭包装众神。",
+      "monsters": [
+        {
+          "name": "黄眉怪",
+          "原型": "弥勒童子",
+          "收服者": "弥勒佛祖",
+          "camp": "佛门",
+          "法宝": [
+            "人种袋",
+            "金铙",
+            "白布搭包"
+          ]
+        }
+      ],
+      "locations": [
+        "小雷音寺"
+      ],
+      "artifacts": [
+        "白布搭包",
+        "人种袋"
+      ]
+    },
+    {
+      "no": 55,
+      "id": "xy-e-055",
+      "title": "稀柿同秽阻",
+      "aliases": [
+        "稀柿关",
+        "七绝山"
+      ],
+      "chapters": [
+        67
+      ],
+      "phase": "mid",
+      "phaseLabel": "中途魔障",
+      "summary": "七绝山稀柿同秽气阻路，八戒变猪拱开旧路。",
+      "monsters": [],
+      "locations": [],
+      "artifacts": []
+    },
+    {
+      "no": 56,
+      "id": "xy-e-056",
+      "title": "朱紫国行医",
+      "aliases": [],
+      "chapters": [
+        68,
+        69
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "朱紫国倒换关文，国王问妖；悟空悬丝诊脉。",
+      "monsters": [
+        {
+          "name": "赛太岁",
+          "原型": "观音菩萨坐骑金毛犼",
+          "收服者": "观音菩萨",
+          "camp": "佛门",
+          "法宝": [
+            "五彩仙衣",
+            "紫金铃"
+          ]
+        }
+      ],
+      "locations": [
+        "朱紫国"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 57,
+      "id": "xy-e-057",
+      "title": "拯救疲癃",
+      "aliases": [],
+      "chapters": [
+        69,
+        70
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "悟空盗紫金铃，与赛太岁赌斗。",
+      "monsters": [
+        {
+          "name": "赛太岁",
+          "原型": "观音菩萨坐骑金毛犼",
+          "收服者": "观音菩萨",
+          "camp": "佛门",
+          "法宝": [
+            "五彩仙衣",
+            "紫金铃"
+          ]
+        }
+      ],
+      "locations": [
+        "朱紫国",
+        "麒麟山"
+      ],
+      "artifacts": [
+        "紫金铃",
+        "五彩仙衣"
+      ]
+    },
+    {
+      "no": 58,
+      "id": "xy-e-058",
+      "title": "降妖取后",
+      "aliases": [],
+      "chapters": [
+        70,
+        71
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "观音释拆凤之冤，收金毛犼，金圣宫娘娘还宫。",
+      "monsters": [
+        {
+          "name": "赛太岁",
+          "原型": "观音菩萨坐骑金毛犼",
+          "收服者": "观音菩萨",
+          "camp": "佛门",
+          "法宝": [
+            "五彩仙衣",
+            "紫金铃"
+          ]
+        }
+      ],
+      "locations": [
+        "朱紫国"
+      ],
+      "artifacts": [
+        "紫金铃"
+      ]
+    },
+    {
+      "no": 59,
+      "id": "xy-e-059",
+      "title": "七情迷没",
+      "aliases": [
+        "盘丝洞"
+      ],
+      "chapters": [
+        72
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "盘丝洞七情迷，蜘蛛精欲吃唐僧。",
+      "monsters": [
+        {
+          "name": "蜘蛛精",
+          "原型": "蜘蛛成精",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": []
+        }
+      ],
+      "locations": [],
+      "artifacts": []
+    },
+    {
+      "no": 60,
+      "id": "xy-e-060",
+      "title": "多目遭伤",
+      "aliases": [],
+      "chapters": [
+        73
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "黄花观百眼魔君金光困悟空，毗蓝婆收之。",
+      "monsters": [
+        {
+          "name": "百眼魔君",
+          "原型": "蜈蚣成精",
+          "收服者": "毗蓝婆",
+          "camp": "佛门",
+          "法宝": []
+        }
+      ],
+      "locations": [],
+      "artifacts": []
+    },
+    {
+      "no": 61,
+      "id": "xy-e-061",
+      "title": "路阻狮驼",
+      "aliases": [
+        "狮驼岭"
+      ],
+      "chapters": [
+        74,
+        75
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "狮驼岭三魔阻路，青狮吞悟空。",
+      "monsters": [
+        {
+          "name": "青狮精",
+          "原型": "文殊菩萨坐骑",
+          "收服者": "文殊菩萨",
+          "camp": "佛门",
+          "法宝": []
+        },
+        {
+          "name": "白象精",
+          "原型": "普贤菩萨坐骑",
+          "收服者": "普贤菩萨",
+          "camp": "佛门",
+          "法宝": []
+        },
+        {
+          "name": "大鹏精",
+          "原型": "如来娘舅（孔雀之弟）",
+          "收服者": "如来佛祖",
+          "camp": "佛门",
+          "法宝": [
+            "阴阳二气瓶"
+          ]
+        }
+      ],
+      "locations": [
+        "狮驼岭"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 62,
+      "id": "xy-e-062",
+      "title": "怪分三色",
+      "aliases": [],
+      "chapters": [
+        75,
+        76
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "三魔分色，阴阳二气瓶困悟空。",
+      "monsters": [
+        {
+          "name": "青狮精",
+          "原型": "文殊菩萨坐骑",
+          "收服者": "文殊菩萨",
+          "camp": "佛门",
+          "法宝": []
+        },
+        {
+          "name": "白象精",
+          "原型": "普贤菩萨坐骑",
+          "收服者": "普贤菩萨",
+          "camp": "佛门",
+          "法宝": []
+        },
+        {
+          "name": "大鹏精",
+          "原型": "如来娘舅（孔雀之弟）",
+          "收服者": "如来佛祖",
+          "camp": "佛门",
+          "法宝": [
+            "阴阳二气瓶"
+          ]
+        }
+      ],
+      "locations": [
+        "狮驼岭"
+      ],
+      "artifacts": [
+        "阴阳二气瓶"
+      ]
+    },
+    {
+      "no": 63,
+      "id": "xy-e-063",
+      "title": "城里遇灾",
+      "aliases": [],
+      "chapters": [
+        76
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "狮驼城妖众，唐僧再被擒。",
+      "monsters": [
+        {
+          "name": "青狮精",
+          "原型": "文殊菩萨坐骑",
+          "收服者": "文殊菩萨",
+          "camp": "佛门",
+          "法宝": []
+        },
+        {
+          "name": "白象精",
+          "原型": "普贤菩萨坐骑",
+          "收服者": "普贤菩萨",
+          "camp": "佛门",
+          "法宝": []
+        },
+        {
+          "name": "大鹏精",
+          "原型": "如来娘舅（孔雀之弟）",
+          "收服者": "如来佛祖",
+          "camp": "佛门",
+          "法宝": [
+            "阴阳二气瓶"
+          ]
+        }
+      ],
+      "locations": [
+        "狮驼岭"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 64,
+      "id": "xy-e-064",
+      "title": "请佛收魔",
+      "aliases": [],
+      "chapters": [
+        77
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "悟空请佛，文殊普贤收狮象，如来收大鹏。",
+      "monsters": [
+        {
+          "name": "青狮精",
+          "原型": "文殊菩萨坐骑",
+          "收服者": "文殊菩萨",
+          "camp": "佛门",
+          "法宝": []
+        },
+        {
+          "name": "白象精",
+          "原型": "普贤菩萨坐骑",
+          "收服者": "普贤菩萨",
+          "camp": "佛门",
+          "法宝": []
+        },
+        {
+          "name": "大鹏精",
+          "原型": "如来娘舅（孔雀之弟）",
+          "收服者": "如来佛祖",
+          "camp": "佛门",
+          "法宝": [
+            "阴阳二气瓶"
+          ]
+        }
+      ],
+      "locations": [
+        "狮驼岭",
+        "灵山"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 65,
+      "id": "xy-e-065",
+      "title": "比丘救子",
+      "aliases": [
+        "比丘国"
+      ],
+      "chapters": [
+        78,
+        79
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "比丘国白鹿精要小儿心肝，悟空阴神护幼。",
+      "monsters": [
+        {
+          "name": "白鹿精",
+          "原型": "南极寿星坐骑白鹿",
+          "收服者": "南极寿星",
+          "camp": "道门",
+          "法宝": [
+            "蟠龙拐"
+          ]
+        }
+      ],
+      "locations": [
+        "比丘国"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 66,
+      "id": "xy-e-066",
+      "title": "辨认真邪",
+      "aliases": [],
+      "chapters": [
+        79
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "清华洞擒鹿，南极寿星收坐骑，小儿还家。",
+      "monsters": [
+        {
+          "name": "白鹿精",
+          "原型": "南极寿星坐骑白鹿",
+          "收服者": "南极寿星",
+          "camp": "道门",
+          "法宝": [
+            "蟠龙拐"
+          ]
+        }
+      ],
+      "locations": [
+        "比丘国"
+      ],
+      "artifacts": [
+        "蟠龙拐"
+      ]
+    },
+    {
+      "no": 67,
+      "id": "xy-e-067",
+      "title": "松林救怪",
+      "aliases": [
+        "镇海寺"
+      ],
+      "chapters": [
+        80,
+        81
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "黑松林绑女，唐僧坚持相救，入镇海禅林寺。",
+      "monsters": [
+        {
+          "name": "地涌夫人",
+          "原型": "金鼻白毛老鼠",
+          "收服者": "李靖",
+          "camp": "天庭",
+          "法宝": []
+        }
+      ],
+      "locations": [],
+      "artifacts": []
+    },
+    {
+      "no": 68,
+      "id": "xy-e-068",
+      "title": "僧房卧病",
+      "aliases": [],
+      "chapters": [
+        81
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "僧房三日病，寺中妖精吃小和尚，悟空夜捉。",
+      "monsters": [
+        {
+          "name": "地涌夫人",
+          "原型": "金鼻白毛老鼠",
+          "收服者": "李靖",
+          "camp": "天庭",
+          "法宝": []
+        }
+      ],
+      "locations": [],
+      "artifacts": []
+    },
+    {
+      "no": 69,
+      "id": "xy-e-069",
+      "title": "无底洞遭困",
+      "aliases": [
+        "无底洞"
+      ],
+      "chapters": [
+        81
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "陷空山无底洞老鼠精摄唐僧，天王收义女。",
+      "monsters": [
+        {
+          "name": "地涌夫人",
+          "原型": "金鼻白毛老鼠",
+          "收服者": "李靖",
+          "camp": "天庭",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "陷空山",
+        "无底洞"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 70,
+      "id": "xy-e-070",
+      "title": "灭法国难行",
+      "aliases": [],
+      "chapters": [
+        82
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "灭法国万僧之愿，悟空劝善改号钦法国。",
+      "monsters": [],
+      "locations": [
+        "灭法国"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 71,
+      "id": "xy-e-071",
+      "title": "隐雾山遇魔",
+      "aliases": [
+        "隐雾山"
+      ],
+      "chapters": [
+        83
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "隐雾山南山大王分瓣梅花计摄唐僧，豹精被灭。",
+      "monsters": [
+        {
+          "name": "南山大王",
+          "原型": "艾叶花皮豹",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": []
+        }
+      ],
+      "locations": [],
+      "artifacts": []
+    },
+    {
+      "no": 72,
+      "id": "xy-e-072",
+      "title": "凤仙郡求雨",
+      "aliases": [],
+      "chapters": [
+        84
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "凤仙郡三年不雨，[[凤仙郡郡侯]] 善念倒断三事，天降甘霖。",
+      "monsters": [],
+      "locations": [
+        "凤仙郡"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 73,
+      "id": "xy-e-073",
+      "title": "失落兵器",
+      "aliases": [],
+      "chapters": [
+        85
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "豹头山黄狮精趁夜盗走三兵器。",
+      "monsters": [
+        {
+          "name": "黄狮精",
+          "原型": "金毛狮子",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "玉华州"
+      ],
+      "artifacts": [
+        "金箍棒",
+        "九齿钉钯",
+        "降妖宝杖"
+      ]
+    },
+    {
+      "no": 74,
+      "id": "xy-e-074",
+      "title": "会庆钉钯",
+      "aliases": [],
+      "chapters": [
+        86
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "黄狮精设钉钯宴庆盗宝，悟空等寻至豹头山。",
+      "monsters": [
+        {
+          "name": "黄狮精",
+          "原型": "金毛狮子",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "玉华州"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 75,
+      "id": "xy-e-075",
+      "title": "竹节山遭难",
+      "aliases": [
+        "玉华州"
+      ],
+      "chapters": [
+        87,
+        88
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "玉华州失兵器，九灵元圣衔走师徒，天尊收狮。",
+      "monsters": [
+        {
+          "name": "九灵元圣",
+          "原型": "太乙救苦天尊坐骑",
+          "收服者": "太乙救苦天尊",
+          "camp": "道门",
+          "法宝": []
+        },
+        {
+          "name": "黄狮精",
+          "原型": "金毛狮子",
+          "收服者": "孙悟空",
+          "camp": "打杀自死",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "玉华州",
+        "竹节山"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 76,
+      "id": "xy-e-076",
+      "title": "玄英洞受苦",
+      "aliases": [],
+      "chapters": [
+        89,
+        90
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "竹节山遭难，太乙救苦天尊收九头狮。",
+      "monsters": [
+        {
+          "name": "九灵元圣",
+          "原型": "太乙救苦天尊坐骑",
+          "收服者": "太乙救苦天尊",
+          "camp": "道门",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "竹节山"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 77,
+      "id": "xy-e-077",
+      "title": "赶捉犀牛",
+      "aliases": [
+        "金平府"
+      ],
+      "chapters": [
+        91,
+        92
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "金平府三犀牛假佛偷油，四木禽星收伏。",
+      "monsters": [
+        {
+          "name": "辟寒大王",
+          "原型": "犀牛成精",
+          "收服者": "四木禽星",
+          "camp": "未知",
+          "法宝": [
+            "钺斧"
+          ]
+        },
+        {
+          "name": "辟暑大王",
+          "原型": "犀牛成精",
+          "收服者": "四木禽星",
+          "camp": "未知",
+          "法宝": [
+            "大刀"
+          ]
+        },
+        {
+          "name": "辟尘大王",
+          "原型": "犀牛成精",
+          "收服者": "四木禽星",
+          "camp": "未知",
+          "法宝": [
+            "扢挞藤"
+          ]
+        }
+      ],
+      "locations": [
+        "金平府",
+        "青龙山"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 78,
+      "id": "xy-e-078",
+      "title": "天竺招婚",
+      "aliases": [
+        "天竺招婚"
+      ],
+      "chapters": [
+        93,
+        94,
+        95
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "天竺国玉兔精假公主招亲，太阴星君收之。",
+      "monsters": [
+        {
+          "name": "玉兔精",
+          "原型": "太阴星君玉兔",
+          "收服者": "太阴星君",
+          "camp": "天庭",
+          "法宝": []
+        }
+      ],
+      "locations": [
+        "天竺国"
+      ],
+      "artifacts": [
+        "捣药杵"
+      ]
+    },
+    {
+      "no": 79,
+      "id": "xy-e-079",
+      "title": "铜台府监禁",
+      "aliases": [
+        "铜台府"
+      ],
+      "chapters": [
+        96
+      ],
+      "phase": "late",
+      "phaseLabel": "后期险途",
+      "summary": "铜台府寇员外斋僧，夜贼杀主嫁祸，寇洪还阳昭雪。",
+      "monsters": [],
+      "locations": [],
+      "artifacts": []
+    },
+    {
+      "no": 80,
+      "id": "xy-e-080",
+      "title": "凌云渡脱胎",
+      "aliases": [
+        "凌云渡"
+      ],
+      "chapters": [
+        98
+      ],
+      "phase": "finish",
+      "phaseLabel": "功果圆满",
+      "summary": "独木桥凌云渡，唐僧脱凡胎；见如来传经。",
+      "monsters": [],
+      "locations": [
+        "灵山"
+      ],
+      "artifacts": []
+    },
+    {
+      "no": 81,
+      "id": "xy-e-081",
+      "title": "通天河湿经",
+      "aliases": [],
+      "chapters": [
+        99
+      ],
+      "phase": "finish",
+      "phaseLabel": "功果圆满",
+      "summary": "观音令揭谛还生一难；老鼋嗔问寿数淬水，经书落水晒经石留痕。",
+      "monsters": [],
+      "locations": [
+        "通天河"
+      ],
+      "artifacts": []
+    }
+  ],
+  "stats": {
+    "by_camp": {
+      "佛门": 30,
+      "打杀自死": 25,
+      "天庭": 13,
+      "道门": 11,
+      "未知": 8
+    },
+    "top_monsters": [
+      [
+        "红孩儿",
+        4
+      ],
+      [
+        "青狮精",
+        4
+      ],
+      [
+        "白象精",
+        4
+      ],
+      [
+        "大鹏精",
+        4
+      ],
+      [
+        "寅将军",
+        3
+      ],
+      [
+        "奎木狼",
+        3
+      ],
+      [
+        "鹿力大仙",
+        3
+      ],
+      [
+        "羊力大仙",
+        3
+      ],
+      [
+        "灵感大王",
+        3
+      ],
+      [
+        "青牛精",
+        3
+      ],
+      [
+        "九头虫",
+        3
+      ],
+      [
+        "万圣龙王",
+        3
+      ]
+    ],
+    "top_artifacts": [
+      [
+        "九瓣铜锤",
+        3
+      ],
+      [
+        "金刚琢",
+        3
+      ],
+      [
+        "定风丹",
+        2
+      ],
+      [
+        "紫金红葫芦",
+        2
+      ],
+      [
+        "幌金绳",
+        2
+      ],
+      [
+        "七星剑",
+        2
+      ],
+      [
+        "火尖枪",
+        2
+      ],
+      [
+        "人种袋",
+        2
+      ],
+      [
+        "白布搭包",
+        2
+      ],
+      [
+        "紫金铃",
+        2
+      ],
+      [
+        "锦襴袈裟",
+        1
+      ],
+      [
+        "羊脂玉净瓶",
+        1
+      ]
+    ],
+    "top_locations": [
+      [
+        "火云洞",
+        4
+      ],
+      [
+        "通天河",
+        4
+      ],
+      [
+        "狮驼岭",
+        4
+      ],
+      [
+        "五庄观",
+        3
+      ],
+      [
+        "车迟国",
+        3
+      ],
+      [
+        "金兜洞",
+        3
+      ],
+      [
+        "灵山",
+        3
+      ],
+      [
+        "祭赛国",
+        3
+      ],
+      [
+        "朱紫国",
+        3
+      ],
+      [
+        "玉华州",
+        3
+      ],
+      [
+        "黄风岭",
+        2
+      ],
+      [
+        "流沙河",
+        2
+      ]
+    ]
+  }
+}

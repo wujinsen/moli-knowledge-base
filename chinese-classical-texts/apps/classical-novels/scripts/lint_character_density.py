@@ -11,7 +11,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-from _common import CONTENT, DATA_DIR, iter_characters
+from _common import CONTENT, DATA_DIR, count_plot_entries, iter_characters
 
 SYMMETRIC = {
     "夫妻", "兄弟", "姐妹", "妯娌", "师兄弟", "同僚", "朋友", "结拜", "情人", "仇敌", "敌对",
@@ -42,9 +42,10 @@ def _scan_pages(book: str) -> tuple[dict[str, dict], set[str], dict, list[str], 
         plots: list[str] = []
         if plot_sec:
             plots = [ln for ln in plot_sec.group(1).splitlines() if ln.strip().startswith("-")]
+        plot_count = count_plot_entries(body)
         pages[cid] = {
             "rel": len(rels),
-            "plot": len(plots),
+            "plot": plot_count,
             "body_len": len(re.sub(r"\[\[[^\]]+\]\]", "", body).strip()),
             "main": "## 主要关系" in body,
             "identity": "## 身份" in body,

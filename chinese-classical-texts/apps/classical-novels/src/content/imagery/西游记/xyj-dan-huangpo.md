@@ -29,9 +29,22 @@ tags: [丹道意象, 五行-土, 黄婆]
 summary: "黄婆象征调和金木的脾土，对应沙僧。"
 source: chapters/西游记/022.md
 ---
-
 ## 丹道意象 · 黄婆
 
-「黄婆」为脾土，居中调停，使金木（真铅真汞）相交。第22回流沙河收沙僧，得此调和之土。
+## 互文
 
-沙僧每每劝架、挑担守中，不只是性格设定，更是内丹「土调金木」的机制——故金木之争总赖黄婆维系不散。
+- 第22回 · 推论 · 象征 → [[沙僧]] — 「黄婆」即脾土，居中调和金木（真铅真汞）。
+- 推论 · 调和 → [xyj-dan-xinyuan](/xiyouji/imagery/xyj-dan-xinyuan) — 土调金：每劝悟空，即丹道「土调金」。
+- 推论 · 调和 → [xyj-dan-mumu](/xiyouji/imagery/xyj-dan-mumu) — 土调木：每劝八戒，即丹道「土调木」。
+
+## 评析
+
+黄婆象征调和金木的脾土，对应沙僧。
+
+## 相关
+
+- [[沙僧]]
+- 意象：[xyj-dan-xinyuan](/xiyouji/imagery/xyj-dan-xinyuan)
+- 意象：[xyj-dan-mumu](/xiyouji/imagery/xyj-dan-mumu)
+- 出处：`chapters/西游记/022.md`
+- 标签：丹道意象, 五行-土, 黄婆

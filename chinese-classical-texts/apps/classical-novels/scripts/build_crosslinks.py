@@ -70,6 +70,31 @@ def load_transactions(book: str) -> list[tuple[str, dict]]:
     return rows
 
 
+def load_characters(book: str) -> list[tuple[str, dict]]:
+    d = CONTENT / "characters" / book
+    if not d.exists():
+        return []
+    rows: list[tuple[str, dict]] = []
+    for p in sorted(d.glob("*.md")):
+        fm, _ = parse_frontmatter(p)
+        cid = fm.get("id") or p.stem
+        rows.append((cid, fm))
+    return rows
+
+
+def build_from_characters(book: str) -> dict[str, list[str]]:
+    """人物 frontmatter 关键物品/服饰 → occupant_items（与 Studio 待办对齐）。"""
+    occupant_items: dict[str, list[str]] = defaultdict(list)
+    for cid, fm in load_characters(book):
+        for field in ("关键物品", "服饰"):
+            val = fm.get(field)
+            if isinstance(val, list):
+                for item in val:
+                    if isinstance(item, str) and item:
+                        _add(occupant_items, cid, item)
+    return dict(occupant_items)
+
+
 def build_from_entities(book: str) -> dict:
     location_items: dict[str, list[str]] = defaultdict(list)
     occupant_items: dict[str, list[str]] = defaultdict(list)
@@ -135,6 +160,7 @@ def build_book(book: str) -> Path:
     out = output_path(book)
     existing = load_existing(out)
     generated = build_from_entities(book)
+    from_chars = build_from_characters(book)
 
     location_items = _merge_bucket(
         existing.get("location_items") or {},
@@ -144,6 +170,7 @@ def build_book(book: str) -> Path:
         existing.get("occupant_items") or {},
         generated["occupant_items"],
     )
+    occupant_items = _merge_bucket(occupant_items, from_chars)
     occupant_transactions = _merge_bucket(
         existing.get("occupant_transactions") or {},
         generated["occupant_transactions"],

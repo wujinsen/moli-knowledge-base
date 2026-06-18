@@ -2,12 +2,12 @@
 id: xyj-v-047
 type: variant
 book: 西游记
-chapter: 7
+chapter: 6
 category: 措辞
 edition_a: 世德堂本
 edition_b: 通本
-text_a: "著雷"
-text_b: "着云"
+text_a: "。諕"
+text_b: "，唬"
 tags: [auto]
-summary: "第7回「著雷」↔「着云」（自动抽取）。"
+summary: "第6回「。諕」↔「，唬」（自动抽取）。"
 ---

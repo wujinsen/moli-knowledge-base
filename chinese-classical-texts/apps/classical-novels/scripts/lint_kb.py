@@ -107,76 +107,12 @@ def lint_broken_doc_links(book: str) -> list[str]:
 
 
 def lint_location_graph(book: str) -> list[str]:
-    """Orphans, zero chapter coverage, weak inbound (≤2 non-index)."""
-    if book != "红楼梦":
+    """向后兼容 CLI；维护台请用 lint_modules.lint_places_graph。"""
+    from lint_modules import _has_places_module, lint_places_graph
+
+    if not _has_places_module(book):
         return []
-    loc_dir = CONTENT / "locations" / book
-    if not loc_dir.exists():
-        return []
-    loc_ids: set[str] = set()
-    pages: dict[str, str] = {}
-    for p in loc_dir.glob("*.md"):
-        fm, _ = parse_frontmatter(p)
-        lid = fm.get("id") or p.stem
-        loc_ids.add(lid)
-        pages[lid] = p.read_text(encoding="utf-8")
-
-    inbound: dict[str, set[str]] = defaultdict(set)
-
-    def scan(text: str, source: str) -> None:
-        for m in re.finditer(r"\[\[([^\]|]+)(?:\|[^\]]+)?\]\]", text):
-            t = m.group(1).strip()
-            if t in loc_ids:
-                inbound[t].add(source)
-
-    for lid, raw in pages.items():
-        parts = raw.split("---", 2)
-        body = parts[2] if len(parts) > 2 else ""
-        fm_data, _ = parse_frontmatter(loc_dir / f"{lid}.md")
-        for other in loc_ids:
-            if other != lid and f"[[{other}]]" in body:
-                inbound[other].add(f"wiki:{lid}")
-        for n in fm_data.get("nearby") or []:
-            if isinstance(n, str) and n in loc_ids and n != lid:
-                inbound[n].add(f"nearby:{lid}")
-
-    for sub in ("characters", "topics", "events"):
-        d = CONTENT / sub / book
-        if not d.exists():
-            continue
-        for p in d.rglob("*.md"):
-            scan(p.read_text(encoding="utf-8"), f"{sub}:{p.stem}")
-
-    idx = CONTENT / "topics" / book / "大观园建筑名录.md"
-    if idx.exists():
-        txt = idx.read_text(encoding="utf-8")
-        for lid in loc_ids:
-            if f"/l/{lid}" in txt:
-                inbound[lid].add("index")
-
-    ch_count: dict[str, int] = defaultdict(int)
-    base = CHAPTER_DIR / book
-    for p in base.glob("[0-9]*.md"):
-        raw = p.read_text(encoding="utf-8-sig")
-        locs = parse_list_field(raw, "locations") or []
-        for x in locs:
-            if x in loc_ids:
-                ch_count[x] += 1
-
-    issues: list[str] = []
-    orphans = sorted(l for l in loc_ids if not inbound[l])
-    if orphans:
-        issues.append(f"location 孤儿页 ({len(orphans)}): {', '.join(orphans)}")
-    zero_ch = sorted(l for l in loc_ids if ch_count[l] == 0)
-    if zero_ch:
-        issues.append(f"locations[] 零覆盖 ({len(zero_ch)}): {', '.join(zero_ch)}")
-    weak = sorted(l for l in loc_ids if 0 < len(inbound[l]) <= 2 and "index" in inbound[l])
-    if weak:
-        issues.append(
-            f"location 弱入链仅名录 ({len(weak)}): {', '.join(weak[:12])}"
-            + (f" …+{len(weak)-12}" if len(weak) > 12 else "")
-        )
-    return issues
+    return lint_places_graph(book)
 
 
 def main() -> None:

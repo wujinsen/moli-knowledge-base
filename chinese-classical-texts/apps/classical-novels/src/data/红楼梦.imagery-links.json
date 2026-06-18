@@ -162,6 +162,110 @@
       "chapter": 5
     },
     {
+      "source": "hl-p-07",
+      "target": "林黛玉",
+      "predicate": "预示",
+      "inference": true,
+      "note": "欠泪的，泪已尽",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-07",
+      "target": "贾宝玉",
+      "predicate": "预示",
+      "inference": true,
+      "note": "看破的，遁入空门；痴执历劫总收",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-07",
+      "target": "贾惜春",
+      "predicate": "预示",
+      "inference": true,
+      "note": "看破的，遁入空门",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-07",
+      "target": "贾迎春",
+      "predicate": "预示",
+      "inference": true,
+      "note": "无情的，生死空闻",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-07",
+      "target": "王熙凤",
+      "predicate": "预示",
+      "inference": true,
+      "note": "痴迷的，枉送了性命",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-07",
+      "target": "薛宝钗",
+      "predicate": "预示",
+      "inference": true,
+      "note": "富贵的，金银散尽",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-07",
+      "target": "贾元春",
+      "predicate": "预示",
+      "inference": true,
+      "note": "为官的，家业凋零",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-07",
+      "target": "贾探春",
+      "predicate": "预示",
+      "inference": true,
+      "note": "分骨肉收束，从今分两地",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-07",
+      "target": "史湘云",
+      "predicate": "预示",
+      "inference": true,
+      "note": "云散高唐，水涸湘江（乐中悲收束）",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-07",
+      "target": "妙玉",
+      "predicate": "预示",
+      "inference": true,
+      "note": "过洁终污（虚名利收束）",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-07",
+      "target": "贾巧姐",
+      "predicate": "预示",
+      "inference": true,
+      "note": "留余庆后劫余生",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-07",
+      "target": "李纨",
+      "predicate": "预示",
+      "inference": true,
+      "note": "虚名儿与后人钦敬（晚韶华收束）",
+      "chapter": 5
+    },
+    {
+      "source": "hl-p-07",
+      "target": "秦可卿",
+      "predicate": "预示",
+      "inference": true,
+      "note": "宿孽总因情（好事终收束）",
+      "chapter": 5
+    },
+    {
       "source": "hl-p-08",
       "target": "hl-p-03",
       "predicate": "互文",

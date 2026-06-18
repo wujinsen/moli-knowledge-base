@@ -2,12 +2,12 @@
 id: xyj-v-083
 type: variant
 book: 西游记
-chapter: 20
+chapter: 18
 category: 措辞
 edition_a: 世德堂本
 edition_b: 通本
-text_a: "插著"
-text_b: "撇着"
+text_a: "著，"
+text_b: "着！"
 tags: [auto]
-summary: "第20回「插著」↔「撇着」（自动抽取）。"
+summary: "第18回「著，」↔「着！」（自动抽取）。"
 ---

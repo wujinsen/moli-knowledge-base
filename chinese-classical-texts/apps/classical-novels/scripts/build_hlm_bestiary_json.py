@@ -11,6 +11,7 @@ import sys
 from _common import CHAR_DIR, DATA_DIR, parse_frontmatter
 from hlm_bestiary_fields import FIELDS, GROUPS
 from outcome_extract import extract_outcome
+from _item_wiki import build_char_item_map, list_known_item_ids, merge_fields_with_wiki
 
 BOOK = "红楼梦"
 OUT = DATA_DIR / "hongloumeng.bestiary.json"
@@ -28,8 +29,10 @@ def main() -> None:
 
     payload_fields: dict[str, dict] = {}
     char_dir = CHAR_DIR / BOOK
+    wiki_map = build_char_item_map(BOOK)
+    item_ids = list_known_item_ids(BOOK)
     for cid in char_ids:
-        entry = dict(FIELDS[cid])
+        entry = merge_fields_with_wiki(dict(FIELDS[cid]), wiki_map.get(cid), item_ids)
         path = char_dir / f"{cid}.md"
         if path.is_file():
             fm, body = parse_frontmatter(path)

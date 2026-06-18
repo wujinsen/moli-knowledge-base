@@ -2,12 +2,12 @@
 id: xyj-v-042
 type: variant
 book: 西游记
-chapter: 6
+chapter: 5
 category: 措辞
 edition_a: 世德堂本
 edition_b: 通本
-text_a: "抡著"
-text_b: "轮着"
+text_a: "各各"
+text_b: "个个"
 tags: [auto]
-summary: "第6回「抡著」↔「轮着」（自动抽取）。"
+summary: "第5回「各各」↔「个个」（自动抽取）。"
 ---

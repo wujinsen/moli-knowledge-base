@@ -45,6 +45,55 @@ export interface SilverData {
 
 export { POOL_COLORS };
 
+/** 将 hub 双向流合并为净额，供 ECharts 桑基（须 DAG）使用 */
+export function collapseHubStarLinks(
+  links: { source: string; target: string; value: number; txs: string[] }[],
+  hub: string,
+): { source: string; target: string; value: number; txs: string[] }[] {
+  const neighbors = new Set<string>();
+  for (const l of links) {
+    if (l.source === hub || l.target === hub) {
+      neighbors.add(l.source === hub ? l.target : l.source);
+    }
+  }
+
+  const result: { source: string; target: string; value: number; txs: string[] }[] = [];
+  for (const n of neighbors) {
+    if (n === hub) continue;
+    let toHub = 0;
+    let fromHub = 0;
+    const txsTo: string[] = [];
+    const txsFrom: string[] = [];
+    for (const l of links) {
+      if (l.source === n && l.target === hub) {
+        toHub += l.value;
+        txsTo.push(...l.txs);
+      } else if (l.source === hub && l.target === n) {
+        fromHub += l.value;
+        txsFrom.push(...l.txs);
+      }
+    }
+    const net = Math.round((toHub - fromHub) * 100) / 100;
+    if (Math.abs(net) < 0.001) continue;
+    if (net > 0) {
+      result.push({ source: n, target: hub, value: net, txs: txsTo });
+    } else {
+      result.push({ source: hub, target: n, value: -net, txs: txsFrom });
+    }
+  }
+  return result;
+}
+
+function sankeyDepth(
+  name: string,
+  hub: string,
+  links: { source: string; target: string }[],
+): number {
+  if (name === hub) return 1;
+  if (links.some((l) => l.target === hub && l.source === name)) return 0;
+  return 2;
+}
+
 function buildSilverSlice(data: SilverData, txs: SilverTransaction[]): SilverData {
   const linkMap = new Map<string, { value: number; txs: string[] }>();
 
@@ -153,14 +202,23 @@ export function filterSilver(
 }
 
 export function toSankey(data: SilverData): SankeyData {
-  const depthByPool = new Map(data.pools.map((p) => [p.name, p.depth]));
+  const hub = data.hub.name;
+  const dagLinks = collapseHubStarLinks(data.links, hub);
+  const nodeNames = new Set<string>([hub]);
+  for (const l of dagLinks) {
+    nodeNames.add(l.source);
+    nodeNames.add(l.target);
+  }
   return {
-    nodes: data.pools.map((p) => ({
-      name: p.name,
-      depth: p.depth,
-      value: Math.max(p.inflow, p.outflow),
-    })),
-    links: data.links.map((l) => ({
+    nodes: [...nodeNames].map((name) => {
+      const p = data.pools.find((x) => x.name === name);
+      return {
+        name,
+        depth: sankeyDepth(name, hub, dagLinks),
+        value: p ? Math.max(p.inflow, p.outflow) : 0,
+      };
+    }),
+    links: dagLinks.map((l) => ({
       source: l.source,
       target: l.target,
       value: l.value,

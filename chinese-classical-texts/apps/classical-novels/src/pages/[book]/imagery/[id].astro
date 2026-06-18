@@ -48,11 +48,13 @@ for (const l of extraLinks) {
 
 const factLinks = mergedLinks.filter((l) => !l.inference);
 const infLinks = mergedLinks.filter((l) => l.inference);
+const isJpm = meta.slug === 'jinpingmei';
+const shiBackLabel = isJpm ? '名物谶纬' : '诗词意象';
 const displayCharacters = [...new Set([...d.characters, ...mergedLinks.filter((l) => l.target_kind === 'character').map((l) => l.target)])];
 ---
 
 <Base title={`${meta.book} · ${d.title}`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
-  <BackLink href={`/${meta.slug}/shi`} label="诗词意象" />
+  <BackLink href={`/${meta.slug}/shi`} label={shiBackLabel} />
 
   <section class="surface mt-3 mb-6 px-6 py-7 sm:px-8">
     <div class="flex flex-wrap items-start gap-3">
@@ -75,10 +77,14 @@ const displayCharacters = [...new Set([...d.characters, ...mergedLinks.filter((l
     {d.summary && <p class="mt-4 text-sm leading-relaxed text-muted">{d.summary}</p>}
   </section>
 
+  <div class="prose-cn surface px-6 py-5 text-sm sm:px-8">
+    <Content />
+  </div>
+
   {
     displayCharacters.length > 0 && (
       <>
-        <h2 class="section-title mb-3 text-lg">关联人物</h2>
+        <h2 class="section-title mb-3 mt-8 text-lg">关联人物</h2>
         <div class="mb-6 flex flex-wrap gap-2">
           {
             displayCharacters.map((c) => (
@@ -101,6 +107,8 @@ const displayCharacters = [...new Set([...d.characters, ...mergedLinks.filter((l
                 <th class="px-3 py-2 text-left font-normal">目标</th>
                 <th class="px-3 py-2 text-left font-normal">关系</th>
                 <th class="px-3 py-2 text-left font-normal">类型</th>
+                {isJpm && <th class="px-3 py-2 text-left font-normal">阶段</th>}
+                {isJpm && <th class="px-3 py-2 text-left font-normal">冷热</th>}
                 <th class="px-3 py-2 text-left font-normal">说明</th>
               </tr>
             </thead>
@@ -129,6 +137,12 @@ const displayCharacters = [...new Set([...d.characters, ...mergedLinks.filter((l
                         <span class="chip">事实</span>
                       )}
                     </td>
+                    {isJpm && (
+                      <td class="px-3 py-2.5 text-muted">{l.phase ?? '—'}</td>
+                    )}
+                    {isJpm && (
+                      <td class="px-3 py-2.5 text-muted">{l.temperature ?? '—'}</td>
+                    )}
                     <td class="px-3 py-2.5 text-muted">{l.note ?? '—'}</td>
                   </tr>
                 ))
@@ -139,8 +153,4 @@ const displayCharacters = [...new Set([...d.characters, ...mergedLinks.filter((l
       </>
     )
   }
-
-  <div class="prose-cn surface px-6 py-5 text-sm sm:px-8">
-    <Content />
-  </div>
 </Base>

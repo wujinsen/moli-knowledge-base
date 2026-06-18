@@ -44,6 +44,18 @@ def chapter_file(book: str, chapter: int, edition_slug: str | None, novels_root:
         p = base / "脂砚斋本" / f"{chapter:03d}.md"
         if p.exists():
             return p
+    subs: tuple[str, ...]
+    if book == "金瓶梅":
+        subs = ("词话本", "")
+    elif book == "西游记":
+        subs = ("通本", "")
+    else:
+        subs = ("",)
+    for sub in subs:
+        for fmt in (f"{chapter:03d}.md", f"{chapter}.md"):
+            p = base / sub / fmt if sub else base / fmt
+            if p.exists():
+                return p
     return base / f"{chapter:03d}.md"
 
 

@@ -5,6 +5,7 @@ import { factionColor, relationColor, graphTheme } from '../lib/graphTheme';
 import { relationGraphForSlug } from '../lib/relations';
 import { chainEventsForCharacter } from '../lib/chainIndex';
 import { chainEventHref, silverEventHref } from '../lib/chain';
+import { maxBetweenness, snaFocusHref, snaMetricsMap, type SnaMetric } from '../lib/sna';
 
 interface Node {
   id: string;
@@ -24,6 +25,39 @@ interface Edge {
 }
 interface Props {
   bookSlug: string;
+}
+
+type SizeMode = 'weight' | 'betweenness' | 'degree';
+
+function nodeSize(
+  n: Node,
+  mode: SizeMode,
+  sna: SnaMetric | undefined,
+  bcMax: number,
+): number {
+  if (mode === 'betweenness' && sna) return 20 + (sna.betweenness / bcMax) * 38;
+  if (mode === 'degree' && sna) return 20 + sna.degree_norm * 42;
+  return 22 + (n.weight ?? 30) * 0.45;
+}
+
+function shouldShowLabel(
+  n: Node,
+  mode: SizeMode,
+  sna: SnaMetric | undefined,
+  ctx: {
+    dimmed: boolean;
+    highlighted: boolean;
+    isSelected: boolean;
+    inFocus: boolean;
+    factionLeader: boolean;
+  },
+): boolean {
+  if (ctx.dimmed) return false;
+  if (ctx.highlighted || ctx.isSelected || ctx.inFocus || ctx.factionLeader) return true;
+  if (mode === 'weight') return (n.weight ?? 0) >= LABEL_WEIGHT_MIN;
+  if (!sna) return false;
+  if (mode === 'betweenness') return (sna.betweenness_rank ?? 99) <= 15;
+  return (sna.degree_rank ?? 99) <= 15;
 }
 
 function neighborSet(nodeId: string, edges: Edge[]): Set<string> {
@@ -127,6 +161,9 @@ function forceSettings(nodeCount: number, edgeCount: number) {
 export default function RelationGraph({ bookSlug }: Props) {
   const data = useMemo(() => relationGraphForSlug(bookSlug), [bookSlug]);
   const gt = useMemo(() => graphTheme(bookSlug), [bookSlug]);
+  const snaMap = useMemo(() => snaMetricsMap(bookSlug), [bookSlug]);
+  const bcMax = useMemo(() => maxBetweenness(bookSlug), [bookSlug]);
+  const hasSna = snaMap.size > 0;
   const containerRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<HTMLDivElement>(null);
   const chartInstance = useRef<echarts.ECharts | null>(null);
@@ -140,6 +177,7 @@ export default function RelationGraph({ bookSlug }: Props) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [hiddenFactions, setHiddenFactions] = useState<Set<string>>(new Set());
   const [physics, setPhysics] = useState(true);
+  const [sizeMode, setSizeMode] = useState<SizeMode>('weight');
   const [expandedEdgeTypes, setExpandedEdgeTypes] = useState<Set<string>>(new Set());
 
   useEffect(() => {
@@ -177,6 +215,7 @@ export default function RelationGraph({ bookSlug }: Props) {
         : [],
     [bookSlug, selectedNode],
   );
+  const selectedSna = selectedNode && selectedNode.type !== 'topic' ? snaMap.get(selectedNode.id) : undefined;
   const selectedEdges = useMemo(
     () =>
       selectedId
@@ -277,7 +316,13 @@ export default function RelationGraph({ bookSlug }: Props) {
             const summary = d.summary ? `<br/>${d.summary}` : '';
             return `<strong style="font-size:15px">${d.name}</strong><br/><span style="color:${gt.accent}">版本异文议题</span><br/>${hint}${summary}`;
           }
-          return `<strong style="font-size:15px">${d.name}</strong><br/>阵营：${d.faction ?? '—'}<br/>类型：${d.nodeType === 'monster' ? '妖怪' : '人物'}`;
+          return `<strong style="font-size:15px">${d.name}</strong><br/>阵营：${d.faction ?? '—'}<br/>类型：${d.nodeType === 'monster' ? '妖怪' : '人物'}${
+            (() => {
+              const sm = snaMap.get(String(d.name ?? ''));
+              if (!sm) return '';
+              return `<br/>度 ${sm.degree} · 介数 ${sm.betweenness.toFixed(4)} (#${sm.betweenness_rank ?? '—'})`;
+            })()
+          }`;
         },
       },
       legend: {
@@ -320,14 +365,16 @@ export default function RelationGraph({ bookSlug }: Props) {
             const highlighted = q && matched;
             const isSelected = selectedId === n.id;
             const inFocus = focusNeighbors?.has(n.id) ?? false;
-            const showLabel =
-              !dimmed &&
-              (highlighted ||
-                isSelected ||
-                inFocus ||
-                (n.weight ?? 0) >= LABEL_WEIGHT_MIN ||
-                factionLeaders.has(n.id));
-            const size = 22 + (n.weight ?? 30) * 0.45;
+            const sm = snaMap.get(n.id);
+            const showLabel = shouldShowLabel(n, sizeMode, sm, {
+              dimmed: !!dimmed,
+              highlighted: !!highlighted,
+              isSelected,
+              inFocus,
+              factionLeader: factionLeaders.has(n.id),
+            });
+            const size = nodeSize(n, sizeMode, sm, bcMax);
+            const isSnaHub = sm && (sm.betweenness_rank ?? 99) <= 5;
 
             const saved = layoutPositionsRef.current.get(n.id);
             const clusterPos = clusterPositions.get(n.id);
@@ -356,8 +403,13 @@ export default function RelationGraph({ bookSlug }: Props) {
               symbolSize: highlighted ? size * 1.2 : size,
               itemStyle: {
                 color,
-                borderColor: highlighted ? gt.accentSoft : 'rgba(255,255,255,0.35)',
-                borderWidth: highlighted ? 3 : 1.5,
+                borderColor:
+                  isSnaHub && sizeMode !== 'weight'
+                    ? gt.accentSoft
+                    : highlighted
+                      ? gt.accentSoft
+                      : 'rgba(255,255,255,0.35)',
+                borderWidth: isSnaHub && sizeMode !== 'weight' ? 3 : highlighted ? 3 : 1.5,
                 shadowBlur: dimmed ? 4 : highlighted ? 32 : 18,
                 shadowColor: color,
                 opacity: dimmed ? 0.22 : 1,
@@ -409,7 +461,7 @@ export default function RelationGraph({ bookSlug }: Props) {
         },
       ],
     };
-  }, [factions, physics, query, selectedId, visibleEdges, visibleNodes, clusterPositions, factionLeaders, gt]);
+  }, [factions, physics, query, selectedId, visibleEdges, visibleNodes, clusterPositions, factionLeaders, gt, sizeMode, snaMap, bcMax, bookSlug]);
 
   useEffect(() => {
     const el = chartRef.current;
@@ -628,6 +680,24 @@ export default function RelationGraph({ bookSlug }: Props) {
         >
           {physics ? '固定布局' : '力导向'}
         </button>
+        {hasSna && (
+          <button
+            type="button"
+            onClick={() =>
+              setSizeMode((m) =>
+                m === 'weight' ? 'betweenness' : m === 'betweenness' ? 'degree' : 'weight',
+              )
+            }
+            className="rounded-lg border border-white/10 bg-slate-900/80 px-3 py-1.5 text-sm backdrop-blur-sm hover:border-white/20"
+            style={{
+              color: sizeMode !== 'weight' ? gt.accentSoft : '#cbd5e1',
+              borderColor: sizeMode !== 'weight' ? `${gt.accentSoft}66` : undefined,
+            }}
+            title="J3：按 SNA 介数/度调整节点大小"
+          >
+            {sizeMode === 'weight' ? '重要度' : sizeMode === 'betweenness' ? 'SNA·介数' : 'SNA·度'}
+          </button>
+        )}
         <button
           type="button"
           onClick={toggleFullscreen}
@@ -736,6 +806,16 @@ export default function RelationGraph({ bookSlug }: Props) {
               <strong style={{ color: gt.accentSoft }}>{groupedSelectedEdges.length}</strong>
               <span>类关系</span>
             </div>
+            {selectedSna && (
+              <div className="mt-2 text-xs text-slate-400">
+                SNA · 度 {selectedSna.degree} · 介数 {selectedSna.betweenness.toFixed(4)}
+                {selectedSna.betweenness_rank != null && ` · 介#${selectedSna.betweenness_rank}`}
+                {' · '}
+                <a href={snaFocusHref(bookSlug, selectedNode!.id)} className="hover:underline" style={{ color: gt.accent }}>
+                  分析页 →
+                </a>
+              </div>
+            )}
           </div>
           <div className="graph-panel-scroll min-h-0 flex-1 overflow-y-auto px-3 py-2 text-sm text-slate-200">
             {groupedSelectedEdges.length === 0 ? (

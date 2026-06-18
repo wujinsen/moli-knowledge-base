@@ -1,0 +1,817 @@
+{
+  "book": "金瓶梅",
+  "generated": "2026-06-18",
+  "event_count": 15,
+  "financial_count": 11,
+  "plot_count": 4,
+  "phases": [
+    {
+      "key": "rise",
+      "label": "发家根基",
+      "range": [
+        1,
+        17
+      ],
+      "count": 3
+    },
+    {
+      "key": "climb",
+      "label": "政商攀升",
+      "range": [
+        18,
+        40
+      ],
+      "count": 7
+    },
+    {
+      "key": "peak",
+      "label": "鼎盛极奢",
+      "range": [
+        41,
+        65
+      ],
+      "count": 1
+    },
+    {
+      "key": "fall",
+      "label": "衰败散府",
+      "range": [
+        66,
+        100
+      ],
+      "count": 4
+    }
+  ],
+  "tx_chips": {
+    "jpm-tx-015": {
+      "liang": 1.0,
+      "summary": "花子虚先送一两分资，结拜十弟兄预备。",
+      "subtype": "财礼",
+      "chapter": 1,
+      "disputed": false
+    },
+    "jpm-tx-016": {
+      "liang": 50.0,
+      "summary": "知县赐武松打虎赏银五十两，散与众猎户。",
+      "subtype": "馈赠",
+      "chapter": 1,
+      "disputed": false
+    },
+    "jpm-tx-017": {
+      "liang": 10.0,
+      "summary": "武大凑十数两银子，典县前楼上下两层四间。",
+      "subtype": "买卖",
+      "chapter": 1,
+      "disputed": false
+    },
+    "jpm-tx-019": {
+      "liang": 4.0,
+      "summary": "初二买办猪羊金华酒等四两，预备初三结拜。",
+      "subtype": "酒席宴请",
+      "chapter": 1,
+      "disputed": false
+    },
+    "jpm-tx-020": {
+      "liang": 30.0,
+      "summary": "潘妈妈将潘金莲三十两转卖张大户家。",
+      "subtype": "奴婢买卖",
+      "chapter": 1,
+      "disputed": false
+    },
+    "jpm-tx-013": {
+      "liang": 0.2,
+      "summary": "李瓶儿寿日，西门庆吩咐拿二钱银子与玳安买瓜子。",
+      "subtype": "馈赠",
+      "chapter": 16,
+      "disputed": false
+    },
+    "jpm-tx-021": {
+      "liang": 380.0,
+      "summary": "李瓶儿箱藏香蜡水银等变卖三百八十两，盖房过门用。",
+      "subtype": "买卖",
+      "chapter": 17,
+      "disputed": false
+    },
+    "jpm-tx-011": {
+      "liang": 1.0,
+      "summary": "来保往蔡府送礼，一两银子打点管事。",
+      "subtype": "贿赂",
+      "chapter": 18,
+      "disputed": false
+    },
+    "jpm-tx-018": {
+      "liang": 100.0,
+      "summary": "西门庆认翟管家为干爹，初次进百两礼银。",
+      "subtype": "贿赂",
+      "chapter": 23,
+      "disputed": false
+    },
+    "jpm-tx-002": {
+      "liang": 300.0,
+      "summary": "付来旺三百两银子作酒店本钱。",
+      "subtype": "经营投资",
+      "chapter": 26,
+      "disputed": false
+    },
+    "jpm-tx-003": {
+      "liang": 300.0,
+      "summary": "蔡太师寿辰，西门庆差人送三百两寿礼银人。",
+      "subtype": "贿赂",
+      "chapter": 27,
+      "disputed": false
+    },
+    "jpm-tx-001": {
+      "liang": 7.5,
+      "summary": "买丫鬟夏花儿，七两五钱银子。",
+      "subtype": "奴婢买卖",
+      "chapter": 30,
+      "disputed": false
+    },
+    "jpm-tx-005": {
+      "liang": 70.0,
+      "summary": "买王昭宣犀角带一条，七十两银子。",
+      "subtype": "买卖",
+      "chapter": 31,
+      "disputed": false
+    },
+    "jpm-tx-006": {
+      "liang": 100.0,
+      "summary": "吴典恩借西门庆一百两银子，约期归还。",
+      "subtype": "借贷",
+      "chapter": 31,
+      "disputed": false
+    },
+    "jpm-tx-004": {
+      "liang": 450.0,
+      "summary": "绒线铺开张，本钱四百五十两。",
+      "subtype": "经营投资",
+      "chapter": 33,
+      "disputed": false
+    },
+    "jpm-tx-008": {
+      "liang": 10.0,
+      "summary": "翟管家贺礼，西门庆回赠十两银子。",
+      "subtype": "收礼",
+      "chapter": 36,
+      "disputed": false
+    },
+    "jpm-tx-007": {
+      "liang": 20.0,
+      "summary": "韩爱姐认干亲，西门庆送二十两财礼。",
+      "subtype": "财礼",
+      "chapter": 37,
+      "disputed": false
+    },
+    "jpm-tx-010": {
+      "liang": 1000.0,
+      "summary": "应伯爵牵线，西门庆借出一千两与李智、黄四。",
+      "subtype": "借贷",
+      "chapter": 38,
+      "disputed": false
+    },
+    "jpm-tx-009": {
+      "liang": 120.0,
+      "summary": "为王六儿买房屋，一百二十两银子。",
+      "subtype": "买卖",
+      "chapter": 39,
+      "disputed": false
+    },
+    "jpm-tx-023": {
+      "liang": 200.0,
+      "summary": "提刑所官买办，西门庆垫二百两银子。",
+      "subtype": "经营投资",
+      "chapter": 48,
+      "disputed": false
+    },
+    "jpm-tx-022": {
+      "liang": 500.0,
+      "summary": "蔡京寿辰，西门庆再送五百两寿礼银。",
+      "subtype": "贿赂",
+      "chapter": 75,
+      "disputed": false
+    },
+    "jpm-tx-024": {
+      "liang": 200.0,
+      "summary": "西门庆亡故，吴月娘办丧事开销（摘记一笔）。",
+      "subtype": "酒席宴请",
+      "chapter": 79,
+      "disputed": false
+    },
+    "jpm-tx-025": {
+      "liang": 60.0,
+      "summary": "家道渐落，变卖家当得银六十两。",
+      "subtype": "买卖",
+      "chapter": 85,
+      "disputed": false
+    },
+    "jpm-tx-014": {
+      "liang": 5.0,
+      "summary": "潘金莲出府后，秋菊变卖得五两银子交月娘（府内回流）。",
+      "subtype": "奴婢买卖",
+      "chapter": 87,
+      "disputed": false
+    }
+  },
+  "by_character": {
+    "西门庆": [
+      "jpm-fe-001",
+      "jpm-fe-006",
+      "jpm-fe-005",
+      "jpm-fe-007",
+      "jpm-fe-009",
+      "jpm-fe-002",
+      "jpm-fe-008",
+      "jpm-fe-004",
+      "jpm-fe-003",
+      "jpm-pe-001",
+      "jpm-pe-002",
+      "jpm-fe-011",
+      "jpm-pe-003"
+    ],
+    "应伯爵": [
+      "jpm-fe-006",
+      "jpm-fe-003",
+      "jpm-fe-012"
+    ],
+    "花子虚": [
+      "jpm-fe-006"
+    ],
+    "李瓶儿": [
+      "jpm-fe-005",
+      "jpm-pe-002"
+    ],
+    "翟管家": [
+      "jpm-fe-007",
+      "jpm-fe-002",
+      "jpm-pe-001"
+    ],
+    "来旺": [
+      "jpm-fe-009"
+    ],
+    "蔡京": [
+      "jpm-fe-002",
+      "jpm-pe-001",
+      "jpm-fe-011"
+    ],
+    "吴典恩": [
+      "jpm-fe-008"
+    ],
+    "韩道国": [
+      "jpm-fe-004"
+    ],
+    "李智": [
+      "jpm-fe-003"
+    ],
+    "黄四": [
+      "jpm-fe-003"
+    ],
+    "吴月娘": [
+      "jpm-pe-002",
+      "jpm-fe-012",
+      "jpm-pe-003",
+      "jpm-pe-004"
+    ],
+    "潘金莲": [
+      "jpm-pe-002",
+      "jpm-pe-003",
+      "jpm-pe-004"
+    ],
+    "陈经济": [
+      "jpm-pe-004"
+    ],
+    "庞春梅": [
+      "jpm-pe-004"
+    ]
+  },
+  "events": [
+    {
+      "id": "jpm-fe-001",
+      "title": "西门庆生药铺经营",
+      "subtype": "financial",
+      "financial_kind": "药铺",
+      "chapters": [
+        1
+      ],
+      "chapter": 1,
+      "phase": "rise",
+      "phase_label": "发家根基",
+      "amount_liang": 500,
+      "summary": "清河县五间门面生药铺，西门庆家业根基，后扩绒线铺、酒店。",
+      "characters": [
+        "西门庆"
+      ],
+      "locations": [
+        "西门庆生药铺"
+      ],
+      "transaction_refs": [],
+      "prev": null,
+      "next": "jpm-fe-006",
+      "tags": [
+        "经营投资",
+        "西门府"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": false,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-fe-006",
+      "title": "结拜十弟兄买办",
+      "subtype": "financial",
+      "financial_kind": "经营",
+      "chapters": [
+        1
+      ],
+      "chapter": 1,
+      "phase": "rise",
+      "phase_label": "发家根基",
+      "amount_liang": 4,
+      "summary": "初三玉皇庙结拜，猪羊酒礼与分资汇聚帮闲圈。",
+      "characters": [
+        "西门庆",
+        "应伯爵",
+        "花子虚"
+      ],
+      "locations": [
+        "玉皇庙",
+        "西门府"
+      ],
+      "transaction_refs": [
+        "jpm-tx-019",
+        "jpm-tx-015"
+      ],
+      "prev": "jpm-fe-001",
+      "next": "jpm-fe-005",
+      "tags": [
+        "结拜",
+        "帮闲"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": true,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-fe-005",
+      "title": "李瓶儿私房物资变现",
+      "subtype": "financial",
+      "financial_kind": "遗产",
+      "chapters": [
+        16,
+        17
+      ],
+      "chapter": 16,
+      "phase": "rise",
+      "phase_label": "发家根基",
+      "amount_liang": 380,
+      "summary": "李瓶儿箱藏香蜡水银等，经经纪变卖三百八十两，凑盖房与过门。",
+      "characters": [
+        "西门庆",
+        "李瓶儿"
+      ],
+      "locations": [
+        "李瓶儿房"
+      ],
+      "transaction_refs": [
+        "jpm-tx-021"
+      ],
+      "prev": "jpm-fe-006",
+      "next": "jpm-fe-007",
+      "tags": [
+        "李瓶儿",
+        "经营投资"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": true,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-fe-007",
+      "title": "认翟管家干亲",
+      "subtype": "financial",
+      "financial_kind": "贿赂",
+      "chapters": [
+        23
+      ],
+      "chapter": 23,
+      "phase": "climb",
+      "phase_label": "政商攀升",
+      "amount_liang": 100,
+      "summary": "西门庆百两认干礼，打通蔡京府门路。",
+      "characters": [
+        "西门庆",
+        "翟管家"
+      ],
+      "locations": [
+        "清河县"
+      ],
+      "transaction_refs": [
+        "jpm-tx-018"
+      ],
+      "prev": "jpm-fe-005",
+      "next": "jpm-fe-009",
+      "tags": [
+        "政商",
+        "干亲"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": true,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-fe-009",
+      "title": "来旺酒店本钱拨付",
+      "subtype": "financial",
+      "financial_kind": "经营",
+      "chapters": [
+        26
+      ],
+      "chapter": 26,
+      "phase": "climb",
+      "phase_label": "政商攀升",
+      "amount_liang": 300,
+      "summary": "付来旺三百两作酒店本钱，由生药铺向多业扩张。",
+      "characters": [
+        "西门庆",
+        "来旺"
+      ],
+      "locations": [
+        "西门府"
+      ],
+      "transaction_refs": [
+        "jpm-tx-002"
+      ],
+      "prev": "jpm-fe-007",
+      "next": "jpm-fe-002",
+      "tags": [
+        "经营投资",
+        "酒店"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": true,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-fe-002",
+      "title": "蔡京寿礼行贿链",
+      "subtype": "financial",
+      "financial_kind": "贿赂",
+      "chapters": [
+        27
+      ],
+      "chapter": 27,
+      "phase": "climb",
+      "phase_label": "政商攀升",
+      "amount_liang": 300,
+      "summary": "西门庆经翟管家向蔡太师进寿礼三百两，换得官场庇护。",
+      "characters": [
+        "西门庆",
+        "蔡京",
+        "翟管家"
+      ],
+      "locations": [
+        "蔡太师府"
+      ],
+      "transaction_refs": [
+        "jpm-tx-003",
+        "jpm-tx-011"
+      ],
+      "prev": "jpm-fe-009",
+      "next": "jpm-fe-008",
+      "tags": [
+        "政商",
+        "白银流"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": true,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-fe-008",
+      "title": "吴典恩借债",
+      "subtype": "financial",
+      "financial_kind": "放债",
+      "chapters": [
+        31
+      ],
+      "chapter": 31,
+      "phase": "climb",
+      "phase_label": "政商攀升",
+      "amount_liang": 100,
+      "summary": "吴典恩借西门庆一百两银子，约期归还，府内放债典型。",
+      "characters": [
+        "西门庆",
+        "吴典恩"
+      ],
+      "locations": [
+        "西门府"
+      ],
+      "transaction_refs": [
+        "jpm-tx-006"
+      ],
+      "prev": "jpm-fe-002",
+      "next": "jpm-fe-004",
+      "tags": [
+        "帮闲圈",
+        "借贷"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": true,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-fe-004",
+      "title": "绒线铺本钱拨付",
+      "subtype": "financial",
+      "financial_kind": "经营",
+      "chapters": [
+        33
+      ],
+      "chapter": 33,
+      "phase": "climb",
+      "phase_label": "政商攀升",
+      "amount_liang": 450,
+      "summary": "西门庆付韩道国绒线铺本钱四百五十两，扩大家业经营面。",
+      "characters": [
+        "西门庆",
+        "韩道国"
+      ],
+      "locations": [
+        "绒线铺"
+      ],
+      "transaction_refs": [
+        "jpm-tx-004"
+      ],
+      "prev": "jpm-fe-008",
+      "next": "jpm-fe-003",
+      "tags": [
+        "经营投资"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": true,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-fe-003",
+      "title": "李智应伯爵转贷",
+      "subtype": "financial",
+      "financial_kind": "放债",
+      "chapters": [
+        38
+      ],
+      "chapter": 38,
+      "phase": "climb",
+      "phase_label": "政商攀升",
+      "amount_liang": 1000,
+      "summary": "应伯爵牵线，西门庆借出一千两与李智、黄四，帮闲圈核心放贷链。",
+      "characters": [
+        "西门庆",
+        "李智",
+        "应伯爵",
+        "黄四"
+      ],
+      "locations": [
+        "西门府"
+      ],
+      "transaction_refs": [
+        "jpm-tx-010"
+      ],
+      "prev": "jpm-fe-004",
+      "next": "jpm-pe-001",
+      "tags": [
+        "帮闲圈",
+        "借贷"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": true,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-pe-001",
+      "title": "西门庆赴京得官",
+      "subtype": "plot",
+      "financial_kind": "",
+      "chapters": [
+        39
+      ],
+      "chapter": 39,
+      "phase": "climb",
+      "phase_label": "政商攀升",
+      "amount_liang": null,
+      "summary": "西门庆进京贺寿后授提刑千户，政商合流达于顶点。",
+      "characters": [
+        "西门庆",
+        "蔡京",
+        "翟管家"
+      ],
+      "locations": [
+        "清河县"
+      ],
+      "transaction_refs": [],
+      "prev": "jpm-fe-003",
+      "next": "jpm-pe-002",
+      "tags": [
+        "情节",
+        "官场"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": false,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-pe-002",
+      "title": "李瓶儿丧礼",
+      "subtype": "plot",
+      "financial_kind": "",
+      "chapters": [
+        60
+      ],
+      "chapter": 60,
+      "phase": "peak",
+      "phase_label": "鼎盛极奢",
+      "amount_liang": null,
+      "summary": "李瓶儿病亡，西门庆大办丧仪，府内权力格局再洗牌。",
+      "characters": [
+        "西门庆",
+        "李瓶儿",
+        "吴月娘",
+        "潘金莲"
+      ],
+      "locations": [
+        "西门府",
+        "李瓶儿房"
+      ],
+      "transaction_refs": [],
+      "prev": "jpm-pe-001",
+      "next": "jpm-fe-011",
+      "tags": [
+        "情节",
+        "丧礼"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": false,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-fe-011",
+      "title": "蔡府二次寿礼",
+      "subtype": "financial",
+      "financial_kind": "贿赂",
+      "chapters": [
+        75
+      ],
+      "chapter": 75,
+      "phase": "fall",
+      "phase_label": "衰败散府",
+      "amount_liang": 500,
+      "summary": "蔡京寿辰，西门庆再送五百两寿礼银，巩固政商关系。",
+      "characters": [
+        "西门庆",
+        "蔡京"
+      ],
+      "locations": [
+        "蔡太师府"
+      ],
+      "transaction_refs": [
+        "jpm-tx-022"
+      ],
+      "prev": "jpm-pe-002",
+      "next": "jpm-pe-003",
+      "tags": [
+        "政商",
+        "寿礼"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": true,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-fe-012",
+      "title": "西门庆丧礼耗银",
+      "subtype": "financial",
+      "financial_kind": "经营",
+      "chapters": [
+        79
+      ],
+      "chapter": 79,
+      "phase": "fall",
+      "phase_label": "衰败散府",
+      "amount_liang": 200,
+      "summary": "西门庆亡故，吴月娘治丧，帮闲张罗，耗费甚巨（摘记一笔）。",
+      "characters": [
+        "吴月娘",
+        "应伯爵"
+      ],
+      "locations": [
+        "西门府"
+      ],
+      "transaction_refs": [
+        "jpm-tx-024"
+      ],
+      "prev": "jpm-pe-003",
+      "next": "jpm-pe-004",
+      "tags": [
+        "丧礼",
+        "衰败"
+      ],
+      "module_links": {
+        "graph_focus": "吴月娘",
+        "has_silver": true,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-pe-003",
+      "title": "西门庆暴亡",
+      "subtype": "plot",
+      "financial_kind": "",
+      "chapters": [
+        79
+      ],
+      "chapter": 79,
+      "phase": "fall",
+      "phase_label": "衰败散府",
+      "amount_liang": null,
+      "summary": "西门庆纵欲而亡，西门府权力真空，家业急转直下。",
+      "characters": [
+        "西门庆",
+        "潘金莲",
+        "吴月娘"
+      ],
+      "locations": [
+        "西门府"
+      ],
+      "transaction_refs": [],
+      "prev": "jpm-fe-011",
+      "next": "jpm-fe-012",
+      "tags": [
+        "情节",
+        "结局"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": false,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-pe-004",
+      "title": "西门府散",
+      "subtype": "plot",
+      "financial_kind": "",
+      "chapters": [
+        100
+      ],
+      "chapter": 100,
+      "phase": "fall",
+      "phase_label": "衰败散府",
+      "amount_liang": null,
+      "summary": "蔡京倒台牵连、家仆离散、妻妾各奔，西门庆一世荣华终归于尽。",
+      "characters": [
+        "吴月娘",
+        "陈经济",
+        "庞春梅",
+        "潘金莲"
+      ],
+      "locations": [
+        "西门府",
+        "清河县"
+      ],
+      "transaction_refs": [],
+      "prev": "jpm-fe-012",
+      "next": null,
+      "tags": [
+        "情节",
+        "结局"
+      ],
+      "module_links": {
+        "graph_focus": "吴月娘",
+        "has_silver": false,
+        "has_sna": true
+      }
+    }
+  ]
+}

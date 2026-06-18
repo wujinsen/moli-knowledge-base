@@ -61,7 +61,12 @@ def row_from_fm(fm: dict, extra: list[dict]) -> dict:
         l.get("inference") for l in extra
     )
 
-    return {
+    phases: set[str] = set()
+    for link in fm.get("links") or []:
+        if link.get("inference") and link.get("phase"):
+            phases.add(link["phase"])
+
+    row = {
         "id": fm["id"],
         "title": fm["title"],
         "subtype": fm.get("subtype", ""),
@@ -69,6 +74,9 @@ def row_from_fm(fm: dict, extra: list[dict]) -> dict:
         "characters": sorted(chars),
         "hasInference": has_inf,
     }
+    if phases:
+        row["phases"] = sorted(phases, key=lambda p: ["欲起", "聚敛", "极盛", "反噬", "散尽"].index(p) if p in ["欲起", "聚敛", "极盛", "反噬", "散尽"] else 99)
+    return row
 
 
 def build_book(book: str) -> dict:

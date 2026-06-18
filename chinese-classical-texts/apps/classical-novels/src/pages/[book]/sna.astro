@@ -39,7 +39,12 @@ const data = snaBySlug[meta.slug] ?? { book: meta.book, metrics: [], hubs: [] };
       </div>
     </div>
     <p class="mt-5 max-w-2xl leading-relaxed text-sm" style="color: var(--ink)">
-      把西门府人际勾连作为社会网络，定位把控信息与白银流动的关键掮客。点击节点可跳转关系图谱高亮，并与
+      把西门府人际勾连作为社会网络，定位把控信息与白银流动的关键掮客。
+      <strong>J2</strong>：介数 / 度中心性双指标 · 散点图 · 派系筛选；
+      <strong>J3</strong>：关系图谱工具栏切换「SNA·介数 / SNA·度」叠加节点大小。
+      URL <code>?focus=人物</code> 高亮表格，与
+      <a href={`/${meta.slug}/graph`} class="hover:underline" style="color: var(--accent)">关系图谱</a>
+      、
       <a href={`/${meta.slug}/silver`} class="hover:underline" style="color: var(--accent)">白银流</a>
       互证。
     </p>

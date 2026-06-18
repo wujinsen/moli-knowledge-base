@@ -148,7 +148,8 @@ export default function GardenDigitalTour({ data, bookSlug, baseImage }: Props) 
   };
 
   const onPointerDown = (e: React.PointerEvent) => {
-    if ((e.target as HTMLElement).closest('[data-pin]')) return;
+    const t = e.target as HTMLElement;
+    if (t.closest('[data-pin], [data-exterior], button, a, select, input, label')) return;
     userMovedRef.current = true;
     dragRef.current = { px: e.clientX, py: e.clientY, ox: pan.x, oy: pan.y };
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
@@ -256,8 +257,9 @@ export default function GardenDigitalTour({ data, bookSlug, baseImage }: Props) 
 
           {GARDEN_DIGITAL_TOUR_EXTERIOR.map((lab) => {
             const bridge = isBridgeNode(lab.id);
+            const stopDrag = (e: React.PointerEvent | React.MouseEvent) => e.stopPropagation();
             const pill = (
-              <span className="whitespace-nowrap rounded-md border border-amber-500/35 bg-amber-950/88 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-amber-100 shadow-lg backdrop-blur-sm">
+              <span className="pointer-events-none whitespace-nowrap rounded-md border border-amber-500/35 bg-amber-950/88 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-amber-100 shadow-lg backdrop-blur-sm">
                 {lab.id}
                 <span className="ml-1.5 text-[9px] font-normal text-amber-200/55">墙外</span>
               </span>
@@ -265,14 +267,18 @@ export default function GardenDigitalTour({ data, bookSlug, baseImage }: Props) 
             return (
               <div
                 key={lab.id}
-                className="pointer-events-auto absolute z-[9] -translate-x-1/2 -translate-y-1/2"
+                data-exterior
+                className="pointer-events-auto absolute z-[25] -translate-x-1/2 -translate-y-1/2"
                 style={{ left: `${lab.xPct}%`, top: `${lab.yPct}%` }}
               >
                 {bridge ? (
                   <button
                     type="button"
-                    className="block hover:opacity-90"
-                    onClick={() => {
+                    data-exterior
+                    className="cursor-pointer rounded-md hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60"
+                    onPointerDown={stopDrag}
+                    onClick={(e) => {
+                      e.stopPropagation();
                       setSelectedId(null);
                       setExteriorBridgeId(lab.id);
                     }}
@@ -281,7 +287,13 @@ export default function GardenDigitalTour({ data, bookSlug, baseImage }: Props) 
                     {pill}
                   </button>
                 ) : lab.href ? (
-                  <a href={lab.href} className="block hover:opacity-90">
+                  <a
+                    href={lab.href}
+                    data-exterior
+                    className="block rounded-md hover:opacity-90"
+                    onPointerDown={stopDrag}
+                    onClick={stopDrag}
+                  >
                     {pill}
                   </a>
                 ) : (
@@ -480,8 +492,8 @@ export default function GardenDigitalTour({ data, bookSlug, baseImage }: Props) 
         </div>
       )}
 
-      {exteriorBridgeId && !selected && (
-        <div className="absolute right-3 top-[4.5rem] z-20 w-72 rounded-xl border border-amber-500/25 bg-slate-900/92 p-4 shadow-xl backdrop-blur-md">
+      {exteriorBridgeId && (
+        <div className="pointer-events-auto absolute right-3 top-[4.5rem] z-30 w-72 rounded-xl border border-amber-500/25 bg-slate-900/92 p-4 shadow-xl backdrop-blur-md">
           <h3 className="text-lg font-bold text-amber-100">{exteriorBridgeId}</h3>
           <p className="mt-1 text-xs text-amber-200/70">{BRIDGE_NODE_REASONS[exteriorBridgeId]}</p>
           <MapCrossLinks
@@ -491,17 +503,25 @@ export default function GardenDigitalTour({ data, bookSlug, baseImage }: Props) 
             size="sm"
             className="mt-3"
           />
-          <button
-            type="button"
-            className="mt-3 text-xs text-slate-500 hover:text-slate-300"
-            onClick={() => setExteriorBridgeId(null)}
-          >
-            关闭
-          </button>
+          <div className="mt-3 flex flex-wrap gap-3">
+            <a
+              href={`/${bookSlug}/l/${encodeURIComponent(exteriorBridgeId)}`}
+              className="text-xs text-slate-400 hover:text-slate-200"
+            >
+              词条 →
+            </a>
+            <button
+              type="button"
+              className="text-xs text-slate-500 hover:text-slate-300"
+              onClick={() => setExteriorBridgeId(null)}
+            >
+              关闭
+            </button>
+          </div>
         </div>
       )}
 
-      {selected && (
+      {selected && !exteriorBridgeId && (
         <div className="absolute right-3 top-[4.5rem] z-20 max-h-[calc(100%-8rem)] w-72 overflow-y-auto rounded-xl border border-white/15 bg-slate-900/92 p-4 shadow-xl backdrop-blur-md">
           <h3 className="text-xl font-bold" style={{ color: gt.accentSoft }}>
             {selected.name}

@@ -23,6 +23,32 @@ from dream_patch_common import (  # noqa: E402
 )
 
 
+def patch_rel_backlinks(
+    cid: str,
+    info: dict,
+    pages: dict[str, dict],
+    inbound: dict[str, set[str]],
+    *,
+    dry_run: bool,
+    changes: list[str],
+) -> None:
+    """已有 relation 目标页补 ## 相关 hub（无需共现检索）。"""
+    for rel in info["fm"].get("relations") or []:
+        tid = rel.get("target")
+        if not tid or tid not in pages or tid == cid:
+            continue
+        hub_path = pages[tid]["path"]
+        hfm, hbody = parse_frontmatter(hub_path)
+        new_body = add_hub_link(hbody, cid)
+        if new_body == hbody:
+            continue
+        if not dry_run:
+            write_page(hub_path, hfm, new_body, False)
+        inbound[cid].add(tid)
+        info["inbound"] = len(inbound[cid])
+        changes.append(f"{tid}→{cid}: rel-hub")
+
+
 def run(book: str, *, thin_max: int, dry_run: bool, limit: int) -> list[str]:
     pages, inbound = scan_pages(book)
     all_fms = {cid: (info["path"], info["fm"], info["body"]) for cid, info in pages.items()}
@@ -38,7 +64,7 @@ def run(book: str, *, thin_max: int, dry_run: bool, limit: int) -> list[str]:
 
     for cid in targets:
         info = pages[cid]
-        if info["inbound"] < 3:
+        if info["inbound"] <= 5:
             hub = pick_hub_source(book, cid, pages, inbound, chapter_cache)
             if hub:
                 hub_path = pages[hub]["path"]
@@ -51,7 +77,7 @@ def run(book: str, *, thin_max: int, dry_run: bool, limit: int) -> list[str]:
                     info["inbound"] = len(inbound[cid])
                     changes.append(f"{hub}→{cid}: hub")
 
-        if info["rel"] <= 4:
+        if info["rel"] <= 8:
             rel = pick_relation(book, cid, pages, all_fms, chapter_cache)
             if rel:
                 fm = dict(info["fm"])
@@ -61,6 +87,9 @@ def run(book: str, *, thin_max: int, dry_run: bool, limit: int) -> list[str]:
                     info["rel"] = len(fm.get("relations") or [])
                     all_fms[cid] = (info["path"], fm, info["body"])
                     changes.append(f"{cid}: +rel→{rel['target']}")
+
+        if page_score(info) <= thin_max:
+            patch_rel_backlinks(cid, info, pages, inbound, dry_run=dry_run, changes=changes)
 
     return changes
 

@@ -1,8 +1,8 @@
 {
   "book": "金瓶梅",
   "generated": "2026-06-18",
-  "paged_count": 106,
-  "pending_count": 64,
+  "paged_count": 365,
+  "pending_count": 46,
   "pending": [
     {
       "name": "他女儿",
@@ -63,33 +63,6 @@
       "source": "extracted"
     },
     {
-      "name": "陈三",
-      "mentions": 9,
-      "chapters": [
-        31,
-        43,
-        47,
-        48,
-        93,
-        94,
-        98,
-        99,
-        100
-      ],
-      "appear_in": [
-        "第31回",
-        "第43回",
-        "第47回",
-        "第48回",
-        "第93回",
-        "第94回",
-        "第98回",
-        "第99回",
-        "第100回"
-      ],
-      "source": "extracted"
-    },
-    {
       "name": "我罢了",
       "mentions": 8,
       "chapters": [
@@ -111,31 +84,6 @@
         "第51回",
         "第68回",
         "第83回"
-      ],
-      "source": "extracted"
-    },
-    {
-      "name": "阴骘",
-      "mentions": 8,
-      "chapters": [
-        19,
-        26,
-        34,
-        55,
-        59,
-        62,
-        77,
-        82
-      ],
-      "appear_in": [
-        "第19回",
-        "第26回",
-        "第34回",
-        "第55回",
-        "第59回",
-        "第62回",
-        "第77回",
-        "第82回"
       ],
       "source": "extracted"
     },
@@ -229,21 +177,6 @@
       "source": "extracted"
     },
     {
-      "name": "玉簪儿",
-      "mentions": 3,
-      "chapters": [
-        62,
-        91,
-        92
-      ],
-      "appear_in": [
-        "第62回",
-        "第91回",
-        "第92回"
-      ],
-      "source": "extracted"
-    },
-    {
       "name": "金儿",
       "mentions": 3,
       "chapters": [
@@ -307,19 +240,6 @@
       "appear_in": [
         "第93回",
         "第94回"
-      ],
-      "source": "extracted"
-    },
-    {
-      "name": "陶妈妈",
-      "mentions": 2,
-      "chapters": [
-        91,
-        92
-      ],
-      "appear_in": [
-        "第91回",
-        "第92回"
       ],
       "source": "extracted"
     },
@@ -467,17 +387,6 @@
       "source": "extracted"
     },
     {
-      "name": "做郓哥",
-      "mentions": 1,
-      "chapters": [
-        4
-      ],
-      "appear_in": [
-        "第4回"
-      ],
-      "source": "extracted"
-    },
-    {
       "name": "做金莲",
       "mentions": 1,
       "chapters": [
@@ -485,17 +394,6 @@
       ],
       "appear_in": [
         "第3回"
-      ],
-      "source": "extracted"
-    },
-    {
-      "name": "做锦儿",
-      "mentions": 1,
-      "chapters": [
-        37
-      ],
-      "appear_in": [
-        "第37回"
       ],
       "source": "extracted"
     },
@@ -518,28 +416,6 @@
       ],
       "appear_in": [
         "第91回"
-      ],
-      "source": "extracted"
-    },
-    {
-      "name": "刁七儿",
-      "mentions": 1,
-      "chapters": [
-        47
-      ],
-      "appear_in": [
-        "第47回"
-      ],
-      "source": "extracted"
-    },
-    {
-      "name": "刘包",
-      "mentions": 1,
-      "chapters": [
-        68
-      ],
-      "appear_in": [
-        "第68回"
       ],
       "source": "extracted"
     },
@@ -588,17 +464,6 @@
       "source": "extracted"
     },
     {
-      "name": "宋得",
-      "mentions": 1,
-      "chapters": [
-        76
-      ],
-      "appear_in": [
-        "第76回"
-      ],
-      "source": "extracted"
-    },
-    {
       "name": "山中虎",
       "mentions": 1,
       "chapters": [
@@ -606,17 +471,6 @@
       ],
       "appear_in": [
         "第1回"
-      ],
-      "source": "extracted"
-    },
-    {
-      "name": "张都监",
-      "mentions": 1,
-      "chapters": [
-        87
-      ],
-      "appear_in": [
-        "第87回"
       ],
       "source": "extracted"
     },
@@ -654,39 +508,6 @@
       "source": "extracted"
     },
     {
-      "name": "方轸",
-      "mentions": 1,
-      "chapters": [
-        64
-      ],
-      "appear_in": [
-        "第64回"
-      ],
-      "source": "extracted"
-    },
-    {
-      "name": "李中友",
-      "mentions": 1,
-      "chapters": [
-        30
-      ],
-      "appear_in": [
-        "第30回"
-      ],
-      "source": "extracted"
-    },
-    {
-      "name": "杨时",
-      "mentions": 1,
-      "chapters": [
-        14
-      ],
-      "appear_in": [
-        "第14回"
-      ],
-      "source": "extracted"
-    },
-    {
       "name": "永福禅林",
       "mentions": 1,
       "chapters": [
@@ -705,17 +526,6 @@
       ],
       "appear_in": [
         "第29回"
-      ],
-      "source": "extracted"
-    },
-    {
-      "name": "满堂儿上",
-      "mentions": 1,
-      "chapters": [
-        92
-      ],
-      "appear_in": [
-        "第92回"
       ],
       "source": "extracted"
     },
@@ -742,17 +552,6 @@
       "source": "extracted"
     },
     {
-      "name": "着潘捉鬼",
-      "mentions": 1,
-      "chapters": [
-        62
-      ],
-      "appear_in": [
-        "第62回"
-      ],
-      "source": "extracted"
-    },
-    {
       "name": "罗万象那",
       "mentions": 1,
       "chapters": [
@@ -765,39 +564,6 @@
     },
     {
       "name": "者多埋在",
-      "mentions": 1,
-      "chapters": [
-        10
-      ],
-      "appear_in": [
-        "第10回"
-      ],
-      "source": "extracted"
-    },
-    {
-      "name": "荷花儿",
-      "mentions": 1,
-      "chapters": [
-        94
-      ],
-      "appear_in": [
-        "第94回"
-      ],
-      "source": "extracted"
-    },
-    {
-      "name": "赵龙岗",
-      "mentions": 1,
-      "chapters": [
-        61
-      ],
-      "appear_in": [
-        "第61回"
-      ],
-      "source": "extracted"
-    },
-    {
-      "name": "这李外传",
       "mentions": 1,
       "chapters": [
         10

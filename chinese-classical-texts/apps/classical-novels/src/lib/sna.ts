@@ -2,7 +2,9 @@ export interface SnaMetric {
   id: string;
   degree: number;
   degree_norm: number;
+  degree_rank?: number;
   betweenness: number;
+  betweenness_rank?: number;
   faction?: string;
   ximen_proximity?: string;
   faction_rank?: number;
@@ -21,9 +23,36 @@ export interface SnaData {
   edge_count?: number;
   metrics: SnaMetric[];
   hubs: string[];
+  degree_hubs?: string[];
   bangxian_hubs?: string[];
   factions?: Record<string, SnaFactionSummary>;
   silver_links?: Record<string, string[]>;
+}
+
+import jpmSnaJson from '../data/jinpingmei.sna.json';
+
+const SNA_BY_SLUG: Record<string, SnaData> = {
+  jinpingmei: jpmSnaJson as SnaData,
+};
+
+export function getSnaData(bookSlug: string): SnaData | null {
+  return SNA_BY_SLUG[bookSlug] ?? null;
+}
+
+export function snaMetricsMap(bookSlug: string): Map<string, SnaMetric> {
+  const data = getSnaData(bookSlug);
+  if (!data) return new Map();
+  return new Map(data.metrics.map((m) => [m.id, m]));
+}
+
+export function maxBetweenness(bookSlug: string): number {
+  const data = getSnaData(bookSlug);
+  if (!data?.metrics.length) return 1;
+  return Math.max(...data.metrics.map((m) => m.betweenness), 0.001);
+}
+
+export function snaFocusHref(bookSlug: string, id: string): string {
+  return `/${bookSlug}/sna?focus=${encodeURIComponent(id)}`;
 }
 
 export function proximityLabel(p?: string): string {

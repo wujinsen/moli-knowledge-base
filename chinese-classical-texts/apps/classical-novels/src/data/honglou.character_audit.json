@@ -1,25 +1,27 @@
 {
-  "generated": "2026-06-15",
-  "paged_count": 209,
-  "bestiary_count": 209,
+  "generated": "2026-06-18",
+  "paged_count": 230,
+  "bestiary_count": 214,
   "edition": {
     "程高本_chapters": 120,
     "脂砚斋本_chapters": 80,
-    "程高本_detected_known": 204,
-    "脂砚斋本_detected_known": 200,
+    "程高本_detected_known": 227,
+    "脂砚斋本_detected_known": 221,
     "only_in_程高本_120回": [
       "包勇",
       "吴良",
       "张三",
+      "时福",
       "王尔调",
-      "甄应嘉"
+      "甄应嘉",
+      "鲍音"
     ],
     "only_in_脂砚斋本_80回": [
       "菂官"
     ]
   },
   "frontmatter": {
-    "程高本_fm_unique": 147,
+    "程高本_fm_unique": 218,
     "脂砚斋本_fm_unique": 126
   },
   "roster_extracted_pending": 0,

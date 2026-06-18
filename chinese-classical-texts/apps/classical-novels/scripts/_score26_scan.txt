@@ -1,0 +1,23 @@
+score=26: 108 pages
+
+--- by plot ---
+  plot=3: 100
+  plot=4: 8
+
+--- by rel ---
+  rel=4: 7
+  rel=5: 98
+  rel=6: 3
+
+--- by inbound ---
+  inbound=2: 1
+  inbound=3: 3
+  inbound=4: 7
+  inbound=5: 71
+  inbound=6: 9
+  inbound=7: 7
+  inbound=8: 4
+  inbound=9: 5
+  inbound=10: 1
+
+--- detail (plot<=3, rel<=4, in<5) ---

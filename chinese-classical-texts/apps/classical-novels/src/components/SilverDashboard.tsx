@@ -331,19 +331,23 @@ export default function SilverDashboard({
   }, [filtered.timeline]);
 
   const renderCharts = useCallback(() => {
-    if (sankeyRef.current) {
-      if (!sankeyInst.current) sankeyInst.current = echarts.init(sankeyRef.current);
-      sankeyInst.current.setOption(sankeyOption, true);
-      bindSankeyClick();
-    }
-    if (poolRef.current) {
-      if (!poolInst.current) poolInst.current = echarts.init(poolRef.current);
-      poolInst.current.setOption(poolOption, true);
-    }
-    if (timelineRef.current) {
-      if (!timelineInst.current) timelineInst.current = echarts.init(timelineRef.current);
-      timelineInst.current.setOption(timelineOption, true);
-      bindTimelineClick();
+    try {
+      if (sankeyRef.current) {
+        if (!sankeyInst.current) sankeyInst.current = echarts.init(sankeyRef.current);
+        sankeyInst.current.setOption(sankeyOption, true);
+        bindSankeyClick();
+      }
+      if (poolRef.current) {
+        if (!poolInst.current) poolInst.current = echarts.init(poolRef.current);
+        poolInst.current.setOption(poolOption, true);
+      }
+      if (timelineRef.current) {
+        if (!timelineInst.current) timelineInst.current = echarts.init(timelineRef.current);
+        timelineInst.current.setOption(timelineOption, true);
+        bindTimelineClick();
+      }
+    } catch (err) {
+      console.error('[SilverDashboard] chart render failed', err);
     }
   }, [sankeyOption, poolOption, timelineOption, bindSankeyClick, bindTimelineClick]);
 
@@ -494,6 +498,7 @@ export default function SilverDashboard({
           衰败链
         </a>{' '}
         白银节点互证（<code>?event=</code> · <code>#jpm-tx-*</code>）。
+        桑基图仅展示与西门庆府的净流向（双向合并）；不经 hub 的侧向流见资金池条形图。
       </p>
 
       <h3 className="section-title mb-2 mt-8 text-base">累计白银（按回 · J4）</h3>

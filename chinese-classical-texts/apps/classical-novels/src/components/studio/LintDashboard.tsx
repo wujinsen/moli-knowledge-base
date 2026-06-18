@@ -1,15 +1,45 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { fetchLintReport } from '../../lib/studio/client';
-import type { BookSlug, LintReport } from '../../lib/studio/types';
+import type { BookSlug, LintReport, LintSection } from '../../lib/studio/types';
 
 type Props = {
   bookSlug: BookSlug;
   onOpenEntity?: (entityId: string) => void;
 };
 
+const GROUP_LABEL: Record<string, string> = {
+  core: '核心',
+  items: '名物百科',
+  places: '建筑图鉴',
+  shi: '诗词意象',
+};
+
 function entityFromLine(line: string): string | null {
-  const m = line.match(/^(?:no summary|no first_appear):\s*(.+)$/) ?? line.match(/^([^:]+):/);
-  return m?.[1]?.trim() ?? null;
+  const patterns = [
+    /^(?:no summary|no first_appear):\s*(.+)$/,
+    /^(?:缺实体页|字段缺漏|名物孤儿|意象孤儿|parent 缺页|nearby 缺页|crosslinks 未链|缺 inference 人物边|缺 inference 边|inference 缺 phase|inference 缺 temperature|五行标签不符|互文链缺节点):\s*(.+?)(?:\s*[·(@]|$)/,
+    /^(?:缺核心五行符号):\s*(.+)$/,
+    /^([^:]+):\s/m,
+  ];
+  for (const re of patterns) {
+    const m = line.match(re);
+    const id = m?.[1]?.trim();
+    if (id && !id.includes('(') && id.length <= 40) return id;
+  }
+  return null;
+}
+
+function sectionsByGroup(sections: LintSection[]): { group: string; label: string; sections: LintSection[] }[] {
+  const order = ['core', 'items', 'places', 'shi'];
+  const map = new Map<string, LintSection[]>();
+  for (const sec of sections) {
+    const g = sec.group ?? 'core';
+    if (!map.has(g)) map.set(g, []);
+    map.get(g)!.push(sec);
+  }
+  return order
+    .filter((g) => map.has(g))
+    .map((g) => ({ group: g, label: GROUP_LABEL[g] ?? g, sections: map.get(g)! }));
 }
 
 export default function LintDashboard({ bookSlug, onOpenEntity }: Props) {
@@ -42,6 +72,8 @@ export default function LintDashboard({ bookSlug, onOpenEntity }: Props) {
     return Math.max(...Object.values(report.density.scoreDistribution), 1);
   }, [report]);
 
+  const grouped = useMemo(() => (report ? sectionsByGroup(report.sections) : []), [report]);
+
   const generatedLabel = report
     ? new Date(report.generatedAt).toLocaleString('zh-CN', { hour12: false })
     : '';
@@ -51,7 +83,9 @@ export default function LintDashboard({ bookSlug, onOpenEntity }: Props) {
       <div className="studio-lint-toolbar">
         <div>
           <h2 className="studio-batch-title">/lint 体检</h2>
-          <p className="studio-batch-lead">只报告、不改写。聚合 `lint_kb` + 人物密度分带。</p>
+          <p className="studio-batch-lead">
+            只报告、不改写。核心（人物/回目）+ 名物 · 建筑 · 诗词意象模块。
+          </p>
         </div>
         <button type="button" className="studio-btn studio-btn-primary" disabled={loading} onClick={run}>
           {loading ? '扫描中…' : '重新扫描'}
@@ -71,13 +105,27 @@ export default function LintDashboard({ bookSlug, onOpenEntity }: Props) {
               <span className="studio-lint-stat-num">{report.density.totalCharacters}</span>
               <span className="studio-lint-stat-label">人物页</span>
             </div>
+            {report.moduleStats?.items && (
+              <div className="studio-lint-stat">
+                <span className="studio-lint-stat-num">{report.moduleStats.items.count}</span>
+                <span className="studio-lint-stat-label">名物</span>
+              </div>
+            )}
+            {report.moduleStats?.places && (
+              <div className="studio-lint-stat">
+                <span className="studio-lint-stat-num">{report.moduleStats.places.count}</span>
+                <span className="studio-lint-stat-label">建筑</span>
+              </div>
+            )}
+            {report.moduleStats?.shi && (
+              <div className="studio-lint-stat">
+                <span className="studio-lint-stat-num">{report.moduleStats.shi.count}</span>
+                <span className="studio-lint-stat-label">意象</span>
+              </div>
+            )}
             <div className="studio-lint-stat">
               <span className="studio-lint-stat-num">{report.density.priorityBatch.length}</span>
               <span className="studio-lint-stat-label">低密度优先</span>
-            </div>
-            <div className="studio-lint-stat">
-              <span className="studio-lint-stat-num">{report.density.weakInboundTotal}</span>
-              <span className="studio-lint-stat-label">弱入链 ≤1</span>
             </div>
             <div className="studio-lint-meta">生成于 {generatedLabel}</div>
           </div>
@@ -86,21 +134,33 @@ export default function LintDashboard({ bookSlug, onOpenEntity }: Props) {
             <section className="studio-lint-panel">
               <h3 className="studio-lint-panel-title">规则检查</h3>
               <ul className="studio-lint-sections">
-                {report.sections.map((sec) => (
-                  <li key={sec.id}>
-                    <button
-                      type="button"
-                      className={
-                        openSection === sec.id ? 'studio-lint-sec-btn studio-lint-sec-btn-active' : 'studio-lint-sec-btn'
-                      }
-                      onClick={() => setOpenSection(sec.id)}
-                    >
-                      <span>{sec.title}</span>
-                      <span className={sec.count ? 'studio-lint-badge-warn' : 'studio-lint-badge-ok'}>{sec.count}</span>
-                    </button>
+                {grouped.map(({ group, label, sections }) => (
+                  <li key={group}>
+                    <div className="studio-lint-group-label">{label}</div>
+                    <ul className="studio-lint-sections-nested">
+                      {sections.map((sec) => (
+                        <li key={sec.id}>
+                          <button
+                            type="button"
+                            className={
+                              openSection === sec.id
+                                ? 'studio-lint-sec-btn studio-lint-sec-btn-active'
+                                : 'studio-lint-sec-btn'
+                            }
+                            onClick={() => setOpenSection(sec.id)}
+                          >
+                            <span>{sec.title}</span>
+                            <span className={sec.count ? 'studio-lint-badge-warn' : 'studio-lint-badge-ok'}>
+                              {sec.count}
+                            </span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
                   </li>
                 ))}
                 <li>
+                  <div className="studio-lint-group-label">人物</div>
                   <button
                     type="button"
                     className={

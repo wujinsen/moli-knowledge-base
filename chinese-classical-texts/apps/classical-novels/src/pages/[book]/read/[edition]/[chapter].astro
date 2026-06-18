@@ -175,22 +175,6 @@ const tocChapters = await listReaderChapters(book, slug, {
         {shouldShowChapterSummary(entry.data.title, entry.data.summary) && (
           <p class="mt-3 text-sm leading-relaxed">{entry.data.summary}</p>
         )}
-        <ChapterLinks
-          slug={slug}
-          book={book}
-          characters={entry.data.characters}
-          locations={entry.data.locations}
-          items={entry.data.items}
-          hasPlaces={hasPlaces}
-          hasItems={hasItems}
-          hasSilver={hasSilver}
-          hasPoems={hasPoems}
-          itemRefs={itemRefs}
-          txRefs={txRefs}
-          imageryRefs={imageryRefs}
-          characterIds={characterIds}
-          readEdition={editionSlug(editionName)}
-        />
       </header>
 
       <div class="reader-body prose-cn reader-content">
@@ -206,6 +190,22 @@ const tocChapters = await listReaderChapters(book, slug, {
         )}
         <Content />
       </div>
+      <ChapterLinks
+        slug={slug}
+        book={book}
+        characters={entry.data.characters}
+        locations={entry.data.locations}
+        items={entry.data.items}
+        hasPlaces={hasPlaces}
+        hasItems={hasItems}
+        hasSilver={hasSilver}
+        hasPoems={hasPoems}
+        itemRefs={itemRefs}
+        txRefs={txRefs}
+        imageryRefs={imageryRefs}
+        characterIds={characterIds}
+        readEdition={editionSlug(editionName)}
+      />
     </article>
 
     <ReaderNav

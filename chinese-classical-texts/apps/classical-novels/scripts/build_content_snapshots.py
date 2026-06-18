@@ -226,11 +226,23 @@ def main() -> None:
 
         shi = ROOT / "scripts" / "build_shi_index.py"
         subprocess.run([sys.executable, str(shi), "--write"], cwd=ROOT, check=True)
+        karma = ROOT / "scripts" / "build_shi_karma.py"
+        subprocess.run([sys.executable, str(karma), "--write"], cwd=ROOT, check=True)
+        wuxing = ROOT / "scripts" / "build_shi_wuxing.py"
+        subprocess.run([sys.executable, str(wuxing), "--write"], cwd=ROOT, check=True)
+        nan = ROOT / "scripts" / "build_nan.py"
+        subprocess.run([sys.executable, str(nan), "--write"], cwd=ROOT, check=True)
         items_x = ROOT / "scripts" / "build_items_cross_index.py"
         subprocess.run([sys.executable, str(items_x), "--write"], cwd=ROOT, check=True)
-        for script in ("build_silver.py", "build_financial.py", "build_chain.py"):
+        for script in ("build_silver.py", "build_financial.py", "build_chain.py", "build_sna.py"):
             p = ROOT / "scripts" / script
             subprocess.run([sys.executable, str(p), "金瓶梅"], cwd=ROOT, check=True)
+        for book in ("金瓶梅", "西游记"):
+            subprocess.run(
+                [sys.executable, str(ROOT / "scripts" / "build_compare.py"), book, "--write"],
+                cwd=ROOT,
+                check=True,
+            )
     else:
         print("(dry-run, add --write)")
 

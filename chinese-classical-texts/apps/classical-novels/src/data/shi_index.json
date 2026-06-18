@@ -132,7 +132,9 @@
             "title": "芙蓉",
             "subtype": "symbol",
             "chapters": [
+              27,
               63,
+              77,
               78
             ],
             "characters": [
@@ -542,7 +544,9 @@
             "title": "芙蓉",
             "subtype": "symbol",
             "chapters": [
+              27,
               63,
+              77,
               78
             ],
             "characters": [
@@ -632,6 +636,22 @@
           }
         ],
         "27": [
+          {
+            "id": "hl-s-furong",
+            "title": "芙蓉",
+            "subtype": "symbol",
+            "chapters": [
+              27,
+              63,
+              77,
+              78
+            ],
+            "characters": [
+              "晴雯",
+              "林黛玉"
+            ],
+            "hasInference": true
+          },
           {
             "id": "hl-s-luohua",
             "title": "落花 · 柳絮",
@@ -732,6 +752,24 @@
             "hasInference": true
           }
         ],
+        "77": [
+          {
+            "id": "hl-s-furong",
+            "title": "芙蓉",
+            "subtype": "symbol",
+            "chapters": [
+              27,
+              63,
+              77,
+              78
+            ],
+            "characters": [
+              "晴雯",
+              "林黛玉"
+            ],
+            "hasInference": true
+          }
+        ],
         "3": [
           {
             "id": "hl-s-yu",
@@ -823,7 +861,9 @@
             "title": "芙蓉",
             "subtype": "symbol",
             "chapters": [
+              27,
               63,
+              77,
               78
             ],
             "characters": [
@@ -942,6 +982,22 @@
             "hasInference": true
           },
           {
+            "id": "hl-s-furong",
+            "title": "芙蓉",
+            "subtype": "symbol",
+            "chapters": [
+              27,
+              63,
+              77,
+              78
+            ],
+            "characters": [
+              "晴雯",
+              "林黛玉"
+            ],
+            "hasInference": true
+          },
+          {
             "id": "hl-s-luohua",
             "title": "落花 · 柳絮",
             "subtype": "symbol",
@@ -975,20 +1031,6 @@
               45
             ],
             "characters": [
-              "林黛玉"
-            ],
-            "hasInference": true
-          },
-          {
-            "id": "hl-s-furong",
-            "title": "芙蓉",
-            "subtype": "symbol",
-            "chapters": [
-              63,
-              78
-            ],
-            "characters": [
-              "晴雯",
               "林黛玉"
             ],
             "hasInference": true
@@ -2237,7 +2279,9 @@
           "title": "芙蓉",
           "subtype": "symbol",
           "chapters": [
+            27,
             63,
+            77,
             78
           ],
           "characters": [
@@ -2339,7 +2383,10 @@
               "西门庆",
               "陈经济"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "散尽"
+            ]
           }
         ],
         "96": [
@@ -2353,7 +2400,10 @@
             "characters": [
               "庞春梅"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "散尽"
+            ]
           }
         ],
         "59": [
@@ -2367,7 +2417,10 @@
             "characters": [
               "官哥儿"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "反噬"
+            ]
           },
           {
             "id": "jpm-obj-xueshizi",
@@ -2380,7 +2433,11 @@
               "李瓶儿",
               "潘金莲"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛",
+              "反噬"
+            ]
           }
         ],
         "14": [
@@ -2394,7 +2451,10 @@
             "characters": [
               "李瓶儿"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "聚敛"
+            ]
           },
           {
             "id": "jpm-name-huazixu",
@@ -2407,7 +2467,11 @@
               "李瓶儿",
               "花子虚"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "欲起",
+              "聚敛"
+            ]
           }
         ],
         "1": [
@@ -2421,7 +2485,10 @@
             "characters": [
               "吴月娘"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "散尽"
+            ]
           },
           {
             "id": "jpm-name-ximenqing",
@@ -2433,7 +2500,10 @@
             "characters": [
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           },
           {
             "id": "jpm-obj-jiu",
@@ -2445,7 +2515,10 @@
             "characters": [
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "聚敛"
+            ]
           },
           {
             "id": "jpm-tune-jiusecaiqi",
@@ -2457,7 +2530,10 @@
             "characters": [
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "欲起"
+            ]
           },
           {
             "id": "jpm-name-jinlian",
@@ -2470,7 +2546,11 @@
               "潘金莲",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛",
+              "反噬"
+            ]
           }
         ],
         "7": [
@@ -2484,7 +2564,10 @@
             "characters": [
               "孟玉楼"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           }
         ],
         "17": [
@@ -2499,7 +2582,10 @@
               "李瓶儿",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "聚敛"
+            ]
           }
         ],
         "26": [
@@ -2514,7 +2600,10 @@
               "来旺",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           }
         ],
         "37": [
@@ -2529,7 +2618,10 @@
               "西门庆",
               "韩道国"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           }
         ],
         "79": [
@@ -2543,7 +2635,10 @@
             "characters": [
               "孝哥儿"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "散尽"
+            ]
           },
           {
             "id": "jpm-obj-husengyao",
@@ -2557,7 +2652,10 @@
               "潘金莲",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "反噬"
+            ]
           }
         ],
         "15": [
@@ -2571,7 +2669,10 @@
             "characters": [
               "李瓶儿"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           },
           {
             "id": "jpm-tune-yuanxiao",
@@ -2585,7 +2686,10 @@
               "李瓶儿",
               "潘金莲"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           }
         ],
         "62": [
@@ -2599,7 +2703,10 @@
             "characters": [
               "李瓶儿"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "反噬"
+            ]
           }
         ],
         "61": [
@@ -2613,7 +2720,10 @@
             "characters": [
               "李瓶儿"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "反噬"
+            ]
           }
         ],
         "70": [
@@ -2627,7 +2737,10 @@
             "characters": [
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           }
         ],
         "49": [
@@ -2643,7 +2756,10 @@
               "潘金莲",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "反噬"
+            ]
           }
         ],
         "74": [
@@ -2658,7 +2774,10 @@
             "characters": [
               "吴月娘"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "散尽"
+            ]
           },
           {
             "id": "jpm-obj-piao",
@@ -2670,7 +2789,10 @@
             "characters": [
               "潘金莲"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "反噬"
+            ]
           }
         ],
         "27": [
@@ -2685,7 +2807,10 @@
               "潘金莲",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           }
         ],
         "8": [
@@ -2699,7 +2824,10 @@
             "characters": [
               "潘金莲"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "欲起"
+            ]
           }
         ],
         "11": [
@@ -2714,7 +2842,10 @@
               "孟玉楼",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "聚敛"
+            ]
           }
         ],
         "51": [
@@ -2729,7 +2860,10 @@
             "characters": [
               "吴月娘"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "散尽"
+            ]
           }
         ],
         "63": [
@@ -2744,7 +2878,10 @@
               "李瓶儿",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "反噬"
+            ]
           }
         ],
         "21": [
@@ -2758,7 +2895,10 @@
             "characters": [
               "潘金莲"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           }
         ],
         "24": [
@@ -2774,7 +2914,10 @@
               "李瓶儿",
               "潘金莲"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           }
         ]
       },
@@ -2788,7 +2931,10 @@
             "characters": [
               "卜志道"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "欲起"
+            ]
           }
         ],
         "常峙节": [
@@ -2800,7 +2946,10 @@
             "characters": [
               "常峙节"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "聚敛"
+            ]
           }
         ],
         "西门庆": [
@@ -2814,7 +2963,10 @@
             "characters": [
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           },
           {
             "id": "jpm-obj-jiu",
@@ -2826,7 +2978,10 @@
             "characters": [
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "聚敛"
+            ]
           },
           {
             "id": "jpm-tune-jiusecaiqi",
@@ -2838,7 +2993,10 @@
             "characters": [
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "欲起"
+            ]
           },
           {
             "id": "jpm-name-jinlian",
@@ -2851,7 +3009,11 @@
               "潘金莲",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛",
+              "反噬"
+            ]
           },
           {
             "id": "jpm-obj-zanzi",
@@ -2864,7 +3026,10 @@
               "孟玉楼",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "聚敛"
+            ]
           },
           {
             "id": "jpm-name-pinger",
@@ -2877,7 +3042,10 @@
               "李瓶儿",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "聚敛"
+            ]
           },
           {
             "id": "jpm-name-songhuilian",
@@ -2890,7 +3058,10 @@
               "来旺",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           },
           {
             "id": "jpm-obj-putaojia",
@@ -2903,7 +3074,10 @@
               "潘金莲",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           },
           {
             "id": "jpm-name-wangliuer",
@@ -2916,7 +3090,10 @@
               "西门庆",
               "韩道国"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           },
           {
             "id": "jpm-obj-husengyao",
@@ -2930,7 +3107,10 @@
               "潘金莲",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "反噬"
+            ]
           },
           {
             "id": "jpm-tune-jiwen",
@@ -2943,7 +3123,10 @@
               "李瓶儿",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "反噬"
+            ]
           },
           {
             "id": "jpm-obj-hongpao",
@@ -2955,7 +3138,10 @@
             "characters": [
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           },
           {
             "id": "jpm-name-chenjingji",
@@ -2968,7 +3154,10 @@
               "西门庆",
               "陈经济"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "散尽"
+            ]
           },
           {
             "id": "jpm-obj-yinzi",
@@ -2978,7 +3167,10 @@
             "characters": [
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "聚敛"
+            ]
           }
         ],
         "陈经济": [
@@ -2993,7 +3185,10 @@
               "西门庆",
               "陈经济"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "散尽"
+            ]
           }
         ],
         "庞春梅": [
@@ -3007,7 +3202,10 @@
             "characters": [
               "庞春梅"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "散尽"
+            ]
           }
         ],
         "官哥儿": [
@@ -3021,7 +3219,10 @@
             "characters": [
               "官哥儿"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "反噬"
+            ]
           }
         ],
         "韩道国": [
@@ -3036,7 +3237,10 @@
               "西门庆",
               "韩道国"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           },
           {
             "id": "jpm-name-handaoguo",
@@ -3046,7 +3250,10 @@
             "characters": [
               "韩道国"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "聚敛"
+            ]
           }
         ],
         "李瓶儿": [
@@ -3060,7 +3267,10 @@
             "characters": [
               "李瓶儿"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "聚敛"
+            ]
           },
           {
             "id": "jpm-name-huazixu",
@@ -3073,7 +3283,11 @@
               "李瓶儿",
               "花子虚"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "欲起",
+              "聚敛"
+            ]
           },
           {
             "id": "jpm-obj-deng",
@@ -3085,7 +3299,10 @@
             "characters": [
               "李瓶儿"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           },
           {
             "id": "jpm-tune-yuanxiao",
@@ -3099,7 +3316,10 @@
               "李瓶儿",
               "潘金莲"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           },
           {
             "id": "jpm-name-pinger",
@@ -3112,7 +3332,10 @@
               "李瓶儿",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "聚敛"
+            ]
           },
           {
             "id": "jpm-obj-xueshizi",
@@ -3125,7 +3348,11 @@
               "李瓶儿",
               "潘金莲"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛",
+              "反噬"
+            ]
           },
           {
             "id": "jpm-obj-honghua",
@@ -3137,7 +3364,10 @@
             "characters": [
               "李瓶儿"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "反噬"
+            ]
           },
           {
             "id": "jpm-obj-guancai",
@@ -3149,7 +3379,10 @@
             "characters": [
               "李瓶儿"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "反噬"
+            ]
           },
           {
             "id": "jpm-tune-jiwen",
@@ -3162,7 +3395,10 @@
               "李瓶儿",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "反噬"
+            ]
           }
         ],
         "花子虚": [
@@ -3177,7 +3413,11 @@
               "李瓶儿",
               "花子虚"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "欲起",
+              "聚敛"
+            ]
           },
           {
             "id": "jpm-obj-jingzi",
@@ -3187,7 +3427,10 @@
             "characters": [
               "花子虚"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "欲起"
+            ]
           }
         ],
         "潘金莲": [
@@ -3202,7 +3445,11 @@
               "潘金莲",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛",
+              "反噬"
+            ]
           },
           {
             "id": "jpm-obj-xie",
@@ -3214,7 +3461,10 @@
             "characters": [
               "潘金莲"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "欲起"
+            ]
           },
           {
             "id": "jpm-tune-yuanxiao",
@@ -3228,7 +3478,10 @@
               "李瓶儿",
               "潘金莲"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           },
           {
             "id": "jpm-tune-pipa",
@@ -3240,7 +3493,10 @@
             "characters": [
               "潘金莲"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           },
           {
             "id": "jpm-obj-putaojia",
@@ -3253,7 +3509,10 @@
               "潘金莲",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           },
           {
             "id": "jpm-obj-husengyao",
@@ -3267,7 +3526,10 @@
               "潘金莲",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "反噬"
+            ]
           },
           {
             "id": "jpm-obj-xueshizi",
@@ -3280,7 +3542,11 @@
               "李瓶儿",
               "潘金莲"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛",
+              "反噬"
+            ]
           },
           {
             "id": "jpm-obj-piao",
@@ -3292,7 +3558,10 @@
             "characters": [
               "潘金莲"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "反噬"
+            ]
           },
           {
             "id": "jpm-tune-jisheng",
@@ -3303,7 +3572,10 @@
               "李桂姐",
               "潘金莲"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "聚敛"
+            ]
           },
           {
             "id": "jpm-tune-shanpoyang",
@@ -3313,7 +3585,10 @@
             "characters": [
               "潘金莲"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           },
           {
             "id": "jpm-obj-hanjin",
@@ -3323,7 +3598,10 @@
             "characters": [
               "潘金莲"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           }
         ],
         "李娇儿": [
@@ -3335,7 +3613,10 @@
             "characters": [
               "李娇儿"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "散尽"
+            ]
           }
         ],
         "孟玉楼": [
@@ -3349,7 +3630,10 @@
             "characters": [
               "孟玉楼"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           },
           {
             "id": "jpm-obj-zanzi",
@@ -3362,7 +3646,10 @@
               "孟玉楼",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "聚敛"
+            ]
           }
         ],
         "如意儿": [
@@ -3374,7 +3661,10 @@
             "characters": [
               "如意儿"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "反噬"
+            ]
           }
         ],
         "来旺": [
@@ -3389,7 +3679,10 @@
               "来旺",
               "西门庆"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "极盛"
+            ]
           }
         ],
         "孙雪娥": [
@@ -3401,7 +3694,10 @@
             "characters": [
               "孙雪娥"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "散尽"
+            ]
           }
         ],
         "吴典恩": [
@@ -3413,7 +3709,10 @@
             "characters": [
               "吴典恩"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "反噬"
+            ]
           }
         ],
         "吴月娘": [
@@ -3427,7 +3726,10 @@
             "characters": [
               "吴月娘"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "散尽"
+            ]
           },
           {
             "id": "jpm-tune-baojuan",
@@ -3440,7 +3742,10 @@
             "characters": [
               "吴月娘"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "散尽"
+            ]
           }
         ],
         "孝哥儿": [
@@ -3454,7 +3759,10 @@
             "characters": [
               "孝哥儿"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "散尽"
+            ]
           }
         ],
         "谢希大": [
@@ -3466,7 +3774,10 @@
             "characters": [
               "谢希大"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "聚敛"
+            ]
           }
         ],
         "应伯爵": [
@@ -3478,7 +3789,10 @@
             "characters": [
               "应伯爵"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "聚敛"
+            ]
           }
         ],
         "李桂姐": [
@@ -3491,7 +3805,10 @@
               "李桂姐",
               "潘金莲"
             ],
-            "hasInference": true
+            "hasInference": true,
+            "phases": [
+              "聚敛"
+            ]
           }
         ]
       },
@@ -3504,7 +3821,10 @@
           "characters": [
             "卜志道"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "欲起"
+          ]
         },
         {
           "id": "jpm-name-changzhijie",
@@ -3514,7 +3834,10 @@
           "characters": [
             "常峙节"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "聚敛"
+          ]
         },
         {
           "id": "jpm-name-chenjingji",
@@ -3527,7 +3850,10 @@
             "西门庆",
             "陈经济"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "散尽"
+          ]
         },
         {
           "id": "jpm-name-chunmei",
@@ -3539,7 +3865,10 @@
           "characters": [
             "庞春梅"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "散尽"
+          ]
         },
         {
           "id": "jpm-name-guangeer",
@@ -3551,7 +3880,10 @@
           "characters": [
             "官哥儿"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "反噬"
+          ]
         },
         {
           "id": "jpm-name-handaoguo",
@@ -3561,7 +3893,10 @@
           "characters": [
             "韩道国"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "聚敛"
+          ]
         },
         {
           "id": "jpm-name-huazixu",
@@ -3574,7 +3909,11 @@
             "李瓶儿",
             "花子虚"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "欲起",
+            "聚敛"
+          ]
         },
         {
           "id": "jpm-name-jinlian",
@@ -3587,7 +3926,11 @@
             "潘金莲",
             "西门庆"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "极盛",
+            "反噬"
+          ]
         },
         {
           "id": "jpm-name-lijiaoer",
@@ -3597,7 +3940,10 @@
           "characters": [
             "李娇儿"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "散尽"
+          ]
         },
         {
           "id": "jpm-name-mengyulou",
@@ -3609,7 +3955,10 @@
           "characters": [
             "孟玉楼"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "极盛"
+          ]
         },
         {
           "id": "jpm-name-pinger",
@@ -3622,7 +3971,10 @@
             "李瓶儿",
             "西门庆"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "聚敛"
+          ]
         },
         {
           "id": "jpm-name-ruyi",
@@ -3632,7 +3984,10 @@
           "characters": [
             "如意儿"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "反噬"
+          ]
         },
         {
           "id": "jpm-name-songhuilian",
@@ -3645,7 +4000,10 @@
             "来旺",
             "西门庆"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "极盛"
+          ]
         },
         {
           "id": "jpm-name-sunxuee",
@@ -3655,7 +4013,10 @@
           "characters": [
             "孙雪娥"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "散尽"
+          ]
         },
         {
           "id": "jpm-name-wangliuer",
@@ -3668,7 +4029,10 @@
             "西门庆",
             "韩道国"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "极盛"
+          ]
         },
         {
           "id": "jpm-name-wudianen",
@@ -3678,7 +4042,10 @@
           "characters": [
             "吴典恩"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "反噬"
+          ]
         },
         {
           "id": "jpm-name-wuyueniang",
@@ -3690,7 +4057,10 @@
           "characters": [
             "吴月娘"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "散尽"
+          ]
         },
         {
           "id": "jpm-name-xiaogeer",
@@ -3702,7 +4072,10 @@
           "characters": [
             "孝哥儿"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "散尽"
+          ]
         },
         {
           "id": "jpm-name-xiexida",
@@ -3712,7 +4085,10 @@
           "characters": [
             "谢希大"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "聚敛"
+          ]
         },
         {
           "id": "jpm-name-ximenqing",
@@ -3724,7 +4100,10 @@
           "characters": [
             "西门庆"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "极盛"
+          ]
         },
         {
           "id": "jpm-name-yingbojue",
@@ -3734,7 +4113,10 @@
           "characters": [
             "应伯爵"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "聚敛"
+          ]
         },
         {
           "id": "jpm-obj-deng",
@@ -3746,7 +4128,10 @@
           "characters": [
             "李瓶儿"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "极盛"
+          ]
         },
         {
           "id": "jpm-obj-guancai",
@@ -3758,7 +4143,10 @@
           "characters": [
             "李瓶儿"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "反噬"
+          ]
         },
         {
           "id": "jpm-obj-hanjin",
@@ -3768,7 +4156,10 @@
           "characters": [
             "潘金莲"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "极盛"
+          ]
         },
         {
           "id": "jpm-obj-honghua",
@@ -3780,7 +4171,10 @@
           "characters": [
             "李瓶儿"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "反噬"
+          ]
         },
         {
           "id": "jpm-obj-hongpao",
@@ -3792,7 +4186,10 @@
           "characters": [
             "西门庆"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "极盛"
+          ]
         },
         {
           "id": "jpm-obj-husengyao",
@@ -3806,7 +4203,10 @@
             "潘金莲",
             "西门庆"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "反噬"
+          ]
         },
         {
           "id": "jpm-obj-jingzi",
@@ -3816,7 +4216,10 @@
           "characters": [
             "花子虚"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "欲起"
+          ]
         },
         {
           "id": "jpm-obj-jiu",
@@ -3828,7 +4231,10 @@
           "characters": [
             "西门庆"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "聚敛"
+          ]
         },
         {
           "id": "jpm-obj-piao",
@@ -3840,7 +4246,10 @@
           "characters": [
             "潘金莲"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "反噬"
+          ]
         },
         {
           "id": "jpm-obj-pinger-cai",
@@ -3852,7 +4261,10 @@
           "characters": [
             "李瓶儿"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "聚敛"
+          ]
         },
         {
           "id": "jpm-obj-putaojia",
@@ -3865,7 +4277,10 @@
             "潘金莲",
             "西门庆"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "极盛"
+          ]
         },
         {
           "id": "jpm-obj-xie",
@@ -3877,7 +4292,10 @@
           "characters": [
             "潘金莲"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "欲起"
+          ]
         },
         {
           "id": "jpm-obj-xueshizi",
@@ -3890,7 +4308,11 @@
             "李瓶儿",
             "潘金莲"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "极盛",
+            "反噬"
+          ]
         },
         {
           "id": "jpm-obj-yinzi",
@@ -3900,7 +4322,10 @@
           "characters": [
             "西门庆"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "聚敛"
+          ]
         },
         {
           "id": "jpm-obj-zanzi",
@@ -3913,7 +4338,10 @@
             "孟玉楼",
             "西门庆"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "聚敛"
+          ]
         },
         {
           "id": "jpm-tune-baojuan",
@@ -3926,7 +4354,10 @@
           "characters": [
             "吴月娘"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "散尽"
+          ]
         },
         {
           "id": "jpm-tune-jisheng",
@@ -3937,7 +4368,10 @@
             "李桂姐",
             "潘金莲"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "聚敛"
+          ]
         },
         {
           "id": "jpm-tune-jiusecaiqi",
@@ -3949,7 +4383,10 @@
           "characters": [
             "西门庆"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "欲起"
+          ]
         },
         {
           "id": "jpm-tune-jiwen",
@@ -3962,7 +4399,10 @@
             "李瓶儿",
             "西门庆"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "反噬"
+          ]
         },
         {
           "id": "jpm-tune-pipa",
@@ -3974,7 +4414,10 @@
           "characters": [
             "潘金莲"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "极盛"
+          ]
         },
         {
           "id": "jpm-tune-shanpoyang",
@@ -3984,7 +4427,10 @@
           "characters": [
             "潘金莲"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "极盛"
+          ]
         },
         {
           "id": "jpm-tune-yuanxiao",
@@ -3998,7 +4444,10 @@
             "李瓶儿",
             "潘金莲"
           ],
-          "hasInference": true
+          "hasInference": true,
+          "phases": [
+            "极盛"
+          ]
         }
       ]
     },

@@ -6,8 +6,8 @@ chapter: 7
 category: 措辞
 edition_a: 世德堂本
 edition_b: 通本
-text_a: "，玄"
-text_b: "、元"
+text_a: "淆、"
+text_b: "肴，"
 tags: [auto]
-summary: "第7回「，玄」↔「、元」（自动抽取）。"
+summary: "第7回「淆、」↔「肴，」（自动抽取）。"
 ---

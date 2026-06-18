@@ -19,8 +19,25 @@ links:
     inference: true
 tags: [丹道意象, 坎离, 水火既济]
 summary: "抽坎填离、水火既济——心猿意马相济的丹道工夫，劫难即考验场。"
+chapters:
+  - 14
+  - 19
 ---
+## 丹道意象 · 抽坎填离 · 水火既济
 
-## 丹道意象 · 抽坎填离（水火既济）
+## 互文
 
-丹道修炼以「抽坎填离」复还乾坤：取坎卦中爻之阳，填离卦中爻之阴。心猿（离火）与意马（坎水）相济，正是水火既济的隐喻；通天河、火焰山等水火劫难，皆是此工夫的试炼场。
+- 推论 · 相济 → [xyj-dan-xinyuan](/xiyouji/imagery/xyj-dan-xinyuan) — 心猿（离火）与意马（坎水）相济，抽坎中之阳填离中之阴。
+- 推论 · 相济 → [xyj-dan-yima](/xiyouji/imagery/xyj-dan-yima)
+
+## 评析
+
+抽坎填离、水火既济——心猿意马相济的丹道工夫，劫难即考验场。
+
+## 相关
+
+- [[孙悟空]]
+- [[白龙马]]
+- 意象：[xyj-dan-xinyuan](/xiyouji/imagery/xyj-dan-xinyuan)
+- 意象：[xyj-dan-yima](/xiyouji/imagery/xyj-dan-yima)
+- 标签：丹道意象, 坎离, 水火既济

@@ -1,8 +1,8 @@
-/** B7 名物纵切：章回 × 人物 × 名物交叉索引 */
+/** B7/C4 名物纵切：章回 × 人物 × 地点 × 名物交叉索引 */
 
 import itemsCrossIndexJson from '../data/items_cross_index.json';
-import type { ItemKind } from './items';
-import { kindLabel } from './items';
+import type { ItemKind } from './itemsKind';
+import { kindLabel } from './itemsKind';
 
 export interface ItemsCrossRow {
   id: string;
@@ -13,6 +13,7 @@ export interface ItemsCrossRow {
 export interface ItemsCrossIndex {
   byChapter: { chapter: number; rows: ItemsCrossRow[] }[];
   byCharacter: { character: string; rows: ItemsCrossRow[] }[];
+  byLocation: { location: string; rows: ItemsCrossRow[] }[];
   entries: ItemsCrossRow[];
 }
 
@@ -22,6 +23,7 @@ type ItemsIndexBook = {
   count: number;
   byChapter: Record<string, ItemsCrossRow[]>;
   byCharacter: Record<string, ItemsCrossRow[]>;
+  byLocation?: Record<string, ItemsCrossRow[]>;
   entries: ItemsCrossRow[];
 };
 
@@ -42,7 +44,12 @@ function normalizeIndex(raw: ItemsIndexBook): ItemsCrossIndex {
     .filter((g) => g.rows.length > 0)
     .sort((a, b) => b.rows.length - a.rows.length || a.character.localeCompare(b.character, 'zh'));
 
-  return { byChapter, byCharacter, entries: raw.entries };
+  const byLocation = Object.entries(raw.byLocation ?? {})
+    .map(([location, rows]) => ({ location, rows }))
+    .filter((g) => g.rows.length > 0)
+    .sort((a, b) => b.rows.length - a.rows.length || a.location.localeCompare(b.location, 'zh'));
+
+  return { byChapter, byCharacter, byLocation, entries: raw.entries };
 }
 
 export function getItemsCrossIndex(bookSlug: string): ItemsCrossIndex | null {
@@ -61,6 +68,12 @@ export function relatedItemsForChapter(bookSlug: string, chapter: number): Items
   const idx = getItemsCrossIndex(bookSlug);
   if (!idx) return [];
   return idx.byChapter.find((g) => g.chapter === chapter)?.rows ?? [];
+}
+
+export function relatedItemsForLocation(bookSlug: string, locationId: string): ItemsCrossRow[] {
+  const idx = getItemsCrossIndex(bookSlug);
+  if (!idx) return [];
+  return idx.byLocation.find((g) => g.location === locationId)?.rows ?? [];
 }
 
 export { kindLabel };

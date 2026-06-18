@@ -6,6 +6,9 @@ import CatalogFoldBar from '../../components/CatalogFoldBar.astro';
 import CatalogFoldSection from '../../components/CatalogFoldSection.astro';
 import ImageryGraph from '../../components/ImageryGraph.tsx';
 import ShiCrossIndex from '../../components/ShiCrossIndex.tsx';
+import ShiKarmaLoop from '../../components/ShiKarmaLoop.tsx';
+import WuxingNetwork from '../../components/WuxingNetwork.tsx';
+import JpmModuleNav from '../../components/JpmModuleNav.astro';
 import {
   buildImageryGraph,
   chapterLabel,
@@ -15,6 +18,8 @@ import {
 import type { ImageryGraphEdge } from '../../lib/imagery';
 import { loadImagery } from '../../lib/loadImagery';
 import { buildShiCrossIndex, getShiCrossIndex } from '../../lib/shiIndex';
+import { getShiKarma } from '../../lib/shiKarma';
+import { getShiWuxing } from '../../lib/shiWuxing';
 import { loadImageryChains } from '../../lib/imageryChains';
 
 export async function getStaticPaths() {
@@ -37,6 +42,11 @@ const graph = buildImageryGraph(items, extraLinks);
 const imageryChains = loadImageryChains(meta.slug, meta.book);
 const initialChainId = Astro.url.searchParams.get('chain');
 const shiCrossIndex = getShiCrossIndex(meta.slug) ?? buildShiCrossIndex(items, extraLinks);
+const shiKarma = getShiKarma(meta.slug);
+const shiWuxing = getShiWuxing(meta.slug);
+const quanshiNeidanHref = meta.features.includes('quanshi')
+  ? `/${meta.slug}/topics/内丹心性说`
+  : undefined;
 const bySubtype = (st: string) => items.filter((i) => i.data.subtype === st);
 
 const SUBTYPE_ORDER = [
@@ -91,6 +101,30 @@ const isXyj = meta.slug === 'xiyouji';
     </p>
   </section>
 
+  {isJpm && <JpmModuleNav bookSlug={meta.slug} features={meta.features} current="shi" />}
+
+  {
+    shiKarma && (
+      <>
+        <h2 class="section-title mb-4 text-lg">因果报应闭环</h2>
+        <div class="kb-dashboard surface mb-10 p-4 sm:p-6">
+          <ShiKarmaLoop karma={shiKarma} bookSlug={meta.slug} client:load />
+        </div>
+      </>
+    )
+  }
+
+  {
+    shiWuxing && (
+      <>
+        <h2 class="section-title mb-4 text-lg">五行生克 · 修心网络</h2>
+        <div class="kb-dashboard surface mb-10 p-4 sm:p-6">
+          <WuxingNetwork data={shiWuxing} bookSlug={meta.slug} quanshiHref={quanshiNeidanHref} client:load />
+        </div>
+      </>
+    )
+  }
+
   <h2 class="section-title mb-4 text-lg">意象互文图</h2>
   <div class="kb-dashboard surface mb-10 p-4 sm:p-6">
     <ImageryGraph
@@ -99,19 +133,6 @@ const isXyj = meta.slug === 'xiyouji';
       chains={imageryChains}
       initialChainId={initialChainId}
       client:only="react"
-    />
-  </div>
-
-  <h2 class="section-title mb-4 text-lg">交叉索引</h2>
-  <p class="mb-4 max-w-2xl text-sm text-muted">
-    诗词/判词/象征按<strong>章回</strong>与<strong>人物</strong>三维互链；可跳转读回、人物页或意象详情。
-  </p>
-  <div class="kb-dashboard surface mb-10 p-4 sm:p-6">
-    <ShiCrossIndex
-      index={shiCrossIndex}
-      bookSlug={meta.slug}
-      bookName={meta.book}
-      client:load
     />
   </div>
 
@@ -158,6 +179,25 @@ const isXyj = meta.slug === 'xiyouji';
         );
       })
     }
+  </div>
+
+  <h2 class="section-title mb-4 mt-10 text-lg">交叉索引</h2>
+  <p class="mb-4 max-w-2xl text-sm text-muted">
+    {
+      isJpm ? (
+        <>谶纬按<strong>章回</strong>与<strong>人物</strong>互链；可按<strong>五阶段</strong>（欲起→散尽）筛选。</>
+      ) : (
+        <>诗词/判词/象征按<strong>章回</strong>与<strong>人物</strong>三维互链；可跳转读回、人物页或意象详情。</>
+      )
+    }
+  </p>
+  <div class="kb-dashboard surface mb-10 p-4 sm:p-6">
+    <ShiCrossIndex
+      index={shiCrossIndex}
+      bookSlug={meta.slug}
+      bookName={meta.book}
+      client:load
+    />
   </div>
   </div>
 </Base>

@@ -1,0 +1,48 @@
+=== score <=18: 0 ===
+
+=== score 19-20: 0 ===
+
+=== score 21-24: 123 ===
+乌进孝	score=23	
+云光	score=23	
+倪二	score=23	
+傅试	score=23	
+傻大姐	score=23	
+冯紫英	score=23	plot=2
+包勇	score=23	
+单大良	score=23	plot=2
+单聘仁	score=23	
+南安郡王	score=23	
+卜世仁	score=23	
+双寿	score=23	plot=2
+双瑞	score=23	plot=2
+史湘云	score=23	
+司棋	score=23	plot=2
+善姐	score=23	
+四儿	score=23	
+墨雨	score=23	
+多官	score=23	
+娇杏	score=23	
+嫣红	score=23	
+宝官	score=23	
+宝蟾	score=23	
+封肃	score=23	
+尤三姐	score=23	
+引泉	score=23	plot=2
+张华	score=23	
+彩明	score=23	
+戴权	score=23	
+戴良	score=23	plot=2
+扫红	score=23	plot=2
+扫花	score=23	plot=2
+挑云	score=23	plot=2
+文官	score=23	plot=2
+春燕	score=23	plot=2
+智能	score=23	
+李嬷嬷	score=23	
+李纹	score=23	
+李绮	score=23	
+来升	score=23	plot=2
+... +83
+
+plot=1: 0

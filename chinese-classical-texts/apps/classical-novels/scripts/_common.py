@@ -36,6 +36,26 @@ def parse_frontmatter(path: Path) -> tuple[dict, str]:
     return data, body
 
 
+def count_plot_entries(body: str) -> int:
+    """Count ## 关键情节 bullets and table rows (西游等常用表格梗概)。"""
+    plot_sec = re.search(r"## 关键情节[^\n]*\n(.*?)(?=\n## |\Z)", body, re.S)
+    if not plot_sec:
+        return 0
+    n = 0
+    for ln in plot_sec.group(1).splitlines():
+        s = ln.strip()
+        if not s or re.match(r"^\|[-:\s|]+\|$", s):
+            continue
+        if s.startswith("-"):
+            n += 1
+        elif s.startswith("|"):
+            if re.search(r"第\d+回?", s):
+                n += 1
+            elif re.match(r"^\|\s*\d", s):
+                n += 1
+    return n
+
+
 def iter_characters(book: str):
     d = CHAR_DIR / book
     if not d.exists():

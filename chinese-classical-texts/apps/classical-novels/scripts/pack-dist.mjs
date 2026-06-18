@@ -19,10 +19,14 @@ if (!fs.existsSync(path.join(distDir, 'index.html'))) {
   fail('dist/index.html 不存在。请先完整执行 npm run build（不要中断）。');
 }
 
-for (const name of ['honglou', '_astro']) {
+for (const name of ['honglou', '_astro', 'pagefind']) {
   if (!fs.existsSync(path.join(distDir, name))) {
     fail(`dist/${name}/ 不存在，构建不完整。`);
   }
+}
+
+if (!fs.existsSync(path.join(distDir, 'pagefind', 'pagefind-entry.json'))) {
+  fail('dist/pagefind/ 无索引，站内检索会报错。请重新 npm run build。');
 }
 
 fs.mkdirSync(releaseDir, { recursive: true });

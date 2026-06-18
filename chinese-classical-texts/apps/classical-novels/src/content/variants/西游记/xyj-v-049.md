@@ -6,8 +6,8 @@ chapter: 7
 category: 措辞
 edition_a: 世德堂本
 edition_b: 通本
-text_a: "捧著"
-text_b: "摔着"
+text_a: "著雷"
+text_b: "着云"
 tags: [auto]
-summary: "第7回「捧著」↔「摔着」（自动抽取）。"
+summary: "第7回「著雷」↔「着云」（自动抽取）。"
 ---

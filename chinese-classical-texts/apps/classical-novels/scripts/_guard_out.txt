@@ -1,0 +1,28 @@
+﻿[红楼梦] 净虚 情节 unverified — 第16回：水月庵与净虚、张金哥案相连。…
+    回目 [16] 未命中锚词（首项 张金哥案相连）
+[红楼梦] 卫若兰 → 史湘云 (朋友 role=婚约): relation unverified — 全文未同现
+[红楼梦] 坠儿 情节 unverified — 第56回：宋妈妈拿镯子，称小丫头子坠儿偷起来的。…
+    回目 [56] 未命中锚词（首项 称小丫头子坠儿偷起来的）
+[红楼梦] 张三 情节 unverified — 第4回：原告称拐子先收冯家银子，又悄悄卖与薛家，争买殴伤人命。…
+    回目 [4] 未命中锚词（首项 原告称拐子先收冯家银子）
+[红楼梦] 张三 → 香菱 (同僚 role=英莲链): relation unverified — 全文未同现
+[红楼梦] 张友士 情节 unverified — 第10回：张友士为秦可卿诊脉，尤氏荐医。…
+    回目 [10] 未命中锚词（首项 张友士为秦可卿诊脉）
+[红楼梦] 彩屏 → 智能 (姐妹 role=惜春房): relation unverified — 全文未同现
+[红楼梦] 彩鸾 → 金钏儿 (同僚 role=王夫人房): relation unverified — 全文未同现
+[红楼梦] 忠顺亲王 → 北静王 (同僚 role=王府对照): relation unverified — 全文未同现
+[红楼梦] 来旺家的 情节 unverified — 第69回：来旺家的献计赚张华，尤二姐案收尾。…
+    回目 [69] 未命中锚词（首项 来旺家的献计赚张华）
+[红楼梦] 林四娘 → 詹光 (同僚 role=论姽婳词): relation unverified — 全文未同现
+[红楼梦] 潘又安 情节 unverified — 第77回：司棋被搜出潘又安情帖，迎春不能作主。…
+    回目 [77] 未命中锚词（首项 司棋被搜出潘又安情帖）
+[红楼梦] 玉钏儿 情节 unverified — 第18回：元春省亲后，玉钏儿等与众人赏宴。…
+    回目 [18] 未命中锚词（首项 玉钏儿等与众人赏宴）
+[红楼梦] 甄应嘉 → 甄夫人 (夫妻): relation unverified — 全文未同现
+[红楼梦] 绣凤 → 彩鸾 (姐妹 role=王夫人房): relation unverified — 全文未同现
+[红楼梦] 翠云 → 贾赦 (主仆 role=妾室): relation unverified — 全文未同现
+[红楼梦] 贾赦 → 翠云 (主仆): relation unverified — 全文未同现
+[红楼梦] 鹦哥 情节 unverified — 第40回：两宴大观园，鹦哥等随侍贾母行令。…
+    回目 [40] 未命中锚词（首项 鹦哥等随侍贾母行令）
+[红楼梦] characters: first_appear 0，关键情节 615 条（unverified 8），relations 1228 边（unverified 10）
+Trust Guard 完成，18 处存疑

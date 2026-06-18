@@ -7,7 +7,7 @@ from pathlib import Path
 
 import yaml
 
-from _common import CONTENT, iter_characters, parse_frontmatter
+from _common import CONTENT, count_plot_entries, iter_characters, parse_frontmatter
 from lint_character_density import density_score
 from trust_guard import (
     collect_search_chapters,
@@ -31,16 +31,13 @@ def scan_pages(book: str) -> tuple[dict[str, dict], dict[str, set[str]]]:
 
     for p, fm, body in chars:
         cid = fm.get("id") or p.stem
-        plot_sec = re.search(r"## 关键情节\s*\n(.*?)(?=\n## |\Z)", body, re.S)
-        plots: list[str] = []
-        if plot_sec:
-            plots = [ln for ln in plot_sec.group(1).splitlines() if ln.strip().startswith("-")]
+        plot_count = count_plot_entries(body)
         pages[cid] = {
             "path": p,
             "fm": fm,
             "body": body,
             "rel": len(fm.get("relations") or []),
-            "plot": len(plots),
+            "plot": plot_count,
             "main": "## 主要关系" in body,
             "review": "## 评析" in body,
             "identity": "## 身份" in body,

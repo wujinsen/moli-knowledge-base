@@ -2,12 +2,12 @@
 id: xyj-v-071
 type: variant
 book: 西游记
-chapter: 17
+chapter: 16
 category: 措辞
 edition_a: 世德堂本
 edition_b: 通本
-text_a: "。”"
-text_b: "”。"
+text_a: "。諕"
+text_b: "，唬"
 tags: [auto]
-summary: "第17回「。”」↔「”。」（自动抽取）。"
+summary: "第16回「。諕」↔「，唬」（自动抽取）。"
 ---

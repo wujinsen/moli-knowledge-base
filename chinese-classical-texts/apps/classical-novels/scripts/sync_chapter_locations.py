@@ -18,10 +18,18 @@ CHAPTER_RE = re.compile(r"第(\d+)回")
 
 def chapter_path(book: str, num: int) -> Path | None:
     base = CHAPTER_DIR / book
-    for fmt in (f"{num:03d}.md", f"{num}.md"):
-        p = base / fmt
-        if p.exists():
-            return p
+    subs: tuple[str, ...]
+    if book == "金瓶梅":
+        subs = ("词话本", "")
+    elif book == "西游记":
+        subs = ("通本", "")
+    else:
+        subs = ("",)
+    for sub in subs:
+        for fmt in (f"{num:03d}.md", f"{num}.md"):
+            p = base / sub / fmt if sub else base / fmt
+            if p.exists():
+                return p
     return None
 
 

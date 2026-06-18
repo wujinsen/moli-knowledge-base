@@ -6,8 +6,8 @@ chapter: 4
 category: 措辞
 edition_a: 世德堂本
 edition_b: 通本
-text_a: "？著"
-text_b: "！着"
+text_a: "扢叉"
+text_b: "呵嚓"
 tags: [auto]
-summary: "第4回「？著」↔「！着」（自动抽取）。"
+summary: "第4回「扢叉」↔「呵嚓」（自动抽取）。"
 ---

@@ -79,13 +79,15 @@ const financialData = financialBySlug[meta.slug];
   <h2 class="section-title mb-4 text-lg">全书时间轴</h2>
   {
     chainIndex ? (
-      <ChainTimeline
-        index={chainIndex}
-        bookSlug={meta.slug}
-        readEdition={readEdition}
-        features={meta.features}
-        client:load
-      />
+      <div class="kb-dashboard surface mb-10 p-4 sm:p-6">
+        <ChainTimeline
+          index={chainIndex}
+          bookSlug={meta.slug}
+          readEdition={readEdition}
+          features={meta.features}
+          client:only="react"
+        />
+      </div>
     ) : (
       <p class="text-sm text-muted">缺少 chain.json，请运行 build_chain.py。</p>
     )

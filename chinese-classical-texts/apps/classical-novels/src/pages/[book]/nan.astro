@@ -10,6 +10,8 @@ import {
   sortEvents,
 } from '../../lib/events';
 import { loadEvents } from '../../lib/loadEvents';
+import { getNan } from '../../lib/nanIndex';
+import NanExplorer from '../../components/NanExplorer.tsx';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -22,6 +24,7 @@ const { book } = Astro.props;
 const meta = book.data;
 const events = sortEvents(await loadEvents(meta.book));
 const tribulations = events.filter((e) => e.data.subtype === 'tribulation');
+const nan = getNan(meta.slug);
 const phaseCounts = TRIBULATION_PHASES.map((p) => ({
   ...p,
   count: tribulations.filter(
@@ -52,7 +55,17 @@ const phaseCounts = TRIBULATION_PHASES.map((p) => ({
     </p>
   </section>
 
-  {/* 阶段概览 */}
+  {/* 交互式仪表盘（靠山统计 + 阶段/阵营筛选时间轴） */}
+  {
+    nan && (
+      <div class="kb-dashboard surface mb-10 p-4 sm:p-6">
+        <NanExplorer data={nan} bookSlug={meta.slug} client:load />
+      </div>
+    )
+  }
+
+  {/* 阶段概览（静态后备） */}
+  {!nan && (
   <div class="mb-8 flex flex-wrap gap-2">
     {
       phaseCounts.map((p) => (
@@ -60,8 +73,10 @@ const phaseCounts = TRIBULATION_PHASES.map((p) => ({
       ))
     }
   </div>
+  )}
 
-  {/* 时间轴 */}
+  {/* 时间轴（静态后备） */}
+  {!nan && (
   <div class="tribulation-timeline mb-10">
     {
       tribulations.map((ev) => {
@@ -110,14 +125,18 @@ const phaseCounts = TRIBULATION_PHASES.map((p) => ({
       })
     }
   </div>
+  )}
 
   <div class="surface p-4 text-sm">
     <span class="chip">数据源</span>
     第九十九回历难簿 ·
     <a href={`/${meta.slug}/read/99`} class="hover:underline" style="color: var(--accent)">阅读原文</a>
-    · 重生成：
+    · 收服者/靠山统计据妖怪页「收服者·原型」字段 · 重生成：
     <code class="rounded px-1" style="background: color-mix(in srgb, var(--primary) 8%, transparent)">
       python scripts/seed_tribulations.py
+    </code>
+    <code class="ml-1 rounded px-1" style="background: color-mix(in srgb, var(--primary) 8%, transparent)">
+      python scripts/build_nan.py --write
     </code>
   </div>
 </Base>

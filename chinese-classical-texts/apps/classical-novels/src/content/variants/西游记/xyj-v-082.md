@@ -2,12 +2,12 @@
 id: xyj-v-082
 type: variant
 book: 西游记
-chapter: 20
+chapter: 18
 category: 措辞
 edition_a: 世德堂本
 edition_b: 通本
-text_a: "抡起"
-text_b: "轮钉"
+text_a: "啧啧"
+text_b: "喷喷"
 tags: [auto]
-summary: "第20回「抡起」↔「轮钉」（自动抽取）。"
+summary: "第18回「啧啧」↔「喷喷」（自动抽取）。"
 ---

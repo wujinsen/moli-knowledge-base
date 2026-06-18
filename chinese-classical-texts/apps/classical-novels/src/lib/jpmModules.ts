@@ -14,6 +14,7 @@ export const JPM_MODULE_NAV: JpmModuleLink[] = [
   { feature: 'sna', slug: 'sna', label: 'SNA' },
   { feature: 'bestiary', slug: 'bestiary', label: '图鉴' },
   { feature: 'compare', slug: 'compare', label: '对勘' },
+  { feature: 'poems', slug: 'shi', label: '谶纬' },
   { feature: 'kaozheng', slug: 'kaozheng', label: '考证' },
 ];
 

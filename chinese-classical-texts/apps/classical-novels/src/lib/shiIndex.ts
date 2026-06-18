@@ -12,6 +12,7 @@ export interface ShiCrossRow {
   chapters: number[];
   characters: string[];
   hasInference: boolean;
+  phases?: string[];
 }
 
 export interface ShiCrossIndex {
@@ -113,6 +114,11 @@ export function buildShiCrossIndex(
     const hasInference =
       d.links.some((l) => l.inference) || extra.some((e) => e.inference);
 
+    const phases = new Set<string>();
+    for (const l of d.links) {
+      if (l.inference && l.phase) phases.add(l.phase);
+    }
+
     return {
       id: d.id,
       title: d.title,
@@ -120,6 +126,7 @@ export function buildShiCrossIndex(
       chapters: [...chapters].sort((a, b) => a - b),
       characters: [...characters].sort((a, b) => a.localeCompare(b, 'zh')),
       hasInference,
+      ...(phases.size > 0 ? { phases: [...phases] } : {}),
     };
   });
 

@@ -6,8 +6,8 @@ chapter: 8
 category: 措辞
 edition_a: 世德堂本
 edition_b: 通本
-text_a: "曰："
-text_b: "回；"
+text_a: "俱卢"
+text_b: "巨芦"
 tags: [auto]
-summary: "第8回「曰：」↔「回；」（自动抽取）。"
+summary: "第8回「俱卢」↔「巨芦」（自动抽取）。"
 ---

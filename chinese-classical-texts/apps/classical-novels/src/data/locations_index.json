@@ -6938,8 +6938,7 @@
           ],
           "nearby": [
             "东京",
-            "西门府",
-            "蔡京"
+            "西门府"
           ],
           "first_appear": "第36回",
           "appear_in": [
@@ -7669,7 +7668,7 @@
     "xiyouji": {
       "book": "西游记",
       "slug": "xiyouji",
-      "count": 27,
+      "count": 31,
       "entries": [
         {
           "id": "东海龙宫",
@@ -7914,7 +7913,7 @@
             "lat": 28.6139,
             "lng": 77.209
           },
-          "route_order": 21,
+          "route_order": 25,
           "appear_in": [
             "第93回",
             "第94回",
@@ -7926,6 +7925,39 @@
             "抛绣球"
           ],
           "summary": "玉兔精冒充公主抛绣球招亲，欲害唐僧元阳；太阴星君携素娥收兔。",
+          "source": "chapters/西游记/",
+          "occupants": [],
+          "nearby": [],
+          "features": [],
+          "furnishings": [],
+          "plants": []
+        },
+        {
+          "id": "小雷音寺",
+          "type": "temple",
+          "name": "小雷音寺",
+          "aliases": [
+            "小西天"
+          ],
+          "book": "西游记",
+          "category": "寺观",
+          "realm": "凡间",
+          "layer": "real",
+          "geo": {
+            "lat": 30.05,
+            "lng": 95.7
+          },
+          "route_order": 18,
+          "appear_in": [
+            "第65回",
+            "第66回"
+          ],
+          "first_appear": "第65回",
+          "tags": [
+            "黄眉怪",
+            "假佛"
+          ],
+          "summary": "黄眉怪（弥勒司磬黄眉童子）假设雷音、扮如来诓众，以人种袋（后天袋）收困师徒；弥勒亲来收之。",
           "source": "chapters/西游记/",
           "occupants": [],
           "nearby": [],
@@ -8014,7 +8046,7 @@
             "lat": 29.95,
             "lng": 95.4
           },
-          "route_order": 17,
+          "route_order": 19,
           "appear_in": [
             "第68回",
             "第69回",
@@ -8049,7 +8081,7 @@
             "lat": 29.25,
             "lng": 93.1
           },
-          "route_order": 19,
+          "route_order": 21,
           "appear_in": [
             "第78回",
             "第79回"
@@ -8143,7 +8175,7 @@
             "lat": 28.95,
             "lng": 92.0
           },
-          "route_order": 20,
+          "route_order": 22,
           "appear_in": [
             "第84回",
             "第85回"
@@ -8176,7 +8208,7 @@
             "lat": 27.4914,
             "lng": 83.9759
           },
-          "route_order": 22,
+          "route_order": 26,
           "appear_in": [
             "第98回",
             "第99回",
@@ -8245,7 +8277,7 @@
             "lat": 29.55,
             "lng": 94.2
           },
-          "route_order": 18,
+          "route_order": 20,
           "appear_in": [
             "第74回",
             "第75回",
@@ -8258,6 +8290,41 @@
             "最险一难"
           ],
           "summary": "青狮、白象、大鹏三魔盘踞，吞城屠国。大鹏金翅雕最难制，终请如来现身收伏。",
+          "source": "chapters/西游记/",
+          "occupants": [],
+          "nearby": [],
+          "features": [],
+          "furnishings": [],
+          "plants": []
+        },
+        {
+          "id": "玉华州",
+          "type": "location",
+          "name": "玉华州",
+          "aliases": [
+            "玉华县"
+          ],
+          "book": "西游记",
+          "category": "国度",
+          "realm": "凡间",
+          "layer": "real",
+          "geo": {
+            "lat": 28.8,
+            "lng": 90.5
+          },
+          "route_order": 23,
+          "appear_in": [
+            "第88回",
+            "第89回",
+            "第90回"
+          ],
+          "first_appear": "第88回",
+          "tags": [
+            "传艺",
+            "黄狮精",
+            "九灵元圣"
+          ],
+          "summary": "天竺下郡，三王子拜悟空师徒学艺；豹头山黄狮精盗兵器，竹节山九灵元圣（太乙救苦天尊坐骑九头狮）擒众，天尊收之。",
           "source": "chapters/西游记/",
           "occupants": [],
           "nearby": [],
@@ -8319,6 +8386,38 @@
             "九头虫"
           ],
           "summary": "金光寺宝塔失舍利，悟空扫塔辨冤；碧波潭九头虫盗宝，与二郎神协擒。",
+          "source": "chapters/西游记/",
+          "occupants": [],
+          "nearby": [],
+          "features": [],
+          "furnishings": [],
+          "plants": []
+        },
+        {
+          "id": "荆棘岭",
+          "type": "location",
+          "name": "荆棘岭·木仙庵",
+          "aliases": [
+            "木仙庵"
+          ],
+          "book": "西游记",
+          "category": "山岭",
+          "realm": "凡间",
+          "layer": "real",
+          "geo": {
+            "lat": 30.1,
+            "lng": 95.95
+          },
+          "route_order": 17,
+          "appear_in": [
+            "第64回"
+          ],
+          "first_appear": "第64回",
+          "tags": [
+            "树精",
+            "谈诗"
+          ],
+          "summary": "八百里荆棘，木仙庵四树精（十八公、孤直公、凌空子、拂云叟）邀唐僧谈诗论道，杏仙求偶；悟空等掘倒树精。",
           "source": "chapters/西游记/",
           "occupants": [],
           "nearby": [],
@@ -8415,6 +8514,39 @@
             "老鼋"
           ],
           "summary": "灵感大王（观音莲池金鱼）食童男女，鱼篮观音收之；老鼋驮渡，约问寿数之事。",
+          "source": "chapters/西游记/",
+          "occupants": [],
+          "nearby": [],
+          "features": [],
+          "furnishings": [],
+          "plants": []
+        },
+        {
+          "id": "金平府",
+          "type": "location",
+          "name": "金平府",
+          "aliases": [
+            "旻天县"
+          ],
+          "book": "西游记",
+          "category": "国度",
+          "realm": "凡间",
+          "layer": "real",
+          "geo": {
+            "lat": 28.7,
+            "lng": 88.0
+          },
+          "route_order": 24,
+          "appear_in": [
+            "第91回",
+            "第92回"
+          ],
+          "first_appear": "第91回",
+          "tags": [
+            "元宵",
+            "三犀牛"
+          ],
+          "summary": "慈云寺观灯，青龙山玄英洞辟寒、辟暑、辟尘三犀牛假佛偷油、摄走唐僧；四木禽星收之，锯角充贡。",
           "source": "chapters/西游记/",
           "occupants": [],
           "nearby": [],

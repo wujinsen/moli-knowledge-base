@@ -29,7 +29,26 @@ links:
 tags: [丹道意象, 五行, 攒簇]
 summary: "师徒五众分属五行：心猿金、木母木、黄婆土、意马水；五行攒簇、生克调和方成内丹。"
 ---
+## 丹道意象 · 五行 · 师徒配属
 
-## 丹道意象 · 五行（师徒配属）
+## 互文
 
-取经五众即五行：孙悟空为金（心猿/金公）、猪八戒为木（木母）、沙僧为土（黄婆/刀圭）、白龙马为水（意马）、唐僧为统御之主。回目频以「五行」「攒簇」入题，写金木相克又交并、黄婆调和、水火相济——五行和合，金丹乃成。
+- 推论 · 交并 → [xyj-dan-xinyuan](/xiyouji/imagery/xyj-dan-xinyuan) — 金（心猿）木（木母）土（黄婆）水（意马）相生相克，五行攒簇方成丹。
+- 推论 · 相克 → [xyj-dan-mumu](/xiyouji/imagery/xyj-dan-mumu)
+- 推论 · 调和 → [xyj-dan-huangpo](/xiyouji/imagery/xyj-dan-huangpo)
+
+## 评析
+
+师徒五众分属五行：心猿金、木母木、黄婆土、意马水；五行攒簇、生克调和方成内丹。
+
+## 相关
+
+- [[孙悟空]]
+- [[猪八戒]]
+- [[沙僧]]
+- [[白龙马]]
+- [[唐僧]]
+- 意象：[xyj-dan-xinyuan](/xiyouji/imagery/xyj-dan-xinyuan)
+- 意象：[xyj-dan-mumu](/xiyouji/imagery/xyj-dan-mumu)
+- 意象：[xyj-dan-huangpo](/xiyouji/imagery/xyj-dan-huangpo)
+- 标签：丹道意象, 五行, 攒簇

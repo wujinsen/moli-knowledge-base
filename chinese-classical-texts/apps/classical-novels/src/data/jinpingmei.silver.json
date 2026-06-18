@@ -1,16 +1,16 @@
 {
   "book": "金瓶梅",
   "generated": "2026-06-18",
-  "transaction_count": 25,
-  "disputed_count": 1,
-  "total_liang": 3948.7,
+  "transaction_count": 24,
+  "disputed_count": 0,
+  "total_liang": 3918.7,
   "chapter_min": 1,
   "chapter_max": 87,
   "hub": {
     "name": "西门庆府",
     "inflow": 16.0,
-    "outflow": 3462.7,
-    "net": -3446.7
+    "outflow": 3432.7,
+    "net": -3416.7
   },
   "pools": [
     {
@@ -31,9 +31,9 @@
     },
     {
       "name": "妻妾奴婢",
-      "inflow": 67.7,
+      "inflow": 37.7,
       "outflow": 385.0,
-      "net": -317.3,
+      "net": -347.3,
       "depth": 2,
       "color": "#74332c"
     },
@@ -96,8 +96,8 @@
     {
       "name": "西门庆府",
       "inflow": 16.0,
-      "outflow": 3462.7,
-      "net": -3446.7,
+      "outflow": 3432.7,
+      "net": -3416.7,
       "depth": 1,
       "color": "#607a67"
     }
@@ -180,9 +180,8 @@
     {
       "source": "西门庆府",
       "target": "妻妾奴婢",
-      "value": 37.7,
+      "value": 7.7,
       "txs": [
-        "jpm-tx-012",
         "jpm-tx-013",
         "jpm-tx-001"
       ]
@@ -249,17 +248,16 @@
     },
     {
       "chapter": 16,
-      "delta": 30.2,
-      "cumulative": 125.2,
+      "delta": 0.2,
+      "cumulative": 95.2,
       "tx_ids": [
-        "jpm-tx-012",
         "jpm-tx-013"
       ]
     },
     {
       "chapter": 17,
       "delta": 380.0,
-      "cumulative": 505.2,
+      "cumulative": 475.2,
       "tx_ids": [
         "jpm-tx-021"
       ]
@@ -267,7 +265,7 @@
     {
       "chapter": 18,
       "delta": 1.0,
-      "cumulative": 506.2,
+      "cumulative": 476.2,
       "tx_ids": [
         "jpm-tx-011"
       ]
@@ -275,7 +273,7 @@
     {
       "chapter": 23,
       "delta": 100.0,
-      "cumulative": 606.2,
+      "cumulative": 576.2,
       "tx_ids": [
         "jpm-tx-018"
       ]
@@ -283,7 +281,7 @@
     {
       "chapter": 26,
       "delta": 300.0,
-      "cumulative": 906.2,
+      "cumulative": 876.2,
       "tx_ids": [
         "jpm-tx-002"
       ]
@@ -291,7 +289,7 @@
     {
       "chapter": 27,
       "delta": 300.0,
-      "cumulative": 1206.2,
+      "cumulative": 1176.2,
       "tx_ids": [
         "jpm-tx-003"
       ]
@@ -299,7 +297,7 @@
     {
       "chapter": 30,
       "delta": 7.5,
-      "cumulative": 1213.7,
+      "cumulative": 1183.7,
       "tx_ids": [
         "jpm-tx-001"
       ]
@@ -307,7 +305,7 @@
     {
       "chapter": 31,
       "delta": 170.0,
-      "cumulative": 1383.7,
+      "cumulative": 1353.7,
       "tx_ids": [
         "jpm-tx-005",
         "jpm-tx-006"
@@ -316,7 +314,7 @@
     {
       "chapter": 33,
       "delta": 450.0,
-      "cumulative": 1833.7,
+      "cumulative": 1803.7,
       "tx_ids": [
         "jpm-tx-004"
       ]
@@ -324,7 +322,7 @@
     {
       "chapter": 36,
       "delta": 10.0,
-      "cumulative": 1843.7,
+      "cumulative": 1813.7,
       "tx_ids": [
         "jpm-tx-008"
       ]
@@ -332,7 +330,7 @@
     {
       "chapter": 37,
       "delta": 20.0,
-      "cumulative": 1863.7,
+      "cumulative": 1833.7,
       "tx_ids": [
         "jpm-tx-007"
       ]
@@ -340,7 +338,7 @@
     {
       "chapter": 38,
       "delta": 1000.0,
-      "cumulative": 2863.7,
+      "cumulative": 2833.7,
       "tx_ids": [
         "jpm-tx-010"
       ]
@@ -348,7 +346,7 @@
     {
       "chapter": 39,
       "delta": 120.0,
-      "cumulative": 2983.7,
+      "cumulative": 2953.7,
       "tx_ids": [
         "jpm-tx-009"
       ]
@@ -356,7 +354,7 @@
     {
       "chapter": 48,
       "delta": 200.0,
-      "cumulative": 3183.7,
+      "cumulative": 3153.7,
       "tx_ids": [
         "jpm-tx-023"
       ]
@@ -364,7 +362,7 @@
     {
       "chapter": 75,
       "delta": 500.0,
-      "cumulative": 3683.7,
+      "cumulative": 3653.7,
       "tx_ids": [
         "jpm-tx-022"
       ]
@@ -372,7 +370,7 @@
     {
       "chapter": 79,
       "delta": 200.0,
-      "cumulative": 3883.7,
+      "cumulative": 3853.7,
       "tx_ids": [
         "jpm-tx-024"
       ]
@@ -380,7 +378,7 @@
     {
       "chapter": 85,
       "delta": 60.0,
-      "cumulative": 3943.7,
+      "cumulative": 3913.7,
       "tx_ids": [
         "jpm-tx-025"
       ]
@@ -388,7 +386,7 @@
     {
       "chapter": 87,
       "delta": 5.0,
-      "cumulative": 3948.7,
+      "cumulative": 3918.7,
       "tx_ids": [
         "jpm-tx-014"
       ]
@@ -449,17 +447,6 @@
       "disputed": false,
       "summary": "潘妈妈将潘金莲三十两转卖张大户家。",
       "source": "chapters/金瓶梅/001.md"
-    },
-    {
-      "id": "jpm-tx-012",
-      "chapter": 16,
-      "subtype": "奴婢买卖",
-      "liang": 30.0,
-      "pool_from": "西门庆府",
-      "pool_to": "妻妾奴婢",
-      "disputed": true,
-      "summary": "买春梅身契三十两（架构文档 §7.1 示例，词话本回目待对勘）。",
-      "source": "docs/金瓶梅-知识图谱架构.md"
     },
     {
       "id": "jpm-tx-013",

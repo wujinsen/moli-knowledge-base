@@ -1,6 +1,7 @@
-/** B7 名物 ↔ 纵切主题页互链（build_items_cross_index.py 生成） */
+/** B7/C4 名物 ↔ 纵切主题页互链（build_items_cross_index.py 生成） */
 
-import itemsTopicsJson from '../data/hongloumeng.items_topics.json';
+import honglouTopicsJson from '../data/hongloumeng.items_topics.json';
+import jpmTopicsJson from '../data/jinpingmei.items_topics.json';
 
 export interface ItemTopicLink {
   title: string;
@@ -12,10 +13,13 @@ type ItemsTopicsFile = {
   links: Record<string, ItemTopicLink[]>;
 };
 
-const TOPICS = itemsTopicsJson as ItemsTopicsFile;
+const TOPICS_BY_SLUG: Record<string, ItemsTopicsFile> = {
+  honglou: honglouTopicsJson as ItemsTopicsFile,
+  jinpingmei: jpmTopicsJson as ItemsTopicsFile,
+};
 
-export function getItemTopicLinks(itemId: string): ItemTopicLink[] {
-  return TOPICS.links[itemId] ?? [];
+export function getItemTopicLinks(bookSlug: string, itemId: string): ItemTopicLink[] {
+  return TOPICS_BY_SLUG[bookSlug]?.links[itemId] ?? [];
 }
 
 /** 红楼梦纵切主题 hub（手工维护，items 页展示） */
@@ -29,6 +33,16 @@ export const HONGLOU_ITEM_TOPIC_HUB: ItemTopicLink[] = [
   { title: '元宵年例链', slug: '元宵年例链' },
 ];
 
+/** 金瓶梅物质纵切主题 hub（C4 J2） */
+export const JPM_ITEM_TOPIC_HUB: ItemTopicLink[] = [
+  { title: '西门府建筑名录', slug: '西门府建筑名录' },
+  { title: '版本对勘样本', slug: '版本对勘样本' },
+  { title: '世情与贵族衰败对比', slug: '世情与贵族衰败对比' },
+  { title: '药铺与放债链', slug: '药铺与放债链' },
+];
+
 export function itemTopicHubForBook(bookSlug: string): ItemTopicLink[] {
-  return bookSlug === 'honglou' ? HONGLOU_ITEM_TOPIC_HUB : [];
+  if (bookSlug === 'honglou') return HONGLOU_ITEM_TOPIC_HUB;
+  if (bookSlug === 'jinpingmei') return JPM_ITEM_TOPIC_HUB;
+  return [];
 }

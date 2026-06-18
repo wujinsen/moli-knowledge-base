@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""B7 名物纵切：生成 items_cross_index.json + items_topics.json。"""
+"""B7/C4 名物纵切：生成 items_cross_index.json + *.items_topics.json。"""
 from __future__ import annotations
 
 import argparse
@@ -13,7 +13,10 @@ from _common import DATA_DIR, parse_frontmatter
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "src" / "content"
 OUT_INDEX = DATA_DIR / "items_cross_index.json"
-OUT_TOPICS = DATA_DIR / "hongloumeng.items_topics.json"
+OUT_TOPICS_BY_SLUG = {
+    "honglou": DATA_DIR / "hongloumeng.items_topics.json",
+    "jinpingmei": DATA_DIR / "jinpingmei.items_topics.json",
+}
 
 SLUG_BY_BOOK = {"红楼梦": "honglou", "金瓶梅": "jinpingmei", "西游记": "xiyouji"}
 KIND_DIRS = {
@@ -42,6 +45,7 @@ def load_items(book: str) -> list[dict]:
                     "kind": kind,
                     "chapters": _chapters(fm),
                     "characters": _characters(fm),
+                    "locations": _locations(fm),
                 }
             )
     return rows
@@ -67,6 +71,18 @@ def _characters(fm: dict) -> list[str]:
             if isinstance(c, str) and c and not c.endswith("等"):
                 chars.add(c.split("等")[0].strip())
     return sorted(chars)
+
+
+def _locations(fm: dict) -> list[str]:
+    locs: set[str] = set()
+    loc = fm.get("location")
+    if isinstance(loc, str) and loc.strip():
+        locs.add(loc.strip())
+    for key in ("locations", "places"):
+        for l in fm.get(key) or []:
+            if isinstance(l, str) and l.strip():
+                locs.add(l.strip())
+    return sorted(locs)
 
 
 def load_crosslinks(book: str) -> tuple[dict[str, list[str]], dict[str, list[str]]]:
@@ -130,19 +146,23 @@ def scan_topic_links(book: str, item_ids: set[str]) -> dict[str, list[dict]]:
 def build_book(book: str) -> dict:
     items = load_items(book)
     item_map = {i["id"]: i for i in items}
-    occ, _loc = load_crosslinks(book)
+    occ, loc_map = load_crosslinks(book)
     ch_from_chapters = chapter_items(book)
 
     by_ch: dict[str, list[dict]] = defaultdict(list)
     by_char: dict[str, list[dict]] = defaultdict(list)
+    by_loc: dict[str, list[dict]] = defaultdict(list)
 
-    def add_row(row: dict, chapters: list[int], chars: list[str]) -> None:
+    def add_row(row: dict, chapters: list[int], chars: list[str], locs: list[str]) -> None:
         for ch in chapters:
             if row["id"] not in {r["id"] for r in by_ch[str(ch)]}:
                 by_ch[str(ch)].append(row)
         for c in chars:
             if row["id"] not in {r["id"] for r in by_char[c]}:
                 by_char[c].append(row)
+        for loc in locs:
+            if row["id"] not in {r["id"] for r in by_loc[loc]}:
+                by_loc[loc].append(row)
 
     for item in items:
         row = {"id": item["id"], "name": item["name"], "kind": item["kind"]}
@@ -150,11 +170,15 @@ def build_book(book: str) -> dict:
         for cid, ids in occ.items():
             if item["id"] in ids:
                 chars.add(cid)
+        locs = set(item["locations"])
+        for lid, ids in loc_map.items():
+            if item["id"] in ids:
+                locs.add(lid)
         chapters = set(item["chapters"])
         for ch, ids in ch_from_chapters.items():
             if item["id"] in ids:
                 chapters.add(ch)
-        add_row(row, sorted(chapters), sorted(chars))
+        add_row(row, sorted(chapters), sorted(chars), sorted(locs))
 
     for ch, ids in ch_from_chapters.items():
         for iid in ids:
@@ -169,6 +193,7 @@ def build_book(book: str) -> dict:
         "count": len(items),
         "byChapter": dict(by_ch),
         "byCharacter": dict(by_char),
+        "byLocation": {k: v for k, v in sorted(by_loc.items()) if v},
         "entries": items,
     }
 
@@ -184,26 +209,34 @@ def main() -> None:
 
     index_payload = {"generated_by": "build_items_cross_index.py", "books": books_payload}
 
-    hlm_items = {i["id"] for i in books_payload["honglou"]["entries"]}
-    topics_payload = {
-        "book": "红楼梦",
-        "generated_by": "build_items_cross_index.py",
-        "links": scan_topic_links("红楼梦", hlm_items),
-    }
+    topics_payloads: dict[str, dict] = {}
+    for slug, book in [("honglou", "红楼梦"), ("jinpingmei", "金瓶梅")]:
+        item_ids = {i["id"] for i in books_payload[slug]["entries"]}
+        topics_payloads[slug] = {
+            "book": book,
+            "generated_by": "build_items_cross_index.py",
+            "links": scan_topic_links(book, item_ids),
+        }
 
     if args.write:
         OUT_INDEX.write_text(json.dumps(index_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        OUT_TOPICS.write_text(json.dumps(topics_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        for slug, payload in topics_payloads.items():
+            OUT_TOPICS_BY_SLUG[slug].write_text(
+                json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+            )
         for slug, b in books_payload.items():
             print(
                 f"  {slug}: {b['count']} items, "
-                f"{len(b['byChapter'])} chapters, {len(b['byCharacter'])} characters"
+                f"{len(b['byChapter'])} chapters, {len(b['byCharacter'])} characters, "
+                f"{len(b.get('byLocation') or {})} locations"
             )
-        print(
-            f"  topic links (honglou): {sum(len(v) for v in topics_payload['links'].values())} "
-            f"→ {len(topics_payload['links'])} items"
-        )
-        print(f"written → {OUT_INDEX.name}, {OUT_TOPICS.name}")
+        for slug, payload in topics_payloads.items():
+            print(
+                f"  topic links ({slug}): {sum(len(v) for v in payload['links'].values())} "
+                f"→ {len(payload['links'])} items"
+            )
+        topic_names = ", ".join(p.name for p in OUT_TOPICS_BY_SLUG.values())
+        print(f"written → {OUT_INDEX.name}, {topic_names}")
     else:
         print(json.dumps({k: v["count"] for k, v in books_payload.items()}, ensure_ascii=False))
 

@@ -2,12 +2,12 @@
 id: xyj-v-077
 type: variant
 book: 西游记
-chapter: 19
+chapter: 17
 category: 措辞
 edition_a: 世德堂本
 edition_b: 通本
-text_a: "窰。"
-text_b: "窑，"
+text_a: "。”"
+text_b: "”。"
 tags: [auto]
-summary: "第19回「窰。」↔「窑，」（自动抽取）。"
+summary: "第17回「。”」↔「”。」（自动抽取）。"
 ---

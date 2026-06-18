@@ -48,6 +48,13 @@ const lensCount = groups.reduce((n, g) => n + g.items.length, 0);
       《西游记》自明清以来被反复诠释：道家读作内丹修炼，士人读作官场讽喻，学者考其原型源流。
       这些读法都是分层的 <span class="chip">诠释（inference）</span>，与原文事实分开；并叠加「情境边」——变身、伪装等临时关系。
     </p>
+    {
+      meta.features.includes('poems') && (
+        <a href={`/${meta.slug}/shi`} class="mt-4 inline-flex items-center gap-1 text-sm hover:underline" style="color: var(--accent)">
+          五行生克 · 修心网络 →
+        </a>
+      )
+    }
   </section>
 
   {/* 按视角列诠释专题 */}

@@ -1,0 +1,495 @@
+{
+  "book": "金瓶梅",
+  "slug": "jinpingmei",
+  "generated_by": "build_shi_karma.py",
+  "phases": [
+    "欲起",
+    "聚敛",
+    "极盛",
+    "反噬",
+    "散尽"
+  ],
+  "by_phase": {
+    "欲起": [
+      {
+        "id": "jpm-name-buzhidao",
+        "title": "卜志道 · 不知道",
+        "subtype": "name_omen",
+        "temperature": "冷",
+        "chapter": null,
+        "predicate": "谐音",
+        "target": "卜志道"
+      },
+      {
+        "id": "jpm-name-huazixu",
+        "title": "花子虚",
+        "subtype": "name_omen",
+        "temperature": "热",
+        "chapter": 14,
+        "predicate": "谐音",
+        "target": "花子虚"
+      },
+      {
+        "id": "jpm-obj-jingzi",
+        "title": "镜 · 镜花水月",
+        "subtype": "object_omen",
+        "temperature": "冷",
+        "chapter": null,
+        "predicate": "象征",
+        "target": "花子虚"
+      },
+      {
+        "id": "jpm-obj-xie",
+        "title": "鞋 · 三寸金莲",
+        "subtype": "object_omen",
+        "temperature": "热",
+        "chapter": 8,
+        "predicate": "隐喻",
+        "target": "潘金莲"
+      },
+      {
+        "id": "jpm-tune-jiusecaiqi",
+        "title": "酒色财气歌",
+        "subtype": "tune_omen",
+        "temperature": "热",
+        "chapter": 1,
+        "predicate": "预示",
+        "target": "西门庆"
+      }
+    ],
+    "聚敛": [
+      {
+        "id": "jpm-name-changzhijie",
+        "title": "常峙节 · 常时借",
+        "subtype": "name_omen",
+        "temperature": "热",
+        "chapter": null,
+        "predicate": "谐音",
+        "target": "常峙节"
+      },
+      {
+        "id": "jpm-name-handaoguo",
+        "title": "韩道国 · 憨/汉盗国",
+        "subtype": "name_omen",
+        "temperature": "热",
+        "chapter": null,
+        "predicate": "谐音",
+        "target": "韩道国"
+      },
+      {
+        "id": "jpm-name-huazixu",
+        "title": "花子虚",
+        "subtype": "name_omen",
+        "temperature": "热",
+        "chapter": 14,
+        "predicate": "流转",
+        "target": "李瓶儿"
+      },
+      {
+        "id": "jpm-name-pinger",
+        "title": "瓶 · 李瓶儿",
+        "subtype": "name_omen",
+        "temperature": "热",
+        "chapter": 17,
+        "predicate": "谐音",
+        "target": "李瓶儿"
+      },
+      {
+        "id": "jpm-name-xiexida",
+        "title": "谢希大 · 些须大",
+        "subtype": "name_omen",
+        "temperature": "热",
+        "chapter": null,
+        "predicate": "谐音",
+        "target": "谢希大"
+      },
+      {
+        "id": "jpm-name-yingbojue",
+        "title": "应伯爵 · 应白嚼",
+        "subtype": "name_omen",
+        "temperature": "热",
+        "chapter": null,
+        "predicate": "谐音",
+        "target": "应伯爵"
+      },
+      {
+        "id": "jpm-obj-jiu",
+        "title": "酒 · 四气之首",
+        "subtype": "object_omen",
+        "temperature": "热",
+        "chapter": 1,
+        "predicate": "象征",
+        "target": "西门庆"
+      },
+      {
+        "id": "jpm-obj-pinger-cai",
+        "title": "李瓶儿之财 · 向心聚敛",
+        "subtype": "object_omen",
+        "temperature": "热",
+        "chapter": 14,
+        "predicate": "流转",
+        "target": "李瓶儿"
+      },
+      {
+        "id": "jpm-obj-yinzi",
+        "title": "银子 · 财之聚散",
+        "subtype": "object_omen",
+        "temperature": "热",
+        "chapter": null,
+        "predicate": "流转",
+        "target": "西门庆"
+      },
+      {
+        "id": "jpm-obj-zanzi",
+        "title": "簪子",
+        "subtype": "object_omen",
+        "temperature": "热",
+        "chapter": 11,
+        "predicate": "流转",
+        "target": "西门庆"
+      },
+      {
+        "id": "jpm-tune-jisheng",
+        "title": "〔寄生草〕· 依附之叹",
+        "subtype": "tune_omen",
+        "temperature": "热",
+        "chapter": null,
+        "predicate": "隐喻",
+        "target": "李桂姐"
+      }
+    ],
+    "极盛": [
+      {
+        "id": "jpm-name-jinlian",
+        "title": "金 · 潘金莲",
+        "subtype": "name_omen",
+        "temperature": "热",
+        "chapter": 1,
+        "predicate": "谐音",
+        "target": "潘金莲"
+      },
+      {
+        "id": "jpm-name-mengyulou",
+        "title": "孟玉楼 · 玉楼虚设",
+        "subtype": "name_omen",
+        "temperature": "热",
+        "chapter": 7,
+        "predicate": "谐音",
+        "target": "孟玉楼"
+      },
+      {
+        "id": "jpm-name-songhuilian",
+        "title": "宋惠莲",
+        "subtype": "name_omen",
+        "temperature": "热",
+        "chapter": 26,
+        "predicate": "影射",
+        "target": "西门庆"
+      },
+      {
+        "id": "jpm-name-wangliuer",
+        "title": "王六儿",
+        "subtype": "name_omen",
+        "temperature": "热",
+        "chapter": 37,
+        "predicate": "隐喻",
+        "target": "韩道国"
+      },
+      {
+        "id": "jpm-name-ximenqing",
+        "title": "西门庆 · 反讽之庆",
+        "subtype": "name_omen",
+        "temperature": "热",
+        "chapter": 1,
+        "predicate": "谐音",
+        "target": "西门庆"
+      },
+      {
+        "id": "jpm-obj-deng",
+        "title": "元宵灯 · 极盛之象",
+        "subtype": "object_omen",
+        "temperature": "热",
+        "chapter": 15,
+        "predicate": "象征",
+        "target": "李瓶儿"
+      },
+      {
+        "id": "jpm-obj-hanjin",
+        "title": "汗巾 · 私情信物",
+        "subtype": "object_omen",
+        "temperature": "热",
+        "chapter": null,
+        "predicate": "象征",
+        "target": "潘金莲"
+      },
+      {
+        "id": "jpm-obj-hongpao",
+        "title": "蟒衣大红袍 · 僭越之服",
+        "subtype": "object_omen",
+        "temperature": "热",
+        "chapter": 70,
+        "predicate": "象征",
+        "target": "西门庆"
+      },
+      {
+        "id": "jpm-obj-putaojia",
+        "title": "葡萄架",
+        "subtype": "object_omen",
+        "temperature": "热",
+        "chapter": 27,
+        "predicate": "隐喻",
+        "target": "西门庆"
+      },
+      {
+        "id": "jpm-obj-xueshizi",
+        "title": "雪狮子（白猫）",
+        "subtype": "object_omen",
+        "temperature": "热",
+        "chapter": 59,
+        "predicate": "隐喻",
+        "target": "潘金莲"
+      },
+      {
+        "id": "jpm-tune-pipa",
+        "title": "盲女琵琶曲",
+        "subtype": "tune_omen",
+        "temperature": "热",
+        "chapter": 21,
+        "predicate": "预示",
+        "target": "潘金莲"
+      },
+      {
+        "id": "jpm-tune-shanpoyang",
+        "title": "〔山坡羊〕· 幽怨自况",
+        "subtype": "tune_omen",
+        "temperature": "冷",
+        "chapter": null,
+        "predicate": "预示",
+        "target": "潘金莲"
+      },
+      {
+        "id": "jpm-tune-yuanxiao",
+        "title": "元宵灯词 · 乐极哀生",
+        "subtype": "tune_omen",
+        "temperature": "热",
+        "chapter": 24,
+        "predicate": "预示",
+        "target": "李瓶儿"
+      }
+    ],
+    "反噬": [
+      {
+        "id": "jpm-name-guangeer",
+        "title": "官哥儿 · 求官之望",
+        "subtype": "name_omen",
+        "temperature": "冷",
+        "chapter": 59,
+        "predicate": "谐音",
+        "target": "官哥儿"
+      },
+      {
+        "id": "jpm-name-jinlian",
+        "title": "金 · 潘金莲",
+        "subtype": "name_omen",
+        "temperature": "冷",
+        "chapter": 1,
+        "predicate": "反噬",
+        "target": "西门庆"
+      },
+      {
+        "id": "jpm-name-ruyi",
+        "title": "如意儿 · 名实相违",
+        "subtype": "name_omen",
+        "temperature": "冷",
+        "chapter": null,
+        "predicate": "谐音",
+        "target": "如意儿"
+      },
+      {
+        "id": "jpm-name-wudianen",
+        "title": "吴典恩 · 无点恩",
+        "subtype": "name_omen",
+        "temperature": "冷",
+        "chapter": null,
+        "predicate": "谐音",
+        "target": "吴典恩"
+      },
+      {
+        "id": "jpm-obj-guancai",
+        "title": "棺木 · 丧仪与财散",
+        "subtype": "object_omen",
+        "temperature": "冷",
+        "chapter": 62,
+        "predicate": "象征",
+        "target": "李瓶儿"
+      },
+      {
+        "id": "jpm-obj-honghua",
+        "title": "红丸胎药 · 血崩催命",
+        "subtype": "object_omen",
+        "temperature": "冷",
+        "chapter": 61,
+        "predicate": "催命",
+        "target": "李瓶儿"
+      },
+      {
+        "id": "jpm-obj-husengyao",
+        "title": "胡僧药（春药）",
+        "subtype": "object_omen",
+        "temperature": "冷",
+        "chapter": 79,
+        "predicate": "催命",
+        "target": "西门庆"
+      },
+      {
+        "id": "jpm-obj-piao",
+        "title": "皮袄 · 遗物争夺",
+        "subtype": "object_omen",
+        "temperature": "冷",
+        "chapter": 74,
+        "predicate": "流转",
+        "target": "潘金莲"
+      },
+      {
+        "id": "jpm-obj-xueshizi",
+        "title": "雪狮子（白猫）",
+        "subtype": "object_omen",
+        "temperature": "冷",
+        "chapter": 59,
+        "predicate": "反噬",
+        "target": "李瓶儿"
+      },
+      {
+        "id": "jpm-tune-jiwen",
+        "title": "西门庆祭李瓶儿文 · 情真情假",
+        "subtype": "tune_omen",
+        "temperature": "冷",
+        "chapter": 63,
+        "predicate": "预示",
+        "target": "西门庆"
+      }
+    ],
+    "散尽": [
+      {
+        "id": "jpm-name-chenjingji",
+        "title": "陈经济",
+        "subtype": "name_omen",
+        "temperature": "冷",
+        "chapter": 80,
+        "predicate": "谐音",
+        "target": "陈经济"
+      },
+      {
+        "id": "jpm-name-chunmei",
+        "title": "梅 · 庞春梅",
+        "subtype": "name_omen",
+        "temperature": "冷",
+        "chapter": 96,
+        "predicate": "谐音",
+        "target": "庞春梅"
+      },
+      {
+        "id": "jpm-name-lijiaoer",
+        "title": "李娇儿 · 娇出勾栏",
+        "subtype": "name_omen",
+        "temperature": "冷",
+        "chapter": null,
+        "predicate": "谐音",
+        "target": "李娇儿"
+      },
+      {
+        "id": "jpm-name-sunxuee",
+        "title": "孙雪娥 · 雪易消",
+        "subtype": "name_omen",
+        "temperature": "冷",
+        "chapter": null,
+        "predicate": "谐音",
+        "target": "孙雪娥"
+      },
+      {
+        "id": "jpm-name-wuyueniang",
+        "title": "吴月娘",
+        "subtype": "name_omen",
+        "temperature": "冷",
+        "chapter": 1,
+        "predicate": "谐音",
+        "target": "吴月娘"
+      },
+      {
+        "id": "jpm-name-xiaogeer",
+        "title": "孝哥儿 · 出家偿业",
+        "subtype": "name_omen",
+        "temperature": "冷",
+        "chapter": 79,
+        "predicate": "谐音",
+        "target": "孝哥儿"
+      },
+      {
+        "id": "jpm-tune-baojuan",
+        "title": "宝卷（尼姑说唱）",
+        "subtype": "tune_omen",
+        "temperature": "冷",
+        "chapter": 74,
+        "predicate": "预示",
+        "target": "吴月娘"
+      }
+    ]
+  },
+  "counts": {
+    "欲起": 5,
+    "聚敛": 11,
+    "极盛": 13,
+    "反噬": 10,
+    "散尽": 7
+  },
+  "chains": [
+    {
+      "id": "jiusecaiqi",
+      "name": "总纲：酒色财气→西门庆",
+      "summary": "色财气歌总纲→西门庆聚敛",
+      "path": [
+        "jpm-tune-jiusecaiqi",
+        "西门庆"
+      ]
+    },
+    {
+      "id": "pinger-bottle",
+      "name": "聚敛：瓶→瓶儿→西门府",
+      "summary": "瓶名谶→李瓶儿→西门庆",
+      "path": [
+        "jpm-name-pinger",
+        "李瓶儿",
+        "西门庆"
+      ]
+    },
+    {
+      "id": "xueshizi-collapse",
+      "name": "转折：雪狮子→瓶儿崩塌",
+      "summary": "雪狮子误杀官哥→瓶儿心死",
+      "path": [
+        "jpm-obj-xueshizi",
+        "李瓶儿",
+        "西门庆"
+      ]
+    },
+    {
+      "id": "huseng-death",
+      "name": "反噬：胡僧药→西门庆暴亡",
+      "summary": "胡僧春药反噬→西门庆纵欲暴亡",
+      "path": [
+        "jpm-obj-husengyao",
+        "西门庆"
+      ]
+    },
+    {
+      "id": "chen-jingji",
+      "name": "散尽：陈经济败家",
+      "summary": "陈经济败家→西门家散尽",
+      "path": [
+        "jpm-name-chenjingji",
+        "陈经济",
+        "西门庆"
+      ]
+    }
+  ]
+}
