@@ -2464,7 +2464,8 @@ mark.compare-highlight--active {
   display: none;
 }
 .leaflet-container {
-  background: #0b1120;
+  /* !important 压过 leaflet.css 默认 #ddd 灰底，防缩放/平移到边界外露出浅灰接缝 */
+  background: #0b1120 !important;
   font-family: inherit;
 }
 .leaflet-popup-content-wrapper {
