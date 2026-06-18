@@ -7,6 +7,7 @@ import ReaderControls from '../../../components/ReaderControls.astro';
 import ReaderToc from '../../../components/ReaderToc.astro';
 import ChapterLinks from '../../../components/ChapterLinks.astro';
 import { relatedItemsForChapter } from '../../../lib/crosslinks';
+import { relatedImageryForChapter } from '../../../lib/shiIndex';
 import { listReaderChapters, shouldShowChapterSummary } from '../../../lib/readerChapters';
 import { defaultEditionForChapter, hasMultipleEditions, readChapterPath } from '../../../lib/editions';
 
@@ -83,10 +84,12 @@ const next = n < total ? n + 1 : undefined;
 
 const hasItems = features.includes('items');
 const hasPlaces = features.includes('places');
+const hasPoems = features.includes('poems');
 const itemRefs =
   hasItems && entry.data.items.length > 0
     ? await relatedItemsForChapter(book, entry.data.items)
     : [];
+const imageryRefs = hasPoems ? relatedImageryForChapter(slug, n) : [];
 const characterIds = new Set(
   (await getCollection('characters'))
     .filter((c) => c.data.book === book)
@@ -164,7 +167,9 @@ const tocChapters = await listReaderChapters(book, slug);
           items={entry.data.items}
           hasPlaces={hasPlaces}
           hasItems={hasItems}
+          hasPoems={hasPoems}
           itemRefs={itemRefs}
+          imageryRefs={imageryRefs}
           characterIds={characterIds}
         />
       </header>

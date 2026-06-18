@@ -181,6 +181,7 @@ export const BESTIARY_REST_BUCKETS = new Set([
   '未标距离',
   '未标回目',
   '归宿未明',
+  '未归类',
   '其他人物',
   '其他',
 ]);
@@ -317,6 +318,136 @@ function economicTier(count?: number): string | undefined {
   return '收支节点';
 }
 
+/** catalog.groups 中 id → 组名 */
+function catalogGroupIndex(bookSlug: string): Map<string, string> {
+  const catalog = BESTIARY_CATALOGS[bookSlug];
+  const map = new Map<string, string>();
+  if (!catalog?.groups) return map;
+  for (const [label, ids] of Object.entries(catalog.groups)) {
+    for (const id of ids) map.set(id, label);
+  }
+  return map;
+}
+
+/* —— 社会阶层 / 圈层（由 catalog 组映射，对齐 character_scope 与 topics） —— */
+const HLM_STRATUM_ORDER = [
+  '内圈 · 两府主子',
+  '中圈 · 婢仆清客',
+  '外圈 · 亲贵市井',
+  '楔子 · 神话缘起',
+] as const;
+
+const HLM_CATALOG_TO_STRATUM: Record<string, string> = {
+  金陵十二钗: '内圈 · 两府主子',
+  尊长与主子: '内圈 · 两府主子',
+  宁国府: '内圈 · 两府主子',
+  宝玉与近侍: '中圈 · 婢仆清客',
+  丫鬟与近侍: '中圈 · 婢仆清客',
+  清客房官仆: '中圈 · 婢仆清客',
+  族亲与外客: '外圈 · 亲贵市井',
+};
+
+const HLM_WEDGE_IDS = new Set([
+  ...HLM_CELESTIAL,
+  '甄士隐',
+  '封肃',
+  '娇杏',
+  '霍启',
+  '葫芦僧',
+  '色空和尚',
+  '空空道人',
+]);
+
+function hlmStratum(id: string, catalogGroup?: string): string {
+  if (HLM_WEDGE_IDS.has(id)) return '楔子 · 神话缘起';
+  if (catalogGroup && HLM_CATALOG_TO_STRATUM[catalogGroup]) return HLM_CATALOG_TO_STRATUM[catalogGroup];
+  if (catalogGroup === '楔子与刘姥姥线') return '外圈 · 亲贵市井';
+  return '外圈 · 亲贵市井';
+}
+
+const JPM_STRATUM_ORDER = [
+  '府内 · 主子妻妾',
+  '府内 · 仆佣丫鬟',
+  '市井 · 帮闲勾栏',
+  '外缘 · 官场政商',
+] as const;
+
+const JPM_CATALOG_TO_STRATUM: Record<string, string> = {
+  '西门府·妻妾': '府内 · 主子妻妾',
+  '西门府·子嗣与主子': '府内 · 主子妻妾',
+  仆佣与丫鬟: '府内 · 仆佣丫鬟',
+  情妇与勾栏: '市井 · 帮闲勾栏',
+  帮闲与掮客: '市井 · 帮闲勾栏',
+  清河市井: '市井 · 帮闲勾栏',
+  官场与政商: '外缘 · 官场政商',
+};
+
+function jpmStratum(catalogGroup?: string): string | undefined {
+  if (!catalogGroup) return undefined;
+  return JPM_CATALOG_TO_STRATUM[catalogGroup];
+}
+
+const XYJ_STRATUM_ORDER = ['取经队伍', '神佛天界', '凡间人间', '沿路妖魔'] as const;
+
+const XYJ_CATALOG_TO_STRATUM: Record<string, string> = {
+  取经五众: '取经队伍',
+  天界神将: '神佛天界',
+  佛界菩萨: '神佛天界',
+  仙家星官: '神佛天界',
+  凡间与仙家: '凡间人间',
+};
+
+function xyjStratum(catalogGroup?: string): string | undefined {
+  if (!catalogGroup) return undefined;
+  if (XYJ_CATALOG_TO_STRATUM[catalogGroup]) return XYJ_CATALOG_TO_STRATUM[catalogGroup];
+  if (catalogGroup.includes('妖') || catalogGroup.includes('魔')) return '沿路妖魔';
+  return undefined;
+}
+
+function stratumSections<T extends { data: { id: string } }>(
+  bookSlug: string,
+  list: T[],
+): BestiarySection<T>[] | null {
+  const groupOf = catalogGroupIndex(bookSlug);
+  if (groupOf.size === 0) return null;
+
+  let order: readonly string[];
+  let keyFn: (e: T) => string | undefined;
+
+  if (bookSlug === 'honglou') {
+    order = HLM_STRATUM_ORDER;
+    keyFn = (e) => hlmStratum(e.data.id, groupOf.get(e.data.id));
+  } else if (bookSlug === 'jinpingmei') {
+    order = JPM_STRATUM_ORDER;
+    keyFn = (e) => jpmStratum(groupOf.get(e.data.id));
+  } else if (bookSlug === 'xiyouji') {
+    order = XYJ_STRATUM_ORDER;
+    keyFn = (e) => xyjStratum(groupOf.get(e.data.id));
+  } else {
+    return null;
+  }
+
+  const sections = groupByKey(list, keyFn, order, '未归类');
+  const main = sections.filter((s) => s.label !== '未归类' && s.items.length > 0);
+  if (main.length < 2) return null;
+  return sections;
+}
+
+/** 将 catalog.fields 合并进条目（dev 快照缺 性格/喜好/结局 时补全卡片） */
+export function enrichBestiaryFields<T extends { data: { id: string } & Record<string, unknown> }>(
+  bookSlug: string,
+  list: T[],
+): T[] {
+  const catalog = BESTIARY_CATALOGS[bookSlug];
+  const fields = catalog?.fields as Record<string, Record<string, unknown>> | undefined;
+  if (!fields) return list;
+  return list.map((entry) => {
+    const extra = fields[entry.data.id];
+    if (!extra) return entry;
+    return { ...entry, data: { ...entry.data, ...extra } };
+  });
+}
+
 /**
  * 构建一本书可用的全部分组依据（首项恒为「身份名册」）。
  * 仅当某维度字段覆盖度足够时才提供该分组，避免出现整页「其他」。
@@ -333,7 +464,13 @@ export function buildBestiaryGroupings<T extends GroupableEntry & { data: { fact
   // 1) 身份名册（catalog；无 groups 时回退 faction）—— 恒在
   out.push({ key: 'catalog', label: '身份名册', sections: resolveBestiarySections(bookSlug, list) });
 
-  // 2) 与西门府距离（金瓶专属）
+  // 2) 社会阶层 / 圈层（catalog 组 → 内中外楔子等）
+  const stratum = stratumSections(bookSlug, list);
+  if (stratum) {
+    out.push({ key: 'stratum', label: '社会阶层', sections: stratum });
+  }
+
+  // 3) 与西门府距离（金瓶专属）
   if (bookSlug === 'jinpingmei' && cover((e) => e.data.ximen_proximity) >= 3) {
     out.push({
       key: 'proximity',

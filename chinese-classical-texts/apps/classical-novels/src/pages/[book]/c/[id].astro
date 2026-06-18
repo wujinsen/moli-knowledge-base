@@ -8,9 +8,12 @@ import {
   relatedTransactionsForCharacter,
   milestoneEventsForCharacter,
 } from '../../../lib/crosslinks';
+import { relatedImageryForCharacter } from '../../../lib/shiIndex';
+import { subtypeLabel } from '../../../lib/imagery';
 import LinkedItemChips from '../../../components/LinkedItemChips.astro';
 import { chapterLabel } from '../../../lib/events';
 import { graphFocusHref } from '../../../lib/sna';
+import { readChapterPath } from '../../../lib/editions';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -44,6 +47,9 @@ const readEdition = slug === 'jinpingmei' ? 'cihua' : slug === 'honglou' ? 'zhib
 const keyEvents = features.includes('saga')
   ? await milestoneEventsForCharacter(d.book, d.id)
   : [];
+const relatedImagery = features.includes('poems')
+  ? relatedImageryForCharacter(slug, d.id)
+  : [];
 ---
 
 <Base title={d.name} bookSlug={slug} bookName={d.book} features={features}>
@@ -54,9 +60,20 @@ const keyEvents = features.includes('saga')
     data-pagefind-meta={`title:${d.name}`}
     data-pagefind-filter={`书:${d.book},类型:${d.type === 'monster' ? '妖怪' : '人物'}`}
   >
-  <div class="mt-3 flex items-center gap-3">
+  <div class="mt-3 flex flex-wrap items-center gap-3">
     <h1 class="brand text-4xl" style="color: var(--primary)">{d.name}</h1>
     <span class="chip chip-md">{d.type === 'monster' ? '妖怪' : '人物'}</span>
+    {
+      import.meta.env.DEV && (
+        <a
+          href={`/${slug}/studio?entity=${encodeURIComponent(d.id)}`}
+          class="chip chip-md hover:underline"
+          style="margin-left: auto"
+        >
+          维护台编辑 →
+        </a>
+      )
+    }
   </div>
 
   {d.aliases.length > 0 && <p class="mt-2 text-sm">别名：{d.aliases.join('、')}</p>}
@@ -242,6 +259,33 @@ const keyEvents = features.includes('saga')
             <a href={graphFocusHref(slug, d.id)} class="hover:underline" style="color: var(--accent)">在关系图谱中查看 →</a>
           )}
         </div>
+      </div>
+    )
+  }
+
+  {
+    relatedImagery.length > 0 && (
+      <div class="mt-6">
+        <h2 class="section-title mb-2">诗词意象</h2>
+        <ul class="space-y-2">
+          {relatedImagery.map((im) => (
+            <li class="surface flex flex-wrap items-center gap-2 px-3 py-2 text-sm">
+              <a class="font-medium hover:underline" style="color: var(--primary)" href={`/${slug}/imagery/${im.id}`}>
+                {im.title}
+              </a>
+              <span class="chip">{subtypeLabel(im.subtype)}</span>
+              {im.hasInference && <span class="chip" title="推论边">推论</span>}
+              {(im.chapters ?? []).map((ch) => (
+                <a class="chip hover:opacity-80" href={readChapterPath(slug, d.book, ch)}>
+                  第{ch}回
+                </a>
+              ))}
+            </li>
+          ))}
+        </ul>
+        <a href={`/${slug}/shi`} class="mt-2 inline-block text-sm hover:underline" style="color: var(--accent)">
+          诗词意象索引 →
+        </a>
       </div>
     )
   }

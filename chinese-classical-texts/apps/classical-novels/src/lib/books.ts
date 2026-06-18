@@ -63,6 +63,9 @@ export function moduleIsActive(path: string, bookSlug: string, m: BookModule): b
     if (norm === `/${bookSlug}/maps`) return true;
     if (norm === `/${bookSlug}/map`) return true;
     if (norm === `/${bookSlug}/manor`) return true;
+    if (norm === `/${bookSlug}/digital-tour`) return true;
+    if (norm === `/${bookSlug}/scene`) return true;
+    if (norm === `/${bookSlug}/capital`) return true;
     return false;
   }
   if (m.key === 'route') return norm === `/${bookSlug}/route` || norm.startsWith(`/${bookSlug}/route/`);
@@ -89,13 +92,29 @@ function honglouMapsModule(features: string[]): BookModule {
     key: 'maps',
     glyph: '图',
     title: '空间地图',
-    desc: '大观园 · 宁荣两府 · 方位拓扑示意',
-    ...live(has('garden') || has('manor'), 'honglou', 'maps', '/honglou/maps'),
+    desc: '大观园 · 宁荣两府 · 都外王公 · 数字文旅 · 2.5D',
+    ...live(has('garden') || has('manor') || has('capital'), 'honglou', 'maps', '/honglou/maps'),
   };
 }
 
 function plan(slug: string, key: string): Pick<BookModule, 'status' | 'href'> {
   return { status: 'planned', href: `/${slug}/m/${key}` };
+}
+
+/** 本地 dev 时在模块栏追加维护台入口（生产构建不含） */
+function withDevStudio(slug: string, modules: BookModule[]): BookModule[] {
+  if (!import.meta.env.DEV) return modules;
+  return [
+    ...modules,
+    {
+      key: 'studio',
+      glyph: '维',
+      title: '维护台',
+      desc: 'AGENTS 六命令 · 实体维护 · 批处理进化',
+      status: 'live',
+      href: `/${slug}/studio`,
+    },
+  ];
 }
 
 /**
@@ -107,14 +126,13 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
   const has = (f: string) => features.includes(f);
   switch (slug) {
     case 'honglou':
-      return [
+      return withDevStudio(slug, [
         { key: 'read', glyph: '读', title: '逐回精读', desc: '脂本优先 · 程高本续书', status: 'live', href: `/${slug}/read/zhiben` },
         { key: 'saga', glyph: '纲', title: '大事记', desc: '四大家族兴衰 · 宝黛悲剧链 · 脂程版本标注', ...live(has('saga'), slug, 'saga', `/${slug}/saga`) },
         { key: 'graph', glyph: '谱', title: '人物关系', desc: '四大家族 · 主仆 · 情感盟约', ...live(has('graph'), slug, 'graph', `/${slug}/graph`) },
         { key: 'bestiary', glyph: '鉴', title: '人物图鉴', desc: '十二钗 · 性格 · 喜好 · 名物互链', ...live(has('bestiary'), slug, 'bestiary', `/${slug}/bestiary`) },
         { key: 'places', glyph: '筑', title: '建筑图鉴', desc: '宁荣两府与大观园 · 匾额对联 · 107 处', ...live(has('places'), slug, 'places', `/${slug}/places`) },
         honglouMapsModule(features),
-        { key: 'scene', glyph: '景', title: '大观园实景', desc: '全园 34 处等距占位 · 坐标同源地图 · scan 图仅对照', ...live(has('scene'), slug, 'scene', `/${slug}/scene`) },
         { key: 'items', glyph: '物', title: '名物百科', desc: '饮食 · 医药 · 服饰纵切研究', ...live(has('items'), slug, 'items', `/${slug}/items`) },
         {
           key: 'shi', glyph: '诗', title: '诗词意象', desc: '葬花吟 · 判词 · 花签隐喻', ...live(has('poems'), slug, 'shi', `/${slug}/shi`),
@@ -128,17 +146,17 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
               { title: '象征物互文', desc: '玉 / 金 / 竹 / 芙蓉 的意象网络（晴为黛影）' },
             ],
             phases: [
-              'P1 录入判词与对应人物的「隐喻」推论边（标注 inference，可溯源）',
-              'P2 诗词意象 × 章回 × 人物交叉索引',
-              'P3 意象互文网络可视化（如 晴雯—芙蓉—黛玉 链路）',
+              'P1 ✅ 判词/曲 → 人物隐喻推论边（inference，见 guard_shi_p1.py）',
+              'P2 ✅ 诗词 × 章回 × 人物交叉索引（/shi 交叉索引 · 读回/人物页反链）',
+              'P3 ✅ 意象互文网络可视化（示例链路 · 分步面板 · ?chain= 深链）',
             ],
             relatedDoc: '红楼梦-知识图谱架构.md（文本意象与互文网络维度）',
           },
         },
         kaozhengModule(slug, has),
-      ];
+      ]);
     case 'xiyouji':
-      return [
+      return withDevStudio(slug, [
         { key: 'read', glyph: '读', title: '逐回精读', desc: '世德堂本 · 通本双版本', status: 'live', href: `/${slug}/read/1` },
         { key: 'saga', glyph: '纲', title: '大事记', desc: '修心主线 · 大闹天宫到五圣成真', ...live(has('saga'), slug, 'saga', `/${slug}/saga`) },
         { key: 'graph', glyph: '谱', title: '取经关系', desc: '师徒 · 神魔 · 降服与求援', ...live(has('graph'), slug, 'graph', `/${slug}/graph`) },
@@ -225,9 +243,9 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
         {
           key: 'edition', glyph: '勘', title: '版本对勘', desc: '世德堂本 vs 通本异文双栏', ...live(has('compare'), slug, 'edition', `/${slug}/compare`),
         },
-      ];
+      ]);
     case 'jinpingmei':
-      return [
+      return withDevStudio(slug, [
         { key: 'read', glyph: '读', title: '逐回精读', desc: '词话 · 崇祯 · 竹坡三版本', status: 'live', href: `/${slug}/read/cihua` },
         { key: 'saga', glyph: '纲', title: '大事记', desc: '欲望兴衰主线 · 暴发到灰飞烟灭', ...live(has('saga'), slug, 'saga', `/${slug}/saga`) },
         { key: 'graph', glyph: '谱', title: '西门府社会网', desc: '妻妾 · 帮闲 · 政商利益', ...live(has('graph'), slug, 'graph', `/${slug}/graph`) },
@@ -354,7 +372,7 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
           },
         },
         kaozhengModule(slug, has),
-      ];
+      ]);
     default:
       return [];
   }

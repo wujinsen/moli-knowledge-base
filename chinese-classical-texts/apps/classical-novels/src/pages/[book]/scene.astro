@@ -23,12 +23,12 @@ const pools = dialogues.pools as Record<
 ---
 
 <GraphLayout
-  title={`${meta.book} 大观园实景`}
+  title={`${meta.book} 大观园2.5D`}
   bookSlug={meta.slug}
   bookName={meta.book}
   features={meta.features}
-  moduleKey="scene"
-  moduleLabel="大观园实景"
+  moduleKey="maps"
+  moduleLabel="大观园2.5D"
 >
   {
     hasScene ? (
@@ -37,7 +37,7 @@ const pools = dialogues.pools as Record<
           class="scene-shell-fallback graph-explorer flex items-center justify-center text-sm text-slate-400"
           aria-live="polite"
         >
-          加载大观园实景…
+          加载大观园2.5D…
         </div>
         <GardenScene scene={sceneData} pools={pools} bookSlug={meta.slug} client:only="react" />
       </>

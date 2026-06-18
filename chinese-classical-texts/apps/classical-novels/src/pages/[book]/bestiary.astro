@@ -3,7 +3,7 @@ import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
 import CharacterCard from '../../components/CharacterCard.astro';
 import { cardOutcome } from '../../lib/bestiary';
-import { bestiaryStatsFor, buildBestiaryGroupings, isBestiaryRestBucket } from '../../lib/bestiaryGroups';
+import { bestiaryStatsFor, buildBestiaryGroupings, enrichBestiaryFields, isBestiaryRestBucket } from '../../lib/bestiaryGroups';
 import { buildFullRosterList, loadCharacterRoster, loadCharacterScope } from '../../lib/characterRoster';
 import { loadCharacters } from '../../lib/loadCharacters';
 import { loadLocations } from '../../lib/loadLocations';
@@ -22,7 +22,7 @@ const { book } = Astro.props;
 const meta = book.data;
 const slug = meta.slug;
 
-const entries = await loadCharacters(meta.book);
+const entries = enrichBestiaryFields(slug, await loadCharacters(meta.book));
 
 const placeIds = (await loadLocations(meta.book))
   .flatMap((l) => [l.data.id, ...l.data.aliases]);

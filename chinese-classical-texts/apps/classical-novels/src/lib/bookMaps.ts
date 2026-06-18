@@ -34,18 +34,28 @@ export function bookMapEntries(slug: string, features: string[]): BookMapEntry[]
       badge: '26 节点',
     },
     {
+      key: 'digital-tour',
+      title: '大观园数字文旅',
+      desc: 'Archviz 鸟瞰底图 + 36 处 wiki 坐标标注 · 导览线 / 分区筛选 / 词条联动',
+      href: `/${slug}/digital-tour`,
+      status: has('garden') ? 'live' : 'planned',
+      badge: '数字文旅',
+    },
+    {
       key: 'scene',
-      title: '大观园实景',
-      desc: 'Pixi 等距全园 · 坐标同源 2D 地图 · scan 图仅视觉对照',
+      title: '大观园2.5D',
+      desc: 'Pixi 等距全园 · 坐标同源 2D 地图 · 可逛可点 NPC',
       href: `/${slug}/scene`,
       status: has('scene') ? 'live' : 'planned',
-      badge: '34 节点',
+      badge: '2.5D',
     },
     {
       key: 'capital',
       title: '都外与王公',
-      desc: '北静王府、清虚观、铁槛寺等城外节点（规划中）',
-      status: 'planned',
+      desc: '王府侯伯 · 清虚观/铁槛寺 · 路祭/打醮/封妃导览',
+      href: `/${slug}/capital`,
+      status: has('capital') ? 'live' : 'planned',
+      badge: '26 节点',
     },
   ];
 }

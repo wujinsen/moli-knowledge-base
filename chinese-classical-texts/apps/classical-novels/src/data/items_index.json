@@ -1366,11 +1366,12 @@
           "type": "accessory",
           "name": "累丝金凤",
           "book": "红楼梦",
-          "wearer": "王熙凤",
+          "wearer": "王熙凤（第21回当）；贾迎春乳母赌局（第73回）",
           "material": "金",
           "first_appear": "第21回",
           "appear_in": [
-            "第21回"
+            "第21回",
+            "第73回"
           ],
           "tags": [
             "首饰",

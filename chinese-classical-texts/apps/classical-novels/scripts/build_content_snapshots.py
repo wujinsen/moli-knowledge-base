@@ -221,6 +221,11 @@ def main() -> None:
 
     if args.write:
         print(f"written {len(OUTPUTS)} snapshot files → src/data/")
+        import subprocess
+        import sys
+
+        shi = ROOT / "scripts" / "build_shi_index.py"
+        subprocess.run([sys.executable, str(shi), "--write"], cwd=ROOT, check=True)
     else:
         print("(dry-run, add --write)")
 

@@ -42,6 +42,7 @@ const isRoute = features.includes('route') && !!d.layer;
 const isTown = features.includes('town') && !!d.map_zone;
 const isGarden = features.includes('garden') && !!d.garden_zone;
 const isManor = features.includes('manor') && !!d.manor_zone;
+const isCapital = features.includes('capital') && !!d.capital_zone;
 const backHref = isRoute
   ? `/${slug}/route`
   : isTown
@@ -50,7 +51,9 @@ const backHref = isRoute
       ? `/${slug}/map`
       : isManor
         ? `/${slug}/manor`
-        : `/${slug}/places`;
+        : isCapital
+          ? `/${slug}/capital`
+          : `/${slug}/places`;
 const placesLabel =
   slug === 'jinpingmei' ? '西门府' : slug === 'honglou' ? '建筑图鉴' : '地点';
 const backLabel = isRoute
@@ -61,7 +64,9 @@ const backLabel = isRoute
       ? '大观园地图'
       : isManor
         ? '宁荣两府地图'
-        : placesLabel;
+        : isCapital
+          ? '都外与王公地图'
+          : placesLabel;
 
 const relatedItems = await relatedItemsForPlace(d.book, d.id, d.occupants);
 const chapterNums = chaptersFromAppearIn(d.appear_in);
@@ -127,6 +132,12 @@ const keyEvents = features.includes('saga')
         <div>
           {d.manor_zone} ·{' '}
           <a class="hover:underline" style="color: var(--primary)" href={`/${slug}/manor`}>宁荣两府地图</a>
+        </div>
+      )}
+      {d.capital_zone && d.coord && (
+        <div>
+          {d.capital_zone} ·{' '}
+          <a class="hover:underline" style="color: var(--primary)" href={`/${slug}/capital`}>都外与王公地图</a>
         </div>
       )}
       {d.parent && (

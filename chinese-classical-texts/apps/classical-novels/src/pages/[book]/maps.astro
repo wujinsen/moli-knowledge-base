@@ -39,7 +39,6 @@ const liveCount = entries.filter((e) => e.status === 'live').length;
             <a
               href={entry.href}
               class="group rounded-xl border border-white/10 bg-slate-900/60 p-5 transition hover:border-white/25 hover:bg-slate-900/80"
-              style={{ borderColor: undefined }}
             >
               <div class="mb-2 flex items-center justify-between gap-2">
                 <h2 class="text-lg font-semibold text-slate-100 group-hover:text-white">{entry.title}</h2>
@@ -54,7 +53,11 @@ const liveCount = entries.filter((e) => e.status === 'live').length;
               </div>
               <p class="text-sm leading-relaxed text-slate-400">{entry.desc}</p>
               <span class="mt-3 inline-block text-sm font-medium" style={{ color: gt.accent }}>
-                进入地图 →
+                {entry.key === 'digital-tour'
+                  ? '进入标注导览 →'
+                  : entry.key === 'scene'
+                    ? '进入 2.5D →'
+                    : '进入地图 →'}
               </span>
             </a>
           ) : (

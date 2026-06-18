@@ -1,0 +1,61 @@
+{
+  "proposalId": "prop_example_honglou_ch73_ingest",
+  "sessionId": "sess_example_ch73",
+  "status": "pending",
+  "intent": "ingest_chapter",
+  "title": "第73回 · 摄取 frontmatter 与登场人物",
+  "summary": "补 frontmatter 人物（绣桔、王住儿媳妇）；更新司棋、贾迎春关键情节；原文 body 只读不改。",
+  "sources": [
+    {
+      "chapter": 73,
+      "path": "src/content/chapters/红楼梦/073.md",
+      "edition": "chenggao",
+      "excerpt": "…绣桔因说道…累丝金凤…王住儿媳妇…",
+      "readUrl": "/honglou/read/chenggao/73"
+    }
+  ],
+  "patches": [
+    {
+      "path": "src/content/chapters/红楼梦/073.md",
+      "operation": "update",
+      "hunkSummary": "characters[] += 绣桔, 王住儿媳妇",
+      "diff": "--- a/src/content/chapters/红楼梦/073.md\n+++ b/src/content/chapters/红楼梦/073.md\n@@ -5,7 +5,7 @@\n title: 痴丫头误拾绣春囊　懦小姐不问累金凤\n edition: 程高本\n source: raw/daizhige/集藏/小说/红楼梦.txt\n-characters: [傻大姐, 贾迎春, 邢夫人, 贾探春, 林黛玉, 薛宝钗, 王熙凤, 平儿, 司棋, 赵姨娘, 小鹊, 贾政, 贾宝玉, 晴雯, 袭人, 麝月, 王夫人, 贾母, 尤氏, 李纨, 林之孝, 贾琏, 贾赦, 邢岫烟, 薛宝琴, 贾惜春]\n+characters: [傻大姐, 贾迎春, 邢夫人, 贾探春, 林黛玉, 薛宝钗, 王熙凤, 平儿, 司棋, 赵姨娘, 小鹊, 贾政, 贾宝玉, 晴雯, 袭人, 麝月, 王夫人, 贾母, 尤氏, 李纨, 林之孝, 贾琏, 贾赦, 邢岫烟, 薛宝琴, 贾惜春, 绣桔, 王住儿媳妇]\n locations: [二门, 大观园, 大观园厨房, 怡红院, 紫菱洲, 贾母上房, 赵姨娘房, 缀锦楼]\n items: [累丝金凤]\n summary: 傻大姐误拾绣春囊；迎春乳母赌局与累丝金凤；园内查赌。\n"
+    },
+    {
+      "path": "src/content/characters/红楼梦/司棋.md",
+      "operation": "update",
+      "hunkSummary": "关键情节 +1（第73回帮绣桔问金凤）",
+      "diff": "--- a/src/content/characters/红楼梦/司棋.md\n+++ b/src/content/characters/红楼梦/司棋.md\n@@ -55,6 +55,7 @@\n \n ## 关键情节\n \n+- 第73回：帮 [[绣桔]] 追问乳母媳妇 [[王住儿媳妇]] 偷当 [[累丝金凤]]（第73回）。\n - 第74回：抄检搜出表弟潘又安同心帖与男子袜履；司棋「低头不语，并无畏惧惭愧」。\n - 第77回后：被撵出府，与潘又安殉情（程高本）。\n - 第61回：司棋要鸡蛋，经莲花儿至厨房传话，与柳家的争，为抄检伏线。\n"
+    },
+    {
+      "path": "src/content/characters/红楼梦/贾迎春.md",
+      "operation": "update",
+      "hunkSummary": "关键情节补绣桔线（第73回）",
+      "diff": "--- a/src/content/characters/红楼梦/贾迎春.md\n+++ b/src/content/characters/红楼梦/贾迎春.md\n@@ -80,7 +80,7 @@\n \n ## 关键情节\n \n-- 第73回：乳母赌局牵连 [[累丝金凤]]，迎春不能约束（第73回）。\n+- 第73回：[[绣桔]] 欲回凤姐追金凤，迎春阻之；乳母赌局牵连 [[累丝金凤]]（第73回）。\n - 第73–74回：抄检大观园，下人偷攒累丝金凤等事。\n - 第79–80回：许嫁 [[孙绍祖]]，入 [[孙家]] 后受虐。\n - 第80回：[[迎春出嫁]]，向王夫人哭诉孙绍祖之恶。\n"
+    }
+  ],
+  "postApply": {
+    "scripts": [
+      "python scripts/build_relations.py 红楼梦",
+      "python scripts/trust_guard.py 红楼梦",
+      "python scripts/build_content_snapshots.py --write"
+    ],
+    "logEntry": "## [2026-06-16] ingest | 红楼梦 第73回 studio 摄取（frontmatter + 司棋/迎春情节）",
+    "refreshHints": {
+      "snapshots": true,
+      "relations": true,
+      "bestiary": false
+    }
+  },
+  "guardPreview": {
+    "status": "pass",
+    "checked": 3,
+    "unverified": []
+  },
+  "actions": {
+    "canApply": true,
+    "canApplyPartial": true,
+    "canEdit": true,
+    "canDiscard": true
+  }
+}

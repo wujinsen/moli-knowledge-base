@@ -211,15 +211,6 @@ function nearestWaterPoint(
   return best;
 }
 
-/** 逻辑坐标系下单轴跨度 → 场景像素（与 logicalToScene 同源 padding） */
-function logicalSpanToScene(logicalSpan: number, sceneW: number, sceneH: number, axis: 'x' | 'y'): number {
-  const { minX, maxX, minY, maxY } = GARDEN_LOGICAL_BOUNDS;
-  const padX = 100;
-  const padY = 80;
-  if (axis === 'x') return (logicalSpan / (maxX - minX)) * (sceneW - padX * 2);
-  return (logicalSpan / (maxY - minY)) * (sceneH - padY * 2);
-}
-
 function hexToNum(hex?: string): number | undefined {
   if (!hex) return undefined;
   const v = hex.replace('#', '');
@@ -428,12 +419,12 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
       grassTone.roundRect(gX, gY, gW, gH, 18).stroke({ width: 1, color: 0xb9c79f, alpha: 0.18 });
       world.addChild(grassTone);
 
-      // 水系：沁芳溪 + 中心大池（考证版「水脉为纲」；凸碧/凹晶/藕香榭环岸，非水系质心乱扩）
+      // 水系：仅沿 seed 水系节点连线成溪（南北中轴说 · 沁芳溪为纲；无中心大池/外部复原图）
       const sceneOf = (id: string) => {
         const n = buildingById.get(id);
         return n ? logicalToScene(n.logical.x, n.logical.y, scene.width, scene.height) : null;
       };
-      // 溪流中心线段（按园记水道：沁芳闸↔沁芳亭中轴，东出蓼溆·船坞，西南入柳叶渚）
+      // 溪流中心线段（第17回园记 + seed 节点：中轴 沁芳亭↔沁芳闸，东出蓼溆·船坞，南入柳叶渚）
       const streamSegs: Array<[string, string]> = [
         ['沁芳亭', '沁芳闸'],
         ['沁芳闸', '柳叶渚'],
@@ -442,7 +433,7 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
       ];
       const waterBank = new Graphics();
       const waterShape = new Graphics();
-      const STREAM_R = 40; // 溪道加宽（原 26 过窄）
+      const STREAM_R = 34;
       const streamLines: Array<[LogicalPoint, LogicalPoint]> = [];
       const poolCenters: Array<{ x: number; y: number; r: number }> = [];
       let waterAvoidPts: LogicalPoint[] = [];
@@ -455,9 +446,6 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
         g.poly([a.x + nx, a.y + ny, b.x + nx, b.y + ny, b.x - nx, b.y - ny, a.x - nx, a.y - ny]);
         g.circle(a.x, a.y, r);
         g.circle(b.x, b.y, r);
-      };
-      const stampEllipse = (g: Graphics, cx: number, cy: number, rx: number, ry: number) => {
-        g.ellipse(cx, cy, rx, ry);
       };
       let waterDrawn = 0;
       let waterReflectCtx: {
@@ -475,25 +463,14 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
         streamLines.push([a, b]);
         waterDrawn += 1;
       }
-      // 中心沁芳大池（inference：沁芳亭—沁芳闸间，凸碧/凹晶/藕香榭/滴翠亭环岸；见 topics/大观园方位与复原考证）
-      {
-        const lakeL = { cx: 405, cy: 292, rx: 108, ry: 82 };
-        const lakeC = logicalToScene(lakeL.cx, lakeL.cy, scene.width, scene.height);
-        const lakeRx = logicalSpanToScene(lakeL.rx, scene.width, scene.height, 'x');
-        const lakeRy = logicalSpanToScene(lakeL.ry, scene.width, scene.height, 'y');
-        stampEllipse(waterBank, lakeC.x, lakeC.y, lakeRx + 14, lakeRy + 12);
-        stampEllipse(waterShape, lakeC.x, lakeC.y, lakeRx, lakeRy);
-        poolCenters.push({ x: lakeC.x, y: lakeC.y, r: Math.max(lakeRx, lakeRy) * 0.92 });
+      // 沁芳亭 / 沁芳闸：节点处略放宽成小潭（非中心大湖）
+      for (const id of ['沁芳亭', '沁芳闸']) {
+        const p = sceneOf(id);
+        if (!p) continue;
+        waterBank.circle(p.x, p.y, 46);
+        waterShape.circle(p.x, p.y, 40);
+        poolCenters.push({ x: p.x, y: p.y, r: 40 });
         waterDrawn += 1;
-        // 西南湖湾加宽（柳叶渚入湖处，不重复 streamSegs 线段）
-        const liu = sceneOf('柳叶渚');
-        const zha = sceneOf('沁芳闸');
-        if (liu && zha) {
-          const bx = (zha.x + liu.x) / 2;
-          const by = (zha.y + liu.y) / 2 + 8;
-          stampEllipse(waterBank, bx, by, 62, 48);
-          stampEllipse(waterShape, bx, by, 54, 40);
-        }
       }
       if (waterDrawn > 0) {
         waterBank.fill({ color: 0x16322f, alpha: 0.55 });
@@ -536,7 +513,7 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
           padLayer.addChild(sp);
         };
         poolCenters.forEach((pc) => {
-          const n = 6 + Math.floor(plantRnd() * 5) + Math.floor(pc.r / 100);
+          const n = 3 + Math.floor(plantRnd() * 3);
           for (let i = 0; i < n; i++) {
             const ang = plantRnd() * Math.PI * 2;
             const rr = plantRnd() * (pc.r - 14);
@@ -876,7 +853,7 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
         const nearBuilding = buildings.some(
           (b) => Math.hypot(center(b).x - tx, center(b).y - ty) < 64,
         );
-        const nearWater = waterAvoidPts.some((p) => Math.hypot(p.x - tx, p.y - ty) < 78);
+        const nearWater = waterAvoidPts.some((p) => Math.hypot(p.x - tx, p.y - ty) < 62);
         const nearPath = pathPts.some((p) => Math.hypot(p.x - tx, p.y - ty) < 28);
         if (nearBuilding || nearWater || nearPath) continue;
         const tw = 56 + rnd() * 48;
@@ -970,7 +947,7 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
           if (b.zone === '水系' || b.zone === '路径') continue;
           const ground = logicalToScene(b.logical.x, b.logical.y, scene.width, scene.height);
           const wp = nearestWaterPoint(ground.x, ground.y, streamLines, poolCenters, streamR);
-          if (!wp || wp.dist > 85 || wp.dist < 6) continue;
+          if (!wp || wp.dist > 68 || wp.dist < 6) continue;
           const archTex = tex[SCENE_ASSETS[archetypeFor(b)]];
           if (!archTex) continue;
           const dispW = b.w * 1.05;
@@ -979,7 +956,7 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
           refl.anchor.set(0.5, 0);
           refl.scale.set(baseScale * 0.88, -baseScale * 0.24);
           refl.position.set(wp.x + (ground.x - wp.x) * 0.22, wp.y + 3);
-          refl.alpha = 0.1 + (1 - wp.dist / 85) * 0.07;
+          refl.alpha = 0.1 + (1 - wp.dist / 68) * 0.07;
           refl.tint = 0x7a9894;
           reflectionLayer.addChild(refl);
         }
@@ -1343,7 +1320,7 @@ export default function GardenScene({ scene, pools, bookSlug }: Props) {
       {!sceneReady && !sceneError && (
         <div className="pointer-events-none absolute inset-0 z-[5] flex items-center justify-center">
           <p className="rounded-lg border border-white/10 bg-slate-900/80 px-4 py-2 text-sm text-slate-300">
-            加载大观园实景…
+            加载大观园2.5D…
           </p>
         </div>
       )}

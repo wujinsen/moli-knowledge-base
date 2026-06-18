@@ -5,6 +5,7 @@ import BackLink from '../../components/BackLink.astro';
 import CatalogFoldBar from '../../components/CatalogFoldBar.astro';
 import CatalogFoldSection from '../../components/CatalogFoldSection.astro';
 import ImageryGraph from '../../components/ImageryGraph.tsx';
+import ShiCrossIndex from '../../components/ShiCrossIndex.tsx';
 import {
   buildImageryGraph,
   chapterLabel,
@@ -13,6 +14,8 @@ import {
 } from '../../lib/imagery';
 import type { ImageryGraphEdge } from '../../lib/imagery';
 import { loadImagery } from '../../lib/loadImagery';
+import { buildShiCrossIndex, getShiCrossIndex } from '../../lib/shiIndex';
+import { loadImageryChains } from '../../lib/imageryChains';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -31,6 +34,9 @@ const extraRaw = linkKey ? (linkFiles[linkKey] as { default?: { links: ImageryGr
 const extraLinks: ImageryGraphEdge[] = extraRaw?.default?.links ?? extraRaw?.links ?? [];
 
 const graph = buildImageryGraph(items, extraLinks);
+const imageryChains = loadImageryChains(meta.slug, meta.book);
+const initialChainId = Astro.url.searchParams.get('chain');
+const shiCrossIndex = getShiCrossIndex(meta.slug) ?? buildShiCrossIndex(items, extraLinks);
 const bySubtype = (st: string) => items.filter((i) => i.data.subtype === st);
 
 const SUBTYPE_ORDER = [
@@ -79,7 +85,7 @@ const isXyj = meta.slug === 'xiyouji';
       ) : (
         <Fragment>
           图谶式文本的核心：表层意象与人物命运的「隐喻」推论边（<code class="rounded px-1" style="background: color-mix(in srgb, var(--primary) 8%, transparent)">inference</code>）。
-          点击下方<strong>示例链路</strong>可在互文图中切换高亮路径。
+          点击下方<strong>示例链路</strong>可在互文图中分步高亮（如 <a href={`/${meta.slug}/shi?chain=furong-qingwen-daiyu`} class="hover:underline" style="color: var(--accent)">晴雯—芙蓉—黛玉</a>）。
         </Fragment>
       )}
     </p>
@@ -90,7 +96,22 @@ const isXyj = meta.slug === 'xiyouji';
     <ImageryGraph
       graph={graph}
       bookSlug={meta.slug}
+      chains={imageryChains}
+      initialChainId={initialChainId}
       client:only="react"
+    />
+  </div>
+
+  <h2 class="section-title mb-4 text-lg">交叉索引</h2>
+  <p class="mb-4 max-w-2xl text-sm text-muted">
+    诗词/判词/象征按<strong>章回</strong>与<strong>人物</strong>三维互链；可跳转读回、人物页或意象详情。
+  </p>
+  <div class="kb-dashboard surface mb-10 p-4 sm:p-6">
+    <ShiCrossIndex
+      index={shiCrossIndex}
+      bookSlug={meta.slug}
+      bookName={meta.book}
+      client:load
     />
   </div>
 

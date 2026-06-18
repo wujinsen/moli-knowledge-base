@@ -14,7 +14,8 @@
     "astro": "astro",
     "import": "python scripts/import_chapters.py all",
     "relations": "python scripts/build_relations.py",
-    "guard": "python scripts/trust_guard.py"
+    "guard": "python scripts/trust_guard.py",
+    "studio:api": "cd ../kb-orchestrator && python -m uvicorn kb_orchestrator.main:app --reload --port 8787"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.7",

@@ -1,0 +1,6354 @@
+{
+  "generated_by": "build_shi_index.py",
+  "books": {
+    "honglou": {
+      "book": "红楼梦",
+      "slug": "honglou",
+      "count": 52,
+      "byChapter": {
+        "17": [
+          {
+            "id": "hl-env-daguanyuan",
+            "title": "大观园",
+            "subtype": "symbol",
+            "chapters": [
+              17,
+              18,
+              23,
+              74
+            ],
+            "characters": [
+              "晴雯",
+              "林黛玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-s-zhu",
+            "title": "竹",
+            "subtype": "symbol",
+            "chapters": [
+              17
+            ],
+            "characters": [
+              "林黛玉"
+            ],
+            "hasInference": true
+          }
+        ],
+        "18": [
+          {
+            "id": "hl-env-daguanyuan",
+            "title": "大观园",
+            "subtype": "symbol",
+            "chapters": [
+              17,
+              18,
+              23,
+              74
+            ],
+            "characters": [
+              "晴雯",
+              "林黛玉"
+            ],
+            "hasInference": true
+          }
+        ],
+        "23": [
+          {
+            "id": "hl-env-daguanyuan",
+            "title": "大观园",
+            "subtype": "symbol",
+            "chapters": [
+              17,
+              18,
+              23,
+              74
+            ],
+            "characters": [
+              "晴雯",
+              "林黛玉"
+            ],
+            "hasInference": true
+          }
+        ],
+        "74": [
+          {
+            "id": "hl-env-daguanyuan",
+            "title": "大观园",
+            "subtype": "symbol",
+            "chapters": [
+              17,
+              18,
+              23,
+              74
+            ],
+            "characters": [
+              "晴雯",
+              "林黛玉"
+            ],
+            "hasInference": true
+          }
+        ],
+        "63": [
+          {
+            "id": "hl-f-04",
+            "title": "杏花花签",
+            "subtype": "flower_lot",
+            "chapters": [
+              63
+            ],
+            "characters": [
+              "贾探春"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-f-03",
+            "title": "梅花花签",
+            "subtype": "flower_lot",
+            "chapters": [
+              63
+            ],
+            "characters": [
+              "李纨"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-f-02",
+            "title": "牡丹花签",
+            "subtype": "flower_lot",
+            "chapters": [
+              63
+            ],
+            "characters": [
+              "薛宝钗"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-s-furong",
+            "title": "芙蓉",
+            "subtype": "symbol",
+            "chapters": [
+              63,
+              78
+            ],
+            "characters": [
+              "晴雯",
+              "林黛玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-f-01",
+            "title": "芙蓉花签",
+            "subtype": "flower_lot",
+            "chapters": [
+              63
+            ],
+            "characters": [
+              "林黛玉"
+            ],
+            "hasInference": true
+          }
+        ],
+        "5": [
+          {
+            "id": "hl-p-15",
+            "title": "乐中悲",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "史湘云"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-s-bing",
+            "title": "冰",
+            "subtype": "symbol",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "薛宝钗"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-12",
+            "title": "分骨肉",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "贾探春"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-05",
+            "title": "史湘云判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "史湘云"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-19",
+            "title": "喜冤家",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "孙绍祖",
+              "贾迎春"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-myth-taixu",
+            "title": "太虚幻境 · 薄命司",
+            "subtype": "myth",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "贾宝玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-18",
+            "title": "好事终",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "秦可卿"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-06",
+            "title": "妙玉判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "妙玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-11",
+            "title": "恨无常",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "贾元春"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-17",
+            "title": "晚韶华",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "李纨"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-13",
+            "title": "晴雯判词",
+            "subtype": "judgment",
+            "chapters": [
+              5,
+              78
+            ],
+            "characters": [
+              "晴雯"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-11",
+            "title": "李纨判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "李纨"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-03",
+            "title": "枉凝眉",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "林黛玉",
+              "贾宝玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-01",
+            "title": "林黛玉判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "林黛玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-09",
+            "title": "王熙凤判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "王熙凤"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-13",
+            "title": "留余庆",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "刘姥姥",
+              "贾巧姐"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-12",
+            "title": "秦可卿判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "秦可卿"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-08",
+            "title": "终身误",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "林黛玉",
+              "薛宝钗",
+              "贾宝玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-09",
+            "title": "聪明累",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "王熙凤"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-02",
+            "title": "薛宝钗判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "薛宝钗"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-16",
+            "title": "虚名利",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "妙玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-20",
+            "title": "虚花悟",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "贾惜春"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-03",
+            "title": "贾元春判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "贾元春"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-10",
+            "title": "贾巧姐判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "贾巧姐"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-08",
+            "title": "贾惜春判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "贾惜春"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-04",
+            "title": "贾探春判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "贾探春"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-07",
+            "title": "贾迎春判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "贾迎春"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-07",
+            "title": "飞鸟各投林",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-14",
+            "title": "香菱判词",
+            "subtype": "judgment",
+            "chapters": [
+              5,
+              49
+            ],
+            "characters": [
+              "香菱"
+            ],
+            "hasInference": true
+          }
+        ],
+        "78": [
+          {
+            "id": "hl-p-06",
+            "title": "姽婳词",
+            "subtype": "poem",
+            "chapters": [
+              78
+            ],
+            "characters": [
+              "晴雯",
+              "贾宝玉",
+              "贾政"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-13",
+            "title": "晴雯判词",
+            "subtype": "judgment",
+            "chapters": [
+              5,
+              78
+            ],
+            "characters": [
+              "晴雯"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-s-furong",
+            "title": "芙蓉",
+            "subtype": "symbol",
+            "chapters": [
+              63,
+              78
+            ],
+            "characters": [
+              "晴雯",
+              "林黛玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-05",
+            "title": "芙蓉女儿诔",
+            "subtype": "poem",
+            "chapters": [
+              78
+            ],
+            "characters": [
+              "晴雯",
+              "林黛玉",
+              "贾宝玉"
+            ],
+            "hasInference": true
+          }
+        ],
+        "49": [
+          {
+            "id": "hl-j-14",
+            "title": "香菱判词",
+            "subtype": "judgment",
+            "chapters": [
+              5,
+              49
+            ],
+            "characters": [
+              "香菱"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-21",
+            "title": "香菱咏月",
+            "subtype": "poem",
+            "chapters": [
+              49
+            ],
+            "characters": [
+              "香菱"
+            ],
+            "hasInference": true
+          }
+        ],
+        "1": [
+          {
+            "id": "hl-p-02",
+            "title": "好了歌",
+            "subtype": "poem",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "甄士隐"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-myth-jiangzhu",
+            "title": "绛珠仙草",
+            "subtype": "myth",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "林黛玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-myth-stone",
+            "title": "顽石 · 神瑛侍者",
+            "subtype": "myth",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "贾宝玉"
+            ],
+            "hasInference": true
+          }
+        ],
+        "27": [
+          {
+            "id": "hl-s-luohua",
+            "title": "落花 · 柳絮",
+            "subtype": "symbol",
+            "chapters": [
+              27,
+              70
+            ],
+            "characters": [
+              "林黛玉",
+              "贾探春"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-01",
+            "title": "葬花吟",
+            "subtype": "poem",
+            "chapters": [
+              27
+            ],
+            "characters": [
+              "林黛玉"
+            ],
+            "hasInference": true
+          }
+        ],
+        "38": [
+          {
+            "id": "hl-p-04",
+            "title": "螃蟹咏",
+            "subtype": "poem",
+            "chapters": [
+              38
+            ],
+            "characters": [
+              "贾宝玉"
+            ],
+            "hasInference": true
+          }
+        ],
+        "45": [
+          {
+            "id": "hl-p-10",
+            "title": "秋窗风雨夕",
+            "subtype": "poem",
+            "chapters": [
+              45
+            ],
+            "characters": [
+              "林黛玉"
+            ],
+            "hasInference": true
+          }
+        ],
+        "70": [
+          {
+            "id": "hl-p-14",
+            "title": "柳絮词",
+            "subtype": "poem",
+            "chapters": [
+              70
+            ],
+            "characters": [
+              "史湘云",
+              "林黛玉",
+              "薛宝钗",
+              "贾宝玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-s-luohua",
+            "title": "落花 · 柳絮",
+            "subtype": "symbol",
+            "chapters": [
+              27,
+              70
+            ],
+            "characters": [
+              "林黛玉",
+              "贾探春"
+            ],
+            "hasInference": true
+          }
+        ],
+        "12": [
+          {
+            "id": "hl-s-fengyue",
+            "title": "风月宝鉴",
+            "subtype": "symbol",
+            "chapters": [
+              12
+            ],
+            "characters": [
+              "贾瑞"
+            ],
+            "hasInference": true
+          }
+        ],
+        "3": [
+          {
+            "id": "hl-s-yu",
+            "title": "玉",
+            "subtype": "symbol",
+            "chapters": [
+              3
+            ],
+            "characters": [
+              "贾宝玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-s-jin",
+            "title": "金",
+            "subtype": "symbol",
+            "chapters": [
+              3
+            ],
+            "characters": [
+              "薛宝钗"
+            ],
+            "hasInference": true
+          }
+        ],
+        "50": [
+          {
+            "id": "hl-s-meihua",
+            "title": "梅花",
+            "subtype": "symbol",
+            "chapters": [
+              50
+            ],
+            "characters": [
+              "李纨"
+            ],
+            "hasInference": true
+          }
+        ],
+        "2": [
+          {
+            "id": "hl-s-shuini",
+            "title": "水与泥",
+            "subtype": "symbol",
+            "chapters": [
+              2
+            ],
+            "characters": [
+              "贾宝玉"
+            ],
+            "hasInference": true
+          }
+        ]
+      },
+      "byCharacter": {
+        "晴雯": [
+          {
+            "id": "hl-j-13",
+            "title": "晴雯判词",
+            "subtype": "judgment",
+            "chapters": [
+              5,
+              78
+            ],
+            "characters": [
+              "晴雯"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-env-daguanyuan",
+            "title": "大观园",
+            "subtype": "symbol",
+            "chapters": [
+              17,
+              18,
+              23,
+              74
+            ],
+            "characters": [
+              "晴雯",
+              "林黛玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-s-furong",
+            "title": "芙蓉",
+            "subtype": "symbol",
+            "chapters": [
+              63,
+              78
+            ],
+            "characters": [
+              "晴雯",
+              "林黛玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-06",
+            "title": "姽婳词",
+            "subtype": "poem",
+            "chapters": [
+              78
+            ],
+            "characters": [
+              "晴雯",
+              "贾宝玉",
+              "贾政"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-05",
+            "title": "芙蓉女儿诔",
+            "subtype": "poem",
+            "chapters": [
+              78
+            ],
+            "characters": [
+              "晴雯",
+              "林黛玉",
+              "贾宝玉"
+            ],
+            "hasInference": true
+          }
+        ],
+        "林黛玉": [
+          {
+            "id": "hl-myth-jiangzhu",
+            "title": "绛珠仙草",
+            "subtype": "myth",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "林黛玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-03",
+            "title": "枉凝眉",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "林黛玉",
+              "贾宝玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-01",
+            "title": "林黛玉判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "林黛玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-08",
+            "title": "终身误",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "林黛玉",
+              "薛宝钗",
+              "贾宝玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-env-daguanyuan",
+            "title": "大观园",
+            "subtype": "symbol",
+            "chapters": [
+              17,
+              18,
+              23,
+              74
+            ],
+            "characters": [
+              "晴雯",
+              "林黛玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-s-zhu",
+            "title": "竹",
+            "subtype": "symbol",
+            "chapters": [
+              17
+            ],
+            "characters": [
+              "林黛玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-s-luohua",
+            "title": "落花 · 柳絮",
+            "subtype": "symbol",
+            "chapters": [
+              27,
+              70
+            ],
+            "characters": [
+              "林黛玉",
+              "贾探春"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-01",
+            "title": "葬花吟",
+            "subtype": "poem",
+            "chapters": [
+              27
+            ],
+            "characters": [
+              "林黛玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-10",
+            "title": "秋窗风雨夕",
+            "subtype": "poem",
+            "chapters": [
+              45
+            ],
+            "characters": [
+              "林黛玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-s-furong",
+            "title": "芙蓉",
+            "subtype": "symbol",
+            "chapters": [
+              63,
+              78
+            ],
+            "characters": [
+              "晴雯",
+              "林黛玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-f-01",
+            "title": "芙蓉花签",
+            "subtype": "flower_lot",
+            "chapters": [
+              63
+            ],
+            "characters": [
+              "林黛玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-14",
+            "title": "柳絮词",
+            "subtype": "poem",
+            "chapters": [
+              70
+            ],
+            "characters": [
+              "史湘云",
+              "林黛玉",
+              "薛宝钗",
+              "贾宝玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-05",
+            "title": "芙蓉女儿诔",
+            "subtype": "poem",
+            "chapters": [
+              78
+            ],
+            "characters": [
+              "晴雯",
+              "林黛玉",
+              "贾宝玉"
+            ],
+            "hasInference": true
+          }
+        ],
+        "薛宝钗": [
+          {
+            "id": "hl-s-jin",
+            "title": "金",
+            "subtype": "symbol",
+            "chapters": [
+              3
+            ],
+            "characters": [
+              "薛宝钗"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-s-bing",
+            "title": "冰",
+            "subtype": "symbol",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "薛宝钗"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-08",
+            "title": "终身误",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "林黛玉",
+              "薛宝钗",
+              "贾宝玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-02",
+            "title": "薛宝钗判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "薛宝钗"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-f-02",
+            "title": "牡丹花签",
+            "subtype": "flower_lot",
+            "chapters": [
+              63
+            ],
+            "characters": [
+              "薛宝钗"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-14",
+            "title": "柳絮词",
+            "subtype": "poem",
+            "chapters": [
+              70
+            ],
+            "characters": [
+              "史湘云",
+              "林黛玉",
+              "薛宝钗",
+              "贾宝玉"
+            ],
+            "hasInference": true
+          }
+        ],
+        "李纨": [
+          {
+            "id": "hl-p-17",
+            "title": "晚韶华",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "李纨"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-11",
+            "title": "李纨判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "李纨"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-s-meihua",
+            "title": "梅花",
+            "subtype": "symbol",
+            "chapters": [
+              50
+            ],
+            "characters": [
+              "李纨"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-f-03",
+            "title": "梅花花签",
+            "subtype": "flower_lot",
+            "chapters": [
+              63
+            ],
+            "characters": [
+              "李纨"
+            ],
+            "hasInference": true
+          }
+        ],
+        "贾探春": [
+          {
+            "id": "hl-p-12",
+            "title": "分骨肉",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "贾探春"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-04",
+            "title": "贾探春判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "贾探春"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-s-luohua",
+            "title": "落花 · 柳絮",
+            "subtype": "symbol",
+            "chapters": [
+              27,
+              70
+            ],
+            "characters": [
+              "林黛玉",
+              "贾探春"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-f-04",
+            "title": "杏花花签",
+            "subtype": "flower_lot",
+            "chapters": [
+              63
+            ],
+            "characters": [
+              "贾探春"
+            ],
+            "hasInference": true
+          }
+        ],
+        "贾元春": [
+          {
+            "id": "hl-p-11",
+            "title": "恨无常",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "贾元春"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-03",
+            "title": "贾元春判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "贾元春"
+            ],
+            "hasInference": true
+          }
+        ],
+        "史湘云": [
+          {
+            "id": "hl-p-15",
+            "title": "乐中悲",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "史湘云"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-05",
+            "title": "史湘云判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "史湘云"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-14",
+            "title": "柳絮词",
+            "subtype": "poem",
+            "chapters": [
+              70
+            ],
+            "characters": [
+              "史湘云",
+              "林黛玉",
+              "薛宝钗",
+              "贾宝玉"
+            ],
+            "hasInference": true
+          }
+        ],
+        "妙玉": [
+          {
+            "id": "hl-j-06",
+            "title": "妙玉判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "妙玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-16",
+            "title": "虚名利",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "妙玉"
+            ],
+            "hasInference": true
+          }
+        ],
+        "贾迎春": [
+          {
+            "id": "hl-p-19",
+            "title": "喜冤家",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "孙绍祖",
+              "贾迎春"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-07",
+            "title": "贾迎春判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "贾迎春"
+            ],
+            "hasInference": true
+          }
+        ],
+        "贾惜春": [
+          {
+            "id": "hl-p-20",
+            "title": "虚花悟",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "贾惜春"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-08",
+            "title": "贾惜春判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "贾惜春"
+            ],
+            "hasInference": true
+          }
+        ],
+        "王熙凤": [
+          {
+            "id": "hl-j-09",
+            "title": "王熙凤判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "王熙凤"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-09",
+            "title": "聪明累",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "王熙凤"
+            ],
+            "hasInference": true
+          }
+        ],
+        "贾巧姐": [
+          {
+            "id": "hl-p-13",
+            "title": "留余庆",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "刘姥姥",
+              "贾巧姐"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-10",
+            "title": "贾巧姐判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "贾巧姐"
+            ],
+            "hasInference": true
+          }
+        ],
+        "秦可卿": [
+          {
+            "id": "hl-p-18",
+            "title": "好事终",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "秦可卿"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-j-12",
+            "title": "秦可卿判词",
+            "subtype": "judgment",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "秦可卿"
+            ],
+            "hasInference": true
+          }
+        ],
+        "香菱": [
+          {
+            "id": "hl-j-14",
+            "title": "香菱判词",
+            "subtype": "judgment",
+            "chapters": [
+              5,
+              49
+            ],
+            "characters": [
+              "香菱"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-21",
+            "title": "香菱咏月",
+            "subtype": "poem",
+            "chapters": [
+              49
+            ],
+            "characters": [
+              "香菱"
+            ],
+            "hasInference": true
+          }
+        ],
+        "贾宝玉": [
+          {
+            "id": "hl-myth-stone",
+            "title": "顽石 · 神瑛侍者",
+            "subtype": "myth",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "贾宝玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-s-shuini",
+            "title": "水与泥",
+            "subtype": "symbol",
+            "chapters": [
+              2
+            ],
+            "characters": [
+              "贾宝玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-s-yu",
+            "title": "玉",
+            "subtype": "symbol",
+            "chapters": [
+              3
+            ],
+            "characters": [
+              "贾宝玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-myth-taixu",
+            "title": "太虚幻境 · 薄命司",
+            "subtype": "myth",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "贾宝玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-03",
+            "title": "枉凝眉",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "林黛玉",
+              "贾宝玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-08",
+            "title": "终身误",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "林黛玉",
+              "薛宝钗",
+              "贾宝玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-04",
+            "title": "螃蟹咏",
+            "subtype": "poem",
+            "chapters": [
+              38
+            ],
+            "characters": [
+              "贾宝玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-14",
+            "title": "柳絮词",
+            "subtype": "poem",
+            "chapters": [
+              70
+            ],
+            "characters": [
+              "史湘云",
+              "林黛玉",
+              "薛宝钗",
+              "贾宝玉"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-06",
+            "title": "姽婳词",
+            "subtype": "poem",
+            "chapters": [
+              78
+            ],
+            "characters": [
+              "晴雯",
+              "贾宝玉",
+              "贾政"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "hl-p-05",
+            "title": "芙蓉女儿诔",
+            "subtype": "poem",
+            "chapters": [
+              78
+            ],
+            "characters": [
+              "晴雯",
+              "林黛玉",
+              "贾宝玉"
+            ],
+            "hasInference": true
+          }
+        ],
+        "甄士隐": [
+          {
+            "id": "hl-p-02",
+            "title": "好了歌",
+            "subtype": "poem",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "甄士隐"
+            ],
+            "hasInference": true
+          }
+        ],
+        "贾政": [
+          {
+            "id": "hl-p-06",
+            "title": "姽婳词",
+            "subtype": "poem",
+            "chapters": [
+              78
+            ],
+            "characters": [
+              "晴雯",
+              "贾宝玉",
+              "贾政"
+            ],
+            "hasInference": true
+          }
+        ],
+        "刘姥姥": [
+          {
+            "id": "hl-p-13",
+            "title": "留余庆",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "刘姥姥",
+              "贾巧姐"
+            ],
+            "hasInference": true
+          }
+        ],
+        "孙绍祖": [
+          {
+            "id": "hl-p-19",
+            "title": "喜冤家",
+            "subtype": "poem",
+            "chapters": [
+              5
+            ],
+            "characters": [
+              "孙绍祖",
+              "贾迎春"
+            ],
+            "hasInference": true
+          }
+        ],
+        "贾瑞": [
+          {
+            "id": "hl-s-fengyue",
+            "title": "风月宝鉴",
+            "subtype": "symbol",
+            "chapters": [
+              12
+            ],
+            "characters": [
+              "贾瑞"
+            ],
+            "hasInference": true
+          }
+        ]
+      },
+      "entries": [
+        {
+          "id": "hl-env-daguanyuan",
+          "title": "大观园",
+          "subtype": "symbol",
+          "chapters": [
+            17,
+            18,
+            23,
+            74
+          ],
+          "characters": [
+            "晴雯",
+            "林黛玉"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-f-01",
+          "title": "芙蓉花签",
+          "subtype": "flower_lot",
+          "chapters": [
+            63
+          ],
+          "characters": [
+            "林黛玉"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-f-02",
+          "title": "牡丹花签",
+          "subtype": "flower_lot",
+          "chapters": [
+            63
+          ],
+          "characters": [
+            "薛宝钗"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-f-03",
+          "title": "梅花花签",
+          "subtype": "flower_lot",
+          "chapters": [
+            63
+          ],
+          "characters": [
+            "李纨"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-f-04",
+          "title": "杏花花签",
+          "subtype": "flower_lot",
+          "chapters": [
+            63
+          ],
+          "characters": [
+            "贾探春"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-j-01",
+          "title": "林黛玉判词",
+          "subtype": "judgment",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "林黛玉"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-j-02",
+          "title": "薛宝钗判词",
+          "subtype": "judgment",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "薛宝钗"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-j-03",
+          "title": "贾元春判词",
+          "subtype": "judgment",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾元春"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-j-04",
+          "title": "贾探春判词",
+          "subtype": "judgment",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾探春"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-j-05",
+          "title": "史湘云判词",
+          "subtype": "judgment",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "史湘云"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-j-06",
+          "title": "妙玉判词",
+          "subtype": "judgment",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "妙玉"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-j-07",
+          "title": "贾迎春判词",
+          "subtype": "judgment",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾迎春"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-j-08",
+          "title": "贾惜春判词",
+          "subtype": "judgment",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾惜春"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-j-09",
+          "title": "王熙凤判词",
+          "subtype": "judgment",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "王熙凤"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-j-10",
+          "title": "贾巧姐判词",
+          "subtype": "judgment",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾巧姐"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-j-11",
+          "title": "李纨判词",
+          "subtype": "judgment",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "李纨"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-j-12",
+          "title": "秦可卿判词",
+          "subtype": "judgment",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "秦可卿"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-j-13",
+          "title": "晴雯判词",
+          "subtype": "judgment",
+          "chapters": [
+            5,
+            78
+          ],
+          "characters": [
+            "晴雯"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-j-14",
+          "title": "香菱判词",
+          "subtype": "judgment",
+          "chapters": [
+            5,
+            49
+          ],
+          "characters": [
+            "香菱"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-myth-jiangzhu",
+          "title": "绛珠仙草",
+          "subtype": "myth",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "林黛玉"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-myth-stone",
+          "title": "顽石 · 神瑛侍者",
+          "subtype": "myth",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "贾宝玉"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-myth-taixu",
+          "title": "太虚幻境 · 薄命司",
+          "subtype": "myth",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾宝玉"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-01",
+          "title": "葬花吟",
+          "subtype": "poem",
+          "chapters": [
+            27
+          ],
+          "characters": [
+            "林黛玉"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-02",
+          "title": "好了歌",
+          "subtype": "poem",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "甄士隐"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-03",
+          "title": "枉凝眉",
+          "subtype": "poem",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "林黛玉",
+            "贾宝玉"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-04",
+          "title": "螃蟹咏",
+          "subtype": "poem",
+          "chapters": [
+            38
+          ],
+          "characters": [
+            "贾宝玉"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-05",
+          "title": "芙蓉女儿诔",
+          "subtype": "poem",
+          "chapters": [
+            78
+          ],
+          "characters": [
+            "晴雯",
+            "林黛玉",
+            "贾宝玉"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-06",
+          "title": "姽婳词",
+          "subtype": "poem",
+          "chapters": [
+            78
+          ],
+          "characters": [
+            "晴雯",
+            "贾宝玉",
+            "贾政"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-07",
+          "title": "飞鸟各投林",
+          "subtype": "poem",
+          "chapters": [
+            5
+          ],
+          "characters": [],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-08",
+          "title": "终身误",
+          "subtype": "poem",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "林黛玉",
+            "薛宝钗",
+            "贾宝玉"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-09",
+          "title": "聪明累",
+          "subtype": "poem",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "王熙凤"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-10",
+          "title": "秋窗风雨夕",
+          "subtype": "poem",
+          "chapters": [
+            45
+          ],
+          "characters": [
+            "林黛玉"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-11",
+          "title": "恨无常",
+          "subtype": "poem",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾元春"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-12",
+          "title": "分骨肉",
+          "subtype": "poem",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾探春"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-13",
+          "title": "留余庆",
+          "subtype": "poem",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "刘姥姥",
+            "贾巧姐"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-14",
+          "title": "柳絮词",
+          "subtype": "poem",
+          "chapters": [
+            70
+          ],
+          "characters": [
+            "史湘云",
+            "林黛玉",
+            "薛宝钗",
+            "贾宝玉"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-15",
+          "title": "乐中悲",
+          "subtype": "poem",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "史湘云"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-16",
+          "title": "虚名利",
+          "subtype": "poem",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "妙玉"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-17",
+          "title": "晚韶华",
+          "subtype": "poem",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "李纨"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-18",
+          "title": "好事终",
+          "subtype": "poem",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "秦可卿"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-19",
+          "title": "喜冤家",
+          "subtype": "poem",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "孙绍祖",
+            "贾迎春"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-20",
+          "title": "虚花悟",
+          "subtype": "poem",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "贾惜春"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-p-21",
+          "title": "香菱咏月",
+          "subtype": "poem",
+          "chapters": [
+            49
+          ],
+          "characters": [
+            "香菱"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-s-bing",
+          "title": "冰",
+          "subtype": "symbol",
+          "chapters": [
+            5
+          ],
+          "characters": [
+            "薛宝钗"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-s-fengyue",
+          "title": "风月宝鉴",
+          "subtype": "symbol",
+          "chapters": [
+            12
+          ],
+          "characters": [
+            "贾瑞"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-s-furong",
+          "title": "芙蓉",
+          "subtype": "symbol",
+          "chapters": [
+            63,
+            78
+          ],
+          "characters": [
+            "晴雯",
+            "林黛玉"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-s-jin",
+          "title": "金",
+          "subtype": "symbol",
+          "chapters": [
+            3
+          ],
+          "characters": [
+            "薛宝钗"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-s-luohua",
+          "title": "落花 · 柳絮",
+          "subtype": "symbol",
+          "chapters": [
+            27,
+            70
+          ],
+          "characters": [
+            "林黛玉",
+            "贾探春"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-s-meihua",
+          "title": "梅花",
+          "subtype": "symbol",
+          "chapters": [
+            50
+          ],
+          "characters": [
+            "李纨"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-s-shuini",
+          "title": "水与泥",
+          "subtype": "symbol",
+          "chapters": [
+            2
+          ],
+          "characters": [
+            "贾宝玉"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-s-yu",
+          "title": "玉",
+          "subtype": "symbol",
+          "chapters": [
+            3
+          ],
+          "characters": [
+            "贾宝玉"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "hl-s-zhu",
+          "title": "竹",
+          "subtype": "symbol",
+          "chapters": [
+            17
+          ],
+          "characters": [
+            "林黛玉"
+          ],
+          "hasInference": true
+        }
+      ]
+    },
+    "jinpingmei": {
+      "book": "金瓶梅",
+      "slug": "jinpingmei",
+      "count": 43,
+      "byChapter": {
+        "80": [
+          {
+            "id": "jpm-name-chenjingji",
+            "title": "陈经济",
+            "subtype": "name_omen",
+            "chapters": [
+              80
+            ],
+            "characters": [
+              "西门庆",
+              "陈经济"
+            ],
+            "hasInference": true
+          }
+        ],
+        "96": [
+          {
+            "id": "jpm-name-chunmei",
+            "title": "梅 · 庞春梅",
+            "subtype": "name_omen",
+            "chapters": [
+              96
+            ],
+            "characters": [
+              "庞春梅"
+            ],
+            "hasInference": true
+          }
+        ],
+        "59": [
+          {
+            "id": "jpm-name-guangeer",
+            "title": "官哥儿 · 求官之望",
+            "subtype": "name_omen",
+            "chapters": [
+              59
+            ],
+            "characters": [
+              "官哥儿"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-xueshizi",
+            "title": "雪狮子（白猫）",
+            "subtype": "object_omen",
+            "chapters": [
+              59
+            ],
+            "characters": [
+              "李瓶儿",
+              "潘金莲"
+            ],
+            "hasInference": true
+          }
+        ],
+        "14": [
+          {
+            "id": "jpm-obj-pinger-cai",
+            "title": "李瓶儿之财 · 向心聚敛",
+            "subtype": "object_omen",
+            "chapters": [
+              14
+            ],
+            "characters": [
+              "李瓶儿"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-name-huazixu",
+            "title": "花子虚",
+            "subtype": "name_omen",
+            "chapters": [
+              14
+            ],
+            "characters": [
+              "李瓶儿",
+              "花子虚"
+            ],
+            "hasInference": true
+          }
+        ],
+        "1": [
+          {
+            "id": "jpm-name-wuyueniang",
+            "title": "吴月娘",
+            "subtype": "name_omen",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "吴月娘"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-name-ximenqing",
+            "title": "西门庆 · 反讽之庆",
+            "subtype": "name_omen",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "西门庆"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-jiu",
+            "title": "酒 · 四气之首",
+            "subtype": "object_omen",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "西门庆"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-tune-jiusecaiqi",
+            "title": "酒色财气歌",
+            "subtype": "tune_omen",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "西门庆"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-name-jinlian",
+            "title": "金 · 潘金莲",
+            "subtype": "name_omen",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "潘金莲",
+              "西门庆"
+            ],
+            "hasInference": true
+          }
+        ],
+        "7": [
+          {
+            "id": "jpm-name-mengyulou",
+            "title": "孟玉楼 · 玉楼虚设",
+            "subtype": "name_omen",
+            "chapters": [
+              7
+            ],
+            "characters": [
+              "孟玉楼"
+            ],
+            "hasInference": true
+          }
+        ],
+        "17": [
+          {
+            "id": "jpm-name-pinger",
+            "title": "瓶 · 李瓶儿",
+            "subtype": "name_omen",
+            "chapters": [
+              17
+            ],
+            "characters": [
+              "李瓶儿",
+              "西门庆"
+            ],
+            "hasInference": true
+          }
+        ],
+        "26": [
+          {
+            "id": "jpm-name-songhuilian",
+            "title": "宋惠莲",
+            "subtype": "name_omen",
+            "chapters": [
+              26
+            ],
+            "characters": [
+              "来旺",
+              "西门庆"
+            ],
+            "hasInference": true
+          }
+        ],
+        "37": [
+          {
+            "id": "jpm-name-wangliuer",
+            "title": "王六儿",
+            "subtype": "name_omen",
+            "chapters": [
+              37
+            ],
+            "characters": [
+              "西门庆",
+              "韩道国"
+            ],
+            "hasInference": true
+          }
+        ],
+        "79": [
+          {
+            "id": "jpm-name-xiaogeer",
+            "title": "孝哥儿 · 出家偿业",
+            "subtype": "name_omen",
+            "chapters": [
+              79
+            ],
+            "characters": [
+              "孝哥儿"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-husengyao",
+            "title": "胡僧药（春药）",
+            "subtype": "object_omen",
+            "chapters": [
+              49,
+              79
+            ],
+            "characters": [
+              "潘金莲",
+              "西门庆"
+            ],
+            "hasInference": true
+          }
+        ],
+        "15": [
+          {
+            "id": "jpm-obj-deng",
+            "title": "元宵灯 · 极盛之象",
+            "subtype": "object_omen",
+            "chapters": [
+              15
+            ],
+            "characters": [
+              "李瓶儿"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-tune-yuanxiao",
+            "title": "元宵灯词 · 乐极哀生",
+            "subtype": "tune_omen",
+            "chapters": [
+              15,
+              24
+            ],
+            "characters": [
+              "李瓶儿",
+              "潘金莲"
+            ],
+            "hasInference": true
+          }
+        ],
+        "62": [
+          {
+            "id": "jpm-obj-guancai",
+            "title": "棺木 · 丧仪与财散",
+            "subtype": "object_omen",
+            "chapters": [
+              62
+            ],
+            "characters": [
+              "李瓶儿"
+            ],
+            "hasInference": true
+          }
+        ],
+        "61": [
+          {
+            "id": "jpm-obj-honghua",
+            "title": "红丸胎药 · 血崩催命",
+            "subtype": "object_omen",
+            "chapters": [
+              61
+            ],
+            "characters": [
+              "李瓶儿"
+            ],
+            "hasInference": true
+          }
+        ],
+        "70": [
+          {
+            "id": "jpm-obj-hongpao",
+            "title": "蟒衣大红袍 · 僭越之服",
+            "subtype": "object_omen",
+            "chapters": [
+              70
+            ],
+            "characters": [
+              "西门庆"
+            ],
+            "hasInference": true
+          }
+        ],
+        "49": [
+          {
+            "id": "jpm-obj-husengyao",
+            "title": "胡僧药（春药）",
+            "subtype": "object_omen",
+            "chapters": [
+              49,
+              79
+            ],
+            "characters": [
+              "潘金莲",
+              "西门庆"
+            ],
+            "hasInference": true
+          }
+        ],
+        "74": [
+          {
+            "id": "jpm-tune-baojuan",
+            "title": "宝卷（尼姑说唱）",
+            "subtype": "tune_omen",
+            "chapters": [
+              51,
+              74
+            ],
+            "characters": [
+              "吴月娘"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-piao",
+            "title": "皮袄 · 遗物争夺",
+            "subtype": "object_omen",
+            "chapters": [
+              74
+            ],
+            "characters": [
+              "潘金莲"
+            ],
+            "hasInference": true
+          }
+        ],
+        "27": [
+          {
+            "id": "jpm-obj-putaojia",
+            "title": "葡萄架",
+            "subtype": "object_omen",
+            "chapters": [
+              27
+            ],
+            "characters": [
+              "潘金莲",
+              "西门庆"
+            ],
+            "hasInference": true
+          }
+        ],
+        "8": [
+          {
+            "id": "jpm-obj-xie",
+            "title": "鞋 · 三寸金莲",
+            "subtype": "object_omen",
+            "chapters": [
+              8
+            ],
+            "characters": [
+              "潘金莲"
+            ],
+            "hasInference": true
+          }
+        ],
+        "11": [
+          {
+            "id": "jpm-obj-zanzi",
+            "title": "簪子",
+            "subtype": "object_omen",
+            "chapters": [
+              11
+            ],
+            "characters": [
+              "孟玉楼",
+              "西门庆"
+            ],
+            "hasInference": true
+          }
+        ],
+        "51": [
+          {
+            "id": "jpm-tune-baojuan",
+            "title": "宝卷（尼姑说唱）",
+            "subtype": "tune_omen",
+            "chapters": [
+              51,
+              74
+            ],
+            "characters": [
+              "吴月娘"
+            ],
+            "hasInference": true
+          }
+        ],
+        "63": [
+          {
+            "id": "jpm-tune-jiwen",
+            "title": "西门庆祭李瓶儿文 · 情真情假",
+            "subtype": "tune_omen",
+            "chapters": [
+              63
+            ],
+            "characters": [
+              "李瓶儿",
+              "西门庆"
+            ],
+            "hasInference": true
+          }
+        ],
+        "21": [
+          {
+            "id": "jpm-tune-pipa",
+            "title": "盲女琵琶曲",
+            "subtype": "tune_omen",
+            "chapters": [
+              21
+            ],
+            "characters": [
+              "潘金莲"
+            ],
+            "hasInference": true
+          }
+        ],
+        "24": [
+          {
+            "id": "jpm-tune-yuanxiao",
+            "title": "元宵灯词 · 乐极哀生",
+            "subtype": "tune_omen",
+            "chapters": [
+              15,
+              24
+            ],
+            "characters": [
+              "李瓶儿",
+              "潘金莲"
+            ],
+            "hasInference": true
+          }
+        ]
+      },
+      "byCharacter": {
+        "卜志道": [
+          {
+            "id": "jpm-name-buzhidao",
+            "title": "卜志道 · 不知道",
+            "subtype": "name_omen",
+            "chapters": [],
+            "characters": [
+              "卜志道"
+            ],
+            "hasInference": true
+          }
+        ],
+        "常峙节": [
+          {
+            "id": "jpm-name-changzhijie",
+            "title": "常峙节 · 常时借",
+            "subtype": "name_omen",
+            "chapters": [],
+            "characters": [
+              "常峙节"
+            ],
+            "hasInference": true
+          }
+        ],
+        "西门庆": [
+          {
+            "id": "jpm-name-ximenqing",
+            "title": "西门庆 · 反讽之庆",
+            "subtype": "name_omen",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "西门庆"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-jiu",
+            "title": "酒 · 四气之首",
+            "subtype": "object_omen",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "西门庆"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-tune-jiusecaiqi",
+            "title": "酒色财气歌",
+            "subtype": "tune_omen",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "西门庆"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-name-jinlian",
+            "title": "金 · 潘金莲",
+            "subtype": "name_omen",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "潘金莲",
+              "西门庆"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-zanzi",
+            "title": "簪子",
+            "subtype": "object_omen",
+            "chapters": [
+              11
+            ],
+            "characters": [
+              "孟玉楼",
+              "西门庆"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-name-pinger",
+            "title": "瓶 · 李瓶儿",
+            "subtype": "name_omen",
+            "chapters": [
+              17
+            ],
+            "characters": [
+              "李瓶儿",
+              "西门庆"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-name-songhuilian",
+            "title": "宋惠莲",
+            "subtype": "name_omen",
+            "chapters": [
+              26
+            ],
+            "characters": [
+              "来旺",
+              "西门庆"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-putaojia",
+            "title": "葡萄架",
+            "subtype": "object_omen",
+            "chapters": [
+              27
+            ],
+            "characters": [
+              "潘金莲",
+              "西门庆"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-name-wangliuer",
+            "title": "王六儿",
+            "subtype": "name_omen",
+            "chapters": [
+              37
+            ],
+            "characters": [
+              "西门庆",
+              "韩道国"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-husengyao",
+            "title": "胡僧药（春药）",
+            "subtype": "object_omen",
+            "chapters": [
+              49,
+              79
+            ],
+            "characters": [
+              "潘金莲",
+              "西门庆"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-tune-jiwen",
+            "title": "西门庆祭李瓶儿文 · 情真情假",
+            "subtype": "tune_omen",
+            "chapters": [
+              63
+            ],
+            "characters": [
+              "李瓶儿",
+              "西门庆"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-hongpao",
+            "title": "蟒衣大红袍 · 僭越之服",
+            "subtype": "object_omen",
+            "chapters": [
+              70
+            ],
+            "characters": [
+              "西门庆"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-name-chenjingji",
+            "title": "陈经济",
+            "subtype": "name_omen",
+            "chapters": [
+              80
+            ],
+            "characters": [
+              "西门庆",
+              "陈经济"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-yinzi",
+            "title": "银子 · 财之聚散",
+            "subtype": "object_omen",
+            "chapters": [],
+            "characters": [
+              "西门庆"
+            ],
+            "hasInference": true
+          }
+        ],
+        "陈经济": [
+          {
+            "id": "jpm-name-chenjingji",
+            "title": "陈经济",
+            "subtype": "name_omen",
+            "chapters": [
+              80
+            ],
+            "characters": [
+              "西门庆",
+              "陈经济"
+            ],
+            "hasInference": true
+          }
+        ],
+        "庞春梅": [
+          {
+            "id": "jpm-name-chunmei",
+            "title": "梅 · 庞春梅",
+            "subtype": "name_omen",
+            "chapters": [
+              96
+            ],
+            "characters": [
+              "庞春梅"
+            ],
+            "hasInference": true
+          }
+        ],
+        "官哥儿": [
+          {
+            "id": "jpm-name-guangeer",
+            "title": "官哥儿 · 求官之望",
+            "subtype": "name_omen",
+            "chapters": [
+              59
+            ],
+            "characters": [
+              "官哥儿"
+            ],
+            "hasInference": true
+          }
+        ],
+        "韩道国": [
+          {
+            "id": "jpm-name-wangliuer",
+            "title": "王六儿",
+            "subtype": "name_omen",
+            "chapters": [
+              37
+            ],
+            "characters": [
+              "西门庆",
+              "韩道国"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-name-handaoguo",
+            "title": "韩道国 · 憨/汉盗国",
+            "subtype": "name_omen",
+            "chapters": [],
+            "characters": [
+              "韩道国"
+            ],
+            "hasInference": true
+          }
+        ],
+        "李瓶儿": [
+          {
+            "id": "jpm-obj-pinger-cai",
+            "title": "李瓶儿之财 · 向心聚敛",
+            "subtype": "object_omen",
+            "chapters": [
+              14
+            ],
+            "characters": [
+              "李瓶儿"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-name-huazixu",
+            "title": "花子虚",
+            "subtype": "name_omen",
+            "chapters": [
+              14
+            ],
+            "characters": [
+              "李瓶儿",
+              "花子虚"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-deng",
+            "title": "元宵灯 · 极盛之象",
+            "subtype": "object_omen",
+            "chapters": [
+              15
+            ],
+            "characters": [
+              "李瓶儿"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-tune-yuanxiao",
+            "title": "元宵灯词 · 乐极哀生",
+            "subtype": "tune_omen",
+            "chapters": [
+              15,
+              24
+            ],
+            "characters": [
+              "李瓶儿",
+              "潘金莲"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-name-pinger",
+            "title": "瓶 · 李瓶儿",
+            "subtype": "name_omen",
+            "chapters": [
+              17
+            ],
+            "characters": [
+              "李瓶儿",
+              "西门庆"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-xueshizi",
+            "title": "雪狮子（白猫）",
+            "subtype": "object_omen",
+            "chapters": [
+              59
+            ],
+            "characters": [
+              "李瓶儿",
+              "潘金莲"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-honghua",
+            "title": "红丸胎药 · 血崩催命",
+            "subtype": "object_omen",
+            "chapters": [
+              61
+            ],
+            "characters": [
+              "李瓶儿"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-guancai",
+            "title": "棺木 · 丧仪与财散",
+            "subtype": "object_omen",
+            "chapters": [
+              62
+            ],
+            "characters": [
+              "李瓶儿"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-tune-jiwen",
+            "title": "西门庆祭李瓶儿文 · 情真情假",
+            "subtype": "tune_omen",
+            "chapters": [
+              63
+            ],
+            "characters": [
+              "李瓶儿",
+              "西门庆"
+            ],
+            "hasInference": true
+          }
+        ],
+        "花子虚": [
+          {
+            "id": "jpm-name-huazixu",
+            "title": "花子虚",
+            "subtype": "name_omen",
+            "chapters": [
+              14
+            ],
+            "characters": [
+              "李瓶儿",
+              "花子虚"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-jingzi",
+            "title": "镜 · 镜花水月",
+            "subtype": "object_omen",
+            "chapters": [],
+            "characters": [
+              "花子虚"
+            ],
+            "hasInference": true
+          }
+        ],
+        "潘金莲": [
+          {
+            "id": "jpm-name-jinlian",
+            "title": "金 · 潘金莲",
+            "subtype": "name_omen",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "潘金莲",
+              "西门庆"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-xie",
+            "title": "鞋 · 三寸金莲",
+            "subtype": "object_omen",
+            "chapters": [
+              8
+            ],
+            "characters": [
+              "潘金莲"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-tune-yuanxiao",
+            "title": "元宵灯词 · 乐极哀生",
+            "subtype": "tune_omen",
+            "chapters": [
+              15,
+              24
+            ],
+            "characters": [
+              "李瓶儿",
+              "潘金莲"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-tune-pipa",
+            "title": "盲女琵琶曲",
+            "subtype": "tune_omen",
+            "chapters": [
+              21
+            ],
+            "characters": [
+              "潘金莲"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-putaojia",
+            "title": "葡萄架",
+            "subtype": "object_omen",
+            "chapters": [
+              27
+            ],
+            "characters": [
+              "潘金莲",
+              "西门庆"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-husengyao",
+            "title": "胡僧药（春药）",
+            "subtype": "object_omen",
+            "chapters": [
+              49,
+              79
+            ],
+            "characters": [
+              "潘金莲",
+              "西门庆"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-xueshizi",
+            "title": "雪狮子（白猫）",
+            "subtype": "object_omen",
+            "chapters": [
+              59
+            ],
+            "characters": [
+              "李瓶儿",
+              "潘金莲"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-piao",
+            "title": "皮袄 · 遗物争夺",
+            "subtype": "object_omen",
+            "chapters": [
+              74
+            ],
+            "characters": [
+              "潘金莲"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-tune-jisheng",
+            "title": "〔寄生草〕· 依附之叹",
+            "subtype": "tune_omen",
+            "chapters": [],
+            "characters": [
+              "李桂姐",
+              "潘金莲"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-tune-shanpoyang",
+            "title": "〔山坡羊〕· 幽怨自况",
+            "subtype": "tune_omen",
+            "chapters": [],
+            "characters": [
+              "潘金莲"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-hanjin",
+            "title": "汗巾 · 私情信物",
+            "subtype": "object_omen",
+            "chapters": [],
+            "characters": [
+              "潘金莲"
+            ],
+            "hasInference": true
+          }
+        ],
+        "李娇儿": [
+          {
+            "id": "jpm-name-lijiaoer",
+            "title": "李娇儿 · 娇出勾栏",
+            "subtype": "name_omen",
+            "chapters": [],
+            "characters": [
+              "李娇儿"
+            ],
+            "hasInference": true
+          }
+        ],
+        "孟玉楼": [
+          {
+            "id": "jpm-name-mengyulou",
+            "title": "孟玉楼 · 玉楼虚设",
+            "subtype": "name_omen",
+            "chapters": [
+              7
+            ],
+            "characters": [
+              "孟玉楼"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-obj-zanzi",
+            "title": "簪子",
+            "subtype": "object_omen",
+            "chapters": [
+              11
+            ],
+            "characters": [
+              "孟玉楼",
+              "西门庆"
+            ],
+            "hasInference": true
+          }
+        ],
+        "如意儿": [
+          {
+            "id": "jpm-name-ruyi",
+            "title": "如意儿 · 名实相违",
+            "subtype": "name_omen",
+            "chapters": [],
+            "characters": [
+              "如意儿"
+            ],
+            "hasInference": true
+          }
+        ],
+        "来旺": [
+          {
+            "id": "jpm-name-songhuilian",
+            "title": "宋惠莲",
+            "subtype": "name_omen",
+            "chapters": [
+              26
+            ],
+            "characters": [
+              "来旺",
+              "西门庆"
+            ],
+            "hasInference": true
+          }
+        ],
+        "孙雪娥": [
+          {
+            "id": "jpm-name-sunxuee",
+            "title": "孙雪娥 · 雪易消",
+            "subtype": "name_omen",
+            "chapters": [],
+            "characters": [
+              "孙雪娥"
+            ],
+            "hasInference": true
+          }
+        ],
+        "吴典恩": [
+          {
+            "id": "jpm-name-wudianen",
+            "title": "吴典恩 · 无点恩",
+            "subtype": "name_omen",
+            "chapters": [],
+            "characters": [
+              "吴典恩"
+            ],
+            "hasInference": true
+          }
+        ],
+        "吴月娘": [
+          {
+            "id": "jpm-name-wuyueniang",
+            "title": "吴月娘",
+            "subtype": "name_omen",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "吴月娘"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "jpm-tune-baojuan",
+            "title": "宝卷（尼姑说唱）",
+            "subtype": "tune_omen",
+            "chapters": [
+              51,
+              74
+            ],
+            "characters": [
+              "吴月娘"
+            ],
+            "hasInference": true
+          }
+        ],
+        "孝哥儿": [
+          {
+            "id": "jpm-name-xiaogeer",
+            "title": "孝哥儿 · 出家偿业",
+            "subtype": "name_omen",
+            "chapters": [
+              79
+            ],
+            "characters": [
+              "孝哥儿"
+            ],
+            "hasInference": true
+          }
+        ],
+        "谢希大": [
+          {
+            "id": "jpm-name-xiexida",
+            "title": "谢希大 · 些须大",
+            "subtype": "name_omen",
+            "chapters": [],
+            "characters": [
+              "谢希大"
+            ],
+            "hasInference": true
+          }
+        ],
+        "应伯爵": [
+          {
+            "id": "jpm-name-yingbojue",
+            "title": "应伯爵 · 应白嚼",
+            "subtype": "name_omen",
+            "chapters": [],
+            "characters": [
+              "应伯爵"
+            ],
+            "hasInference": true
+          }
+        ],
+        "李桂姐": [
+          {
+            "id": "jpm-tune-jisheng",
+            "title": "〔寄生草〕· 依附之叹",
+            "subtype": "tune_omen",
+            "chapters": [],
+            "characters": [
+              "李桂姐",
+              "潘金莲"
+            ],
+            "hasInference": true
+          }
+        ]
+      },
+      "entries": [
+        {
+          "id": "jpm-name-buzhidao",
+          "title": "卜志道 · 不知道",
+          "subtype": "name_omen",
+          "chapters": [],
+          "characters": [
+            "卜志道"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-changzhijie",
+          "title": "常峙节 · 常时借",
+          "subtype": "name_omen",
+          "chapters": [],
+          "characters": [
+            "常峙节"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-chenjingji",
+          "title": "陈经济",
+          "subtype": "name_omen",
+          "chapters": [
+            80
+          ],
+          "characters": [
+            "西门庆",
+            "陈经济"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-chunmei",
+          "title": "梅 · 庞春梅",
+          "subtype": "name_omen",
+          "chapters": [
+            96
+          ],
+          "characters": [
+            "庞春梅"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-guangeer",
+          "title": "官哥儿 · 求官之望",
+          "subtype": "name_omen",
+          "chapters": [
+            59
+          ],
+          "characters": [
+            "官哥儿"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-handaoguo",
+          "title": "韩道国 · 憨/汉盗国",
+          "subtype": "name_omen",
+          "chapters": [],
+          "characters": [
+            "韩道国"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-huazixu",
+          "title": "花子虚",
+          "subtype": "name_omen",
+          "chapters": [
+            14
+          ],
+          "characters": [
+            "李瓶儿",
+            "花子虚"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-jinlian",
+          "title": "金 · 潘金莲",
+          "subtype": "name_omen",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "潘金莲",
+            "西门庆"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-lijiaoer",
+          "title": "李娇儿 · 娇出勾栏",
+          "subtype": "name_omen",
+          "chapters": [],
+          "characters": [
+            "李娇儿"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-mengyulou",
+          "title": "孟玉楼 · 玉楼虚设",
+          "subtype": "name_omen",
+          "chapters": [
+            7
+          ],
+          "characters": [
+            "孟玉楼"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-pinger",
+          "title": "瓶 · 李瓶儿",
+          "subtype": "name_omen",
+          "chapters": [
+            17
+          ],
+          "characters": [
+            "李瓶儿",
+            "西门庆"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-ruyi",
+          "title": "如意儿 · 名实相违",
+          "subtype": "name_omen",
+          "chapters": [],
+          "characters": [
+            "如意儿"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-songhuilian",
+          "title": "宋惠莲",
+          "subtype": "name_omen",
+          "chapters": [
+            26
+          ],
+          "characters": [
+            "来旺",
+            "西门庆"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-sunxuee",
+          "title": "孙雪娥 · 雪易消",
+          "subtype": "name_omen",
+          "chapters": [],
+          "characters": [
+            "孙雪娥"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-wangliuer",
+          "title": "王六儿",
+          "subtype": "name_omen",
+          "chapters": [
+            37
+          ],
+          "characters": [
+            "西门庆",
+            "韩道国"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-wudianen",
+          "title": "吴典恩 · 无点恩",
+          "subtype": "name_omen",
+          "chapters": [],
+          "characters": [
+            "吴典恩"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-wuyueniang",
+          "title": "吴月娘",
+          "subtype": "name_omen",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "吴月娘"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-xiaogeer",
+          "title": "孝哥儿 · 出家偿业",
+          "subtype": "name_omen",
+          "chapters": [
+            79
+          ],
+          "characters": [
+            "孝哥儿"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-xiexida",
+          "title": "谢希大 · 些须大",
+          "subtype": "name_omen",
+          "chapters": [],
+          "characters": [
+            "谢希大"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-ximenqing",
+          "title": "西门庆 · 反讽之庆",
+          "subtype": "name_omen",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "西门庆"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-name-yingbojue",
+          "title": "应伯爵 · 应白嚼",
+          "subtype": "name_omen",
+          "chapters": [],
+          "characters": [
+            "应伯爵"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-obj-deng",
+          "title": "元宵灯 · 极盛之象",
+          "subtype": "object_omen",
+          "chapters": [
+            15
+          ],
+          "characters": [
+            "李瓶儿"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-obj-guancai",
+          "title": "棺木 · 丧仪与财散",
+          "subtype": "object_omen",
+          "chapters": [
+            62
+          ],
+          "characters": [
+            "李瓶儿"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-obj-hanjin",
+          "title": "汗巾 · 私情信物",
+          "subtype": "object_omen",
+          "chapters": [],
+          "characters": [
+            "潘金莲"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-obj-honghua",
+          "title": "红丸胎药 · 血崩催命",
+          "subtype": "object_omen",
+          "chapters": [
+            61
+          ],
+          "characters": [
+            "李瓶儿"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-obj-hongpao",
+          "title": "蟒衣大红袍 · 僭越之服",
+          "subtype": "object_omen",
+          "chapters": [
+            70
+          ],
+          "characters": [
+            "西门庆"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-obj-husengyao",
+          "title": "胡僧药（春药）",
+          "subtype": "object_omen",
+          "chapters": [
+            49,
+            79
+          ],
+          "characters": [
+            "潘金莲",
+            "西门庆"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-obj-jingzi",
+          "title": "镜 · 镜花水月",
+          "subtype": "object_omen",
+          "chapters": [],
+          "characters": [
+            "花子虚"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-obj-jiu",
+          "title": "酒 · 四气之首",
+          "subtype": "object_omen",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "西门庆"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-obj-piao",
+          "title": "皮袄 · 遗物争夺",
+          "subtype": "object_omen",
+          "chapters": [
+            74
+          ],
+          "characters": [
+            "潘金莲"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-obj-pinger-cai",
+          "title": "李瓶儿之财 · 向心聚敛",
+          "subtype": "object_omen",
+          "chapters": [
+            14
+          ],
+          "characters": [
+            "李瓶儿"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-obj-putaojia",
+          "title": "葡萄架",
+          "subtype": "object_omen",
+          "chapters": [
+            27
+          ],
+          "characters": [
+            "潘金莲",
+            "西门庆"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-obj-xie",
+          "title": "鞋 · 三寸金莲",
+          "subtype": "object_omen",
+          "chapters": [
+            8
+          ],
+          "characters": [
+            "潘金莲"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-obj-xueshizi",
+          "title": "雪狮子（白猫）",
+          "subtype": "object_omen",
+          "chapters": [
+            59
+          ],
+          "characters": [
+            "李瓶儿",
+            "潘金莲"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-obj-yinzi",
+          "title": "银子 · 财之聚散",
+          "subtype": "object_omen",
+          "chapters": [],
+          "characters": [
+            "西门庆"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-obj-zanzi",
+          "title": "簪子",
+          "subtype": "object_omen",
+          "chapters": [
+            11
+          ],
+          "characters": [
+            "孟玉楼",
+            "西门庆"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-tune-baojuan",
+          "title": "宝卷（尼姑说唱）",
+          "subtype": "tune_omen",
+          "chapters": [
+            51,
+            74
+          ],
+          "characters": [
+            "吴月娘"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-tune-jisheng",
+          "title": "〔寄生草〕· 依附之叹",
+          "subtype": "tune_omen",
+          "chapters": [],
+          "characters": [
+            "李桂姐",
+            "潘金莲"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-tune-jiusecaiqi",
+          "title": "酒色财气歌",
+          "subtype": "tune_omen",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "西门庆"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-tune-jiwen",
+          "title": "西门庆祭李瓶儿文 · 情真情假",
+          "subtype": "tune_omen",
+          "chapters": [
+            63
+          ],
+          "characters": [
+            "李瓶儿",
+            "西门庆"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-tune-pipa",
+          "title": "盲女琵琶曲",
+          "subtype": "tune_omen",
+          "chapters": [
+            21
+          ],
+          "characters": [
+            "潘金莲"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-tune-shanpoyang",
+          "title": "〔山坡羊〕· 幽怨自况",
+          "subtype": "tune_omen",
+          "chapters": [],
+          "characters": [
+            "潘金莲"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "jpm-tune-yuanxiao",
+          "title": "元宵灯词 · 乐极哀生",
+          "subtype": "tune_omen",
+          "chapters": [
+            15,
+            24
+          ],
+          "characters": [
+            "李瓶儿",
+            "潘金莲"
+          ],
+          "hasInference": true
+        }
+      ]
+    },
+    "xiyouji": {
+      "book": "西游记",
+      "slug": "xiyouji",
+      "count": 41,
+      "byChapter": {
+        "7": [
+          {
+            "id": "xyj-dan-baguelu",
+            "title": "八卦炉 · 火眼金睛",
+            "subtype": "alchemy",
+            "chapters": [
+              7
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-xinyuan",
+            "title": "心猿 · 金公",
+            "subtype": "alchemy",
+            "chapters": [
+              7,
+              14,
+              85
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-jindan",
+            "title": "金丹 · 九转大还丹",
+            "subtype": "alchemy",
+            "chapters": [
+              2,
+              7
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "72": [
+          {
+            "id": "xyj-dan-chanv",
+            "title": "姹女",
+            "subtype": "alchemy",
+            "chapters": [
+              72
+            ],
+            "characters": [
+              "蜘蛛精"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-pansidong",
+            "title": "盘丝洞 · 姹女耗阳",
+            "subtype": "place_omen",
+            "chapters": [
+              72,
+              73
+            ],
+            "characters": [
+              "猪八戒"
+            ],
+            "hasInference": true
+          }
+        ],
+        "57": [
+          {
+            "id": "xyj-dan-erxin",
+            "title": "二心 · 真假美猴王",
+            "subtype": "alchemy",
+            "chapters": [
+              57,
+              58
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "58": [
+          {
+            "id": "xyj-dan-erxin",
+            "title": "二心 · 真假美猴王",
+            "subtype": "alchemy",
+            "chapters": [
+              57,
+              58
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "22": [
+          {
+            "id": "xyj-dan-wuxing",
+            "title": "五行 · 师徒配属",
+            "subtype": "alchemy",
+            "chapters": [
+              22
+            ],
+            "characters": [
+              "唐僧",
+              "孙悟空",
+              "沙僧",
+              "猪八戒",
+              "白龙马"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-liusha",
+            "title": "流沙河 · 收土",
+            "subtype": "place_omen",
+            "chapters": [
+              22
+            ],
+            "characters": [
+              "沙僧"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-huangpo",
+            "title": "黄婆",
+            "subtype": "alchemy",
+            "chapters": [
+              22
+            ],
+            "characters": [
+              "沙僧"
+            ],
+            "hasInference": true
+          }
+        ],
+        "2": [
+          {
+            "id": "xyj-place-xieyue",
+            "title": "斜月三星洞 · 心",
+            "subtype": "place_omen",
+            "chapters": [
+              1,
+              2
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-jindan",
+            "title": "金丹 · 九转大还丹",
+            "subtype": "alchemy",
+            "chapters": [
+              2,
+              7
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "14": [
+          {
+            "id": "xyj-place-liangjie",
+            "title": "两界山 · 五行山",
+            "subtype": "place_omen",
+            "chapters": [
+              13,
+              14
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-liuzei",
+            "title": "六贼 · 眼耳鼻舌身意",
+            "subtype": "alchemy",
+            "chapters": [
+              14
+            ],
+            "characters": [
+              "唐僧",
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-xinyuan",
+            "title": "心猿 · 金公",
+            "subtype": "alchemy",
+            "chapters": [
+              7,
+              14,
+              85
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-poem-c14",
+            "title": "第14回回前诗 · 心猿",
+            "subtype": "poem",
+            "chapters": [
+              14
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-jingu",
+            "title": "紧箍儿 · 定心真言",
+            "subtype": "alchemy",
+            "chapters": [
+              14
+            ],
+            "characters": [
+              "唐僧",
+              "孙悟空",
+              "观音菩萨"
+            ],
+            "hasInference": true
+          }
+        ],
+        "3": [
+          {
+            "id": "xyj-dan-jingubang",
+            "title": "如意金箍棒 · 定海神针",
+            "subtype": "symbol",
+            "chapters": [
+              3
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "19": [
+          {
+            "id": "xyj-verse-xinjing",
+            "title": "乌巢禅师《心经》",
+            "subtype": "poem",
+            "chapters": [
+              19
+            ],
+            "characters": [
+              "唐僧",
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-mumu",
+            "title": "木母",
+            "subtype": "alchemy",
+            "chapters": [
+              19
+            ],
+            "characters": [
+              "猪八戒"
+            ],
+            "hasInference": true
+          }
+        ],
+        "24": [
+          {
+            "id": "xyj-place-wuzhuangguan",
+            "title": "五庄观 · 地仙之祖",
+            "subtype": "place_omen",
+            "chapters": [
+              24,
+              25,
+              26
+            ],
+            "characters": [
+              "镇元子"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-renshenguo",
+            "title": "人参果 · 草还丹",
+            "subtype": "alchemy",
+            "chapters": [
+              24,
+              25,
+              26
+            ],
+            "characters": [
+              "孙悟空",
+              "镇元子"
+            ],
+            "hasInference": true
+          }
+        ],
+        "25": [
+          {
+            "id": "xyj-place-wuzhuangguan",
+            "title": "五庄观 · 地仙之祖",
+            "subtype": "place_omen",
+            "chapters": [
+              24,
+              25,
+              26
+            ],
+            "characters": [
+              "镇元子"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-renshenguo",
+            "title": "人参果 · 草还丹",
+            "subtype": "alchemy",
+            "chapters": [
+              24,
+              25,
+              26
+            ],
+            "characters": [
+              "孙悟空",
+              "镇元子"
+            ],
+            "hasInference": true
+          }
+        ],
+        "26": [
+          {
+            "id": "xyj-place-wuzhuangguan",
+            "title": "五庄观 · 地仙之祖",
+            "subtype": "place_omen",
+            "chapters": [
+              24,
+              25,
+              26
+            ],
+            "characters": [
+              "镇元子"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-renshenguo",
+            "title": "人参果 · 草还丹",
+            "subtype": "alchemy",
+            "chapters": [
+              24,
+              25,
+              26
+            ],
+            "characters": [
+              "孙悟空",
+              "镇元子"
+            ],
+            "hasInference": true
+          }
+        ],
+        "85": [
+          {
+            "id": "xyj-dan-xinyuan",
+            "title": "心猿 · 金公",
+            "subtype": "alchemy",
+            "chapters": [
+              7,
+              14,
+              85
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "15": [
+          {
+            "id": "xyj-dan-yima",
+            "title": "意马",
+            "subtype": "alchemy",
+            "chapters": [
+              15
+            ],
+            "characters": [
+              "白龙马"
+            ],
+            "hasInference": true
+          }
+        ],
+        "41": [
+          {
+            "id": "xyj-dan-yinger",
+            "title": "婴儿",
+            "subtype": "alchemy",
+            "chapters": [
+              41
+            ],
+            "characters": [
+              "红孩儿"
+            ],
+            "hasInference": true
+          }
+        ],
+        "78": [
+          {
+            "id": "xyj-place-bikou",
+            "title": "比丘国 · 婴儿为药",
+            "subtype": "place_omen",
+            "chapters": [
+              78,
+              79
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          }
+        ],
+        "79": [
+          {
+            "id": "xyj-place-bikou",
+            "title": "比丘国 · 婴儿为药",
+            "subtype": "place_omen",
+            "chapters": [
+              78,
+              79
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          }
+        ],
+        "28": [
+          {
+            "id": "xyj-place-bopo",
+            "title": "波月洞 · 情移自性",
+            "subtype": "place_omen",
+            "chapters": [
+              28,
+              29,
+              30
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          }
+        ],
+        "29": [
+          {
+            "id": "xyj-place-bopo",
+            "title": "波月洞 · 情移自性",
+            "subtype": "place_omen",
+            "chapters": [
+              28,
+              29,
+              30
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          }
+        ],
+        "30": [
+          {
+            "id": "xyj-place-bopo",
+            "title": "波月洞 · 情移自性",
+            "subtype": "place_omen",
+            "chapters": [
+              28,
+              29,
+              30
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          }
+        ],
+        "20": [
+          {
+            "id": "xyj-place-huangfengling",
+            "title": "黄风岭 · 三昧神风",
+            "subtype": "place_omen",
+            "chapters": [
+              20,
+              21
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          }
+        ],
+        "21": [
+          {
+            "id": "xyj-place-huangfengling",
+            "title": "黄风岭 · 三昧神风",
+            "subtype": "place_omen",
+            "chapters": [
+              20,
+              21
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          }
+        ],
+        "59": [
+          {
+            "id": "xyj-place-huoyanshan",
+            "title": "火焰山",
+            "subtype": "place_omen",
+            "chapters": [
+              59,
+              60,
+              61
+            ],
+            "characters": [
+              "孙悟空",
+              "牛魔王"
+            ],
+            "hasInference": true
+          }
+        ],
+        "60": [
+          {
+            "id": "xyj-place-huoyanshan",
+            "title": "火焰山",
+            "subtype": "place_omen",
+            "chapters": [
+              59,
+              60,
+              61
+            ],
+            "characters": [
+              "孙悟空",
+              "牛魔王"
+            ],
+            "hasInference": true
+          }
+        ],
+        "61": [
+          {
+            "id": "xyj-place-huoyanshan",
+            "title": "火焰山",
+            "subtype": "place_omen",
+            "chapters": [
+              59,
+              60,
+              61
+            ],
+            "characters": [
+              "孙悟空",
+              "牛魔王"
+            ],
+            "hasInference": true
+          }
+        ],
+        "64": [
+          {
+            "id": "xyj-place-jingjieling",
+            "title": "荆棘岭木仙庵 · 木性谈诗",
+            "subtype": "place_omen",
+            "chapters": [
+              64
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          }
+        ],
+        "62": [
+          {
+            "id": "xyj-place-jisaiguo",
+            "title": "祭赛国 · 扫塔辨冤",
+            "subtype": "place_omen",
+            "chapters": [
+              62,
+              63
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "63": [
+          {
+            "id": "xyj-place-jisaiguo",
+            "title": "祭赛国 · 扫塔辨冤",
+            "subtype": "place_omen",
+            "chapters": [
+              62,
+              63
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "13": [
+          {
+            "id": "xyj-place-liangjie",
+            "title": "两界山 · 五行山",
+            "subtype": "place_omen",
+            "chapters": [
+              13,
+              14
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "1": [
+          {
+            "id": "xyj-verse-huiqian",
+            "title": "回前诗 · 灵根心性",
+            "subtype": "poem",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-xieyue",
+            "title": "斜月三星洞 · 心",
+            "subtype": "place_omen",
+            "chapters": [
+              1,
+              2
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-lingtai",
+            "title": "灵台方寸山 · 斜月三星洞",
+            "subtype": "place_omen",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-poem-kaipian",
+            "title": "第1回开篇 · 混沌未分",
+            "subtype": "poem",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": false
+          }
+        ],
+        "73": [
+          {
+            "id": "xyj-place-pansidong",
+            "title": "盘丝洞 · 姹女耗阳",
+            "subtype": "place_omen",
+            "chapters": [
+              72,
+              73
+            ],
+            "characters": [
+              "猪八戒"
+            ],
+            "hasInference": true
+          }
+        ],
+        "32": [
+          {
+            "id": "xyj-place-pingding",
+            "title": "平顶山莲花洞 · 金银",
+            "subtype": "place_omen",
+            "chapters": [
+              32,
+              33,
+              34,
+              35
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "33": [
+          {
+            "id": "xyj-place-pingding",
+            "title": "平顶山莲花洞 · 金银",
+            "subtype": "place_omen",
+            "chapters": [
+              32,
+              33,
+              34,
+              35
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "34": [
+          {
+            "id": "xyj-place-pingding",
+            "title": "平顶山莲花洞 · 金银",
+            "subtype": "place_omen",
+            "chapters": [
+              32,
+              33,
+              34,
+              35
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "35": [
+          {
+            "id": "xyj-place-pingding",
+            "title": "平顶山莲花洞 · 金银",
+            "subtype": "place_omen",
+            "chapters": [
+              32,
+              33,
+              34,
+              35
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "74": [
+          {
+            "id": "xyj-place-shituoling",
+            "title": "狮驼岭 · 最险魔关",
+            "subtype": "place_omen",
+            "chapters": [
+              74,
+              75,
+              76,
+              77
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "75": [
+          {
+            "id": "xyj-place-shituoling",
+            "title": "狮驼岭 · 最险魔关",
+            "subtype": "place_omen",
+            "chapters": [
+              74,
+              75,
+              76,
+              77
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "76": [
+          {
+            "id": "xyj-place-shituoling",
+            "title": "狮驼岭 · 最险魔关",
+            "subtype": "place_omen",
+            "chapters": [
+              74,
+              75,
+              76,
+              77
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "77": [
+          {
+            "id": "xyj-place-shituoling",
+            "title": "狮驼岭 · 最险魔关",
+            "subtype": "place_omen",
+            "chapters": [
+              74,
+              75,
+              76,
+              77
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "47": [
+          {
+            "id": "xyj-place-tongtianhe",
+            "title": "通天河",
+            "subtype": "place_omen",
+            "chapters": [
+              47,
+              48,
+              49
+            ],
+            "characters": [
+              "唐僧",
+              "白龙马"
+            ],
+            "hasInference": true
+          }
+        ],
+        "48": [
+          {
+            "id": "xyj-place-tongtianhe",
+            "title": "通天河",
+            "subtype": "place_omen",
+            "chapters": [
+              47,
+              48,
+              49
+            ],
+            "characters": [
+              "唐僧",
+              "白龙马"
+            ],
+            "hasInference": true
+          }
+        ],
+        "49": [
+          {
+            "id": "xyj-place-tongtianhe",
+            "title": "通天河",
+            "subtype": "place_omen",
+            "chapters": [
+              47,
+              48,
+              49
+            ],
+            "characters": [
+              "唐僧",
+              "白龙马"
+            ],
+            "hasInference": true
+          }
+        ],
+        "80": [
+          {
+            "id": "xyj-place-wudidong",
+            "title": "无底洞 · 色陷无底",
+            "subtype": "place_omen",
+            "chapters": [
+              80,
+              81,
+              82,
+              83
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          }
+        ],
+        "81": [
+          {
+            "id": "xyj-place-wudidong",
+            "title": "无底洞 · 色陷无底",
+            "subtype": "place_omen",
+            "chapters": [
+              80,
+              81,
+              82,
+              83
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          }
+        ],
+        "82": [
+          {
+            "id": "xyj-place-wudidong",
+            "title": "无底洞 · 色陷无底",
+            "subtype": "place_omen",
+            "chapters": [
+              80,
+              81,
+              82,
+              83
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          }
+        ],
+        "83": [
+          {
+            "id": "xyj-place-wudidong",
+            "title": "无底洞 · 色陷无底",
+            "subtype": "place_omen",
+            "chapters": [
+              80,
+              81,
+              82,
+              83
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          }
+        ],
+        "65": [
+          {
+            "id": "xyj-place-xiaoleiyin",
+            "title": "小雷音寺 · 真假佛",
+            "subtype": "place_omen",
+            "chapters": [
+              65,
+              66
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "66": [
+          {
+            "id": "xyj-place-xiaoleiyin",
+            "title": "小雷音寺 · 真假佛",
+            "subtype": "place_omen",
+            "chapters": [
+              65,
+              66
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "54": [
+          {
+            "id": "xyj-place-xiliang",
+            "title": "西梁女国 · 情关",
+            "subtype": "place_omen",
+            "chapters": [
+              54
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          }
+        ],
+        "53": [
+          {
+            "id": "xyj-place-zimuhe",
+            "title": "子母河 · 阴阳错乱",
+            "subtype": "place_omen",
+            "chapters": [
+              53
+            ],
+            "characters": [
+              "猪八戒"
+            ],
+            "hasInference": true
+          }
+        ],
+        "98": [
+          {
+            "id": "xyj-poem-wuzizhenjing",
+            "title": "无字真经 · 色空",
+            "subtype": "symbol",
+            "chapters": [
+              98
+            ],
+            "characters": [
+              "唐僧",
+              "如来佛祖",
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ]
+      },
+      "byCharacter": {
+        "孙悟空": [
+          {
+            "id": "xyj-verse-huiqian",
+            "title": "回前诗 · 灵根心性",
+            "subtype": "poem",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-xieyue",
+            "title": "斜月三星洞 · 心",
+            "subtype": "place_omen",
+            "chapters": [
+              1,
+              2
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-lingtai",
+            "title": "灵台方寸山 · 斜月三星洞",
+            "subtype": "place_omen",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-poem-kaipian",
+            "title": "第1回开篇 · 混沌未分",
+            "subtype": "poem",
+            "chapters": [
+              1
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": false
+          },
+          {
+            "id": "xyj-dan-jindan",
+            "title": "金丹 · 九转大还丹",
+            "subtype": "alchemy",
+            "chapters": [
+              2,
+              7
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-jingubang",
+            "title": "如意金箍棒 · 定海神针",
+            "subtype": "symbol",
+            "chapters": [
+              3
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-baguelu",
+            "title": "八卦炉 · 火眼金睛",
+            "subtype": "alchemy",
+            "chapters": [
+              7
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-xinyuan",
+            "title": "心猿 · 金公",
+            "subtype": "alchemy",
+            "chapters": [
+              7,
+              14,
+              85
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-liangjie",
+            "title": "两界山 · 五行山",
+            "subtype": "place_omen",
+            "chapters": [
+              13,
+              14
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-liuzei",
+            "title": "六贼 · 眼耳鼻舌身意",
+            "subtype": "alchemy",
+            "chapters": [
+              14
+            ],
+            "characters": [
+              "唐僧",
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-poem-c14",
+            "title": "第14回回前诗 · 心猿",
+            "subtype": "poem",
+            "chapters": [
+              14
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-jingu",
+            "title": "紧箍儿 · 定心真言",
+            "subtype": "alchemy",
+            "chapters": [
+              14
+            ],
+            "characters": [
+              "唐僧",
+              "孙悟空",
+              "观音菩萨"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-verse-xinjing",
+            "title": "乌巢禅师《心经》",
+            "subtype": "poem",
+            "chapters": [
+              19
+            ],
+            "characters": [
+              "唐僧",
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-wuxing",
+            "title": "五行 · 师徒配属",
+            "subtype": "alchemy",
+            "chapters": [
+              22
+            ],
+            "characters": [
+              "唐僧",
+              "孙悟空",
+              "沙僧",
+              "猪八戒",
+              "白龙马"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-renshenguo",
+            "title": "人参果 · 草还丹",
+            "subtype": "alchemy",
+            "chapters": [
+              24,
+              25,
+              26
+            ],
+            "characters": [
+              "孙悟空",
+              "镇元子"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-pingding",
+            "title": "平顶山莲花洞 · 金银",
+            "subtype": "place_omen",
+            "chapters": [
+              32,
+              33,
+              34,
+              35
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-erxin",
+            "title": "二心 · 真假美猴王",
+            "subtype": "alchemy",
+            "chapters": [
+              57,
+              58
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-huoyanshan",
+            "title": "火焰山",
+            "subtype": "place_omen",
+            "chapters": [
+              59,
+              60,
+              61
+            ],
+            "characters": [
+              "孙悟空",
+              "牛魔王"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-jisaiguo",
+            "title": "祭赛国 · 扫塔辨冤",
+            "subtype": "place_omen",
+            "chapters": [
+              62,
+              63
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-xiaoleiyin",
+            "title": "小雷音寺 · 真假佛",
+            "subtype": "place_omen",
+            "chapters": [
+              65,
+              66
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-shituoling",
+            "title": "狮驼岭 · 最险魔关",
+            "subtype": "place_omen",
+            "chapters": [
+              74,
+              75,
+              76,
+              77
+            ],
+            "characters": [
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-poem-wuzizhenjing",
+            "title": "无字真经 · 色空",
+            "subtype": "symbol",
+            "chapters": [
+              98
+            ],
+            "characters": [
+              "唐僧",
+              "如来佛祖",
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-kanli",
+            "title": "抽坎填离 · 水火既济",
+            "subtype": "alchemy",
+            "chapters": [],
+            "characters": [
+              "孙悟空",
+              "白龙马"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-qianhong",
+            "title": "真铅真汞 · 铅汞",
+            "subtype": "alchemy",
+            "chapters": [],
+            "characters": [
+              "孙悟空",
+              "猪八戒"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-longhu",
+            "title": "降龙伏虎 · 龙虎",
+            "subtype": "alchemy",
+            "chapters": [],
+            "characters": [
+              "孙悟空",
+              "白龙马"
+            ],
+            "hasInference": true
+          }
+        ],
+        "蜘蛛精": [
+          {
+            "id": "xyj-dan-chanv",
+            "title": "姹女",
+            "subtype": "alchemy",
+            "chapters": [
+              72
+            ],
+            "characters": [
+              "蜘蛛精"
+            ],
+            "hasInference": true
+          }
+        ],
+        "沙僧": [
+          {
+            "id": "xyj-dan-wuxing",
+            "title": "五行 · 师徒配属",
+            "subtype": "alchemy",
+            "chapters": [
+              22
+            ],
+            "characters": [
+              "唐僧",
+              "孙悟空",
+              "沙僧",
+              "猪八戒",
+              "白龙马"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-liusha",
+            "title": "流沙河 · 收土",
+            "subtype": "place_omen",
+            "chapters": [
+              22
+            ],
+            "characters": [
+              "沙僧"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-huangpo",
+            "title": "黄婆",
+            "subtype": "alchemy",
+            "chapters": [
+              22
+            ],
+            "characters": [
+              "沙僧"
+            ],
+            "hasInference": true
+          }
+        ],
+        "唐僧": [
+          {
+            "id": "xyj-dan-liuzei",
+            "title": "六贼 · 眼耳鼻舌身意",
+            "subtype": "alchemy",
+            "chapters": [
+              14
+            ],
+            "characters": [
+              "唐僧",
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-jingu",
+            "title": "紧箍儿 · 定心真言",
+            "subtype": "alchemy",
+            "chapters": [
+              14
+            ],
+            "characters": [
+              "唐僧",
+              "孙悟空",
+              "观音菩萨"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-verse-xinjing",
+            "title": "乌巢禅师《心经》",
+            "subtype": "poem",
+            "chapters": [
+              19
+            ],
+            "characters": [
+              "唐僧",
+              "孙悟空"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-huangfengling",
+            "title": "黄风岭 · 三昧神风",
+            "subtype": "place_omen",
+            "chapters": [
+              20,
+              21
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-wuxing",
+            "title": "五行 · 师徒配属",
+            "subtype": "alchemy",
+            "chapters": [
+              22
+            ],
+            "characters": [
+              "唐僧",
+              "孙悟空",
+              "沙僧",
+              "猪八戒",
+              "白龙马"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-bopo",
+            "title": "波月洞 · 情移自性",
+            "subtype": "place_omen",
+            "chapters": [
+              28,
+              29,
+              30
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-tongtianhe",
+            "title": "通天河",
+            "subtype": "place_omen",
+            "chapters": [
+              47,
+              48,
+              49
+            ],
+            "characters": [
+              "唐僧",
+              "白龙马"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-xiliang",
+            "title": "西梁女国 · 情关",
+            "subtype": "place_omen",
+            "chapters": [
+              54
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-jingjieling",
+            "title": "荆棘岭木仙庵 · 木性谈诗",
+            "subtype": "place_omen",
+            "chapters": [
+              64
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-bikou",
+            "title": "比丘国 · 婴儿为药",
+            "subtype": "place_omen",
+            "chapters": [
+              78,
+              79
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-wudidong",
+            "title": "无底洞 · 色陷无底",
+            "subtype": "place_omen",
+            "chapters": [
+              80,
+              81,
+              82,
+              83
+            ],
+            "characters": [
+              "唐僧"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-poem-wuzizhenjing",
+            "title": "无字真经 · 色空",
+            "subtype": "symbol",
+            "chapters": [
+              98
+            ],
+            "characters": [
+              "唐僧",
+              "如来佛祖",
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ],
+        "观音菩萨": [
+          {
+            "id": "xyj-dan-jingu",
+            "title": "紧箍儿 · 定心真言",
+            "subtype": "alchemy",
+            "chapters": [
+              14
+            ],
+            "characters": [
+              "唐僧",
+              "孙悟空",
+              "观音菩萨"
+            ],
+            "hasInference": true
+          }
+        ],
+        "白龙马": [
+          {
+            "id": "xyj-dan-yima",
+            "title": "意马",
+            "subtype": "alchemy",
+            "chapters": [
+              15
+            ],
+            "characters": [
+              "白龙马"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-wuxing",
+            "title": "五行 · 师徒配属",
+            "subtype": "alchemy",
+            "chapters": [
+              22
+            ],
+            "characters": [
+              "唐僧",
+              "孙悟空",
+              "沙僧",
+              "猪八戒",
+              "白龙马"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-tongtianhe",
+            "title": "通天河",
+            "subtype": "place_omen",
+            "chapters": [
+              47,
+              48,
+              49
+            ],
+            "characters": [
+              "唐僧",
+              "白龙马"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-kanli",
+            "title": "抽坎填离 · 水火既济",
+            "subtype": "alchemy",
+            "chapters": [],
+            "characters": [
+              "孙悟空",
+              "白龙马"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-longhu",
+            "title": "降龙伏虎 · 龙虎",
+            "subtype": "alchemy",
+            "chapters": [],
+            "characters": [
+              "孙悟空",
+              "白龙马"
+            ],
+            "hasInference": true
+          }
+        ],
+        "猪八戒": [
+          {
+            "id": "xyj-dan-mumu",
+            "title": "木母",
+            "subtype": "alchemy",
+            "chapters": [
+              19
+            ],
+            "characters": [
+              "猪八戒"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-wuxing",
+            "title": "五行 · 师徒配属",
+            "subtype": "alchemy",
+            "chapters": [
+              22
+            ],
+            "characters": [
+              "唐僧",
+              "孙悟空",
+              "沙僧",
+              "猪八戒",
+              "白龙马"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-zimuhe",
+            "title": "子母河 · 阴阳错乱",
+            "subtype": "place_omen",
+            "chapters": [
+              53
+            ],
+            "characters": [
+              "猪八戒"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-place-pansidong",
+            "title": "盘丝洞 · 姹女耗阳",
+            "subtype": "place_omen",
+            "chapters": [
+              72,
+              73
+            ],
+            "characters": [
+              "猪八戒"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-qianhong",
+            "title": "真铅真汞 · 铅汞",
+            "subtype": "alchemy",
+            "chapters": [],
+            "characters": [
+              "孙悟空",
+              "猪八戒"
+            ],
+            "hasInference": true
+          }
+        ],
+        "镇元子": [
+          {
+            "id": "xyj-place-wuzhuangguan",
+            "title": "五庄观 · 地仙之祖",
+            "subtype": "place_omen",
+            "chapters": [
+              24,
+              25,
+              26
+            ],
+            "characters": [
+              "镇元子"
+            ],
+            "hasInference": true
+          },
+          {
+            "id": "xyj-dan-renshenguo",
+            "title": "人参果 · 草还丹",
+            "subtype": "alchemy",
+            "chapters": [
+              24,
+              25,
+              26
+            ],
+            "characters": [
+              "孙悟空",
+              "镇元子"
+            ],
+            "hasInference": true
+          }
+        ],
+        "红孩儿": [
+          {
+            "id": "xyj-dan-yinger",
+            "title": "婴儿",
+            "subtype": "alchemy",
+            "chapters": [
+              41
+            ],
+            "characters": [
+              "红孩儿"
+            ],
+            "hasInference": true
+          }
+        ],
+        "牛魔王": [
+          {
+            "id": "xyj-place-huoyanshan",
+            "title": "火焰山",
+            "subtype": "place_omen",
+            "chapters": [
+              59,
+              60,
+              61
+            ],
+            "characters": [
+              "孙悟空",
+              "牛魔王"
+            ],
+            "hasInference": true
+          }
+        ],
+        "如来佛祖": [
+          {
+            "id": "xyj-poem-wuzizhenjing",
+            "title": "无字真经 · 色空",
+            "subtype": "symbol",
+            "chapters": [
+              98
+            ],
+            "characters": [
+              "唐僧",
+              "如来佛祖",
+              "孙悟空"
+            ],
+            "hasInference": true
+          }
+        ]
+      },
+      "entries": [
+        {
+          "id": "xyj-dan-baguelu",
+          "title": "八卦炉 · 火眼金睛",
+          "subtype": "alchemy",
+          "chapters": [
+            7
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-dan-chanv",
+          "title": "姹女",
+          "subtype": "alchemy",
+          "chapters": [
+            72
+          ],
+          "characters": [
+            "蜘蛛精"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-dan-erxin",
+          "title": "二心 · 真假美猴王",
+          "subtype": "alchemy",
+          "chapters": [
+            57,
+            58
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-dan-huangpo",
+          "title": "黄婆",
+          "subtype": "alchemy",
+          "chapters": [
+            22
+          ],
+          "characters": [
+            "沙僧"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-dan-jindan",
+          "title": "金丹 · 九转大还丹",
+          "subtype": "alchemy",
+          "chapters": [
+            2,
+            7
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-dan-jingu",
+          "title": "紧箍儿 · 定心真言",
+          "subtype": "alchemy",
+          "chapters": [
+            14
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "观音菩萨"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-dan-jingubang",
+          "title": "如意金箍棒 · 定海神针",
+          "subtype": "symbol",
+          "chapters": [
+            3
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-dan-kanli",
+          "title": "抽坎填离 · 水火既济",
+          "subtype": "alchemy",
+          "chapters": [],
+          "characters": [
+            "孙悟空",
+            "白龙马"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-dan-liuzei",
+          "title": "六贼 · 眼耳鼻舌身意",
+          "subtype": "alchemy",
+          "chapters": [
+            14
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-dan-longhu",
+          "title": "降龙伏虎 · 龙虎",
+          "subtype": "alchemy",
+          "chapters": [],
+          "characters": [
+            "孙悟空",
+            "白龙马"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-dan-mumu",
+          "title": "木母",
+          "subtype": "alchemy",
+          "chapters": [
+            19
+          ],
+          "characters": [
+            "猪八戒"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-dan-qianhong",
+          "title": "真铅真汞 · 铅汞",
+          "subtype": "alchemy",
+          "chapters": [],
+          "characters": [
+            "孙悟空",
+            "猪八戒"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-dan-renshenguo",
+          "title": "人参果 · 草还丹",
+          "subtype": "alchemy",
+          "chapters": [
+            24,
+            25,
+            26
+          ],
+          "characters": [
+            "孙悟空",
+            "镇元子"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-dan-wuxing",
+          "title": "五行 · 师徒配属",
+          "subtype": "alchemy",
+          "chapters": [
+            22
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空",
+            "沙僧",
+            "猪八戒",
+            "白龙马"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-dan-xinyuan",
+          "title": "心猿 · 金公",
+          "subtype": "alchemy",
+          "chapters": [
+            7,
+            14,
+            85
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-dan-yima",
+          "title": "意马",
+          "subtype": "alchemy",
+          "chapters": [
+            15
+          ],
+          "characters": [
+            "白龙马"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-dan-yinger",
+          "title": "婴儿",
+          "subtype": "alchemy",
+          "chapters": [
+            41
+          ],
+          "characters": [
+            "红孩儿"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-bikou",
+          "title": "比丘国 · 婴儿为药",
+          "subtype": "place_omen",
+          "chapters": [
+            78,
+            79
+          ],
+          "characters": [
+            "唐僧"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-bopo",
+          "title": "波月洞 · 情移自性",
+          "subtype": "place_omen",
+          "chapters": [
+            28,
+            29,
+            30
+          ],
+          "characters": [
+            "唐僧"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-huangfengling",
+          "title": "黄风岭 · 三昧神风",
+          "subtype": "place_omen",
+          "chapters": [
+            20,
+            21
+          ],
+          "characters": [
+            "唐僧"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-huoyanshan",
+          "title": "火焰山",
+          "subtype": "place_omen",
+          "chapters": [
+            59,
+            60,
+            61
+          ],
+          "characters": [
+            "孙悟空",
+            "牛魔王"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-jingjieling",
+          "title": "荆棘岭木仙庵 · 木性谈诗",
+          "subtype": "place_omen",
+          "chapters": [
+            64
+          ],
+          "characters": [
+            "唐僧"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-jisaiguo",
+          "title": "祭赛国 · 扫塔辨冤",
+          "subtype": "place_omen",
+          "chapters": [
+            62,
+            63
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-liangjie",
+          "title": "两界山 · 五行山",
+          "subtype": "place_omen",
+          "chapters": [
+            13,
+            14
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-lingtai",
+          "title": "灵台方寸山 · 斜月三星洞",
+          "subtype": "place_omen",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-liusha",
+          "title": "流沙河 · 收土",
+          "subtype": "place_omen",
+          "chapters": [
+            22
+          ],
+          "characters": [
+            "沙僧"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-pansidong",
+          "title": "盘丝洞 · 姹女耗阳",
+          "subtype": "place_omen",
+          "chapters": [
+            72,
+            73
+          ],
+          "characters": [
+            "猪八戒"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-pingding",
+          "title": "平顶山莲花洞 · 金银",
+          "subtype": "place_omen",
+          "chapters": [
+            32,
+            33,
+            34,
+            35
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-shituoling",
+          "title": "狮驼岭 · 最险魔关",
+          "subtype": "place_omen",
+          "chapters": [
+            74,
+            75,
+            76,
+            77
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-tongtianhe",
+          "title": "通天河",
+          "subtype": "place_omen",
+          "chapters": [
+            47,
+            48,
+            49
+          ],
+          "characters": [
+            "唐僧",
+            "白龙马"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-wudidong",
+          "title": "无底洞 · 色陷无底",
+          "subtype": "place_omen",
+          "chapters": [
+            80,
+            81,
+            82,
+            83
+          ],
+          "characters": [
+            "唐僧"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-wuzhuangguan",
+          "title": "五庄观 · 地仙之祖",
+          "subtype": "place_omen",
+          "chapters": [
+            24,
+            25,
+            26
+          ],
+          "characters": [
+            "镇元子"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-xiaoleiyin",
+          "title": "小雷音寺 · 真假佛",
+          "subtype": "place_omen",
+          "chapters": [
+            65,
+            66
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-xieyue",
+          "title": "斜月三星洞 · 心",
+          "subtype": "place_omen",
+          "chapters": [
+            1,
+            2
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-xiliang",
+          "title": "西梁女国 · 情关",
+          "subtype": "place_omen",
+          "chapters": [
+            54
+          ],
+          "characters": [
+            "唐僧"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-place-zimuhe",
+          "title": "子母河 · 阴阳错乱",
+          "subtype": "place_omen",
+          "chapters": [
+            53
+          ],
+          "characters": [
+            "猪八戒"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-poem-c14",
+          "title": "第14回回前诗 · 心猿",
+          "subtype": "poem",
+          "chapters": [
+            14
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-poem-kaipian",
+          "title": "第1回开篇 · 混沌未分",
+          "subtype": "poem",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "hasInference": false
+        },
+        {
+          "id": "xyj-poem-wuzizhenjing",
+          "title": "无字真经 · 色空",
+          "subtype": "symbol",
+          "chapters": [
+            98
+          ],
+          "characters": [
+            "唐僧",
+            "如来佛祖",
+            "孙悟空"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-verse-huiqian",
+          "title": "回前诗 · 灵根心性",
+          "subtype": "poem",
+          "chapters": [
+            1
+          ],
+          "characters": [
+            "孙悟空"
+          ],
+          "hasInference": true
+        },
+        {
+          "id": "xyj-verse-xinjing",
+          "title": "乌巢禅师《心经》",
+          "subtype": "poem",
+          "chapters": [
+            19
+          ],
+          "characters": [
+            "唐僧",
+            "孙悟空"
+          ],
+          "hasInference": true
+        }
+      ]
+    }
+  }
+}

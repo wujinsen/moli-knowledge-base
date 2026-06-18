@@ -2,7 +2,9 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import * as echarts from 'echarts';
 import type { EChartsOption } from 'echarts';
 import type { ImageryGraph as GraphData } from '../lib/imagery';
-import { HIGHLIGHT_CHAINS, MAPPING_PREDICATES, SHADOW_PREDICATES, SUBTYPE_LABEL } from '../lib/imagery';
+import { MAPPING_PREDICATES, SHADOW_PREDICATES, SUBTYPE_LABEL } from '../lib/imagery';
+import type { ImageryChain } from '../lib/imageryChains';
+import { resolveChainHops } from '../lib/imageryChains';
 
 const KIND_COLORS: Record<string, string> = {
   character: '#8f1f2b',
@@ -20,7 +22,6 @@ const KIND_COLORS: Record<string, string> = {
 
 const MAPPING_COLOR = '#b08338';
 const SHADOW_COLOR = '#5a4a86';
-// 金瓶 · 冷热金针：极热（繁华纵欲）/ 极冷（死亡虚无）
 const HOT_COLOR = '#c0392b';
 const COLD_COLOR = '#2c6e8f';
 
@@ -49,8 +50,9 @@ function nodeHref(bookSlug: string, node: GraphData['nodes'][0]): string {
 interface Props {
   graph: GraphData;
   bookSlug: string;
-  /** @deprecated 链路切换已内置，保留兼容默认高亮第一条 */
-  highlightPath?: string[];
+  chains: ImageryChain[];
+  /** ?chain= id from URL */
+  initialChainId?: string | null;
 }
 
 function pathEdgeKeys(path: string[]): Set<string> {
@@ -62,23 +64,26 @@ function pathEdgeKeys(path: string[]): Set<string> {
   return keys;
 }
 
-export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) {
-  const chains = HIGHLIGHT_CHAINS[bookSlug] ?? [];
+function chainIndexFromId(chains: ImageryChain[], id: string | null | undefined): number {
+  if (!id) return -1;
+  return chains.findIndex((c) => c.id === id);
+}
+
+export default function ImageryGraph({ graph, bookSlug, chains, initialChainId }: Props) {
   const chartRef = useRef<HTMLDivElement>(null);
   const inst = useRef<echarts.ECharts | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
   const [chartReady, setChartReady] = useState(false);
-  const [activeChain, setActiveChain] = useState(() => {
-    if (!highlightPath?.length) return 0;
-    const idx = chains.findIndex(
-      (c) => c.path.length === highlightPath.length && c.path.every((id, i) => id === highlightPath[i]),
-    );
-    return idx >= 0 ? idx : 0;
-  });
+  const [activeChain, setActiveChain] = useState(() => chainIndexFromId(chains, initialChainId));
 
-  const activePath = activeChain >= 0 ? chains[activeChain]?.path ?? [] : [];
+  const activeChainDef = activeChain >= 0 ? chains[activeChain] : null;
+  const activePath = activeChainDef?.path ?? [];
   const pathSet = useMemo(() => new Set(activePath), [activePath]);
   const pathEdges = useMemo(() => pathEdgeKeys(activePath), [activePath]);
+  const chainHops = useMemo(
+    () => (activePath.length > 1 ? resolveChainHops(activePath, graph) : []),
+    [activePath, graph],
+  );
 
   const selectedNode = selected ? graph.nodes.find((n) => n.id === selected) : null;
   const selectedEdges = useMemo(
@@ -88,6 +93,22 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
         : [],
     [graph.edges, selected],
   );
+
+  const nodeLabel = useCallback(
+    (id: string) => graph.nodes.find((n) => n.id === id)?.label ?? id,
+    [graph.nodes],
+  );
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const url = new URL(window.location.href);
+    if (activeChain >= 0 && chains[activeChain]?.id) {
+      url.searchParams.set('chain', chains[activeChain].id);
+    } else {
+      url.searchParams.delete('chain');
+    }
+    window.history.replaceState({}, '', url);
+  }, [activeChain, chains]);
 
   const buildOption = useCallback((): EChartsOption => {
     const categories = [...new Set(graph.nodes.map((n) => n.kind))].map((k) => ({
@@ -99,6 +120,7 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
       categories.findIndex((c) => c.name === (SUBTYPE_LABEL[kind] ?? kind));
 
     const focusNeighbors = selected ? neighborSet(selected, graph.edges) : null;
+    const chainFocus = activePath.length > 0 && !selected;
 
     return {
       backgroundColor: 'transparent',
@@ -127,11 +149,19 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
           draggable: true,
           focusNodeAdjacency: true,
           categories,
-          force: { repulsion: 280, edgeLength: [60, 140], gravity: 0.1 },
+          force: {
+            repulsion: chainFocus ? 360 : 280,
+            edgeLength: chainFocus ? [80, 160] : [60, 140],
+            gravity: chainFocus ? 0.06 : 0.1,
+          },
           data: graph.nodes.map((n) => {
             const onPath = pathSet.has(n.id);
             const isSel = selected === n.id;
-            const dimmed = focusNeighbors ? !focusNeighbors.has(n.id) : false;
+            const dimmed = chainFocus
+              ? !onPath
+              : focusNeighbors
+                ? !focusNeighbors.has(n.id)
+                : false;
             const isTaixu = n.layer === '太虚';
             return {
               id: n.id,
@@ -139,27 +169,27 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
               displayName: n.label,
               kind: n.kind,
               symbol: isTaixu ? 'diamond' : 'circle',
-              symbolSize: n.size + (onPath ? 8 : 0) + (isSel ? 10 : 0),
+              symbolSize: n.size + (onPath ? 10 : 0) + (isSel ? 10 : 0),
               category: categoryIndex(n.kind),
               itemStyle: {
                 color: KIND_COLORS[n.kind],
                 borderColor: isSel
                   ? '#b08338'
                   : onPath
-                    ? '#b08338'
+                    ? '#e7c66b'
                     : isTaixu
                       ? '#e7c66b'
                       : 'rgba(255,255,255,0.35)',
-                borderWidth: isSel ? 3 : onPath ? 2 : isTaixu ? 2 : 1,
-                opacity: dimmed ? 0.25 : 1,
-                shadowBlur: isSel ? 20 : onPath ? 12 : isTaixu ? 10 : 0,
-                shadowColor: isTaixu ? '#e7c66b' : KIND_COLORS[n.kind],
+                borderWidth: isSel ? 3 : onPath ? 2.5 : isTaixu ? 2 : 1,
+                opacity: dimmed ? 0.2 : 1,
+                shadowBlur: isSel ? 20 : onPath ? 16 : isTaixu ? 10 : 0,
+                shadowColor: onPath ? '#e7c66b' : isTaixu ? '#e7c66b' : KIND_COLORS[n.kind],
               },
               label: {
                 show: true,
-                color: dimmed ? 'rgba(100,80,70,0.5)' : '#3d2a24',
-                fontSize: isSel ? 13 : 11,
-                fontWeight: isSel ? 600 : 400,
+                color: dimmed ? 'rgba(100,80,70,0.5)' : onPath ? '#2a1810' : '#3d2a24',
+                fontSize: isSel ? 13 : onPath ? 12 : 11,
+                fontWeight: isSel || onPath ? 600 : 400,
               },
             };
           }),
@@ -168,9 +198,11 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
             const tgt = graph.nodes.find((n) => n.id === e.target);
             const onPath =
               pathEdges.has(`${e.source}|${e.target}`) || pathEdges.has(`${e.target}|${e.source}`);
-            const dimmed = focusNeighbors
-              ? !(focusNeighbors.has(e.source) && focusNeighbors.has(e.target))
-              : false;
+            const dimmed = chainFocus
+              ? !onPath
+              : focusNeighbors
+                ? !(focusNeighbors.has(e.source) && focusNeighbors.has(e.target))
+                : false;
             const ekind = edgeKindOf(e.predicate);
             const tempColor = e.temperature === '热' ? HOT_COLOR : e.temperature === '冷' ? COLD_COLOR : null;
             const baseColor =
@@ -189,12 +221,20 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
               temperature: e.temperature,
               sourceLabel: src?.label ?? e.source,
               targetLabel: tgt?.label ?? e.target,
-              label: { show: false, formatter: e.predicate, fontSize: 14 },
+              label: {
+                show: onPath,
+                formatter: e.predicate,
+                fontSize: 10,
+                color: '#5a4038',
+                backgroundColor: 'rgba(253,245,236,0.92)',
+                padding: [2, 4],
+                borderRadius: 3,
+              },
               lineStyle: {
                 type: baseType,
-                width: onPath ? 2.8 : baseWidth,
-                opacity: dimmed ? 0.12 : onPath ? 0.95 : ekind !== 'normal' ? 0.85 : e.inference ? 0.55 : 0.75,
-                color: baseColor,
+                width: onPath ? 3.2 : baseWidth,
+                opacity: dimmed ? 0.08 : onPath ? 1 : ekind !== 'normal' ? 0.85 : e.inference ? 0.55 : 0.75,
+                color: onPath ? '#b08338' : baseColor,
                 curveness: ekind === 'mapping' ? 0.05 : 0.15,
               },
             };
@@ -203,7 +243,7 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
         },
       ],
     };
-  }, [graph, pathSet, pathEdges, selected]);
+  }, [graph, pathSet, pathEdges, selected, activePath.length]);
 
   useEffect(() => {
     if (!chartRef.current) return;
@@ -242,6 +282,14 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
     inst.current.setOption(buildOption(), { notMerge: true });
   }, [chartReady, buildOption]);
 
+  useEffect(() => {
+    if (!chartReady || !inst.current || activePath.length === 0) return;
+    const idx = graph.nodes.findIndex((n) => n.id === activePath[0]);
+    if (idx >= 0) {
+      inst.current.dispatchAction({ type: 'focusNodeAdjacency', dataIndex: idx });
+    }
+  }, [chartReady, activePath, graph.nodes]);
+
   return (
     <div className="relative">
       <p className="mb-2 text-xs text-muted">
@@ -259,7 +307,7 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
             <span style={{ color: COLD_COLOR }}>冷线=死亡虚无</span>（冷热金针）·{' '}
           </>
         )}
-        实线=事实 · 虚线=推论 · 点击节点高亮相邻
+        实线=事实 · 虚线=推论 · 点击节点高亮相邻 · 选链路后非路径节点淡化
       </p>
       <div className="flex flex-col gap-3 lg:flex-row">
         <div
@@ -316,11 +364,7 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
                     >
                       {other?.label ?? otherId}
                     </a>
-                    {e.inference && (
-                      <span className="ml-1 text-xs text-muted">
-                        推论
-                      </span>
-                    )}
+                    {e.inference && <span className="ml-1 text-xs text-muted">推论</span>}
                   </li>
                 );
               })}
@@ -336,44 +380,95 @@ export default function ImageryGraph({ graph, bookSlug, highlightPath }: Props) 
         )}
       </div>
 
-      <div className="mt-3 flex flex-wrap items-center gap-2" style={{ display: chains.length ? undefined : 'none' }}>
-        <span className="text-xs text-muted">
-          示例链路
-        </span>
-        {chains.map((chain, i) => (
-          <button
-            key={chain.name}
-            type="button"
-            onClick={() => {
-              setActiveChain((prev) => (prev === i ? -1 : i));
-              setSelected(null);
-            }}
-            className="chip transition hover:opacity-90"
-            style={
-              activeChain === i
-                ? {
-                    borderColor: 'color-mix(in srgb, var(--primary) 55%, transparent)',
-                    color: 'var(--primary)',
-                    background: 'color-mix(in srgb, var(--primary) 8%, var(--paper-2))',
-                    fontWeight: 600,
-                  }
-                : undefined
-            }
-            aria-pressed={activeChain === i}
-          >
-            {chain.name}
-          </button>
-        ))}
-        {activeChain >= 0 && (
-          <button
-            type="button"
-            onClick={() => setActiveChain(-1)}
-            className="text-xs text-muted hover:underline"
-          >
-            清除高亮
-          </button>
-        )}
-      </div>
+      {chains.length > 0 && (
+        <div className="mt-3 space-y-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs text-muted">示例链路</span>
+            {chains.map((chain, i) => (
+              <button
+                key={chain.id}
+                type="button"
+                onClick={() => {
+                  setActiveChain((prev) => (prev === i ? -1 : i));
+                  setSelected(null);
+                }}
+                className="chip transition hover:opacity-90"
+                style={
+                  activeChain === i
+                    ? {
+                        borderColor: 'color-mix(in srgb, var(--primary) 55%, transparent)',
+                        color: 'var(--primary)',
+                        background: 'color-mix(in srgb, var(--primary) 8%, var(--paper-2))',
+                        fontWeight: 600,
+                      }
+                    : undefined
+                }
+                aria-pressed={activeChain === i}
+                title={chain.summary}
+              >
+                {chain.name}
+              </button>
+            ))}
+            {activeChain >= 0 && (
+              <button
+                type="button"
+                onClick={() => setActiveChain(-1)}
+                className="text-xs text-muted hover:underline"
+              >
+                清除高亮
+              </button>
+            )}
+          </div>
+
+          {activeChainDef && (
+            <div
+              className="rounded-xl border p-4 text-sm"
+              style={{ borderColor: 'var(--line)', background: 'var(--paper-2)' }}
+            >
+              <div className="mb-2 font-medium" style={{ color: 'var(--primary)' }}>
+                {activeChainDef.name}
+              </div>
+              {activeChainDef.summary && (
+                <p className="mb-3 text-xs leading-relaxed text-muted">{activeChainDef.summary}</p>
+              )}
+              <ol className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
+                {activePath.map((nodeId, i) => {
+                  const node = graph.nodes.find((n) => n.id === nodeId);
+                  const hop = chainHops[i - 1];
+                  return (
+                    <li key={`${nodeId}-${i}`} className="flex flex-wrap items-center gap-1.5">
+                      {i > 0 && (
+                        <span
+                          className="hidden text-xs text-muted sm:inline"
+                          title={hop?.note}
+                        >
+                          {hop?.predicate ?? '·'}
+                          {hop?.inference && '（推论）'}
+                          {hop?.chapter != null && ` · 第${hop.chapter}回`}
+                          →
+                        </span>
+                      )}
+                      <a
+                        href={node ? nodeHref(bookSlug, node) : '#'}
+                        className="rounded-md px-2 py-1 text-xs ring-1 ring-white/15 hover:ring-white/30"
+                        style={{
+                          background: pathSet.has(nodeId)
+                            ? 'color-mix(in srgb, var(--primary) 12%, transparent)'
+                            : undefined,
+                          color: 'var(--ink)',
+                          fontWeight: 600,
+                        }}
+                      >
+                        {i + 1}. {nodeLabel(nodeId)}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

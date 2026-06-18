@@ -38,6 +38,24 @@ links:
     inference: true
     chapter: 70
     note: "桃花社后咏絮，春事将残"
+  - target: 林黛玉
+    target_kind: character
+    predicate: 隐喻
+    inference: true
+    chapter: 70
+    note: "唐多令：粉堕香残，春事将残"
+  - target: 史湘云
+    target_kind: character
+    predicate: 隐喻
+    inference: true
+    chapter: 70
+    note: "空挂纤纤缕，漂泊无着"
+  - target: 薛宝钗
+    target_kind: character
+    predicate: 隐喻
+    inference: true
+    chapter: 70
+    note: "好风凭借力，借势而上"
 tags: [诗词, 诗社]
 summary: "重建桃花社咏柳絮，钗黛湘各寄身世之感。"
 source: chapters/红楼梦/070.md

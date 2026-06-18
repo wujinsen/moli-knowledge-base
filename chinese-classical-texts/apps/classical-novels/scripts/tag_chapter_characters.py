@@ -351,7 +351,45 @@ def format_characters_line(chars: list[str]) -> str:
     return f"characters: [{', '.join(chars)}]"
 
 
-def patch_frontmatter(raw: str, chars: list[str], *, force: bool = False) -> str | None:
+def merge_char_lists(existing: list[str], detected: list[str]) -> list[str]:
+    """Union: body appearance order first, then any frontmatter-only ids."""
+    out = list(detected)
+    for cid in existing:
+        if cid not in out:
+            out.append(cid)
+    return out
+
+
+def patch_frontmatter(raw: str, chars: list[str], *, force: bool = False, merge: bool = False) -> str | None:
+    if merge:
+        existing: list[str] = []
+        m = re.search(r"^characters:\s*\[(.*?)\]\s*$", raw, re.M | re.S)
+        if m:
+            inner = m.group(1).strip()
+            if inner:
+                existing = re.findall(r"[\u4e00-\u9fff]+", inner)
+        else:
+            block = re.search(r"^characters:\s*\n((?:[ \t]*-[ \t].+\n?)+)", raw, re.M)
+            if block:
+                for line in block.group(1).splitlines():
+                    line = line.strip()
+                    if line.startswith("- "):
+                        item = line[2:].strip().strip('"').strip("'")
+                        if item:
+                            existing.append(item)
+        chars = merge_char_lists(existing, chars)
+        line = format_characters_line(chars)
+        if re.search(r"^characters:\s*\[.*\]\s*$", raw, re.M):
+            return re.sub(r"^characters:\s*\[.*\]\s*$", line, raw, count=1, flags=re.M)
+        if block:
+            return re.sub(
+                r"^characters:\s*\n((?:[ \t]*-[ \t].+\n?)+)",
+                line + "\n",
+                raw,
+                count=1,
+                flags=re.M,
+            )
+        return None
     if force:
         if not re.search(r"^characters:\s*\[.*\]\s*$", raw, re.M):
             return None
@@ -376,6 +414,7 @@ def main() -> int:
     ap.add_argument("--subdir", default="", help='e.g. "脂砚斋本"; default = 程高本 root')
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--force", action="store_true", help="Overwrite existing non-empty characters[]")
+    ap.add_argument("--merge", action="store_true", help="Merge detected ids into existing characters[]")
     ap.add_argument("--files", nargs="*", help="Only process these basenames (e.g. 001.md)")
     ap.add_argument("--to-chapter", type=int, default=0, help="Only process NNN.md where number <= this")
     ap.add_argument("--from-chapter", type=int, default=0, help="Only process NNN.md where number >= this")
@@ -403,7 +442,7 @@ def main() -> int:
                 pass
         raw = path.read_text(encoding="utf-8")
         is_empty = bool(re.search(r"^characters:\s*\[\]\s*$", raw, re.M))
-        if not is_empty and not args.force:
+        if not is_empty and not args.force and not args.merge:
             skipped += 1
             continue
         body = split_body(raw)
@@ -423,7 +462,9 @@ def main() -> int:
                 if args.dry_run:
                     print(f"  {path.name}: (no match)")
             continue
-        new_raw = patch_frontmatter(raw, chars, force=args.force or not is_empty)
+        new_raw = patch_frontmatter(
+            raw, chars, force=args.force and not args.merge, merge=args.merge
+        )
         if not new_raw:
             continue
         if args.dry_run:

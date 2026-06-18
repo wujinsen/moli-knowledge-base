@@ -1,0 +1,54 @@
+{
+  "proposalId": "prop_example_daiyu_001",
+  "sessionId": "sess_example_002",
+  "status": "pending",
+  "intent": "fix_costume",
+  "title": "林黛玉 · 宫制堆纱花字段调整",
+  "summary": "第27回戴花节：将宫制堆纱花从服饰[]移至关键物品[]，并补 crosslinks。",
+  "sources": [
+    {
+      "chapter": 27,
+      "path": "src/content/chapters/红楼梦/027.md",
+      "edition": "zhiben",
+      "excerpt": "…宫制堆纱二支…黛玉戴花…",
+      "readUrl": "/honglou/read/zhiben/27"
+    }
+  ],
+  "patches": [
+    {
+      "path": "src/content/characters/红楼梦/林黛玉.md",
+      "operation": "update",
+      "hunkSummary": "服饰[] 移除宫制堆纱花；关键物品[] 追加",
+      "diff": "--- a/src/content/characters/红楼梦/林黛玉.md\n+++ b/src/content/characters/红楼梦/林黛玉.md\n@@ -99,10 +99,10 @@\n 结局: 焚稿泪尽而逝（第97–98回）\n 关键物品:\n - 旧帕\n - 荷包\n+- 宫制堆纱花\n - 燕窝粥\n - 人参养荣丸\n-服饰:\n-- 宫制堆纱花\n+服饰: []\n ---\n ## 身份\n"
+    },
+    {
+      "path": "src/data/hongloumeng.crosslinks.json",
+      "operation": "update",
+      "hunkSummary": "occupant_items.林黛玉 += 宫制堆纱花",
+      "diff": "--- a/src/data/hongloumeng.crosslinks.json\n+++ b/src/data/hongloumeng.crosslinks.json\n@@ -19,7 +19,7 @@\n     \"凤姐院\": [\"累丝金凤\"]\n   },\n   \"occupant_items\": {\n-    \"林黛玉\": [\"燕窝粥\", \"人参养荣丸\", \"黛玉积郁脉案\", \"黛玉郁气吐血\"],\n+    \"林黛玉\": [\"燕窝粥\", \"人参养荣丸\", \"宫制堆纱花\", \"黛玉积郁脉案\", \"黛玉郁气吐血\"],\n     \"薛宝钗\": [\"冷香丸\", \"金锁\", \"宫制堆纱花\"],\n     \"贾宝玉\": [\"通灵宝玉\", \"毕知庵诊宝玉\"],\n"
+    }
+  ],
+  "postApply": {
+    "scripts": [
+      "python scripts/build_crosslinks.py 红楼梦",
+      "python scripts/build_hlm_bestiary_json.py",
+      "python scripts/build_content_snapshots.py --write"
+    ],
+    "logEntry": "## [2026-06-16] studio | 林黛玉 宫制堆纱花 服饰→信物",
+    "refreshHints": {
+      "snapshots": true,
+      "bestiary": true
+    }
+  },
+  "guardPreview": {
+    "status": "pass",
+    "checked": 1,
+    "unverified": []
+  },
+  "actions": {
+    "canApply": true,
+    "canApplyPartial": true,
+    "canEdit": true,
+    "canDiscard": true
+  }
+}

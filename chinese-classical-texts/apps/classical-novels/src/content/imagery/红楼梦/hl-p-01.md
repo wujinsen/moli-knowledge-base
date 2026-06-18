@@ -17,6 +17,12 @@ links:
     inference: false
     chapter: 27
     note: "葬花吟"
+  - target: 林黛玉
+    target_kind: character
+    predicate: 隐喻
+    inference: true
+    chapter: 27
+    note: "花谢花飞、红消香断，以花自喻泪尽前身"
 tags: [诗词]
 summary: "黛玉葬花核心诗章，以花自喻，泪尽前身。"
 source: chapters/红楼梦/027.md

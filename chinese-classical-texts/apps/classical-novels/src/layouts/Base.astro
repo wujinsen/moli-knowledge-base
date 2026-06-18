@@ -66,6 +66,15 @@ const showModuleContext = Boolean(
                 </a>
                 <div class="ml-auto flex items-center gap-2">
                   <LangSwitch client:load />
+                  {import.meta.env.DEV && (
+                    <a
+                      href={`/${bookSlug}/studio`}
+                      class="rounded px-2.5 py-1 text-sm font-semibold hover:bg-white/10"
+                      style="color: color-mix(in srgb, var(--paper-2) 92%, var(--primary))"
+                    >
+                      维护台
+                    </a>
+                  )}
                   <a href="/search" class="rounded px-2.5 py-1 text-sm hover:bg-white/10" data-i18n="nav.search">
                     检索
                   </a>

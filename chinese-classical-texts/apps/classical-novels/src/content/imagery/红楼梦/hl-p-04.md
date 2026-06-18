@@ -17,6 +17,12 @@ links:
     inference: false
     chapter: 38
     note: "螃蟹咏"
+  - target: 贾宝玉
+    target_kind: character
+    predicate: 隐喻
+    inference: true
+    chapter: 38
+    note: "持螯狂态讽权贵，暗写贾府败象"
 tags: [诗词]
 summary: "诗社讽喻，暗写贾府败象（后文续貂争议）。"
 source: chapters/红楼梦/038.md

@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import { getBooks } from '../../../lib/getBooks';
+import Base from '../../../layouts/Base.astro';
+import StudioWorkspace from '../../../components/studio/StudioWorkspace';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  return books.map((b) => ({
+    params: { book: b.data.slug },
+    props: { bookName: b.data.book, slug: b.data.slug },
+  }));
+}
+
+const { bookName, slug } = Astro.props;
+const initialEntityId = Astro.url.searchParams.get('entity') ?? undefined;
+const initialChapterRaw = Astro.url.searchParams.get('chapter');
+const initialChapter = initialChapterRaw ? Number.parseInt(initialChapterRaw, 10) : undefined;
+const initialEditionSlug = Astro.url.searchParams.get('edition') ?? undefined;
+
+const chars = await getCollection('characters');
+const entities = chars
+  .filter((c) => c.data.book === bookName)
+  .map((c) => ({
+    id: c.data.id,
+    name: c.data.name,
+    type: c.data.type as 'character' | 'monster',
+  }));
+
+const chapterEntries = await getCollection('chapters');
+const seen = new Set<number>();
+const chapters: { n: number; title: string }[] = [];
+for (const c of chapterEntries.filter((e) => e.data.book === bookName)) {
+  const n = c.data.number;
+  if (seen.has(n)) continue;
+  seen.add(n);
+  chapters.push({ n, title: c.data.title });
+}
+chapters.sort((a, b) => a.n - b.n);
+---
+
+<Base title="维护台" bookSlug={slug} bookName={bookName}>
+  <StudioWorkspace
+    client:load
+    book={bookName}
+    bookSlug={slug}
+    entities={entities}
+    chapters={chapters}
+    initialEntityId={initialEntityId}
+    initialChapter={Number.isFinite(initialChapter) ? initialChapter : undefined}
+    initialEditionSlug={initialEditionSlug}
+  />
+</Base>

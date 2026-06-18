@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moli-knowledge-base.local/schemas/studio/maintenance-context.schema.json",
+  "title": "MaintenanceContext",
+  "description": "维护台侧栏打开时由 orchestrator 组装的页面上下文（v0.1）",
+  "type": "object",
+  "required": ["sessionId", "version", "book", "bookSlug", "page", "entity", "allowedIntents"],
+  "properties": {
+    "sessionId": { "type": "string", "minLength": 8 },
+    "version": { "type": "string", "const": "0.1" },
+    "book": { "type": "string", "enum": ["红楼梦", "金瓶梅", "西游记"] },
+    "bookSlug": { "type": "string", "enum": ["honglou", "jinpingmei", "xiyouji"] },
+    "rulesRef": { "type": "string" },
+    "page": {
+      "type": "object",
+      "required": ["kind", "entityId", "route"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["character", "item", "chapter", "topic", "location", "studio"]
+        },
+        "entityId": { "type": "string" },
+        "entityType": { "type": "string" },
+        "name": { "type": "string" },
+        "route": { "type": "string" }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "required": ["path", "frontmatter"],
+      "properties": {
+        "path": { "type": "string" },
+        "frontmatter": { "type": "object", "additionalProperties": true },
+        "plotBullets": { "type": "integer", "minimum": 0 },
+        "relationsCount": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "items": {
+      "type": "object",
+      "properties": {
+        "keyItems": { "type": "array", "items": { "$ref": "#/$defs/ItemLink" } },
+        "costumes": { "type": "array", "items": { "$ref": "#/$defs/ItemLink" } },
+        "crosslinksOccupant": { "type": "array", "items": { "type": "string" } },
+        "missingFromCrosslinks": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "chapters": {
+      "type": "object",
+      "properties": {
+        "suggested": { "type": "array", "items": { "type": "integer", "minimum": 1 } },
+        "withItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["n"],
+            "properties": {
+              "n": { "type": "integer" },
+              "items": { "type": "array", "items": { "type": "string" } },
+              "summary": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "lintHints": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/LintHint" }
+    },
+    "allowedIntents": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "fix_key_item",
+          "fix_costume",
+          "add_plot_bullet",
+          "query",
+          "run_guard",
+          "run_lint",
+          "ingest_chapter",
+          "dream_batch"
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "ItemLink": {
+      "type": "object",
+      "required": ["id", "linked"],
+      "properties": {
+        "id": { "type": "string" },
+        "kind": { "type": "string", "enum": ["costume", "dish", "medicine", "custom", "artifact"] },
+        "wikiPath": { "type": "string" },
+        "wearer": { "type": "string" },
+        "first_appear": { "type": "string" },
+        "linked": { "type": "boolean", "description": "id 是否在 item_ids.json 且有名物页" },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "missing_wiki_page",
+              "not_in_item_ids",
+              "wearer_mismatch",
+              "wearer_mismatch_ch73",
+              "missing_from_crosslinks",
+              "missing_plot_citation"
+            ]
+          }
+        }
+      }
+    },
+    "LintHint": {
+      "type": "object",
+      "required": ["code", "severity", "message"],
+      "properties": {
+        "code": { "type": "string" },
+        "severity": { "type": "string", "enum": ["info", "warn", "error"] },
+        "message": { "type": "string" }
+      }
+    }
+  }
+}

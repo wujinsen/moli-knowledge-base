@@ -23,6 +23,12 @@ links:
     inference: true
     chapter: 49
     note: "永团圆反扣判词香魂返故乡"
+  - target: 香菱
+    target_kind: character
+    predicate: 隐喻
+    inference: true
+    chapter: 49
+    note: "永团圆反扣判词，香魂难返故乡"
 tags: [诗词, 学诗]
 summary: "香菱学诗首作；「永团圆」与第五回判词命运互文。"
 source: chapters/红楼梦/049.md

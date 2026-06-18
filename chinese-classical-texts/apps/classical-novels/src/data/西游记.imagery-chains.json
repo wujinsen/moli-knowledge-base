@@ -1,0 +1,47 @@
+{
+  "book": "西游记",
+  "chains": [
+    {
+      "id": "xinyuan-wukong",
+      "name": "心猿→悟空（金）",
+      "summary": "心猿金公→孙悟空",
+      "path": ["xyj-dan-xinyuan", "孙悟空"]
+    },
+    {
+      "id": "yima-longma",
+      "name": "意马→龙马",
+      "summary": "意马→白龙马",
+      "path": ["xyj-dan-yima", "白龙马"]
+    },
+    {
+      "id": "jinmu-ke",
+      "name": "金木相克：心猿—木母",
+      "summary": "心猿与木母（八戒）相克交并",
+      "path": ["xyj-dan-xinyuan", "xyj-dan-mumu", "猪八戒"]
+    },
+    {
+      "id": "huangpo-tune",
+      "name": "黄婆调和金木",
+      "summary": "黄婆（土）调和心猿与木母",
+      "path": ["xyj-dan-huangpo", "xyj-dan-xinyuan", "xyj-dan-mumu"]
+    },
+    {
+      "id": "shuihuo",
+      "name": "水火相济：心猿—意马",
+      "summary": "心猿与意马水火相济",
+      "path": ["xyj-dan-xinyuan", "xyj-dan-yima", "白龙马"]
+    },
+    {
+      "id": "huoyanshan-hong",
+      "name": "婴儿火性：火焰山—红孩儿",
+      "summary": "火焰山→婴儿（火）→红孩儿",
+      "path": ["xyj-place-huoyanshan", "xyj-dan-yinger", "红孩儿"]
+    },
+    {
+      "id": "lingtai-start",
+      "name": "修心起点：灵台方寸山",
+      "summary": "灵台方寸→悟空求道",
+      "path": ["xyj-place-lingtai", "孙悟空"]
+    }
+  ]
+}

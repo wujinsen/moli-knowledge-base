@@ -1,0 +1,96 @@
+---
+import { getBooks } from '../../lib/getBooks';
+import GraphLayout from '../../layouts/GraphLayout.astro';
+import BackLink from '../../components/BackLink.astro';
+import CapitalMap from '../../components/CapitalMap.tsx';
+import { loadEvents } from '../../lib/loadEvents';
+import { loadLocations } from '../../lib/loadLocations';
+import {
+  CAPITAL_ZONE_ORDER,
+  attachCapitalEvents,
+  buildCapitalEdges,
+  type CapitalEventRef,
+  type CapitalMapNode,
+} from '../../lib/capitalMap';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  return books
+    .filter((b) => b.data.features.includes('capital'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+
+const locations = (await loadLocations(meta.book)).filter(
+  (l) => l.data.coord && l.data.capital_zone,
+);
+
+const capitalEvents: CapitalEventRef[] = (await loadEvents(meta.book)).map((e) => ({
+  id: e.data.id,
+  title: e.data.title,
+  chapters: e.data.chapters,
+  locations: e.data.locations ?? [],
+}));
+
+const baseNodes: CapitalMapNode[] = locations.map((l) => {
+  const d = l.data;
+  const chapters = [
+    ...new Set(
+      d.appear_in
+        .map((s) => {
+          const m = s.match(/第(\d+)回/);
+          return m ? Number(m[1]) : null;
+        })
+        .filter((n): n is number => n != null),
+    ),
+  ].sort((a, b) => a - b);
+
+  return {
+    id: d.id,
+    name: d.name,
+    zone: d.capital_zone!,
+    category: d.category,
+    x: d.coord!.x,
+    y: d.coord!.y,
+    summary: d.summary ?? '',
+    chapters,
+    occupants: d.occupants,
+    plaque: d.plaque,
+    couplet: d.couplet,
+    nearby: d.nearby,
+    events: [],
+  };
+});
+
+const nodes = attachCapitalEvents(baseNodes, capitalEvents);
+const capitalData = { nodes, edges: buildCapitalEdges(nodes) };
+---
+
+<GraphLayout
+  title={`${meta.book} 都外与王公地图`}
+  bookSlug={meta.slug}
+  bookName={meta.book}
+  features={meta.features}
+  moduleKey="maps"
+  moduleLabel="都外与王公地图"
+>
+  {
+    nodes.length === 0 ? (
+      <div class="flex min-h-[70vh] flex-col items-center justify-center px-4 text-center text-slate-300">
+        <p class="mb-2 text-lg">都外地图待生成</p>
+        <p class="max-w-md text-sm text-slate-400">
+          运行
+          <code class="mx-1 rounded bg-slate-800 px-2 py-0.5 text-amber-300">
+            python scripts/seed_capital_coords.py --write
+          </code>
+          为节点注入 capital_zone 与坐标。
+        </p>
+        <BackLink href={`/${meta.slug}`} label={meta.book} variant="dark" class="mt-6" />
+      </div>
+    ) : (
+      <CapitalMap data={capitalData} bookSlug={meta.slug} client:only="react" />
+    )
+  }
+</GraphLayout>

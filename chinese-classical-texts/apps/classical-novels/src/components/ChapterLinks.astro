@@ -8,8 +8,10 @@ interface Props {
   hasPlaces?: boolean;
   hasItems?: boolean;
   hasSilver?: boolean;
+  hasPoems?: boolean;
   itemRefs?: { id: string; name: string }[];
   txRefs?: { id: string; summary: string; amount?: string }[];
+  imageryRefs?: { id: string; title: string; hasInference?: boolean }[];
   characterIds?: Set<string>;
   readEdition?: string;
 }
@@ -22,8 +24,10 @@ const {
   hasPlaces = false,
   hasItems = false,
   hasSilver = false,
+  hasPoems = false,
   itemRefs = [],
   txRefs = [],
+  imageryRefs = [],
   characterIds = new Set<string>(),
   readEdition = '1',
 } = Astro.props;
@@ -32,6 +36,7 @@ const show =
   (hasPlaces && locations.length > 0) ||
   (hasItems && itemRefs.length > 0) ||
   (hasSilver && txRefs.length > 0) ||
+  (hasPoems && imageryRefs.length > 0) ||
   characters.length > 0;
 
 if (!show) return null;
@@ -86,6 +91,24 @@ const itemNameById = new Map(itemRefs.map((r) => [r.id, r.name]));
                 title={tx.summary}
               >
                 {tx.amount ? `${tx.amount} · ${tx.summary}` : tx.summary}
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
+    {
+      hasPoems && imageryRefs.length > 0 && (
+        <div class="reader-chapter-links-group">
+          <span class="reader-chapter-links-label">诗词意象</span>
+          <div class="reader-chapter-links-tags">
+            {imageryRefs.map((im) => (
+              <a
+                href={`/${slug}/imagery/${im.id}`}
+                class="reader-chapter-links-tag"
+                title={im.hasInference ? `${im.title}（含推论边）` : im.title}
+              >
+                {im.title}
               </a>
             ))}
           </div>

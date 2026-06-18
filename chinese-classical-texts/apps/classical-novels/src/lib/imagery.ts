@@ -226,3 +226,26 @@ export function chapterLabel(chapters: number[]): string {
   if (chapters.length === 1) return `第${chapters[0]}回`;
   return `第${chapters[0]}–${chapters[chapters.length - 1]}回`;
 }
+
+function isImageryId(id: string): boolean {
+  return id.startsWith('hl-') || id.startsWith('jpm-') || id.startsWith('xyj-');
+}
+
+/** 从 *.imagery-links.json 取出以 id 为 source 的额外边（详情页用） */
+export function extraLinksFromJson(
+  id: string,
+  extra: ImageryGraphEdge[],
+): ImageryLink[] {
+  return extra
+    .filter((e) => e.source === id)
+    .map((e) => ({
+      target: e.target,
+      target_kind: isImageryId(e.target) ? 'imagery' as const : 'character' as const,
+      predicate: e.predicate,
+      inference: e.inference,
+      chapter: e.chapter,
+      note: e.note,
+      phase: e.phase,
+      temperature: e.temperature,
+    }));
+}

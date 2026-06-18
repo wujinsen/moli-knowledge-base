@@ -1,0 +1,59 @@
+{
+  "book": "红楼梦",
+  "chains": [
+    {
+      "id": "furong-qingwen-daiyu",
+      "name": "晴雯—芙蓉—黛玉",
+      "summary": "判词谶语→影身→芙蓉象征→女儿诔/花签→黛玉泪尽",
+      "path": ["hl-j-13", "晴雯", "hl-s-furong", "hl-p-05", "林黛玉"]
+    },
+    {
+      "id": "zhu-xiaoxiang-daiyu",
+      "name": "竹—潇湘—黛玉",
+      "summary": "湘妃竹象征→潇湘馆→葬花/秋窗一脉",
+      "path": ["hl-s-zhu", "林黛玉", "hl-p-01"]
+    },
+    {
+      "id": "mushi-daiyu",
+      "name": "木石前盟：绛珠→黛玉",
+      "summary": "太虚还泪→人间黛玉→潇湘竹",
+      "path": ["hl-myth-jiangzhu", "林黛玉", "hl-s-zhu"]
+    },
+    {
+      "id": "stone-baoyu",
+      "name": "顽石历劫→宝玉",
+      "summary": "青埂峰顽石→通灵玉→贾宝玉",
+      "path": ["hl-myth-stone", "贾宝玉", "hl-s-yu"]
+    },
+    {
+      "id": "taixu-judgment-daiyu",
+      "name": "太虚→判词→黛玉",
+      "summary": "太虚幻境→黛玉判词→枉凝眉/终身误",
+      "path": ["hl-myth-taixu", "hl-j-01", "林黛玉"]
+    },
+    {
+      "id": "shadow-xiren-baochai",
+      "name": "影身：袭人→宝钗",
+      "summary": "贤袭人影射时宝钗→金锁",
+      "path": ["袭人", "薛宝钗", "hl-s-jin"]
+    },
+    {
+      "id": "jinyu-chaidai",
+      "name": "金玉—钗黛",
+      "summary": "通灵玉↔金锁↔宝玉↔宝钗↔黛玉木石",
+      "path": ["hl-s-yu", "贾宝玉", "hl-s-jin", "薛宝钗"]
+    },
+    {
+      "id": "yingchun-wolf",
+      "name": "迎春—中山狼",
+      "summary": "迎春判词→喜冤家→孙绍祖",
+      "path": ["hl-j-07", "hl-p-19", "孙绍祖", "贾迎春"]
+    },
+    {
+      "id": "bury-flower-line",
+      "name": "葬花—改字—诔",
+      "summary": "葬花吟→秋窗风雨→芙蓉诔改字论诗",
+      "path": ["hl-p-01", "hl-p-10", "hl-p-05"]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+---
+import { getBooks } from '../../lib/getBooks';
+import GraphLayout from '../../layouts/GraphLayout.astro';
+import BackLink from '../../components/BackLink.astro';
+import GardenDigitalTour from '../../components/GardenDigitalTour.tsx';
+import gardenData from '../../data/红楼梦.garden_map.json';
+import type { GardenMapData } from '../../lib/gardenMap';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  return books
+    .filter((b) => b.data.slug === 'honglou' && b.data.features.includes('garden'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+const mapData = {
+  nodes: gardenData.nodes,
+  edges: [],
+} satisfies GardenMapData;
+const baseImage = '/honglou/target-visual-mockup.png';
+---
+
+<GraphLayout
+  title={`${meta.book} 大观园数字文旅`}
+  bookSlug={meta.slug}
+  bookName={meta.book}
+  features={meta.features}
+  moduleKey="maps"
+  moduleLabel="大观园数字文旅"
+>
+  <div
+    class="digital-tour-fallback graph-explorer flex items-center justify-center text-sm text-slate-400"
+    aria-live="polite"
+  >
+    加载大观园数字文旅…
+  </div>
+  <GardenDigitalTour
+    data={mapData}
+    bookSlug={meta.slug}
+    baseImage={baseImage}
+    client:only="react"
+  />
+  <BackLink href={`/${meta.slug}/maps`} label="空间地图" variant="dark" class="sr-only" />
+</GraphLayout>

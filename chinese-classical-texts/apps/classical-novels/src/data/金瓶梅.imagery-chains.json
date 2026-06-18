@@ -1,0 +1,35 @@
+{
+  "book": "金瓶梅",
+  "chains": [
+    {
+      "id": "jiusecaiqi",
+      "name": "总纲：酒色财气→西门庆",
+      "summary": "色财气歌总纲→西门庆聚敛",
+      "path": ["jpm-tune-jiusecaiqi", "西门庆"]
+    },
+    {
+      "id": "pinger-bottle",
+      "name": "聚敛：瓶→瓶儿→西门府",
+      "summary": "瓶名谶→李瓶儿→西门庆",
+      "path": ["jpm-name-pinger", "李瓶儿", "西门庆"]
+    },
+    {
+      "id": "xueshizi-collapse",
+      "name": "转折：雪狮子→瓶儿崩塌",
+      "summary": "雪狮子误杀官哥→瓶儿心死",
+      "path": ["jpm-obj-xueshizi", "李瓶儿", "西门庆"]
+    },
+    {
+      "id": "huseng-death",
+      "name": "反噬：胡僧药→西门庆暴亡",
+      "summary": "胡僧春药反噬→西门庆纵欲暴亡",
+      "path": ["jpm-obj-husengyao", "西门庆"]
+    },
+    {
+      "id": "chen-jingji",
+      "name": "散尽：陈经济败家",
+      "summary": "陈经济败家→西门家散尽",
+      "path": ["jpm-name-chenjingji", "陈经济", "西门庆"]
+    }
+  ]
+}

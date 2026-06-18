@@ -56,7 +56,6 @@ PLOT_ADD_EXTRA: dict[str, str] = {
 REL_ADD: dict[str, list[dict]] = {
     "多官": [{"target": "贾琏", "type": "朋友", "role": "多姑娘之夫"}],
     "傅秋芳": [{"target": "贾宝玉", "type": "恋慕", "role": "兄欲说亲"}],
-    "傻大姐": [{"target": "林黛玉", "type": "主仆", "role": "误传婚讯"}],
     "素云": [{"target": "碧月", "type": "姐妹", "role": "李纨房"}],
     "倪二": [{"target": "卜世仁", "type": "朋友", "role": "义借对照"}],
     "小蝉": [{"target": "柳家的", "type": "同僚", "role": "厨房口角"}],

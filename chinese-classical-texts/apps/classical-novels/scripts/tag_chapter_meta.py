@@ -480,6 +480,18 @@ def title_to_summary(title: str) -> str:
     return title
 
 
+def canonicalize_ids(items: list[str], alias_pairs: list[tuple[str, str]]) -> list[str]:
+    alias_to_id = {alias: lid for alias, lid in alias_pairs}
+    out: list[str] = []
+    seen: set[str] = set()
+    for x in items:
+        cid = alias_to_id.get(x, x)
+        if cid not in seen:
+            out.append(cid)
+            seen.add(cid)
+    return out
+
+
 def merge_lists(existing: list[str] | None, detected: list[str]) -> list[str]:
     out: list[str] = []
     seen: set[str] = set()
@@ -521,6 +533,7 @@ def patch_chapter(
         if existing is not None:
             detected = find_ids(text, loc_pairs, LOCATION_BLOCK)
             merged = merge_lists(existing, detected)
+            merged = canonicalize_ids(merged, loc_pairs)
             if merged != existing:
                 line = format_list("locations", merged)
                 new_raw = re.sub(r"^locations:\s*\[.*\]\s*$", line, new_raw, count=1, flags=re.M)

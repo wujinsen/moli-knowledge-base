@@ -3,7 +3,8 @@ import { getCollection, render } from 'astro:content';
 import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
 import BackLink from '../../../components/BackLink.astro';
-import { chapterLabel, subtypeLabel } from '../../../lib/imagery';
+import { chapterLabel, extraLinksFromJson, subtypeLabel } from '../../../lib/imagery';
+import type { ImageryGraphEdge, ImageryLink } from '../../../lib/imagery';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -25,8 +26,29 @@ const { book, item } = Astro.props;
 const meta = book.data;
 const d = item.data;
 const { Content } = await render(item);
-const factLinks = d.links.filter((l) => !l.inference);
-const infLinks = d.links.filter((l) => l.inference);
+
+const linkFiles = import.meta.glob('../../../data/*.imagery-links.json', { eager: true });
+const linkFileKey = Object.keys(linkFiles).find((k) => k.includes(meta.book));
+const extraRaw = linkFileKey
+  ? (linkFiles[linkFileKey] as { default?: { links: ImageryGraphEdge[] }; links?: ImageryGraphEdge[] })
+  : null;
+const extraJson: ImageryGraphEdge[] = extraRaw?.default?.links ?? extraRaw?.links ?? [];
+const extraLinks: ImageryLink[] = extraLinksFromJson(d.id, extraJson);
+
+const linkKey = (l: ImageryLink) => `${l.predicate}|${l.target}|${l.inference}`;
+const mergedLinks: ImageryLink[] = [...d.links];
+const seen = new Set(d.links.map(linkKey));
+for (const l of extraLinks) {
+  const k = linkKey(l);
+  if (!seen.has(k)) {
+    mergedLinks.push(l);
+    seen.add(k);
+  }
+}
+
+const factLinks = mergedLinks.filter((l) => !l.inference);
+const infLinks = mergedLinks.filter((l) => l.inference);
+const displayCharacters = [...new Set([...d.characters, ...mergedLinks.filter((l) => l.target_kind === 'character').map((l) => l.target)])];
 ---
 
 <Base title={`${meta.book} · ${d.title}`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
@@ -54,12 +76,12 @@ const infLinks = d.links.filter((l) => l.inference);
   </section>
 
   {
-    d.characters.length > 0 && (
+    displayCharacters.length > 0 && (
       <>
         <h2 class="section-title mb-3 text-lg">关联人物</h2>
         <div class="mb-6 flex flex-wrap gap-2">
           {
-            d.characters.map((c) => (
+            displayCharacters.map((c) => (
               <a href={`/${meta.slug}/c/${c}`} class="chip hover:opacity-80">{c}</a>
             ))
           }

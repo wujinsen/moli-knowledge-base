@@ -28,7 +28,8 @@ def density_score(d: dict) -> int:
     )
 
 
-def scan(book: str) -> None:
+def _scan_pages(book: str) -> tuple[dict[str, dict], set[str], dict, list[str], list[str]]:
+    """Build per-character metrics used by scan() and collect_density()."""
     chars = list(iter_characters(book))
     ids = {fm.get("id") or p.stem for p, fm, _ in chars}
     pages: dict[str, dict] = {}
@@ -101,6 +102,85 @@ def scan(book: str) -> None:
             if cid not in rel_map[t]:
                 one_way.append(f"{cid}→{t} ({rt})")
 
+    return pages, ids, rel_json, missing_targets, one_way
+
+
+def collect_density(book: str) -> dict:
+    """Structured density scan for Studio / JSON API."""
+    pages, ids, rel_json, missing_targets, one_way = _scan_pages(book)
+    rows = sorted((density_score(d), cid, d) for cid, d in pages.items())
+    score_dist: dict[str, int] = defaultdict(int)
+    for score, _cid, _d in rows:
+        score_dist[str(score)] += 1
+
+    def flags_for(d: dict) -> list[str]:
+        out: list[str] = []
+        if d["plot"] <= 2:
+            out.append(f"plot={d['plot']}")
+        if d["rel"] <= 3:
+            out.append(f"rel={d['rel']}")
+        if not d["main"]:
+            out.append("缺主要关系")
+        if d["inbound"] <= 1:
+            out.append(f"入链={d['inbound']}")
+        return out
+
+    priority = []
+    for score, cid, d in rows:
+        if cid == "西门庆":
+            continue
+        if score > 8:
+            continue
+        priority.append(
+            {
+                "id": cid,
+                "score": score,
+                "rel": d["rel"],
+                "plot": d["plot"],
+                "inbound": d["inbound"],
+                "flags": flags_for(d),
+            }
+        )
+        if len(priority) >= 30:
+            break
+
+    struct_missing = []
+    for cid, d in sorted(pages.items()):
+        miss = []
+        if not d["identity"]:
+            miss.append("缺身份")
+        if not d["main"]:
+            miss.append("缺主要关系")
+        if d["plot"] == 0:
+            miss.append("无关键情节")
+        if not d["review"]:
+            miss.append("缺评析")
+        if miss:
+            struct_missing.append({"id": cid, "missing": miss})
+
+    weak_inbound = sorted(
+        ({"id": cid, "inbound": d["inbound"]} for cid, d in pages.items() if d["inbound"] <= 1),
+        key=lambda x: (x["inbound"], x["id"]),
+    )
+
+    return {
+        "totalCharacters": len(rows),
+        "graphNodes": len(rel_json["nodes"]),
+        "graphEdges": len(rel_json["edges"]),
+        "scoreDistribution": dict(sorted(score_dist.items(), key=lambda x: int(x[0]))),
+        "priorityBatch": priority,
+        "structMissing": struct_missing[:50],
+        "structMissingTotal": len(struct_missing),
+        "weakInbound": weak_inbound[:40],
+        "weakInboundTotal": len(weak_inbound),
+        "missingRelTargets": missing_targets,
+        "oneWayRels": sorted(set(one_way))[:30],
+        "oneWayRelsTotal": len(set(one_way)),
+    }
+
+
+def scan(book: str) -> None:
+    pages, ids, rel_json, missing_targets, one_way = _scan_pages(book)
     rows = sorted((density_score(d), cid, d) for cid, d in pages.items())
 
     print(f"=== {book} /lint 低密度人物 ===")

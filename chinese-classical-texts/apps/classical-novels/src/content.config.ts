@@ -14,7 +14,7 @@ export const RELATION_TYPES = [
   '帮闲', '贿赂', '借贷', '认干亲', '庇护', '资助', '嫉妒', '陷害',
 ] as const;
 
-export const XIMEN_PROXIMITY = ['亲缘', '雇佣', '利益交换', '外人'] as const;
+export const XIMEN_PROXIMITY = ['亲缘', '雇佣', '利益交换', '同僚', '府内', '外人'] as const;
 
 const relation = z.object({
   target: z.string(),
@@ -108,7 +108,7 @@ const books = defineCollection({
     author: z.string(),
     chapter_count: z.number(),
     features: z.array(
-      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'sna', 'compare', 'nan', 'route', 'chain', 'town', 'garden', 'manor', 'scene', 'kaozheng', 'quanshi', 'saga'])
+      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'sna', 'compare', 'nan', 'route', 'chain', 'town', 'garden', 'manor', 'capital', 'scene', 'kaozheng', 'quanshi', 'saga'])
     ),
     summary: z.string().optional(),
   }),
@@ -131,6 +131,7 @@ const ROUTE_LAYERS = ['real', 'myth'] as const;
 // 红楼梦大观园地图分区
 const GARDEN_ZONES = ['居所', '水系', '仪典', '路径', '亭榭', '寺观', '服务'] as const;
 const MANOR_ZONES = ['荣府轴', '荣府侧', '宁府轴', '宁府园', '连接', '外联'] as const;
+const CAPITAL_ZONES = ['都城', '王府', '侯伯', '寺观', '郊野', '市井', '连接'] as const;
 
 const locations = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/locations' }),
@@ -161,6 +162,7 @@ const locations = defineCollection({
     map_zone: z.enum(['府内', '市井', '寺观', '城外']).optional(),
     garden_zone: z.enum(GARDEN_ZONES).optional(),
     manor_zone: z.enum(MANOR_ZONES).optional(),
+    capital_zone: z.enum(CAPITAL_ZONES).optional(),
     tour_order: z.number().optional(),
     // 取经路线 GIS（西游记专用，可选）
     realm: z.string().optional(),

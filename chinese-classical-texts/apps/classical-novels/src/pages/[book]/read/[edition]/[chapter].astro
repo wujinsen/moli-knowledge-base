@@ -8,6 +8,7 @@ import ReaderToc from '../../../../components/ReaderToc.astro';
 import ChapterLinks from '../../../../components/ChapterLinks.astro';
 import EditionTabs from '../../../../components/EditionTabs.astro';
 import { relatedItemsForChapter, relatedTransactionsForChapter } from '../../../../lib/crosslinks';
+import { relatedImageryForChapter } from '../../../../lib/shiIndex';
 import { listReaderChapters, shouldShowChapterSummary } from '../../../../lib/readerChapters';
 import {
   DEFAULT_EDITION,
@@ -74,11 +75,13 @@ const next = n < editionMax ? n + 1 : undefined;
 const hasItems = features.includes('items');
 const hasPlaces = features.includes('places');
 const hasSilver = features.includes('silver');
+const hasPoems = features.includes('poems');
 const itemRefs =
   hasItems && entry.data.items.length > 0
     ? await relatedItemsForChapter(book, entry.data.items)
     : [];
 const txRefs = hasSilver ? await relatedTransactionsForChapter(book, n) : [];
+const imageryRefs = hasPoems ? relatedImageryForChapter(slug, n) : [];
 const characterIds = new Set(
   (await getCollection('characters'))
     .filter((c) => c.data.book === book)
@@ -149,6 +152,15 @@ const tocChapters = await listReaderChapters(book, slug, {
         indexHref={readIndexPath(slug, book, editionName)}
       />
       <span>· {editionLabel(editionName)}</span>
+      {import.meta.env.DEV && (
+        <a
+          class="reader-studio-link text-sm font-medium"
+          href={`/${slug}/studio?chapter=${n}&edition=${edSlug}`}
+          data-pagefind-ignore
+        >
+          维护本回 →
+        </a>
+      )}
     </div>
 
     <article
@@ -172,8 +184,10 @@ const tocChapters = await listReaderChapters(book, slug, {
           hasPlaces={hasPlaces}
           hasItems={hasItems}
           hasSilver={hasSilver}
+          hasPoems={hasPoems}
           itemRefs={itemRefs}
           txRefs={txRefs}
+          imageryRefs={imageryRefs}
           characterIds={characterIds}
           readEdition={editionSlug(editionName)}
         />

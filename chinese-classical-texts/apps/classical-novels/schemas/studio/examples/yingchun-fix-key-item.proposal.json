@@ -1,0 +1,62 @@
+{
+  "proposalId": "prop_example_yingchun_001",
+  "sessionId": "sess_example_001",
+  "status": "pending",
+  "intent": "fix_key_item",
+  "title": "贾迎春 · 补全累丝金凤信物链",
+  "summary": "对照第73回，更新名物页 wearer 与 appear_in，补 occupant_items 与关键情节。",
+  "sources": [
+    {
+      "chapter": 73,
+      "path": "src/content/chapters/红楼梦/073.md",
+      "edition": "zhiben",
+      "excerpt": "…迎春乳母…累丝金凤…",
+      "readUrl": "/honglou/read/zhiben/73"
+    }
+  ],
+  "patches": [
+    {
+      "path": "src/content/costumes/红楼梦/累丝金凤.md",
+      "operation": "update",
+      "hunkSummary": "wearer 增迎春乳母赌局；appear_in +第73回",
+      "diff": "--- a/src/content/costumes/红楼梦/累丝金凤.md\n+++ b/src/content/costumes/红楼梦/累丝金凤.md\n@@ -3,7 +3,7 @@\n type: accessory\n name: 累丝金凤\n book: 红楼梦\n-wearer: 王熙凤\n+wearer: 王熙凤（第21回当）；贾迎春乳母赌局（第73回）\n material: 金\n first_appear: 第21回\n-appear_in: [第21回]\n+appear_in: [第21回, 第73回]\n tags: [首饰, 凤姐, 典当]\n"
+    },
+    {
+      "path": "src/content/characters/红楼梦/贾迎春.md",
+      "operation": "update",
+      "hunkSummary": "关键情节 +1（第73回乳母赌金凤）",
+      "diff": "--- a/src/content/characters/红楼梦/贾迎春.md\n+++ b/src/content/characters/红楼梦/贾迎春.md\n@@ -80,4 +80,5 @@\n \n ## 关键情节\n \n+- 第73回：乳母赌局牵连 [[累丝金凤]]，迎春不能约束（第73回）。\n - 第73–74回：抄检大观园，下人偷攒累丝金凤等事。\n"
+    },
+    {
+      "path": "src/data/hongloumeng.crosslinks.json",
+      "operation": "update",
+      "hunkSummary": "occupant_items.贾迎春 += 累丝金凤",
+      "diff": "--- a/src/data/hongloumeng.crosslinks.json\n+++ b/src/data/hongloumeng.crosslinks.json\n@@ -25,7 +25,7 @@\n     \"王熙凤\": [\"累丝金凤\", \"求愿金镯\"],\n     \"晴雯\": [\"雀金裘\", \"胡庸医诊晴雯\", \"王太医诊晴雯\"],\n     \"秦可卿\": [\"张友士脉案\", \"益气养荣补脾和肝汤\"],\n-    \"贾迎春\": [\"迎春出嫁\"],\n+    \"贾迎春\": [\"累丝金凤\", \"迎春出嫁\"],\n     \"贾母\": [\"贾母八旬宴\"],\n     \"刘姥姥\": [\"两宴大观园\", \"茄鲞\", \"巧哥儿名\", \"求愿金镯\", \"扮青儿\"],\n"
+    }
+  ],
+  "postApply": {
+    "scripts": [
+      "python scripts/build_crosslinks.py 红楼梦",
+      "python scripts/build_hlm_bestiary_json.py",
+      "python scripts/trust_guard.py 红楼梦",
+      "python scripts/build_content_snapshots.py --write"
+    ],
+    "logEntry": "## [2026-06-16] studio | 贾迎春 累丝金凤 crosslinks + 第73回论据",
+    "refreshHints": {
+      "snapshots": true,
+      "relations": false,
+      "bestiary": true
+    }
+  },
+  "guardPreview": {
+    "status": "pass",
+    "checked": 2,
+    "unverified": []
+  },
+  "actions": {
+    "canApply": true,
+    "canApplyPartial": true,
+    "canEdit": true,
+    "canDiscard": true
+  }
+}

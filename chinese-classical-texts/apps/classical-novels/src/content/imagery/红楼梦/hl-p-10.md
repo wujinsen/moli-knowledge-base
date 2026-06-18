@@ -29,6 +29,12 @@ links:
     inference: true
     chapter: 45
     note: "潇湘秋夜、风雨孤灯"
+  - target: 林黛玉
+    target_kind: character
+    predicate: 隐喻
+    inference: true
+    chapter: 45
+    note: "秋窗孤灯自伤，与葬花一脉"
 tags: [诗词]
 summary: "黛玉秋夜独坐成诗，宝玉冒雨送灯，宝黛温情名段。"
 source: chapters/红楼梦/045.md

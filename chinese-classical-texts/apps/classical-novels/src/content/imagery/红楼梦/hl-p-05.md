@@ -22,7 +22,7 @@ links:
   - target: 晴雯
     target_kind: character
     predicate: 影射
-    inference: false
+    inference: true
     chapter: 78
     note: "以芙蓉女儿为晴雯招魂"
   - target: hl-s-furong
@@ -43,6 +43,18 @@ links:
     inference: false
     chapter: 78
     note: "黛玉改「沁芳」等字，论诗"
+  - target: 晴雯
+    target_kind: character
+    predicate: 隐喻
+    inference: true
+    chapter: 78
+    note: "芙蓉女儿即晴雯，判词在祭文中兑现"
+  - target: 林黛玉
+    target_kind: character
+    predicate: 隐喻
+    inference: true
+    chapter: 78
+    note: "改字论诗，与诔文主宾互文"
 tags: [诗词, 祭文]
 summary: "宝玉为晴雯作长篇祭文，别开生面；黛玉改字，钗黛诗学交锋。"
 source: chapters/红楼梦/078.md

@@ -60,3 +60,18 @@ npm run dev
 | `python scripts/consolidate.py [书] [--write]` | `/dream`：重算重要度、查别名冲突 |
 
 日常维护循环（Ingest → Query → Lint → dream）详见 `AGENTS.md`。
+
+### 维护台 Studio（MVP）
+
+```bash
+# 终端 A
+npm run studio:api
+
+# 终端 B
+npm run dev
+```
+
+- 模块页：`/{slug}/studio` → **实体工作区** | **批处理**（`/lint` `/graph` `/dream` `/guard` 已接）
+- 人物页 dev 深链：`/{slug}/studio?entity=…`
+- 协议：`docs/维护台-聊天协议.md`
+- API：`apps/kb-orchestrator/`
