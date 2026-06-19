@@ -1,2 +1,0 @@
-﻿[西游记] characters: first_appear 0，关键情节 251 条（unverified 0），relations 2339 边（unverified 0）
-Trust Guard 通过

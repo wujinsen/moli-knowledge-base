@@ -1,7 +1,33 @@
 # build output
 dist/
+dist.zip
+release/
 .astro/
 .astro-build.lock
+
+# local inspect / lint scratch (never commit)
+.astro-sync.txt
+.studio-todos.json
+.guard-*.txt
+global-inspect.txt
+guard_*.txt
+lint_*.txt
+lint_*.md
+_lint_*.json
+_lint_*.txt
+_batch*.txt
+_cand*.txt
+_ctx*.txt
+_ch*_ctx.txt
+_named.txt
+inferred_rel.txt
+missing_*.txt
+loc_snip.txt
+hlm_dgy_audit.txt
+tmp_*.txt
+tmp_tg_*.txt
+trust_candidates.txt
+tier9_targets.txt
 
 # deps
 node_modules/
