@@ -98,6 +98,8 @@ def pick_items(
         {"服饰": fm.get("服饰"), "关键物品": fm.get("关键物品")},
         wiki_map.get(cid),
         item_ids,
+        book=book,
+        catalog=catalog if book == "红楼梦" else None,
     )
     keys = list(merged.get("关键物品") or [])
     costumes = list(merged.get("服饰") or [])
@@ -105,16 +107,20 @@ def pick_items(
     likes = list(fm.get("喜好") or [])
     if cid in XYJ_FIELDS:
         likes = merge_item_lists(likes, XYJ_FIELDS[cid].get("喜好"))
-    promo = [x for x in likes if isinstance(x, str) and x in item_ids]
-    if promo:
-        keys = merge_item_lists(keys, promo)
+    if book != "红楼梦":
+        promo = [x for x in likes if isinstance(x, str) and x in item_ids]
+        if promo:
+            keys = merge_item_lists(keys, promo)
 
     if not keys and not costumes and not fabao:
         top = coappear.get(cid)
         if top:
             iid, _ = top.most_common(1)[0]
-            field = item_target_field(catalog.get(iid, {"kind": "artifacts"}))
-            if fm.get("type") == "monster" and field == "关键物品":
+            meta = catalog.get(iid, {"kind": "artifacts", "book": book, "id": iid})
+            field = item_target_field(meta, book)
+            if not field:
+                pass
+            elif fm.get("type") == "monster" and field == "关键物品":
                 fabao = [iid]
             elif field == "服饰":
                 costumes = [iid]

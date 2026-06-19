@@ -321,6 +321,34 @@ def lint_items_character_gaps(book: str) -> list[str]:
     return issues
 
 
+def lint_hlm_bestiary_semantics(book: str) -> list[str]:
+    """红楼梦图鉴字段语义：喜好/关键物品勿填地点·宴事·诊脉链。"""
+    if book != "红楼梦":
+        return []
+    from _item_wiki import filter_hlm_keepsake_ids, filter_hlm_like_ids, list_item_catalog
+
+    catalog = list_item_catalog(book)
+    cids = {p.stem for p in (CONTENT / "characters" / book).glob("*.md")}
+    issues: list[str] = []
+    for _path, fm, _body in iter_characters(book):
+        cid = fm.get("id") or _path.stem
+        bad_likes = [
+            x
+            for x in (fm.get("喜好") or [])
+            if x not in filter_hlm_like_ids([x], catalog, cids)
+        ]
+        if bad_likes:
+            issues.append(f"喜好语义非法: {cid} · {bad_likes}")
+        bad_keys = [
+            x
+            for x in (fm.get("关键物品") or [])
+            if x not in filter_hlm_keepsake_ids([x], catalog)
+        ]
+        if bad_keys:
+            issues.append(f"关键物品非信物: {cid} · {bad_keys}")
+    return sorted(issues)[:80]
+
+
 def _omen_covered_by_item(
     book: str, title: str, known: set[str], pair_dict: dict[str, str]
 ) -> bool:
@@ -688,6 +716,7 @@ def module_sections(book: str) -> list[tuple[str, str, str, object]]:
                 ("items_body_unlisted", "名物 · 正文未入 items[]", "items", lint_items_body_unlisted),
                 ("items_character_gaps", "名物 · 人物缺链", "items", lint_items_character_gaps),
                 ("items_imagery_unmaterialized", "名物 · 物象谶缺实体", "items", lint_items_imagery_unmaterialized),
+                ("hlm_bestiary_semantics", "图鉴 · 喜好/信物语义", "items", lint_hlm_bestiary_semantics),
             ]
         )
     if _has_places_module(book):

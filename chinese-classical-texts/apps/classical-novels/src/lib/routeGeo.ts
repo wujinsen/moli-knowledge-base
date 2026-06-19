@@ -44,6 +44,63 @@ export function formatSegment(from: GeoPoint, to: GeoPoint): { km: number; li: n
   return { km: Math.round(km), li: kmToLi(km), bearing: bearingLabel(bearingDeg(from, to)) };
 }
 
+/** 凡间站点 → 今地/丝路比附（非测绘定稿，供真实地理视图标注） */
+export const GEO_ANCHORS: Record<string, string> = {
+  长安城: '西安',
+  两界山: '陕甘界',
+  鹰愁涧: '陇西',
+  高老庄: '甘南',
+  黄风岭: '陇东',
+  流沙河: '洮河',
+  五庄观: '河西',
+  白虎岭: '河西走廊',
+  莲花洞: '河西走廊',
+  乌鸡国: '青海东',
+  火云洞: '青海',
+  车迟国: '青海西',
+  通天河: '通天河',
+  西梁女国: '青海西南',
+  火焰山: '吐鲁番',
+  祭赛国: '塔里木南缘',
+  荆棘岭: '昆仑北麓',
+  小雷音寺: '于阗一带',
+  朱紫国: '昆仑山麓',
+  狮驼岭: '帕米尔东',
+  比丘国: '喀什噶尔',
+  灭法国: '帕米尔西',
+  玉华州: '兴都库什',
+  金平府: '兴都库什',
+  天竺国: '北方邦',
+  灵山: '菩提伽耶',
+};
+
+export function geoAnchor(id: string): string | null {
+  return GEO_ANCHORS[id] ?? null;
+}
+
+export function formatGeoCoord(geo: GeoPoint): string {
+  const latH = geo.lat >= 0 ? 'N' : 'S';
+  const lngH = geo.lng >= 0 ? 'E' : 'W';
+  return `${Math.abs(geo.lat).toFixed(2)}°${latH} · ${Math.abs(geo.lng).toFixed(2)}°${lngH}`;
+}
+
+/** 真实地理视图：小说名 + 比附今地 */
+export function geoMapLabel(id: string, name: string, order: number | null): string {
+  const short = name.replace(/^.*·/, '');
+  const anchor = geoAnchor(id);
+  const prefix = order != null ? `${order} ` : '';
+  return anchor ? `${prefix}${short}→${anchor}` : `${prefix}${short}`;
+}
+
+/** 画布坐标方位（y 向下为正，示意图北在上） */
+export function canvasBearing(from: { x: number; y: number }, to: { x: number; y: number }): string {
+  const dx = to.x - from.x;
+  const dy = to.y - from.y;
+  if (dx === 0 && dy === 0) return '—';
+  const deg = ((Math.atan2(dx, -dy) * 180) / Math.PI + 360) % 360;
+  return bearingLabel(deg);
+}
+
 /** 示意图视图：回目序 + 小说地名（神话层不加序号） */
 export function schematicMapLabel(name: string, order: number | null, isReal: boolean): string {
   const short = name.replace(/^.*·/, '');

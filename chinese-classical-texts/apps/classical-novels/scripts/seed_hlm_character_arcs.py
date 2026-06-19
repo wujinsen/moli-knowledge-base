@@ -102,7 +102,8 @@ ARCS: dict[str, list[dict]] = {
     ],
     "袭人": [
         {"chapter": 3, "stage": "出场", "title": "服侍宝玉", "note": "贾母所赐，居怡红院，温柔尽职。", "fortune": 30},
-        {"chapter": 19, "stage": "起", "title": "订下箴规", "note": "以赎身试探，订读书、不毁僧道等三条箴规。", "fortune": 45},
+        {"chapter": 19, "stage": "起", "title": "花解语订箴规", "note": "良宵以赎身试探，订读书、不毁僧道等三条箴规（非回目「箴宝玉」）。", "fortune": 45},
+        {"chapter": 21, "stage": "高光", "title": "娇嗔箴宝玉", "note": "回目「贤袭人娇嗔箴宝玉」；因宝玉与姊妹厮闹、蘸胭脂等冷脸规劝。", "fortune": 50},
         {"chapter": 89, "stage": "转", "title": "侍疾晴雯", "note": "晴雯补雀金裘后，袭人悉心侍疾。", "fortune": 40},
         {"chapter": 97, "stage": "结局", "title": "配蒋玉菡", "note": "王夫人放出去配蒋玉菡（程高本），「花气袭人知昼暖」。", "fortune": 50},
     ],

@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+// 布局/底栏/链接改动验收：见 AGENTS.md §5.7 与 docs/关系图谱-前端布局规范.md（三步：全图可见 → 选中不空白 → 人物页 200）
 import { echarts, type EChartsOption } from '../lib/echartsCore';
 import { factionColor, relationColor, graphTheme } from '../lib/graphTheme';
 import { relationGraphForSlug } from '../lib/relations';
 import { chainEventsForCharacter } from '../lib/chainIndex';
 import { chainEventHref, silverEventHref } from '../lib/chain';
-import { maxBetweenness, snaFocusHref, snaMetricsMap, type SnaMetric } from '../lib/sna';
+import { characterHref, maxBetweenness, snaFocusHref, snaMetricsMap, type SnaMetric } from '../lib/sna';
 
 interface Node {
   id: string;
@@ -616,6 +617,7 @@ export default function RelationGraph({ bookSlug }: Props) {
 
   const relationTypes = [...new Set(visibleEdges.map((e) => e.type))];
   const graphHeight = 'calc(100dvh - var(--graph-chrome, 10.5rem))';
+  const showRelationLegend = relationTypes.length > 0 && !selectedNode;
 
   if (data.nodes.length === 0) {
     return (
@@ -637,9 +639,10 @@ export default function RelationGraph({ bookSlug }: Props) {
   return (
     <div
       ref={containerRef}
-      className="graph-explorer"
+      className="graph-explorer graph-explorer--stacked flex flex-col"
       style={{ height: graphHeight, minHeight: graphHeight }}
     >
+      <div className="graph-chart-stage relative min-h-0 min-w-0 flex-1">
       {/* 背景装饰 */}
       <div
         className="pointer-events-none absolute inset-0"
@@ -715,62 +718,13 @@ export default function RelationGraph({ bookSlug }: Props) {
         )}
       </div>
 
-      {/* 阵营筛选 */}
-      <div className="absolute bottom-4 left-3 z-10 flex max-w-[70%] flex-wrap gap-1.5">
-        {factions.map((f, i) => {
-          const off = hiddenFactions.has(f);
-          const color = factionColor(i);
-          return (
-            <button
-              key={f}
-              type="button"
-              onClick={() => toggleFaction(f)}
-              className="rounded-full border px-2.5 py-1 text-xs backdrop-blur-sm transition"
-              style={{
-                borderColor: off ? 'rgba(255,255,255,0.1)' : `${color}88`,
-                backgroundColor: off ? 'rgba(15,23,42,0.5)' : `${color}22`,
-                color: off ? '#64748b' : color,
-                opacity: off ? 0.55 : 1,
-              }}
-            >
-              {f}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* 关系图例（选中节点时改由侧栏分组展示，避免与详情面板叠盖） */}
-      {relationTypes.length > 0 && !selectedNode && (
-        <div className="graph-legend absolute bottom-4 right-3 z-10 max-h-32 overflow-y-auto rounded-lg border border-white/10 bg-slate-900/85 p-2 backdrop-blur-md">
-          <div className="mb-1 text-xs uppercase tracking-wide text-slate-500">关系类型</div>
-          <div className="flex flex-wrap gap-x-3 gap-y-1">
-            {relationTypes.map((t) => (
-              <span key={t} className="flex items-center gap-1 text-xs text-slate-300">
-                <span
-                  className="inline-block h-0.5 w-4 rounded"
-                  style={{ backgroundColor: relationColor(t) }}
-                />
-                {t}
-              </span>
-            ))}
-          </div>
-          <div className="mt-2 border-t border-white/5 pt-2 text-xs text-slate-500">
-            虚线 = 推论 / 矛盾
-          </div>
-        </div>
-      )}
-
       <div ref={chartRef} className="absolute inset-0 z-[1] h-full w-full" />
 
       {/* 选中详情（置于 canvas 之后，确保可点击） */}
       {selectedNode && (
         <aside
-          className="graph-detail-panel pointer-events-auto absolute right-3 top-[3.25rem] z-30 flex w-80 flex-col rounded-xl border bg-slate-900/92 shadow-2xl backdrop-blur-md sm:w-96"
-          style={{
-            borderColor: gt.accentLine,
-            height: 'calc(100vh - 5.5rem)',
-            maxHeight: 'calc(100vh - 5.5rem)',
-          }}
+          className="graph-detail-panel pointer-events-auto absolute bottom-3 right-3 top-[3.25rem] z-30 flex w-80 flex-col rounded-xl border bg-slate-900/92 shadow-2xl backdrop-blur-md sm:w-96"
+          style={{ borderColor: gt.accentLine }}
         >
           <div className="shrink-0 border-b border-white/5 px-4 py-3">
             <div className="flex items-start justify-between gap-2">
@@ -847,7 +801,7 @@ export default function RelationGraph({ bookSlug }: Props) {
                       {group.items.map((item) => (
                         <li key={`${group.type}-${item.target}`} className="leading-snug">
                           <a
-                            href={`/${bookSlug}/c/${encodeURIComponent(item.target)}`}
+                            href={characterHref(bookSlug, item.target)}
                             className="text-slate-200 hover:text-white hover:underline"
                             onClick={(e) => e.stopPropagation()}
                           >
@@ -891,7 +845,7 @@ export default function RelationGraph({ bookSlug }: Props) {
           ) : selectedNode.type !== 'topic' ? (
             <div className="shrink-0 space-y-2 border-t border-white/5 px-4 py-3">
               <a
-                href={`/${bookSlug}/c/${encodeURIComponent(selectedNode.id)}`}
+                href={characterHref(bookSlug, selectedNode.id)}
                 className="inline-block text-sm hover:underline"
                 style={{ color: gt.accent }}
               >
@@ -941,6 +895,55 @@ export default function RelationGraph({ bookSlug }: Props) {
       <p className="pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 select-none text-center text-slate-700/40 text-sm">
         按阵营分簇 · 点击节点点亮关系 · 仅核心人物显示名
       </p>
+      </div>
+
+      {/* 底栏：占文档流，不叠在画布上 */}
+      <div className="graph-bottom-dock shrink-0 px-3 py-2" aria-label="图谱筛选与图例">
+        <div className="flex flex-col gap-2">
+          <div className="flex flex-wrap gap-1.5">
+            {factions.map((f, i) => {
+              const off = hiddenFactions.has(f);
+              const color = factionColor(i);
+              return (
+                <button
+                  key={f}
+                  type="button"
+                  onClick={() => toggleFaction(f)}
+                  className="rounded-full border px-2.5 py-1 text-xs backdrop-blur-sm transition"
+                  style={{
+                    borderColor: off ? 'rgba(255,255,255,0.1)' : `${color}88`,
+                    backgroundColor: off ? 'rgba(15,23,42,0.5)' : `${color}22`,
+                    color: off ? '#64748b' : color,
+                    opacity: off ? 0.55 : 1,
+                  }}
+                >
+                  {f}
+                </button>
+              );
+            })}
+          </div>
+
+          {showRelationLegend && (
+            <div className="graph-legend max-h-20 overflow-y-auto rounded-lg border border-white/10 bg-slate-900/85 p-2 backdrop-blur-md">
+              <div className="mb-1 text-xs uppercase tracking-wide text-slate-500">关系类型</div>
+              <div className="flex flex-wrap gap-x-3 gap-y-1">
+                {relationTypes.map((t) => (
+                  <span key={t} className="flex items-center gap-1 text-xs text-slate-300">
+                    <span
+                      className="inline-block h-0.5 w-4 rounded"
+                      style={{ backgroundColor: relationColor(t) }}
+                    />
+                    {t}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-2 border-t border-white/5 pt-2 text-xs text-slate-500">
+                虚线 = 推论 / 矛盾
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

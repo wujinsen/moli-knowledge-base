@@ -50,15 +50,15 @@
 
 ## 西游记图鉴扩展
 
-`性格` · `喜好[]`（法宝 id 可链 `/xiyouji/i/{id}`）· `结局`
+`性格` · `喜好[]`（法宝 id 可链 `/xiyouji/i/{id}`）· `关键物品[]`（**主兵器**：`五众兵器` tag 或 `type: weapon` 且 owner 匹配；唐僧取经三宝例外；**妖怪用 `法宝[]`**，勿填符咒/微器/地点）· `结局`
 
-数据：`scripts/xyj_bestiary_fields.py` → `build_xyj_bestiary_json.py`（含 `outcome_extract`）→ `xiyouji.bestiary.json` · 同步 `seed_xyj_bestiary.py`
+数据：`scripts/xyj_bestiary_fields.py` → `build_xyj_bestiary_json.py`（含 `outcome_extract`）→ `xiyouji.bestiary.json` · 同步 `seed_xyj_bestiary.py` · 清理 `prune_xyj_keepsakes.py`
 
 ## 红楼梦图鉴扩展（type: character）
 
-`性格` · `喜好[]`（条目可为名物 id、活动或人物名；名物 id 可链至 `/honglou/i/{id}`）· `服饰[]` · `关键物品[]`（后二者优先链名物百科）· `结局`
+`性格` · `喜好[]`（条目可为名物 id、活动或人物名；名物 id 可链至 `/honglou/i/{id}`）· `服饰[]` · `关键物品[]`（**图鉴展示为「信物」**：少量情物/佩饰/物证；须为名物 id 且带 `信物`/`佩饰`/`情物` tag 或人工审定，**勿**填宴饮/诊脉/地点链）· `结局`
 
-数据：`scripts/hlm_bestiary_fields.py` → `build_hlm_bestiary_json.py`（含 `outcome_extract` 自动补全）→ `hongloumeng.bestiary.json` · 同步 `seed_hlm_bestiary.py`
+数据：`scripts/hlm_bestiary_fields.py` → `build_hlm_bestiary_json.py`（经 `filter_hlm_keepsake_ids`）→ `hongloumeng.bestiary.json` · 同步 `seed_hlm_bestiary.py` · 清理 `prune_hlm_keepsakes.py`
 
 ## 图鉴分组（三书共用）
 

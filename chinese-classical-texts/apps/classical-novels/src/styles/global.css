@@ -2450,6 +2450,11 @@ mark.compare-highlight--active {
   overflow: hidden;
 }
 
+.graph-explorer.graph-explorer--stacked {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Leaflet 地图（金瓶梅市井 GIS 等） */
 .route-leaflet-label {
   background: rgba(15, 23, 42, 0.82);
@@ -2593,6 +2598,27 @@ mark.compare-highlight--active {
 
 .graph-detail-panel {
   box-shadow: 0 18px 40px -16px rgba(0, 0, 0, 0.65);
+}
+
+.graph-bottom-dock {
+  flex-shrink: 0;
+  max-height: min(36vh, 10.5rem);
+  overflow-y: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(8px);
+}
+
+.graph-chart-stage {
+  position: relative;
+  min-height: 12rem;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.graph-bottom-dock .graph-legend {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
 }
 
 .graph-nav-search {

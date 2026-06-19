@@ -62,3 +62,8 @@ export function chipHref(
 
 /** 服饰 / 关键物品等同理链至名物百科 */
 export const itemWikiHref = likeItemHref;
+
+/** 人物 frontmatter `关键物品` 的展示标签（按书 slug） */
+export function keyItemsLabel(bookSlug: string): string {
+  return bookSlug === 'honglou' ? '信物' : '关键物品';
+}

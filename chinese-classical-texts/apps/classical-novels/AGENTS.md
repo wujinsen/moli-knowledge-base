@@ -211,9 +211,19 @@ summary: 一句话说明本页价值
 1. **数据**：`RelationGraph` 内 `relationGraphForSlug(bookSlug)` 加载 JSON；**禁止**把整份 `*.relations.json` 塞进 `astro-island` props。
 2. **高度**：保留 `--graph-chrome`（顶栏实测高度）+ `.graph-explorer` 的 `height/minHeight: calc(100dvh - var(--graph-chrome))`；**禁止**只靠 `height: 100%` 无显式 calc。
 3. **初始化**：ECharts 用 ResizeObserver 等有尺寸再 init；勿无限 `requestAnimationFrame` 等 0 高度容器。
-4. **验收**：改完后打开 `/honglou/graph` 确认节点可见，`npm run build` 通过。
+4. **底栏布局**（防「遮住 → 图消失」连锁）：
+   - 阵营筛选 + 关系图例放在 **文档流** 底栏 `.graph-bottom-dock`（`flex-shrink: 0`），画布在 `.graph-chart-stage`（`flex: 1`）。
+   - **禁止**两个底栏控件同用 `absolute bottom-*` 叠在同一位置；**禁止**用绝对定位底栏 + 画布 `bottom` 内缩去「让位」——阵营多时会吃掉全部高度，ECharts 容器变 0。
+   - 详情侧栏用 `top + bottom` 锚在 `.graph-chart-stage` 内；**禁止** `height: 100vh`（与底栏 flex 布局冲突）。
+   - 人物页链接统一 `characterHref(bookSlug, id)`（`encodeURIComponent`），勿手写 `/c/${id}`。
+5. **改动分离**：底栏/CSS 与路由/`getStaticPaths`/链接函数 **分 PR、分验收**；404 先查 dev 是否在跑、`npm run dev:clean`，勿与布局回归混为一谈。
+6. **验收（改完必做，三步）**：
+   - 打开 `/honglou/graph`：无选中时节点/边可见；底栏阵营 + 关系图例均可见、互不遮挡。
+   - 点击节点（如林黛玉）：侧栏出现；图谱仍在侧栏后方可见（非全屏空白）。
+   - 点「查看人物页 →」或邻接链接：进入 `/honglou/c/林黛玉` 返回 200（非 Astro 火箭 404）。
+   - 另跑 `npm run build` 通过。
 
-空白图谱 ≠ 数据丢失；先查 canvas 父级 `clientHeight`。
+空白图谱 ≠ 数据丢失；先查 canvas 父级 `clientHeight`。人物页 404 ≠ 缺 content；先查 dev 端口与 Vite 是否报 `astro:server-app.js` 错误。
 
 ---
 
@@ -258,5 +268,6 @@ contradicts: [情节-黛玉结局]      # 标记存在版本冲突的主题 id
 
 ## 变更记录
 
+- **2026-06-15**：§5.7 增补底栏 flex 铁律、侧栏锚定、链接编码、三步验收与布局/路由分离（2026-06 底栏遮挡→图消失→404 连锁复盘）。
 - **2026-06-15**：§5.7 关系图谱前端布局铁律；[`docs/关系图谱-前端布局规范.md`](docs/关系图谱-前端布局规范.md)（防 ECharts 画布高度 0 复发）。
 - **2026-06-14**：`/query` 增补「回填判断规则」、主题页 `topics/` 目录与 frontmatter 规范。

@@ -51,6 +51,8 @@ def sync_book(book: str, *, dry_run: bool) -> int:
             {"服饰": fm.get("服饰"), "关键物品": fm.get("关键物品")},
             wiki,
             item_ids,
+            book=book,
+            catalog=list_item_catalog(book) if book == "红楼梦" else None,
         )
         new_costumes = merged.get("服饰") or []
         new_keys = merged.get("关键物品") or []

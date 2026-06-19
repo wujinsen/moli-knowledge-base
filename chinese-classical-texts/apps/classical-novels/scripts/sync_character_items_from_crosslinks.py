@@ -53,7 +53,9 @@ def sync_book(book: str, *, dry_run: bool) -> int:
 
         for iid in occ:
             meta = catalog.get(iid, {})
-            field = item_target_field(meta)
+            field = item_target_field(meta, book)
+            if not field:
+                continue
             if fm.get("type") == "monster" and field == "关键物品":
                 fabao = merge_item_lists(fabao, [iid])
             elif field == "服饰":

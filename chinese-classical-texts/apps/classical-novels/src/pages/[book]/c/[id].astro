@@ -12,15 +12,18 @@ import { relatedImageryForCharacter } from '../../../lib/shiIndex';
 import { subtypeLabel } from '../../../lib/imagery';
 import LinkedItemChips from '../../../components/LinkedItemChips.astro';
 import { chapterLabel } from '../../../lib/events';
-import { graphFocusHref } from '../../../lib/sna';
+import { graphFocusHref, characterHref } from '../../../lib/sna';
 import { readChapterPath } from '../../../lib/editions';
+import { keyItemsLabel } from '../../../lib/bestiary';
 
 export async function getStaticPaths() {
   const books = await getBooks();
   const slugByBook = new Map(books.map((b) => [b.data.book, b.data.slug]));
   const featuresByBook = new Map(books.map((b) => [b.data.book, b.data.features]));
   const chars = await getCollection('characters');
-  return chars.map((c) => ({
+  return chars
+    .filter((c) => slugByBook.has(c.data.book))
+    .map((c) => ({
     params: { book: slugByBook.get(c.data.book)!, id: c.data.id },
     props: {
       entry: c,
@@ -184,7 +187,7 @@ const relatedImagery = features.includes('poems')
           )}
           {d.关键物品.length > 0 && (
             <div class="entity-spec-cell">
-              <dt>关键物品</dt>
+              <dt>{keyItemsLabel(slug)}</dt>
               <dd>
                 <LinkedItemChips bookSlug={slug} items={d.关键物品} />
               </dd>
@@ -230,7 +233,7 @@ const relatedImagery = features.includes('poems')
         <ul class="flex flex-wrap gap-2">
           {d.relations.map((r) => (
             <li>
-              <a class="chip hover:underline" href={`/${slug}/c/${r.target}`}>
+              <a class="chip hover:underline" href={characterHref(slug, r.target)}>
                 {r.type}{r.role ? `·${r.role}` : ''} → {r.target}
               </a>
             </li>

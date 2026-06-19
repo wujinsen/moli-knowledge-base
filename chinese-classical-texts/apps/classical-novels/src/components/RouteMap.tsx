@@ -402,8 +402,8 @@ export default function RouteMap({ data, bookSlug }: Props) {
         }}
       />
 
-      {/* 顶栏控件 */}
-      <div className="absolute left-0 right-0 top-0 z-10 flex flex-wrap items-center gap-2 p-3">
+      {/* 顶栏控件（留出 RouteExplorer 视图切换条） */}
+      <div className="absolute left-0 right-0 top-14 z-10 flex flex-wrap items-center gap-2 p-3">
         <div className="flex gap-1 rounded-lg border border-white/10 bg-slate-900/80 p-1 backdrop-blur-sm">
           {layerButtons.map((b) => (
             <button

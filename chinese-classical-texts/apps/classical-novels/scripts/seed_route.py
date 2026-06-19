@@ -2,12 +2,14 @@
 """生成《西游记》取经路线 GIS 的 location 实体（凡间路线 + 神话异界双层）。
 
 坐标系：
-- geo：真实经纬度（WGS84 近似），页面按方位投影（北在上、东在右，以长安为原点）
-- coord：神话异界节点的虚拟画布坐标；凡间节点 geo 在构建期自动投影
+- geo：真实经纬度（WGS84 近似），供 Leaflet「真实地理」视图
+- coord：叙事示意图坐标（章回布局 + 神话并置），与 geo 解耦
+- 凡间节点同时写入 geo + coord；神话节点仅 coord
 重生成：python scripts/seed_route.py
 """
 from __future__ import annotations
 
+import math
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -129,6 +131,33 @@ def valid_type(n: dict) -> str:
     return TYPE_BY_CATEGORY.get(n["category"], "location")
 
 
+def assign_narrative_coords(nodes: list[dict]) -> None:
+    """凡间站：章回叙事布局（西→东 + 情节折线），与 geo 经纬度解耦。"""
+    real = sorted(
+        [n for n in nodes if n["layer"] == "real" and n["order"] is not None],
+        key=lambda n: n["order"],
+    )
+    total = len(real)
+    if total < 2:
+        return
+    x_pad, x_span, base_y = 60, 880, 360
+    # y 偏移：情节性折返（火焰山大幅北折等）
+    y_detour: dict[int, int] = {
+        14: 35,
+        15: -150,
+        16: -70,
+        20: 55,
+        24: -25,
+    }
+    for n in real:
+        o = n["order"]
+        t = (o - 1) / (total - 1)
+        x = x_pad + t * x_span
+        y = base_y + y_detour.get(o, 0) + int(16 * math.sin(o * 0.62))
+        n["x"] = round(x)
+        n["y"] = round(y)
+
+
 def yaml_list(key: str, vals: list) -> str:
     if not vals:
         return f"{key}: []"
@@ -137,6 +166,7 @@ def yaml_list(key: str, vals: list) -> str:
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
+    assign_narrative_coords(NODES)
     written = 0
     for n in NODES:
         appear_in = [f"第{c}回" for c in n["chapters"]]

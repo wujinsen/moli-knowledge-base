@@ -1,6 +1,6 @@
 ---
 import BestiaryLinkChips from './BestiaryLinkChips.astro';
-import { chipHref } from '../lib/bestiary';
+import { chipHref, keyItemsLabel } from '../lib/bestiary';
 
 interface Props {
   href: string;
@@ -73,7 +73,7 @@ const hasDetailFields =
           {
             keyItems.length > 0 && bookSlug && (
               <div class="bestiary-card-field">
-                <span class="bestiary-card-label">关键物品</span>
+                <span class="bestiary-card-label">{bookSlug ? keyItemsLabel(bookSlug) : '关键物品'}</span>
                 <BestiaryLinkChips bookSlug={bookSlug} items={keyItems} />
               </div>
             )
