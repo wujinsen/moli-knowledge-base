@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import * as echarts from 'echarts';
-import type { EChartsOption } from 'echarts';
+import { echarts, type EChartsOption } from '../lib/echartsCore';
 import {
   characterHref,
   filterMetrics,

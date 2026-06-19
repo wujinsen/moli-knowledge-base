@@ -4,7 +4,7 @@ import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
 import BackLink from '../../../components/BackLink.astro';
 import { loadBookPlaces, typeLabel } from '../../../lib/places';
-import { chaptersFromAppearIn, relatedItemsForPlace, milestoneEventsForPlace } from '../../../lib/crosslinks';
+import { chaptersFromAppearIn, relatedItemsForPlace, milestoneEventsForPlace, routeEventsForPlace } from '../../../lib/crosslinks';
 import { chapterLabel } from '../../../lib/events';
 
 export async function getStaticPaths() {
@@ -73,6 +73,7 @@ const chapterNums = chaptersFromAppearIn(d.appear_in);
 const keyEvents = features.includes('saga')
   ? await milestoneEventsForPlace(d.book, d.id)
   : [];
+const routeEvents = isTown ? await routeEventsForPlace(d.book, d.id) : [];
 ---
 
 <Base title={d.name} bookSlug={slug} bookName={d.book} features={features}>
@@ -189,6 +190,35 @@ const keyEvents = features.includes('saga')
             ))}
           </ul>
           <a href={`/${slug}/saga`} class="mt-2 inline-block text-sm hover:underline" style="color: var(--accent)">查看大事记 →</a>
+        </div>
+      )
+    }
+
+    {
+      routeEvents.length > 0 && (
+        <div class="mt-6">
+          <h2 class="section-title mb-2">途经路线</h2>
+          <ul class="space-y-2">
+            {routeEvents.map((ev) => (
+              <li class="surface px-3 py-2">
+                <a class="hover:underline" style="color: var(--primary)" href={`/${slug}/e/${ev.id}`}>{ev.title}</a>
+                <span class="ml-1 chip text-xs">第{ev.stopIndex + 1}/{ev.stops.length}站</span>
+                <div class="mt-1 text-sm text-muted">
+                  {ev.stops.map((s, i) => (
+                    <>
+                      {i > 0 && <span class="mx-0.5">→</span>}
+                      {s === d.id ? (
+                        <span style="color: var(--primary)">{s}</span>
+                      ) : (
+                        <a class="hover:underline" href={`/${slug}/l/${s}`}>{s}</a>
+                      )}
+                    </>
+                  ))}
+                </div>
+              </li>
+            ))}
+          </ul>
+          <a href={`/${slug}/town`} class="mt-2 inline-block text-sm hover:underline" style="color: var(--accent)">在市井地图看路线 →</a>
         </div>
       )
     }

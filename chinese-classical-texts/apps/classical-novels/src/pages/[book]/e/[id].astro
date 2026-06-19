@@ -163,6 +163,23 @@ const { Content } = await render(ev);
         )
       }
       {
+        (d.map_route?.length ?? 0) > 0 && (
+          <>
+            <dt>途经路线</dt>
+            <dd>
+              {
+                d.map_route!.map((l, i) => (
+                  <>
+                    {i > 0 && <span class="event-meta-muted mx-0.5">→</span>}
+                    <a href={`/${meta.slug}/l/${l}`} class="event-link hover:underline">{l}</a>
+                  </>
+                ))
+              }
+            </dd>
+          </>
+        )
+      }
+      {
         d.artifacts.length > 0 && (
           <>
             <dt>法宝</dt>
@@ -203,6 +220,9 @@ const { Content } = await render(ev);
       )}
       {isMilestone && (
         <a href={`/${meta.slug}/saga#saga-${d.id}`} class="btn btn-ghost">大事记定位</a>
+      )}
+      {(d.map_route?.length ?? 0) > 0 && meta.features.includes('town') && (
+        <a href={`/${meta.slug}/town?route=${d.id}`} class="btn btn-ghost">在市井地图看路线 →</a>
       )}
     </div>
 

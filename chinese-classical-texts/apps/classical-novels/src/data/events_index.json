@@ -560,7 +560,7 @@
     "jinpingmei": {
       "book": "金瓶梅",
       "slug": "jinpingmei",
-      "count": 24,
+      "count": 30,
       "entries": [
         {
           "id": "jpm-fe-001",
@@ -629,6 +629,52 @@
           "aliases": [],
           "monsters": [],
           "artifacts": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-rt-003",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "milestone",
+          "title": "武松复仇·阳谷归来杀嫂",
+          "chapters": [
+            1,
+            9,
+            87
+          ],
+          "characters": [
+            "武松",
+            "武大郎",
+            "潘金莲",
+            "西门庆",
+            "王婆"
+          ],
+          "locations": [
+            "阳谷县",
+            "清河县",
+            "紫石街",
+            "王婆茶坊"
+          ],
+          "map_route": [
+            "阳谷县",
+            "清河县",
+            "紫石街",
+            "王婆茶坊"
+          ],
+          "prev": "jpm-ms-001",
+          "tags": [
+            "复仇",
+            "谋杀",
+            "水浒敷演"
+          ],
+          "summary": "武松自阳谷打虎为都头，归清河紫石街寻兄已遭鸩杀；后于王婆茶坊手刃潘金莲祭兄。承《水浒》而来的复仇线，首尾贯穿全书罪恶起点与散场。",
+          "source": "chapters/金瓶梅/词话本/087.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
           "variants": [],
           "contradicts": [],
           "scoped_relations": []
@@ -738,6 +784,51 @@
           "aliases": [],
           "monsters": [],
           "artifacts": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-rt-002",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "financial",
+          "financial_kind": "贿赂",
+          "title": "上京干谒·蔡府打点拜寿",
+          "chapters": [
+            18,
+            27,
+            55
+          ],
+          "characters": [
+            "西门庆",
+            "来保",
+            "翟谦",
+            "蔡京"
+          ],
+          "locations": [
+            "西门府",
+            "东京",
+            "蔡府",
+            "翟亲家宅"
+          ],
+          "map_route": [
+            "西门府",
+            "东京",
+            "蔡府",
+            "翟亲家宅"
+          ],
+          "tags": [
+            "官场",
+            "贿赂",
+            "上京"
+          ],
+          "summary": "来保、西门庆先后上东京打点杨案、献蔡太师寿礼、结翟管家亲家；白银沿官路上达相府，是西门庆攀附权门的中枢线。",
+          "source": "chapters/金瓶梅/词话本/055.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
           "variants": [],
           "contradicts": [],
           "scoped_relations": []
@@ -960,6 +1051,47 @@
           "scoped_relations": []
         },
         {
+          "id": "jpm-rt-006",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "plot",
+          "title": "内相往来·皇庄与郊园游宴",
+          "chapters": [
+            31,
+            54
+          ],
+          "characters": [
+            "西门庆",
+            "薛内相",
+            "刘太监",
+            "应伯爵"
+          ],
+          "locations": [
+            "皇庄",
+            "西门府",
+            "内相花园"
+          ],
+          "map_route": [
+            "皇庄",
+            "西门府",
+            "内相花园"
+          ],
+          "tags": [
+            "太监",
+            "宴饮",
+            "郊外"
+          ],
+          "summary": "镇守皇庄的薛内相、刘太监赴西门府庆官筵，西门庆又应伯爵之邀赴城外内相花园游宴；勾连权贵太监的享乐社交线。",
+          "source": "chapters/金瓶梅/词话本/054.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
           "id": "jpm-fe-004",
           "type": "event",
           "book": "金瓶梅",
@@ -1100,6 +1232,96 @@
           "scoped_relations": []
         },
         {
+          "id": "jpm-rt-001",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "financial",
+          "financial_kind": "买卖",
+          "title": "南货商路·杭州缎货入清河",
+          "chapters": [
+            58,
+            60,
+            66
+          ],
+          "characters": [
+            "西门庆",
+            "韩道国",
+            "崔本",
+            "来保"
+          ],
+          "locations": [
+            "杭州",
+            "临清钞关",
+            "对门楼",
+            "绒线铺"
+          ],
+          "map_route": [
+            "杭州",
+            "临清钞关",
+            "对门楼",
+            "绒线铺"
+          ],
+          "amount_liang": 10000,
+          "tags": [
+            "商路",
+            "缎货",
+            "钞关"
+          ],
+          "summary": "韩道国押杭州万两缎绢，经临清钞关纳税入清河，于对门楼卸货、绒线铺发卖；西门庆长途贩缎的资金主动脉。",
+          "source": "chapters/金瓶梅/词话本/058.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-rt-005",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "financial",
+          "financial_kind": "买卖",
+          "title": "临清码头·钞关报税与散场",
+          "chapters": [
+            58,
+            98,
+            100
+          ],
+          "characters": [
+            "西门庆",
+            "韩道国",
+            "王六儿",
+            "陈敬济",
+            "陆秉义"
+          ],
+          "locations": [
+            "清河县",
+            "临清钞关",
+            "临清酒店"
+          ],
+          "map_route": [
+            "清河县",
+            "临清钞关",
+            "临清酒店"
+          ],
+          "tags": [
+            "运河",
+            "钞关",
+            "散场"
+          ],
+          "summary": "临清码头是清河繁华的运河外延：盛时货船在此过钞关纳税入城，衰后韩道国、王六儿落脚谢家酒店；一条贯通发家与散场的商埠线。",
+          "source": "chapters/金瓶梅/词话本/098.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
           "id": "jpm-ms-004",
           "type": "event",
           "book": "金瓶梅",
@@ -1162,6 +1384,45 @@
           ],
           "summary": "李瓶儿病亡，西门庆大办丧仪，府内权力格局再洗牌。",
           "source": "chapters/金瓶梅/词话本/060.md",
+          "aliases": [],
+          "monsters": [],
+          "artifacts": [],
+          "transaction_refs": [],
+          "variants": [],
+          "contradicts": [],
+          "scoped_relations": []
+        },
+        {
+          "id": "jpm-rt-004",
+          "type": "event",
+          "book": "金瓶梅",
+          "subtype": "plot",
+          "title": "李瓶儿丧仪·府内发引永福寺",
+          "chapters": [
+            62,
+            65
+          ],
+          "characters": [
+            "李瓶儿",
+            "西门庆",
+            "吴道官",
+            "黄真人"
+          ],
+          "locations": [
+            "西门府",
+            "永福寺"
+          ],
+          "map_route": [
+            "西门府",
+            "永福寺"
+          ],
+          "tags": [
+            "丧礼",
+            "佛道",
+            "排场"
+          ],
+          "summary": "李瓶儿卒于西门府正寝，停灵设斋、玉皇庙道众建坛，五七大殡发引至城外；西门庆以铺张丧仪炫耀财势的高潮。",
+          "source": "chapters/金瓶梅/词话本/065.md",
           "aliases": [],
           "monsters": [],
           "artifacts": [],

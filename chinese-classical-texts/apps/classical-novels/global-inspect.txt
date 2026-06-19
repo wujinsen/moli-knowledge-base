@@ -1,0 +1,43 @@
+﻿python : Exception in thread Thread-7 (_readerthread):
+所在位置 C:\Users\123\AppData\Local\Temp\ps-script-d3f21b85-306e-4854-a816-a7a81d20a05c.ps1:89 字符: 104
++ ... pps\classical-novels"; python scripts/_global_inspect.py 2>&1 | Out-F ...
++                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Exception in th..._readerthread)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Traceback (most recent call last):
+  File "C:\Users\123\AppData\Local\Programs\Python\Python313\Lib\threading.py", line 1041, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "C:\Users\123\AppData\Local\Programs\Python\Python313\Lib\threading.py", line 992, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\123\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1611, in _readerthread
+    buffer.append(fh.read())
+                  ~~~~~~~^^
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xba in position 1: invalid start byte
+=== /lint ===
+红楼梦: totalIssues=4 passed=False
+  - items_locations: 4
+      · items与locations: 红楼梦\007.md → ['义学']
+      · items与locations: 红楼梦\009.md → ['义学']
+      · items与locations: 红楼梦\脂砚斋本\007.md → ['义学']
+  density: structMissing=0 lowDensity=0
+金瓶梅: totalIssues=0 passed=True
+  density: structMissing=1 lowDensity=0
+    structMissing: 杜二娘
+西游记: totalIssues=0 passed=True
+  density: structMissing=0 lowDensity=0
+
+=== Trust Guard ===
+Traceback (most recent call last):
+  File "D:\work\moli_project\moli-knowledge-base\chinese-classical-texts\apps\classical-novels\scripts\_global_inspect.
+py", line 75, in <module>
+    main()
+    ~~~~^^
+  File "D:\work\moli_project\moli-knowledge-base\chinese-classical-texts\apps\classical-novels\scripts\_global_inspect.
+py", line 48, in main
+    text = (out + err).strip()
+            ~~~~^~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'

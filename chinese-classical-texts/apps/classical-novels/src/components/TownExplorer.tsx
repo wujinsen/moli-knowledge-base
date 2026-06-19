@@ -15,6 +15,11 @@ type ViewMode = 'gis' | 'schematic';
 const graphHeight = 'calc(100dvh - var(--graph-chrome, 10.5rem))';
 
 export default function TownExplorer({ data, gis, bookSlug, initialView = 'gis' }: Props) {
+  const initialRouteId = useMemo(() => {
+    if (typeof window === 'undefined') return null;
+    const r = new URLSearchParams(window.location.search).get('route');
+    return r && (data.routes ?? []).some((x) => x.id === r) ? r : null;
+  }, [data.routes]);
   const [view, setView] = useState<ViewMode>(initialView);
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
@@ -70,6 +75,7 @@ export default function TownExplorer({ data, gis, bookSlug, initialView = 'gis' 
             bookSlug={bookSlug}
             selectedId={selectedId}
             onSelect={onSelect}
+            initialRouteId={initialRouteId}
           />
           {selectedNode && (
             <TownDetailPanel node={selectedNode} bookSlug={bookSlug} onClose={() => setSelectedId(null)} />
@@ -77,7 +83,7 @@ export default function TownExplorer({ data, gis, bookSlug, initialView = 'gis' 
         </>
       ) : (
         <div className="absolute inset-0">
-          <TownMap data={data} bookSlug={bookSlug} />
+          <TownMap data={data} bookSlug={bookSlug} initialRouteId={initialRouteId} />
         </div>
       )}
     </div>

@@ -13,10 +13,22 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      include: ['leaflet', 'react', 'react-dom', 'echarts'],
+      include: ['leaflet', 'react', 'react-dom', 'echarts/core'],
     },
     ssr: {
       noExternal: ['leaflet'],
+    },
+    build: {
+      rollupOptions: {
+        output: {
+          // 把 echarts/zrender 收进单一共享 chunk，避免被各 client:only island 重复打包
+          manualChunks(id) {
+            if (id.includes('node_modules/echarts') || id.includes('node_modules/zrender')) {
+              return 'echarts';
+            }
+          },
+        },
+      },
     },
   },
   server: {

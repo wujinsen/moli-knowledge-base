@@ -286,6 +286,30 @@
         "xyj-place-lingtai",
         "孙悟空"
       ]
+    },
+    {
+      "id": "erxin-huo",
+      "name": "二心→火焰山",
+      "summary": "去二心→五行和融→火焰山炼金乌",
+      "path": [
+        "xyj-poem-c58",
+        "xyj-dan-erxin",
+        "xyj-poem-c59",
+        "xyj-place-huoyanshan",
+        "孙悟空"
+      ]
+    },
+    {
+      "id": "lingshan-end",
+      "name": "收束：灵山→五圣成真",
+      "summary": "内外灵山互证→无字经→五圣正果",
+      "path": [
+        "xyj-verse-lingshanxin",
+        "xyj-place-lingshan",
+        "xyj-poem-wuzizhenjing",
+        "xyj-poem-c100",
+        "唐僧"
+      ]
     }
   ]
 }

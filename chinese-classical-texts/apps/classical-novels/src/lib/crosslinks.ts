@@ -202,6 +202,40 @@ export async function milestoneEventsForPlace(
   return milestoneEventsBy(book, (ids) => ids.includes(placeId), (d) => d.locations);
 }
 
+export type RouteEventRef = EventRef & {
+  /** 有序途经地点 id */
+  stops: string[];
+  /** 本地点在路线中的序号（0 基） */
+  stopIndex: number;
+};
+
+/** 地点页：途经本地点的事件路线（events.map_route 反查，金瓶梅市井地图） */
+export async function routeEventsForPlace(
+  book: string,
+  placeId: string,
+): Promise<RouteEventRef[]> {
+  const events = await loadEvents(book);
+  return events
+    .filter((e) => e.data.book === book && (e.data.map_route ?? []).includes(placeId))
+    .map((e) => {
+      const stops = e.data.map_route ?? [];
+      return {
+        id: e.data.id,
+        title: e.data.title,
+        chapters: e.data.chapters,
+        summary: e.data.summary,
+        stops,
+        stopIndex: stops.indexOf(placeId),
+      };
+    })
+    .sort((a, b) => {
+      const ca = a.chapters[0] ?? 999;
+      const cb = b.chapters[0] ?? 999;
+      if (ca !== cb) return ca - cb;
+      return a.id.localeCompare(b.id, 'zh-CN');
+    });
+}
+
 /** 读回页：本回交易记录 */
 export async function relatedTransactionsForChapter(
   book: string,

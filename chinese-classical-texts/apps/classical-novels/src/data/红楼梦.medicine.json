@@ -1,6 +1,6 @@
 {
   "book": "红楼梦",
-  "generated": "2026-06-14",
+  "generated": "2026-06-15",
   "source": "程高本 chapters + 红学/医学史通说（inference 已标注）",
   "physicians": [
     {
@@ -35,7 +35,7 @@
       "type": "physician",
       "first_appear": "第51回",
       "patients": ["晴雯", "林黛玉"],
-      "note": "贾府年例太医；晴雯外感小伤寒；黛玉积郁脉案（第83回）"
+      "note": "贾府年例太医；晴雯外感小伤寒；黛玉积郁脉案（第83回）；第69回谋干军前未诊尤二姐"
     },
     {
       "id": "毕知庵",
@@ -44,6 +44,15 @@
       "first_appear": "第98回",
       "patients": ["贾宝玉"],
       "diagnosis": "悲喜激射，冷暖失调，饮食失时，忧忿滞中，正气壅闭"
+    },
+    {
+      "id": "胡君荣",
+      "name": "胡君荣",
+      "type": "physician",
+      "first_appear": "第69回",
+      "patients": ["尤二姐"],
+      "diagnosis": "经水不调误治；贾琏言疑胎气未改方",
+      "note": "王太医缺席时另请之庸医"
     }
   ],
   "prescriptions": [
@@ -128,12 +137,372 @@
       "physician": "王大夫",
       "syndrome": "郁气伤肝，肝不藏血",
       "treatment": "敛阴止血"
+    },
+    {
+      "id": "凤姐小月脉案",
+      "chapter": 55,
+      "patient": "王熙凤",
+      "syndrome": "小月亏虚，气血不足",
+      "note": "天天两三个太医用药"
+    },
+    {
+      "id": "下红之症",
+      "chapter": 55,
+      "patient": "王熙凤",
+      "syndrome": "小月后下红，面目黄瘦"
+    },
+    {
+      "id": "邢夫人火眼",
+      "chapter": 53,
+      "patient": "邢夫人",
+      "syndrome": "火眼；迎春岫烟朝夕侍药"
+    },
+    {
+      "id": "胡君荣诊尤二姐",
+      "chapter": 69,
+      "physician": "胡君荣",
+      "patient": "尤二姐",
+      "syndrome": "经水不调误大补；贾琏言三月庚信不行疑胎气"
+    },
+    {
+      "id": "黛玉嗽疾",
+      "chapter": 45,
+      "patient": "林黛玉",
+      "syndrome": "春秋必犯嗽疾"
+    },
+    {
+      "id": "李纨时气",
+      "chapter": 53,
+      "patient": "李纨",
+      "syndrome": "时气感冒"
+    }
+  ],
+  "remedies_misc": [
+    {
+      "id": "蔷薇硝",
+      "name": "蔷薇硝",
+      "type": "外用药",
+      "chapter": 60,
+      "patient": "芳官",
+      "literary_function": "露剂案引端"
+    },
+    {
+      "id": "茉莉粉",
+      "name": "茉莉粉",
+      "type": "妆粉",
+      "chapter": 60,
+      "literary_function": "替去蔷薇硝"
+    },
+    {
+      "id": "净饿调养",
+      "name": "净饿调养",
+      "type": "病养",
+      "chapter": 53,
+      "literary_function": "贾府伤风咳嗽风俗"
+    },
+    {
+      "id": "调经养荣丸",
+      "name": "调经养荣丸",
+      "patient": "王熙凤",
+      "chapter": 77,
+      "literary_function": "人参告罄信号"
+    },
+    {
+      "id": "上等人参",
+      "name": "上等人参",
+      "type": "药材",
+      "chapter": 77,
+      "literary_function": "陈腐参与败落"
+    },
+    {
+      "id": "尤二姐吞金",
+      "name": "尤二姐吞金",
+      "type": "自尽",
+      "chapter": 69,
+      "patient": "尤二姐",
+      "literary_function": "生金坠死；凤姐借刀结局"
+    },
+    {
+      "id": "参膏芦须",
+      "name": "参膏芦须",
+      "type": "药材",
+      "chapter": 77,
+      "patient": "王熙凤",
+      "literary_function": "次等参；不敷配丸"
+    },
+    {
+      "id": "益神养血之剂",
+      "name": "益神养血之剂",
+      "patient": "晴雯",
+      "chapter": 53,
+      "literary_function": "雀裘后补方"
+    },
+    {
+      "id": "虎狼药",
+      "name": "虎狼药",
+      "type": "禁药",
+      "chapter": 51,
+      "literary_function": "胡庸医枳实麻黄"
+    },
+    {
+      "id": "鲍太医诊黛玉",
+      "name": "鲍太医诊黛玉",
+      "type": "诊脉",
+      "chapter": 28,
+      "patient": "林黛玉",
+      "literary_function": "多医并治；仍服王大夫药"
+    },
+    {
+      "id": "天王补心丹",
+      "name": "天王补心丹",
+      "type": "丸",
+      "chapter": 28,
+      "patient": "林黛玉",
+      "literary_function": "王夫人记错名；宝钗纠正"
+    },
+    {
+      "id": "疏气安神丸",
+      "name": "疏气安神丸",
+      "type": "丸",
+      "chapter": 106,
+      "patient": "贾母",
+      "literary_function": "抄家惊吓气逆调治"
+    },
+    {
+      "id": "宝钗散瘀丸",
+      "name": "宝钗散瘀丸",
+      "type": "外敷",
+      "chapter": 34,
+      "patient": "贾宝玉",
+      "literary_function": "打板后敷药"
+    },
+    {
+      "id": "湘云时气",
+      "name": "湘云时气",
+      "type": "证候",
+      "chapter": 55,
+      "patient": "史湘云",
+      "literary_function": "春令时病；诗社暂停"
+    },
+    {
+      "id": "黑逍遥方",
+      "name": "黑逍遥方",
+      "type": "汤剂",
+      "chapter": 83,
+      "patient": "林黛玉",
+      "literary_function": "积郁疏肝；忌骤补"
+    },
+    {
+      "id": "敛阴止血药",
+      "name": "敛阴止血药",
+      "type": "汤剂",
+      "chapter": 97,
+      "patient": "林黛玉",
+      "literary_function": "郁气伤肝吐血"
+    },
+    {
+      "id": "归肺固金汤",
+      "name": "归肺固金汤",
+      "type": "汤剂",
+      "chapter": 83,
+      "patient": "林黛玉",
+      "literary_function": "积郁后段方"
+    },
+    {
+      "id": "鳖血拌柴胡",
+      "name": "鳖血拌柴胡",
+      "type": "炮制法",
+      "chapter": 83,
+      "patient": "林黛玉",
+      "literary_function": "制柴胡升性"
+    },
+    {
+      "id": "伤后薄汤",
+      "name": "伤后薄汤",
+      "type": "病养",
+      "chapter": 34,
+      "patient": "贾宝玉",
+      "literary_function": "打板后仅饮两口"
+    },
+    {
+      "id": "发散风痰药",
+      "name": "发散风痰药",
+      "type": "汤剂",
+      "chapter": 84,
+      "patient": "巧姐",
+      "literary_function": "惊风首剂"
+    },
+    {
+      "id": "四神散",
+      "name": "四神散",
+      "type": "散剂",
+      "chapter": 84,
+      "patient": "巧姐",
+      "literary_function": "惊风续方"
+    },
+    {
+      "id": "真牛黄",
+      "name": "真牛黄",
+      "type": "药材",
+      "chapter": 84,
+      "patient": "巧姐",
+      "literary_function": "假牛黄对照"
+    },
+    {
+      "id": "钩藤煎",
+      "name": "钩藤煎",
+      "type": "汤剂",
+      "chapter": 84,
+      "patient": "薛姨妈",
+      "literary_function": "肝气上逆"
+    },
+    {
+      "id": "王大夫诊黛玉",
+      "name": "王大夫诊黛玉",
+      "type": "诊脉",
+      "chapter": 97,
+      "patient": "林黛玉",
+      "literary_function": "郁气伤肝脉案"
+    },
+    {
+      "id": "黛玉绝粒",
+      "name": "黛玉绝粒",
+      "type": "病养",
+      "chapter": 90,
+      "patient": "林黛玉",
+      "literary_function": "闻亲事自戕"
+    },
+    {
+      "id": "贾母参汤",
+      "name": "贾母参汤",
+      "type": "汤剂",
+      "chapter": 109,
+      "patient": "贾母",
+      "literary_function": "临终回光"
+    },
+    {
+      "id": "尤氏足阳明谵语",
+      "name": "尤氏足阳明谵语",
+      "type": "诊脉",
+      "chapter": 102,
+      "patient": "尤氏",
+      "literary_function": "园废感邪"
+    },
+    {
+      "id": "毛半仙占卦",
+      "name": "毛半仙占卦",
+      "type": "诊脉",
+      "chapter": 102,
+      "patient": "尤氏",
+      "literary_function": "撞客占卦"
+    },
+    {
+      "id": "赵姨娘办理后事",
+      "name": "赵姨娘办理后事",
+      "type": "诊脉",
+      "chapter": 113,
+      "patient": "赵姨娘",
+      "literary_function": "服毒无脉"
+    },
+    {
+      "id": "刘姥姥求神",
+      "name": "刘姥姥求神",
+      "type": "病养",
+      "chapter": 113,
+      "patient": "王熙凤",
+      "literary_function": "村野祷告"
+    },
+    {
+      "id": "定心丸",
+      "name": "定心丸",
+      "type": "丸剂",
+      "chapter": 100,
+      "patient": "贾宝玉",
+      "literary_function": "探春远嫁医心"
+    },
+    {
+      "id": "夏金桂毒汤案",
+      "name": "夏金桂毒汤案",
+      "type": "毒案",
+      "chapter": 103,
+      "patient": "夏金桂",
+      "literary_function": "施毒自焚"
+    },
+    {
+      "id": "金桂案砒霜",
+      "name": "金桂案砒霜",
+      "type": "毒药",
+      "chapter": 103,
+      "patient": "夏金桂",
+      "literary_function": "毒案物证"
+    },
+    {
+      "id": "刘姥姥还愿",
+      "name": "刘姥姥还愿",
+      "type": "病养",
+      "chapter": 113,
+      "patient": "王熙凤",
+      "literary_function": "求神后续"
+    },
+    {
+      "id": "袭人急怒脉案",
+      "name": "袭人急怒脉案",
+      "type": "诊脉",
+      "chapter": 120,
+      "patient": "袭人",
+      "literary_function": "宝玉出家前奏"
+    },
+    {
+      "id": "元春通关之剂",
+      "name": "元春通关之剂",
+      "type": "通关",
+      "chapter": 95,
+      "patient": "贾元春",
+      "literary_function": "宫闱痰壅不效"
+    },
+    {
+      "id": "宝钗感邪发烧",
+      "name": "宝钗感邪发烧",
+      "type": "感邪",
+      "chapter": 91,
+      "patient": "薛宝钗",
+      "literary_function": "金桂事连累"
+    },
+    {
+      "id": "十香返魂丹",
+      "name": "十香返魂丹",
+      "type": "丹剂",
+      "chapter": 91,
+      "patient": "薛宝钗",
+      "literary_function": "凤姐送药救急"
+    },
+    {
+      "id": "贾母消导发散",
+      "name": "贾母消导发散",
+      "type": "感冒",
+      "chapter": 109,
+      "patient": "贾母",
+      "literary_function": "临终前感冒"
+    },
+    {
+      "id": "妙玉闷香",
+      "name": "妙玉闷香",
+      "type": "迷香",
+      "chapter": 112,
+      "patient": "妙玉",
+      "literary_function": "贼劫栊翠庵"
     }
   ],
   "food_medicine_links": [
-    { "person": "林黛玉", "items": ["燕窝粥", "人参养荣丸"], "trait": "肺弱少食" },
-    { "person": "薛宝钗", "items": ["冷香丸"], "trait": "热毒、冷香" },
-    { "person": "贾母", "items": ["软烂菜", "食疗"], "trait": "长寿养生" }
+    { "person": "林黛玉", "items": ["燕窝粥", "人参养荣丸", "黛玉嗽疾", "鲍太医诊黛玉", "天王补心丹", "黛玉积郁脉案", "黑逍遥方", "归肺固金汤", "鳖血拌柴胡", "黛玉郁气吐血", "敛阴止血药", "王大夫诊黛玉", "黛玉绝粒"], "trait": "肺弱少食" },
+    { "person": "薛宝钗", "items": ["冷香丸", "宝钗散瘀丸", "宝钗感邪发烧", "十香返魂丹"], "trait": "热毒、冷香" },
+    { "person": "贾宝玉", "items": ["宝钗散瘀丸", "伤后薄汤", "定心丸"], "trait": "打板外治" },
+    { "person": "史湘云", "items": ["湘云时气"], "trait": "春令时气" },
+    { "person": "贾母", "items": ["甜烂之食", "软烂菜", "食疗", "疏气安神丸", "贾母消导发散", "贾母参汤"], "trait": "长寿养生" },
+    { "person": "王熙凤", "items": ["调经养荣丸", "上等人参", "参膏芦须", "凤姐小月脉案", "下红之症", "刘姥姥求神", "刘姥姥还愿", "散花寺神签", "水陆道场许愿"], "trait": "小月亏虚" },
+    { "person": "尤氏", "items": ["尤氏足阳明谵语", "毛半仙占卦"], "trait": "园废感邪" },
+    { "person": "尤二姐", "items": ["胡君荣诊尤二姐", "尤二姐吞金"], "trait": "误治悲剧" },
+    { "person": "袭人", "items": ["袭人急怒脉案"], "trait": "急怒气厥" }
   ],
   "entity_pages": [
     "medicines/红楼梦/冷香丸.md",
@@ -144,6 +513,52 @@
     "medicines/红楼梦/黛玉积郁脉案.md",
     "medicines/红楼梦/胡庸医诊晴雯.md",
     "medicines/红楼梦/王太医诊晴雯.md",
-    "medicines/红楼梦/毕知庵诊宝玉.md"
+    "medicines/红楼梦/毕知庵诊宝玉.md",
+    "medicines/红楼梦/蔷薇硝.md",
+    "medicines/红楼梦/茉莉粉.md",
+    "medicines/红楼梦/净饿调养.md",
+    "medicines/红楼梦/调经养荣丸.md",
+    "medicines/红楼梦/上等人参.md",
+    "medicines/红楼梦/凤姐小月脉案.md",
+    "medicines/红楼梦/下红之症.md",
+    "medicines/红楼梦/邢夫人火眼.md",
+    "medicines/红楼梦/尤二姐吞金.md",
+    "medicines/红楼梦/胡君荣诊尤二姐.md",
+    "medicines/红楼梦/参膏芦须.md",
+    "medicines/红楼梦/益神养血之剂.md",
+    "medicines/红楼梦/虎狼药.md",
+    "medicines/红楼梦/黛玉嗽疾.md",
+    "medicines/红楼梦/李纨时气.md",
+    "medicines/红楼梦/鲍太医诊黛玉.md",
+    "medicines/红楼梦/天王补心丹.md",
+    "medicines/红楼梦/疏气安神丸.md",
+    "medicines/红楼梦/宝钗散瘀丸.md",
+    "medicines/红楼梦/湘云时气.md",
+    "medicines/红楼梦/黑逍遥方.md",
+    "medicines/红楼梦/敛阴止血药.md",
+    "medicines/红楼梦/归肺固金汤.md",
+    "medicines/红楼梦/鳖血拌柴胡.md",
+    "medicines/红楼梦/伤后薄汤.md",
+    "medicines/红楼梦/发散风痰药.md",
+    "medicines/红楼梦/四神散.md",
+    "medicines/红楼梦/真牛黄.md",
+    "medicines/红楼梦/钩藤煎.md",
+    "medicines/红楼梦/王大夫诊黛玉.md",
+    "medicines/红楼梦/黛玉绝粒.md",
+    "medicines/红楼梦/贾母参汤.md",
+    "medicines/红楼梦/尤氏足阳明谵语.md",
+    "medicines/红楼梦/毛半仙占卦.md",
+    "medicines/红楼梦/赵姨娘办理后事.md",
+    "medicines/红楼梦/刘姥姥求神.md",
+    "medicines/红楼梦/定心丸.md",
+    "medicines/红楼梦/夏金桂毒汤案.md",
+    "medicines/红楼梦/金桂案砒霜.md",
+    "medicines/红楼梦/刘姥姥还愿.md",
+    "medicines/红楼梦/袭人急怒脉案.md",
+    "medicines/红楼梦/元春通关之剂.md",
+    "medicines/红楼梦/宝钗感邪发烧.md",
+    "medicines/红楼梦/十香返魂丹.md",
+    "medicines/红楼梦/贾母消导发散.md",
+    "medicines/红楼梦/妙玉闷香.md"
   ]
 }

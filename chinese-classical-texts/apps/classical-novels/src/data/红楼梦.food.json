@@ -1,6 +1,6 @@
 {
   "book": "红楼梦",
-  "generated": "2026-06-14",
+  "generated": "2026-06-15",
   "dishes": [
     {
       "id": "茄鲞",
@@ -107,6 +107,518 @@
       "chapter": 19,
       "eaters": ["袭人", "李嬷嬷", "贾宝玉"],
       "literary_function": "元春赏赐；李嬷嬷吃酪触发花解语"
+    },
+    {
+      "id": "六安茶",
+      "name": "六安茶",
+      "type": "tea",
+      "chapter": 41,
+      "location": "栊翠庵",
+      "note": "妙玉言贾母不服；对照老君眉",
+      "literary_function": "品茶阶级、妙玉洁癖"
+    },
+    {
+      "id": "年茶",
+      "name": "年茶",
+      "type": "dish",
+      "category": "节令",
+      "chapter": 19,
+      "literary_function": "正月袭人归家；正月光景"
+    },
+    {
+      "id": "茶面子",
+      "name": "茶面子",
+      "type": "tea",
+      "chapter": 75,
+      "literary_function": "李纨款客尤氏"
+    },
+    {
+      "id": "甜烂之食",
+      "name": "甜烂之食",
+      "type": "dish",
+      "category": "膳食偏好",
+      "chapter": 22,
+      "eaters": ["贾母"],
+      "literary_function": "宝钗会意贾母；老年食养"
+    },
+    {
+      "id": "供尖儿",
+      "name": "供尖儿",
+      "type": "dish",
+      "category": "节令供食",
+      "chapter": 62,
+      "literary_function": "僧尼寿礼；对照群芳夜宴"
+    },
+    {
+      "id": "枫露茶",
+      "name": "枫露茶",
+      "type": "tea",
+      "chapter": 8,
+      "literary_function": "李嬷嬷争宠"
+    },
+    {
+      "id": "群芳夜宴",
+      "name": "群芳夜宴",
+      "type": "banquet",
+      "chapter": 63,
+      "literary_function": "怡红院寿宴；盛筵必散"
+    },
+    {
+      "id": "宝钗生辰宴",
+      "name": "宝钗生辰宴",
+      "type": "banquet",
+      "chapter": 22,
+      "literary_function": "贾母置酒戏；将笄之年"
+    },
+    {
+      "id": "什锦攒心盒子",
+      "name": "什锦攒心盒子",
+      "type": "dish",
+      "chapter": 40,
+      "literary_function": "两宴还席；高几分食"
+    },
+    {
+      "id": "绍兴酒",
+      "name": "绍兴酒",
+      "type": "wine",
+      "chapter": 63,
+      "literary_function": "群芳夜宴用酒"
+    },
+    {
+      "id": "四十碟果子",
+      "name": "四十碟果子",
+      "type": "dish",
+      "chapter": 63,
+      "literary_function": "群芳夜宴果点"
+    },
+    {
+      "id": "供饭供茶",
+      "name": "供饭供茶",
+      "type": "custom_food",
+      "chapter": 14,
+      "literary_function": "可卿丧仪灵前供食"
+    },
+    {
+      "id": "奠茶饭",
+      "name": "奠茶饭",
+      "type": "custom_food",
+      "chapter": 15,
+      "literary_function": "铁槛寺发殡奠食"
+    },
+    {
+      "id": "面茶",
+      "name": "面茶",
+      "type": "dish",
+      "chapter": 77,
+      "literary_function": "贾政晨仪家常食"
+    },
+    {
+      "id": "黄杨根套杯",
+      "name": "黄杨根套杯",
+      "type": "dish",
+      "chapter": 41,
+      "literary_function": "刘姥姥宴戏杯"
+    },
+    {
+      "id": "螃蟹小饺",
+      "name": "螃蟹小饺",
+      "type": "dish",
+      "chapter": 41,
+      "literary_function": "贾母嫌蟹饺油腻"
+    },
+    {
+      "id": "奶油小面果",
+      "name": "奶油小面果",
+      "type": "dish",
+      "chapter": 41,
+      "literary_function": "刘姥姥宴点心"
+    },
+    {
+      "id": "奶子糖粳粥",
+      "name": "奶子糖粳粥",
+      "type": "dish",
+      "chapter": 14,
+      "literary_function": "凤姐协理晨食"
+    },
+    {
+      "id": "劝食细粥",
+      "name": "劝食细粥",
+      "type": "dish",
+      "chapter": 14,
+      "literary_function": "劝尤氏贾珍进食"
+    },
+    {
+      "id": "香茶细果",
+      "name": "香茶细果",
+      "type": "dish",
+      "chapter": 22,
+      "literary_function": "元宵灯谜贺"
+    },
+    {
+      "id": "合欢酒",
+      "name": "合欢酒",
+      "type": "wine",
+      "chapter": 38,
+      "literary_function": "食蟹后温中"
+    },
+    {
+      "id": "普洱茶",
+      "name": "普洱茶",
+      "type": "tea",
+      "chapter": 63,
+      "literary_function": "夜宴消食茶"
+    },
+    {
+      "id": "炖嫩鸡蛋",
+      "name": "炖嫩鸡蛋",
+      "type": "dish",
+      "chapter": 61,
+      "literary_function": "小厨房权力冲突"
+    },
+    {
+      "id": "路祭茶果",
+      "name": "路祭茶果",
+      "type": "dish",
+      "chapter": 15,
+      "literary_function": "水月庵茶果点心"
+    },
+    {
+      "id": "姜醋蘸蟹",
+      "name": "姜醋蘸蟹",
+      "type": "dish",
+      "chapter": 38,
+      "literary_function": "螃蟹宴蘸料"
+    },
+    {
+      "id": "绿豆洗面",
+      "name": "绿豆洗面",
+      "type": "dish",
+      "chapter": 38,
+      "literary_function": "食蟹后盥洗"
+    },
+    {
+      "id": "建莲红枣汤",
+      "name": "建莲红枣汤",
+      "type": "dish",
+      "chapter": 52,
+      "literary_function": "宝玉晨起汤饮"
+    },
+    {
+      "id": "宫制诗筒",
+      "name": "宫制诗筒",
+      "type": "dish",
+      "chapter": 22,
+      "literary_function": "元春灯谜赐物"
+    },
+    {
+      "id": "茶筅",
+      "name": "茶筅",
+      "type": "tea",
+      "chapter": 22,
+      "literary_function": "元春赐、藕香榭煮茶"
+    },
+    {
+      "id": "门杯",
+      "name": "门杯",
+      "type": "wine",
+      "chapter": 28,
+      "literary_function": "冯紫英女儿酒令"
+    },
+    {
+      "id": "法制紫姜",
+      "name": "法制紫姜",
+      "type": "dish",
+      "chapter": 52,
+      "literary_function": "宝玉晨起小食"
+    },
+    {
+      "id": "八旬寿点",
+      "name": "八旬寿点",
+      "type": "dish",
+      "chapter": 71,
+      "literary_function": "八旬寿期茶点"
+    },
+    {
+      "id": "杏仁茶",
+      "name": "杏仁茶",
+      "type": "dish",
+      "chapter": 54,
+      "literary_function": "元宵夜宴甜饮"
+    },
+    {
+      "id": "鸭子肉粥",
+      "name": "鸭子肉粥",
+      "type": "dish",
+      "chapter": 54,
+      "literary_function": "元宵夜预备粥"
+    },
+    {
+      "id": "红稻米粥",
+      "name": "红稻米粥",
+      "type": "dish",
+      "chapter": 75,
+      "literary_function": "尤氏奉贾母"
+    },
+    {
+      "id": "椒油莼酱",
+      "name": "椒油莼酱",
+      "type": "dish",
+      "chapter": 75,
+      "literary_function": "王夫人斋食"
+    },
+    {
+      "id": "蘅芜庆生宴",
+      "name": "蘅芜庆生宴",
+      "type": "banquet",
+      "chapter": 108,
+      "literary_function": "败落后强欢笑寿席"
+    },
+    {
+      "id": "西洋葡萄酒",
+      "name": "西洋葡萄酒",
+      "type": "wine",
+      "chapter": 60,
+      "literary_function": "五儿误认玫瑰露"
+    },
+    {
+      "id": "薛蟠生日宴",
+      "name": "薛蟠生日宴",
+      "type": "banquet",
+      "chapter": 29,
+      "literary_function": "薛家摆酒唱戏"
+    },
+    {
+      "id": "香薷解暑汤",
+      "name": "香薷解暑汤",
+      "type": "dish",
+      "chapter": 29,
+      "literary_function": "黛玉情志呕吐"
+    },
+    {
+      "id": "风腌果子狸",
+      "name": "风腌果子狸",
+      "type": "dish",
+      "chapter": 75,
+      "literary_function": "贾母分膳野味"
+    },
+    {
+      "id": "风腌笋",
+      "name": "风腌笋",
+      "type": "dish",
+      "chapter": 75,
+      "literary_function": "贾母分膳"
+    },
+    {
+      "id": "押岁锞子",
+      "name": "押岁锞子",
+      "type": "dish",
+      "chapter": 53,
+      "literary_function": "腊月年例"
+    },
+    {
+      "id": "枣儿粳米粥",
+      "name": "枣儿粳米粥",
+      "type": "dish",
+      "chapter": 54,
+      "literary_function": "元宵斋粥"
+    },
+    {
+      "id": "中秋热酒",
+      "name": "中秋热酒",
+      "type": "wine",
+      "chapter": 76,
+      "literary_function": "凸碧堂赏月"
+    },
+    {
+      "id": "凸碧堂月饼",
+      "name": "凸碧堂月饼",
+      "type": "dish",
+      "chapter": 76,
+      "literary_function": "中秋节令"
+    },
+    {
+      "id": "甄夫人席",
+      "name": "甄夫人席",
+      "type": "banquet",
+      "chapter": 57,
+      "literary_function": "甄家留席"
+    },
+    {
+      "id": "馊豆腐",
+      "name": "馊豆腐",
+      "type": "dish",
+      "chapter": 61,
+      "literary_function": "厨房质量冲突"
+    },
+    {
+      "id": "抄家席间",
+      "name": "抄家席间",
+      "type": "banquet",
+      "chapter": 105,
+      "literary_function": "查抄时筵席未散"
+    },
+    {
+      "id": "酒酿蒸鸭",
+      "name": "酒酿蒸鸭",
+      "type": "dish",
+      "chapter": 62,
+      "literary_function": "柳家盒膳；芳官线"
+    },
+    {
+      "id": "北静王赏宴",
+      "name": "北静王赏宴",
+      "type": "banquet",
+      "chapter": 85,
+      "literary_function": "王府寿席；宝玉单赏"
+    },
+    {
+      "id": "奶油松瓤卷酥",
+      "name": "奶油松瓤卷酥",
+      "type": "dish",
+      "chapter": 62,
+      "literary_function": "芳官盒膳点心"
+    },
+    {
+      "id": "胭脂鹅脯",
+      "name": "胭脂鹅脯",
+      "type": "dish",
+      "chapter": 62,
+      "literary_function": "柳家盒膳腌味"
+    },
+    {
+      "id": "燕窝汤",
+      "name": "燕窝汤",
+      "type": "dish",
+      "chapter": 10,
+      "literary_function": "同材异境；宝黛弱症与晨起"
+    },
+    {
+      "id": "贾母丧仪供饭",
+      "name": "贾母丧仪供饭",
+      "type": "banquet",
+      "chapter": 110,
+      "literary_function": "末世丧仪短缺"
+    },
+    {
+      "id": "贾母辞灵奠",
+      "name": "贾母辞灵奠",
+      "type": "dish",
+      "chapter": 111,
+      "literary_function": "辞灵哭奠；鸳鸯殉前"
+    },
+    {
+      "id": "宁戚丧仪",
+      "name": "宁戚丧仪",
+      "type": "custom",
+      "chapter": 110,
+      "literary_function": "悲切省费礼制话语"
+    },
+    {
+      "id": "软烂菜",
+      "name": "软烂菜",
+      "type": "dish",
+      "chapter": 22,
+      "literary_vs_real": "inference",
+      "literary_function": "贾母食养链；互参甜烂之食"
+    },
+    {
+      "id": "散花寺神签",
+      "name": "散花寺神签",
+      "type": "custom",
+      "chapter": 101,
+      "literary_function": "衣锦还乡异兆"
+    },
+    {
+      "id": "水陆道场许愿",
+      "name": "水陆道场许愿",
+      "type": "custom",
+      "chapter": 101,
+      "literary_function": "四十九日佛事"
+    },
+    {
+      "id": "桂圆汤",
+      "name": "桂圆汤",
+      "type": "dish",
+      "chapter": 6,
+      "literary_function": "梦醒、黛玉回光与还魂对称"
+    },
+    {
+      "id": "巧姐托姥姥",
+      "name": "巧姐托姥姥",
+      "type": "custom",
+      "chapter": 113,
+      "literary_function": "托孤名场面"
+    },
+    {
+      "id": "贾芸书房酒局",
+      "name": "贾芸书房酒局",
+      "type": "custom",
+      "chapter": 117,
+      "literary_function": "末世聚赌酒局"
+    },
+    {
+      "id": "食疗",
+      "name": "食疗",
+      "type": "dish",
+      "chapter": 22,
+      "literary_vs_real": "inference",
+      "literary_function": "贾母食养链"
+    },
+    {
+      "id": "宝玉复生粥",
+      "name": "宝玉复生粥",
+      "type": "dish",
+      "chapter": 115,
+      "literary_function": "失魂复气"
+    },
+    {
+      "id": "薛蟠当槽酒案",
+      "name": "薛蟠当槽酒案",
+      "type": "custom",
+      "chapter": 86,
+      "literary_function": "误杀张三酒祸"
+    },
+    {
+      "id": "南边糟东西",
+      "name": "南边糟东西",
+      "type": "dish",
+      "chapter": 88,
+      "literary_function": "南味就粥"
+    },
+    {
+      "id": "南小菜",
+      "name": "南小菜",
+      "type": "dish",
+      "chapter": 88,
+      "literary_function": "水月庵讨给养"
+    },
+    {
+      "id": "水月庵风月案",
+      "name": "水月庵风月案",
+      "type": "custom",
+      "chapter": 93,
+      "literary_function": "凤姐急火吐血"
+    },
+    {
+      "id": "抄家查茶器",
+      "name": "抄家查茶器",
+      "type": "custom",
+      "chapter": 105,
+      "literary_function": "查抄茶酒器清单"
+    },
+    {
+      "id": "甄应嘉祭礼",
+      "name": "甄应嘉祭礼",
+      "type": "custom",
+      "chapter": 114,
+      "literary_function": "甄贾祭奠献茶"
+    },
+    {
+      "id": "香菱扶正",
+      "name": "香菱扶正",
+      "type": "custom",
+      "chapter": 120,
+      "literary_function": "薛姨妈定名分"
     }
   ],
   "banquets_timeline": [
@@ -114,7 +626,14 @@
     { "name": "两宴大观园", "chapter": 40, "location": "大观园", "host": "贾母" },
     { "name": "螃蟹宴", "chapter": 38, "location": "藕香榭", "host": "史湘云/宝钗" },
     { "name": "元宵夜宴", "chapter": 53, "location": "宁荣两府", "host": "贾母" },
-    { "name": "贾母八旬宴", "chapter": 71, "location": "嘉荫堂", "host": "贾母" }
+    { "name": "贾母八旬宴", "chapter": 71, "location": "嘉荫堂", "host": "贾母" },
+    { "name": "群芳夜宴", "chapter": 63, "location": "怡红院", "host": "宝玉" },
+    { "name": "宝钗生辰宴", "chapter": 22, "location": "贾母上房", "host": "贾母" },
+    { "name": "蘅芜庆生宴", "chapter": 108, "location": "蘅芜苑", "host": "贾母" },
+    { "name": "抄家席间", "chapter": 105, "location": "荣禧堂", "host": "贾政" },
+    { "name": "北静王赏宴", "chapter": 85, "location": "北静王府", "host": "北静王" },
+    { "name": "贾母丧仪供饭", "chapter": 110, "location": "荣国府", "host": "贾政" },
+    { "name": "贾芸书房酒局", "chapter": 117, "location": "外书房", "host": "贾芸" }
   ],
   "luxury_curve_note": {
     "layer": "inference",
@@ -134,6 +653,82 @@
     "dishes/红楼梦/贾母八旬宴.md",
     "dishes/红楼梦/玫瑰露.md",
     "dishes/红楼梦/茯苓霜.md",
-    "dishes/红楼梦/糖蒸酥酪.md"
+    "dishes/红楼梦/糖蒸酥酪.md",
+    "dishes/红楼梦/六安茶.md",
+    "dishes/红楼梦/年茶.md",
+    "dishes/红楼梦/茶面子.md",
+    "dishes/红楼梦/甜烂之食.md",
+    "dishes/红楼梦/供尖儿.md",
+    "dishes/红楼梦/枫露茶.md",
+    "dishes/红楼梦/群芳夜宴.md",
+    "dishes/红楼梦/宝钗生辰宴.md",
+    "dishes/红楼梦/什锦攒心盒子.md",
+    "dishes/红楼梦/绍兴酒.md",
+    "dishes/红楼梦/四十碟果子.md",
+    "dishes/红楼梦/供饭供茶.md",
+    "dishes/红楼梦/奠茶饭.md",
+    "dishes/红楼梦/面茶.md",
+    "dishes/红楼梦/黄杨根套杯.md",
+    "dishes/红楼梦/螃蟹小饺.md",
+    "dishes/红楼梦/奶油小面果.md",
+    "dishes/红楼梦/奶子糖粳粥.md",
+    "dishes/红楼梦/劝食细粥.md",
+    "dishes/红楼梦/香茶细果.md",
+    "dishes/红楼梦/合欢酒.md",
+    "dishes/红楼梦/普洱茶.md",
+    "dishes/红楼梦/炖嫩鸡蛋.md",
+    "dishes/红楼梦/路祭茶果.md",
+    "dishes/红楼梦/姜醋蘸蟹.md",
+    "dishes/红楼梦/绿豆洗面.md",
+    "dishes/红楼梦/建莲红枣汤.md",
+    "dishes/红楼梦/宫制诗筒.md",
+    "dishes/红楼梦/茶筅.md",
+    "dishes/红楼梦/门杯.md",
+    "dishes/红楼梦/法制紫姜.md",
+    "dishes/红楼梦/八旬寿点.md",
+    "dishes/红楼梦/杏仁茶.md",
+    "dishes/红楼梦/鸭子肉粥.md",
+    "dishes/红楼梦/红稻米粥.md",
+    "dishes/红楼梦/椒油莼酱.md",
+    "dishes/红楼梦/蘅芜庆生宴.md",
+    "dishes/红楼梦/西洋葡萄酒.md",
+    "dishes/红楼梦/薛蟠生日宴.md",
+    "dishes/红楼梦/香薷解暑汤.md",
+    "dishes/红楼梦/风腌果子狸.md",
+    "dishes/红楼梦/风腌笋.md",
+    "dishes/红楼梦/押岁锞子.md",
+    "dishes/红楼梦/枣儿粳米粥.md",
+    "dishes/红楼梦/中秋热酒.md",
+    "dishes/红楼梦/凸碧堂月饼.md",
+    "dishes/红楼梦/甄夫人席.md",
+    "dishes/红楼梦/馊豆腐.md",
+    "dishes/红楼梦/抄家席间.md",
+    "dishes/红楼梦/酒酿蒸鸭.md",
+    "dishes/红楼梦/虾丸鸡皮汤.md",
+    "dishes/红楼梦/绿畦香稻饭.md",
+    "dishes/红楼梦/醒酒酸汤.md",
+    "dishes/红楼梦/北静王赏茶.md",
+    "dishes/红楼梦/北静王赏宴.md",
+    "dishes/红楼梦/奶油松瓤卷酥.md",
+    "dishes/红楼梦/胭脂鹅脯.md",
+    "dishes/红楼梦/燕窝汤.md",
+    "dishes/红楼梦/贾母丧仪供饭.md",
+    "dishes/红楼梦/贾母辞灵奠.md",
+    "dishes/红楼梦/宁戚丧仪.md",
+    "dishes/红楼梦/软烂菜.md",
+    "dishes/红楼梦/散花寺神签.md",
+    "dishes/红楼梦/水陆道场许愿.md",
+    "dishes/红楼梦/桂圆汤.md",
+    "dishes/红楼梦/巧姐托姥姥.md",
+    "dishes/红楼梦/贾芸书房酒局.md",
+    "dishes/红楼梦/食疗.md",
+    "dishes/红楼梦/宝玉复生粥.md",
+    "dishes/红楼梦/薛蟠当槽酒案.md",
+    "dishes/红楼梦/南边糟东西.md",
+    "dishes/红楼梦/南小菜.md",
+    "dishes/红楼梦/水月庵风月案.md",
+    "dishes/红楼梦/抄家查茶器.md",
+    "dishes/红楼梦/甄应嘉祭礼.md",
+    "dishes/红楼梦/香菱扶正.md"
   ]
 }

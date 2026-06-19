@@ -7,7 +7,13 @@ import crosslinks from '../../data/jinpingmei.crosslinks.json';
 import townGis from '../../data/jinpingmei.town_gis.json';
 import { loadEvents } from '../../lib/loadEvents';
 import { loadLocations } from '../../lib/loadLocations';
-import { buildTownEdges, type TownEventRef, type TownGisMeta, type TownMapNode } from '../../lib/townMap';
+import {
+  buildTownEdges,
+  type TownEventRef,
+  type TownGisMeta,
+  type TownMapNode,
+  type TownRoute,
+} from '../../lib/townMap';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -23,7 +29,8 @@ const locations = (await loadLocations(meta.book)).filter(
   (l) => l.data.coord && l.data.map_zone,
 );
 
-const chainEvents = (await loadEvents(meta.book)).filter(
+const allEvents = await loadEvents(meta.book);
+const chainEvents = allEvents.filter(
   (e) => e.data.subtype === 'financial' || e.data.subtype === 'plot',
 );
 
@@ -72,7 +79,27 @@ const nodes: TownMapNode[] = locations.map((l) => {
   };
 });
 
-const townData = { nodes, edges: buildTownEdges(nodes) };
+const nodeById = new Map(nodes.map((n) => [n.id, n]));
+const routes: TownRoute[] = allEvents
+  .filter((e) => (e.data.map_route ?? []).length >= 2)
+  .map((e) => {
+    const stops = (e.data.map_route ?? [])
+      .map((id) => nodeById.get(id))
+      .filter((n): n is TownMapNode => n != null)
+      .map((n) => ({ id: n.id, name: n.name, zone: n.zone, x: n.x, y: n.y }));
+    return {
+      id: e.data.id,
+      title: e.data.title,
+      subtype: e.data.subtype ?? 'plot',
+      chapters: e.data.chapters,
+      summary: e.data.summary ?? '',
+      stops,
+    };
+  })
+  .filter((r) => r.stops.length >= 2)
+  .sort((a, b) => a.id.localeCompare(b.id));
+
+const townData = { nodes, edges: buildTownEdges(nodes), routes };
 const gisMeta = townGis as TownGisMeta;
 const zoneCounts = Object.fromEntries(
   ['府内', '市井', '寺观', '城外'].map((z) => [z, nodes.filter((n) => n.zone === z).length]),

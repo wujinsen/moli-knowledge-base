@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import * as echarts from 'echarts';
-import type { EChartsOption } from 'echarts';
+import { echarts, type EChartsOption } from '../lib/echartsCore';
 import { graphTheme } from '../lib/graphTheme';
 import {
   ZONE_COLORS,
@@ -14,11 +13,12 @@ import {
 interface Props {
   data: TownMapData;
   bookSlug: string;
+  initialRouteId?: string | null;
 }
 
 type ZoneFilter = 'all' | TownZone;
 
-export default function TownMap({ data, bookSlug }: Props) {
+export default function TownMap({ data, bookSlug, initialRouteId = null }: Props) {
   const gt = useMemo(() => graphTheme(bookSlug), [bookSlug]);
   const containerRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<HTMLDivElement>(null);
@@ -26,6 +26,14 @@ export default function TownMap({ data, bookSlug }: Props) {
 
   const [zone, setZone] = useState<ZoneFilter>('all');
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const zoneRef = useRef<ZoneFilter>(zone);
+  zoneRef.current = zone;
+
+  const routes = data.routes ?? [];
+  const [activeRouteId, setActiveRouteId] = useState<string | null>(
+    initialRouteId && routes.some((r) => r.id === initialRouteId) ? initialRouteId : null,
+  );
+  const activeRoute = activeRouteId ? routes.find((r) => r.id === activeRouteId) ?? null : null;
 
   const nodeById = useMemo(
     () => new Map(data.nodes.map((n) => [n.id, n])),
@@ -54,6 +62,10 @@ export default function TownMap({ data, bookSlug }: Props) {
   const selectedNode = selectedId ? nodeById.get(selectedId) ?? null : null;
 
   const buildOption = useCallback((): EChartsOption => {
+    const route = activeRouteId ? (data.routes ?? []).find((r) => r.id === activeRouteId) ?? null : null;
+    const routeOrder = new Map<string, number>();
+    if (route) route.stops.forEach((s, i) => routeOrder.set(s.id, i + 1));
+    const routeActive = !!route;
     return {
       backgroundColor: 'transparent',
       animation: true,
@@ -86,46 +98,73 @@ export default function TownMap({ data, bookSlug }: Props) {
             const color = zoneColor(n.zone);
             const selected = n.id === selectedId;
             const inManor = n.zone === '府内';
-            const size = n.id === '西门府' || n.id === '清河县' ? 28 : inManor ? 18 : 20;
+            const baseSize = n.id === '西门府' || n.id === '清河县' ? 28 : inManor ? 18 : 20;
+            const order = routeOrder.get(n.id);
+            const onRoute = order != null;
+            const dimmed = routeActive && !onRoute;
+            const isEnd = onRoute && order === route!.stops.length;
+            const routeColor = isEnd ? '#f97316' : '#fcd34d';
+            const size = onRoute ? baseSize * 1.25 : selected ? baseSize * 1.3 : baseSize;
             return {
               id: n.id,
               name: n.name,
               x: n.x,
               y: n.y,
               symbol: inManor && n.parent ? 'roundRect' : n.zone === '寺观' ? 'diamond' : 'circle',
-              symbolSize: selected ? size * 1.3 : size,
+              symbolSize: size,
               itemStyle: {
-                color,
-                borderColor: selected ? '#fff' : 'rgba(255,255,255,0.35)',
-                borderWidth: selected ? 2.5 : 1.2,
-                shadowBlur: selected ? 28 : 12,
-                shadowColor: color,
+                color: onRoute ? routeColor : color,
+                borderColor: onRoute ? '#fff7ed' : selected ? '#fff' : 'rgba(255,255,255,0.35)',
+                borderWidth: onRoute ? 2.5 : selected ? 2.5 : 1.2,
+                shadowBlur: onRoute ? 26 : selected ? 28 : 12,
+                shadowColor: onRoute ? routeColor : color,
+                opacity: dimmed ? 0.16 : 1,
               },
               label: {
-                show: true,
+                show: !dimmed,
                 position: 'bottom',
                 distance: 6,
-                color: selected ? '#fff' : '#e8eef7',
-                fontSize: selected ? 13 : 11,
-                fontWeight: selected ? 600 : 400,
+                color: onRoute ? routeColor : selected ? '#fff' : '#e8eef7',
+                fontSize: onRoute ? 13 : selected ? 13 : 11,
+                fontWeight: onRoute || selected ? 600 : 400,
+                formatter: onRoute ? `${order}. ${n.name}` : undefined,
               },
             };
           }),
-          edges: visibleEdges.map((e) => ({
-            source: e.source,
-            target: e.target,
-            lineStyle: {
-              color: e.kind === 'parent' ? 'rgba(212,160,23,0.45)' : gt.accent,
-              width: e.kind === 'parent' ? 1 : 1.5,
-              type: e.kind === 'parent' ? 'dashed' : 'solid',
-              opacity: 0.65,
-              curveness: 0.08,
-            },
-          })),
+          edges: [
+            ...visibleEdges.map((e) => ({
+              source: e.source,
+              target: e.target,
+              lineStyle: {
+                color: e.kind === 'parent' ? 'rgba(212,160,23,0.45)' : gt.accent,
+                width: e.kind === 'parent' ? 1 : 1.5,
+                type: (e.kind === 'parent' ? 'dashed' : 'solid') as 'dashed' | 'solid',
+                opacity: routeActive ? 0.06 : 0.65,
+                curveness: 0.08,
+              },
+            })),
+            ...(route
+              ? route.stops.slice(0, -1).map((s, i) => ({
+                  source: s.id,
+                  target: route.stops[i + 1].id,
+                  symbol: ['none', 'arrow'] as [string, string],
+                  symbolSize: 11,
+                  lineStyle: {
+                    color: '#fcd34d',
+                    width: 3,
+                    type: 'solid' as const,
+                    opacity: 0.95,
+                    curveness: 0.06,
+                    shadowBlur: 8,
+                    shadowColor: 'rgba(252,211,77,0.5)',
+                  },
+                }))
+              : []),
+          ],
         },
       ],
     };
-  }, [visibleNodes, visibleEdges, selectedId, nodeById, gt]);
+  }, [visibleNodes, visibleEdges, selectedId, nodeById, gt, activeRouteId, data.routes]);
 
   useEffect(() => {
     const el = chartRef.current;
@@ -151,7 +190,15 @@ export default function TownMap({ data, bookSlug }: Props) {
       chart.on('click', (params) => {
         if (params.dataType === 'node' && params.data && typeof params.data === 'object') {
           const id = (params.data as { id?: string }).id;
-          if (id) setSelectedId((prev) => (prev === id ? null : id));
+          if (!id) return;
+          setActiveRouteId(null);
+          // 点西门府：钻入府内七进子布局（ECharts 自动缩放铺满）
+          if (id === '西门府' && zoneRef.current !== '府内') {
+            setZone('府内');
+            setSelectedId('西门府');
+            return;
+          }
+          setSelectedId((prev) => (prev === id ? null : id));
         }
       });
       chart.getZr().on('click', (e) => {
@@ -195,7 +242,14 @@ export default function TownMap({ data, bookSlug }: Props) {
   const resetView = () => {
     setSelectedId(null);
     setZone('all');
+    setActiveRouteId(null);
     chartInstance.current?.dispatchAction({ type: 'restore' });
+  };
+
+  const selectRoute = (id: string) => {
+    setActiveRouteId((prev) => (prev === id ? null : id));
+    setSelectedId(null);
+    setZone('all');
   };
 
   const zoneButtons: { key: ZoneFilter; label: string }[] = [
@@ -222,7 +276,10 @@ export default function TownMap({ data, bookSlug }: Props) {
             <button
               key={b.key}
               type="button"
-              onClick={() => setZone(b.key)}
+              onClick={() => {
+                setActiveRouteId(null);
+                setZone(b.key);
+              }}
               className="rounded-md px-2.5 py-1 text-xs transition-colors"
               style={{
                 backgroundColor: zone === b.key ? `${gt.accent}33` : 'transparent',
@@ -245,6 +302,96 @@ export default function TownMap({ data, bookSlug }: Props) {
           <span>{visibleEdges.length} 条邻接</span>
         </div>
       </div>
+
+      {zone === '府内' && (
+        <button
+          type="button"
+          onClick={resetView}
+          className="absolute left-1/2 top-24 z-20 -translate-x-1/2 rounded-full border px-3.5 py-1.5 text-xs font-medium backdrop-blur-md transition-colors"
+          style={{
+            borderColor: gt.accentLine,
+            backgroundColor: 'rgba(15,23,42,0.9)',
+            color: gt.accentSoft,
+          }}
+        >
+          西门府七进 · 点此 ← 返回清河全图
+        </button>
+      )}
+
+      {routes.length > 0 && (
+        <div className="absolute left-3 top-24 z-20 flex max-h-[calc(100%-12rem)] w-56 flex-col overflow-hidden rounded-lg border border-white/10 bg-slate-900/90">
+          <div className="flex items-center justify-between px-2.5 pt-2 text-xs font-medium text-amber-200/90">
+            <span>事件路线</span>
+            {activeRouteId && (
+              <button
+                type="button"
+                onClick={() => setActiveRouteId(null)}
+                className="rounded px-1.5 text-[11px] text-slate-400 hover:text-white"
+              >
+                清除
+              </button>
+            )}
+          </div>
+          <div className="mt-1 flex flex-col gap-0.5 overflow-y-auto px-1.5 pb-2">
+            {routes.map((r) => {
+              const on = r.id === activeRouteId;
+              return (
+                <div
+                  key={r.id}
+                  className="rounded-md"
+                  style={{ backgroundColor: on ? 'rgba(212,160,23,0.14)' : 'transparent' }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => selectRoute(r.id)}
+                    className="block w-full rounded-md px-2 py-1.5 text-left text-xs leading-snug transition-colors"
+                    style={{ color: on ? '#fcd34d' : '#cbd5e1' }}
+                  >
+                    <span className="block">{r.title}</span>
+                    {r.chapters.length > 0 && (
+                      <span className="text-[10px] text-slate-500">
+                        第{r.chapters.join('、')}回 · {r.stops.length}站
+                      </span>
+                    )}
+                  </button>
+                  {on && (
+                    <div className="px-2 pb-2 pt-0.5">
+                      {r.summary && (
+                        <p className="mb-1.5 text-[11px] leading-relaxed text-slate-300">{r.summary}</p>
+                      )}
+                      <div className="mb-1.5 flex flex-wrap items-center gap-x-1 text-[11px]">
+                        {r.stops.map((s, i) => (
+                          <span key={s.id} className="inline-flex items-center">
+                            {i > 0 && <span className="mx-0.5 text-slate-600">→</span>}
+                            <a
+                              href={`/${bookSlug}/l/${encodeURIComponent(s.id)}`}
+                              className="text-slate-400 underline-offset-2 hover:text-amber-200 hover:underline"
+                            >
+                              {s.name}
+                            </a>
+                          </span>
+                        ))}
+                      </div>
+                      <a
+                        href={`/${bookSlug}/e/${encodeURIComponent(r.id)}`}
+                        className="inline-block rounded bg-amber-500/15 px-2 py-0.5 text-[11px] text-amber-200 transition-colors hover:bg-amber-500/25"
+                      >
+                        事件详情 →
+                      </a>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {activeRoute && (
+        <div className="pointer-events-none absolute left-1/2 top-24 z-20 max-w-md -translate-x-1/2 rounded-md bg-slate-900/92 px-3 py-1.5 text-center text-xs text-amber-100/90">
+          {activeRoute.stops.map((s) => s.name).join(' → ')}
+        </div>
+      )}
 
       <div className="absolute bottom-4 left-3 z-10 flex flex-wrap gap-x-3 gap-y-1.5 rounded-lg border border-white/10 bg-slate-900/85 p-2.5 backdrop-blur-md">
         {zones.map((z) => (
@@ -319,6 +466,16 @@ export default function TownMap({ data, bookSlug }: Props) {
           )}
 
           <div className="flex flex-col gap-2">
+            {selectedNode.id === '西门府' && zone !== '府内' && (
+              <button
+                type="button"
+                onClick={() => setZone('府内')}
+                className="rounded-md border px-2.5 py-1.5 text-sm font-medium transition-colors"
+                style={{ borderColor: gt.accentLine, color: gt.accentSoft, backgroundColor: `${gt.accent}1a` }}
+              >
+                展开府内七进 →
+              </button>
+            )}
             <a
               href={`/${bookSlug}/l/${encodeURIComponent(selectedNode.id)}`}
               className="text-sm hover:underline"
@@ -336,7 +493,7 @@ export default function TownMap({ data, bookSlug }: Props) {
       <div ref={chartRef} className="absolute inset-0 h-full w-full" />
 
       <p className="pointer-events-none absolute bottom-4 left-1/2 z-0 -translate-x-1/2 select-none text-center text-xs text-slate-600/70">
-        节点按原文方位摆放（上北下南·左西右东）· 滚轮缩放 · 点击地点
+        节点按原文方位摆放（上北下南·左西右东）· 点西门府展开府内七进 · 滚轮缩放
       </p>
     </div>
   );

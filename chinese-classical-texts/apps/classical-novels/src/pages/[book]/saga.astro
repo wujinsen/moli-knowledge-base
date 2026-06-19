@@ -172,6 +172,18 @@ const readerLabel = isHonglou
                       <a href={`/${meta.slug}/l/${l}`} class="chip hover:opacity-80">{l}</a>
                     ))}
                     {
+                      (d.map_route?.length ?? 0) > 0 && meta.features.includes('town') && (
+                        <a
+                          href={`/${meta.slug}/town?route=${d.id}`}
+                          class="chip hover:opacity-80"
+                          style="color: var(--accent)"
+                          title="在市井地图高亮本事件路线"
+                        >
+                          地图路线 · {d.map_route!.length}站
+                        </a>
+                      )
+                    }
+                    {
                       meta.features.includes('graph') && d.characters.length > 0 && (
                         <a
                           href={graphFocusHref(meta.slug, d.characters[0])}

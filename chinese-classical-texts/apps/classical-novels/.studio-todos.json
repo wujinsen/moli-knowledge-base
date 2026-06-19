@@ -1,0 +1,8 @@
+﻿python : usage: studio_todos.py [-h] [--json] book
+所在位置 C:\Users\123\AppData\Local\Temp\ps-script-96b99e51-a3e2-4b81-828c-627739c0d34c.ps1:7 字符: 609
++ ... ding utf8 .guard-xyj.txt; python scripts/studio_todos.py 2>&1 | Out-F ...
++                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (usage: studio_t...] [--json] book:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+studio_todos.py: error: the following arguments are required: book

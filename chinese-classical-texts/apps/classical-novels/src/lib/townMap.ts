@@ -30,9 +30,28 @@ export interface TownMapEdge {
   kind: 'nearby' | 'parent';
 }
 
+export interface TownRouteStop {
+  id: string;
+  name: string;
+  zone: TownZone;
+  x: number;
+  y: number;
+}
+
+/** 事件路线：一条有序的地点路径，渲染为 GIS 图上的折线 + 编号停靠点 */
+export interface TownRoute {
+  id: string;
+  title: string;
+  subtype: string;
+  chapters: number[];
+  summary: string;
+  stops: TownRouteStop[];
+}
+
 export interface TownMapData {
   nodes: TownMapNode[];
   edges: TownMapEdge[];
+  routes?: TownRoute[];
 }
 
 export interface TownGisMeta {

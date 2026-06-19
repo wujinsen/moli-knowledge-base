@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react';
-import * as echarts from 'echarts';
-import type { EChartsOption } from 'echarts';
+import { echarts, type EChartsOption } from '../lib/echartsCore';
 import type { ChainIndex } from '../lib/chainIndex';
 import {
   PHASE_COLORS,

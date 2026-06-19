@@ -374,6 +374,8 @@ const events = defineCollection({
     aliases: z.array(z.string()).default([]),
     chapters: z.array(z.number()).default([]),
     locations: z.array(z.string()).default([]),
+    // 金瓶梅市井地图：有序地点路径（地点 id），用于在 GIS 图上渲染事件路线
+    map_route: z.array(z.string()).default([]),
     characters: z.array(z.string()).default([]),
     monsters: z.array(z.string()).default([]),
     artifacts: z.array(z.string()).default([]),

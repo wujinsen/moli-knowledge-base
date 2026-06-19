@@ -15,6 +15,11 @@ const entry = path.join(distDir, 'pagefind', 'pagefind-entry.json');
 const lockFile = path.join(appDir, '.astro-build.lock');
 const BUILD_ATTEMPTS = 3;
 
+// 默认 dev 路径下不触发昂贵的全量 astro build（约 80s）。
+// 仅在显式 `--build` / PAGEFIND_ALLOW_BUILD=1 时才允许从零构建生成索引。
+const ALLOW_BUILD =
+  process.argv.includes('--build') || process.env.PAGEFIND_ALLOW_BUILD === '1';
+
 /** 清除 Astro 构建产物，避免 .prerender 引用已失效的 hash chunk（ERR_MODULE_NOT_FOUND） */
 function rmDirSafe(dir) {
   if (!fs.existsSync(dir)) return;
@@ -29,11 +34,13 @@ function rmDirSafe(dir) {
 }
 
 function cleanBuildArtifacts() {
+  // 只清理与 .prerender chunk 引用失效相关的 dist/、.astro/。
+  // 刻意保留 node_modules/.vite（Vite 依赖预打包缓存：echarts/leaflet/pixi/react），
+  // 否则下一次 dev 启动会被迫重新 optimize，拖慢冷启动。
   for (const name of ['dist', '.astro']) {
     rmDirSafe(path.join(appDir, name));
   }
-  rmDirSafe(path.join(appDir, 'node_modules', '.vite'));
-  console.log('[pagefind] 已清理 dist/、.astro/、node_modules/.vite');
+  console.log('[pagefind] 已清理 dist/、.astro/（保留 node_modules/.vite 依赖缓存）');
 }
 
 function hasBundle() {
@@ -116,10 +123,17 @@ async function indexDist() {
 }
 
 async function main() {
-  if (hasBundle()) return;
+  if (hasBundle()) return; // 索引已就绪 → 秒过
 
   if (!distLooksComplete()) {
-    console.log('[pagefind] dist/ 不完整，先执行 astro build（首次 dev 或刚 clean 后）…');
+    if (!ALLOW_BUILD) {
+      // dev 默认路径：不做全量 build，立即让 astro dev 启动。
+      // /search 在生成索引前不可用，给出明确提示即可。
+      console.log('[pagefind] 未发现 dist/，跳过搜索索引构建，dev 直接启动。');
+      console.log('[pagefind] 需要站内搜索时执行：npm run dev:search 或 npm run build。');
+      return;
+    }
+    console.log('[pagefind] dist/ 不完整，执行 astro build 生成搜索索引（--build）…');
     cleanBuildArtifacts();
     try {
       runAstroBuildWithRetry();
@@ -127,7 +141,7 @@ async function main() {
       console.error(
         '[pagefind] astro build 在多次重试后仍失败。',
         '常见原因：并发的 dev/build 争用 dist/，或 Windows 锁文件。',
-        '请关闭其他 dev 实例后执行：npm run clean && npm run dev',
+        '请关闭其他 dev 实例后执行：npm run clean && npm run dev:search',
       );
       process.exit(1);
     }
@@ -138,6 +152,7 @@ async function main() {
     return;
   }
 
+  // 有完整 dist 但缺 pagefind 索引 → 仅建索引（快）
   await indexDist();
 }
 

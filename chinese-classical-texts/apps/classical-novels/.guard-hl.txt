@@ -1,0 +1,2 @@
+﻿[红楼梦] characters: first_appear 0，关键情节 720 条（unverified 0），relations 2480 边（unverified 0）
+Trust Guard 通过

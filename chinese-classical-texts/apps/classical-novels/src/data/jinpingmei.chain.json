@@ -1,9 +1,9 @@
 {
   "book": "金瓶梅",
-  "generated": "2026-06-18",
-  "event_count": 15,
-  "financial_count": 11,
-  "plot_count": 4,
+  "generated": "2026-06-19",
+  "event_count": 20,
+  "financial_count": 14,
+  "plot_count": 6,
   "phases": [
     {
       "key": "rise",
@@ -21,7 +21,7 @@
         18,
         40
       ],
-      "count": 7
+      "count": 9
     },
     {
       "key": "peak",
@@ -30,7 +30,7 @@
         41,
         65
       ],
-      "count": 1
+      "count": 4
     },
     {
       "key": "fall",
@@ -224,19 +224,25 @@
       "jpm-fe-001",
       "jpm-fe-006",
       "jpm-fe-005",
+      "jpm-rt-002",
       "jpm-fe-007",
       "jpm-fe-009",
       "jpm-fe-002",
       "jpm-fe-008",
+      "jpm-rt-006",
       "jpm-fe-004",
       "jpm-fe-003",
       "jpm-pe-001",
+      "jpm-rt-001",
+      "jpm-rt-005",
       "jpm-pe-002",
+      "jpm-rt-004",
       "jpm-fe-011",
       "jpm-pe-003"
     ],
     "应伯爵": [
       "jpm-fe-006",
+      "jpm-rt-006",
       "jpm-fe-003",
       "jpm-fe-012"
     ],
@@ -245,7 +251,21 @@
     ],
     "李瓶儿": [
       "jpm-fe-005",
-      "jpm-pe-002"
+      "jpm-pe-002",
+      "jpm-rt-004"
+    ],
+    "来保": [
+      "jpm-rt-002",
+      "jpm-rt-001"
+    ],
+    "翟谦": [
+      "jpm-rt-002"
+    ],
+    "蔡京": [
+      "jpm-rt-002",
+      "jpm-fe-002",
+      "jpm-pe-001",
+      "jpm-fe-011"
     ],
     "翟管家": [
       "jpm-fe-007",
@@ -255,22 +275,37 @@
     "来旺": [
       "jpm-fe-009"
     ],
-    "蔡京": [
-      "jpm-fe-002",
-      "jpm-pe-001",
-      "jpm-fe-011"
-    ],
     "吴典恩": [
       "jpm-fe-008"
     ],
+    "薛内相": [
+      "jpm-rt-006"
+    ],
+    "刘太监": [
+      "jpm-rt-006"
+    ],
     "韩道国": [
-      "jpm-fe-004"
+      "jpm-fe-004",
+      "jpm-rt-001",
+      "jpm-rt-005"
     ],
     "李智": [
       "jpm-fe-003"
     ],
     "黄四": [
       "jpm-fe-003"
+    ],
+    "崔本": [
+      "jpm-rt-001"
+    ],
+    "王六儿": [
+      "jpm-rt-005"
+    ],
+    "陈敬济": [
+      "jpm-rt-005"
+    ],
+    "陆秉义": [
+      "jpm-rt-005"
     ],
     "吴月娘": [
       "jpm-pe-002",
@@ -282,6 +317,12 @@
       "jpm-pe-002",
       "jpm-pe-003",
       "jpm-pe-004"
+    ],
+    "吴道官": [
+      "jpm-rt-004"
+    ],
+    "黄真人": [
+      "jpm-rt-004"
     ],
     "陈经济": [
       "jpm-pe-004"
@@ -394,6 +435,47 @@
       "module_links": {
         "graph_focus": "西门庆",
         "has_silver": true,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-rt-002",
+      "title": "上京干谒·蔡府打点拜寿",
+      "subtype": "financial",
+      "financial_kind": "贿赂",
+      "chapters": [
+        18,
+        27,
+        55
+      ],
+      "chapter": 18,
+      "phase": "climb",
+      "phase_label": "政商攀升",
+      "amount_liang": null,
+      "summary": "来保、西门庆先后上东京打点杨案、献蔡太师寿礼、结翟管家亲家；白银沿官路上达相府，是西门庆攀附权门的中枢线。",
+      "characters": [
+        "西门庆",
+        "来保",
+        "翟谦",
+        "蔡京"
+      ],
+      "locations": [
+        "西门府",
+        "东京",
+        "蔡府",
+        "翟亲家宅"
+      ],
+      "transaction_refs": [],
+      "prev": null,
+      "next": null,
+      "tags": [
+        "官场",
+        "贿赂",
+        "上京"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": false,
         "has_sna": true
       }
     },
@@ -540,6 +622,45 @@
       }
     },
     {
+      "id": "jpm-rt-006",
+      "title": "内相往来·皇庄与郊园游宴",
+      "subtype": "plot",
+      "financial_kind": "",
+      "chapters": [
+        31,
+        54
+      ],
+      "chapter": 31,
+      "phase": "climb",
+      "phase_label": "政商攀升",
+      "amount_liang": null,
+      "summary": "镇守皇庄的薛内相、刘太监赴西门府庆官筵，西门庆又应伯爵之邀赴城外内相花园游宴；勾连权贵太监的享乐社交线。",
+      "characters": [
+        "西门庆",
+        "薛内相",
+        "刘太监",
+        "应伯爵"
+      ],
+      "locations": [
+        "皇庄",
+        "西门府",
+        "内相花园"
+      ],
+      "transaction_refs": [],
+      "prev": null,
+      "next": null,
+      "tags": [
+        "太监",
+        "宴饮",
+        "郊外"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": false,
+        "has_sna": true
+      }
+    },
+    {
       "id": "jpm-fe-004",
       "title": "绒线铺本钱拨付",
       "subtype": "financial",
@@ -645,6 +766,88 @@
       }
     },
     {
+      "id": "jpm-rt-001",
+      "title": "南货商路·杭州缎货入清河",
+      "subtype": "financial",
+      "financial_kind": "买卖",
+      "chapters": [
+        58,
+        60,
+        66
+      ],
+      "chapter": 58,
+      "phase": "peak",
+      "phase_label": "鼎盛极奢",
+      "amount_liang": 10000,
+      "summary": "韩道国押杭州万两缎绢，经临清钞关纳税入清河，于对门楼卸货、绒线铺发卖；西门庆长途贩缎的资金主动脉。",
+      "characters": [
+        "西门庆",
+        "韩道国",
+        "崔本",
+        "来保"
+      ],
+      "locations": [
+        "杭州",
+        "临清钞关",
+        "对门楼",
+        "绒线铺"
+      ],
+      "transaction_refs": [],
+      "prev": null,
+      "next": null,
+      "tags": [
+        "商路",
+        "缎货",
+        "钞关"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": false,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-rt-005",
+      "title": "临清码头·钞关报税与散场",
+      "subtype": "financial",
+      "financial_kind": "买卖",
+      "chapters": [
+        58,
+        98,
+        100
+      ],
+      "chapter": 58,
+      "phase": "peak",
+      "phase_label": "鼎盛极奢",
+      "amount_liang": null,
+      "summary": "临清码头是清河繁华的运河外延：盛时货船在此过钞关纳税入城，衰后韩道国、王六儿落脚谢家酒店；一条贯通发家与散场的商埠线。",
+      "characters": [
+        "西门庆",
+        "韩道国",
+        "王六儿",
+        "陈敬济",
+        "陆秉义"
+      ],
+      "locations": [
+        "清河县",
+        "临清钞关",
+        "临清酒店"
+      ],
+      "transaction_refs": [],
+      "prev": null,
+      "next": null,
+      "tags": [
+        "运河",
+        "钞关",
+        "散场"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": false,
+        "has_sna": true
+      }
+    },
+    {
       "id": "jpm-pe-002",
       "title": "李瓶儿丧礼",
       "subtype": "plot",
@@ -673,6 +876,44 @@
       "tags": [
         "情节",
         "丧礼"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": false,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-rt-004",
+      "title": "李瓶儿丧仪·府内发引永福寺",
+      "subtype": "plot",
+      "financial_kind": "",
+      "chapters": [
+        62,
+        65
+      ],
+      "chapter": 62,
+      "phase": "peak",
+      "phase_label": "鼎盛极奢",
+      "amount_liang": null,
+      "summary": "李瓶儿卒于西门府正寝，停灵设斋、玉皇庙道众建坛，五七大殡发引至城外；西门庆以铺张丧仪炫耀财势的高潮。",
+      "characters": [
+        "李瓶儿",
+        "西门庆",
+        "吴道官",
+        "黄真人"
+      ],
+      "locations": [
+        "西门府",
+        "永福寺"
+      ],
+      "transaction_refs": [],
+      "prev": null,
+      "next": null,
+      "tags": [
+        "丧礼",
+        "佛道",
+        "排场"
       ],
       "module_links": {
         "graph_focus": "西门庆",

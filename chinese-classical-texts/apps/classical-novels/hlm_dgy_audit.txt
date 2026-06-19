@@ -1,0 +1,10 @@
+﻿python :   File "<string>", line 64
+所在位置 C:\Users\123\AppData\Local\Temp\ps-script-8281d12a-5e43-4050-891f-7e2efb971fed.ps1:83 字符: 104
++ ... edge-base\chinese-classical-texts\apps\classical-novels"; python -c "
++                                                               ~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (  File "<string>", line 64:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+    print(f'parent=大观园 页数: {sum(1 for d in pages.values() if d[" fm\].get(\parent\)==\大观园\)}')
+                                                               ^
+SyntaxError: unterminated string literal (detected at line 64)
