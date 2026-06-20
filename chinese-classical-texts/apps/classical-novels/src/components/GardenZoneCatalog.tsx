@@ -8,6 +8,8 @@ interface Props {
   accentSoft: string;
   onSelect: (id: string) => void;
   selectedId: string | null;
+  /** 顶栏「坐标说明」展开时，名录下移避免与横幅重叠 */
+  layoutNoteOpen?: boolean;
 }
 
 export default function GardenZoneCatalog({
@@ -17,6 +19,7 @@ export default function GardenZoneCatalog({
   accentSoft,
   onSelect,
   selectedId,
+  layoutNoteOpen = false,
 }: Props) {
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -50,7 +53,7 @@ export default function GardenZoneCatalog({
   return (
     <div
       ref={rootRef}
-      className="garden-catalog pointer-events-auto absolute left-3 top-16 z-10 flex max-h-[calc(100vh-5rem)] w-80 flex-col overflow-hidden rounded-xl border border-white/10 bg-slate-900/92 shadow-xl backdrop-blur-md"
+      className={`garden-catalog pointer-events-auto absolute left-3 z-10 flex w-80 flex-col overflow-hidden rounded-xl border border-white/10 bg-slate-900/92 shadow-xl backdrop-blur-md ${layoutNoteOpen ? 'top-28 max-h-[calc(100vh-8rem)]' : 'top-20 max-h-[calc(100vh-6rem)]'}`}
     >
       <div className="flex shrink-0 items-center justify-between gap-2 border-b border-white/10 px-4 py-3">
         <span className="text-sm font-semibold text-slate-100">建筑名录</span>

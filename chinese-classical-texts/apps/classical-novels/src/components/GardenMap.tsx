@@ -33,6 +33,7 @@ export default function GardenMap({ data, bookSlug }: Props) {
   const [zone, setZone] = useState<ZoneFilter>('all');
   const [showTour, setShowTour] = useState(true);
   const [showCatalog, setShowCatalog] = useState(true);
+  const [showLayoutNote, setShowLayoutNote] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [chapterFilter, setChapterFilter] = useState<number | null>(null);
   const [activeGuide, setActiveGuide] = useState<string | null>(null);
@@ -337,6 +338,18 @@ export default function GardenMap({ data, bookSlug }: Props) {
         </button>
         <button
           type="button"
+          onClick={() => setShowLayoutNote((v) => !v)}
+          className="rounded-lg border border-white/10 bg-slate-900/80 px-3.5 py-2 text-sm font-medium backdrop-blur-sm hover:border-white/20"
+          style={{
+            borderColor: showLayoutNote ? 'rgba(251,191,36,0.45)' : undefined,
+            color: showLayoutNote ? '#fcd34d' : '#e2e8f0',
+          }}
+          title={GARDEN_LAYOUT_DISCLAIMER}
+        >
+          {showLayoutNote ? '收起说明' : '坐标说明'}
+        </button>
+        <button
+          type="button"
           onClick={resetView}
           className="rounded-lg border border-white/10 bg-slate-900/80 px-3.5 py-2 text-sm font-medium text-slate-200 backdrop-blur-sm hover:border-white/20 hover:text-white"
         >
@@ -348,11 +361,15 @@ export default function GardenMap({ data, bookSlug }: Props) {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute left-3 top-3 z-10 max-w-sm rounded-lg border border-amber-500/25 bg-slate-900/85 px-3 py-2 backdrop-blur-md">
-        <p className="text-xs leading-relaxed text-amber-100/90">{GARDEN_LAYOUT_DISCLAIMER}</p>
-      </div>
+      {showLayoutNote && (
+        <div className="pointer-events-auto absolute inset-x-3 top-[3.25rem] z-10 mx-auto max-w-3xl rounded-lg border border-amber-500/25 bg-slate-900/92 px-3 py-2.5 shadow-lg backdrop-blur-md">
+          <p className="text-xs leading-relaxed text-amber-100/90">{GARDEN_LAYOUT_DISCLAIMER}</p>
+        </div>
+      )}
 
-      <div className="absolute bottom-4 left-3 z-10 max-w-lg flex flex-wrap gap-x-4 gap-y-2 rounded-lg border border-white/10 bg-slate-900/85 p-3 backdrop-blur-md">
+      <div
+        className={`absolute bottom-4 z-10 max-w-lg flex flex-wrap gap-x-4 gap-y-2 rounded-lg border border-white/10 bg-slate-900/85 p-3 backdrop-blur-md ${showCatalog ? 'left-[21rem]' : 'left-3'}`}
+      >
         {zones.map((z) => (
           <span key={z} className="flex items-center gap-2 text-sm font-medium text-slate-200">
             <span className="inline-block h-3 w-3 rounded-full" style={{ backgroundColor: ZONE_COLORS[z] }} />
@@ -385,13 +402,14 @@ export default function GardenMap({ data, bookSlug }: Props) {
           accent={gt.accent}
           accentSoft={gt.accentSoft}
           selectedId={selectedId}
+          layoutNoteOpen={showLayoutNote}
           onSelect={(id) => setSelectedId((prev) => (prev === id ? null : id))}
         />
       )}
 
       {selectedNode && (
         <aside
-          className="garden-map-panel absolute right-3 top-16 z-10 max-h-[calc(100vh-6rem)] w-80 overflow-y-auto rounded-xl border bg-slate-900/90 p-5 shadow-xl backdrop-blur-md"
+          className="garden-map-panel absolute right-3 top-20 z-10 max-h-[calc(100vh-6rem)] w-80 overflow-y-auto rounded-xl border bg-slate-900/90 p-5 shadow-xl backdrop-blur-md"
           style={{ borderColor: gt.accentLine }}
         >
           <div className="mb-1 text-xl font-bold" style={{ color: gt.accentSoft }}>
