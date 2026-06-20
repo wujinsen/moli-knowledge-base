@@ -1,6 +1,6 @@
 {
   "book": "金瓶梅",
-  "generated": "2026-06-19",
+  "generated": "2026-06-20",
   "event_count": 20,
   "financial_count": 14,
   "plot_count": 6,
@@ -916,7 +916,7 @@
         "排场"
       ],
       "module_links": {
-        "graph_focus": "西门庆",
+        "graph_focus": "李瓶儿",
         "has_silver": false,
         "has_sna": true
       }

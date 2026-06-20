@@ -1,6 +1,5 @@
 ---
-import { getCollection, render } from 'astro:content';
-import { getBooks } from '../../../lib/getBooks';
+import { render } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import BackLink from '../../../components/BackLink.astro';
 import {
@@ -15,27 +14,19 @@ import { chapterLabel } from '../../../lib/events';
 import { graphFocusHref, characterHref } from '../../../lib/sna';
 import { readChapterPath } from '../../../lib/editions';
 import { keyItemsLabel } from '../../../lib/bestiary';
+import {
+  characterPageStaticPaths,
+  isSnapshotCharacterEntry,
+  type CharacterPageProps,
+} from '../../../lib/loadCharacters';
 
 export async function getStaticPaths() {
-  const books = await getBooks();
-  const slugByBook = new Map(books.map((b) => [b.data.book, b.data.slug]));
-  const featuresByBook = new Map(books.map((b) => [b.data.book, b.data.features]));
-  const chars = await getCollection('characters');
-  return chars
-    .filter((c) => slugByBook.has(c.data.book))
-    .map((c) => ({
-    params: { book: slugByBook.get(c.data.book)!, id: c.data.id },
-    props: {
-      entry: c,
-      slug: slugByBook.get(c.data.book)!,
-      features: featuresByBook.get(c.data.book) ?? [],
-    },
-  }));
+  return characterPageStaticPaths();
 }
 
-const { entry, slug, features } = Astro.props;
+const { entry, slug, features } = Astro.props as CharacterPageProps;
 const d = entry.data;
-const { Content } = await render(entry);
+const { Content } = isSnapshotCharacterEntry(entry) ? { Content: undefined } : await render(entry);
 const contradictHint =
   d.book === '金瓶梅'
     ? '词话/崇祯/竹坡版本差异（图谱虚线边）'
@@ -301,9 +292,13 @@ const relatedImagery = features.includes('poems')
     )
   }
 
-  <article class="prose-cn mt-6 max-w-none">
-    <Content />
-  </article>
+  {
+    Content && (
+      <article class="prose-cn mt-6 max-w-none">
+        <Content />
+      </article>
+    )
+  }
 
   {
     relatedImagery.length > 0 && (

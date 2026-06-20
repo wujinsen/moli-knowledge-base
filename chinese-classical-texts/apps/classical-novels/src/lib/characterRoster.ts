@@ -1,5 +1,6 @@
 /** 图鉴 · 全人物名录（已建页 + 待补建） */
 
+import { characterHref } from './sna';
 import hlmRoster from '../data/honglou.character_roster.json';
 import jpmRoster from '../data/jinpingmei.character_roster.json';
 import xyjRoster from '../data/xiyouji.character_roster.json';
@@ -72,7 +73,7 @@ export function buildFullRosterList(
     ...paged.map((c) => ({
       kind: 'paged' as const,
       name: c.data.name,
-      href: `/${bookSlug}/c/${c.data.id}`,
+      href: characterHref(bookSlug, c.data.id),
       summary: c.data.summary,
       entityType: c.data.type,
     })),

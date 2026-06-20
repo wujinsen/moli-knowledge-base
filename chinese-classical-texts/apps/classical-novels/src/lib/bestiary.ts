@@ -1,12 +1,29 @@
 /** 图鉴 · 喜好项是否可链至名物页 */
 
-import hlmItemIds from '../data/hongloumeng.item_ids.json';
-import xyjItemIds from '../data/xiyouji.item_ids.json';
-
-const ITEM_IDS: Record<string, Set<string>> = {
-  honglou: new Set(hlmItemIds as string[]),
-  xiyouji: new Set(xyjItemIds as string[]),
+const SLUG_ITEM_PREFIX: Record<string, string> = {
+  honglou: 'hongloumeng',
+  jinpingmei: 'jinpingmei',
+  xiyouji: 'xiyouji',
 };
+
+const itemIdModules = import.meta.glob<{ default: string[] }>(
+  '../data/*.item_ids.json',
+  { eager: true },
+);
+
+function loadItemIds(bookSlug: string): Set<string> {
+  const prefix = SLUG_ITEM_PREFIX[bookSlug];
+  if (!prefix) return new Set();
+  const entry = Object.entries(itemIdModules).find(([path]) =>
+    path.endsWith(`/${prefix}.item_ids.json`),
+  );
+  const raw = entry?.[1]?.default ?? entry?.[1];
+  return new Set(Array.isArray(raw) ? raw : []);
+}
+
+const ITEM_IDS: Record<string, Set<string>> = Object.fromEntries(
+  Object.keys(SLUG_ITEM_PREFIX).map((slug) => [slug, loadItemIds(slug)]),
+);
 
 export type CardArcNode = {
   chapter?: number;
@@ -40,21 +57,44 @@ export function cardOutcome(data: CardCharacterData): string | undefined {
   return undefined;
 }
 
+export type ChipLinkContext = {
+  placeIds?: ReadonlySet<string>;
+  characterIds?: ReadonlySet<string>;
+  characterAliases?: ReadonlyMap<string, string>;
+};
+
 export function likeItemHref(bookSlug: string, like: string): string | null {
   const ids = ITEM_IDS[bookSlug];
   if (!ids?.has(like)) return null;
   return `/${bookSlug}/i/${encodeURIComponent(like)}`;
 }
 
-/** 图鉴 chip：名物优先，其次地点 */
+function resolveCharacterHref(
+  bookSlug: string,
+  label: string,
+  ctx?: ChipLinkContext,
+): string | null {
+  if (!ctx?.characterIds && !ctx?.characterAliases) return null;
+  const id = ctx.characterIds?.has(label)
+    ? label
+    : ctx.characterAliases?.get(label);
+  if (!id) return null;
+  return `/${bookSlug}/c/${encodeURIComponent(id)}`;
+}
+
+/** 图鉴 chip：人物 → 名物 → 地点 */
 export function chipHref(
   bookSlug: string,
   label: string,
-  placeIds?: ReadonlySet<string>,
+  ctx?: ChipLinkContext | ReadonlySet<string>,
 ): string | null {
+  const linkCtx: ChipLinkContext | undefined =
+    ctx instanceof Set ? { placeIds: ctx } : ctx;
+  const char = resolveCharacterHref(bookSlug, label, linkCtx);
+  if (char) return char;
   const item = likeItemHref(bookSlug, label);
   if (item) return item;
-  if (placeIds?.has(label)) {
+  if (linkCtx?.placeIds?.has(label)) {
     return `/${bookSlug}/l/${encodeURIComponent(label)}`;
   }
   return null;

@@ -75,6 +75,21 @@ def load_book_dir(base: Path, book: str, *, entry_id: Callable[[Path, str], str]
 
 def load_characters(book: str) -> list[dict]:
     rows = load_book_dir(CONTENT / "characters", book)
+    char_ids = {r.get("id") for r in rows if r.get("id")}
+    catalog = None
+    if book in ("红楼梦", "金瓶梅", "西游记"):
+        from _item_wiki import (
+            filter_hlm_keepsake_ids,
+            filter_hlm_like_ids,
+            filter_jpm_costume_ids,
+            filter_jpm_keepsake_ids,
+            filter_jpm_like_ids,
+            filter_xyj_keepsake_ids,
+            filter_xyj_like_ids,
+            list_item_catalog,
+        )
+
+        catalog = list_item_catalog(book)
     for fm in rows:
         _defaults(
             fm,
@@ -90,6 +105,57 @@ def load_characters(book: str) -> list[dict]:
                 "arc": [],
             },
         )
+        if catalog is None:
+            continue
+        rel = fm.get("relations") or []
+        cid = fm.get("id") or ""
+        ctype = fm.get("type") or "character"
+        likes = fm.get("喜好") or []
+        if likes:
+            if book == "红楼梦":
+                fm["喜好"] = filter_hlm_like_ids(
+                    likes, catalog, char_ids, relations=rel
+                )
+            elif book == "金瓶梅":
+                fm["喜好"] = filter_jpm_like_ids(
+                    likes, catalog, char_ids, relations=rel
+                )
+            elif book == "西游记":
+                fm["喜好"] = filter_xyj_like_ids(
+                    likes, catalog, char_ids, char_id=cid, faction=fm.get("faction") or "", relations=rel
+                )
+        keys = fm.get("关键物品") or []
+        if keys:
+            if book == "红楼梦":
+                filtered = filter_hlm_keepsake_ids(
+                    keys, catalog, char_ids, book=book
+                )
+            elif book == "金瓶梅":
+                filtered = filter_jpm_keepsake_ids(
+                    keys, catalog, char_ids, book=book
+                )
+            elif book == "西游记":
+                filtered = filter_xyj_keepsake_ids(
+                    keys,
+                    catalog,
+                    cid,
+                    char_type=ctype,
+                    char_ids=char_ids,
+                    book=book,
+                )
+            else:
+                filtered = keys
+            if filtered:
+                fm["关键物品"] = filtered
+            else:
+                fm.pop("关键物品", None)
+        costumes = fm.get("服饰") or []
+        if costumes and book == "金瓶梅":
+            filtered_c = filter_jpm_costume_ids(costumes, catalog, cid)
+            if filtered_c:
+                fm["服饰"] = filtered_c
+            else:
+                fm.pop("服饰", None)
     rows.sort(key=lambda r: -(r.get("weight") or 0))
     return rows
 

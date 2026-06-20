@@ -433,6 +433,91 @@ function stratumSections<T extends { data: { id: string } }>(
   return sections;
 }
 
+/* ── 关系图谱 · 圈层 / 阵营筛选（复用 catalog → stratum） ── */
+
+export function graphStratumOrder(bookSlug: string): readonly string[] {
+  if (bookSlug === 'honglou') return HLM_STRATUM_ORDER;
+  if (bookSlug === 'jinpingmei') return JPM_STRATUM_ORDER;
+  if (bookSlug === 'xiyouji') return XYJ_STRATUM_ORDER;
+  return [];
+}
+
+export function hasGraphStratum(bookSlug: string): boolean {
+  return catalogGroupIndex(bookSlug).size > 0 && graphStratumOrder(bookSlug).length > 0;
+}
+
+function jpmFactionStratumFallback(faction?: string): string {
+  if (!faction) return '未归类';
+  if (faction === '西门府') return '府内 · 主子妻妾';
+  if (faction === '朝廷' || faction.includes('官') || faction === '守备府') return '外缘 · 官场政商';
+  if (faction === '帮闲圈' || faction === '勾栏') return '市井 · 帮闲勾栏';
+  return '市井 · 帮闲勾栏';
+}
+
+function xyjFactionStratumFallback(faction?: string): string {
+  if (!faction) return '未归类';
+  const order = XYJ_STRATUM_ORDER as readonly string[];
+  if (order.includes(faction)) return faction;
+  if (faction.includes('妖') || faction.includes('魔')) return '沿路妖魔';
+  return '凡间人间';
+}
+
+/** 单节点社会圈层（图谱筛选 / tooltip） */
+export function resolveGraphStratum(bookSlug: string, nodeId: string, faction?: string): string {
+  const groupOf = catalogGroupIndex(bookSlug);
+  if (bookSlug === 'honglou') return hlmStratum(nodeId, groupOf.get(nodeId));
+  if (bookSlug === 'jinpingmei') {
+    return jpmStratum(groupOf.get(nodeId)) ?? jpmFactionStratumFallback(faction);
+  }
+  if (bookSlug === 'xiyouji') {
+    return xyjStratum(groupOf.get(nodeId)) ?? xyjFactionStratumFallback(faction);
+  }
+  return faction ?? '其他';
+}
+
+export type GraphFilterBucket = { key: string; count: number };
+
+export function graphStratumBuckets(
+  bookSlug: string,
+  nodes: { id: string; faction?: string }[],
+): GraphFilterBucket[] {
+  if (!hasGraphStratum(bookSlug)) return [];
+  const order = [...graphStratumOrder(bookSlug), '未归类'];
+  const counts = new Map<string, number>();
+  for (const n of nodes) {
+    const label = resolveGraphStratum(bookSlug, n.id, n.faction);
+    counts.set(label, (counts.get(label) ?? 0) + 1);
+  }
+  const seen = new Set<string>();
+  const result: GraphFilterBucket[] = [];
+  for (const label of order) {
+    const c = counts.get(label);
+    if (c) {
+      result.push({ key: label, count: c });
+      seen.add(label);
+    }
+  }
+  for (const [label, count] of counts) {
+    if (!seen.has(label)) result.push({ key: label, count });
+  }
+  return result;
+}
+
+export function graphFactionBuckets(
+  nodes: { faction?: string }[],
+  topN = 12,
+): { top: GraphFilterBucket[]; rest: GraphFilterBucket[] } {
+  const counts = new Map<string, number>();
+  for (const n of nodes) {
+    const f = n.faction ?? '未知';
+    counts.set(f, (counts.get(f) ?? 0) + 1);
+  }
+  const sorted = [...counts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'zh-CN'))
+    .map(([key, count]) => ({ key, count }));
+  return { top: sorted.slice(0, topN), rest: sorted.slice(topN) };
+}
+
 /** 将 catalog.fields 合并进条目（dev 快照缺 性格/喜好/结局 时补全卡片） */
 export function enrichBestiaryFields<T extends { data: { id: string } & Record<string, unknown> }>(
   bookSlug: string,

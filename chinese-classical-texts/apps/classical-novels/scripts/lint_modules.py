@@ -292,9 +292,12 @@ def lint_items_body_unlisted(book: str) -> list[str]:
 
 
 def lint_items_character_gaps(book: str) -> list[str]:
-    """重要人物缺 服饰/关键物品（或 crosslinks 有名物但 frontmatter 未写）。"""
+    """重要人物缺 服饰/关键物品（crosslinks 有可写入 card 的名物但 frontmatter 未写）。"""
+    from _item_wiki import hlm_frontmatter_from_occ, list_item_catalog
+
     min_w = CHARACTER_ITEM_WEIGHT_MIN.get(book, 40)
     occupant = (_load_crosslinks(book).get("occupant_items") or {})
+    catalog = list_item_catalog(book) if book == "红楼梦" else {}
     drift: list[tuple[int, str, int]] = []
     gaps: list[tuple[int, str, str]] = []
     for _path, fm, _body in iter_characters(book):
@@ -305,13 +308,20 @@ def lint_items_character_gaps(book: str) -> list[str]:
         weight = int(fm.get("weight") or 0)
         status = fm.get("status") or ""
         if occ:
-            drift.append((weight, cid, len(occ)))
+            if book == "红楼梦":
+                costumes, keys = hlm_frontmatter_from_occ(occ, catalog, cid)
+                actionable = len(costumes) + len(keys)
+                if not actionable:
+                    continue
+                drift.append((weight, cid, actionable))
+            else:
+                drift.append((weight, cid, len(occ)))
             continue
         if status in CHARACTER_ITEM_IMPORTANT_STATUS or weight >= min_w:
             gaps.append((weight, cid, status or "配角"))
     issues: list[str] = []
     for weight, cid, n in sorted(drift, key=lambda x: (-x[0], x[1])):
-        issues.append(f"人物缺 frontmatter 名物: {cid} · crosslinks 已有 {n} 件")
+        issues.append(f"人物缺 frontmatter 名物: {cid} · crosslinks 可写 card {n} 件")
         if len(issues) >= LINT_CHARACTER_GAPS_MAX:
             return issues
     for weight, cid, status in sorted(gaps, key=lambda x: (-x[0], x[1])):
@@ -322,31 +332,88 @@ def lint_items_character_gaps(book: str) -> list[str]:
 
 
 def lint_hlm_bestiary_semantics(book: str) -> list[str]:
-    """红楼梦图鉴字段语义：喜好/关键物品勿填地点·宴事·诊脉链。"""
+    """红楼梦图鉴字段语义：喜好/关键物品勿填地点·宴事·诊脉链/礼仪链。"""
     if book != "红楼梦":
         return []
-    from _item_wiki import filter_hlm_keepsake_ids, filter_hlm_like_ids, list_item_catalog
+    from _item_wiki import list_item_catalog, validate_card_field_semantics
 
     catalog = list_item_catalog(book)
     cids = {p.stem for p in (CONTENT / "characters" / book).glob("*.md")}
     issues: list[str] = []
     for _path, fm, _body in iter_characters(book):
         cid = fm.get("id") or _path.stem
-        bad_likes = [
-            x
-            for x in (fm.get("喜好") or [])
-            if x not in filter_hlm_like_ids([x], catalog, cids)
-        ]
-        if bad_likes:
-            issues.append(f"喜好语义非法: {cid} · {bad_likes}")
-        bad_keys = [
-            x
-            for x in (fm.get("关键物品") or [])
-            if x not in filter_hlm_keepsake_ids([x], catalog)
-        ]
-        if bad_keys:
-            issues.append(f"关键物品非信物: {cid} · {bad_keys}")
+        issues.extend(validate_card_field_semantics(book, cid, fm, catalog, cids))
     return sorted(issues)[:80]
+
+
+def lint_xyj_bestiary_semantics(book: str) -> list[str]:
+    """西游记图鉴字段语义：喜好勿填地点/洞府/职责/部属；妖怪勿填关键物品。"""
+    if book != "西游记":
+        return []
+    import json
+    from _item_wiki import (
+        audit_item_ids_pollution,
+        list_item_catalog,
+        validate_card_field_semantics,
+    )
+
+    catalog = list_item_catalog(book)
+    cids = {p.stem for p in (CONTENT / "characters" / book).glob("*.md")}
+    issues: list[str] = []
+    item_ids_path = DATA_DIR / "xiyouji.item_ids.json"
+    if item_ids_path.is_file():
+        item_ids = set(json.loads(item_ids_path.read_text(encoding="utf-8")))
+        for iid in audit_item_ids_pollution(book, item_ids, cids):
+            issues.append(f"item_ids 含人物 id（chip 误链 /i/）: {iid}")
+    for _path, fm, _body in iter_characters(book):
+        cid = fm.get("id") or _path.stem
+        issues.extend(validate_card_field_semantics(book, cid, fm, catalog, cids))
+    return sorted(issues)[:80]
+
+
+def lint_jpm_bestiary_semantics(book: str) -> list[str]:
+    """金瓶梅图鉴：喜好勿填帮闲差事；关键物品勿填礼仪/凑分链；服饰勿填六房齐整共用。"""
+    if book != "金瓶梅":
+        return []
+    import json
+    from _item_wiki import audit_item_ids_pollution, list_item_catalog, validate_card_field_semantics
+
+    catalog = list_item_catalog(book)
+    cids = {p.stem for p in (CONTENT / "characters" / book).glob("*.md")}
+    issues: list[str] = []
+    path = DATA_DIR / "jinpingmei.item_ids.json"
+    if path.is_file():
+        item_ids = set(json.loads(path.read_text(encoding="utf-8")))
+        for iid in audit_item_ids_pollution(book, item_ids, cids):
+            issues.append(f"item_ids 含人物 id: {iid}")
+    for _path, fm, _body in iter_characters(book):
+        cid = fm.get("id") or _path.stem
+        issues.extend(validate_card_field_semantics(book, cid, fm, catalog, cids))
+    return sorted(issues)[:80]
+
+
+def lint_bestiary_json_fields(book: str) -> list[str]:
+    """图鉴 JSON fields 源数据语义（bestiary.json 层）。"""
+    if book not in ("红楼梦", "金瓶梅", "西游记"):
+        return []
+    from _item_wiki import audit_bestiary_json_fields
+
+    return audit_bestiary_json_fields(book)[:80]
+
+
+def lint_hlm_item_ids_pollution(book: str) -> list[str]:
+    """红楼梦 item_ids.json 勿含人物 id。"""
+    if book != "红楼梦":
+        return []
+    import json
+    from _item_wiki import audit_item_ids_pollution
+
+    cids = {p.stem for p in (CONTENT / "characters" / book).glob("*.md")}
+    path = DATA_DIR / "hongloumeng.item_ids.json"
+    if not path.is_file():
+        return []
+    item_ids = set(json.loads(path.read_text(encoding="utf-8")))
+    return [f"item_ids 含人物 id: {iid}" for iid in audit_item_ids_pollution(book, item_ids, cids)]
 
 
 def _omen_covered_by_item(
@@ -716,7 +783,11 @@ def module_sections(book: str) -> list[tuple[str, str, str, object]]:
                 ("items_body_unlisted", "名物 · 正文未入 items[]", "items", lint_items_body_unlisted),
                 ("items_character_gaps", "名物 · 人物缺链", "items", lint_items_character_gaps),
                 ("items_imagery_unmaterialized", "名物 · 物象谶缺实体", "items", lint_items_imagery_unmaterialized),
-                ("hlm_bestiary_semantics", "图鉴 · 喜好/信物语义", "items", lint_hlm_bestiary_semantics),
+                ("hlm_bestiary_semantics", "图鉴 · 人物喜好/信物", "items", lint_hlm_bestiary_semantics),
+                ("hlm_item_ids_pollution", "图鉴 · item_ids 人物污染", "items", lint_hlm_item_ids_pollution),
+                ("hlm_bestiary_json", "图鉴 · JSON fields 语义", "items", lint_bestiary_json_fields),
+                ("jpm_bestiary_semantics", "图鉴 · 人物喜好/关键物品", "items", lint_jpm_bestiary_semantics),
+                ("xyj_bestiary_semantics", "图鉴 · 人物喜好/兵器", "items", lint_xyj_bestiary_semantics),
             ]
         )
     if _has_places_module(book):

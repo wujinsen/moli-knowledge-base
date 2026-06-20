@@ -31,20 +31,19 @@ def patch_fields_source(catalog: dict[str, dict], *, dry_run: bool) -> int:
 
     def repl(m: re.Match) -> str:
         nonlocal changed
-        prefix, arr_text, suffix = m.group(1), m.group(2), m.group(3)
+        prefix, arr_text = m.group(1), m.group(2)
         ids = re.findall(r'"([^"]+)"', arr_text)
         filtered = filter_hlm_keepsake_ids(ids, catalog)
         if filtered == ids:
             return m.group(0)
         changed += 1
         if not filtered:
-            return ""
+            return f'{prefix}[]'
         inner = ", ".join(f'"{x}"' for x in filtered)
-        return f'{prefix}[{inner}]{suffix}'
+        return f"{prefix}[{inner}]"
 
-    # "关键物品": ["a", "b", ...] 行（hlm_bestiary_fields 单行格式）
     new_text = re.sub(
-        r'("关键物品":\s*)\[([^\]]*)\](,?)\n',
+        r'("关键物品":\s*)\[([^\]]*)\]',
         repl,
         text,
     )

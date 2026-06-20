@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""红楼梦人物 frontmatter「喜好」：剔除地点/宴饮/诊脉/制度链等误填项。
+"""红楼梦人物 frontmatter「喜好」：剔除地点/宴饮/诊脉/组织关系等误填项。
 
 用法:
   python scripts/prune_hlm_likes.py [--dry-run]
@@ -32,27 +32,27 @@ def char_ids(book: str) -> set[str]:
 def patch_fields_source(catalog: dict[str, dict], cids: set[str], *, dry_run: bool) -> int:
     text = FIELDS_PATH.read_text(encoding="utf-8")
     changed = 0
-
-    def repl(m: re.Match) -> str:
-        nonlocal changed
-        prefix, arr_text, suffix = m.group(1), m.group(2), m.group(3)
+    for m in list(re.finditer(r'"([^"]+)":\s*\{[^{}]*?"喜好":\s*\[([^\]]*)\]', text)):
+        cid, arr_text = m.group(1), m.group(2)
         ids = re.findall(r'"([^"]+)"', arr_text)
-        filtered = filter_hlm_like_ids(ids, catalog, cids)
+        if not ids:
+            continue
+        rel: list = []
+        path = CHAR_DIR / BOOK / f"{cid}.md"
+        if path.is_file():
+            fm, _ = parse_frontmatter(path)
+            rel = fm.get("relations") or []
+        filtered = filter_hlm_like_ids(ids, catalog, cids, relations=rel)
         if filtered == ids:
-            return m.group(0)
+            continue
         changed += 1
-        if not filtered:
-            return ""
         inner = ", ".join(f'"{x}"' for x in filtered)
-        return f'{prefix}[{inner}]{suffix}'
-
-    new_text = re.sub(
-        r'("喜好":\s*)\[([^\]]*)\](,?)\n',
-        repl,
-        text,
-    )
+        new_arr = f"[{inner}]" if filtered else "[]"
+        old = m.group(0)
+        new = re.sub(r'"喜好":\s*\[[^\]]*\]', f'"喜好": {new_arr}', old)
+        text = text.replace(old, new, 1)
     if changed and not dry_run:
-        FIELDS_PATH.write_text(new_text, encoding="utf-8")
+        FIELDS_PATH.write_text(text, encoding="utf-8")
     return changed
 
 
@@ -63,7 +63,8 @@ def prune_characters(catalog: dict[str, dict], cids: set[str], *, dry_run: bool)
         fm, body = parse_frontmatter(path)
         cid = fm.get("id") or path.stem
         old = list(fm.get("喜好") or [])
-        new = filter_hlm_like_ids(old, catalog, cids)
+        rel = fm.get("relations") or []
+        new = filter_hlm_like_ids(old, catalog, cids, relations=rel)
         if old == new:
             continue
         updated += 1
@@ -88,7 +89,7 @@ def main() -> None:
     n_fields = patch_fields_source(catalog, cids, dry_run=args.dry_run)
     print(
         f"[{BOOK}] {'(dry-run) ' if args.dry_run else ''}"
-        f"人物 {n_chars} · hlm_bestiary_fields 喜好行 {n_fields}"
+        f"人物 {n_chars} · hlm_bestiary_fields {n_fields}"
     )
     if n_chars or n_fields:
         print(

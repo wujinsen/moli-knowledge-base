@@ -7,6 +7,7 @@ import { bestiaryStatsFor, buildBestiaryGroupings, enrichBestiaryFields, isBesti
 import { buildFullRosterList, loadCharacterRoster, loadCharacterScope } from '../../lib/characterRoster';
 import { loadCharacters } from '../../lib/loadCharacters';
 import { loadLocations } from '../../lib/loadLocations';
+import { characterHref } from '../../lib/sna';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -23,6 +24,15 @@ const meta = book.data;
 const slug = meta.slug;
 
 const entries = enrichBestiaryFields(slug, await loadCharacters(meta.book));
+
+const characterIds = new Set(entries.map((e) => e.data.id));
+const characterAliases = new Map<string, string>();
+for (const e of entries) {
+  for (const alias of e.data.aliases ?? []) {
+    characterAliases.set(alias, e.data.id);
+  }
+}
+const chipLinkCtx = { characterIds, characterAliases };
 
 const placeIds = (await loadLocations(meta.book))
   .flatMap((l) => [l.data.id, ...l.data.aliases]);
@@ -69,11 +79,12 @@ const rosterBreakdown =
 
 function cardProps(c: (typeof entries)[number]) {
   return {
-    href: `/${slug}/c/${c.data.id}`,
+    href: characterHref(slug, c.data.id),
     name: c.data.name,
     type: c.data.type,
     bookSlug: slug,
     placeIds,
+    linkCtx: { ...chipLinkCtx, placeIds: new Set(placeIds) },
     faction: c.data.faction,
     summary: c.data.summary,
     tags: c.data.tags,

@@ -2455,6 +2455,181 @@ mark.compare-highlight--active {
   flex-direction: column;
 }
 
+.graph-explorer.graph-explorer--with-sidebar {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.graph-left-dock {
+  width: 13rem;
+  max-width: 42vw;
+  z-index: 15;
+  font-size: var(--type-sm, 0.9375rem);
+  line-height: 1.55;
+}
+
+@media (min-width: 640px) {
+  .graph-left-dock {
+    width: 15.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .graph-left-dock {
+    width: 17.5rem;
+  }
+}
+
+.graph-left-dock__meta {
+  font-size: 0.9375rem;
+}
+
+.graph-left-dock__hint {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #94a3b8;
+}
+
+.graph-left-dock__section-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #94a3b8;
+}
+
+.graph-stat-pill--dock {
+  font-size: 0.9375rem;
+  padding: 0.35rem 0.5rem;
+}
+
+.graph-left-dock__scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+}
+
+.graph-main {
+  min-width: 0;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.graph-filter-tabs--sidebar {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.4rem;
+  padding: 0.85rem 0.9rem;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.graph-filter-tabs__heading {
+  margin-bottom: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.graph-filter-tabs--sidebar .graph-filter-tabs__btn {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+.graph-filter-tabs--sidebar .graph-filter-tabs__btn--active {
+  font-weight: 600;
+}
+
+.graph-sidebar-bucket {
+  font-size: 0.875rem;
+  line-height: 1.45;
+  font-weight: 450;
+}
+
+.graph-sidebar-bucket .tabular-nums {
+  font-size: 0.8125rem;
+}
+
+.graph-sidebar-bucket:hover {
+  filter: brightness(1.08);
+}
+
+.graph-relation-legend {
+  width: 11rem;
+  max-height: min(78vh, 34rem);
+  padding: 0.9rem 1rem;
+  box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.65);
+}
+
+@media (min-width: 640px) {
+  .graph-relation-legend {
+    width: 12.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .graph-relation-legend {
+    width: 14rem;
+    padding: 1rem 1.1rem;
+  }
+}
+
+.graph-relation-legend__title {
+  margin-bottom: 0.65rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.graph-relation-legend__list {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding-right: 0.15rem;
+}
+
+.graph-relation-legend__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: #e2e8f0;
+}
+
+.graph-relation-legend__swatch {
+  margin-top: 0.45rem;
+  width: 1.25rem;
+  height: 0.2rem;
+  flex-shrink: 0;
+}
+
+.graph-relation-legend__foot {
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #94a3b8;
+}
+
+.graph-faction-more summary::-webkit-details-marker {
+  display: none;
+}
+
 /* Leaflet 地图（金瓶梅市井 GIS 等） */
 .route-leaflet-label {
   background: rgba(15, 23, 42, 0.82);
@@ -2620,6 +2795,72 @@ mark.compare-highlight--active {
   scrollbar-width: thin;
   scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
 }
+
+.graph-filter-tabs {
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.55);
+  padding: 0.15rem;
+}
+
+.graph-filter-tabs--prominent {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(15, 23, 42, 0.92);
+  border-radius: 0.65rem;
+  box-shadow: 0 4px 24px -8px rgba(0, 0, 0, 0.55);
+}
+
+.graph-filter-tabs__label {
+  padding: 0 0.35rem 0 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #94a3b8;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.graph-filter-tabs__btn {
+  border: 1px solid transparent;
+  border-radius: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #64748b;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    color 0.15s,
+    box-shadow 0.15s;
+}
+
+.graph-filter-tabs__btn:hover:not(.graph-filter-tabs__btn--active) {
+  background: rgba(255, 255, 255, 0.06);
+  color: #cbd5e1;
+}
+
+.graph-filter-tabs__btn--active {
+  font-weight: 600;
+}
+
+.graph-filter-tabs__badge {
+  margin-left: 0.35rem;
+  display: inline-flex;
+  min-width: 1.25rem;
+  justify-content: center;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.05rem 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* 右侧关系图例尺寸见上方 .graph-relation-legend 块 */
 
 .graph-nav-search {
   display: inline-flex;

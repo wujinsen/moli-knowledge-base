@@ -175,6 +175,8 @@ summary: 一句话说明本页价值
 - 字段缺漏：缺 `summary` / `first_appear` 等。
 - 数据空白：可补充的方向。
 
+**图鉴卡片语义**（喜好 / 信物·关键物品 / 金瓶梅·服饰）：`python scripts/audit_bestiary_semantics.py` 三书汇总；各书 `lint_report.py` 含「图鉴 · 人物…」与「图鉴 · JSON fields 语义」。规则见 `schema/character.md` · 实现见 `scripts/_item_wiki.py`。误填礼仪链/帮闲差事/部属 → `prune_*_likes.py` / `prune_*_keepsakes.py`；金瓶梅六房齐整服饰 → `prune_jpm_costumes.py`。
+
 `/lint` 是 `/dream` 的待办来源之一。
 
 ### 5.5 `/dream` 睡眠巩固（主动改写，周期性）

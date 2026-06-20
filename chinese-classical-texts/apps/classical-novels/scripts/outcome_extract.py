@@ -177,6 +177,18 @@ MANUAL: dict[str, str] = {
 }
 
 
+def personality_from_summary(summary: str) -> str | None:
+    """图鉴「性格」：从 summary 首句截取（无则不回填）。"""
+    if not summary:
+        return None
+    s = re.sub(r"\[\[([^\]|]+)(?:\|[^\]]+)?\]\]", r"\1", summary)
+    s = re.sub(r"（[^）]*）", "", s)
+    s = re.split(r"[；;，,]", s)[0].strip()
+    if len(s) < 4:
+        return None
+    return s[:28] + ("…" if len(s) > 28 else "")
+
+
 def extract_outcome(fm: dict, body: str = "") -> str | None:
     cid = fm.get("id") or fm.get("name") or ""
     if cid in MANUAL:

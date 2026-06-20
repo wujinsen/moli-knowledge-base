@@ -1,6 +1,6 @@
 ---
 import BestiaryLinkChips from './BestiaryLinkChips.astro';
-import { chipHref, keyItemsLabel } from '../lib/bestiary';
+import { chipHref, keyItemsLabel, type ChipLinkContext } from '../lib/bestiary';
 
 interface Props {
   href: string;
@@ -8,6 +8,7 @@ interface Props {
   type: string;
   bookSlug?: string;
   placeIds?: string[];
+  linkCtx?: ChipLinkContext;
   faction?: string;
   summary?: string;
   tags?: string[];
@@ -22,6 +23,7 @@ const {
   type,
   bookSlug,
   placeIds = [],
+  linkCtx,
   faction,
   summary,
   tags = [],
@@ -32,6 +34,7 @@ const {
 } = Astro.props;
 const subline = faction ?? '';
 const placeIdSet = new Set(placeIds);
+const chipLinkCtx: ChipLinkContext = linkCtx ?? { placeIds: placeIdSet };
 const hasDetailFields =
   outcome || costumes.length > 0 || keyItems.length > 0 || (bookSlug && likes.length > 0);
 ---
@@ -66,7 +69,7 @@ const hasDetailFields =
             costumes.length > 0 && bookSlug && (
               <div class="bestiary-card-field">
                 <span class="bestiary-card-label">服饰</span>
-                <BestiaryLinkChips bookSlug={bookSlug} items={costumes} />
+                <BestiaryLinkChips bookSlug={bookSlug} items={costumes} linkCtx={chipLinkCtx} />
               </div>
             )
           }
@@ -74,7 +77,7 @@ const hasDetailFields =
             keyItems.length > 0 && bookSlug && (
               <div class="bestiary-card-field">
                 <span class="bestiary-card-label">{bookSlug ? keyItemsLabel(bookSlug) : '关键物品'}</span>
-                <BestiaryLinkChips bookSlug={bookSlug} items={keyItems} />
+                <BestiaryLinkChips bookSlug={bookSlug} items={keyItems} linkCtx={chipLinkCtx} />
               </div>
             )
           }
@@ -82,7 +85,7 @@ const hasDetailFields =
             likes.length > 0 && bookSlug && (
               <div class="bestiary-card-field">
                 <span class="bestiary-card-label">喜好</span>
-                <BestiaryLinkChips bookSlug={bookSlug} items={likes} />
+                <BestiaryLinkChips bookSlug={bookSlug} items={likes} linkCtx={chipLinkCtx} />
               </div>
             )
           }
@@ -95,7 +98,7 @@ const hasDetailFields =
         <footer class="bestiary-card-foot">
           <div class="bestiary-card-chips">
             {tags.slice(0, 3).map((t) => {
-              const tagHref = bookSlug ? chipHref(bookSlug, t, placeIdSet) : null;
+              const tagHref = bookSlug ? chipHref(bookSlug, t, chipLinkCtx) : null;
               return tagHref ? (
                 <a class="chip chip-foot chip-link pointer-events-auto" href={tagHref}>
                   {t}

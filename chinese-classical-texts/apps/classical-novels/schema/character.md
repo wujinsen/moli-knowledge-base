@@ -44,21 +44,21 @@
 
 ## 金瓶梅图鉴扩展（type: character）
 
-`ximen_proximity`（亲缘 / 雇佣 / 利益交换 / 外人）· `靠山` · `依附` · `结局`
+`ximen_proximity`（亲缘 / 雇佣 / 利益交换 / 外人）· `靠山` · `依附` · `性格` · `喜好[]`（饮食/情欲/人物；**勿**填帮闲差事/店铺/部属）· `服饰[]`（**个人可辨**衣饰；**勿**填六房齐整共用如锦裙绣袄/大红妆花袍）· `关键物品[]`（物证/乐器/毒物/名场面饮食；**勿**填地点/情节链/人物 id/customs 凑分/结拜/宴饮）· `结局`
 
-数据：`scripts/jpm_bestiary_fields.py` → `build_jpm_bestiary_json.py` → `jinpingmei.bestiary.json` · 同步 `seed_jpm_bestiary.py`
+数据：`scripts/jpm_bestiary_fields.py` → `build_jpm_bestiary_json.py`（`filter_jpm_costume_ids` / `filter_jpm_keepsake_ids` / `filter_jpm_like_ids`）→ `jinpingmei.bestiary.json` · 清理 `prune_jpm_costumes.py` · `prune_jpm_likes.py` · `prune_jpm_keepsakes.py`
 
 ## 西游记图鉴扩展
 
-`性格` · `喜好[]`（法宝 id 可链 `/xiyouji/i/{id}`）· `关键物品[]`（**主兵器**：`五众兵器` tag 或 `type: weapon` 且 owner 匹配；唐僧取经三宝例外；**妖怪用 `法宝[]`**，勿填符咒/微器/地点）· `结局`
+`性格` · `喜好[]`（饮食/人物/名物；地点仅白名单绑定如二郎神→灌江口；**勿**填 faction 驻地/职责词/部属）· `关键物品[]`（**主兵器**：`五众兵器` tag 或 `type: weapon` 且 owner 匹配；唐僧取经三宝例外；**勿**填地点/情节/职责链/人物 id；**妖怪用 `法宝[]`**）· `结局`
 
-数据：`scripts/xyj_bestiary_fields.py` → `build_xyj_bestiary_json.py`（含 `outcome_extract`）→ `xiyouji.bestiary.json` · 同步 `seed_xyj_bestiary.py` · 清理 `prune_xyj_keepsakes.py`
+数据：`scripts/xyj_bestiary_fields.py` → `build_xyj_bestiary_json.py`（`filter_xyj_like_ids`）→ `xiyouji.bestiary.json` · 清理 `prune_xyj_likes.py` · `prune_xyj_keepsakes.py`
 
 ## 红楼梦图鉴扩展（type: character）
 
-`性格` · `喜好[]`（条目可为名物 id、活动或人物名；名物 id 可链至 `/honglou/i/{id}`）· `服饰[]` · `关键物品[]`（**图鉴展示为「信物」**：少量情物/佩饰/物证；须为名物 id 且带 `信物`/`佩饰`/`情物` tag 或人工审定，**勿**填宴饮/诊脉/地点链）· `结局`
+`性格` · `喜好[]`（性情/技艺/人名/具体饮食；**勿**填地点/宴事/诊脉链/主仆部属）· `服饰[]` · `关键物品[]`（**图鉴展示为「信物」**：可触佩饰/首饰/物证；**勿**填地点/情节链/机构名/人物 id/`customs` 礼仪链，情节见 `topics/`）· `结局`
 
-数据：`scripts/hlm_bestiary_fields.py` → `build_hlm_bestiary_json.py`（经 `filter_hlm_keepsake_ids`）→ `hongloumeng.bestiary.json` · 同步 `seed_hlm_bestiary.py` · 清理 `prune_hlm_keepsakes.py`
+数据：`scripts/hlm_bestiary_fields.py` → `build_hlm_bestiary_json.py`（经 `filter_hlm_keepsake_ids` / `filter_hlm_like_ids`）→ `hongloumeng.bestiary.json` · 同步 `seed_hlm_bestiary.py` · 清理 `prune_hlm_keepsakes.py` · `prune_hlm_likes.py`
 
 ## 图鉴分组（三书共用）
 
@@ -93,6 +93,19 @@
 | 楔子与刘姥姥线 | 第一回神话楔子 + 刘姥姥进府线 |
 
 > 「宝玉与近侍」与「丫鬟与近侍」的切分依据：**服侍对象是否为宝玉 / 怡红院**（晴雯入前者、紫鹃入后者）。
+
+### 图鉴卡片字段语义（三书 · 防复发）
+
+图鉴页 `喜好` / `关键物品`（红楼称「信物」）须符合 `_item_wiki.py` 过滤规则；**礼仪链 / 帮闲差事 / 部属关系** 不得填入。
+
+| 校验层 | 命令 |
+|--------|------|
+| 人物 frontmatter | `lint_report.py <书>` → `图鉴 · 人物喜好/信物` |
+| bestiary.json fields | 同上 → `图鉴 · JSON fields 语义` |
+| 三书汇总 | `python scripts/audit_bestiary_semantics.py` |
+| 批量清理 | `prune_*_likes.py` · `prune_*_keepsakes.py` → `build_*_bestiary_json.py` |
+
+情节性礼仪（如巧哥儿名、扮青儿、帮闲凑分）写入 `topics/` 或 customs 名物页，**不**写入人物图鉴 card 字段。
 
 ### 页面交互
 

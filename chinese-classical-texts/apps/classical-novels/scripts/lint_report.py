@@ -72,20 +72,40 @@ def build_report(book: str) -> dict:
     }
 
 
+BOOKS = ("红楼梦", "金瓶梅", "西游记")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Knowledge base lint JSON report")
-    parser.add_argument("book", nargs="?", default="红楼梦")
+    parser.add_argument("book", nargs="?", default="红楼梦", help="书名或 all/三书")
     parser.add_argument("--json", action="store_true", help="Print JSON to stdout")
     args = parser.parse_args()
 
-    report = build_report(args.book)
+    targets = list(BOOKS) if args.book in ("all", "三书", "全部") else [args.book]
+    if len(targets) > 1 and not args.json:
+        failed = []
+        for book in targets:
+            report = build_report(book)
+            print(f"=== {book} lint report ===")
+            print(f"totalIssues: {report['totalIssues']} passed={report['passed']}")
+            bestiary = [s for s in report["sections"] if "图鉴" in s["title"]]
+            for sec in bestiary:
+                if sec["count"]:
+                    print(f"  [{sec['title']}] {sec['count']}: {sec['items'][:3]}")
+            if not report["passed"]:
+                failed.append(book)
+        print()
+        print("ALL PASS" if not failed else f"FAIL: {', '.join(failed)}")
+        sys.exit(0 if not failed else 1)
+
+    report = build_report(targets[0])
     if args.json:
         if hasattr(sys.stdout, "reconfigure"):
             sys.stdout.reconfigure(encoding="utf-8")
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return
 
-    print(f"=== {args.book} lint report ===")
+    print(f"=== {targets[0]} lint report ===")
     print(f"totalIssues: {report['totalIssues']} passed={report['passed']}")
     ms = report.get("moduleStats") or {}
     if ms:

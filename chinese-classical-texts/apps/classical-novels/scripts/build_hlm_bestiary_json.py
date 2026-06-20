@@ -11,7 +11,7 @@ import sys
 from _common import CHAR_DIR, DATA_DIR, parse_frontmatter
 from hlm_bestiary_fields import FIELDS, GROUPS
 from outcome_extract import extract_outcome
-from _item_wiki import build_char_item_map, list_item_catalog, list_known_item_ids, merge_fields_with_wiki, filter_hlm_keepsake_ids, filter_hlm_like_ids
+from _item_wiki import build_char_item_map, build_chip_item_ids, list_item_catalog, list_known_item_ids, merge_fields_with_wiki, filter_hlm_keepsake_ids, filter_hlm_like_ids
 
 BOOK = "红楼梦"
 OUT = DATA_DIR / "hongloumeng.bestiary.json"
@@ -36,15 +36,22 @@ def main() -> None:
     for cid in char_ids:
         base = dict(FIELDS[cid])
         if base.get("关键物品"):
-            base["关键物品"] = filter_hlm_keepsake_ids(base["关键物品"], catalog)
+            base["关键物品"] = filter_hlm_keepsake_ids(
+                base["关键物品"], catalog, char_ids_set, book=BOOK
+            )
+        path = char_dir / f"{cid}.md"
+        fm, body = ({}, "")
+        if path.is_file():
+            fm, body = parse_frontmatter(path)
+        rel = fm.get("relations") or []
         if base.get("喜好"):
-            base["喜好"] = filter_hlm_like_ids(base["喜好"], catalog, char_ids_set)
+            base["喜好"] = filter_hlm_like_ids(
+                base["喜好"], catalog, char_ids_set, relations=rel
+            )
         entry = merge_fields_with_wiki(
             base, wiki_map.get(cid), item_ids, book=BOOK, catalog=catalog
         )
-        path = char_dir / f"{cid}.md"
         if path.is_file():
-            fm, body = parse_frontmatter(path)
             o = extract_outcome(fm, body)
             if o:
                 entry["结局"] = o
@@ -53,19 +60,7 @@ def main() -> None:
     payload = {"book": BOOK, "groups": GROUPS, "fields": payload_fields}
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    item_ids: set[str] = set()
-    content = DATA_DIR.parent / "content"
-    for sub in ("dishes", "medicines", "costumes", "customs"):
-        d = content / sub / BOOK
-        if d.is_dir():
-            item_ids |= {p.stem for p in d.glob("*.md")}
-    cross_path = DATA_DIR / "hongloumeng.crosslinks.json"
-    if cross_path.is_file():
-        cross = json.loads(cross_path.read_text(encoding="utf-8"))
-        for bucket in cross.values():
-            if isinstance(bucket, dict):
-                for vals in bucket.values():
-                    item_ids |= set(vals)
+    item_ids = build_chip_item_ids(BOOK, catalog, set(char_ids))
     ids_out = DATA_DIR / "hongloumeng.item_ids.json"
     ids_out.write_text(
         json.dumps(sorted(item_ids), ensure_ascii=False, indent=2) + "\n", encoding="utf-8"

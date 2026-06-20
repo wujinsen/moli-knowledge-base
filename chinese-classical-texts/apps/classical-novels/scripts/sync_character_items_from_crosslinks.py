@@ -14,7 +14,14 @@ import sys
 import yaml
 
 from _common import CHAR_DIR, DATA_DIR, parse_frontmatter, resolve_books
-from _item_wiki import item_target_field, list_item_catalog, merge_item_lists
+from _item_wiki import (
+    filter_jpm_costume_ids,
+    hlm_frontmatter_from_occ,
+    is_jpm_costume_for_char,
+    item_target_field,
+    list_item_catalog,
+    merge_item_lists,
+)
 
 CROSSLINKS_SLUG = {"红楼梦": "hongloumeng", "金瓶梅": "jinpingmei", "西游记": "xiyouji"}
 BOOKS = ("红楼梦", "金瓶梅", "西游记")
@@ -53,19 +60,33 @@ def sync_book(book: str, *, dry_run: bool) -> int:
 
         for iid in occ:
             meta = catalog.get(iid, {})
+            if book == "红楼梦":
+                c, k = hlm_frontmatter_from_occ([iid], catalog, cid)
+                if c:
+                    costumes = merge_item_lists(costumes, c)
+                if k:
+                    keys = merge_item_lists(keys, k)
+                continue
             field = item_target_field(meta, book)
             if not field:
                 continue
             if fm.get("type") == "monster" and field == "关键物品":
                 fabao = merge_item_lists(fabao, [iid])
             elif field == "服饰":
+                if book == "金瓶梅" and not is_jpm_costume_for_char(meta, iid, cid):
+                    continue
                 costumes = merge_item_lists(costumes, [iid])
             else:
                 keys = merge_item_lists(keys, [iid])
 
         changed = False
+        if book == "金瓶梅":
+            costumes = filter_jpm_costume_ids(costumes, catalog, cid)
         if costumes and costumes != list(fm.get("服饰") or []):
             fm["服饰"] = costumes
+            changed = True
+        elif not costumes and fm.get("服饰"):
+            fm.pop("服饰", None)
             changed = True
         if keys and keys != list(fm.get("关键物品") or []):
             fm["关键物品"] = keys

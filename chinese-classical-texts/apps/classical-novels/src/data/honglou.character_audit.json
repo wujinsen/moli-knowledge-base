@@ -1,12 +1,12 @@
 {
-  "generated": "2026-06-18",
-  "paged_count": 230,
-  "bestiary_count": 214,
+  "generated": "2026-06-20",
+  "paged_count": 232,
+  "bestiary_count": 230,
   "edition": {
     "程高本_chapters": 120,
     "脂砚斋本_chapters": 80,
-    "程高本_detected_known": 227,
-    "脂砚斋本_detected_known": 221,
+    "程高本_detected_known": 229,
+    "脂砚斋本_detected_known": 223,
     "only_in_程高本_120回": [
       "包勇",
       "吴良",
@@ -21,7 +21,7 @@
     ]
   },
   "frontmatter": {
-    "程高本_fm_unique": 218,
+    "程高本_fm_unique": 226,
     "脂砚斋本_fm_unique": 126
   },
   "roster_extracted_pending": 0,

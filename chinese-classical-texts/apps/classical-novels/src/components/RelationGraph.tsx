@@ -6,6 +6,12 @@ import { relationGraphForSlug } from '../lib/relations';
 import { chainEventsForCharacter } from '../lib/chainIndex';
 import { chainEventHref, silverEventHref } from '../lib/chain';
 import { characterHref, maxBetweenness, snaFocusHref, snaMetricsMap, type SnaMetric } from '../lib/sna';
+import {
+  graphFactionBuckets,
+  graphStratumBuckets,
+  hasGraphStratum,
+  resolveGraphStratum,
+} from '../lib/bestiaryGroups';
 
 interface Node {
   id: string;
@@ -28,6 +34,12 @@ interface Props {
 }
 
 type SizeMode = 'weight' | 'betweenness' | 'degree';
+type GraphFilterMode = 'all' | 'stratum' | 'faction';
+
+function bucketKey(mode: GraphFilterMode, bookSlug: string, n: Node): string {
+  if (mode === 'faction') return n.faction;
+  return resolveGraphStratum(bookSlug, n.id, n.faction);
+}
 
 function nodeSize(
   n: Node,
@@ -72,6 +84,30 @@ function neighborSet(nodeId: string, edges: Edge[]): Set<string> {
 function circularCoords(index: number, total: number, radius = 280): { x: number; y: number } {
   const angle = (2 * Math.PI * index) / Math.max(total, 1);
   return { x: Math.cos(angle) * radius, y: Math.sin(angle) * radius };
+}
+
+/** 筛选/小图：节点居中紧凑排布，避免单阵营仍落在外环半径 560 处导致画布空白 */
+function compactClusterLayout(nodes: Node[]): Map<string, { x: number; y: number }> {
+  const sorted = [...nodes].sort((a, b) => (b.weight ?? 0) - (a.weight ?? 0));
+  const radius = Math.max(64, Math.min(220, sorted.length * 16));
+  const map = new Map<string, { x: number; y: number }>();
+  sorted.forEach((n, i) => {
+    map.set(n.id, circularCoords(i, sorted.length, radius));
+  });
+  return map;
+}
+
+function layoutForVisibleNodes(nodes: Node[], focused: boolean): Map<string, { x: number; y: number }> {
+  if (nodes.length === 0) return new Map();
+  if (focused || nodes.length <= 28) return compactClusterLayout(nodes);
+  return clusterLayout(nodes);
+}
+
+function focusedZoom(nodeCount: number): number {
+  if (nodeCount <= 3) return 1.85;
+  if (nodeCount <= 10) return 1.45;
+  if (nodeCount <= 20) return 1.2;
+  return 1.05;
 }
 
 /** 阵营聚类布局系数 */
@@ -175,7 +211,8 @@ export default function RelationGraph({ bookSlug }: Props) {
   const [chartError, setChartError] = useState<string | null>(null);
   const [query, setQuery] = useState('');
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [hiddenFactions, setHiddenFactions] = useState<Set<string>>(new Set());
+  const [filterMode, setFilterMode] = useState<GraphFilterMode>('all');
+  const [activeBuckets, setActiveBuckets] = useState<Set<string>>(new Set());
   const [physics, setPhysics] = useState(true);
   const [sizeMode, setSizeMode] = useState<SizeMode>('weight');
   const [expandedEdgeTypes, setExpandedEdgeTypes] = useState<Set<string>>(new Set());
@@ -185,26 +222,40 @@ export default function RelationGraph({ bookSlug }: Props) {
     if (focus && data.nodes.some((n) => n.id === focus)) {
       setSelectedId(focus);
       setQuery(focus);
-      setHiddenFactions(new Set());
+      setFilterMode('all');
+      setActiveBuckets(new Set());
     }
   }, [data.nodes]);
 
+  const showStratum = hasGraphStratum(bookSlug);
+  const stratumBuckets = useMemo(
+    () => graphStratumBuckets(bookSlug, data.nodes),
+    [bookSlug, data.nodes],
+  );
+  const { top: topFactions, rest: restFactions } = useMemo(
+    () => graphFactionBuckets(data.nodes, 12),
+    [data.nodes],
+  );
   const factions = useMemo(
     () => [...new Set(data.nodes.map((n) => n.faction))],
     [data.nodes],
   );
 
-  const visibleNodes = useMemo(
-    () => data.nodes.filter((n) => !hiddenFactions.has(n.faction)),
-    [data.nodes, hiddenFactions],
-  );
+  const visibleNodes = useMemo(() => {
+    if (filterMode === 'all' || activeBuckets.size === 0) return data.nodes;
+    return data.nodes.filter((n) => activeBuckets.has(bucketKey(filterMode, bookSlug, n)));
+  }, [data.nodes, filterMode, activeBuckets, bookSlug]);
+  const isFocusedView = filterMode !== 'all' && activeBuckets.size > 0;
   const visibleIds = useMemo(() => new Set(visibleNodes.map((n) => n.id)), [visibleNodes]);
   const visibleEdges = useMemo(
     () => data.edges.filter((e) => visibleIds.has(e.source) && visibleIds.has(e.target)),
     [data.edges, visibleIds],
   );
 
-  const clusterPositions = useMemo(() => clusterLayout(visibleNodes), [visibleNodes]);
+  const clusterPositions = useMemo(
+    () => layoutForVisibleNodes(visibleNodes, isFocusedView),
+    [visibleNodes, isFocusedView],
+  );
   const factionLeaders = useMemo(() => factionLeaderIds(visibleNodes), [visibleNodes]);
 
   const selectedNode = selectedId ? data.nodes.find((n) => n.id === selectedId) : null;
@@ -316,7 +367,11 @@ export default function RelationGraph({ bookSlug }: Props) {
             const summary = d.summary ? `<br/>${d.summary}` : '';
             return `<strong style="font-size:15px">${d.name}</strong><br/><span style="color:${gt.accent}">版本异文议题</span><br/>${hint}${summary}`;
           }
-          return `<strong style="font-size:15px">${d.name}</strong><br/>阵营：${d.faction ?? '—'}<br/>类型：${d.nodeType === 'monster' ? '妖怪' : '人物'}${
+          return `<strong style="font-size:15px">${d.name}</strong><br/>${
+            showStratum
+              ? `圈层：${resolveGraphStratum(bookSlug, String(d.name ?? ''), String(d.faction ?? ''))}<br/>`
+              : ''
+          }阵营：${d.faction ?? '—'}<br/>类型：${d.nodeType === 'monster' ? '妖怪' : '人物'}${
             (() => {
               const sm = snaMap.get(String(d.name ?? ''));
               if (!sm) return '';
@@ -334,7 +389,9 @@ export default function RelationGraph({ bookSlug }: Props) {
           layout: physics ? 'force' : 'none',
           roam: true,
           draggable: true,
-          zoom: 0.88,
+          scaleLimit: { min: 0.2, max: 4 },
+          center: ['50%', '50%'],
+          zoom: isFocusedView ? focusedZoom(visibleNodes.length) : 0.88,
           focusNodeAdjacency: false,
           selectedMode: false,
           labelLayout: { hideOverlap: true },
@@ -378,12 +435,9 @@ export default function RelationGraph({ bookSlug }: Props) {
 
             const saved = layoutPositionsRef.current.get(n.id);
             const clusterPos = clusterPositions.get(n.id);
-            const fixedPos = !physics
-              ? (saved ?? clusterPos ?? circularCoords(idx, visibleNodes.length))
-              : null;
-            const forceSeed = physics
-              ? (clusterPos ?? circularCoords(idx, visibleNodes.length))
-              : null;
+            const layoutPos = clusterPos ?? circularCoords(idx, visibleNodes.length);
+            const fixedPos = !physics ? (saved ?? layoutPos) : null;
+            const forceSeed = physics ? layoutPos : null;
 
             return {
               id: n.id,
@@ -461,7 +515,7 @@ export default function RelationGraph({ bookSlug }: Props) {
         },
       ],
     };
-  }, [factions, physics, query, selectedId, visibleEdges, visibleNodes, clusterPositions, factionLeaders, gt, sizeMode, snaMap, bcMax, bookSlug]);
+  }, [factions, physics, query, selectedId, visibleEdges, visibleNodes, clusterPositions, factionLeaders, gt, sizeMode, snaMap, bcMax, bookSlug, showStratum, isFocusedView]);
 
   useEffect(() => {
     const el = chartRef.current;
@@ -564,10 +618,13 @@ export default function RelationGraph({ bookSlug }: Props) {
   }, []);
 
   useEffect(() => {
+    layoutPositionsRef.current.clear();
+  }, [isFocusedView, filterMode, activeBuckets]);
+
+  useEffect(() => {
     if (!chartReady || !chartInstance.current) return;
     const chart = chartInstance.current;
 
-    // 两种布局切换时都清空画布，避免力导向引擎残留 fixed 状态
     chart.clear();
     chart.setOption(buildOption(), { notMerge: true });
 
@@ -591,20 +648,27 @@ export default function RelationGraph({ bookSlug }: Props) {
     setPhysics(true);
   };
 
-  const toggleFaction = (f: string) => {
-    setHiddenFactions((prev) => {
+  const toggleBucket = (key: string) => {
+    setActiveBuckets((prev) => {
       const next = new Set(prev);
-      if (next.has(f)) next.delete(f);
-      else next.add(f);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
       return next;
     });
+    setSelectedId(null);
+  };
+
+  const setGraphFilterMode = (mode: GraphFilterMode) => {
+    setFilterMode(mode);
+    setActiveBuckets(new Set());
     setSelectedId(null);
   };
 
   const resetView = () => {
     setQuery('');
     setSelectedId(null);
-    setHiddenFactions(new Set());
+    setFilterMode('all');
+    setActiveBuckets(new Set());
     chartInstance.current?.dispatchAction({ type: 'restore' });
   };
 
@@ -618,6 +682,83 @@ export default function RelationGraph({ bookSlug }: Props) {
   const relationTypes = [...new Set(visibleEdges.map((e) => e.type))];
   const graphHeight = 'calc(100dvh - var(--graph-chrome, 10.5rem))';
   const showRelationLegend = relationTypes.length > 0 && !selectedNode;
+
+  const filterModeOptions: { mode: GraphFilterMode; label: string }[] = [
+    { mode: 'all', label: '全部' },
+    ...(showStratum ? [{ mode: 'stratum' as const, label: '社会圈层' }] : []),
+    { mode: 'faction', label: '阵营明细' },
+  ];
+
+  const renderFilterTabs = () => (
+    <div
+      className="graph-filter-tabs graph-filter-tabs--sidebar"
+      role="tablist"
+      aria-label="分类视图"
+    >
+      <div className="graph-filter-tabs__heading" style={{ color: gt.accentSoft }}>
+        分类视图
+      </div>
+      {filterModeOptions.map(({ mode, label }) => {
+        const active = filterMode === mode;
+        const filtered = mode !== 'all' && active && activeBuckets.size > 0;
+        return (
+          <button
+            key={mode}
+            type="button"
+            role="tab"
+            aria-selected={active}
+            onClick={() => setGraphFilterMode(mode)}
+            className={`graph-filter-tabs__btn${active ? ' graph-filter-tabs__btn--active' : ''}`}
+            style={
+              active
+                ? {
+                    backgroundColor: `${gt.accent}40`,
+                    borderColor: gt.accentSoft,
+                    color: gt.accentSoft,
+                    boxShadow: `0 0 0 1px ${gt.accentLine}`,
+                  }
+                : undefined
+            }
+          >
+            <span>{label}</span>
+            {filtered && (
+              <span className="graph-filter-tabs__badge" aria-hidden>
+                {activeBuckets.size}
+              </span>
+            )}
+          </button>
+        );
+      })}
+    </div>
+  );
+
+  const renderSidebarBucket = (
+    b: { key: string; count: number },
+    color: string,
+    active: boolean,
+    dimmed: boolean,
+    onClick: () => void,
+  ) => (
+    <button
+      key={b.key}
+      type="button"
+      onClick={onClick}
+      className="graph-sidebar-bucket flex w-full items-center gap-2.5 rounded-lg border px-3 py-2.5 text-left transition"
+      style={{
+        borderColor: active ? `${color}aa` : 'rgba(255,255,255,0.08)',
+        backgroundColor: active ? `${color}22` : 'rgba(15,23,42,0.35)',
+        color: active ? color : dimmed ? '#94a3b8' : '#e2e8f0',
+        opacity: dimmed ? 0.5 : 1,
+      }}
+    >
+      <span
+        className="h-2 w-2 shrink-0 rounded-full"
+        style={{ backgroundColor: active ? color : `${color}88` }}
+      />
+      <span className="min-w-0 flex-1 leading-snug">{b.key}</span>
+      <span className="shrink-0 tabular-nums opacity-70">{b.count}</span>
+    </button>
+  );
 
   if (data.nodes.length === 0) {
     return (
@@ -639,9 +780,96 @@ export default function RelationGraph({ bookSlug }: Props) {
   return (
     <div
       ref={containerRef}
-      className="graph-explorer graph-explorer--stacked flex flex-col"
+      className="graph-explorer graph-explorer--with-sidebar"
       style={{ height: graphHeight, minHeight: graphHeight }}
     >
+      {/* 左侧 · 分类筛选 */}
+      <aside
+        className="graph-left-dock pointer-events-auto flex shrink-0 flex-col border-r border-white/8 bg-slate-950/95 backdrop-blur-md"
+        aria-label="图谱分类筛选"
+        style={{ borderColor: gt.accentLine }}
+      >
+        {renderFilterTabs()}
+
+        <div className="graph-left-dock__meta shrink-0 space-y-2.5 border-b border-white/8 px-3.5 py-3">
+          <div className="graph-stat-pill graph-stat-pill--dock w-full justify-center">
+            <strong style={{ color: gt.accentSoft }}>{visibleNodes.length}</strong>
+            <span>节点</span>
+            <span className="text-slate-600">/</span>
+            <span>{data.nodes.length}</span>
+            <span className="text-slate-600">·</span>
+            <strong style={{ color: gt.accentSoft }}>{visibleEdges.length}</strong>
+            <span>关系</span>
+          </div>
+          {filterMode !== 'all' && activeBuckets.size > 0 ? (
+            <button
+              type="button"
+              onClick={() => setActiveBuckets(new Set())}
+              className="graph-left-dock__btn w-full rounded-lg border border-white/10 bg-slate-800/80 py-2 text-sm text-slate-200 hover:border-white/20 hover:text-white"
+            >
+              清除筛选
+            </button>
+          ) : filterMode !== 'all' ? (
+            <p className="graph-left-dock__hint text-center">点选下方标签聚焦 · 可多选</p>
+          ) : (
+            <p className="graph-left-dock__hint text-center">{factions.length} 个阵营</p>
+          )}
+        </div>
+
+        <div className="graph-left-dock__scroll min-h-0 flex-1 space-y-2 px-3 py-2.5">
+          {filterMode === 'all' && showStratum && stratumBuckets.length > 0 && (
+            <>
+              <div className="graph-left-dock__section-label px-0.5">快捷圈层</div>
+              {stratumBuckets.map((b, i) =>
+                renderSidebarBucket(b, factionColor(i), false, false, () => {
+                  setFilterMode('stratum');
+                  setActiveBuckets(new Set([b.key]));
+                  setSelectedId(null);
+                }),
+              )}
+            </>
+          )}
+
+          {filterMode === 'stratum' && showStratum &&
+            stratumBuckets.map((b, i) => {
+              const active = activeBuckets.has(b.key);
+              const dimmed = activeBuckets.size > 0 && !active;
+              return renderSidebarBucket(b, factionColor(i), active, dimmed, () => toggleBucket(b.key));
+            })}
+
+          {filterMode === 'faction' && (
+            <>
+              {topFactions.map((b, i) => {
+                const active = activeBuckets.has(b.key);
+                const dimmed = activeBuckets.size > 0 && !active;
+                return renderSidebarBucket(b, factionColor(i), active, dimmed, () => toggleBucket(b.key));
+              })}
+              {restFactions.length > 0 && (
+                <details className="graph-faction-more pt-1">
+                  <summary className="graph-left-dock__hint cursor-pointer select-none rounded px-0.5 py-1.5 hover:text-slate-200">
+                    其余 {restFactions.length} 个阵营
+                  </summary>
+                  <div className="mt-1 space-y-1">
+                    {restFactions.map((b, i) => {
+                      const active = activeBuckets.has(b.key);
+                      const dimmed = activeBuckets.size > 0 && !active;
+                      return renderSidebarBucket(
+                        b,
+                        factionColor(i + topFactions.length),
+                        active,
+                        dimmed,
+                        () => toggleBucket(b.key),
+                      );
+                    })}
+                  </div>
+                </details>
+              )}
+            </>
+          )}
+        </div>
+      </aside>
+
+      <div className="graph-main flex min-h-0 min-w-0 flex-1 flex-col">
       <div className="graph-chart-stage relative min-h-0 min-w-0 flex-1">
       {/* 背景装饰 */}
       <div
@@ -703,22 +931,38 @@ export default function RelationGraph({ bookSlug }: Props) {
         <button
           type="button"
           onClick={toggleFullscreen}
-          className="rounded-lg border border-white/10 bg-slate-900/80 px-3 py-1.5 text-sm text-slate-300 backdrop-blur-sm hover:border-white/20 hover:text-white"
+          className="ml-auto rounded-lg border border-white/10 bg-slate-900/80 px-3 py-1.5 text-sm text-slate-300 backdrop-blur-sm hover:border-white/20 hover:text-white"
         >
           全屏
         </button>
-        {!selectedNode && (
-          <div className="ml-auto graph-stat-pill">
-            <strong style={{ color: gt.accentSoft }}>{visibleNodes.length}</strong>
-            <span>节点</span>
-            <span className="text-slate-600">·</span>
-            <strong style={{ color: gt.accentSoft }}>{visibleEdges.length}</strong>
-            <span>关系</span>
-          </div>
-        )}
       </div>
 
       <div ref={chartRef} className="absolute inset-0 z-[1] h-full w-full" />
+
+      {/* 关系类型图例 · 右侧 */}
+      {showRelationLegend && (
+        <aside
+          className="graph-relation-legend pointer-events-auto absolute right-3 top-14 z-20 flex flex-col rounded-xl border bg-slate-900/92 shadow-lg backdrop-blur-md"
+          style={{ borderColor: gt.accentLine }}
+          aria-label="关系类型图例"
+        >
+          <div className="graph-relation-legend__title shrink-0" style={{ color: gt.accentSoft }}>
+            关系类型
+          </div>
+          <ul className="graph-relation-legend__list min-h-0 flex-1 overflow-y-auto">
+            {relationTypes.map((t) => (
+              <li key={t} className="graph-relation-legend__item">
+                <span
+                  className="graph-relation-legend__swatch shrink-0 rounded-sm"
+                  style={{ backgroundColor: relationColor(t) }}
+                />
+                <span className="min-w-0 leading-snug">{t}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="graph-relation-legend__foot shrink-0">虚线 = 推论 / 矛盾</p>
+        </aside>
+      )}
 
       {/* 选中详情（置于 canvas 之后，确保可点击） */}
       {selectedNode && (
@@ -737,7 +981,9 @@ export default function RelationGraph({ bookSlug }: Props) {
                     ? bookSlug === 'jinpingmei'
                       ? '词话 · 崇祯 · 竹坡 异文'
                       : '脂评 · 程高 版本争议'
-                    : `${selectedNode.faction} · ${selectedNode.type === 'monster' ? '妖怪' : '人物'}`}
+                    : showStratum
+                      ? `${resolveGraphStratum(bookSlug, selectedNode.id, selectedNode.faction)} · ${selectedNode.faction} · ${selectedNode.type === 'monster' ? '妖怪' : '人物'}`
+                      : `${selectedNode.faction} · ${selectedNode.type === 'monster' ? '妖怪' : '人物'}`}
                 </div>
                 {selectedNode.type === 'topic' && selectedNode.summary && (
                   <p className="mt-2 text-xs leading-relaxed text-slate-400">{selectedNode.summary}</p>
@@ -896,53 +1142,6 @@ export default function RelationGraph({ bookSlug }: Props) {
         按阵营分簇 · 点击节点点亮关系 · 仅核心人物显示名
       </p>
       </div>
-
-      {/* 底栏：占文档流，不叠在画布上 */}
-      <div className="graph-bottom-dock shrink-0 px-3 py-2" aria-label="图谱筛选与图例">
-        <div className="flex flex-col gap-2">
-          <div className="flex flex-wrap gap-1.5">
-            {factions.map((f, i) => {
-              const off = hiddenFactions.has(f);
-              const color = factionColor(i);
-              return (
-                <button
-                  key={f}
-                  type="button"
-                  onClick={() => toggleFaction(f)}
-                  className="rounded-full border px-2.5 py-1 text-xs backdrop-blur-sm transition"
-                  style={{
-                    borderColor: off ? 'rgba(255,255,255,0.1)' : `${color}88`,
-                    backgroundColor: off ? 'rgba(15,23,42,0.5)' : `${color}22`,
-                    color: off ? '#64748b' : color,
-                    opacity: off ? 0.55 : 1,
-                  }}
-                >
-                  {f}
-                </button>
-              );
-            })}
-          </div>
-
-          {showRelationLegend && (
-            <div className="graph-legend max-h-20 overflow-y-auto rounded-lg border border-white/10 bg-slate-900/85 p-2 backdrop-blur-md">
-              <div className="mb-1 text-xs uppercase tracking-wide text-slate-500">关系类型</div>
-              <div className="flex flex-wrap gap-x-3 gap-y-1">
-                {relationTypes.map((t) => (
-                  <span key={t} className="flex items-center gap-1 text-xs text-slate-300">
-                    <span
-                      className="inline-block h-0.5 w-4 rounded"
-                      style={{ backgroundColor: relationColor(t) }}
-                    />
-                    {t}
-                  </span>
-                ))}
-              </div>
-              <div className="mt-2 border-t border-white/5 pt-2 text-xs text-slate-500">
-                虚线 = 推论 / 矛盾
-              </div>
-            </div>
-          )}
-        </div>
       </div>
     </div>
   );
