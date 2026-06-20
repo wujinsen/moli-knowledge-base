@@ -127,6 +127,9 @@ export const COMPARE_PAIRS_BY_BOOK: Record<string, Record<string, { left: string
   xiyouji: {
     'shide-tongben': { left: '世德堂本', right: '通本', label: '世德堂 ↔ 通本' },
   },
+  honglou: {
+    'zhiben-chenggao': { left: '脂砚斋本', right: '程高本', label: '脂本 ↔ 程高' },
+  },
 };
 
 /** 金瓶梅对勘组合（兼容旧引用） */

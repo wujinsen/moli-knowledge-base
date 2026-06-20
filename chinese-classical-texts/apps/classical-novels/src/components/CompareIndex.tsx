@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
-  compareChapterPath,
   type CompareIndexData,
   type CompareVariantRow,
+  compareRowHref,
+  compareVariantLink,
+  dualChapterMaxFor,
 } from '../lib/compareIndex';
 import { comparePairsFor } from '../lib/editions';
 
@@ -56,6 +58,7 @@ export default function CompareIndex({ index, bookSlug, chapterCount, initialPai
 
   const pairMeta = index.pairs[pairSlug] ?? index.pairs[initialPair];
   const variantChapters = new Set(pairMeta?.chapters_with_variants ?? []);
+  const dualMax = dualChapterMaxFor(bookSlug, index.book);
 
   const rows = useMemo(() => {
     const list: { chapter: number; variants: CompareVariantRow[] }[] = [];
@@ -115,16 +118,20 @@ export default function CompareIndex({ index, bookSlug, chapterCount, initialPai
             </tr>
           </thead>
           <tbody>
-            {rows.map(({ chapter, variants }) => (
+            {rows.map(({ chapter, variants }) => {
+              const canDual = dualMax == null || chapter <= dualMax;
+              return (
               <tr key={chapter} id={`ch-${chapter}`} style={{ borderBottom: '1px solid var(--line)' }}>
                 <td className="px-4 py-2 tabular-nums">{chapter}</td>
                 <td className="px-4 py-2">
                   <a
-                    href={compareChapterPath(bookSlug, pairSlug, chapter)}
+                    href={compareRowHref(bookSlug, pairSlug, chapter, dualMax)}
                     className="hover:underline"
                     style={{ color: 'var(--accent)' }}
                   >
-                    第 {chapter} 回 · {pairMeta?.label}
+                    {canDual
+                      ? `第 ${chapter} 回 · ${pairMeta?.label}`
+                      : `第 ${chapter} 回 · 程高续书（单栏）`}
                   </a>
                 </td>
                 <td className="px-4 py-2">
@@ -133,7 +140,7 @@ export default function CompareIndex({ index, bookSlug, chapterCount, initialPai
                       {variants.map((v) => (
                         <a
                           key={v.id}
-                          href={`${compareChapterPath(bookSlug, pairSlug, chapter)}?variant=${encodeURIComponent(v.id)}`}
+                          href={compareVariantLink(bookSlug, pairSlug, chapter, v, dualMax)}
                           className="chip text-xs hover:underline"
                           title={v.summary}
                         >
@@ -146,7 +153,7 @@ export default function CompareIndex({ index, bookSlug, chapterCount, initialPai
                   )}
                 </td>
               </tr>
-            ))}
+            );})}
           </tbody>
         </table>
       </div>

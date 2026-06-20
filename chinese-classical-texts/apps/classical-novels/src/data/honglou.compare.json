@@ -1,0 +1,706 @@
+{
+  "book": "红楼梦",
+  "slug": "honglou",
+  "generated_by": "build_compare.py",
+  "variant_total": 30,
+  "chapter_count_with_variants": 24,
+  "pairs": {
+    "zhiben-chenggao": {
+      "left": "脂砚斋本",
+      "right": "程高本",
+      "label": "脂本 ↔ 程高",
+      "variant_count": 30,
+      "chapters_with_variants": [
+        1,
+        3,
+        13,
+        18,
+        21,
+        31,
+        33,
+        42,
+        56,
+        57,
+        60,
+        61,
+        62,
+        64,
+        78,
+        95,
+        97,
+        103,
+        105,
+        112,
+        114,
+        118,
+        119,
+        120
+      ]
+    }
+  },
+  "by_chapter": {
+    "1": [
+      {
+        "id": "hlm-v-001",
+        "category": "批语",
+        "summary": "脂本含戚蓼生序、甲戌凡例与侧批/眉批；程高本删净批语，开篇直入作者自云。",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": "甲戌侧批",
+        "text_b": null,
+        "topic_id": null,
+        "tags": [
+          "脂批"
+        ],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "3": [
+      {
+        "id": "hlm-v-002",
+        "category": "回目",
+        "summary": "第3回回目异字（脂↔程）。",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": "金陵城起复贾雨村　荣国府收养林黛玉",
+        "text_b": "贾雨村夤缘复旧职　林黛玉抛父进京都",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "13": [
+      {
+        "id": "hlm-v-022",
+        "category": "情节",
+        "summary": "病亡（通行本）vs 淫丧天香楼（脂批原稿）",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": "情节-秦可卿之死",
+        "tags": [
+          "版本议题"
+        ],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "18": [
+      {
+        "id": "hlm-v-003",
+        "category": "回目",
+        "summary": "第18回回目异字（脂↔程）。",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": "皇恩重元妃省父母　天伦乐宝玉呈才藻",
+        "text_b": "隔珠帘父女勉忠勤　搦湘管姊弟裁题咏",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "21": [
+      {
+        "id": "hlm-v-004",
+        "category": "回目",
+        "summary": "第21回回目异字（脂↔程）。",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": "贤袭人【庚辰侧批：当得起。】娇嗔箴宝玉　俏平儿软语救贾琏",
+        "text_b": "贤袭人娇嗔箴宝玉　俏平儿软语救贾琏",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "31": [
+      {
+        "id": "hlm-v-005",
+        "category": "回目",
+        "summary": "第31回回目异字（脂↔程）。",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": "撕扇子作千金一笑　因麒麟伏白首双星",
+        "text_b": "撕扇子作千金一笑　因麒麟伏白首双星　话说袭人见了自己吐",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      },
+      {
+        "id": "hlm-v-018",
+        "category": "情节",
+        "summary": "后四十回早寡 vs 白首双星、卫若兰诸说",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": "情节-湘云结局",
+        "tags": [
+          "版本议题"
+        ],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "33": [
+      {
+        "id": "hlm-v-006",
+        "category": "回目",
+        "summary": "第33回回目异字（脂↔程）。",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": "手足耽耽小动唇舌　不肖种种大遭笞挞",
+        "text_b": "手足耽耽小动唇舌　不肖种种大承笞挞　却说王夫人唤他母亲",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "42": [
+      {
+        "id": "hlm-v-007",
+        "category": "回目",
+        "summary": "第42回回目异字（脂↔程）。",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": "蘅芜君兰言解疑癖　潇湘子雅谬补余香",
+        "text_b": "蘅芜君兰言解疑癖　潇湘子雅谑补余香",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "56": [
+      {
+        "id": "hlm-v-008",
+        "category": "回目",
+        "summary": "第56回回目异字（脂↔程）。",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": "敏探春兴利除宿弊　识宝钗小惠全大体",
+        "text_b": "敏探春兴利除宿弊　时宝钗小惠全大体",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "57": [
+      {
+        "id": "hlm-v-029",
+        "category": "情节",
+        "summary": "程高续书甄宝玉主线 vs 脂本仅第57回伏笔",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": "情节-甄宝玉后四十回",
+        "tags": [
+          "版本议题"
+        ],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "60": [
+      {
+        "id": "hlm-v-009",
+        "category": "回目",
+        "summary": "第60回回目异字（脂↔程）。",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": "茉莉粉替去蔷薇硝　玖瑰露引来茯苓霜",
+        "text_b": "茉莉粉替去蔷薇硝　玫瑰露引来茯苓霜",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "61": [
+      {
+        "id": "hlm-v-010",
+        "category": "回目",
+        "summary": "第61回回目异字（脂↔程）。",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": "投鼠忌器宝玉瞒脏　判冤决狱平儿行权",
+        "text_b": "投鼠忌器宝玉瞒赃　判冤决狱平儿行权",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "62": [
+      {
+        "id": "hlm-v-011",
+        "category": "回目",
+        "summary": "第62回回目异字（脂↔程）。",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": "憨湘云醉眠芍药裀　呆香菱情解石榴裙",
+        "text_b": "憨湘云醉眠芍药茵　呆香菱情解石榴裙",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "64": [
+      {
+        "id": "hlm-v-012",
+        "category": "回目",
+        "summary": "第64回回目异字（脂↔程）。",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": "幽淑女悲题五美吟　浪荡子情遗九龙珮",
+        "text_b": "幽淑女悲题五美吟　浪荡子情遗九龙佩",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "78": [
+      {
+        "id": "hlm-v-013",
+        "category": "回目",
+        "summary": "第78回回目异字（脂↔程）。",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": "老学士闲征姽婳词　痴公子杜撰芙蓉诔",
+        "text_b": "老学士闲征诡画词　痴公子杜撰芙蓉诔",
+        "topic_id": null,
+        "tags": [],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "95": [
+      {
+        "id": "hlm-v-023",
+        "category": "情节",
+        "summary": "痰气壅塞病逝（程高）vs 虎兕相逢、宫廷政争（判词）",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": "情节-元春之死",
+        "tags": [
+          "续书",
+          "探佚"
+        ],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "97": [
+      {
+        "id": "hlm-v-014",
+        "category": "情节",
+        "summary": "焚稿泪尽（程高）vs 还泪沉湖诸说（脂评·探佚）",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": "情节-黛玉结局",
+        "tags": [
+          "续书",
+          "探佚"
+        ],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      },
+      {
+        "id": "hlm-v-015",
+        "category": "情节",
+        "summary": "调包计金玉成姻（程高）vs 木石前盟原构争议",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": "情节-宝黛钗姻缘",
+        "tags": [
+          "续书",
+          "探佚"
+        ],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "103": [
+      {
+        "id": "hlm-v-019",
+        "category": "情节",
+        "summary": "难产而亡（程高）vs 为夏金桂折磨致死（判词）",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": "情节-香菱之死",
+        "tags": [
+          "续书",
+          "探佚"
+        ],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "105": [
+      {
+        "id": "hlm-v-030",
+        "category": "情节",
+        "summary": "查抄后沐皇恩复初（程高）vs 彻底败落、白茫茫大地真干净（脂批）",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": "情节-贾府结局",
+        "tags": [
+          "续书",
+          "探佚"
+        ],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "112": [
+      {
+        "id": "hlm-v-020",
+        "category": "情节",
+        "summary": "遭劫不知所终（程高）vs 终陷淖泥、流落风尘（曲词）",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": "情节-妙玉结局",
+        "tags": [
+          "续书",
+          "探佚"
+        ],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "114": [
+      {
+        "id": "hlm-v-024",
+        "category": "情节",
+        "summary": "病亡托孤（程高）vs 狱神庙、休弃惨死（脂批探佚）",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": "情节-凤姐结局",
+        "tags": [
+          "续书",
+          "探佚"
+        ],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "118": [
+      {
+        "id": "hlm-v-021",
+        "category": "情节",
+        "summary": "刘姥姥救出议嫁板儿（程高）vs 卖入烟花细节争议",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": "情节-巧姐结局",
+        "tags": [
+          "续书",
+          "探佚"
+        ],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      },
+      {
+        "id": "hlm-v-027",
+        "category": "情节",
+        "summary": "安顿出家（程高）vs 缁衣乞食、归宿更凄（脂评）",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": "情节-惜春结局",
+        "tags": [
+          "续书",
+          "探佚"
+        ],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "119": [
+      {
+        "id": "hlm-v-025",
+        "category": "情节",
+        "summary": "远嫁归省（程高）vs 一去难返（判词·曲）",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": "情节-探春结局",
+        "tags": [
+          "续书",
+          "探佚"
+        ],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      },
+      {
+        "id": "hlm-v-026",
+        "category": "情节",
+        "summary": "母凭子贵荣显（程高）vs 晚韶华含讽、荣华转瞬（脂评）",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": "情节-李纨结局",
+        "tags": [
+          "续书",
+          "探佚"
+        ],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ],
+    "120": [
+      {
+        "id": "hlm-v-016",
+        "category": "情节",
+        "summary": "中举后出家、兰桂齐芳（程高）vs 悬崖撒手、败落沦贫（脂批）",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": "情节-宝玉出家",
+        "tags": [
+          "续书",
+          "探佚"
+        ],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      },
+      {
+        "id": "hlm-v-017",
+        "category": "情节",
+        "summary": "程高本出家路径与脂本「悬崖撒手」凄寒意趣的分歧",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": "情节-宝玉结局",
+        "tags": [
+          "续书",
+          "探佚"
+        ],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      },
+      {
+        "id": "hlm-v-028",
+        "category": "情节",
+        "summary": "革职递籍、了悟尘缘（程高）vs 锁枷扛、身陷囹圄（脂批）",
+        "edition_a": "脂砚斋本",
+        "edition_b": "程高本",
+        "text_a": null,
+        "text_b": null,
+        "topic_id": "情节-雨村结局",
+        "tags": [
+          "续书",
+          "探佚"
+        ],
+        "pairs": [
+          "zhiben-chenggao"
+        ]
+      }
+    ]
+  },
+  "topics": [
+    {
+      "id": "情节-黛玉结局",
+      "chapter": 97,
+      "summary": "焚稿泪尽（程高）vs 还泪沉湖诸说（脂评·探佚）",
+      "characters": [
+        "林黛玉"
+      ]
+    },
+    {
+      "id": "情节-宝黛钗姻缘",
+      "chapter": 97,
+      "summary": "调包计金玉成姻（程高）vs 木石前盟原构争议",
+      "characters": [
+        "林黛玉",
+        "贾宝玉",
+        "薛宝钗"
+      ]
+    },
+    {
+      "id": "情节-宝玉出家",
+      "chapter": 120,
+      "summary": "中举后出家、兰桂齐芳（程高）vs 悬崖撒手、败落沦贫（脂批）",
+      "characters": [
+        "贾宝玉"
+      ]
+    },
+    {
+      "id": "情节-宝玉结局",
+      "chapter": 120,
+      "summary": "程高本出家路径与脂本「悬崖撒手」凄寒意趣的分歧",
+      "characters": [
+        "贾宝玉"
+      ]
+    },
+    {
+      "id": "情节-湘云结局",
+      "chapter": 31,
+      "summary": "后四十回早寡 vs 白首双星、卫若兰诸说",
+      "characters": [
+        "史湘云",
+        "卫若兰"
+      ]
+    },
+    {
+      "id": "情节-香菱之死",
+      "chapter": 103,
+      "summary": "难产而亡（程高）vs 为夏金桂折磨致死（判词）",
+      "characters": [
+        "香菱",
+        "夏金桂"
+      ]
+    },
+    {
+      "id": "情节-妙玉结局",
+      "chapter": 112,
+      "summary": "遭劫不知所终（程高）vs 终陷淖泥、流落风尘（曲词）",
+      "characters": [
+        "妙玉"
+      ]
+    },
+    {
+      "id": "情节-巧姐结局",
+      "chapter": 118,
+      "summary": "刘姥姥救出议嫁板儿（程高）vs 卖入烟花细节争议",
+      "characters": [
+        "巧姐"
+      ]
+    },
+    {
+      "id": "情节-秦可卿之死",
+      "chapter": 13,
+      "summary": "病亡（通行本）vs 淫丧天香楼（脂批原稿）",
+      "characters": [
+        "秦可卿"
+      ]
+    },
+    {
+      "id": "情节-元春之死",
+      "chapter": 95,
+      "summary": "痰气壅塞病逝（程高）vs 虎兕相逢、宫廷政争（判词）",
+      "characters": [
+        "贾元春"
+      ]
+    },
+    {
+      "id": "情节-凤姐结局",
+      "chapter": 114,
+      "summary": "病亡托孤（程高）vs 狱神庙、休弃惨死（脂批探佚）",
+      "characters": [
+        "王熙凤"
+      ]
+    },
+    {
+      "id": "情节-探春结局",
+      "chapter": 119,
+      "summary": "远嫁归省（程高）vs 一去难返（判词·曲）",
+      "characters": [
+        "贾探春"
+      ]
+    },
+    {
+      "id": "情节-李纨结局",
+      "chapter": 119,
+      "summary": "母凭子贵荣显（程高）vs 晚韶华含讽、荣华转瞬（脂评）",
+      "characters": [
+        "李纨"
+      ]
+    },
+    {
+      "id": "情节-惜春结局",
+      "chapter": 118,
+      "summary": "安顿出家（程高）vs 缁衣乞食、归宿更凄（脂评）",
+      "characters": [
+        "贾惜春"
+      ]
+    },
+    {
+      "id": "情节-雨村结局",
+      "chapter": 120,
+      "summary": "革职递籍、了悟尘缘（程高）vs 锁枷扛、身陷囹圄（脂批）",
+      "characters": [
+        "贾雨村"
+      ]
+    },
+    {
+      "id": "情节-甄宝玉后四十回",
+      "chapter": 57,
+      "summary": "程高续书甄宝玉主线 vs 脂本仅第57回伏笔",
+      "characters": [
+        "甄宝玉",
+        "贾宝玉"
+      ]
+    },
+    {
+      "id": "情节-贾府结局",
+      "chapter": 105,
+      "summary": "查抄后沐皇恩复初（程高）vs 彻底败落、白茫茫大地真干净（脂批）",
+      "characters": [
+        "贾政",
+        "贾赦",
+        "贾珍"
+      ]
+    }
+  ]
+}

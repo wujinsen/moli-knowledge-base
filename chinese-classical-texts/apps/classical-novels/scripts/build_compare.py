@@ -23,6 +23,9 @@ COMPARE_PAIRS: dict[str, dict[str, dict[str, str]]] = {
     "xiyouji": {
         "shide-tongben": {"left": "世德堂本", "right": "通本", "label": "世德堂 ↔ 通本"},
     },
+    "honglou": {
+        "zhiben-chenggao": {"left": "脂砚斋本", "right": "程高本", "label": "脂本 ↔ 程高"},
+    },
 }
 
 

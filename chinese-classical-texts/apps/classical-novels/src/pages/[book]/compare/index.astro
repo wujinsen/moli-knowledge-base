@@ -27,7 +27,9 @@ const pair = comparePairsFor(meta.slug)[pairSlug];
 const compareIntro =
   meta.slug === 'xiyouji'
     ? '世德堂 · 通本双版本双栏并排'
-    : '词话 · 崇祯 · 竹坡三版本双栏并排';
+    : meta.slug === 'honglou'
+      ? '脂砚斋本 · 程高本双栏并排（前 80 回；81–120 续书议题 + 单栏程高）'
+      : '词话 · 崇祯 · 竹坡三版本双栏并排';
 const compareIndex = getCompareIndex(meta.slug);
 
 const jumpMarks = [1, 10, 20, 30, 50, 80, 100].filter((n) => n <= meta.chapter_count);
@@ -53,7 +55,17 @@ const jumpMarks = [1, 10, 20, 30, 50, 80, 100].filter((n) => n <= meta.chapter_c
       </div>
     </div>
     <p class="mt-5 max-w-2xl text-sm leading-relaxed" style="color: var(--ink)">
-      默认对勘 <strong>{pair.label}</strong>；J3 支持三对组合切换、<strong>仅异文回</strong>筛选、双栏同步滚动与正文高亮。
+      {
+        meta.slug === 'honglou' ? (
+          <>
+            默认对勘 <strong>{pair.label}</strong>；前 80 回双栏同步滚动（左栏含脂批），81 回起为程高续书单栏 + 版本议题锚点。
+          </>
+        ) : (
+          <>
+            默认对勘 <strong>{pair.label}</strong>；J3 支持三对组合切换、<strong>仅异文回</strong>筛选、双栏同步滚动与正文高亮。
+          </>
+        )
+      }
     </p>
     <nav class="mt-4 flex flex-wrap gap-2 text-sm">
       {
@@ -75,6 +87,21 @@ const jumpMarks = [1, 10, 20, 30, 50, 80, 100].filter((n) => n <= meta.chapter_c
           <a href={`/${meta.slug}/kaozheng`} class="chip" style="color: var(--accent)">
             考证台 · 版本学
           </a>
+        )
+      }
+      {
+        meta.slug === 'honglou' && (
+          <>
+            <a href={`/${meta.slug}/kaozheng`} class="chip" style="color: var(--accent)">
+              考证台 · 版本学
+            </a>
+            <a href={`/${meta.slug}/topics/版本异文与探佚`} class="chip" style="color: var(--primary)">
+              版本异文与探佚 →
+            </a>
+            <a href={`/${meta.slug}/graph`} class="chip" style="color: var(--accent)">
+              关系图谱 · 矛盾边
+            </a>
+          </>
         )
       }
     </nav>

@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_PAIRS = {
     "jinpingmei": ["cihua-chongzhen", "cihua-zhupo", "chongzhen-zhupo"],
     "xiyouji": ["shide-tongben"],
+    "honglou": ["zhiben-chenggao"],
 }
 
 
@@ -40,6 +41,20 @@ def check_slug(slug: str) -> list[str]:
         if len(topics) < 5:
             errors.append(f"jinpingmei variant topics 过少: {len(topics)}")
 
+    if slug == "honglou":
+        if data.get("variant_total", 0) < 15:
+            errors.append(f"honglou variants 过少: {data.get('variant_total')}")
+        cc = data.get("chapter_count_with_variants", 0)
+        if cc < 10:
+            errors.append(f"honglou 异文回过少: {cc}")
+        topics = data.get("topics") or []
+        if len(topics) < 10:
+            errors.append(f"honglou variant topics 过少: {len(topics)}")
+        pair = (data.get("pairs") or {}).get("zhiben-chenggao") or {}
+        dual_chs = pair.get("chapters_with_variants") or []
+        if not any(c <= 80 for c in dual_chs):
+            errors.append("honglou: 前80回应有对勘锚点")
+
     return errors
 
 
@@ -55,9 +70,10 @@ def main() -> int:
         return 1
 
     jpm = json.loads((DATA_DIR / "jinpingmei.compare.json").read_text(encoding="utf-8"))
+    hlm = json.loads((DATA_DIR / "honglou.compare.json").read_text(encoding="utf-8"))
     print(
-        f"guard_compare_j3 OK: jpm {jpm['variant_total']} variants · "
-        f"{len(jpm['pairs'])} pairs · {len(jpm['topics'])} graph topics"
+        f"guard_compare_j3 OK: jpm {jpm['variant_total']} · hlm {hlm['variant_total']} variants · "
+        f"{len(jpm['pairs'])}+{len(hlm['pairs'])} pairs"
     )
     return 0
 

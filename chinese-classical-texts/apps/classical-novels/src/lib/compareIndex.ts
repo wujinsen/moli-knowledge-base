@@ -1,8 +1,9 @@
 /** C5 版本对勘 J3：异文索引（build_compare.py 生成） */
 
 import jpmCompare from '../data/jinpingmei.compare.json';
+import hlmCompare from '../data/honglou.compare.json';
 import xyjCompare from '../data/xiyouji.compare.json';
-import { compareChapterPath } from './editions';
+import { compareChapterPath, ZHIBEN_MAX } from './editions';
 
 export interface CompareVariantRow {
   id: string;
@@ -44,9 +45,43 @@ export interface CompareIndexData {
 }
 
 const INDEX: Record<string, CompareIndexData> = {
+  honglou: hlmCompare as CompareIndexData,
   jinpingmei: jpmCompare as CompareIndexData,
   xiyouji: xyjCompare as CompareIndexData,
 };
+
+/** 双栏对勘可用回目上限（脂本仅前 80 回） */
+export function dualChapterMaxFor(bookSlug: string, bookName?: string): number | undefined {
+  if (bookSlug === 'honglou' || bookName === '红楼梦') return ZHIBEN_MAX;
+  return undefined;
+}
+
+export function compareRowHref(
+  bookSlug: string,
+  pairSlug: string,
+  chapter: number,
+  dualMax?: number,
+): string {
+  if (dualMax != null && chapter > dualMax) {
+    return `/${bookSlug}/read/chenggao/${chapter}`;
+  }
+  return compareChapterPath(bookSlug, pairSlug, chapter);
+}
+
+export function compareVariantLink(
+  bookSlug: string,
+  pairSlug: string,
+  chapter: number,
+  v: CompareVariantRow,
+  dualMax?: number,
+): string {
+  if (dualMax != null && chapter > dualMax) {
+    if (v.topic_id) return `/${bookSlug}/topics/${encodeURIComponent(v.topic_id)}`;
+    return `/${bookSlug}/read/chenggao/${chapter}`;
+  }
+  const base = compareChapterPath(bookSlug, pairSlug, chapter);
+  return `${base}?variant=${encodeURIComponent(v.id)}`;
+}
 
 export function getCompareIndex(bookSlug: string): CompareIndexData | null {
   return INDEX[bookSlug] ?? null;

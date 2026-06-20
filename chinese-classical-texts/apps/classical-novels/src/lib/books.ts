@@ -153,6 +153,25 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
             relatedDoc: '红楼梦-知识图谱架构.md（文本意象与互文网络维度）',
           },
         },
+        {
+          key: 'edition', glyph: '勘', title: '版本对勘', desc: '脂砚斋本 vs 程高本双栏（前 80 回 + 续书议题）', ...live(has('compare'), slug, 'edition', `/${slug}/compare`),
+          preview: {
+            intro:
+              '《红楼梦》以脂砚斋抄本（前 80 回，含批语）与程伟元、高鹗刊行的 120 回通行本并存。本模块在前 80 回提供双栏并排对勘，并标注回目异字、措辞差异与后四十回版本议题（探佚 vs 程高续书）。',
+            dimensions: [
+              { title: '双栏正文', desc: '脂本（含脂批层）↔ 程高净文，前 80 回同步滚动' },
+              { title: '回目异文', desc: '同一回回目在脂程间的用字差异' },
+              { title: '续书议题', desc: '黛玉结局、调包计、宝玉出家等 17 个矛盾承接页' },
+              { title: '考证互链', desc: '对勘 ↔ 考证台版本学 ↔ 关系图谱矛盾边' },
+            ],
+            phases: [
+              'J1 variants 实体 + 脂↔程 pair 配置',
+              'J2 前 80 回双栏 + 异文锚点高亮',
+              'J3 续书回目议题链 topic_id + 仅程高单栏阅读',
+            ],
+            relatedDoc: '红学分支与产品映射.md（成书与版本）',
+          },
+        },
         kaozhengModule(slug, has),
       ]);
     case 'xiyouji':
