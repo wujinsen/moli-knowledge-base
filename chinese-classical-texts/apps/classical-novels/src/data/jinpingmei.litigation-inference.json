@@ -1,0 +1,1379 @@
+{
+  "book": "金瓶梅",
+  "slug": "jinpingmei",
+  "generated": "2026-06-20",
+  "generated_by": "build_litigation_inference.py",
+  "inference_note": "推演层：三级司法通关；bribery 含 transactions 自动抽取 + 手标 inference。",
+  "tiers": [
+    {
+      "id": "county",
+      "label": "基层",
+      "desc": "县衙·仵作·贿败"
+    },
+    {
+      "id": "cross_region",
+      "label": "跨区",
+      "desc": "东京开封府·房族争产"
+    },
+    {
+      "id": "capital",
+      "label": "国家级",
+      "desc": "巡按·蔡府·提刑千户"
+    }
+  ],
+  "phases": [
+    {
+      "label": "武大命案前史",
+      "from": 1,
+      "to": 10
+    },
+    {
+      "label": "西门得官·花案",
+      "from": 11,
+      "to": 39
+    },
+    {
+      "label": "苗案·提刑巅峰",
+      "from": 40,
+      "to": 51
+    },
+    {
+      "label": "庇护真空·后二十回",
+      "from": 52,
+      "to": 100
+    }
+  ],
+  "cases": [
+    {
+      "id": "jpm-lit-wusong",
+      "tier": "county",
+      "title": "武松告武大郎案",
+      "chapters": [
+        5,
+        6,
+        8,
+        9,
+        10,
+        87
+      ],
+      "anchor_chapter": 10,
+      "parties": {
+        "plaintiff": [
+          "武松"
+        ],
+        "defendant": [
+          "潘金莲",
+          "西门庆",
+          "王婆"
+        ],
+        "officials": [
+          "何九",
+          "钱劳",
+          "陈文昭",
+          "李拱极"
+        ]
+      },
+      "locations": [
+        "县衙",
+        "狮子街",
+        "东平府"
+      ],
+      "outcome": "县衙刑讯诬告；府尹改判刺配；87回私刑祭兄",
+      "inference": "体制内维权流产→血溅式私刑（推演）",
+      "evidence": [
+        "武松",
+        "何九",
+        "陈文昭",
+        "第10回"
+      ],
+      "links": {
+        "saga": "jpm-rt-003",
+        "chain_focus": "jpm-rt-003",
+        "topic": "世情四横切面与社会推演"
+      },
+      "bribery": [
+        {
+          "chapter": 6,
+          "amount_liang": 10,
+          "party": "何九",
+          "note": "瞒验尸",
+          "source": "manual"
+        },
+        {
+          "chapter": 10,
+          "amount_liang": 50,
+          "party": "知县",
+          "note": "金银酒器+吏典",
+          "source": "manual"
+        }
+      ],
+      "transaction_refs": []
+    },
+    {
+      "id": "jpm-lit-huazixu",
+      "tier": "cross_region",
+      "title": "花子虚房族争产",
+      "chapters": [
+        13,
+        14,
+        19
+      ],
+      "anchor_chapter": 14,
+      "parties": {
+        "plaintiff": [
+          "花子由",
+          "花子光",
+          "花子华"
+        ],
+        "defendant": [
+          "花子虚"
+        ],
+        "beneficiary": [
+          "西门庆",
+          "李瓶儿"
+        ]
+      },
+      "locations": [
+        "花家",
+        "东京",
+        "西门府"
+      ],
+      "outcome": "子虚气死；财产经西门府洗入；李瓶儿改嫁",
+      "inference": "诉讼=资产合法洗劫（推演）",
+      "evidence": [
+        "花子虚",
+        "李瓶儿",
+        "蔡京",
+        "第14回"
+      ],
+      "links": {
+        "saga": "jpm-ms-002",
+        "chain_focus": "jpm-ms-002",
+        "chain_financial": "jpm-fe-005",
+        "silver_tx": [
+          "jpm-tx-021"
+        ],
+        "topic": "世情四横切面与社会推演"
+      },
+      "bribery": [
+        {
+          "chapter": 14,
+          "amount_liang": 3000,
+          "party": "蔡京/杨提督",
+          "note": "李瓶儿出银走分上（词话本 inference）",
+          "source": "manual"
+        },
+        {
+          "chapter": 17,
+          "amount_liang": 380,
+          "party": "李瓶儿",
+          "note": "李瓶儿箱藏香蜡水银等变卖三百八十两，盖房过门用。",
+          "tx_ref": "jpm-tx-021",
+          "source": "transaction",
+          "subtype": "买卖"
+        },
+        {
+          "chapter": 18,
+          "amount_liang": 1,
+          "party": "蔡府管事",
+          "note": "来保往蔡府送礼，一两银子打点管事。",
+          "tx_ref": "jpm-tx-011",
+          "source": "transaction",
+          "subtype": "贿赂"
+        }
+      ],
+      "transaction_refs": [
+        "jpm-tx-011",
+        "jpm-tx-021"
+      ]
+    },
+    {
+      "id": "jpm-lit-tixing",
+      "tier": "capital",
+      "title": "提刑千户授官",
+      "chapters": [
+        30,
+        39
+      ],
+      "anchor_chapter": 39,
+      "parties": {
+        "beneficiary": [
+          "西门庆"
+        ],
+        "patron": [
+          "蔡京",
+          "翟管家"
+        ]
+      },
+      "locations": [
+        "提刑千户所",
+        "东京",
+        "蔡府"
+      ],
+      "outcome": "理刑副千户→提刑千户；司法从买通到执掌",
+      "inference": "资本终极增殖=政治庇护（推演）",
+      "evidence": [
+        "提刑千户所",
+        "jpm-pe-001",
+        "第39回"
+      ],
+      "links": {
+        "saga": "jpm-pe-001",
+        "chain_focus": "jpm-pe-001",
+        "chain_financial": "jpm-fe-007",
+        "silver_tx": [
+          "jpm-tx-003",
+          "jpm-tx-018"
+        ],
+        "topic": "世情四横切面与社会推演"
+      },
+      "bribery": [
+        {
+          "chapter": 23,
+          "amount_liang": 100,
+          "party": "翟管家",
+          "note": "西门庆认翟管家为干爹，初次进百两礼银。",
+          "tx_ref": "jpm-tx-018",
+          "source": "transaction",
+          "subtype": "贿赂"
+        },
+        {
+          "chapter": 27,
+          "amount_liang": 300,
+          "party": "蔡京",
+          "note": "蔡太师寿辰，西门庆差人送三百两寿礼银人。",
+          "tx_ref": "jpm-tx-003",
+          "source": "transaction",
+          "subtype": "贿赂"
+        },
+        {
+          "chapter": 75,
+          "amount_liang": 500,
+          "party": "蔡京",
+          "note": "蔡京寿辰，西门庆再送五百两寿礼银。",
+          "tx_ref": "jpm-tx-022",
+          "source": "transaction",
+          "subtype": "贿赂"
+        }
+      ],
+      "transaction_refs": [
+        "jpm-tx-003",
+        "jpm-tx-018",
+        "jpm-tx-022"
+      ]
+    },
+    {
+      "id": "jpm-lit-miaotianxiu",
+      "tier": "capital",
+      "title": "苗员外命案",
+      "chapters": [
+        47,
+        48,
+        49,
+        51
+      ],
+      "anchor_chapter": 48,
+      "parties": {
+        "victim": [
+          "苗天秀"
+        ],
+        "accused": [
+          "苗青",
+          "陈三",
+          "翁八"
+        ],
+        "officials": [
+          "夏提刑",
+          "西门庆",
+          "曾孝序",
+          "蔡御史"
+        ]
+      },
+      "locations": [
+        "提刑千户所",
+        "城西河边",
+        "东昌府",
+        "徐州洪"
+      ],
+      "outcome": "只斩船家；除苗青名；曾孝序参劾被蔡御史压下",
+      "inference": "国家级枉法+巡按压案=律法商品化巅峰（推演）",
+      "evidence": [
+        "苗天秀",
+        "苗青",
+        "安童",
+        "第48回"
+      ],
+      "links": {
+        "chain_focus": "jpm-fe-013",
+        "silver_tx": [
+          "jpm-tx-023"
+        ],
+        "topic": "扬州经商线",
+        "silver": true
+      },
+      "bribery": [
+        {
+          "chapter": 48,
+          "amount_liang": 500,
+          "party": "夏提刑",
+          "note": "词话本枉法（无单独 transaction）",
+          "source": "manual"
+        },
+        {
+          "chapter": 48,
+          "amount_liang": 500,
+          "party": "西门庆",
+          "note": "词话本枉法（无单独 transaction）",
+          "source": "manual"
+        },
+        {
+          "chapter": 48,
+          "amount_liang": 200,
+          "party": "西门庆",
+          "note": "提刑所官买办，西门庆垫二百两银子。",
+          "tx_ref": "jpm-tx-023",
+          "source": "transaction",
+          "subtype": "经营投资"
+        }
+      ],
+      "transaction_refs": [
+        "jpm-tx-023"
+      ]
+    },
+    {
+      "id": "jpm-lit-chenjingji",
+      "tier": "county",
+      "title": "陈经济争产反被敲诈",
+      "chapters": [
+        92,
+        98
+      ],
+      "anchor_chapter": 98,
+      "parties": {
+        "plaintiff": [
+          "陈经济"
+        ],
+        "officials": [
+          "衙役"
+        ]
+      },
+      "locations": [
+        "县衙",
+        "提刑千户所"
+      ],
+      "outcome": "西门庆死后争产诉讼反被夹打敲诈",
+      "inference": "司法特权随宿主消亡→后代成绞肉机新饲料（推演）",
+      "evidence": [
+        "陈经济",
+        "后二十回散场人物"
+      ],
+      "links": {
+        "topic": "世情四横切面与社会推演"
+      },
+      "bribery": [],
+      "transaction_refs": []
+    }
+  ],
+  "milestones": [
+    {
+      "id": "jpm-lit-wusong",
+      "title": "武松告武大郎案",
+      "chapter": 10,
+      "tier": "county",
+      "href": "/jinpingmei/read/cihua/10",
+      "saga": "jpm-rt-003",
+      "chain_focus": "jpm-rt-003",
+      "chain_href": "/jinpingmei/chain?focus=jpm-rt-003"
+    },
+    {
+      "id": "jpm-lit-huazixu",
+      "title": "花子虚房族争产",
+      "chapter": 14,
+      "tier": "cross_region",
+      "href": "/jinpingmei/read/cihua/14",
+      "saga": "jpm-ms-002",
+      "chain_focus": "jpm-ms-002",
+      "chain_href": "/jinpingmei/chain?focus=jpm-ms-002"
+    },
+    {
+      "id": "jpm-lit-tixing",
+      "title": "提刑千户授官",
+      "chapter": 39,
+      "tier": "capital",
+      "href": "/jinpingmei/read/cihua/39",
+      "saga": "jpm-pe-001",
+      "chain_focus": "jpm-pe-001",
+      "chain_href": "/jinpingmei/chain?focus=jpm-pe-001"
+    },
+    {
+      "id": "jpm-lit-miaotianxiu",
+      "title": "苗员外命案",
+      "chapter": 48,
+      "tier": "capital",
+      "href": "/jinpingmei/read/cihua/48",
+      "saga": null,
+      "chain_focus": "jpm-fe-013",
+      "chain_href": "/jinpingmei/chain?focus=jpm-fe-013"
+    }
+  ],
+  "by_chapter": [
+    {
+      "chapter": 1,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "武大命案前史"
+    },
+    {
+      "chapter": 2,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "武大命案前史"
+    },
+    {
+      "chapter": 3,
+      "corruption_index": 0,
+      "corruption_smooth": 7.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "武大命案前史"
+    },
+    {
+      "chapter": 4,
+      "corruption_index": 0,
+      "corruption_smooth": 18.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "武大命案前史"
+    },
+    {
+      "chapter": 5,
+      "corruption_index": 35,
+      "corruption_smooth": 18.0,
+      "case_ids": [
+        "jpm-lit-wusong"
+      ],
+      "petition_count": 1,
+      "phase": "武大命案前史"
+    },
+    {
+      "chapter": 6,
+      "corruption_index": 55,
+      "corruption_smooth": 26.0,
+      "case_ids": [
+        "jpm-lit-wusong"
+      ],
+      "petition_count": 1,
+      "phase": "武大命案前史"
+    },
+    {
+      "chapter": 7,
+      "corruption_index": 0,
+      "corruption_smooth": 35.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "武大命案前史"
+    },
+    {
+      "chapter": 8,
+      "corruption_index": 40,
+      "corruption_smooth": 45.6,
+      "case_ids": [
+        "jpm-lit-wusong"
+      ],
+      "petition_count": 1,
+      "phase": "武大命案前史"
+    },
+    {
+      "chapter": 9,
+      "corruption_index": 45,
+      "corruption_smooth": 34.6,
+      "case_ids": [
+        "jpm-lit-wusong"
+      ],
+      "petition_count": 1,
+      "phase": "武大命案前史"
+    },
+    {
+      "chapter": 10,
+      "corruption_index": 88,
+      "corruption_smooth": 34.6,
+      "case_ids": [
+        "jpm-lit-wusong"
+      ],
+      "petition_count": 1,
+      "phase": "武大命案前史"
+    },
+    {
+      "chapter": 11,
+      "corruption_index": 0,
+      "corruption_smooth": 36.6,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 12,
+      "corruption_index": 0,
+      "corruption_smooth": 43.2,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 13,
+      "corruption_index": 50,
+      "corruption_smooth": 25.6,
+      "case_ids": [
+        "jpm-lit-huazixu"
+      ],
+      "petition_count": 1,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 14,
+      "corruption_index": 78,
+      "corruption_smooth": 25.6,
+      "case_ids": [
+        "jpm-lit-huazixu"
+      ],
+      "petition_count": 1,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 15,
+      "corruption_index": 0,
+      "corruption_smooth": 25.6,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 16,
+      "corruption_index": 0,
+      "corruption_smooth": 15.6,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 17,
+      "corruption_index": 0,
+      "corruption_smooth": 9.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 18,
+      "corruption_index": 0,
+      "corruption_smooth": 9.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 19,
+      "corruption_index": 45,
+      "corruption_smooth": 9.0,
+      "case_ids": [
+        "jpm-lit-huazixu"
+      ],
+      "petition_count": 1,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 20,
+      "corruption_index": 0,
+      "corruption_smooth": 9.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 21,
+      "corruption_index": 0,
+      "corruption_smooth": 9.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 22,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 23,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 24,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 25,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 26,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 27,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 28,
+      "corruption_index": 0,
+      "corruption_smooth": 12.4,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 29,
+      "corruption_index": 0,
+      "corruption_smooth": 12.4,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 30,
+      "corruption_index": 62,
+      "corruption_smooth": 12.4,
+      "case_ids": [
+        "jpm-lit-tixing"
+      ],
+      "petition_count": 1,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 31,
+      "corruption_index": 0,
+      "corruption_smooth": 12.4,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 32,
+      "corruption_index": 0,
+      "corruption_smooth": 12.4,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 33,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 34,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 35,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 36,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 37,
+      "corruption_index": 0,
+      "corruption_smooth": 14.4,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 38,
+      "corruption_index": 0,
+      "corruption_smooth": 14.4,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 39,
+      "corruption_index": 72,
+      "corruption_smooth": 14.4,
+      "case_ids": [
+        "jpm-lit-tixing"
+      ],
+      "petition_count": 1,
+      "phase": "西门得官·花案"
+    },
+    {
+      "chapter": 40,
+      "corruption_index": 0,
+      "corruption_smooth": 14.4,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "苗案·提刑巅峰"
+    },
+    {
+      "chapter": 41,
+      "corruption_index": 0,
+      "corruption_smooth": 14.4,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "苗案·提刑巅峰"
+    },
+    {
+      "chapter": 42,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "苗案·提刑巅峰"
+    },
+    {
+      "chapter": 43,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "苗案·提刑巅峰"
+    },
+    {
+      "chapter": 44,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "苗案·提刑巅峰"
+    },
+    {
+      "chapter": 45,
+      "corruption_index": 0,
+      "corruption_smooth": 14.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "苗案·提刑巅峰"
+    },
+    {
+      "chapter": 46,
+      "corruption_index": 0,
+      "corruption_smooth": 33.2,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "苗案·提刑巅峰"
+    },
+    {
+      "chapter": 47,
+      "corruption_index": 70,
+      "corruption_smooth": 49.2,
+      "case_ids": [
+        "jpm-lit-miaotianxiu"
+      ],
+      "petition_count": 1,
+      "phase": "苗案·提刑巅峰"
+    },
+    {
+      "chapter": 48,
+      "corruption_index": 96,
+      "corruption_smooth": 49.2,
+      "case_ids": [
+        "jpm-lit-miaotianxiu"
+      ],
+      "petition_count": 1,
+      "phase": "苗案·提刑巅峰"
+    },
+    {
+      "chapter": 49,
+      "corruption_index": 80,
+      "corruption_smooth": 62.2,
+      "case_ids": [
+        "jpm-lit-miaotianxiu"
+      ],
+      "petition_count": 1,
+      "phase": "苗案·提刑巅峰"
+    },
+    {
+      "chapter": 50,
+      "corruption_index": 0,
+      "corruption_smooth": 48.2,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "苗案·提刑巅峰"
+    },
+    {
+      "chapter": 51,
+      "corruption_index": 65,
+      "corruption_smooth": 29.0,
+      "case_ids": [
+        "jpm-lit-miaotianxiu"
+      ],
+      "petition_count": 1,
+      "phase": "苗案·提刑巅峰"
+    },
+    {
+      "chapter": 52,
+      "corruption_index": 0,
+      "corruption_smooth": 13.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 53,
+      "corruption_index": 0,
+      "corruption_smooth": 13.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 54,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 55,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 56,
+      "corruption_index": 0,
+      "corruption_smooth": 11.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 57,
+      "corruption_index": 0,
+      "corruption_smooth": 11.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 58,
+      "corruption_index": 55,
+      "corruption_smooth": 11.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 59,
+      "corruption_index": 0,
+      "corruption_smooth": 11.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 60,
+      "corruption_index": 0,
+      "corruption_smooth": 11.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 61,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 62,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 63,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 64,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 65,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 66,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 67,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 68,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 69,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 70,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 71,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 72,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 73,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 74,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 75,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 76,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 77,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 78,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 79,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 80,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 81,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 82,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 83,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 84,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 85,
+      "corruption_index": 0,
+      "corruption_smooth": 16.4,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 86,
+      "corruption_index": 0,
+      "corruption_smooth": 16.4,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 87,
+      "corruption_index": 82,
+      "corruption_smooth": 16.4,
+      "case_ids": [
+        "jpm-lit-wusong"
+      ],
+      "petition_count": 1,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 88,
+      "corruption_index": 0,
+      "corruption_smooth": 16.4,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 89,
+      "corruption_index": 0,
+      "corruption_smooth": 16.4,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 90,
+      "corruption_index": 0,
+      "corruption_smooth": 12.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 91,
+      "corruption_index": 0,
+      "corruption_smooth": 12.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 92,
+      "corruption_index": 60,
+      "corruption_smooth": 12.0,
+      "case_ids": [
+        "jpm-lit-chenjingji"
+      ],
+      "petition_count": 1,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 93,
+      "corruption_index": 0,
+      "corruption_smooth": 12.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 94,
+      "corruption_index": 0,
+      "corruption_smooth": 12.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 95,
+      "corruption_index": 0,
+      "corruption_smooth": 0.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 96,
+      "corruption_index": 0,
+      "corruption_smooth": 13.6,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 97,
+      "corruption_index": 0,
+      "corruption_smooth": 13.6,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 98,
+      "corruption_index": 68,
+      "corruption_smooth": 13.6,
+      "case_ids": [
+        "jpm-lit-chenjingji"
+      ],
+      "petition_count": 1,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 99,
+      "corruption_index": 0,
+      "corruption_smooth": 17.0,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    },
+    {
+      "chapter": 100,
+      "corruption_index": 0,
+      "corruption_smooth": 22.7,
+      "case_ids": [],
+      "petition_count": 0,
+      "phase": "庇护真空·后二十回"
+    }
+  ],
+  "officials": [
+    {
+      "id": "夏提刑",
+      "role": "提刑正千户",
+      "cases": [
+        "jpm-lit-miaotianxiu"
+      ],
+      "inference": "与西门庆各五百两合伙枉法（推演）"
+    },
+    {
+      "id": "西门庆",
+      "role": "理刑千户 / 司法操盘手",
+      "cases": [
+        "jpm-lit-wusong",
+        "jpm-lit-huazixu",
+        "jpm-lit-miaotianxiu",
+        "jpm-lit-tixing"
+      ],
+      "inference": "「太师府认得我字迹」— 从买通到执掌（推演）"
+    },
+    {
+      "id": "武松",
+      "role": "维权失败者→私刑者",
+      "cases": [
+        "jpm-lit-wusong"
+      ],
+      "inference": "告状无门→血溅狮子楼（推演）"
+    },
+    {
+      "id": "曾孝序",
+      "role": "巡按参劾",
+      "cases": [
+        "jpm-lit-miaotianxiu"
+      ],
+      "inference": "体制内清流无力对抗蔡党（推演）"
+    },
+    {
+      "id": "陈经济",
+      "role": "争产者",
+      "cases": [
+        "jpm-lit-chenjingji"
+      ],
+      "inference": "失去西门庆庇护后反被司法敲诈（推演）"
+    }
+  ],
+  "social": {
+    "title": "三级司法通关 · 全社会",
+    "inference": "基层贿败→跨区洗劫→国家级买官；当司法成商品交易所，统治合法性在底层归零（推演）。",
+    "insights": [
+      {
+        "title": "基层：有理无钱莫进来",
+        "body": "县衙大门朝东开；武松人证物证仍被轰出——和平维权通道堵死（推演）。",
+        "evidence": [
+          "武松",
+          "县衙",
+          "何九"
+        ]
+      },
+      {
+        "title": "跨区：诉讼洗劫资产",
+        "body": "花子虚争产案=豪强借司法兼并寡妇财产；气死即完成收购（推演）。",
+        "evidence": [
+          "花子虚",
+          "李瓶儿",
+          "西门庆"
+        ]
+      },
+      {
+        "title": "国家级：买法→掌法",
+        "body": "苗案枉法+蔡御史压巡按参；西门庆从法外狂徒异化为法官（推演）。",
+        "evidence": [
+          "苗青",
+          "夏提刑",
+          "蔡京"
+        ]
+      }
+    ]
+  },
+  "global_insights": [
+    {
+      "title": "三级司法通关",
+      "body": "武松案基层贿败→花子虚跨区洗劫→苗案+提刑千户国家级枉法；详见 topics/世情四横切面与社会推演（推演）。",
+      "evidence": [
+        "武松",
+        "花子虚",
+        "苗天秀",
+        "提刑千户所"
+      ]
+    },
+    {
+      "title": "律法商品化",
+      "body": "两千两改人命、五百两买官；当大理寺管不着我银子，民间国家信用归零（政治 inference）。",
+      "evidence": [
+        "蔡京",
+        "西门庆",
+        "县衙"
+      ]
+    },
+    {
+      "title": "保护伞真空",
+      "body": "西门庆死后提刑同僚翻脸；陈经济争产反被夹打——特权建在人身上非制度（推演）。",
+      "evidence": [
+        "陈经济",
+        "后二十回散场人物"
+      ]
+    },
+    {
+      "title": "与白银流/衰败链互证",
+      "body": "诉讼 bribery 自动抽取自 transactions/；chain ?focus= 深链 saga 里程碑与 financial_event。",
+      "evidence": [
+        "药铺与放债链",
+        "jpm-tx-023",
+        "jpm-pe-001"
+      ]
+    }
+  ],
+  "stats": {
+    "case_count": 5,
+    "chapters_with_litigation": 17,
+    "peak_corruption_chapter": 48,
+    "peak_corruption": 96,
+    "bribery_from_transactions": 6,
+    "transaction_count": 25
+  }
+}

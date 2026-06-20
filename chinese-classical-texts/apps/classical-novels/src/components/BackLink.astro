@@ -5,11 +5,19 @@ interface Props {
   variant?: 'default' | 'dark' | 'reader';
   direction?: 'back' | 'forward';
   compact?: boolean;
+  history?: boolean;
   class?: string;
 }
 
-const { href, label, variant = 'default', direction = 'back', compact = false, class: className } =
-  Astro.props;
+const {
+  href,
+  label,
+  variant = 'default',
+  direction = 'back',
+  compact = false,
+  history = false,
+  class: className,
+} = Astro.props;
 const glyph = direction === 'forward' ? '→' : '←';
 ---
 
@@ -23,6 +31,7 @@ const glyph = direction === 'forward' ? '→' : '←';
     compact && 'back-link--compact',
     className,
   ]}
+  data-history-back={history ? '' : undefined}
   data-pagefind-ignore
 >
   {direction === 'back' && <span class="back-link-glyph" aria-hidden="true">{glyph}</span>}

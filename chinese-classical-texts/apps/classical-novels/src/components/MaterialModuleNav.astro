@@ -1,0 +1,83 @@
+---
+import {
+  hasMaterialFeature,
+  materialCrossIndexHref,
+  materialHubHref,
+  materialInferenceHref,
+  materialInferenceLabel,
+  materialModuleHref,
+  materialModulesForBook,
+  type MaterialModuleKey,
+} from '../lib/materialModules';
+
+interface Props {
+  bookSlug: string;
+  features: string[];
+  active: MaterialModuleKey | 'hub' | 'cross';
+  /** 子页：实体目录 / 推演 */
+  moduleSub?: 'catalog' | 'inference';
+}
+
+const { bookSlug, features, active, moduleSub } = Astro.props;
+const modules = materialModulesForBook(bookSlug, features);
+const showCross = features.includes('items');
+const inferenceKeys: MaterialModuleKey[] = ['food', 'medicine', 'costume', 'custom'];
+
+function showInferenceSub(key: MaterialModuleKey): boolean {
+  if (active !== key || !moduleSub) return false;
+  if (key === 'food') return hasMaterialFeature(features, 'food') && features.includes('diet');
+  return hasMaterialFeature(features, key);
+}
+
+const activeInference = inferenceKeys.find((k) => showInferenceSub(k));
+const catalogHref = activeInference ? materialModuleHref(bookSlug, activeInference) : '';
+const inferenceHref = activeInference ? materialInferenceHref(bookSlug, activeInference) : null;
+const inferenceLabel = activeInference ? materialInferenceLabel(activeInference) : null;
+---
+
+<div class="material-module-nav">
+  <nav class="material-module-nav__main" aria-label="物质模块">
+    <a href={materialHubHref(bookSlug)} class:list={['chip chip-md', active === 'hub' && 'is-active']}>
+      物质总览
+    </a>
+    {
+      modules.map((m) => (
+        <a
+          href={materialModuleHref(bookSlug, m.key)}
+          class:list={['chip chip-md', active === m.key && 'is-active']}
+        >
+          {m.glyph} {m.title}
+        </a>
+      ))
+    }
+    {
+      showCross && (
+        <a href={materialCrossIndexHref(bookSlug)} class:list={['chip chip-md', active === 'cross' && 'is-active']}>
+          交叉索引
+        </a>
+      )
+    }
+  </nav>
+  {
+    activeInference && inferenceHref && inferenceLabel && (
+      <div class="material-food-subnav cross-index-tabs" role="tablist" aria-label={`${activeInference}子模块`}>
+        <a
+          href={catalogHref}
+          class:list={['material-food-subnav__tab', moduleSub === 'catalog' && 'is-active']}
+          role="tab"
+          aria-selected={moduleSub === 'catalog'}
+        >
+          {activeInference === 'food' ? '饮食实体' : `${modules.find((m) => m.key === activeInference)?.title ?? ''}实体`}
+        </a>
+        <a
+          href={inferenceHref}
+          class:list={['material-food-subnav__tab', moduleSub === 'inference' && 'is-active']}
+          role="tab"
+          aria-selected={moduleSub === 'inference'}
+        >
+          {inferenceLabel}
+        </a>
+      </div>
+    )
+  }
+</div>

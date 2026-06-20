@@ -118,6 +118,8 @@ const financialData = financialBySlug[meta.slug];
     {meta.slug === 'jinpingmei' && (
       <>
         {' · '}
+        <a href={`/${meta.slug}/litigation`} class="hover:underline" style="color: var(--accent)">诉讼推演</a>
+        {' · '}
         <a href={`/${meta.slug}/topics/世情与贵族衰败对比`} class="hover:underline" style="color: var(--accent)">金红对比</a>
       </>
     )}

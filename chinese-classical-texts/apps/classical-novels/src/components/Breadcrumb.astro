@@ -1,0 +1,30 @@
+---
+export interface Crumb {
+  href?: string;
+  label: string;
+}
+
+interface Props {
+  items: Crumb[];
+  class?: string;
+}
+
+const { items, class: className } = Astro.props;
+---
+
+<nav class:list={['breadcrumb', className]} aria-label="面包屑" data-pagefind-ignore>
+  <span class="breadcrumb__back" aria-hidden="true">←</span>
+  {
+    items.map((c) =>
+      c.href ? (
+        <a href={c.href} class="breadcrumb__item breadcrumb__link">
+          {c.label}
+        </a>
+      ) : (
+        <span class="breadcrumb__item breadcrumb__current" aria-current="page">
+          {c.label}
+        </span>
+      ),
+    )
+  }
+</nav>

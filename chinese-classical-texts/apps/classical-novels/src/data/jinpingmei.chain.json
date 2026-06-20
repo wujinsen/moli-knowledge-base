@@ -1,9 +1,10 @@
 {
   "book": "金瓶梅",
   "generated": "2026-06-20",
-  "event_count": 20,
-  "financial_count": 14,
-  "plot_count": 6,
+  "event_count": 31,
+  "financial_count": 15,
+  "plot_count": 16,
+  "milestone_count": 10,
   "phases": [
     {
       "key": "rise",
@@ -12,7 +13,7 @@
         1,
         17
       ],
-      "count": 3
+      "count": 6
     },
     {
       "key": "climb",
@@ -21,7 +22,7 @@
         18,
         40
       ],
-      "count": 9
+      "count": 11
     },
     {
       "key": "peak",
@@ -30,7 +31,7 @@
         41,
         65
       ],
-      "count": 4
+      "count": 7
     },
     {
       "key": "fall",
@@ -39,7 +40,7 @@
         66,
         100
       ],
-      "count": 4
+      "count": 7
     }
   ],
   "tx_chips": {
@@ -223,34 +224,72 @@
     "西门庆": [
       "jpm-fe-001",
       "jpm-fe-006",
+      "jpm-rt-003",
+      "jpm-ms-001",
+      "jpm-ms-002",
       "jpm-fe-005",
       "jpm-rt-002",
       "jpm-fe-007",
+      "jpm-ms-008",
       "jpm-fe-009",
       "jpm-fe-002",
+      "jpm-ms-003",
       "jpm-fe-008",
       "jpm-rt-006",
       "jpm-fe-004",
       "jpm-fe-003",
       "jpm-pe-001",
+      "jpm-fe-013",
+      "jpm-ms-009",
       "jpm-rt-001",
       "jpm-rt-005",
+      "jpm-ms-004",
       "jpm-pe-002",
       "jpm-rt-004",
       "jpm-fe-011",
-      "jpm-pe-003"
+      "jpm-ms-005",
+      "jpm-pe-003",
+      "jpm-ms-007"
     ],
     "应伯爵": [
       "jpm-fe-006",
       "jpm-rt-006",
       "jpm-fe-003",
+      "jpm-ms-009",
       "jpm-fe-012"
     ],
     "花子虚": [
-      "jpm-fe-006"
+      "jpm-fe-006",
+      "jpm-ms-002"
+    ],
+    "武松": [
+      "jpm-rt-003",
+      "jpm-ms-001",
+      "jpm-ms-006"
+    ],
+    "武大郎": [
+      "jpm-rt-003",
+      "jpm-ms-001"
+    ],
+    "潘金莲": [
+      "jpm-rt-003",
+      "jpm-ms-001",
+      "jpm-ms-008",
+      "jpm-ms-004",
+      "jpm-pe-002",
+      "jpm-ms-005",
+      "jpm-pe-003",
+      "jpm-ms-006",
+      "jpm-pe-004"
+    ],
+    "王婆": [
+      "jpm-rt-003"
     ],
     "李瓶儿": [
+      "jpm-ms-002",
       "jpm-fe-005",
+      "jpm-ms-003",
+      "jpm-ms-004",
       "jpm-pe-002",
       "jpm-rt-004"
     ],
@@ -264,6 +303,7 @@
     "蔡京": [
       "jpm-rt-002",
       "jpm-fe-002",
+      "jpm-ms-003",
       "jpm-pe-001",
       "jpm-fe-011"
     ],
@@ -273,7 +313,11 @@
       "jpm-pe-001"
     ],
     "来旺": [
+      "jpm-ms-008",
       "jpm-fe-009"
+    ],
+    "孙雪娥": [
+      "jpm-ms-008"
     ],
     "吴典恩": [
       "jpm-fe-008"
@@ -295,6 +339,15 @@
     "黄四": [
       "jpm-fe-003"
     ],
+    "夏提刑": [
+      "jpm-fe-013"
+    ],
+    "苗青": [
+      "jpm-fe-013"
+    ],
+    "安童": [
+      "jpm-fe-013"
+    ],
     "崔本": [
       "jpm-rt-001"
     ],
@@ -311,11 +364,8 @@
       "jpm-pe-002",
       "jpm-fe-012",
       "jpm-pe-003",
-      "jpm-pe-004"
-    ],
-    "潘金莲": [
-      "jpm-pe-002",
-      "jpm-pe-003",
+      "jpm-ms-006",
+      "jpm-ms-007",
       "jpm-pe-004"
     ],
     "吴道官": [
@@ -399,6 +449,123 @@
       "module_links": {
         "graph_focus": "西门庆",
         "has_silver": true,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-rt-003",
+      "title": "武松复仇·阳谷归来杀嫂",
+      "subtype": "milestone",
+      "financial_kind": "",
+      "chapters": [
+        1,
+        9,
+        87
+      ],
+      "chapter": 1,
+      "phase": "rise",
+      "phase_label": "发家根基",
+      "amount_liang": null,
+      "summary": "武松自阳谷打虎为都头，归清河紫石街寻兄已遭鸩杀；后于王婆茶坊手刃潘金莲祭兄。承《水浒》而来的复仇线，首尾贯穿全书罪恶起点与散场。",
+      "characters": [
+        "武松",
+        "武大郎",
+        "潘金莲",
+        "西门庆",
+        "王婆"
+      ],
+      "locations": [
+        "阳谷县",
+        "清河县",
+        "紫石街",
+        "王婆茶坊"
+      ],
+      "transaction_refs": [],
+      "prev": "jpm-ms-001",
+      "next": null,
+      "tags": [
+        "复仇",
+        "谋杀",
+        "水浒敷演"
+      ],
+      "module_links": {
+        "graph_focus": "潘金莲",
+        "has_silver": false,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-ms-001",
+      "title": "毒杀武大郎与潘金莲入府",
+      "subtype": "milestone",
+      "financial_kind": "",
+      "chapters": [
+        5,
+        9
+      ],
+      "chapter": 5,
+      "phase": "rise",
+      "phase_label": "发家根基",
+      "amount_liang": null,
+      "summary": "西门庆与潘金莲通奸，合王婆毒死武大郎，事后将潘金莲娶入府中。全书罪恶的起点，亦为西门府后院残酷内斗埋下最大的定时炸弹。",
+      "characters": [
+        "西门庆",
+        "潘金莲",
+        "武大郎",
+        "武松"
+      ],
+      "locations": [
+        "清河县",
+        "狮子街"
+      ],
+      "transaction_refs": [],
+      "prev": null,
+      "next": "jpm-ms-002",
+      "tags": [
+        "罪恶开端",
+        "通奸",
+        "谋杀"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": false,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-ms-002",
+      "title": "李瓶儿改嫁",
+      "subtype": "milestone",
+      "financial_kind": "",
+      "chapters": [
+        14,
+        19
+      ],
+      "chapter": 14,
+      "phase": "rise",
+      "phase_label": "发家根基",
+      "amount_liang": null,
+      "summary": "花子虚死后，李瓶儿带巨额家产（含大内库银）改嫁西门庆。这笔横财令西门庆经济实力质变，得以扩宅、结交权贵，开启暴发户式狂欢。",
+      "characters": [
+        "李瓶儿",
+        "西门庆",
+        "花子虚"
+      ],
+      "locations": [
+        "西门府",
+        "花家"
+      ],
+      "transaction_refs": [],
+      "prev": "jpm-ms-001",
+      "next": "jpm-ms-008",
+      "tags": [
+        "人财两得",
+        "横财",
+        "暴富"
+      ],
+      "module_links": {
+        "graph_focus": "李瓶儿",
+        "has_silver": false,
         "has_sna": true
       }
     },
@@ -515,6 +682,43 @@
       }
     },
     {
+      "id": "jpm-ms-008",
+      "title": "来旺遭陷与宋蕙莲之死",
+      "subtype": "milestone",
+      "financial_kind": "",
+      "chapters": [
+        25,
+        26
+      ],
+      "chapter": 25,
+      "phase": "climb",
+      "phase_label": "政商攀升",
+      "amount_liang": null,
+      "summary": "西门庆勾搭来旺之妻宋蕙莲，事泄后潘金莲反诬来旺图谋行凶，西门庆将其诬陷下狱、递解原籍；宋蕙莲羞愤自缢。家奴内斗暴露西门府的凉薄与金莲的狠毒。",
+      "characters": [
+        "来旺",
+        "潘金莲",
+        "西门庆",
+        "孙雪娥"
+      ],
+      "locations": [
+        "西门府"
+      ],
+      "transaction_refs": [],
+      "prev": "jpm-ms-002",
+      "next": "jpm-ms-003",
+      "tags": [
+        "构陷",
+        "家奴内斗",
+        "凉薄"
+      ],
+      "module_links": {
+        "graph_focus": "潘金莲",
+        "has_silver": false,
+        "has_sna": true
+      }
+    },
+    {
       "id": "jpm-fe-009",
       "title": "来旺酒店本钱拨付",
       "subtype": "financial",
@@ -583,6 +787,42 @@
       "module_links": {
         "graph_focus": "西门庆",
         "has_silver": true,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-ms-003",
+      "title": "生子与升官",
+      "subtype": "milestone",
+      "financial_kind": "",
+      "chapters": [
+        30
+      ],
+      "chapter": 30,
+      "phase": "climb",
+      "phase_label": "政商攀升",
+      "amount_liang": null,
+      "summary": "李瓶儿为西门庆生下官哥儿，同时西门庆重金贿赂太师蔡京，得任山东提刑所理刑副千户。权力、财富、子嗣三丰收，达烈火烹油的极盛顶点。",
+      "characters": [
+        "西门庆",
+        "李瓶儿",
+        "蔡京"
+      ],
+      "locations": [
+        "西门府",
+        "东京"
+      ],
+      "transaction_refs": [],
+      "prev": "jpm-ms-008",
+      "next": "jpm-ms-009",
+      "tags": [
+        "巅峰",
+        "官商合一",
+        "贿赂"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": false,
         "has_sna": true
       }
     },
@@ -766,6 +1006,80 @@
       }
     },
     {
+      "id": "jpm-fe-013",
+      "title": "苗案枉法·提刑所买办垫款",
+      "subtype": "financial",
+      "financial_kind": "贿赂",
+      "chapters": [
+        48
+      ],
+      "chapter": 48,
+      "phase": "peak",
+      "phase_label": "鼎盛极奢",
+      "amount_liang": 200,
+      "summary": "西门庆为提刑所官买办垫银二百两；同回苗青案枉法、安童告状，司法商品化关键节点。",
+      "characters": [
+        "西门庆",
+        "夏提刑",
+        "苗青",
+        "安童"
+      ],
+      "locations": [
+        "提刑千户所",
+        "清河县"
+      ],
+      "transaction_refs": [
+        "jpm-tx-023"
+      ],
+      "prev": "jpm-pe-001",
+      "next": "jpm-pe-002",
+      "tags": [
+        "司法",
+        "提刑所",
+        "苗天秀"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": true,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-ms-009",
+      "title": "盛宴接待两巡按",
+      "subtype": "milestone",
+      "financial_kind": "",
+      "chapters": [
+        49
+      ],
+      "chapter": 49,
+      "phase": "peak",
+      "phase_label": "鼎盛极奢",
+      "amount_liang": null,
+      "summary": "西门庆于家中盛宴接待巡盐御史蔡蕴、巡按御史宋乔年，妓女侑酒、极尽逢迎，并借此打通盐引专卖。官商勾结、权钱交易至此达于鼎盛。",
+      "characters": [
+        "西门庆",
+        "应伯爵"
+      ],
+      "locations": [
+        "西门府",
+        "东京"
+      ],
+      "transaction_refs": [],
+      "prev": "jpm-ms-003",
+      "next": "jpm-ms-004",
+      "tags": [
+        "巴结权贵",
+        "官商勾结",
+        "巅峰"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": false,
+        "has_sna": true
+      }
+    },
+    {
       "id": "jpm-rt-001",
       "title": "南货商路·杭州缎货入清河",
       "subtype": "financial",
@@ -843,6 +1157,43 @@
       ],
       "module_links": {
         "graph_focus": "西门庆",
+        "has_silver": false,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-ms-004",
+      "title": "官哥儿受惊与李瓶儿病逝",
+      "subtype": "milestone",
+      "financial_kind": "",
+      "chapters": [
+        59,
+        62
+      ],
+      "chapter": 59,
+      "phase": "peak",
+      "phase_label": "鼎盛极奢",
+      "amount_liang": null,
+      "summary": "潘金莲出于嫉妒训练雪狮子猫惊吓官哥儿致其夭折；李瓶儿在悲痛与血崩中凄惨死去。这是全书情感高潮，也是西门庆唯一真情流露之时，西门府生机自此被抽干。",
+      "characters": [
+        "潘金莲",
+        "李瓶儿",
+        "西门庆"
+      ],
+      "locations": [
+        "李瓶儿房",
+        "西门府"
+      ],
+      "transaction_refs": [],
+      "prev": "jpm-ms-009",
+      "next": "jpm-ms-005",
+      "tags": [
+        "致命拐点",
+        "嫉妒",
+        "病逝"
+      ],
+      "module_links": {
+        "graph_focus": "潘金莲",
         "has_silver": false,
         "has_sna": true
       }
@@ -992,6 +1343,41 @@
       }
     },
     {
+      "id": "jpm-ms-005",
+      "title": "西门庆纵欲身亡",
+      "subtype": "milestone",
+      "financial_kind": "",
+      "chapters": [
+        79
+      ],
+      "chapter": 79,
+      "phase": "fall",
+      "phase_label": "衰败散府",
+      "amount_liang": null,
+      "summary": "李瓶儿死后西门庆愈加空虚纵欲，终在潘金莲过量春药催化下精尽人亡。一家之主死于非命，西门府的经济与权力支柱瞬间崩塌。",
+      "characters": [
+        "西门庆",
+        "潘金莲"
+      ],
+      "locations": [
+        "西门府",
+        "潘金莲房"
+      ],
+      "transaction_refs": [],
+      "prev": "jpm-ms-004",
+      "next": "jpm-ms-006",
+      "tags": [
+        "大厦崩塌",
+        "纵欲",
+        "暴亡"
+      ],
+      "module_links": {
+        "graph_focus": "西门庆",
+        "has_silver": false,
+        "has_sna": true
+      }
+    },
+    {
       "id": "jpm-pe-003",
       "title": "西门庆暴亡",
       "subtype": "plot",
@@ -1021,6 +1407,76 @@
       ],
       "module_links": {
         "graph_focus": "西门庆",
+        "has_silver": false,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-ms-006",
+      "title": "武松杀嫂",
+      "subtype": "milestone",
+      "financial_kind": "",
+      "chapters": [
+        87
+      ],
+      "chapter": 87,
+      "phase": "fall",
+      "phase_label": "衰败散府",
+      "amount_liang": null,
+      "summary": "树倒猢狲散，潘金莲被吴月娘发卖。武松归来以残忍手段剖腹挖心，杀死潘金莲与王婆祭兄。开篇恩怨至此完成血腥闭环。",
+      "characters": [
+        "武松",
+        "潘金莲",
+        "吴月娘"
+      ],
+      "locations": [
+        "清河县",
+        "狮子街"
+      ],
+      "transaction_refs": [],
+      "prev": "jpm-ms-005",
+      "next": "jpm-ms-007",
+      "tags": [
+        "现世报",
+        "复仇",
+        "血腥闭环"
+      ],
+      "module_links": {
+        "graph_focus": "潘金莲",
+        "has_silver": false,
+        "has_sna": true
+      }
+    },
+    {
+      "id": "jpm-ms-007",
+      "title": "孝哥出家",
+      "subtype": "milestone",
+      "financial_kind": "",
+      "chapters": [
+        100
+      ],
+      "chapter": 100,
+      "phase": "fall",
+      "phase_label": "衰败散府",
+      "amount_liang": null,
+      "summary": "金兵南下，吴月娘携子孝哥（西门庆转世）逃难，途遇普静禅师，禅师点化孝哥出家，以化解西门庆生前无尽罪孽。繁华落尽，归于白茫茫的虚无。",
+      "characters": [
+        "吴月娘",
+        "西门庆"
+      ],
+      "locations": [
+        "永福寺"
+      ],
+      "transaction_refs": [],
+      "prev": "jpm-ms-006",
+      "next": null,
+      "tags": [
+        "万法皆空",
+        "出家",
+        "归于虚无"
+      ],
+      "module_links": {
+        "graph_focus": "吴月娘",
         "has_silver": false,
         "has_sna": true
       }

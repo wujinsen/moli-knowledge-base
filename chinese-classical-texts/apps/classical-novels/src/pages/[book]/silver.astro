@@ -169,6 +169,12 @@ const eventTxMap = Object.fromEntries(finEvents.map((e) => [e.data.id, e.data.tr
           <span class="ml-2">· 资金池：西门庆府 → 妻妾奴婢 / 经营投资 / 政商贿赂 / 帮闲圈 等</span>
           {' · '}
           <a href={`/${meta.slug}/chain`} class="hover:underline" style="color: var(--accent)">发家衰败链</a>
+          {meta.features.includes('litigation') && (
+            <>
+              {' · '}
+              <a href={`/${meta.slug}/litigation`} class="hover:underline" style="color: var(--accent)">诉讼推演</a>
+            </>
+          )}
           {' · '}
           <a href={`/${meta.slug}/topics/药铺与放债链`} class="hover:underline" style="color: var(--accent)">药铺与放债链</a>
         </div>

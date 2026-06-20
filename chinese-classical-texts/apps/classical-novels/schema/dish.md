@@ -15,6 +15,7 @@
 | `process` | | 工艺步骤 |
 | `cost_estimate` | | 估价（两/文/「十来只鸡」等原文单位） |
 | `temperature` | | 寒热属性（inference 须标注） |
+| `diet_axes` | | 营养结构轴手标（覆盖关键词误判）；键见 `fine_tonic` `fat_sweet` `refined_grain` `coarse_balance` `feast_luxury` `alcohol`，值 0–5 |
 | `eaters` | | 食用者 id 数组 |
 | `location` | | 地点 id |
 | `occasion` | | 场合/节令 |

@@ -8,6 +8,7 @@ import {
 } from '../lib/chainIndex';
 import { chainEventHref, silverEventHref, silverTxHref } from '../lib/chain';
 import { graphFocusHref } from '../lib/sna';
+import { getLitigationInference, litigationCaseForChainFocus, litigationChapterHref } from '../lib/litigationInference';
 
 interface Props {
   index: ChainIndex;
@@ -17,6 +18,7 @@ interface Props {
 }
 
 function subtypeLabel(subtype: string, financialKind?: string): string {
+  if (subtype === 'milestone') return '大事记';
   if (subtype === 'financial') return financialKind ? `白银·${financialKind}` : '白银';
   return '情节';
 }
@@ -48,6 +50,7 @@ function EventCard({
   txChips,
   onFocus,
   focused,
+  litCase,
 }: {
   ev: ChainEventRow;
   idx: number;
@@ -57,6 +60,7 @@ function EventCard({
   txChips: ChainIndex['tx_chips'];
   onFocus: (id: string) => void;
   focused: boolean;
+  litCase?: ReturnType<typeof litigationCaseForChainFocus>;
 }) {
   const ml = ev.module_links;
   const amount = ev.amount_liang != null ? `${ev.amount_liang}两` : null;
@@ -189,6 +193,16 @@ function EventCard({
                 SNA
               </a>
             )}
+            {features.includes('litigation') && litCase && (
+              <a
+                href={litigationChapterHref(bookSlug, litCase.anchor_chapter)}
+                className="chip hover:opacity-80"
+                style={{ color: 'var(--accent)' }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                诉讼 · {litCase.title.replace(/案$/, '')}
+              </a>
+            )}
           </div>
         )}
 
@@ -220,6 +234,7 @@ function EventCard({
 export default function ChainTimeline({ index, bookSlug, readEdition, features }: Props) {
   const [phaseKey, setPhaseKey] = useState<string | null>(null);
   const [focusId, setFocusId] = useState<string | null>(null);
+  const litData = bookSlug === 'jinpingmei' && features.includes('litigation') ? getLitigationInference(bookSlug) : null;
 
   const filtered = useMemo(() => {
     if (!phaseKey) return index.events;
@@ -310,6 +325,7 @@ export default function ChainTimeline({ index, bookSlug, readEdition, features }
             txChips={index.tx_chips}
             onFocus={applyFocus}
             focused={focusId === ev.id}
+            litCase={litigationCaseForChainFocus(litData, ev.id)}
           />
         ))}
         {filtered.length === 0 && (

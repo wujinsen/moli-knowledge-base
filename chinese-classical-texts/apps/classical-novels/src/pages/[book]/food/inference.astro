@@ -1,0 +1,68 @@
+---
+import { getBooks } from '../../../lib/getBooks';
+import Base from '../../../layouts/Base.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import MaterialModuleNav from '../../../components/MaterialModuleNav.astro';
+import DietInferenceDashboard from '../../../components/DietInferenceDashboard.tsx';
+import { DIET_DEFAULT_CHAPTER, getDietInference } from '../../../lib/dietInference';
+import { materialCrumbs } from '../../../lib/materialModules';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  return books
+    .filter((b) => b.data.features.includes('diet'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+const dietData = getDietInference(meta.slug);
+const initialChapter = DIET_DEFAULT_CHAPTER[meta.slug] ?? 1;
+const stats = dietData?.stats;
+---
+
+<Base title={`${meta.book} · 膳食推演`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  <Breadcrumb items={materialCrumbs(meta.slug, 'food', { view: 'inference' })} />
+
+  <div class="content-page">
+    <section class="surface material-page-head">
+      <div class="material-page-head__row">
+        <span class="glyph material-page-head__glyph">推</span>
+        <div class="material-page-head__body">
+          <h1 class="brand material-page-head__title">膳食推演</h1>
+          <p class="material-page-head__desc">
+            六结构轴 → 奢侈曲线 · 人物健康（inference）
+            {
+              stats && (
+                <span class="material-page-head__meta">
+                  · {stats.dish_entities} 实体 · {stats.chapters_with_food} 回有着墨
+                  {stats.peak_luxury_chapter != null && ` · 奢侈峰 第${stats.peak_luxury_chapter}回`}
+                </span>
+              )
+            }
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <MaterialModuleNav bookSlug={meta.slug} features={meta.features} active="food" moduleSub="inference" />
+
+    {
+      dietData ? (
+        <DietInferenceDashboard
+          data={dietData}
+          bookSlug={meta.slug}
+          initialChapter={initialChapter}
+          client:load
+        />
+      ) : (
+        <p class="surface p-4 text-sm text-muted">
+          推演数据尚未生成，请运行
+          <code class="mx-1 rounded px-2 py-0.5" style="background: var(--paper)">
+            python scripts/build_diet_inference.py --all --write
+          </code>
+        </p>
+      )
+    }
+  </div>
+</Base>

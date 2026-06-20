@@ -1,0 +1,14 @@
+---
+import { getBooks } from '../../lib/getBooks';
+import { legacyDietHref } from '../../lib/materialModules';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  return books
+    .filter((b) => b.data.features.includes('diet'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+return Astro.redirect(legacyDietHref(book.data.slug));
+---

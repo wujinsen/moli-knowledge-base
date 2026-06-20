@@ -1,0 +1,2868 @@
+{
+  "domain": "custom",
+  "book": "红楼梦",
+  "slug": "honglou",
+  "generated_by": "build_material_inference.py",
+  "inference_note": "推演层：节令/丧祭/婚嫁/制度/魇魅关键词 + 社会分层 + 人物民俗档案（inference）；非礼制史定论。",
+  "curve_labels": {
+    "primary": "礼制密度",
+    "secondary": "逾制/异端"
+  },
+  "axes": [
+    {
+      "id": "festival",
+      "label": "节令年例",
+      "desc": "元宵、端午、中秋、年例"
+    },
+    {
+      "id": "funeral_rite",
+      "label": "丧祭礼仪",
+      "desc": "丧仪、停灵、水陆、路祭"
+    },
+    {
+      "id": "marriage",
+      "label": "婚嫁",
+      "desc": "出嫁、成婚、财礼"
+    },
+    {
+      "id": "clan_institution",
+      "label": "宗族制度",
+      "desc": "宗祠、月例、义学、护官符"
+    },
+    {
+      "id": "folk_magic",
+      "label": "魇魅迷信",
+      "desc": "魇法、求神、剪发"
+    },
+    {
+      "id": "state_norm",
+      "label": "逾制争议",
+      "desc": "买官、诰命、尽用"
+    }
+  ],
+  "phases": [
+    {
+      "label": "楔子·入府",
+      "from": 1,
+      "to": 16
+    },
+    {
+      "label": "省亲极盛",
+      "from": 17,
+      "to": 41
+    },
+    {
+      "label": "园宴精工",
+      "from": 42,
+      "to": 52
+    },
+    {
+      "label": "露剂·园规",
+      "from": 53,
+      "to": 71
+    },
+    {
+      "label": "晚景简素",
+      "from": 72,
+      "to": 100
+    },
+    {
+      "label": "末世崩散",
+      "from": 101,
+      "to": 120
+    }
+  ],
+  "saga_milestones": [
+    {
+      "id": "hlm-e-001",
+      "title": "林黛玉进贾府",
+      "chapters": [
+        3
+      ],
+      "chapter": 3,
+      "href": "/honglou/e/hlm-e-001"
+    },
+    {
+      "id": "hlm-e-009",
+      "title": "秦可卿之死与凤姐协理",
+      "chapters": [
+        13
+      ],
+      "chapter": 13,
+      "href": "/honglou/e/hlm-e-009"
+    },
+    {
+      "id": "hlm-e-002",
+      "title": "元妃省亲",
+      "chapters": [
+        16,
+        17,
+        18
+      ],
+      "chapter": 16,
+      "href": "/honglou/e/hlm-e-002"
+    },
+    {
+      "id": "hlm-e-003",
+      "title": "共读西厢与黛玉葬花",
+      "chapters": [
+        23,
+        27
+      ],
+      "chapter": 23,
+      "href": "/honglou/e/hlm-e-003"
+    },
+    {
+      "id": "hlm-e-010",
+      "title": "宝玉挨打",
+      "chapters": [
+        33
+      ],
+      "chapter": 33,
+      "href": "/honglou/e/hlm-e-010"
+    },
+    {
+      "id": "hlm-e-011",
+      "title": "刘姥姥进大观园",
+      "chapters": [
+        39,
+        40,
+        41
+      ],
+      "chapter": 39,
+      "href": "/honglou/e/hlm-e-011"
+    },
+    {
+      "id": "hlm-e-012",
+      "title": "探春理家",
+      "chapters": [
+        55,
+        56
+      ],
+      "chapter": 55,
+      "href": "/honglou/e/hlm-e-012"
+    },
+    {
+      "id": "hlm-e-004",
+      "title": "紫鹃试玉",
+      "chapters": [
+        57
+      ],
+      "chapter": 57,
+      "href": "/honglou/e/hlm-e-004"
+    },
+    {
+      "id": "hlm-e-005",
+      "title": "抄检大观园",
+      "chapters": [
+        74
+      ],
+      "chapter": 74,
+      "href": "/honglou/e/hlm-e-005"
+    },
+    {
+      "id": "hlm-e-006",
+      "title": "调包计与黛玉焚稿",
+      "chapters": [
+        97,
+        98
+      ],
+      "chapter": 97,
+      "href": "/honglou/e/hlm-e-006"
+    },
+    {
+      "id": "hlm-e-007",
+      "title": "查抄宁国府",
+      "chapters": [
+        105
+      ],
+      "chapter": 105,
+      "href": "/honglou/e/hlm-e-007"
+    },
+    {
+      "id": "hlm-e-008",
+      "title": "宝玉悬崖撒手",
+      "chapters": [
+        120
+      ],
+      "chapter": 120,
+      "href": "/honglou/e/hlm-e-008"
+    }
+  ],
+  "by_chapter": [
+    {
+      "chapter": 1,
+      "entity_count": 1,
+      "luxury": 100.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 10,
+        "funeral_rite": 4,
+        "marriage": 0,
+        "clan_institution": 6,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [
+        "元宵"
+      ],
+      "luxury_smooth": 41.3,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 2,
+      "entity_count": 1,
+      "luxury": 12.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [
+        "冷子兴演说"
+      ],
+      "luxury_smooth": 41.5,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 3,
+      "entity_count": 1,
+      "luxury": 12.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [
+        "冷子兴演说"
+      ],
+      "luxury_smooth": 41.5,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 4,
+      "entity_count": 1,
+      "luxury": 42.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 3,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [
+        "护官符"
+      ],
+      "luxury_smooth": 22.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 5,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [],
+      "luxury_smooth": 27.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 6,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [],
+      "luxury_smooth": 27.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 7,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [],
+      "luxury_smooth": 22.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 8,
+      "entity_count": 1,
+      "luxury": 12.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [
+        "斗方"
+      ],
+      "luxury_smooth": 25.3,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 9,
+      "entity_count": 1,
+      "luxury": 32.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 2,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [
+        "义学"
+      ],
+      "luxury_smooth": 25.3,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 10,
+      "entity_count": 1,
+      "luxury": 32.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 2,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [
+        "义学"
+      ],
+      "luxury_smooth": 25.3,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 11,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [],
+      "luxury_smooth": 54.7,
+      "balance_smooth": 4.0
+    },
+    {
+      "chapter": 12,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [],
+      "luxury_smooth": 77.3,
+      "balance_smooth": 8.0
+    },
+    {
+      "chapter": 13,
+      "entity_count": 1,
+      "luxury": 100.0,
+      "balance": 12.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 8,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 12
+      },
+      "phase": "楔子·入府",
+      "entities": [
+        "秦可卿丧仪"
+      ],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 12.0
+    },
+    {
+      "chapter": 14,
+      "entity_count": 1,
+      "luxury": 100.0,
+      "balance": 12.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 8,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 12
+      },
+      "phase": "楔子·入府",
+      "entities": [
+        "秦可卿丧仪"
+      ],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 12.0
+    },
+    {
+      "chapter": 15,
+      "entity_count": 1,
+      "luxury": 100.0,
+      "balance": 12.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 8,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 12
+      },
+      "phase": "楔子·入府",
+      "entities": [
+        "秦可卿丧仪"
+      ],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 12.0
+    },
+    {
+      "chapter": 16,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [],
+      "luxury_smooth": 88.7,
+      "balance_smooth": 8.0
+    },
+    {
+      "chapter": 17,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 78.0,
+      "balance_smooth": 4.0
+    },
+    {
+      "chapter": 18,
+      "entity_count": 2,
+      "luxury": 66.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 12,
+        "funeral_rite": 4,
+        "marriage": 0,
+        "clan_institution": 6,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [
+        "元宵",
+        "元春省亲"
+      ],
+      "luxury_smooth": 78.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 19,
+      "entity_count": 1,
+      "luxury": 68.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 2,
+        "funeral_rite": 0,
+        "marriage": 2,
+        "clan_institution": 2,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [
+        "奴婢月例"
+      ],
+      "luxury_smooth": 78.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 20,
+      "entity_count": 1,
+      "luxury": 100.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 10,
+        "funeral_rite": 4,
+        "marriage": 0,
+        "clan_institution": 6,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [
+        "元宵"
+      ],
+      "luxury_smooth": 83.5,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 21,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 89.3,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 22,
+      "entity_count": 1,
+      "luxury": 100.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 10,
+        "funeral_rite": 4,
+        "marriage": 0,
+        "clan_institution": 6,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [
+        "元宵"
+      ],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 23,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 68.0,
+      "balance_smooth": 6.6
+    },
+    {
+      "chapter": 24,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 68.0,
+      "balance_smooth": 6.6
+    },
+    {
+      "chapter": 25,
+      "entity_count": 1,
+      "luxury": 36.0,
+      "balance": 13.2,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 2,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 11,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [
+        "魇魔法"
+      ],
+      "luxury_smooth": 36.0,
+      "balance_smooth": 13.2
+    },
+    {
+      "chapter": 26,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 36.0,
+      "balance_smooth": 13.2
+    },
+    {
+      "chapter": 27,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 36.0,
+      "balance_smooth": 13.2
+    },
+    {
+      "chapter": 28,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 36.0,
+      "balance_smooth": 13.2
+    },
+    {
+      "chapter": 29,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 52.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 30,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 52.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 31,
+      "entity_count": 1,
+      "luxury": 52.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 4,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [
+        "端午"
+      ],
+      "luxury_smooth": 52.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 32,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 52.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 33,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 52.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 34,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 52.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 35,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 52.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 36,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 52.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 37,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 52.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 38,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 52.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 39,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 52.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 40,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 41,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 42,
+      "entity_count": 3,
+      "luxury": 12.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "园宴精工",
+      "entities": [
+        "五色纸钱",
+        "巧哥儿名",
+        "玉匣记"
+      ],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 43,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 44,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 45,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 46,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 47,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 48,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 49,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 50,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 51,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 96.5,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 52,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 98.2,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 53,
+      "entity_count": 4,
+      "luxury": 96.5,
+      "balance": 0.0,
+      "axes": {
+        "festival": 21,
+        "funeral_rite": 12,
+        "marriage": 0,
+        "clan_institution": 18,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [
+        "元宵",
+        "元宵夜宴",
+        "宗祠祭祖",
+        "年例"
+      ],
+      "luxury_smooth": 93.5,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 54,
+      "entity_count": 1,
+      "luxury": 100.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 10,
+        "funeral_rite": 4,
+        "marriage": 0,
+        "clan_institution": 6,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [
+        "元宵"
+      ],
+      "luxury_smooth": 93.5,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 55,
+      "entity_count": 2,
+      "luxury": 84.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 12,
+        "funeral_rite": 4,
+        "marriage": 2,
+        "clan_institution": 8,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [
+        "元宵",
+        "奴婢月例"
+      ],
+      "luxury_smooth": 93.5,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 56,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 73.3,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 57,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 60.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 58,
+      "entity_count": 1,
+      "luxury": 36.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 2,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [
+        "祭菂官"
+      ],
+      "luxury_smooth": 36.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 59,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 36.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 60,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 36.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 61,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 36.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 62,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 36.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 63,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 68.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 64,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 68.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 65,
+      "entity_count": 1,
+      "luxury": 68.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 2,
+        "funeral_rite": 0,
+        "marriage": 2,
+        "clan_institution": 2,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [
+        "奴婢月例"
+      ],
+      "luxury_smooth": 68.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 66,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 68.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 67,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 68.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 68,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 28.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 69,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 36.0,
+      "balance_smooth": 1.8
+    },
+    {
+      "chapter": 70,
+      "entity_count": 1,
+      "luxury": 28.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 2,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [
+        "风筝"
+      ],
+      "luxury_smooth": 36.0,
+      "balance_smooth": 1.8
+    },
+    {
+      "chapter": 71,
+      "entity_count": 1,
+      "luxury": 44.0,
+      "balance": 3.6,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 4,
+        "clan_institution": 0,
+        "folk_magic": 3,
+        "state_norm": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [
+        "剪发誓"
+      ],
+      "luxury_smooth": 36.0,
+      "balance_smooth": 1.8
+    },
+    {
+      "chapter": 72,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 33.3,
+      "balance_smooth": 1.2
+    },
+    {
+      "chapter": 73,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 36.0,
+      "balance_smooth": 1.8
+    },
+    {
+      "chapter": 74,
+      "entity_count": 1,
+      "luxury": 28.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 2,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [
+        "风筝"
+      ],
+      "luxury_smooth": 35.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 75,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 35.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 76,
+      "entity_count": 1,
+      "luxury": 42.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 3,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [
+        "中秋"
+      ],
+      "luxury_smooth": 35.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 77,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 42.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 78,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 43.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 79,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 80,
+      "entity_count": 1,
+      "luxury": 44.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 4,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [
+        "迎春出嫁"
+      ],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 81,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 82,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 83,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 84,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 85,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 86,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 87,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 88,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 89,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 90,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 91,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 92,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 93,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 94,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 95,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 96,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 97,
+      "entity_count": 1,
+      "luxury": 44.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 4,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [
+        "宝玉宝钗成婚"
+      ],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 98,
+      "entity_count": 1,
+      "luxury": 44.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 4,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [
+        "宝玉宝钗成婚"
+      ],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 99,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 100,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 101,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 102,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 103,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 104,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 105,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 106,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 107,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 44.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 108,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 36.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 109,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 36.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 110,
+      "entity_count": 1,
+      "luxury": 36.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 2,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [
+        "宁戚丧仪"
+      ],
+      "luxury_smooth": 36.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 111,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 24.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 112,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 24.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 113,
+      "entity_count": 1,
+      "luxury": 12.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [
+        "巧姐托姥姥"
+      ],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 114,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 115,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 116,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 117,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 118,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 119,
+      "entity_count": 1,
+      "luxury": 12.0,
+      "balance": 0.0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [
+        "扮青儿"
+      ],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 120,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 12.0,
+      "balance_smooth": 0.0
+    }
+  ],
+  "characters": [
+    {
+      "id": "贾宝玉",
+      "name": "贾宝玉",
+      "social_tier": "elite",
+      "entity_count": 7,
+      "axes": {
+        "festival": 7,
+        "funeral_rite": 4,
+        "marriage": 8,
+        "clan_institution": 4,
+        "folk_magic": 11,
+        "state_norm": 0
+      },
+      "balance_score": 4.86,
+      "risk_tags": [
+        "节令仪式轴高",
+        "魇魅/巫术线并置",
+        "宗族礼制密集",
+        "丧祭礼仪着墨"
+      ],
+      "inference": "第2回冷子兴：周岁抓周只取脂粉钗环——对仕途继承最原始背叛（inference）；元宵省亲极盛 vs 最终僧袍。",
+      "sample_entities": [
+        "中秋",
+        "义学",
+        "宝玉宝钗成婚",
+        "斗方",
+        "祭菂官",
+        "端午",
+        "魇魔法"
+      ]
+    },
+    {
+      "id": "林黛玉",
+      "name": "林黛玉",
+      "social_tier": "elite",
+      "entity_count": 2,
+      "axes": {
+        "festival": 3,
+        "funeral_rite": 0,
+        "marriage": 4,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "balance_score": 3.5,
+      "risk_tags": [],
+      "inference": "第27回芒种葬花——送花神/饯春植物祭祀；把自己当花神，拒向「夏日」妥协（inference）。与端午赐礼线对照。",
+      "sample_entities": [
+        "中秋",
+        "风筝"
+      ]
+    },
+    {
+      "id": "薛宝钗",
+      "name": "薛宝钗",
+      "social_tier": "elite",
+      "entity_count": 2,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 12,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "balance_score": 6.0,
+      "risk_tags": [],
+      "inference": "第28回端午元春赐礼：与宝玉同款红麝串，黛玉不同——恶月祛毒民俗中的「镇邪求稳」（inference）；金玉良缘合法化。",
+      "sample_entities": [
+        "宝玉宝钗成婚",
+        "风筝"
+      ]
+    },
+    {
+      "id": "王熙凤",
+      "name": "王熙凤",
+      "social_tier": "elite",
+      "entity_count": 6,
+      "axes": {
+        "festival": 6,
+        "funeral_rite": 0,
+        "marriage": 14,
+        "clan_institution": 6,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "balance_score": 4.33,
+      "risk_tags": [
+        "节令仪式轴高",
+        "魇魅/巫术线并置",
+        "宗族礼制密集"
+      ],
+      "inference": "第54回元宵夜宴讲「聋子放炮」「翻江子」——乐极生悲、抄家谶语（inference）；巧姐七夕生，刘姥姥「以毒攻毒」取名。",
+      "sample_entities": [
+        "五色纸钱",
+        "奴婢月例",
+        "宝玉宝钗成婚",
+        "巧哥儿名",
+        "巧姐托姥姥",
+        "玉匣记"
+      ]
+    },
+    {
+      "id": "贾母",
+      "name": "贾母",
+      "social_tier": "elite",
+      "entity_count": 10,
+      "axes": {
+        "festival": 86,
+        "funeral_rite": 36,
+        "marriage": 16,
+        "clan_institution": 54,
+        "folk_magic": 3,
+        "state_norm": 0
+      },
+      "balance_score": 19.5,
+      "risk_tags": [
+        "节令仪式轴高",
+        "魇魅/巫术线并置",
+        "宗族礼制密集",
+        "丧祭礼仪着墨"
+      ],
+      "inference": "宗祠祭祖、元宵夜宴主持；中秋强撑笛声——家族团圆仪式最后的维持者。",
+      "sample_entities": [
+        "中秋",
+        "五色纸钱",
+        "元宵",
+        "元宵夜宴",
+        "元春省亲",
+        "剪发誓",
+        "宗祠祭祖",
+        "宝玉宝钗成婚"
+      ]
+    },
+    {
+      "id": "贾珍",
+      "name": "贾珍",
+      "social_tier": "elite",
+      "entity_count": 4,
+      "axes": {
+        "festival": 74,
+        "funeral_rite": 58,
+        "marriage": 0,
+        "clan_institution": 51,
+        "folk_magic": 0,
+        "state_norm": 36
+      },
+      "balance_score": 54.75,
+      "risk_tags": [
+        "节令仪式轴高",
+        "宗族礼制密集",
+        "逾制/争议轴高",
+        "丧祭礼仪着墨"
+      ],
+      "inference": "可卿丧仪极尽+买官；第53回祭祖排场与乌进孝账单并置——宗族泡沫（inference）。",
+      "sample_entities": [
+        "元宵",
+        "宗祠祭祖",
+        "年例",
+        "秦可卿丧仪"
+      ]
+    },
+    {
+      "id": "贾元春",
+      "name": "贾元春",
+      "social_tier": "elite",
+      "entity_count": 1,
+      "axes": {
+        "festival": 2,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "balance_score": 2.0,
+      "risk_tags": [],
+      "inference": "省亲大礼；端午赐礼定调——皇权节令介入贾府命运。",
+      "sample_entities": [
+        "元春省亲"
+      ]
+    },
+    {
+      "id": "刘姥姥",
+      "name": "刘姥姥",
+      "social_tier": "folk",
+      "entity_count": 5,
+      "axes": {
+        "festival": 0,
+        "funeral_rite": 0,
+        "marriage": 0,
+        "clan_institution": 0,
+        "folk_magic": 0,
+        "state_norm": 0
+      },
+      "balance_score": 0.0,
+      "risk_tags": [],
+      "inference": "巧姐取名、还愿求神；底层民俗经验在贾府庇护失效后救巧姐（inference）。",
+      "sample_entities": [
+        "五色纸钱",
+        "巧哥儿名",
+        "巧姐托姥姥",
+        "扮青儿",
+        "玉匣记"
+      ]
+    }
+  ],
+  "social": {
+    "title": "全社会民俗状态",
+    "segments": [
+      {
+        "id": "elite",
+        "label": "权贵/主子层",
+        "entity_count": 23,
+        "occurrence_weight": 95,
+        "axes": {
+          "festival": 299,
+          "funeral_rite": 202,
+          "marriage": 86,
+          "clan_institution": 196,
+          "folk_magic": 20,
+          "state_norm": 108
+        },
+        "sample_entities": [
+          "中秋",
+          "义学",
+          "五色纸钱",
+          "元宵",
+          "元宵夜宴",
+          "元春省亲"
+        ]
+      },
+      {
+        "id": "middling",
+        "label": "中层（体面仆婢·客商）",
+        "entity_count": 2,
+        "occurrence_weight": 10,
+        "axes": {
+          "festival": 18,
+          "funeral_rite": 0,
+          "marriage": 18,
+          "clan_institution": 18,
+          "folk_magic": 0,
+          "state_norm": 0
+        },
+        "sample_entities": [
+          "奴婢月例",
+          "扮青儿"
+        ]
+      },
+      {
+        "id": "folk",
+        "label": "市井/民间",
+        "entity_count": 8,
+        "occurrence_weight": 9,
+        "axes": {
+          "festival": 0,
+          "funeral_rite": 2,
+          "marriage": 0,
+          "clan_institution": 3,
+          "folk_magic": 11,
+          "state_norm": 0
+        },
+        "sample_entities": [
+          "五色纸钱",
+          "冷子兴演说",
+          "巧哥儿名",
+          "巧姐托姥姥",
+          "扮青儿",
+          "护官符"
+        ]
+      },
+      {
+        "id": "general",
+        "label": "未分层/制度性",
+        "entity_count": 23,
+        "occurrence_weight": 72,
+        "axes": {
+          "festival": 252,
+          "funeral_rite": 138,
+          "marriage": 28,
+          "clan_institution": 187,
+          "folk_magic": 25,
+          "state_norm": 36
+        },
+        "sample_entities": [
+          "义学",
+          "五色纸钱",
+          "元宵",
+          "元宵夜宴",
+          "元春省亲",
+          "冷子兴演说"
+        ]
+      }
+    ],
+    "global_axes": {
+      "festival": 96,
+      "funeral_rite": 66,
+      "marriage": 26,
+      "clan_institution": 67,
+      "folk_magic": 14,
+      "state_norm": 36
+    },
+    "inference": "权贵层与市井层在文本中的民俗状态着墨密度悬殊；上层偏精细/排场，民间偏简易或求神问卜（推演）。",
+    "insights": [
+      {
+        "title": "阶层差：民俗状态不对称",
+        "body": "权贵层与市井层在文本中的民俗状态着墨密度悬殊；上层偏精细/排场，民间偏简易或求神问卜（推演）。",
+        "evidence": [
+          "中秋",
+          "义学",
+          "五色纸钱",
+          "五色纸钱",
+          "冷子兴演说"
+        ]
+      },
+      {
+        "title": "节令倒计时：盛→毒→散→祭",
+        "body": "元宵极盛、端午争斗、中秋无月、除夕祭祖——四节循环如家族死亡倒计时（推演）。",
+        "evidence": [
+          "元宵夜宴",
+          "端午",
+          "中秋",
+          "宗祠祭祖"
+        ]
+      },
+      {
+        "title": "祭祖泡沫与巫术焦虑",
+        "body": "宗祠庄严与乌进孝账单并置；马道婆魇法、求神还愿——仪式维持等级，精神靠巫术自救（推演）。",
+        "evidence": [
+          "魇魔法",
+          "宗祠祭祖",
+          "刘姥姥求神"
+        ]
+      },
+      {
+        "title": "底层民俗的续命力",
+        "body": "巧姐七夕名、刘姥姥取名还愿——上层失效后农家逻辑延续血脉（推演）。",
+        "evidence": [
+          "巧姐托姥姥",
+          "巧哥儿名"
+        ]
+      },
+      {
+        "title": "主导轴",
+        "body": "聚合后「节令年例」权重最高，可视为本书民俗状态的结构性偏向（inference）。",
+        "evidence": []
+      }
+    ]
+  },
+  "global_insights": [
+    {
+      "title": "全书礼制密度曲线",
+      "body": "按回聚合民俗状态指数；峰回第13回（楔子·入府）。",
+      "evidence": [
+        "13"
+      ]
+    },
+    {
+      "title": "全社会民俗状态",
+      "body": "权贵层与市井层在文本中的民俗状态着墨密度悬殊；上层偏精细/排场，民间偏简易或求神问卜（推演）。",
+      "evidence": [
+        "权贵/主子层",
+        "中层（体面仆婢·客商）",
+        "市井/民间"
+      ]
+    },
+    {
+      "title": "人物民俗：仪式固定的悲剧线",
+      "body": "黛玉芒种葬花=植物祭祀；宝钗端午红麝=镇邪求稳；宝玉抓周背叛继承；凤姐元宵笑话成谶；巧姐七夕名=底层民俗救场（推演）。",
+      "evidence": [
+        "林黛玉",
+        "薛宝钗",
+        "贾宝玉",
+        "王熙凤",
+        "巧姐托姥姥"
+      ]
+    },
+    {
+      "title": "节日倒计时：元宵→端午→中秋→祭祖",
+      "body": "元宵极盛（省亲/夜宴）→端午五毒争斗（赐礼/提亲）→中秋无月散场（冷月葬花魂）→除夕祭祖+乌进孝缩水=终局祭坛（推演）。",
+      "evidence": [
+        "元宵夜宴",
+        "端午",
+        "中秋",
+        "宗祠祭祖"
+      ]
+    },
+    {
+      "title": "横切面一：除夕祭祖与宗族泡沫",
+      "body": "第53回祭祖最庄严，同时乌进孝账单缩水——以孝治天下的仪式维持等级，经济根基已断（宗法 inference）。",
+      "evidence": [
+        "宗祠祭祖",
+        "年例",
+        "秦可卿丧仪"
+      ]
+    },
+    {
+      "title": "横切面二：中秋无月与小农下行",
+      "body": "第75–76回中秋宴颓败、无月凶兆——秋收节令成色挂钩年成；帝国下行周期缩影（经济—民俗 inference）。",
+      "evidence": [
+        "中秋",
+        "凸碧堂"
+      ]
+    },
+    {
+      "title": "横切面三：端午驱邪与巫术焦虑",
+      "body": "红麝串、雄黄祛五毒；马道婆魇魔法、赵姨娘扎小人——各阶层精神不安全，转向巫术私刑（心理—社会 inference）。",
+      "evidence": [
+        "魇魔法",
+        "端午",
+        "刘姥姥求神"
+      ]
+    },
+    {
+      "title": "横切面四：刘姥姥取名与底层续命",
+      "body": "巧姐七夕生，凤姐求刘姥姥「以毒攻毒」取名——上层庇护失效后，底层农耕民俗延续血脉（阶级和解 inference）。",
+      "evidence": [
+        "巧姐托姥姥",
+        "巧哥儿名",
+        "刘姥姥"
+      ]
+    },
+    {
+      "title": "终极：民俗天网与文化挽歌",
+      "body": "每过一节=宗法引力拉回一步；仪式残缺变味时，封建文化根基风化——白茫茫大地是民俗丧钟（文学—社会 inference）。",
+      "evidence": [
+        "好了歌",
+        "查抄",
+        "冷月葬花魂"
+      ]
+    }
+  ],
+  "stats": {
+    "entity_count": 25,
+    "occurrence_rows": 39,
+    "chapters_with_data": 32,
+    "peak_chapter": 13,
+    "peak_primary": 100.0,
+    "saga_milestones": 12,
+    "social_segments": 4
+  }
+}

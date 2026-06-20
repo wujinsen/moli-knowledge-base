@@ -9,6 +9,7 @@ export interface JpmModuleLink {
 export const JPM_MODULE_NAV: JpmModuleLink[] = [
   { feature: 'chain', slug: 'chain', label: '衰败链' },
   { feature: 'silver', slug: 'silver', label: '白银流' },
+  { feature: 'litigation', slug: 'litigation', label: '诉讼推演' },
   { feature: 'town', slug: 'town', label: '市井地图' },
   { feature: 'graph', slug: 'graph', label: '社会网' },
   { feature: 'sna', slug: 'sna', label: 'SNA' },

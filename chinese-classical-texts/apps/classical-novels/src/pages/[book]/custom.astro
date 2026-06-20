@@ -1,0 +1,58 @@
+---
+import { getBooks } from '../../lib/getBooks';
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import MaterialModuleNav from '../../components/MaterialModuleNav.astro';
+import MaterialCatalog from '../../components/MaterialCatalog.astro';
+import { groupByKind, loadBookItems } from '../../lib/items';
+import { hasMaterialFeature, materialCrumbs, topicHubForModule } from '../../lib/materialModules';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  return books
+    .filter((b) => hasMaterialFeature(b.data.features, 'custom'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+const customs = groupByKind(await loadBookItems(meta.book)).custom;
+const topics = topicHubForModule(meta.slug, 'custom');
+---
+
+<Base title={`${meta.book} · 民俗`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  <Breadcrumb items={materialCrumbs(meta.slug, 'custom', { view: 'catalog' })} />
+
+  <div class="content-page catalog-fold-page">
+    <section class="surface relative mb-6 overflow-hidden px-6 py-7 sm:px-8">
+      <div class="flex items-start gap-4">
+        <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">俗</span>
+        <div>
+          <h1 class="brand text-4xl" style="color: var(--primary)">民俗</h1>
+          <p class="mt-2 text-sm text-muted">礼仪 · 制度 · 节令规章 · {customs.length} 条实体</p>
+        </div>
+      </div>
+    </section>
+
+    <MaterialModuleNav bookSlug={meta.slug} features={meta.features} active="custom" moduleSub="catalog" />
+
+    {
+      topics.length > 0 && (
+        <section class="surface mb-8 p-4 sm:p-6">
+          <h2 class="section-title mb-2 text-lg">纵切主题</h2>
+          <div class="flex flex-wrap gap-2">
+            {
+              topics.map((t) => (
+                <a href={`/${meta.slug}/topics/${t.slug}`} class="chip chip-md hover:underline">
+                  {t.title}
+                </a>
+              ))
+            }
+          </div>
+        </section>
+      )
+    }
+
+    <MaterialCatalog bookSlug={meta.slug} items={customs} />
+  </div>
+</Base>

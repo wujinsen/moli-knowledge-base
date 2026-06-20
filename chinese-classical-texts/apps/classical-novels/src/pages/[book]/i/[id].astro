@@ -3,7 +3,8 @@ import { getCollection } from 'astro:content';
 import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
 import BackLink from '../../../components/BackLink.astro';
-import { itemsIndexTitle, kindLabel, loadBookItems, getItemEntry, type ItemKind } from '../../../lib/items';
+import { kindLabel, loadBookItems, getItemEntry, type ItemKind } from '../../../lib/items';
+import { catalogHrefForKind, catalogLabelForKind } from '../../../lib/materialModules';
 import {
   chaptersFromAppearIn,
   itemLocationId,
@@ -86,7 +87,8 @@ if (kind === 'artifact') {
 const locationId = itemLocationId(entry);
 const samePlace = await relatedItemsAtSameLocation(d.book, locationId, d.id);
 const chapterNums = chaptersFromAppearIn(d.appear_in ?? []);
-const indexTitle = itemsIndexTitle(d.book);
+const catalogHref = catalogHrefForKind(slug, kind);
+const catalogLabel = catalogLabelForKind(kind);
 const artifactData = kind === 'artifact' ? (d as typeof d & { abilities?: string[]; counters?: string[]; relations?: { target: string; type: string; note?: string }[] }) : null;
 const allItems = await loadBookItems(d.book);
 const counterRefs = artifactData?.counters?.map((id) => allItems.find((i) => i.entry.data.id === id)).filter(Boolean) ?? [];
@@ -94,7 +96,7 @@ const relatedTopics = getItemTopicLinks(slug, d.id);
 ---
 
 <Base title={d.name} bookSlug={slug} bookName={d.book} features={features}>
-  <BackLink href={`/${slug}/items`} label={indexTitle} />
+  <BackLink href={catalogHref} label={catalogLabel} />
   <div
     class="content-page entity-detail"
     data-pagefind-body

@@ -133,7 +133,7 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
         { key: 'bestiary', glyph: '鉴', title: '人物图鉴', desc: '十二钗 · 性格 · 喜好 · 名物互链', ...live(has('bestiary'), slug, 'bestiary', `/${slug}/bestiary`) },
         { key: 'places', glyph: '筑', title: '建筑图鉴', desc: '宁荣两府与大观园 · 匾额对联 · 107 处', ...live(has('places'), slug, 'places', `/${slug}/places`) },
         honglouMapsModule(features),
-        { key: 'items', glyph: '物', title: '名物百科', desc: '饮食 · 医药 · 服饰纵切研究', ...live(has('items'), slug, 'items', `/${slug}/items`) },
+        { key: 'items', glyph: '物', title: '名物百科', desc: '饮食 · 医药 · 服饰 · 民俗 · 交叉检索', ...live(has('items'), slug, 'items', `/${slug}/items`) },
         {
           key: 'shi', glyph: '诗', title: '诗词意象', desc: '葬花吟 · 判词 · 花签隐喻', ...live(has('poems'), slug, 'shi', `/${slug}/shi`),
           preview: {
@@ -314,7 +314,26 @@ export function modulesFor(slug: string, features: string[]): BookModule[] {
           },
         },
         {
-          key: 'material', glyph: '物', title: '物质百科', desc: '服饰 · 饮食 · 药材', ...live(has('items'), slug, 'material', `/${slug}/items`),
+          key: 'litigation', glyph: '讼', title: '司法 · 诉讼推演', desc: '三级通关 · 腐败曲线 · 案件轨', ...live(has('litigation'), slug, 'litigation', `/${slug}/litigation`),
+          preview: {
+            intro:
+              '把《大明律》当价目表：武松告状、花子虚争产、苗员外命案构成基层→跨区→国家级司法通关；腐败曲线与白银/衰败链互证。',
+            dimensions: [
+              { title: '基层', desc: '县衙贿审 · 何九瞒验 · 武松私刑' },
+              { title: '跨区', desc: '花子虚争产 · 东京分上 · 资产洗劫' },
+              { title: '国家级', desc: '苗案枉法 · 提刑千户 · 蔡党压巡按' },
+              { title: '庇护真空', desc: '西门庆死后 · 陈经济争产反被敲诈' },
+            ],
+            phases: [
+              'build_litigation_inference.py · jinpingmei.litigation-inference.json',
+              '?chapter= 深链 · 与 chain/silver 互证',
+              'topics/世情四横切面与社会推演 §4  synthesis',
+            ],
+            relatedDoc: '世情四横切面与社会推演.md',
+          },
+        },
+        {
+          key: 'material', glyph: '物', title: '物质百科', desc: '饮食 · 医药 · 服饰 · 交叉检索', ...live(has('items'), slug, 'material', `/${slug}/items`),
           preview: {
             intro:
               '提取《金瓶梅》的物质实体，会得到一部庞大的晚明生活百科——服饰、饮食、药材皆有极专业的描写，可作社会人类学切片。',

@@ -1,0 +1,2534 @@
+{
+  "book": "金瓶梅",
+  "slug": "jinpingmei",
+  "generated_by": "build_diet_inference.py",
+  "inference_note": "推演层：dish 手标 diet_axes + 回目 items[] + medicine + saga 互参；非医学诊断。",
+  "axes": [
+    {
+      "id": "fine_tonic",
+      "label": "大补药膳",
+      "desc": "燕窝、人参、露剂、胡僧药等"
+    },
+    {
+      "id": "fat_sweet",
+      "label": "肥甘甜烂",
+      "desc": "糟味、奶酥、甜烂、禽脂"
+    },
+    {
+      "id": "refined_grain",
+      "label": "细米精面",
+      "desc": "粳稻、红稻、细面（非粗粮）"
+    },
+    {
+      "id": "coarse_balance",
+      "label": "粗淡平衡",
+      "desc": "小菜、消导、清淡粥汤"
+    },
+    {
+      "id": "feast_luxury",
+      "label": "宴享排场",
+      "desc": "省亲、寿宴、茄鲞等"
+    },
+    {
+      "id": "alcohol",
+      "label": "酒茶",
+      "desc": "绍兴酒、金华酒等"
+    }
+  ],
+  "phases": [
+    {
+      "label": "发迹根基",
+      "from": 1,
+      "to": 20
+    },
+    {
+      "label": "得官攀升",
+      "from": 21,
+      "to": 49
+    },
+    {
+      "label": "鼎盛极奢",
+      "from": 50,
+      "to": 79
+    },
+    {
+      "label": "衰败散府",
+      "from": 80,
+      "to": 100
+    }
+  ],
+  "saga_milestones": [
+    {
+      "id": "jpm-rt-003",
+      "title": "武松复仇·阳谷归来杀嫂",
+      "chapters": [
+        1,
+        9,
+        87
+      ],
+      "chapter": 1,
+      "href": "/jinpingmei/e/jpm-rt-003"
+    },
+    {
+      "id": "jpm-ms-001",
+      "title": "毒杀武大郎与潘金莲入府",
+      "chapters": [
+        5,
+        9
+      ],
+      "chapter": 5,
+      "href": "/jinpingmei/e/jpm-ms-001"
+    },
+    {
+      "id": "jpm-ms-002",
+      "title": "李瓶儿改嫁",
+      "chapters": [
+        14,
+        19
+      ],
+      "chapter": 14,
+      "href": "/jinpingmei/e/jpm-ms-002"
+    },
+    {
+      "id": "jpm-ms-008",
+      "title": "来旺遭陷与宋蕙莲之死",
+      "chapters": [
+        25,
+        26
+      ],
+      "chapter": 25,
+      "href": "/jinpingmei/e/jpm-ms-008"
+    },
+    {
+      "id": "jpm-ms-003",
+      "title": "生子与升官",
+      "chapters": [
+        30
+      ],
+      "chapter": 30,
+      "href": "/jinpingmei/e/jpm-ms-003"
+    },
+    {
+      "id": "jpm-ms-009",
+      "title": "盛宴接待两巡按",
+      "chapters": [
+        49
+      ],
+      "chapter": 49,
+      "href": "/jinpingmei/e/jpm-ms-009"
+    },
+    {
+      "id": "jpm-ms-004",
+      "title": "官哥儿受惊与李瓶儿病逝",
+      "chapters": [
+        59,
+        62
+      ],
+      "chapter": 59,
+      "href": "/jinpingmei/e/jpm-ms-004"
+    },
+    {
+      "id": "jpm-ms-005",
+      "title": "西门庆纵欲身亡",
+      "chapters": [
+        79
+      ],
+      "chapter": 79,
+      "href": "/jinpingmei/e/jpm-ms-005"
+    },
+    {
+      "id": "jpm-ms-006",
+      "title": "武松杀嫂",
+      "chapters": [
+        87
+      ],
+      "chapter": 87,
+      "href": "/jinpingmei/e/jpm-ms-006"
+    },
+    {
+      "id": "jpm-ms-007",
+      "title": "孝哥出家",
+      "chapters": [
+        100
+      ],
+      "chapter": 100,
+      "href": "/jinpingmei/e/jpm-ms-007"
+    }
+  ],
+  "by_chapter": [
+    {
+      "chapter": 1,
+      "dish_count": 3,
+      "luxury": 76.0,
+      "balance": -3.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 6,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 4,
+        "alcohol": 3
+      },
+      "phase": "发迹根基",
+      "dishes": [
+        "烧羊",
+        "酥酥",
+        "金华酒"
+      ],
+      "sources": [
+        "entity"
+      ],
+      "luxury_smooth": 48.0,
+      "balance_smooth": -0.8
+    },
+    {
+      "chapter": 2,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "发迹根基",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 48.0,
+      "balance_smooth": -0.8
+    },
+    {
+      "chapter": 3,
+      "dish_count": 1,
+      "luxury": 20.0,
+      "balance": 1.4,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 0,
+        "coarse_balance": 3,
+        "feast_luxury": 0,
+        "alcohol": 1
+      },
+      "phase": "发迹根基",
+      "dishes": [
+        "梅汤"
+      ],
+      "sources": [
+        "entity"
+      ],
+      "luxury_smooth": 38.7,
+      "balance_smooth": -0.53
+    },
+    {
+      "chapter": 4,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "发迹根基",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 20.0,
+      "balance_smooth": 0.7
+    },
+    {
+      "chapter": 5,
+      "dish_count": 1,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "发迹根基",
+      "dishes": [
+        "砒霜"
+      ],
+      "sources": [
+        "medicine"
+      ],
+      "luxury_smooth": 20.0,
+      "balance_smooth": 0.7
+    },
+    {
+      "chapter": 6,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "发迹根基",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 60.0,
+      "balance_smooth": -0.9
+    },
+    {
+      "chapter": 7,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "发迹根基",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 60.0,
+      "balance_smooth": -0.9
+    },
+    {
+      "chapter": 8,
+      "dish_count": 1,
+      "luxury": 100.0,
+      "balance": -1.8,
+      "axes": {
+        "fine_tonic": 1,
+        "fat_sweet": 0,
+        "refined_grain": 1,
+        "coarse_balance": 2,
+        "feast_luxury": 4,
+        "alcohol": 0
+      },
+      "phase": "发迹根基",
+      "dishes": [
+        "面汤"
+      ],
+      "sources": [
+        "entity"
+      ],
+      "luxury_smooth": 100.0,
+      "balance_smooth": -1.8
+    },
+    {
+      "chapter": 9,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "发迹根基",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": -1.8
+    },
+    {
+      "chapter": 10,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "发迹根基",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": -1.8
+    },
+    {
+      "chapter": 11,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "发迹根基",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": -1.8
+    },
+    {
+      "chapter": 12,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "发迹根基",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": -1.8
+    },
+    {
+      "chapter": 13,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "发迹根基",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": -2.8
+    },
+    {
+      "chapter": 14,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "发迹根基",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": -2.8
+    },
+    {
+      "chapter": 15,
+      "dish_count": 1,
+      "luxury": 100.0,
+      "balance": -2.8,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 2,
+        "coarse_balance": 0,
+        "feast_luxury": 2,
+        "alcohol": 2
+      },
+      "phase": "发迹根基",
+      "dishes": [
+        "寿面"
+      ],
+      "sources": [
+        "entity"
+      ],
+      "luxury_smooth": 100.0,
+      "balance_smooth": -2.8
+    },
+    {
+      "chapter": 16,
+      "dish_count": 1,
+      "luxury": 100.0,
+      "balance": -2.8,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 2,
+        "coarse_balance": 0,
+        "feast_luxury": 2,
+        "alcohol": 2
+      },
+      "phase": "发迹根基",
+      "dishes": [
+        "寿面"
+      ],
+      "sources": [
+        "entity"
+      ],
+      "luxury_smooth": 100.0,
+      "balance_smooth": -2.8
+    },
+    {
+      "chapter": 17,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "发迹根基",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": -2.8
+    },
+    {
+      "chapter": 18,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "发迹根基",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": -2.8
+    },
+    {
+      "chapter": 19,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "发迹根基",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": -2.8
+    },
+    {
+      "chapter": 20,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "发迹根基",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": -2.8
+    },
+    {
+      "chapter": 21,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 71.0,
+      "balance_smooth": -3.9
+    },
+    {
+      "chapter": 22,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 71.0,
+      "balance_smooth": -3.9
+    },
+    {
+      "chapter": 23,
+      "dish_count": 1,
+      "luxury": 71.0,
+      "balance": -3.9,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 3,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 1,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [
+        "烧猪头"
+      ],
+      "sources": [
+        "entity"
+      ],
+      "luxury_smooth": 71.0,
+      "balance_smooth": -3.9
+    },
+    {
+      "chapter": 24,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 71.0,
+      "balance_smooth": -3.9
+    },
+    {
+      "chapter": 25,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 59.0,
+      "balance_smooth": -2.45
+    },
+    {
+      "chapter": 26,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 27,
+      "dish_count": 1,
+      "luxury": 47.0,
+      "balance": -1.0,
+      "axes": {
+        "fine_tonic": 1,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 2
+      },
+      "phase": "得官攀升",
+      "dishes": [
+        "药五香酒"
+      ],
+      "sources": [
+        "entity"
+      ],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 28,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 29,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 30,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 31,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 32,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 33,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 34,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 35,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 36,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 37,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 38,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 39,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 40,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 41,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 42,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 43,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 44,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 45,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 46,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 47,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 80.0,
+      "balance_smooth": -4.0
+    },
+    {
+      "chapter": 48,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 80.0,
+      "balance_smooth": -4.0
+    },
+    {
+      "chapter": 49,
+      "dish_count": 1,
+      "luxury": 80.0,
+      "balance": -4.0,
+      "axes": {
+        "fine_tonic": 4,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "得官攀升",
+      "dishes": [
+        "胡僧药"
+      ],
+      "sources": [
+        "medicine"
+      ],
+      "luxury_smooth": 80.0,
+      "balance_smooth": -4.0
+    },
+    {
+      "chapter": 50,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 68.0,
+      "balance_smooth": -3.6
+    },
+    {
+      "chapter": 51,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 68.0,
+      "balance_smooth": -3.6
+    },
+    {
+      "chapter": 52,
+      "dish_count": 2,
+      "luxury": 56.0,
+      "balance": -3.2,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 4,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 1
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [
+        "糟鲥鱼",
+        "五灵脂"
+      ],
+      "sources": [
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 56.0,
+      "balance_smooth": -3.2
+    },
+    {
+      "chapter": 53,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 56.0,
+      "balance_smooth": -3.2
+    },
+    {
+      "chapter": 54,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 56.0,
+      "balance_smooth": -3.2
+    },
+    {
+      "chapter": 55,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 56.0,
+      "balance_smooth": -3.2
+    },
+    {
+      "chapter": 56,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 56.0,
+      "balance_smooth": -3.2
+    },
+    {
+      "chapter": 57,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 56.0,
+      "balance_smooth": -2.8
+    },
+    {
+      "chapter": 58,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 56.0,
+      "balance_smooth": -2.8
+    },
+    {
+      "chapter": 59,
+      "dish_count": 4,
+      "luxury": 56.0,
+      "balance": -2.8,
+      "axes": {
+        "fine_tonic": 6,
+        "fat_sweet": 4,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 1
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [
+        "桂花饼",
+        "荷花细饼",
+        "灯心薄荷金银汤",
+        "金箔丸"
+      ],
+      "sources": [
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 63.5,
+      "balance_smooth": -2.31
+    },
+    {
+      "chapter": 60,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 59.0,
+      "balance_smooth": -2.21
+    },
+    {
+      "chapter": 61,
+      "dish_count": 3,
+      "luxury": 71.0,
+      "balance": -1.83,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 1,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 4,
+        "alcohol": 3
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [
+        "葡萄酒",
+        "螃蟹鲜",
+        "任医官诊血崩"
+      ],
+      "sources": [
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 59.0,
+      "balance_smooth": -2.21
+    },
+    {
+      "chapter": 62,
+      "dish_count": 1,
+      "luxury": 50.0,
+      "balance": -2.0,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [
+        "任医官诊血崩"
+      ],
+      "sources": [
+        "medicine"
+      ],
+      "luxury_smooth": 60.5,
+      "balance_smooth": -1.92
+    },
+    {
+      "chapter": 63,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 60.5,
+      "balance_smooth": -1.92
+    },
+    {
+      "chapter": 64,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 50.0,
+      "balance_smooth": -2.0
+    },
+    {
+      "chapter": 65,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 37.0,
+      "balance_smooth": -1.6
+    },
+    {
+      "chapter": 66,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 52.5,
+      "balance_smooth": -2.53
+    },
+    {
+      "chapter": 67,
+      "dish_count": 2,
+      "luxury": 37.0,
+      "balance": -1.6,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 4,
+        "refined_grain": 0,
+        "coarse_balance": 1,
+        "feast_luxury": 0,
+        "alcohol": 1
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [
+        "衣梅",
+        "酥油泡螺儿"
+      ],
+      "sources": [
+        "entity"
+      ],
+      "luxury_smooth": 52.5,
+      "balance_smooth": -2.53
+    },
+    {
+      "chapter": 68,
+      "dish_count": 2,
+      "luxury": 68.0,
+      "balance": -3.45,
+      "axes": {
+        "fine_tonic": 3,
+        "fat_sweet": 3,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 1,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [
+        "烧鹅",
+        "薛姑子种子方"
+      ],
+      "sources": [
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 52.5,
+      "balance_smooth": -2.53
+    },
+    {
+      "chapter": 69,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 52.5,
+      "balance_smooth": -2.53
+    },
+    {
+      "chapter": 70,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 68.0,
+      "balance_smooth": -3.45
+    },
+    {
+      "chapter": 71,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 80.0,
+      "balance_smooth": -4.0
+    },
+    {
+      "chapter": 72,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 80.0,
+      "balance_smooth": -4.0
+    },
+    {
+      "chapter": 73,
+      "dish_count": 1,
+      "luxury": 80.0,
+      "balance": -4.0,
+      "axes": {
+        "fine_tonic": 4,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [
+        "颤声娇"
+      ],
+      "sources": [
+        "medicine"
+      ],
+      "luxury_smooth": 80.0,
+      "balance_smooth": -4.0
+    },
+    {
+      "chapter": 74,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 80.0,
+      "balance_smooth": -4.0
+    },
+    {
+      "chapter": 75,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 80.0,
+      "balance_smooth": -4.0
+    },
+    {
+      "chapter": 76,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 53.0,
+      "balance_smooth": -2.0
+    },
+    {
+      "chapter": 77,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 65.0,
+      "balance_smooth": -2.7
+    },
+    {
+      "chapter": 78,
+      "dish_count": 4,
+      "luxury": 53.0,
+      "balance": -2.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 6,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 1,
+        "alcohol": 7
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [
+        "历日",
+        "果馅金饼",
+        "浙江酒",
+        "鲜猪"
+      ],
+      "sources": [
+        "entity"
+      ],
+      "luxury_smooth": 65.0,
+      "balance_smooth": -2.7
+    },
+    {
+      "chapter": 79,
+      "dish_count": 2,
+      "luxury": 77.0,
+      "balance": -3.4,
+      "axes": {
+        "fine_tonic": 4,
+        "fat_sweet": 2,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 1,
+        "alcohol": 2
+      },
+      "phase": "鼎盛极奢",
+      "dishes": [
+        "元宵圆子",
+        "西门庆脱阳之症"
+      ],
+      "sources": [
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 65.0,
+      "balance_smooth": -2.7
+    },
+    {
+      "chapter": 80,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 65.0,
+      "balance_smooth": -2.7
+    },
+    {
+      "chapter": 81,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 77.0,
+      "balance_smooth": -3.4
+    },
+    {
+      "chapter": 82,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 77.0,
+      "balance_smooth": -3.4
+    },
+    {
+      "chapter": 83,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 77.0,
+      "balance_smooth": -3.4
+    },
+    {
+      "chapter": 84,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 77.0,
+      "balance_smooth": -3.4
+    },
+    {
+      "chapter": 85,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 77.0,
+      "balance_smooth": -3.4
+    },
+    {
+      "chapter": 86,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 77.0,
+      "balance_smooth": -3.4
+    },
+    {
+      "chapter": 87,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 77.0,
+      "balance_smooth": -3.4
+    },
+    {
+      "chapter": 88,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 77.0,
+      "balance_smooth": -3.4
+    },
+    {
+      "chapter": 89,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 77.0,
+      "balance_smooth": -3.4
+    },
+    {
+      "chapter": 90,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 77.0,
+      "balance_smooth": -3.4
+    },
+    {
+      "chapter": 91,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 77.0,
+      "balance_smooth": -3.4
+    },
+    {
+      "chapter": 92,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 77.0,
+      "balance_smooth": -3.4
+    },
+    {
+      "chapter": 93,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 77.0,
+      "balance_smooth": -3.4
+    },
+    {
+      "chapter": 94,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 77.0,
+      "balance_smooth": -3.4
+    },
+    {
+      "chapter": 95,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 77.0,
+      "balance_smooth": -3.4
+    },
+    {
+      "chapter": 96,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 86.0,
+      "balance_smooth": -1.2
+    },
+    {
+      "chapter": 97,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 86.0,
+      "balance_smooth": -1.2
+    },
+    {
+      "chapter": 98,
+      "dish_count": 1,
+      "luxury": 86.0,
+      "balance": -1.2,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 2,
+        "alcohol": 3
+      },
+      "phase": "衰败散府",
+      "dishes": [
+        "葡萄酒"
+      ],
+      "sources": [
+        "entity"
+      ],
+      "luxury_smooth": 86.0,
+      "balance_smooth": -1.2
+    },
+    {
+      "chapter": 99,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 86.0,
+      "balance_smooth": -1.2
+    },
+    {
+      "chapter": 100,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "衰败散府",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 86.0,
+      "balance_smooth": -1.2
+    }
+  ],
+  "characters": [
+    {
+      "id": "西门庆",
+      "name": "西门庆",
+      "dish_count": 15,
+      "axes": {
+        "fine_tonic": 4,
+        "fat_sweet": 27,
+        "refined_grain": 1,
+        "coarse_balance": 4,
+        "feast_luxury": 12,
+        "alcohol": 17
+      },
+      "balance_score": -36.9,
+      "risk_tags": [
+        "宴享排场密集，饮食失时风险",
+        "酒肉频繁"
+      ],
+      "inference": "宴享排场密集，饮食失时风险；酒肉频繁。四步金融经：婚姻兼并→三分利→产业矩阵→买官理刑千户；资本宿主纵欲+胡僧药透支，死后帮闲/韩道国清算（推演）。",
+      "medicine_echo": [],
+      "sample_dishes": [
+        "桂花饼",
+        "梅汤",
+        "烧猪头",
+        "烧羊",
+        "烧鹅",
+        "糟鲥鱼",
+        "药五香酒",
+        "荷花细饼"
+      ]
+    },
+    {
+      "id": "应伯爵",
+      "name": "应伯爵",
+      "dish_count": 4,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 9,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 5,
+        "alcohol": 0
+      },
+      "balance_score": -12.9,
+      "risk_tags": [
+        "肥甘甜烂偏多，易滞中助湿（推演）"
+      ],
+      "inference": "肥甘甜烂偏多，易滞中助湿（推演）。帮闲胃囊寄生；死即投张二官收铺娶李娇儿——喂养反噬（推演）。",
+      "medicine_echo": [],
+      "sample_dishes": [
+        "元宵圆子",
+        "烧羊",
+        "螃蟹鲜",
+        "酥酥"
+      ]
+    },
+    {
+      "id": "李瓶儿",
+      "name": "李瓶儿",
+      "dish_count": 3,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 4,
+        "refined_grain": 4,
+        "coarse_balance": 0,
+        "feast_luxury": 6,
+        "alcohol": 5
+      },
+      "balance_score": -11.2,
+      "risk_tags": [
+        "精米细面为主，缺粗粮平衡",
+        "宴享排场密集，饮食失时风险",
+        "酒肉频繁"
+      ],
+      "inference": "精米细面为主，缺粗粮平衡；宴享排场密集，饮食失时风险；酒肉频繁。太监遗产=资本三级跳；新盖三层楼=特权空间亦成母子坟墓（推演）。",
+      "medicine_echo": [],
+      "sample_dishes": [
+        "寿面",
+        "螃蟹鲜",
+        "酥油泡螺儿"
+      ]
+    },
+    {
+      "id": "潘金莲",
+      "name": "潘金莲",
+      "dish_count": 2,
+      "axes": {
+        "fine_tonic": 1,
+        "fat_sweet": 3,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 1,
+        "alcohol": 2
+      },
+      "balance_score": -4.9,
+      "risk_tags": [],
+      "inference": "饮食轴相对均衡，或文本着墨较少。西厢边缘空间→偷听争位；分不到核心席面，酸梅汤/酸辣对抗瓶儿蹄子（空间+胃囊 inference）。",
+      "medicine_echo": [],
+      "sample_dishes": [
+        "烧猪头",
+        "药五香酒"
+      ]
+    },
+    {
+      "id": "庞春梅",
+      "name": "庞春梅",
+      "dish_count": 1,
+      "axes": {
+        "fine_tonic": 1,
+        "fat_sweet": 0,
+        "refined_grain": 1,
+        "coarse_balance": 2,
+        "feast_luxury": 4,
+        "alcohol": 0
+      },
+      "balance_score": -1.8,
+      "risk_tags": [],
+      "inference": "饮食轴相对均衡，或文本着墨较少。",
+      "medicine_echo": [],
+      "sample_dishes": [
+        "面汤"
+      ]
+    }
+  ],
+  "global_insights": [
+    {
+      "title": "精细有余、粗粮平衡不足",
+      "body": "聚合轴上细米精面+肥甘+大补显著高于粗淡项；绿畦香稻/红稻粥手标为精米非杂粮。",
+      "evidence": [
+        "烧鹅",
+        "金华酒",
+        "酥酥",
+        "寿面"
+      ],
+      "axis_ratio": {
+        "heavy": 71,
+        "light": 6
+      }
+    },
+    {
+      "title": "全社会饮食水平",
+      "body": "权贵层与市井层在文本中的饮食水平着墨密度悬殊；上层偏精细/排场，民间偏简易或求神问卜（推演）。",
+      "evidence": [
+        "权贵/主子层",
+        "市井/民间",
+        "未分层/制度性"
+      ]
+    },
+    {
+      "title": "奢侈曲线与大事记同向",
+      "body": "rolling 奢侈度与 saga 里程碑（省亲/园宴/查抄/散府）可对照；曲线峰谷不等于因果。",
+      "evidence": [
+        "武松复仇·阳谷归来杀嫂",
+        "毒杀武大郎与潘金莲入府",
+        "李瓶儿改嫁",
+        "来旺遭陷与宋蕙莲之死"
+      ]
+    },
+    {
+      "title": "健康推演：补而不衡",
+      "body": "焦点人物普遍「大补/精细 ≥ 粗淡」；脉案作互证，非医学定论。",
+      "evidence": [
+        "西门庆",
+        "应伯爵",
+        "李瓶儿",
+        "潘金莲"
+      ]
+    },
+    {
+      "title": "胃囊社会学：油腻与吞噬",
+      "body": "全书二百多种肴馔，人物不在床就在席；相对红楼意境饮食，金书写纯胃口与阶级剥削（推演）。",
+      "evidence": [
+        "烧鹅",
+        "金华酒",
+        "酥酥"
+      ]
+    },
+    {
+      "title": "厨房阶级：孙雪娥",
+      "body": "掌全家灶火却是最卑微「高级厨工」；油烟失性、死后卖厨娘——困死灶台（推演）。",
+      "evidence": [
+        "孙雪娥",
+        "厨房"
+      ]
+    },
+    {
+      "title": "蹄子 vs 酸梅：受宠显影",
+      "body": "瓶儿炖蹄子烧鸭=核心权力；金莲酸梅汤/酸辣=分不到核心席面的饥渴外化（推演）。",
+      "evidence": [
+        "李瓶儿",
+        "潘金莲",
+        "炖蹄子"
+      ]
+    },
+    {
+      "title": "应伯爵：喂养与反噬",
+      "body": "帮闲靠酒席换吹捧情报；西门庆死即投张二官收铺说媒李娇儿——寄生虫只爱残渣（推演）。",
+      "evidence": [
+        "应伯爵",
+        "西门庆",
+        "张二官",
+        "李娇儿"
+      ]
+    },
+    {
+      "title": "鲥鱼：物流暴政",
+      "body": "第34回江南鲜鲥鱼抵清河需急递漕运；一口鱼肉成本=纤夫性命（经济—社会 inference）。",
+      "evidence": [
+        "鲥鱼",
+        "第34回",
+        "大运河"
+      ]
+    },
+    {
+      "title": "特权胃囊与饥饿黑洞",
+      "body": "墙内葡萄酒乳猪 vs 墙外武大郎炊饼；生产力塞满权贵胃、底层缺粥——系统溃疡（推演）。",
+      "evidence": [
+        "武大郎",
+        "葡萄酒",
+        "清河"
+      ]
+    },
+    {
+      "title": "富贵病：精尽与高脂",
+      "body": "常年高脂高酒+胡僧药=血管寿命崩漏；床榻秽物=统治阶层消化不了不公的镜像（医学 inference）。",
+      "evidence": [
+        "西门庆",
+        "胡僧药"
+      ]
+    },
+    {
+      "title": "与红楼对照：意境 vs 胃口",
+      "body": "红楼茄鲞=审美标尺；金瓶=资本与肉欲消耗直写（跨书 inference）。",
+      "evidence": [
+        "世情与贵族衰败对比",
+        "茄鲞",
+        "烧鹅"
+      ]
+    }
+  ],
+  "social": {
+    "title": "全社会饮食水平",
+    "segments": [
+      {
+        "id": "elite",
+        "label": "权贵/主子层",
+        "entity_count": 18,
+        "occurrence_weight": 30,
+        "axes": {
+          "fine_tonic": 6,
+          "fat_sweet": 43,
+          "refined_grain": 6,
+          "coarse_balance": 6,
+          "feast_luxury": 34,
+          "alcohol": 33
+        },
+        "sample_entities": [
+          "元宵圆子",
+          "寿面",
+          "桂花饼",
+          "梅汤",
+          "烧猪头",
+          "烧羊"
+        ]
+      },
+      {
+        "id": "folk",
+        "label": "市井/民间",
+        "entity_count": 3,
+        "occurrence_weight": 4,
+        "axes": {
+          "fine_tonic": 0,
+          "fat_sweet": 3,
+          "refined_grain": 4,
+          "coarse_balance": 0,
+          "feast_luxury": 7,
+          "alcohol": 7
+        },
+        "sample_entities": [
+          "寿面",
+          "烧猪头",
+          "金华酒"
+        ]
+      },
+      {
+        "id": "general",
+        "label": "未分层/制度性",
+        "entity_count": 21,
+        "occurrence_weight": 33,
+        "axes": {
+          "fine_tonic": 27,
+          "fat_sweet": 40,
+          "refined_grain": 2,
+          "coarse_balance": 0,
+          "feast_luxury": 24,
+          "alcohol": 24
+        },
+        "sample_entities": [
+          "元宵圆子",
+          "历日",
+          "果馅金饼",
+          "桂花饼",
+          "浙江酒",
+          "烧猪头"
+        ]
+      }
+    ],
+    "global_axes": {
+      "fine_tonic": 29,
+      "fat_sweet": 35,
+      "refined_grain": 7,
+      "coarse_balance": 6,
+      "feast_luxury": 22,
+      "alcohol": 28
+    },
+    "inference": "权贵层与市井层在文本中的饮食水平着墨密度悬殊；上层偏精细/排场，民间偏简易或求神问卜（推演）。",
+    "insights": [
+      {
+        "title": "阶层差：饮食水平不对称",
+        "body": "权贵层与市井层在文本中的饮食水平着墨密度悬殊；上层偏精细/排场，民间偏简易或求神问卜（推演）。",
+        "evidence": [
+          "元宵圆子",
+          "寿面",
+          "桂花饼",
+          "寿面",
+          "烧猪头"
+        ]
+      },
+      {
+        "title": "四步金融经与金融空心化",
+        "body": "婚姻兼并→三分利→产业矩阵→买官；白银未转实业而回流官僚洞（推演）。",
+        "evidence": [
+          "药铺与放债链",
+          "孟玉楼",
+          "李瓶儿",
+          "蔡京"
+        ]
+      },
+      {
+        "title": "空间政治学：高墙内外",
+        "body": "正房/西厢/新楼=后院地缘政治；扩园兼并 vs 武大郎式墙外矮民（推演）。",
+        "evidence": [
+          "西门府建筑名录",
+          "潘金莲",
+          "吴月娘",
+          "武大郎"
+        ]
+      },
+      {
+        "title": "胃囊社会学：特权与饥饿",
+        "body": "帮闲酒席喂养链；鲥鱼急递 vs 底层炊饼——资源虹吸式「吃人」（推演）。",
+        "evidence": [
+          "应伯爵",
+          "鲥鱼",
+          "孙雪娥"
+        ]
+      },
+      {
+        "title": "司法商品化与信用归零",
+        "body": "武松案贿败、花子虚洗劫、理刑千户——律法变价目表（推演）。",
+        "evidence": [
+          "武松",
+          "花子虚",
+          "提刑千户所"
+        ]
+      }
+    ]
+  },
+  "stats": {
+    "dish_entities": 30,
+    "occurrence_rows": 33,
+    "manual_axis_entities": 21,
+    "chapter_item_refs": 0,
+    "chapters_with_food": 19,
+    "peak_luxury_chapter": 8,
+    "peak_luxury": 100.0,
+    "saga_milestones": 10,
+    "social_segments": 3
+  }
+}

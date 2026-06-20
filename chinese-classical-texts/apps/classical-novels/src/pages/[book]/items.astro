@@ -1,23 +1,26 @@
 ---
-import { getCollection } from 'astro:content';
 import { getBooks } from '../../lib/getBooks';
 import Base from '../../layouts/Base.astro';
-import ItemCard from '../../components/ItemCard.astro';
-import CatalogFoldBar from '../../components/CatalogFoldBar.astro';
-import CatalogFoldSection from '../../components/CatalogFoldSection.astro';
-import ItemsCrossIndex from '../../components/ItemsCrossIndex.tsx';
-import { groupByKind, itemsIndexTitle, kindLabel, loadBookItems } from '../../lib/items';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import MaterialHubCard from '../../components/MaterialHubCard.astro';
+import MaterialModuleNav from '../../components/MaterialModuleNav.astro';
+import {
+  hasMaterialFeature,
+  materialCrossIndexHref,
+  materialInferenceHref,
+  materialInferenceLabel,
+  materialModuleHref,
+  materialModulesForBook,
+  hubExtraTopics,
+} from '../../lib/materialModules';
+import { groupByKind, itemsIndexTitle, loadBookItems } from '../../lib/items';
 import { getItemsCrossIndex } from '../../lib/itemsCrossIndex';
-import { itemTopicHubForBook } from '../../lib/itemsTopicLinks';
 
 export async function getStaticPaths() {
   const books = await getBooks();
   return books
     .filter((b) => b.data.features.includes('items'))
-    .map((b) => ({
-      params: { book: b.data.slug },
-      props: { book: b },
-    }));
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
 }
 
 const { book } = Astro.props;
@@ -26,46 +29,76 @@ const items = await loadBookItems(meta.book);
 const grouped = groupByKind(items);
 const indexTitle = itemsIndexTitle(meta.book);
 const isXiyouji = meta.book === '西游记';
-const isJinpingmei = meta.book === '金瓶梅';
-const itemsCrossIndex = getItemsCrossIndex(meta.slug);
-const topicHub = itemTopicHubForBook(meta.slug);
+const modules = materialModulesForBook(meta.slug, meta.features);
+const crossIndex = getItemsCrossIndex(meta.slug);
+const extraTopics = hubExtraTopics(meta.slug);
+const hasDiet = hasMaterialFeature(meta.features, 'food') && meta.features.includes('diet');
 
-const sections: { key: keyof typeof grouped; anchor: string }[] = isXiyouji
-  ? [{ key: 'artifact', anchor: 'artifact' }]
-  : [
-      { key: 'medicine', anchor: 'medicine' },
-      { key: 'dish', anchor: 'dish' },
-      { key: 'costume', anchor: 'costume' },
-      { key: 'custom', anchor: 'custom' },
-    ];
-
-const activeSections = sections.filter(({ key }) => grouped[key].length > 0);
+function hubInference(m: (typeof modules)[0]) {
+  if (m.key === 'food' && !hasDiet) return undefined;
+  if (m.key !== 'food' && m.key !== 'medicine' && m.key !== 'costume' && m.key !== 'custom') return undefined;
+  if (!hasMaterialFeature(meta.features, m.key)) return undefined;
+  if (m.key === 'food' && !hasDiet) return undefined;
+  const href = materialInferenceHref(meta.slug, m.key);
+  const label = materialInferenceLabel(m.key);
+  return href && label ? { href, label } : undefined;
+}
 ---
 
 <Base title={`${meta.book} · ${indexTitle}`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
-  <p slot="module-extra" class="mt-2 text-sm text-muted" data-i18n-items-extra={items.length}>
+  <Breadcrumb
+    slot="breadcrumb"
+    items={[{ href: `/${meta.slug}`, label: meta.book }, { label: indexTitle }]}
+  />
+  <p slot="module-extra" class="text-sm text-muted">
     {
       isXiyouji
-        ? `兵器、容器、符咒类法宝实体（共 ${items.length} 条）`
-        : `医药、饮食、服饰、民俗规章实体（共 ${items.length} 条）`
+        ? `共 ${items.length} 条 · 章回 / 人物交叉检索`
+        : `共 ${items.length} 条 · 选一模块进入，或走交叉索引汇总检索`
     }
   </p>
 
-  <div class="content-page catalog-fold-page">
+  <div class="content-page material-hub-page">
+    <MaterialModuleNav bookSlug={meta.slug} features={meta.features} active="hub" />
+
+    <div class="material-hub-grid">
+      {
+        modules.map((m) => {
+          const inf = hubInference(m);
+          return (
+            <MaterialHubCard
+              href={materialModuleHref(meta.slug, m.key)}
+              glyph={m.glyph}
+              title={m.title}
+              desc={m.desc}
+              count={grouped[m.kind].length}
+              subHref={inf?.href}
+              subLabel={inf?.label}
+            />
+          );
+        })
+      }
+      {
+        crossIndex && (
+          <MaterialHubCard
+            href={materialCrossIndexHref(meta.slug)}
+            glyph="索"
+            title="交叉索引"
+            desc="章回 × 人物 × 地点 · 全物质汇总"
+            count={crossIndex.entries.length}
+            countLabel="条索引"
+          />
+        )
+      }
+    </div>
+
     {
-      topicHub.length > 0 && (
-        <section class="surface mb-8 p-4 sm:p-6">
-          <h2 class="section-title mb-2 text-lg">纵切主题</h2>
-          <p class="mb-3 max-w-2xl text-sm text-muted">
+      extraTopics.length > 0 && (
+        <section class="surface material-hub-topics">
+          <h2 class="section-title">跨类纵切</h2>
+          <div class="material-hub-topics__chips">
             {
-              isJinpingmei
-                ? '名物按宴席饮食、药铺放债、服饰物价等主题纵切；与西门府空间轴、版本对勘互链。'
-                : '名物按宴席时间线、诊脉链、信物链等主题纵切；详情页可反查相关主题。'
-            }
-          </p>
-          <div class="flex flex-wrap gap-2">
-            {
-              topicHub.map((t) => (
+              extraTopics.map((t) => (
                 <a href={`/${meta.slug}/topics/${t.slug}`} class="chip chip-md hover:underline">
                   {t.title}
                 </a>
@@ -73,77 +106,6 @@ const activeSections = sections.filter(({ key }) => grouped[key].length > 0);
             }
           </div>
         </section>
-      )
-    }
-
-    {activeSections.length > 0 && <CatalogFoldBar label="名物分类" />}
-    <p class="mb-4 text-sm" style="color: var(--seal)" data-i18n-fold-hint data-i18n="ui.itemsFoldHint" hidden>
-      分类已折叠 — 点击「全部展开」查看名物卡片
-    </p>
-
-    <nav class="mb-6 flex flex-wrap gap-2 text-sm">
-      {
-        activeSections.map(({ key, anchor }) => (
-          <a href={`#${anchor}`} class="chip">
-            {kindLabel(key)}（{grouped[key].length}）
-          </a>
-        ))
-      }
-    </nav>
-
-    {
-      activeSections.map(({ key, anchor }) => (
-        <CatalogFoldSection id={anchor} title={kindLabel(key)} count={grouped[key].length}>
-          <div class="grid items-stretch gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
-            {grouped[key].map(({ kind, entry }) => (
-              <ItemCard
-                href={`/${meta.slug}/i/${entry.data.id}`}
-                name={entry.data.name}
-                kind={kind}
-                subtype={entry.data.type}
-                summary={entry.data.summary}
-                tags={entry.data.tags}
-              />
-            ))}
-          </div>
-        </CatalogFoldSection>
-      ))
-    }
-
-    {
-      items.length === 0 && (
-        <p class="text-sm text-muted" data-i18n="ui.itemsEmpty">
-          {isXiyouji ? '本书暂无法宝实体页。' : '本书暂无名物实体页。'}
-        </p>
-      )
-    }
-
-    {
-      itemsCrossIndex && (
-        <>
-          <h2 class="section-title mb-2 mt-10 text-lg">交叉索引</h2>
-          <p class="mb-4 max-w-2xl text-sm text-muted">
-            {
-              isJinpingmei ? (
-                <>
-                  名物按<strong>章回</strong>、<strong>人物</strong>与<strong>地点</strong>互链；可查西门府内院与清河市井的物质切片。
-                </>
-              ) : (
-                <>
-                  名物按<strong>章回</strong>与<strong>人物</strong>互链；可跳转读回、人物页或名物详情。
-                </>
-              )
-            }
-          </p>
-          <div class="kb-dashboard surface mb-10 p-4 sm:p-6">
-            <ItemsCrossIndex
-              index={itemsCrossIndex}
-              bookSlug={meta.slug}
-              bookName={meta.book}
-              client:load
-            />
-          </div>
-        </>
       )
     }
   </div>

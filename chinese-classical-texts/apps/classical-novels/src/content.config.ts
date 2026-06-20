@@ -108,7 +108,7 @@ const books = defineCollection({
     author: z.string(),
     chapter_count: z.number(),
     features: z.array(
-      z.enum(['reader', 'graph', 'bestiary', 'items', 'poems', 'places', 'silver', 'sna', 'compare', 'nan', 'route', 'chain', 'town', 'garden', 'manor', 'capital', 'scene', 'kaozheng', 'quanshi', 'saga'])
+      z.enum(['reader', 'graph', 'bestiary', 'items', 'food', 'medicine', 'costume', 'custom', 'artifacts', 'diet', 'poems', 'places', 'silver', 'sna', 'compare', 'nan', 'route', 'chain', 'litigation', 'town', 'garden', 'manor', 'capital', 'scene', 'kaozheng', 'quanshi', 'saga'])
     ),
     summary: z.string().optional(),
   }),
@@ -174,6 +174,19 @@ const locations = defineCollection({
   }),
 });
 
+const DIET_AXIS_IDS = ['fine_tonic', 'fat_sweet', 'refined_grain', 'coarse_balance', 'feast_luxury', 'alcohol'] as const;
+
+const dietAxesSchema = z
+  .object({
+    fine_tonic: z.number().min(0).max(5),
+    fat_sweet: z.number().min(0).max(5),
+    refined_grain: z.number().min(0).max(5),
+    coarse_balance: z.number().min(0).max(5),
+    feast_luxury: z.number().min(0).max(5),
+    alcohol: z.number().min(0).max(5),
+  })
+  .partial();
+
 const medicines = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/medicines' }),
   schema: z.object({
@@ -195,6 +208,7 @@ const medicines = defineCollection({
     appear_in: z.array(z.string()).default([]),
     tags: z.array(z.string()).default([]),
     summary: z.string().optional(),
+    diet_axes: dietAxesSchema.optional(),
   }),
 });
 
@@ -210,6 +224,7 @@ const dishes = defineCollection({
     process: z.string().optional(),
     cost_estimate: z.string().optional(),
     temperature: z.string().optional(),
+    diet_axes: dietAxesSchema.optional(),
     eaters: z.array(z.string()).default([]),
     location: z.string().optional(),
     occasion: z.string().optional(),

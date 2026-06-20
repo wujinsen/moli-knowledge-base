@@ -1,0 +1,2263 @@
+{
+  "domain": "medicine",
+  "book": "金瓶梅",
+  "slug": "jinpingmei",
+  "generated_by": "build_material_inference.py",
+  "inference_note": "推演层：脉案/方剂/庸医/求神关键词 + 社会分层 + 人物病理档案（inference）；非医学史定论。",
+  "curve_labels": {
+    "primary": "精细度",
+    "secondary": "危机度"
+  },
+  "axes": [
+    {
+      "id": "pulse_refined",
+      "label": "脉案精细",
+      "desc": "张友士级详脉、证候辨析"
+    },
+    {
+      "id": "tonic_luxury",
+      "label": "参茸温补",
+      "desc": "人参、阿胶、上等人参"
+    },
+    {
+      "id": "prescription_norm",
+      "label": "方剂规范",
+      "desc": "汤丸膏散、益神养荣"
+    },
+    {
+      "id": "folk_belief",
+      "label": "求神符咒",
+      "desc": "还愿、求神、毛半仙"
+    },
+    {
+      "id": "quack_risk",
+      "label": "庸医虎狼",
+      "desc": "胡庸医、虎狼药、误治"
+    },
+    {
+      "id": "acute_crisis",
+      "label": "时气急症",
+      "desc": "时气、吐血、血崩、脱阳"
+    }
+  ],
+  "phases": [
+    {
+      "label": "发迹根基",
+      "from": 1,
+      "to": 20
+    },
+    {
+      "label": "得官攀升",
+      "from": 21,
+      "to": 49
+    },
+    {
+      "label": "鼎盛极奢",
+      "from": 50,
+      "to": 79
+    },
+    {
+      "label": "衰败散府",
+      "from": 80,
+      "to": 100
+    }
+  ],
+  "saga_milestones": [
+    {
+      "id": "jpm-rt-003",
+      "title": "武松复仇·阳谷归来杀嫂",
+      "chapters": [
+        1,
+        9,
+        87
+      ],
+      "chapter": 1,
+      "href": "/jinpingmei/e/jpm-rt-003"
+    },
+    {
+      "id": "jpm-ms-001",
+      "title": "毒杀武大郎与潘金莲入府",
+      "chapters": [
+        5,
+        9
+      ],
+      "chapter": 5,
+      "href": "/jinpingmei/e/jpm-ms-001"
+    },
+    {
+      "id": "jpm-ms-002",
+      "title": "李瓶儿改嫁",
+      "chapters": [
+        14,
+        19
+      ],
+      "chapter": 14,
+      "href": "/jinpingmei/e/jpm-ms-002"
+    },
+    {
+      "id": "jpm-ms-008",
+      "title": "来旺遭陷与宋蕙莲之死",
+      "chapters": [
+        25,
+        26
+      ],
+      "chapter": 25,
+      "href": "/jinpingmei/e/jpm-ms-008"
+    },
+    {
+      "id": "jpm-ms-003",
+      "title": "生子与升官",
+      "chapters": [
+        30
+      ],
+      "chapter": 30,
+      "href": "/jinpingmei/e/jpm-ms-003"
+    },
+    {
+      "id": "jpm-ms-009",
+      "title": "盛宴接待两巡按",
+      "chapters": [
+        49
+      ],
+      "chapter": 49,
+      "href": "/jinpingmei/e/jpm-ms-009"
+    },
+    {
+      "id": "jpm-ms-004",
+      "title": "官哥儿受惊与李瓶儿病逝",
+      "chapters": [
+        59,
+        62
+      ],
+      "chapter": 59,
+      "href": "/jinpingmei/e/jpm-ms-004"
+    },
+    {
+      "id": "jpm-ms-005",
+      "title": "西门庆纵欲身亡",
+      "chapters": [
+        79
+      ],
+      "chapter": 79,
+      "href": "/jinpingmei/e/jpm-ms-005"
+    },
+    {
+      "id": "jpm-ms-006",
+      "title": "武松杀嫂",
+      "chapters": [
+        87
+      ],
+      "chapter": 87,
+      "href": "/jinpingmei/e/jpm-ms-006"
+    },
+    {
+      "id": "jpm-ms-007",
+      "title": "孝哥出家",
+      "chapters": [
+        100
+      ],
+      "chapter": 100,
+      "href": "/jinpingmei/e/jpm-ms-007"
+    }
+  ],
+  "by_chapter": [
+    {
+      "chapter": 1,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 0,
+      "balance_smooth": 0
+    },
+    {
+      "chapter": 2,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 0,
+      "balance_smooth": 0
+    },
+    {
+      "chapter": 3,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 4,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 5,
+      "entity_count": 1,
+      "luxury": 15.0,
+      "balance": 3.6,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 3
+      },
+      "phase": "发迹根基",
+      "entities": [
+        "砒霜"
+      ],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 6,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 7,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 8,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 9,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 10,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 11,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 12,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 13,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 14,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 15,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 16,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 17,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 18,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 19,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 20,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "发迹根基",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 21,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 22,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 23,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 24,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 25,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 26,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 27,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 28,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 29,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 30,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 31,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 32,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 33,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 34,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 35,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 36,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 37,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 38,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 39,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 40,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 41,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 42,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 43,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 44,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 45,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 46,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 15.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 47,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 35.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 48,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [],
+      "luxury_smooth": 35.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 49,
+      "entity_count": 1,
+      "luxury": 35.0,
+      "balance": 0.0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 2,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "得官攀升",
+      "entities": [
+        "胡僧药"
+      ],
+      "luxury_smooth": 35.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 50,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 31.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 51,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 31.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 52,
+      "entity_count": 1,
+      "luxury": 27.0,
+      "balance": 0.0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 1,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [
+        "五灵脂"
+      ],
+      "luxury_smooth": 27.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 53,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 27.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 54,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 27.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 55,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 27.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 56,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 27.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 57,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 33.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 58,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 33.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 59,
+      "entity_count": 2,
+      "luxury": 33.0,
+      "balance": 0.0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 3,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [
+        "灯心薄荷金银汤",
+        "金箔丸"
+      ],
+      "luxury_smooth": 66.5,
+      "balance_smooth": 0.6
+    },
+    {
+      "chapter": 60,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 77.7,
+      "balance_smooth": 0.8
+    },
+    {
+      "chapter": 61,
+      "entity_count": 1,
+      "luxury": 100.0,
+      "balance": 1.2,
+      "axes": {
+        "pulse_refined": 8,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 3
+      },
+      "phase": "鼎盛极奢",
+      "entities": [
+        "任医官诊血崩"
+      ],
+      "luxury_smooth": 77.7,
+      "balance_smooth": 0.8
+    },
+    {
+      "chapter": 62,
+      "entity_count": 1,
+      "luxury": 100.0,
+      "balance": 1.2,
+      "axes": {
+        "pulse_refined": 8,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 3
+      },
+      "phase": "鼎盛极奢",
+      "entities": [
+        "任医官诊血崩"
+      ],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 1.2
+    },
+    {
+      "chapter": 63,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 1.2
+    },
+    {
+      "chapter": 64,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 1.2
+    },
+    {
+      "chapter": 65,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 1.2
+    },
+    {
+      "chapter": 66,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 27.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 67,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 27.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 68,
+      "entity_count": 1,
+      "luxury": 27.0,
+      "balance": 0.0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 1,
+        "folk_belief": 4,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [
+        "薛姑子种子方"
+      ],
+      "luxury_smooth": 27.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 69,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 27.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 70,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 27.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 71,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 35.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 72,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 35.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 73,
+      "entity_count": 1,
+      "luxury": 35.0,
+      "balance": 3.6,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 2,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 3
+      },
+      "phase": "鼎盛极奢",
+      "entities": [
+        "颤声娇"
+      ],
+      "luxury_smooth": 35.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 74,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 35.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 75,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 35.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 76,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 35.0,
+      "balance_smooth": 3.6
+    },
+    {
+      "chapter": 77,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 78,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "鼎盛极奢",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 79,
+      "entity_count": 1,
+      "luxury": 100.0,
+      "balance": 2.2,
+      "axes": {
+        "pulse_refined": 8,
+        "tonic_luxury": 2,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 1,
+        "acute_crisis": 3
+      },
+      "phase": "鼎盛极奢",
+      "entities": [
+        "西门庆脱阳之症"
+      ],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 80,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 81,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 82,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 83,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 84,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 85,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 86,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 87,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 88,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 89,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 90,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 91,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 92,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 93,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 94,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 95,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 96,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 97,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 98,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 99,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 100,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "phase": "衰败散府",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 2.2
+    }
+  ],
+  "characters": [
+    {
+      "id": "西门庆",
+      "name": "西门庆",
+      "social_tier": "elite",
+      "entity_count": 2,
+      "axes": {
+        "pulse_refined": 8,
+        "tonic_luxury": 4,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 1,
+        "acute_crisis": 3
+      },
+      "balance_score": 8.0,
+      "risk_tags": [
+        "血崩/时气/急症轴高",
+        "详脉着墨密集"
+      ],
+      "inference": "胡僧药+脱阳；司法座右铭「太师府认得我字迹」；空间扩张+资本轴（推演）。",
+      "sample_entities": [
+        "胡僧药",
+        "西门庆脱阳之症"
+      ]
+    },
+    {
+      "id": "李瓶儿",
+      "name": "李瓶儿",
+      "social_tier": "elite",
+      "entity_count": 2,
+      "axes": {
+        "pulse_refined": 16,
+        "tonic_luxury": 0,
+        "prescription_norm": 1,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 6
+      },
+      "balance_score": 11.5,
+      "risk_tags": [
+        "血崩/时气/急症轴高",
+        "详脉着墨密集"
+      ],
+      "inference": "血崩、滋补与财富引来迫害；新花园空间特权（推演）。",
+      "sample_entities": [
+        "五灵脂",
+        "任医官诊血崩"
+      ]
+    },
+    {
+      "id": "潘金莲",
+      "name": "潘金莲",
+      "social_tier": "elite",
+      "entity_count": 1,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 2,
+        "prescription_norm": 0,
+        "folk_belief": 0,
+        "quack_risk": 0,
+        "acute_crisis": 3
+      },
+      "balance_score": 5.0,
+      "risk_tags": [
+        "血崩/时气/急症轴高"
+      ],
+      "inference": "前边花园边缘空间；司法/恩宠争夺（推演）。",
+      "sample_entities": [
+        "颤声娇"
+      ]
+    },
+    {
+      "id": "吴月娘",
+      "name": "吴月娘",
+      "social_tier": "elite",
+      "entity_count": 1,
+      "axes": {
+        "pulse_refined": 0,
+        "tonic_luxury": 0,
+        "prescription_norm": 1,
+        "folk_belief": 4,
+        "quack_risk": 0,
+        "acute_crisis": 0
+      },
+      "balance_score": 5.0,
+      "risk_tags": [
+        "巫医求神线并置"
+      ],
+      "inference": "吴月娘 相关药疗水平实体 1 条。",
+      "sample_entities": [
+        "薛姑子种子方"
+      ]
+    }
+  ],
+  "social": {
+    "title": "全社会药疗水平",
+    "segments": [
+      {
+        "id": "elite",
+        "label": "权贵/主子层",
+        "entity_count": 6,
+        "occurrence_weight": 7,
+        "axes": {
+          "pulse_refined": 24,
+          "tonic_luxury": 6,
+          "prescription_norm": 2,
+          "folk_belief": 4,
+          "quack_risk": 1,
+          "acute_crisis": 12
+        },
+        "sample_entities": [
+          "五灵脂",
+          "任医官诊血崩",
+          "胡僧药",
+          "薛姑子种子方",
+          "西门庆脱阳之症",
+          "颤声娇"
+        ]
+      },
+      {
+        "id": "general",
+        "label": "未分层/制度性",
+        "entity_count": 3,
+        "occurrence_weight": 3,
+        "axes": {
+          "pulse_refined": 0,
+          "tonic_luxury": 0,
+          "prescription_norm": 3,
+          "folk_belief": 0,
+          "quack_risk": 0,
+          "acute_crisis": 3
+        },
+        "sample_entities": [
+          "灯心薄荷金银汤",
+          "砒霜",
+          "金箔丸"
+        ]
+      }
+    ],
+    "global_axes": {
+      "pulse_refined": 24,
+      "tonic_luxury": 6,
+      "prescription_norm": 5,
+      "folk_belief": 4,
+      "quack_risk": 1,
+      "acute_crisis": 15
+    },
+    "inference": "婚姻兼并→三分利→产业矩阵→买官；白银未转实业而回流官僚洞（推演）。",
+    "insights": [
+      {
+        "title": "四步金融经与金融空心化",
+        "body": "婚姻兼并→三分利→产业矩阵→买官；白银未转实业而回流官僚洞（推演）。",
+        "evidence": [
+          "药铺与放债链",
+          "孟玉楼",
+          "李瓶儿",
+          "蔡京"
+        ]
+      },
+      {
+        "title": "空间政治学：高墙内外",
+        "body": "正房/西厢/新楼=后院地缘政治；扩园兼并 vs 武大郎式墙外矮民（推演）。",
+        "evidence": [
+          "西门府建筑名录",
+          "潘金莲",
+          "吴月娘",
+          "武大郎"
+        ]
+      },
+      {
+        "title": "胃囊社会学：特权与饥饿",
+        "body": "帮闲酒席喂养链；鲥鱼急递 vs 底层炊饼——资源虹吸式「吃人」（推演）。",
+        "evidence": [
+          "应伯爵",
+          "鲥鱼",
+          "孙雪娥"
+        ]
+      },
+      {
+        "title": "司法商品化与信用归零",
+        "body": "武松案贿败、花子虚洗劫、理刑千户——律法变价目表（推演）。",
+        "evidence": [
+          "武松",
+          "花子虚",
+          "提刑千户所"
+        ]
+      },
+      {
+        "title": "西门府 vs 清河市井",
+        "body": "晚明城市世情：西门府纵欲奢靡与县城市井帮闲礼俗并置，构成全书社会剖面。",
+        "evidence": [
+          "西门庆",
+          "应伯爵",
+          "帮闲凑分",
+          "蔡府寿礼"
+        ]
+      }
+    ]
+  },
+  "global_insights": [
+    {
+      "title": "全书精细度曲线",
+      "body": "按回聚合药疗水平指数；峰回第62回（鼎盛极奢）。",
+      "evidence": [
+        "62"
+      ]
+    },
+    {
+      "title": "全社会药疗水平",
+      "body": "婚姻兼并→三分利→产业矩阵→买官；白银未转实业而回流官僚洞（推演）。",
+      "evidence": [
+        "权贵/主子层",
+        "未分层/制度性"
+      ]
+    },
+    {
+      "title": "世情四横切面总论",
+      "body": "金融四步经、空间政治学、胃囊社会学、司法三级通关——人物→府邸溃败→全社会三层推演（inference）。",
+      "evidence": [
+        "世情四横切面与社会推演",
+        "药铺与放债链",
+        "西门府建筑名录"
+      ]
+    },
+    {
+      "title": "四步金融经：婚姻兼并",
+      "body": "孟玉楼/李瓶儿携财=原始资本恶意收购；瓶儿财富引金莲害官哥儿——府内金融阶级斗争（推演）。",
+      "evidence": [
+        "孟玉楼",
+        "李瓶儿",
+        "潘金莲",
+        "官哥儿"
+      ]
+    },
+    {
+      "title": "三分利与产业矩阵",
+      "body": "月息30%抽干清河；绸缎绒线铺+苏杭现款扫货=金融-物流-零售垄断（推演）。",
+      "evidence": [
+        "吴典恩",
+        "常峙节",
+        "韩道国"
+      ]
+    },
+    {
+      "title": "买官庇护与金融空心化",
+      "body": "贿蔡京得理刑千户；白银买官盖园非转工业→晚明资本非生产性异化（经济史 inference）。",
+      "evidence": [
+        "蔡京",
+        "提刑千户",
+        "苗员外"
+      ]
+    },
+    {
+      "title": "胡僧药：身体的次贷杠杆",
+      "body": "纵欲+胡僧药强行维持账面；杠杆断裂=猝然生理破产，与资本宿主命运同构（推演）。",
+      "evidence": [
+        "胡僧药",
+        "西门庆"
+      ]
+    },
+    {
+      "title": "死后清算：帮闲与韩道国",
+      "body": "应伯爵投张二官、韩道国卷款——无核心现金流后婚姻友情团队互噬（推演）。",
+      "evidence": [
+        "应伯爵",
+        "张二官",
+        "韩道国"
+      ]
+    }
+  ],
+  "stats": {
+    "entity_count": 9,
+    "occurrence_rows": 10,
+    "chapters_with_data": 9,
+    "peak_chapter": 62,
+    "peak_primary": 100.0,
+    "saga_milestones": 10,
+    "social_segments": 2
+  }
+}

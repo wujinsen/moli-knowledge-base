@@ -3,7 +3,10 @@ import { getCollection, render } from 'astro:content';
 import { getBooks } from '../../../lib/getBooks';
 import Base from '../../../layouts/Base.astro';
 import BackLink from '../../../components/BackLink.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { topicSlug, LENS_GLYPH, BRANCH_GLYPH, STANCE_LABEL } from '../../../lib/topics';
+import { itemsIndexTitle } from '../../../lib/items';
+import { moduleForTopicSlug, materialCrumbs } from '../../../lib/materialModules';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -23,13 +26,28 @@ const { Content } = await render(entry);
 const glyph = (d.lens && LENS_GLYPH[d.lens]) || (d.branch && BRANCH_GLYPH[d.branch]) || '题';
 const backHref = d.category === '考证' ? `/${slug}/kaozheng` : d.category === '诠释' ? `/${slug}/quanshi` : `/${slug}`;
 const backLabel = d.category === '考证' ? '考证台' : d.category === '诠释' ? '诠释专题' : d.book;
+// 纵切主题归属的物质模块（唯一归属时显示面包屑，回到对应目录）
+const moduleKey = moduleForTopicSlug(slug, topicSlug(entry));
 const stanceClass = (s: string) =>
   s === '主流' ? 'stance-main' : s === '少数' ? 'stance-minor' : s === '已弃' ? 'stance-dropped' : 'stance-doubt';
 ---
 
 <Base title={`${d.book} · ${d.title}`} bookSlug={slug} bookName={d.book} features={features}>
   <div class="content-page">
-  <BackLink href={backHref} label={backLabel} />
+  {
+    moduleKey ? (
+      <Breadcrumb
+        items={materialCrumbs(slug, moduleKey, {
+          view: 'topic',
+          topicTitle: d.title,
+          hubLabel: itemsIndexTitle(d.book),
+          bookName: d.book,
+        })}
+      />
+    ) : (
+      <BackLink href={backHref} label={backLabel} history />
+    )
+  }
 
   <div data-pagefind-body data-pagefind-meta={`title:${d.title}`} data-pagefind-filter={`书:${d.book},类型:主题`}>
     <section class="surface relative mt-3 mb-6 overflow-hidden px-6 py-7 sm:px-8">
@@ -133,7 +151,7 @@ const stanceClass = (s: string) =>
       )
     }
 
-    <article class="prose-cn surface mt-2 max-w-none px-6 py-5 sm:px-8">
+    <article class="prose-cn topic-prose surface mt-2 max-w-none px-6 py-5 sm:px-8">
       <Content />
     </article>
   </div>

@@ -110,6 +110,7 @@ const showModuleContext = Boolean(
           readerWide ? 'reader-main w-full max-w-none' : 'max-w-6xl px-4 py-8',
         ]}
       >
+        <slot name="breadcrumb" />
         {
           showModuleContext && currentModule && bookName && bookSlug && (
             <ModuleContext module={currentModule} bookName={bookName} bookSlug={bookSlug}>
@@ -135,5 +136,23 @@ const showModuleContext = Boolean(
         </p>
       </footer>
     </div>
+    <script is:inline>
+      // 历史感知返回：来自本站内的页面则回退到上一页（保留浏览脉络），
+      // 否则按 href 跳到静态兜底祖先页。
+      document.addEventListener('click', function (e) {
+        var t = e.target;
+        var a = t && t.closest ? t.closest('a[data-history-back]') : null;
+        if (!a) return;
+        var ref = document.referrer;
+        if (!ref) return;
+        try {
+          var u = new URL(ref);
+          if (u.origin === location.origin && u.pathname !== location.pathname && history.length > 1) {
+            e.preventDefault();
+            history.back();
+          }
+        } catch (err) {}
+      });
+    </script>
   </body>
 </html>

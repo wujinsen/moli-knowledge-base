@@ -1,0 +1,40 @@
+---
+import ItemCard from './ItemCard.astro';
+import CatalogFoldBar from './CatalogFoldBar.astro';
+import CatalogFoldSection from './CatalogFoldSection.astro';
+import type { ItemEntry } from '../lib/items';
+
+interface Props {
+  bookSlug: string;
+  items: ItemEntry[];
+  sectionId?: string;
+}
+
+const { bookSlug, items, sectionId = 'catalog' } = Astro.props;
+---
+
+{items.length > 0 && <CatalogFoldBar label="实体列表" />}
+<p class="mb-4 text-sm" style="color: var(--seal)" data-i18n-fold-hint data-i18n="ui.itemsFoldHint" hidden>
+  列表已折叠 — 点击「全部展开」查看卡片
+</p>
+
+{
+  items.length > 0 ? (
+    <CatalogFoldSection id={sectionId} title="全部" count={items.length}>
+      <div class="grid items-stretch gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+        {items.map(({ kind, entry }) => (
+          <ItemCard
+            href={`/${bookSlug}/i/${entry.data.id}`}
+            name={entry.data.name}
+            kind={kind}
+            subtype={entry.data.type}
+            summary={entry.data.summary}
+            tags={entry.data.tags}
+          />
+        ))}
+      </div>
+    </CatalogFoldSection>
+  ) : (
+    <p class="text-sm text-muted">本分类暂无可浏览实体。</p>
+  )
+}

@@ -1,0 +1,4045 @@
+{
+  "book": "红楼梦",
+  "slug": "honglou",
+  "generated_by": "build_diet_inference.py",
+  "inference_note": "推演层：dish 手标 diet_axes + 回目 items[] + medicine + saga 互参；非医学诊断。",
+  "axes": [
+    {
+      "id": "fine_tonic",
+      "label": "大补药膳",
+      "desc": "燕窝、人参、露剂、胡僧药等"
+    },
+    {
+      "id": "fat_sweet",
+      "label": "肥甘甜烂",
+      "desc": "糟味、奶酥、甜烂、禽脂"
+    },
+    {
+      "id": "refined_grain",
+      "label": "细米精面",
+      "desc": "粳稻、红稻、细面（非粗粮）"
+    },
+    {
+      "id": "coarse_balance",
+      "label": "粗淡平衡",
+      "desc": "小菜、消导、清淡粥汤"
+    },
+    {
+      "id": "feast_luxury",
+      "label": "宴享排场",
+      "desc": "省亲、寿宴、茄鲞等"
+    },
+    {
+      "id": "alcohol",
+      "label": "酒茶",
+      "desc": "绍兴酒、金华酒等"
+    }
+  ],
+  "phases": [
+    {
+      "label": "楔子·入府",
+      "from": 1,
+      "to": 16
+    },
+    {
+      "label": "省亲极盛",
+      "from": 17,
+      "to": 41
+    },
+    {
+      "label": "园宴精工",
+      "from": 42,
+      "to": 52
+    },
+    {
+      "label": "露剂·园规",
+      "from": 53,
+      "to": 71
+    },
+    {
+      "label": "晚景简素",
+      "from": 72,
+      "to": 100
+    },
+    {
+      "label": "末世崩散",
+      "from": 101,
+      "to": 120
+    }
+  ],
+  "saga_milestones": [
+    {
+      "id": "hlm-e-001",
+      "title": "林黛玉进贾府",
+      "chapters": [
+        3
+      ],
+      "chapter": 3,
+      "href": "/honglou/e/hlm-e-001"
+    },
+    {
+      "id": "hlm-e-009",
+      "title": "秦可卿之死与凤姐协理",
+      "chapters": [
+        13
+      ],
+      "chapter": 13,
+      "href": "/honglou/e/hlm-e-009"
+    },
+    {
+      "id": "hlm-e-002",
+      "title": "元妃省亲",
+      "chapters": [
+        16,
+        17,
+        18
+      ],
+      "chapter": 16,
+      "href": "/honglou/e/hlm-e-002"
+    },
+    {
+      "id": "hlm-e-003",
+      "title": "共读西厢与黛玉葬花",
+      "chapters": [
+        23,
+        27
+      ],
+      "chapter": 23,
+      "href": "/honglou/e/hlm-e-003"
+    },
+    {
+      "id": "hlm-e-010",
+      "title": "宝玉挨打",
+      "chapters": [
+        33
+      ],
+      "chapter": 33,
+      "href": "/honglou/e/hlm-e-010"
+    },
+    {
+      "id": "hlm-e-011",
+      "title": "刘姥姥进大观园",
+      "chapters": [
+        39,
+        40,
+        41
+      ],
+      "chapter": 39,
+      "href": "/honglou/e/hlm-e-011"
+    },
+    {
+      "id": "hlm-e-012",
+      "title": "探春理家",
+      "chapters": [
+        55,
+        56
+      ],
+      "chapter": 55,
+      "href": "/honglou/e/hlm-e-012"
+    },
+    {
+      "id": "hlm-e-004",
+      "title": "紫鹃试玉",
+      "chapters": [
+        57
+      ],
+      "chapter": 57,
+      "href": "/honglou/e/hlm-e-004"
+    },
+    {
+      "id": "hlm-e-005",
+      "title": "抄检大观园",
+      "chapters": [
+        74
+      ],
+      "chapter": 74,
+      "href": "/honglou/e/hlm-e-005"
+    },
+    {
+      "id": "hlm-e-006",
+      "title": "调包计与黛玉焚稿",
+      "chapters": [
+        97,
+        98
+      ],
+      "chapter": 97,
+      "href": "/honglou/e/hlm-e-006"
+    },
+    {
+      "id": "hlm-e-007",
+      "title": "查抄宁国府",
+      "chapters": [
+        105
+      ],
+      "chapter": 105,
+      "href": "/honglou/e/hlm-e-007"
+    },
+    {
+      "id": "hlm-e-008",
+      "title": "宝玉悬崖撒手",
+      "chapters": [
+        120
+      ],
+      "chapter": 120,
+      "href": "/honglou/e/hlm-e-008"
+    }
+  ],
+  "by_chapter": [
+    {
+      "chapter": 1,
+      "dish_count": 3,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "楔子·入府",
+      "dishes": [
+        "通灵宝玉",
+        "元宵",
+        "中秋"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 39.9,
+      "balance_smooth": -1.12
+    },
+    {
+      "chapter": 2,
+      "dish_count": 7,
+      "luxury": 53.1,
+      "balance": -1.37,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "楔子·入府",
+      "dishes": [
+        "迎春出嫁",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "元春省亲",
+        "省亲宴",
+        "通灵宝玉",
+        "冷子兴演说"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 43.2,
+      "balance_smooth": -1.19
+    },
+    {
+      "chapter": 3,
+      "dish_count": 3,
+      "luxury": 46.7,
+      "balance": -2.0,
+      "axes": {
+        "fine_tonic": 6,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "楔子·入府",
+      "dishes": [
+        "通灵宝玉",
+        "人参养荣丸",
+        "中秋"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 38.6,
+      "balance_smooth": -0.95
+    },
+    {
+      "chapter": 4,
+      "dish_count": 7,
+      "luxury": 53.1,
+      "balance": -1.37,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "楔子·入府",
+      "dishes": [
+        "元春省亲",
+        "宝玉宝钗成婚",
+        "护官符",
+        "省亲宴",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "迎春出嫁"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 45.6,
+      "balance_smooth": -1.21
+    },
+    {
+      "chapter": 5,
+      "dish_count": 4,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "楔子·入府",
+      "dishes": [
+        "通灵宝玉",
+        "金锁",
+        "风筝",
+        "雀金裘"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 42.0,
+      "balance_smooth": -1.14
+    },
+    {
+      "chapter": 6,
+      "dish_count": 7,
+      "luxury": 55.1,
+      "balance": -1.31,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 2,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "楔子·入府",
+      "dishes": [
+        "桂圆汤",
+        "元春省亲",
+        "宝玉宝钗成婚",
+        "省亲宴",
+        "秦可卿丧仪",
+        "累丝金凤",
+        "贾母八旬宴"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 40.7,
+      "balance_smooth": -1.09
+    },
+    {
+      "chapter": 7,
+      "dish_count": 2,
+      "luxury": 35.0,
+      "balance": -1.0,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "楔子·入府",
+      "dishes": [
+        "冷香丸",
+        "旧衣"
+      ],
+      "sources": [
+        "medicine",
+        "chapter_item"
+      ],
+      "luxury_smooth": 41.9,
+      "balance_smooth": -1.13
+    },
+    {
+      "chapter": 8,
+      "dish_count": 8,
+      "luxury": 40.5,
+      "balance": -1.75,
+      "axes": {
+        "fine_tonic": 4,
+        "fat_sweet": 8,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 2,
+        "alcohol": 1
+      },
+      "phase": "楔子·入府",
+      "dishes": [
+        "枫露茶",
+        "糟鹅掌",
+        "冷香丸",
+        "手帕",
+        "斗方",
+        "荷包",
+        "通灵宝玉",
+        "金锁"
+      ],
+      "sources": [
+        "chapter_item",
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 50.9,
+      "balance_smooth": -1.73
+    },
+    {
+      "chapter": 9,
+      "dish_count": 6,
+      "luxury": 58.7,
+      "balance": -1.6,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "楔子·入府",
+      "dishes": [
+        "元春省亲",
+        "宝玉宝钗成婚",
+        "省亲宴",
+        "秦可卿丧仪",
+        "累丝金凤",
+        "贾母八旬宴"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 43.8,
+      "balance_smooth": -1.47
+    },
+    {
+      "chapter": 10,
+      "dish_count": 3,
+      "luxury": 65.0,
+      "balance": -3.0,
+      "axes": {
+        "fine_tonic": 9,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "楔子·入府",
+      "dishes": [
+        "燕窝汤",
+        "张友士脉案",
+        "益气养荣补脾和肝汤"
+      ],
+      "sources": [
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 47.5,
+      "balance_smooth": -1.54
+    },
+    {
+      "chapter": 11,
+      "dish_count": 1,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "楔子·入府",
+      "dishes": [
+        "中秋"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 46.4,
+      "balance_smooth": -1.39
+    },
+    {
+      "chapter": 12,
+      "dish_count": 7,
+      "luxury": 53.1,
+      "balance": -1.37,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "楔子·入府",
+      "dishes": [
+        "元春省亲",
+        "宝玉宝钗成婚",
+        "省亲宴",
+        "秦可卿丧仪",
+        "荷包",
+        "贾母八旬宴",
+        "迎春出嫁"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 46.5,
+      "balance_smooth": -1.36
+    },
+    {
+      "chapter": 13,
+      "dish_count": 2,
+      "luxury": 35.0,
+      "balance": -1.0,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "楔子·入府",
+      "dishes": [
+        "秦可卿丧仪",
+        "张友士脉案"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 38.6,
+      "balance_smooth": -0.73
+    },
+    {
+      "chapter": 14,
+      "dish_count": 10,
+      "luxury": 59.5,
+      "balance": -1.42,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 6,
+        "refined_grain": 7,
+        "coarse_balance": 7,
+        "feast_luxury": 14,
+        "alcohol": 3
+      },
+      "phase": "楔子·入府",
+      "dishes": [
+        "供饭供茶",
+        "劝食细粥",
+        "奶子糖粳粥",
+        "元春省亲",
+        "宝玉宝钗成婚",
+        "枣儿粳米粥",
+        "省亲宴",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "迎春出嫁"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 46.4,
+      "balance_smooth": -1.05
+    },
+    {
+      "chapter": 15,
+      "dish_count": 5,
+      "luxury": 25.6,
+      "balance": 0.12,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 1,
+        "feast_luxury": 1,
+        "alcohol": 2
+      },
+      "phase": "楔子·入府",
+      "dishes": [
+        "奠茶饭",
+        "路祭茶果",
+        "大红妆缎",
+        "秦可卿丧仪",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 41.8,
+      "balance_smooth": -0.91
+    },
+    {
+      "chapter": 16,
+      "dish_count": 6,
+      "luxury": 58.7,
+      "balance": -1.6,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "楔子·入府",
+      "dishes": [
+        "宝玉宝钗成婚",
+        "迎春出嫁",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "元春省亲",
+        "省亲宴"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 43.1,
+      "balance_smooth": -0.86
+    },
+    {
+      "chapter": 17,
+      "dish_count": 3,
+      "luxury": 30.0,
+      "balance": -0.67,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "通灵宝玉",
+        "冷香丸",
+        "元宵"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 39.5,
+      "balance_smooth": -0.87
+    },
+    {
+      "chapter": 18,
+      "dish_count": 7,
+      "luxury": 41.7,
+      "balance": -0.71,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 7,
+        "alcohol": 0
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "省亲宴",
+        "元宵",
+        "元春省亲",
+        "沉香拐",
+        "荷包",
+        "金银锞",
+        "金锁"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 38.4,
+      "balance_smooth": -0.89
+    },
+    {
+      "chapter": 19,
+      "dish_count": 7,
+      "luxury": 41.7,
+      "balance": -1.49,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 6,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 3,
+        "alcohol": 2
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "年茶",
+        "糖蒸酥酪",
+        "奴婢月例",
+        "手帕",
+        "荷包",
+        "通灵宝玉",
+        "枫露茶"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 30.7,
+      "balance_smooth": -0.57
+    },
+    {
+      "chapter": 20,
+      "dish_count": 2,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "元宵",
+        "手帕"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 34.8,
+      "balance_smooth": -0.98
+    },
+    {
+      "chapter": 21,
+      "dish_count": 1,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "累丝金凤"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 38.2,
+      "balance_smooth": -1.16
+    },
+    {
+      "chapter": 22,
+      "dish_count": 11,
+      "luxury": 50.7,
+      "balance": -2.72,
+      "axes": {
+        "fine_tonic": 1,
+        "fat_sweet": 17,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 17,
+        "alcohol": 5
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "宝钗生辰宴",
+        "宫制诗筒",
+        "甜烂之食",
+        "茶筅",
+        "软烂菜",
+        "食疗",
+        "香茶细果",
+        "元宵",
+        "累丝金凤",
+        "通灵宝玉",
+        "风筝"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 39.0,
+      "balance_smooth": -1.08
+    },
+    {
+      "chapter": 23,
+      "dish_count": 6,
+      "luxury": 58.7,
+      "balance": -1.6,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "宝玉宝钗成婚",
+        "迎春出嫁",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "元春省亲",
+        "省亲宴"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 44.8,
+      "balance_smooth": -1.32
+    },
+    {
+      "chapter": 24,
+      "dish_count": 9,
+      "luxury": 45.8,
+      "balance": -1.07,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "元春省亲",
+        "宝玉宝钗成婚",
+        "手帕",
+        "汗巾儿",
+        "省亲宴",
+        "累丝金凤",
+        "贾母八旬宴",
+        "迎春出嫁",
+        "魇魔法"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 52.3,
+      "balance_smooth": -1.65
+    },
+    {
+      "chapter": 25,
+      "dish_count": 8,
+      "luxury": 49.0,
+      "balance": -1.2,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "宝玉宝钗成婚",
+        "迎春出嫁",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "元春省亲",
+        "省亲宴",
+        "通灵宝玉",
+        "魇魔法"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 46.2,
+      "balance_smooth": -1.11
+    },
+    {
+      "chapter": 26,
+      "dish_count": 7,
+      "luxury": 57.4,
+      "balance": -1.66,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "元春省亲",
+        "冷香丸",
+        "手帕",
+        "省亲宴",
+        "贾母八旬宴",
+        "通灵宝玉",
+        "金锁"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 43.1,
+      "balance_smooth": -1.06
+    },
+    {
+      "chapter": 27,
+      "dish_count": 3,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "宫制堆纱花",
+        "手帕",
+        "荷包"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 40.9,
+      "balance_smooth": -0.75
+    },
+    {
+      "chapter": 28,
+      "dish_count": 12,
+      "luxury": 43.3,
+      "balance": -1.37,
+      "axes": {
+        "fine_tonic": 14,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 4,
+        "alcohol": 2
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "门杯",
+        "天王补心丹",
+        "鲍太医诊黛玉",
+        "人参养荣丸",
+        "大红妆缎",
+        "手帕",
+        "端午",
+        "红麝串",
+        "金锁",
+        "冷香丸",
+        "王大夫诊黛玉",
+        "茜香罗"
+      ],
+      "sources": [
+        "chapter_item",
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 37.9,
+      "balance_smooth": -0.68
+    },
+    {
+      "chapter": 29,
+      "dish_count": 4,
+      "luxury": 35.0,
+      "balance": 0.47,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 1,
+        "refined_grain": 0,
+        "coarse_balance": 6,
+        "feast_luxury": 7,
+        "alcohol": 2
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "薛蟠生日宴",
+        "香薷解暑汤",
+        "手帕",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 30.4,
+      "balance_smooth": -0.34
+    },
+    {
+      "chapter": 30,
+      "dish_count": 8,
+      "luxury": 33.8,
+      "balance": -0.82,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 2,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 4,
+        "alcohol": 0
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "冷香丸",
+        "宝玉宝钗成婚",
+        "手帕",
+        "累丝金凤",
+        "荷包",
+        "贾母八旬宴",
+        "通灵宝玉",
+        "金锁"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 30.4,
+      "balance_smooth": -0.34
+    },
+    {
+      "chapter": 31,
+      "dish_count": 3,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "手帕",
+        "端午",
+        "金麒麟"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 33.5,
+      "balance_smooth": -0.39
+    },
+    {
+      "chapter": 32,
+      "dish_count": 4,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "手帕",
+        "旧衣",
+        "累丝金凤",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 33.3,
+      "balance_smooth": -0.64
+    },
+    {
+      "chapter": 33,
+      "dish_count": 6,
+      "luxury": 58.7,
+      "balance": -1.6,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "宝玉宝钗成婚",
+        "迎春出嫁",
+        "贾母八旬宴",
+        "元春省亲",
+        "省亲宴",
+        "端午"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 33.5,
+      "balance_smooth": -0.68
+    },
+    {
+      "chapter": 34,
+      "dish_count": 11,
+      "luxury": 33.8,
+      "balance": -0.78,
+      "axes": {
+        "fine_tonic": 4,
+        "fat_sweet": 2,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 4,
+        "alcohol": 2
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "伤后薄汤",
+        "宝钗散瘀丸",
+        "宝玉宝钗成婚",
+        "手帕",
+        "旧帕",
+        "汗巾儿",
+        "端午",
+        "累丝金凤",
+        "贾母八旬宴",
+        "通灵宝玉",
+        "金锁"
+      ],
+      "sources": [
+        "medicine",
+        "chapter_item"
+      ],
+      "luxury_smooth": 41.2,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 35,
+      "dish_count": 2,
+      "luxury": 35.0,
+      "balance": -1.0,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "莲叶羹",
+        "伤后薄汤"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 49.0,
+      "balance_smooth": -1.32
+    },
+    {
+      "chapter": 36,
+      "dish_count": 6,
+      "luxury": 58.7,
+      "balance": -1.6,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "宝玉宝钗成婚",
+        "迎春出嫁",
+        "贾母八旬宴",
+        "元春省亲",
+        "省亲宴",
+        "累丝金凤"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 50.6,
+      "balance_smooth": -1.16
+    },
+    {
+      "chapter": 37,
+      "dish_count": 6,
+      "luxury": 58.7,
+      "balance": -1.6,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "宝玉宝钗成婚",
+        "迎春出嫁",
+        "贾母八旬宴",
+        "元春省亲",
+        "省亲宴",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 50.5,
+      "balance_smooth": -1.16
+    },
+    {
+      "chapter": 38,
+      "dish_count": 7,
+      "luxury": 66.6,
+      "balance": -0.81,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 1,
+        "refined_grain": 2,
+        "coarse_balance": 5,
+        "feast_luxury": 15,
+        "alcohol": 6
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "合欢酒",
+        "姜醋蘸蟹",
+        "绿豆洗面",
+        "茶筅",
+        "螃蟹宴",
+        "通灵宝玉",
+        "金锁"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 59.5,
+      "balance_smooth": -1.6
+    },
+    {
+      "chapter": 39,
+      "dish_count": 6,
+      "luxury": 33.3,
+      "balance": -0.77,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 4,
+        "alcohol": 0
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "宝玉宝钗成婚",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "累丝金凤",
+        "通灵宝玉",
+        "金锁"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 62.1,
+      "balance_smooth": -1.79
+    },
+    {
+      "chapter": 40,
+      "dish_count": 4,
+      "luxury": 80.0,
+      "balance": -3.2,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 7,
+        "coarse_balance": 0,
+        "feast_luxury": 12,
+        "alcohol": 1
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "两宴大观园",
+        "什锦攒心盒子",
+        "鸽子蛋",
+        "软烟罗"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 56.1,
+      "balance_smooth": -1.58
+    },
+    {
+      "chapter": 41,
+      "dish_count": 11,
+      "luxury": 71.8,
+      "balance": -2.59,
+      "axes": {
+        "fine_tonic": 1,
+        "fat_sweet": 7,
+        "refined_grain": 6,
+        "coarse_balance": 0,
+        "feast_luxury": 25,
+        "alcohol": 8
+      },
+      "phase": "省亲极盛",
+      "dishes": [
+        "两宴大观园",
+        "什锦攒心盒子",
+        "六安茶",
+        "奶油小面果",
+        "梅花雪水茶",
+        "老君眉",
+        "茄鲞",
+        "螃蟹小饺",
+        "黄杨根套杯",
+        "门杯",
+        "成窑杯"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 53.4,
+      "balance_smooth": -1.69
+    },
+    {
+      "chapter": 42,
+      "dish_count": 9,
+      "luxury": 28.9,
+      "balance": -0.51,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 4,
+        "alcohol": 0
+      },
+      "phase": "园宴精工",
+      "dishes": [
+        "五色纸钱",
+        "宝玉宝钗成婚",
+        "玉匣记",
+        "秦可卿丧仪",
+        "累丝金凤",
+        "荷包",
+        "贾母八旬宴",
+        "迎春出嫁",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 53.0,
+      "balance_smooth": -1.67
+    },
+    {
+      "chapter": 43,
+      "dish_count": 7,
+      "luxury": 53.1,
+      "balance": -1.37,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "园宴精工",
+      "dishes": [
+        "元春省亲",
+        "宝玉宝钗成婚",
+        "省亲宴",
+        "秦可卿丧仪",
+        "荷包",
+        "贾母八旬宴",
+        "迎春出嫁"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 51.0,
+      "balance_smooth": -1.73
+    },
+    {
+      "chapter": 44,
+      "dish_count": 7,
+      "luxury": 31.4,
+      "balance": -0.66,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 4,
+        "alcohol": 0
+      },
+      "phase": "园宴精工",
+      "dishes": [
+        "宝玉宝钗成婚",
+        "手帕",
+        "秦可卿丧仪",
+        "累丝金凤",
+        "贾母八旬宴",
+        "迎春出嫁",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 43.3,
+      "balance_smooth": -1.36
+    },
+    {
+      "chapter": 45,
+      "dish_count": 4,
+      "luxury": 70.0,
+      "balance": -3.5,
+      "axes": {
+        "fine_tonic": 14,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "园宴精工",
+      "dishes": [
+        "燕窝粥",
+        "人参养荣丸",
+        "黛玉嗽疾",
+        "年例"
+      ],
+      "sources": [
+        "chapter_item",
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 45.0,
+      "balance_smooth": -1.47
+    },
+    {
+      "chapter": 46,
+      "dish_count": 6,
+      "luxury": 33.3,
+      "balance": -0.77,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 4,
+        "alcohol": 0
+      },
+      "phase": "园宴精工",
+      "dishes": [
+        "宝玉宝钗成婚",
+        "迎春出嫁",
+        "贾母八旬宴",
+        "累丝金凤",
+        "通灵宝玉",
+        "金锁"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 41.1,
+      "balance_smooth": -1.35
+    },
+    {
+      "chapter": 47,
+      "dish_count": 7,
+      "luxury": 37.4,
+      "balance": -1.06,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 4,
+        "alcohol": 0
+      },
+      "phase": "园宴精工",
+      "dishes": [
+        "下红之症",
+        "宝玉宝钗成婚",
+        "秦可卿丧仪",
+        "累丝金凤",
+        "贾母八旬宴",
+        "迎春出嫁",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 38.8,
+      "balance_smooth": -1.22
+    },
+    {
+      "chapter": 48,
+      "dish_count": 6,
+      "luxury": 33.3,
+      "balance": -0.77,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 4,
+        "alcohol": 0
+      },
+      "phase": "园宴精工",
+      "dishes": [
+        "宝玉宝钗成婚",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "累丝金凤",
+        "通灵宝玉",
+        "金锁"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 28.8,
+      "balance_smooth": -0.52
+    },
+    {
+      "chapter": 49,
+      "dish_count": 3,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "园宴精工",
+      "dishes": [
+        "年例",
+        "旧衣",
+        "金麒麟"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 29.6,
+      "balance_smooth": -0.59
+    },
+    {
+      "chapter": 50,
+      "dish_count": 1,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "园宴精工",
+      "dishes": [
+        "年例"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 28.3,
+      "balance_smooth": -0.51
+    },
+    {
+      "chapter": 51,
+      "dish_count": 7,
+      "luxury": 37.1,
+      "balance": -1.14,
+      "axes": {
+        "fine_tonic": 8,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "园宴精工",
+      "dishes": [
+        "王太医诊晴雯",
+        "胡庸医诊晴雯",
+        "虎狼药",
+        "年例",
+        "手帕",
+        "荷包",
+        "王大夫诊黛玉"
+      ],
+      "sources": [
+        "medicine",
+        "chapter_item"
+      ],
+      "luxury_smooth": 28.2,
+      "balance_smooth": -0.5
+    },
+    {
+      "chapter": 52,
+      "dish_count": 10,
+      "luxury": 31.0,
+      "balance": -0.66,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 2,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 4,
+        "alcohol": 0
+      },
+      "phase": "园宴精工",
+      "dishes": [
+        "建莲红枣汤",
+        "法制紫姜",
+        "净饿调养",
+        "宝玉宝钗成婚",
+        "秦可卿丧仪",
+        "累丝金凤",
+        "虾须镯",
+        "贾母八旬宴",
+        "迎春出嫁",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "chapter_item",
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 37.8,
+      "balance_smooth": -1.05
+    },
+    {
+      "chapter": 53,
+      "dish_count": 13,
+      "luxury": 32.9,
+      "balance": -0.71,
+      "axes": {
+        "fine_tonic": 8,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 2,
+        "alcohol": 0
+      },
+      "phase": "露剂·园规",
+      "dishes": [
+        "押岁锞子",
+        "净饿调养",
+        "李纨时气",
+        "益神养血之剂",
+        "邢夫人火眼",
+        "元宵",
+        "元宵夜宴",
+        "大红妆缎蟒袄",
+        "奴婢月例",
+        "宗祠祭祖",
+        "年例",
+        "荷包",
+        "金银锞"
+      ],
+      "sources": [
+        "chapter_item",
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 43.4,
+      "balance_smooth": -1.43
+    },
+    {
+      "chapter": 54,
+      "dish_count": 5,
+      "luxury": 68.0,
+      "balance": -2.76,
+      "axes": {
+        "fine_tonic": 1,
+        "fat_sweet": 8,
+        "refined_grain": 5,
+        "coarse_balance": 3,
+        "feast_luxury": 6,
+        "alcohol": 1
+      },
+      "phase": "露剂·园规",
+      "dishes": [
+        "杏仁茶",
+        "枣儿粳米粥",
+        "鸭子肉粥",
+        "元宵",
+        "手帕"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 47.7,
+      "balance_smooth": -1.52
+    },
+    {
+      "chapter": 55,
+      "dish_count": 9,
+      "luxury": 48.0,
+      "balance": -1.87,
+      "axes": {
+        "fine_tonic": 16,
+        "fat_sweet": 0,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "露剂·园规",
+      "dishes": [
+        "下红之症",
+        "凤姐小月脉案",
+        "李纨时气",
+        "湘云时气",
+        "黛玉嗽疾",
+        "元宵",
+        "奴婢月例",
+        "手帕",
+        "燕窝粥"
+      ],
+      "sources": [
+        "medicine",
+        "chapter_item"
+      ],
+      "luxury_smooth": 58.8,
+      "balance_smooth": -2.2
+    },
+    {
+      "chapter": 56,
+      "dish_count": 6,
+      "luxury": 58.7,
+      "balance": -1.6,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "露剂·园规",
+      "dishes": [
+        "宝玉宝钗成婚",
+        "迎春出嫁",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "元春省亲",
+        "省亲宴"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 56.2,
+      "balance_smooth": -2.06
+    },
+    {
+      "chapter": 57,
+      "dish_count": 4,
+      "luxury": 86.2,
+      "balance": -4.05,
+      "axes": {
+        "fine_tonic": 13,
+        "fat_sweet": 0,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 4,
+        "alcohol": 0
+      },
+      "phase": "露剂·园规",
+      "dishes": [
+        "燕窝粥",
+        "甄夫人席",
+        "人参养荣丸",
+        "王大夫诊黛玉"
+      ],
+      "sources": [
+        "chapter_item",
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 50.6,
+      "balance_smooth": -1.75
+    },
+    {
+      "chapter": 58,
+      "dish_count": 1,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "露剂·园规",
+      "dishes": [
+        "年例"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 52.6,
+      "balance_smooth": -1.92
+    },
+    {
+      "chapter": 59,
+      "dish_count": 7,
+      "luxury": 40.0,
+      "balance": -1.23,
+      "axes": {
+        "fine_tonic": 4,
+        "fat_sweet": 2,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 4,
+        "alcohol": 0
+      },
+      "phase": "露剂·园规",
+      "dishes": [
+        "蔷薇硝",
+        "宝玉宝钗成婚",
+        "秦可卿丧仪",
+        "累丝金凤",
+        "贾母八旬宴",
+        "通灵宝玉",
+        "金锁"
+      ],
+      "sources": [
+        "medicine",
+        "chapter_item"
+      ],
+      "luxury_smooth": 50.4,
+      "balance_smooth": -2.01
+    },
+    {
+      "chapter": 60,
+      "dish_count": 6,
+      "luxury": 58.0,
+      "balance": -2.73,
+      "axes": {
+        "fine_tonic": 12,
+        "fat_sweet": 4,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 2
+      },
+      "phase": "露剂·园规",
+      "dishes": [
+        "玫瑰露",
+        "茯苓霜",
+        "西洋葡萄酒",
+        "茉莉粉",
+        "蔷薇硝",
+        "手帕"
+      ],
+      "sources": [
+        "chapter_item",
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 47.3,
+      "balance_smooth": -1.7
+    },
+    {
+      "chapter": 61,
+      "dish_count": 6,
+      "luxury": 48.0,
+      "balance": -2.03,
+      "axes": {
+        "fine_tonic": 10,
+        "fat_sweet": 2,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "露剂·园规",
+      "dishes": [
+        "炖嫩鸡蛋",
+        "玫瑰露",
+        "茯苓霜",
+        "馊豆腐",
+        "茉莉粉",
+        "蔷薇硝"
+      ],
+      "sources": [
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 59.8,
+      "balance_smooth": -2.08
+    },
+    {
+      "chapter": 62,
+      "dish_count": 14,
+      "luxury": 70.5,
+      "balance": -2.52,
+      "axes": {
+        "fine_tonic": 4,
+        "fat_sweet": 13,
+        "refined_grain": 7,
+        "coarse_balance": 0,
+        "feast_luxury": 19,
+        "alcohol": 14
+      },
+      "phase": "露剂·园规",
+      "dishes": [
+        "供尖儿",
+        "奶油松瓤卷酥",
+        "绿畦香稻饭",
+        "胭脂鹅脯",
+        "茯苓霜",
+        "虾丸鸡皮汤",
+        "酒酿蒸鸭",
+        "醒酒酸汤",
+        "玫瑰露",
+        "群芳夜宴",
+        "荷包",
+        "通灵宝玉",
+        "金寿星",
+        "门杯"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 55.8,
+      "balance_smooth": -1.83
+    },
+    {
+      "chapter": 63,
+      "dish_count": 6,
+      "luxury": 82.7,
+      "balance": -1.87,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 0,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 14,
+        "alcohol": 9
+      },
+      "phase": "露剂·园规",
+      "dishes": [
+        "四十碟果子",
+        "普洱茶",
+        "绍兴酒",
+        "群芳夜宴",
+        "尤二姐吞金",
+        "门杯"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 55.3,
+      "balance_smooth": -1.6
+    },
+    {
+      "chapter": 64,
+      "dish_count": 1,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "露剂·园规",
+      "dishes": [
+        "荷包"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 48.3,
+      "balance_smooth": -1.1
+    },
+    {
+      "chapter": 65,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "露剂·园规",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 38.5,
+      "balance_smooth": -0.63
+    },
+    {
+      "chapter": 66,
+      "dish_count": 1,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "露剂·园规",
+      "dishes": [
+        "鸳鸯剑"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 23.8,
+      "balance_smooth": -0.22
+    },
+    {
+      "chapter": 67,
+      "dish_count": 7,
+      "luxury": 31.4,
+      "balance": -0.66,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 4,
+        "alcohol": 0
+      },
+      "phase": "露剂·园规",
+      "dishes": [
+        "宝玉宝钗成婚",
+        "迎春出嫁",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "累丝金凤",
+        "通灵宝玉",
+        "中秋"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 30.5,
+      "balance_smooth": -0.66
+    },
+    {
+      "chapter": 68,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "露剂·园规",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 27.9,
+      "balance_smooth": -0.5
+    },
+    {
+      "chapter": 69,
+      "dish_count": 3,
+      "luxury": 40.0,
+      "balance": -1.33,
+      "axes": {
+        "fine_tonic": 4,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "露剂·园规",
+      "dishes": [
+        "尤二姐吞金",
+        "胡君荣诊尤二姐",
+        "鸳鸯剑"
+      ],
+      "sources": [
+        "medicine",
+        "chapter_item"
+      ],
+      "luxury_smooth": 38.5,
+      "balance_smooth": -1.14
+    },
+    {
+      "chapter": 70,
+      "dish_count": 3,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "露剂·园规",
+      "dishes": [
+        "手帕",
+        "旧衣",
+        "风筝"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 35.7,
+      "balance_smooth": -0.97
+    },
+    {
+      "chapter": 71,
+      "dish_count": 6,
+      "luxury": 62.7,
+      "balance": -2.55,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 3,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 20,
+        "alcohol": 1
+      },
+      "phase": "露剂·园规",
+      "dishes": [
+        "八旬寿点",
+        "贾母八旬宴",
+        "伽南珠",
+        "沉香拐",
+        "福寿香",
+        "金寿星"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 32.5,
+      "balance_smooth": -0.78
+    },
+    {
+      "chapter": 72,
+      "dish_count": 1,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "中秋"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 28.5,
+      "balance_smooth": -0.51
+    },
+    {
+      "chapter": 73,
+      "dish_count": 1,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "累丝金凤"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 34.4,
+      "balance_smooth": -0.8
+    },
+    {
+      "chapter": 74,
+      "dish_count": 5,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "手帕",
+        "累丝金凤",
+        "荷包",
+        "金银锞",
+        "绣春囊"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 26.7,
+      "balance_smooth": -0.29
+    },
+    {
+      "chapter": 75,
+      "dish_count": 8,
+      "luxury": 49.5,
+      "balance": -1.46,
+      "axes": {
+        "fine_tonic": 3,
+        "fat_sweet": 5,
+        "refined_grain": 10,
+        "coarse_balance": 6,
+        "feast_luxury": 4,
+        "alcohol": 2
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "椒油莼酱",
+        "红稻米粥",
+        "茶面子",
+        "风腌果子狸",
+        "风腌笋",
+        "中秋",
+        "通灵宝玉",
+        "面茶"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 35.0,
+      "balance_smooth": -0.76
+    },
+    {
+      "chapter": 76,
+      "dish_count": 3,
+      "luxury": 24.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 2
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "中秋热酒",
+        "凸碧堂月饼",
+        "中秋"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 35.0,
+      "balance_smooth": -0.76
+    },
+    {
+      "chapter": 77,
+      "dish_count": 8,
+      "luxury": 61.4,
+      "balance": -2.35,
+      "axes": {
+        "fine_tonic": 14,
+        "fat_sweet": 4,
+        "refined_grain": 2,
+        "coarse_balance": 3,
+        "feast_luxury": 4,
+        "alcohol": 1
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "面茶",
+        "上等人参",
+        "下红之症",
+        "凤姐小月脉案",
+        "参膏芦须",
+        "调经养荣丸",
+        "中秋",
+        "供尖儿"
+      ],
+      "sources": [
+        "chapter_item",
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 42.7,
+      "balance_smooth": -1.08
+    },
+    {
+      "chapter": 78,
+      "dish_count": 1,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "通灵宝玉"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 38.0,
+      "balance_smooth": -0.87
+    },
+    {
+      "chapter": 79,
+      "dish_count": 6,
+      "luxury": 58.7,
+      "balance": -1.6,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "宝玉宝钗成婚",
+        "迎春出嫁",
+        "贾母八旬宴",
+        "元春省亲",
+        "省亲宴",
+        "累丝金凤"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 45.0,
+      "balance_smooth": -1.19
+    },
+    {
+      "chapter": 80,
+      "dish_count": 5,
+      "luxury": 26.0,
+      "balance": -0.4,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "手帕",
+        "迎春出嫁",
+        "魇魔法",
+        "冷香丸",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 36.7,
+      "balance_smooth": -0.72
+    },
+    {
+      "chapter": 81,
+      "dish_count": 6,
+      "luxury": 58.7,
+      "balance": -1.6,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "宝玉宝钗成婚",
+        "迎春出嫁",
+        "贾母八旬宴",
+        "元春省亲",
+        "省亲宴",
+        "累丝金凤"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 43.2,
+      "balance_smooth": -1.15
+    },
+    {
+      "chapter": 82,
+      "dish_count": 2,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "大观园图",
+        "手帕"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 38.4,
+      "balance_smooth": -0.94
+    },
+    {
+      "chapter": 83,
+      "dish_count": 6,
+      "luxury": 52.5,
+      "balance": -2.17,
+      "axes": {
+        "fine_tonic": 13,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "燕窝汤",
+        "归肺固金汤",
+        "鳖血拌柴胡",
+        "黑逍遥方",
+        "黛玉积郁脉案",
+        "金麒麟"
+      ],
+      "sources": [
+        "chapter_item",
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 46.3,
+      "balance_smooth": -1.29
+    },
+    {
+      "chapter": 84,
+      "dish_count": 6,
+      "luxury": 34.7,
+      "balance": -0.53,
+      "axes": {
+        "fine_tonic": 8,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 4,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "发散风痰药",
+        "四神散",
+        "真牛黄",
+        "钩藤煎",
+        "累丝金凤",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "medicine",
+        "chapter_item"
+      ],
+      "luxury_smooth": 45.6,
+      "balance_smooth": -1.25
+    },
+    {
+      "chapter": 85,
+      "dish_count": 8,
+      "luxury": 65.8,
+      "balance": -2.16,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 3,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 22,
+        "alcohol": 1
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "北静王赏宴",
+        "北静王赏茶",
+        "元春省亲",
+        "宝玉宝钗成婚",
+        "省亲宴",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "迎春出嫁"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 45.6,
+      "balance_smooth": -1.25
+    },
+    {
+      "chapter": 86,
+      "dish_count": 7,
+      "luxury": 54.9,
+      "balance": -1.37,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 2
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "薛蟠当槽酒案",
+        "元春省亲",
+        "宝玉宝钗成婚",
+        "省亲宴",
+        "秦可卿丧仪",
+        "端午",
+        "贾母八旬宴"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 40.7,
+      "balance_smooth": -0.65
+    },
+    {
+      "chapter": 87,
+      "dish_count": 3,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "手帕",
+        "旧帕",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 44.3,
+      "balance_smooth": -0.99
+    },
+    {
+      "chapter": 88,
+      "dish_count": 2,
+      "luxury": 28.0,
+      "balance": 0.8,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 4,
+        "refined_grain": 0,
+        "coarse_balance": 5,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "南小菜",
+        "南边糟东西"
+      ],
+      "sources": [
+        "entity"
+      ],
+      "luxury_smooth": 37.6,
+      "balance_smooth": -0.7
+    },
+    {
+      "chapter": 89,
+      "dish_count": 5,
+      "luxury": 53.0,
+      "balance": -2.2,
+      "axes": {
+        "fine_tonic": 11,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "燕窝汤",
+        "王太医诊晴雯",
+        "净饿调养",
+        "雀金裘",
+        "黛玉绝粒"
+      ],
+      "sources": [
+        "chapter_item",
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 37.4,
+      "balance_smooth": -0.88
+    },
+    {
+      "chapter": 90,
+      "dish_count": 9,
+      "luxury": 32.2,
+      "balance": -0.73,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 2,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 4,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "黛玉绝粒",
+        "宝玉宝钗成婚",
+        "旧衣",
+        "秦可卿丧仪",
+        "端午",
+        "累丝金凤",
+        "荷包",
+        "贾母八旬宴",
+        "迎春出嫁"
+      ],
+      "sources": [
+        "medicine",
+        "chapter_item"
+      ],
+      "luxury_smooth": 45.2,
+      "balance_smooth": -1.2
+    },
+    {
+      "chapter": 91,
+      "dish_count": 3,
+      "luxury": 54.0,
+      "balance": -2.27,
+      "axes": {
+        "fine_tonic": 6,
+        "fat_sweet": 0,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "十香返魂丹",
+        "宝钗感邪发烧",
+        "冷香丸"
+      ],
+      "sources": [
+        "medicine",
+        "chapter_item"
+      ],
+      "luxury_smooth": 47.9,
+      "balance_smooth": -1.5
+    },
+    {
+      "chapter": 92,
+      "dish_count": 6,
+      "luxury": 58.7,
+      "balance": -1.6,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "宝玉宝钗成婚",
+        "迎春出嫁",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "元春省亲",
+        "省亲宴"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 41.3,
+      "balance_smooth": -1.06
+    },
+    {
+      "chapter": 93,
+      "dish_count": 7,
+      "luxury": 41.7,
+      "balance": -0.71,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 7,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "水月庵风月案",
+        "迎春出嫁",
+        "元春省亲",
+        "省亲宴",
+        "端午",
+        "累丝金凤",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 46.4,
+      "balance_smooth": -1.25
+    },
+    {
+      "chapter": 94,
+      "dish_count": 2,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "荷包",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 39.6,
+      "balance_smooth": -0.79
+    },
+    {
+      "chapter": 95,
+      "dish_count": 7,
+      "luxury": 57.4,
+      "balance": -1.66,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "元春通关之剂",
+        "宝玉宝钗成婚",
+        "迎春出嫁",
+        "贾母八旬宴",
+        "元春省亲",
+        "省亲宴",
+        "累丝金凤"
+      ],
+      "sources": [
+        "medicine",
+        "chapter_item"
+      ],
+      "luxury_smooth": 35.4,
+      "balance_smooth": -0.71
+    },
+    {
+      "chapter": 96,
+      "dish_count": 1,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "金锁"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 38.0,
+      "balance_smooth": -0.85
+    },
+    {
+      "chapter": 97,
+      "dish_count": 5,
+      "luxury": 38.0,
+      "balance": -1.2,
+      "axes": {
+        "fine_tonic": 6,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "敛阴止血药",
+        "王大夫诊黛玉",
+        "黛玉郁气吐血",
+        "宝玉宝钗成婚",
+        "旧帕"
+      ],
+      "sources": [
+        "medicine",
+        "chapter_item"
+      ],
+      "luxury_smooth": 38.0,
+      "balance_smooth": -0.85
+    },
+    {
+      "chapter": 98,
+      "dish_count": 8,
+      "luxury": 54.5,
+      "balance": -1.4,
+      "axes": {
+        "fine_tonic": 4,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 2,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "桂圆汤",
+        "毕知庵诊宝玉",
+        "元春省亲",
+        "宝玉宝钗成婚",
+        "省亲宴",
+        "累丝金凤",
+        "贾母八旬宴",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "chapter_item",
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 32.9,
+      "balance_smooth": -0.68
+    },
+    {
+      "chapter": 99,
+      "dish_count": 1,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "迎春出嫁"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 32.9,
+      "balance_smooth": -0.68
+    },
+    {
+      "chapter": 100,
+      "dish_count": 5,
+      "luxury": 32.0,
+      "balance": -0.8,
+      "axes": {
+        "fine_tonic": 4,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "晚景简素",
+      "dishes": [
+        "定心丸",
+        "冷香丸",
+        "宝玉宝钗成婚",
+        "旧衣",
+        "金锁"
+      ],
+      "sources": [
+        "medicine",
+        "chapter_item"
+      ],
+      "luxury_smooth": 32.8,
+      "balance_smooth": -0.65
+    },
+    {
+      "chapter": 101,
+      "dish_count": 4,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "散花寺神签",
+        "水陆道场许愿",
+        "通灵宝玉",
+        "金锁"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 28.9,
+      "balance_smooth": -0.57
+    },
+    {
+      "chapter": 102,
+      "dish_count": 8,
+      "luxury": 37.5,
+      "balance": -1.07,
+      "axes": {
+        "fine_tonic": 4,
+        "fat_sweet": 2,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 4,
+        "alcohol": 0
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "尤氏足阳明谵语",
+        "毛半仙占卦",
+        "宝玉宝钗成婚",
+        "秦可卿丧仪",
+        "累丝金凤",
+        "贾母八旬宴",
+        "迎春出嫁",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "medicine",
+        "chapter_item"
+      ],
+      "luxury_smooth": 28.9,
+      "balance_smooth": -0.57
+    },
+    {
+      "chapter": 103,
+      "dish_count": 4,
+      "luxury": 35.0,
+      "balance": -1.0,
+      "axes": {
+        "fine_tonic": 4,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "夏金桂毒汤案",
+        "金桂案砒霜",
+        "冷香丸",
+        "金锁"
+      ],
+      "sources": [
+        "medicine",
+        "chapter_item"
+      ],
+      "luxury_smooth": 35.5,
+      "balance_smooth": -0.65
+    },
+    {
+      "chapter": 104,
+      "dish_count": 1,
+      "luxury": 20.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "通灵宝玉"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 44.0,
+      "balance_smooth": -1.02
+    },
+    {
+      "chapter": 105,
+      "dish_count": 3,
+      "luxury": 65.0,
+      "balance": -1.17,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 1,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 4,
+        "alcohol": 5
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "抄家席间",
+        "抄家查茶器",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 45.6,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 106,
+      "dish_count": 8,
+      "luxury": 62.5,
+      "balance": -1.85,
+      "axes": {
+        "fine_tonic": 4,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 13,
+        "alcohol": 0
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "疏气安神丸",
+        "元春省亲",
+        "宝玉宝钗成婚",
+        "尤二姐吞金",
+        "省亲宴",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "迎春出嫁"
+      ],
+      "sources": [
+        "medicine",
+        "chapter_item"
+      ],
+      "luxury_smooth": 53.0,
+      "balance_smooth": -1.37
+    },
+    {
+      "chapter": 107,
+      "dish_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "末世崩散",
+      "dishes": [],
+      "sources": [],
+      "luxury_smooth": 56.3,
+      "balance_smooth": -1.46
+    },
+    {
+      "chapter": 108,
+      "dish_count": 7,
+      "luxury": 64.6,
+      "balance": -2.47,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 3,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 22,
+        "alcohol": 2
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "蘅芜庆生宴",
+        "元春省亲",
+        "宝玉宝钗成婚",
+        "省亲宴",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "迎春出嫁"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 48.8,
+      "balance_smooth": -1.24
+    },
+    {
+      "chapter": 109,
+      "dish_count": 6,
+      "luxury": 33.3,
+      "balance": -0.35,
+      "axes": {
+        "fine_tonic": 7,
+        "fat_sweet": 1,
+        "refined_grain": 0,
+        "coarse_balance": 5,
+        "feast_luxury": 0,
+        "alcohol": 1
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "贾母参汤",
+        "贾母消导发散",
+        "宝玉宝钗成婚",
+        "茯苓霜",
+        "迎春出嫁",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "medicine",
+        "chapter_item"
+      ],
+      "luxury_smooth": 47.0,
+      "balance_smooth": -1.1
+    },
+    {
+      "chapter": 110,
+      "dish_count": 4,
+      "luxury": 34.8,
+      "balance": -0.3,
+      "axes": {
+        "fine_tonic": 3,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 2,
+        "feast_luxury": 1,
+        "alcohol": 1
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "贾母丧仪供饭",
+        "贾母参汤",
+        "宁戚丧仪",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "chapter_item",
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 43.6,
+      "balance_smooth": -1.02
+    },
+    {
+      "chapter": 111,
+      "dish_count": 7,
+      "luxury": 55.4,
+      "balance": -1.29,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 1,
+        "feast_luxury": 12,
+        "alcohol": 0
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "贾母辞灵奠",
+        "元春省亲",
+        "宝玉宝钗成婚",
+        "省亲宴",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "迎春出嫁"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 40.1,
+      "balance_smooth": -0.93
+    },
+    {
+      "chapter": 112,
+      "dish_count": 3,
+      "luxury": 30.0,
+      "balance": -0.67,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "妙玉闷香",
+        "通灵宝玉",
+        "魇魔法"
+      ],
+      "sources": [
+        "medicine",
+        "chapter_item"
+      ],
+      "luxury_smooth": 38.0,
+      "balance_smooth": -0.86
+    },
+    {
+      "chapter": 113,
+      "dish_count": 4,
+      "luxury": 47.0,
+      "balance": -2.05,
+      "axes": {
+        "fine_tonic": 6,
+        "fat_sweet": 2,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "刘姥姥求神",
+        "刘姥姥还愿",
+        "赵姨娘办理后事",
+        "巧姐托姥姥"
+      ],
+      "sources": [
+        "medicine",
+        "chapter_item"
+      ],
+      "luxury_smooth": 41.8,
+      "balance_smooth": -1.02
+    },
+    {
+      "chapter": 114,
+      "dish_count": 2,
+      "luxury": 23.0,
+      "balance": 0.0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 1
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "甄应嘉祭礼",
+        "通灵宝玉"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 40.9,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 115,
+      "dish_count": 7,
+      "luxury": 53.6,
+      "balance": -1.11,
+      "axes": {
+        "fine_tonic": 1,
+        "fat_sweet": 2,
+        "refined_grain": 2,
+        "coarse_balance": 3,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "宝玉复生粥",
+        "宝玉宝钗成婚",
+        "迎春出嫁",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "元春省亲",
+        "省亲宴"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 45.0,
+      "balance_smooth": -1.1
+    },
+    {
+      "chapter": 116,
+      "dish_count": 8,
+      "luxury": 50.8,
+      "balance": -1.15,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 2,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "桂圆汤",
+        "元春省亲",
+        "宝玉宝钗成婚",
+        "省亲宴",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "迎春出嫁",
+        "风筝"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 41.1,
+      "balance_smooth": -0.79
+    },
+    {
+      "chapter": 117,
+      "dish_count": 8,
+      "luxury": 50.5,
+      "balance": -1.2,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 2
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "贾芸书房酒局",
+        "元春省亲",
+        "宝玉宝钗成婚",
+        "省亲宴",
+        "秦可卿丧仪",
+        "荷包",
+        "贾母八旬宴",
+        "迎春出嫁"
+      ],
+      "sources": [
+        "chapter_item",
+        "entity"
+      ],
+      "luxury_smooth": 48.2,
+      "balance_smooth": -1.11
+    },
+    {
+      "chapter": 118,
+      "dish_count": 4,
+      "luxury": 27.5,
+      "balance": -0.5,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "冷香丸",
+        "梅花络",
+        "通灵宝玉",
+        "金锁"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 48.5,
+      "balance_smooth": -1.24
+    },
+    {
+      "chapter": 119,
+      "dish_count": 6,
+      "luxury": 58.7,
+      "balance": -1.6,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 2,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "宝玉宝钗成婚",
+        "迎春出嫁",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "元春省亲",
+        "省亲宴"
+      ],
+      "sources": [
+        "chapter_item"
+      ],
+      "luxury_smooth": 47.9,
+      "balance_smooth": -1.26
+    },
+    {
+      "chapter": 120,
+      "dish_count": 8,
+      "luxury": 55.0,
+      "balance": -1.73,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 4,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 11,
+        "alcohol": 0
+      },
+      "phase": "末世崩散",
+      "dishes": [
+        "香菱扶正",
+        "袭人急怒脉案",
+        "元春省亲",
+        "宝玉宝钗成婚",
+        "省亲宴",
+        "秦可卿丧仪",
+        "贾母八旬宴",
+        "迎春出嫁"
+      ],
+      "sources": [
+        "chapter_item",
+        "medicine",
+        "entity"
+      ],
+      "luxury_smooth": 47.1,
+      "balance_smooth": -1.28
+    }
+  ],
+  "characters": [
+    {
+      "id": "贾母",
+      "name": "贾母",
+      "dish_count": 27,
+      "axes": {
+        "fine_tonic": 5,
+        "fat_sweet": 127,
+        "refined_grain": 55,
+        "coarse_balance": 13,
+        "feast_luxury": 402,
+        "alcohol": 18
+      },
+      "balance_score": -414.3,
+      "risk_tags": [
+        "宴享排场密集，饮食失时风险",
+        "酒肉频繁"
+      ],
+      "inference": "宴享排场密集，饮食失时风险；酒肉频繁。甜烂之食、牛乳蒸羊羔、糟鸭信；茄鲞鸽蛋宴后「闹肚子」（刘姥姥线）。推演：老年高脂高胆+不规律，与屡次暴病互参（inference）。",
+      "medicine_echo": [],
+      "sample_dishes": [
+        "两宴大观园",
+        "中秋热酒",
+        "什锦攒心盒子",
+        "八旬寿点",
+        "六安茶",
+        "凸碧堂月饼",
+        "奶油小面果",
+        "姜醋蘸蟹"
+      ]
+    },
+    {
+      "id": "贾宝玉",
+      "name": "贾宝玉",
+      "dish_count": 27,
+      "axes": {
+        "fine_tonic": 27,
+        "fat_sweet": 110,
+        "refined_grain": 47,
+        "coarse_balance": 11,
+        "feast_luxury": 398,
+        "alcohol": 31
+      },
+      "balance_score": -411.2,
+      "risk_tags": [
+        "宴享排场密集，饮食失时风险",
+        "酒肉频繁"
+      ],
+      "inference": "宴享排场密集，饮食失时风险；酒肉频繁。糖蒸酥酪、豆腐皮包子、火腿鲜笋；病中「净饿」只喝清米汤。推演：精制碳水+饮食剧烈波动伤脾胃（inference）。医药互证：毕知庵：悲喜激射，冷暖失调，饮食失时，忧忿滞中，正气壅闭",
+      "medicine_echo": [
+        "毕知庵：悲喜激射，冷暖失调，饮食失时，忧忿滞中，正气壅闭"
+      ],
+      "sample_dishes": [
+        "两宴大观园",
+        "北静王赏宴",
+        "北静王赏茶",
+        "四十碟果子",
+        "宝玉复生粥",
+        "宝钗生辰宴",
+        "建莲红枣汤",
+        "普洱茶"
+      ]
+    },
+    {
+      "id": "贾元春",
+      "name": "贾元春",
+      "dish_count": 1,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 33,
+        "coarse_balance": 0,
+        "feast_luxury": 132,
+        "alcohol": 0
+      },
+      "balance_score": -105.6,
+      "risk_tags": [
+        "精米细面为主，缺粗粮平衡",
+        "宴享排场密集，饮食失时风险"
+      ],
+      "inference": "精米细面为主，缺粗粮平衡；宴享排场密集，饮食失时风险。",
+      "medicine_echo": [],
+      "sample_dishes": [
+        "省亲宴"
+      ]
+    },
+    {
+      "id": "林黛玉",
+      "name": "林黛玉",
+      "dish_count": 15,
+      "axes": {
+        "fine_tonic": 38,
+        "fat_sweet": 12,
+        "refined_grain": 16,
+        "coarse_balance": 13,
+        "feast_luxury": 43,
+        "alcohol": 11
+      },
+      "balance_score": -74.2,
+      "risk_tags": [
+        "宴享排场密集，饮食失时风险",
+        "酒肉频繁"
+      ],
+      "inference": "宴享排场密集，饮食失时风险；酒肉频繁。长期少食，第45回自认「连燕窝粥也吃不惯」；饭后即茶（第3回随贾府习惯）。推演：低热量+单宁阻铁吸收，精补不能代高蛋白，与「郁气伤肝」并读（inference）。医药互证：王大夫：郁气伤肝，肝不藏血",
+      "medicine_echo": [
+        "王大夫：郁气伤肝，肝不藏血"
+      ],
+      "sample_dishes": [
+        "两宴大观园",
+        "什锦攒心盒子",
+        "合欢酒",
+        "宝钗生辰宴",
+        "桂圆汤",
+        "梅花雪水茶",
+        "燕窝汤",
+        "燕窝粥"
+      ]
+    },
+    {
+      "id": "薛宝钗",
+      "name": "薛宝钗",
+      "dish_count": 10,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 8,
+        "refined_grain": 10,
+        "coarse_balance": 5,
+        "feast_luxury": 56,
+        "alcohol": 13
+      },
+      "balance_score": -44.4,
+      "risk_tags": [
+        "宴享排场密集，饮食失时风险",
+        "酒肉频繁"
+      ],
+      "inference": "宴享排场密集，饮食失时风险；酒肉频繁。邢岫烟言其嗜甜食（第11回）；螃蟹宴极爱此物；「热毒」赖冷香丸。推演：丰腴+高糖高热，或过敏性哮喘/代谢内热（inference）。",
+      "medicine_echo": [],
+      "sample_dishes": [
+        "两宴大观园",
+        "什锦攒心盒子",
+        "合欢酒",
+        "宝钗生辰宴",
+        "梅花雪水茶",
+        "绿豆洗面",
+        "薛蟠生日宴",
+        "蘅芜庆生宴"
+      ]
+    },
+    {
+      "id": "王熙凤",
+      "name": "王熙凤",
+      "dish_count": 10,
+      "axes": {
+        "fine_tonic": 2,
+        "fat_sweet": 13,
+        "refined_grain": 13,
+        "coarse_balance": 4,
+        "feast_luxury": 34,
+        "alcohol": 10
+      },
+      "balance_score": -42.3,
+      "risk_tags": [
+        "宴享排场密集，饮食失时风险",
+        "酒肉频繁"
+      ],
+      "inference": "宴享排场密集，饮食失时风险；酒肉频繁。「刚吃了一口，又有人来回话」；小产后饮食不节→崩漏。推演：高压+饱饥无常致内分泌/溃疡风险（inference）。",
+      "medicine_echo": [],
+      "sample_dishes": [
+        "两宴大观园",
+        "南边糟东西",
+        "奶子糖粳粥",
+        "姜醋蘸蟹",
+        "杏仁茶",
+        "红稻米粥",
+        "茄鲞",
+        "蘅芜庆生宴"
+      ]
+    },
+    {
+      "id": "史湘云",
+      "name": "史湘云",
+      "dish_count": 6,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 7,
+        "refined_grain": 8,
+        "coarse_balance": 5,
+        "feast_luxury": 41,
+        "alcohol": 9
+      },
+      "balance_score": -32.7,
+      "risk_tags": [
+        "宴享排场密集，饮食失时风险",
+        "酒肉频繁"
+      ],
+      "inference": "宴享排场密集，饮食失时风险；酒肉频繁。",
+      "medicine_echo": [],
+      "sample_dishes": [
+        "两宴大观园",
+        "姜醋蘸蟹",
+        "宝钗生辰宴",
+        "绿豆洗面",
+        "蘅芜庆生宴",
+        "螃蟹宴"
+      ]
+    },
+    {
+      "id": "刘姥姥",
+      "name": "刘姥姥",
+      "dish_count": 5,
+      "axes": {
+        "fine_tonic": 1,
+        "fat_sweet": 7,
+        "refined_grain": 9,
+        "coarse_balance": 0,
+        "feast_luxury": 26,
+        "alcohol": 4
+      },
+      "balance_score": -31.5,
+      "risk_tags": [
+        "肥甘甜烂偏多，易滞中助湿（推演）",
+        "精米细面为主，缺粗粮平衡",
+        "宴享排场密集，饮食失时风险",
+        "酒肉频繁"
+      ],
+      "inference": "肥甘甜烂偏多，易滞中助湿（推演）；精米细面为主，缺粗粮平衡；宴享排场密集，饮食失时风险；酒肉频繁。两宴见精工（茄鲞、鸽蛋），日常粗淡；与主子层饮食不可比，是全社会对照切片。",
+      "medicine_echo": [],
+      "sample_dishes": [
+        "两宴大观园",
+        "什锦攒心盒子",
+        "奶油小面果",
+        "茄鲞",
+        "黄杨根套杯"
+      ]
+    },
+    {
+      "id": "晴雯",
+      "name": "晴雯",
+      "dish_count": 4,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 1,
+        "coarse_balance": 0,
+        "feast_luxury": 14,
+        "alcohol": 9
+      },
+      "balance_score": -9.2,
+      "risk_tags": [
+        "宴享排场密集，饮食失时风险",
+        "酒肉频繁"
+      ],
+      "inference": "宴享排场密集，饮食失时风险；酒肉频繁。医药互证：胡庸医：外感内滞，误用枳实麻黄",
+      "medicine_echo": [
+        "胡庸医：外感内滞，误用枳实麻黄"
+      ],
+      "sample_dishes": [
+        "四十碟果子",
+        "普洱茶",
+        "绍兴酒",
+        "群芳夜宴"
+      ]
+    },
+    {
+      "id": "尤二姐",
+      "name": "尤二姐",
+      "dish_count": 0,
+      "axes": {
+        "fine_tonic": 0,
+        "fat_sweet": 0,
+        "refined_grain": 0,
+        "coarse_balance": 0,
+        "feast_luxury": 0,
+        "alcohol": 0
+      },
+      "balance_score": 0.0,
+      "risk_tags": [],
+      "inference": "饮食轴相对均衡，或文本着墨较少。医药互证：胡君荣：经水不调误治；贾琏言疑胎气未改方",
+      "medicine_echo": [
+        "胡君荣：经水不调误治；贾琏言疑胎气未改方"
+      ],
+      "sample_dishes": []
+    }
+  ],
+  "global_insights": [
+    {
+      "title": "精细有余、粗粮平衡不足",
+      "body": "聚合轴上细米精面+肥甘+大补显著高于粗淡项；绿畦香稻/红稻粥手标为精米非杂粮。",
+      "evidence": [
+        "茄鲞",
+        "鸽子蛋",
+        "燕窝粥",
+        "甜烂之食",
+        "绿畦香稻饭"
+      ],
+      "axis_ratio": {
+        "heavy": 536,
+        "light": 57
+      }
+    },
+    {
+      "title": "全社会饮食水平",
+      "body": "权贵层与市井层在文本中的饮食水平着墨密度悬殊；上层偏精细/排场，民间偏简易或求神问卜（推演）。",
+      "evidence": [
+        "权贵/主子层",
+        "中层（体面仆婢·客商）",
+        "市井/民间"
+      ]
+    },
+    {
+      "title": "奢侈曲线与大事记同向",
+      "body": "rolling 奢侈度与 saga 里程碑（省亲/园宴/查抄/散府）可对照；曲线峰谷不等于因果。",
+      "evidence": [
+        "林黛玉进贾府",
+        "秦可卿之死与凤姐协理",
+        "元妃省亲",
+        "共读西厢与黛玉葬花"
+      ]
+    },
+    {
+      "title": "健康推演：补而不衡",
+      "body": "焦点人物普遍「大补/精细 ≥ 粗淡」；脉案作互证，非医学定论。",
+      "evidence": [
+        "贾母",
+        "贾宝玉",
+        "贾元春",
+        "林黛玉",
+        "薛宝钗"
+      ]
+    },
+    {
+      "title": "回目 items[] 补链",
+      "body": "另有 473 条由回目 frontmatter items[] 补入曲线（无独立 dish 页者按名关键词估轴）。",
+      "evidence": []
+    },
+    {
+      "title": "茄鲞：炫耀性消费与阶级壁垒",
+      "body": "十几只鸡配一茄，烹饪冗余把底层生存物资转化为身份游戏；刘姥姥「倒得十来只鸡」点破阶层绝对隔离（社会学推演）。",
+      "evidence": [
+        "茄鲞",
+        "刘姥姥",
+        "王熙凤"
+      ]
+    },
+    {
+      "title": "乌进孝进贡：生态红线与财政枯竭",
+      "body": "第53回野味清单与「地都冻了」「年成一年不如一年」并读——人口压力、生态萎缩与小农供养断绝，上层餐桌失去底层现金流（经济史推演）。",
+      "evidence": [
+        "乌进孝",
+        "第53回",
+        "祭宗祠"
+      ]
+    },
+    {
+      "title": "从极奢到寒酸：帝国气压计",
+      "body": "前部夜宴绍兴酒、反季鲜果；抄家后粥不可得。饮食曲线峰谷映射阶层雪崩，非仅贾府私事（全社会推演）。",
+      "evidence": [
+        "群芳夜宴",
+        "查抄",
+        "刘姥姥"
+      ]
+    }
+  ],
+  "social": {
+    "title": "全社会饮食水平",
+    "segments": [
+      {
+        "id": "elite",
+        "label": "权贵/主子层",
+        "entity_count": 60,
+        "occurrence_weight": 537,
+        "axes": {
+          "fine_tonic": 78,
+          "fat_sweet": 559,
+          "refined_grain": 259,
+          "coarse_balance": 71,
+          "feast_luxury": 1993,
+          "alcohol": 120
+        },
+        "sample_entities": [
+          "两宴大观园",
+          "中秋热酒",
+          "什锦攒心盒子",
+          "八旬寿点",
+          "六安茶",
+          "凸碧堂月饼"
+        ]
+      },
+      {
+        "id": "middling",
+        "label": "中层（体面仆婢·客商）",
+        "entity_count": 7,
+        "occurrence_weight": 11,
+        "axes": {
+          "fine_tonic": 0,
+          "fat_sweet": 4,
+          "refined_grain": 3,
+          "coarse_balance": 2,
+          "feast_luxury": 27,
+          "alcohol": 17
+        },
+        "sample_entities": [
+          "四十碟果子",
+          "姜醋蘸蟹",
+          "年茶",
+          "普洱茶",
+          "糖蒸酥酪",
+          "绍兴酒"
+        ]
+      },
+      {
+        "id": "folk",
+        "label": "市井/民间",
+        "entity_count": 5,
+        "occurrence_weight": 7,
+        "axes": {
+          "fine_tonic": 1,
+          "fat_sweet": 7,
+          "refined_grain": 9,
+          "coarse_balance": 0,
+          "feast_luxury": 26,
+          "alcohol": 4
+        },
+        "sample_entities": [
+          "两宴大观园",
+          "什锦攒心盒子",
+          "奶油小面果",
+          "茄鲞",
+          "黄杨根套杯"
+        ]
+      },
+      {
+        "id": "general",
+        "label": "未分层/制度性",
+        "entity_count": 144,
+        "occurrence_weight": 585,
+        "axes": {
+          "fine_tonic": 255,
+          "fat_sweet": 147,
+          "refined_grain": 18,
+          "coarse_balance": 33,
+          "feast_luxury": 411,
+          "alcohol": 90
+        },
+        "sample_entities": [
+          "供尖儿",
+          "供饭供茶",
+          "北静王赏宴",
+          "南小菜",
+          "四十碟果子",
+          "奠茶饭"
+        ]
+      }
+    ],
+    "global_axes": {
+      "fine_tonic": 269,
+      "fat_sweet": 183,
+      "refined_grain": 84,
+      "coarse_balance": 57,
+      "feast_luxury": 599,
+      "alcohol": 81
+    },
+    "inference": "权贵层与市井层在文本中的饮食水平着墨密度悬殊；上层偏精细/排场，民间偏简易或求神问卜（推演）。",
+    "insights": [
+      {
+        "title": "阶层差：饮食水平不对称",
+        "body": "权贵层与市井层在文本中的饮食水平着墨密度悬殊；上层偏精细/排场，民间偏简易或求神问卜（推演）。",
+        "evidence": [
+          "两宴大观园",
+          "中秋热酒",
+          "什锦攒心盒子",
+          "两宴大观园",
+          "什锦攒心盒子"
+        ]
+      },
+      {
+        "title": "贾府餐桌 vs 全社会",
+        "body": "茄鲞、鸽蛋、乌进孝野味清单标示炫耀性消费；刘姥姥线提供底层对照——从舌尖可见阶级隔离与生态-财政红线（推演）。",
+        "evidence": [
+          "茄鲞",
+          "刘姥姥",
+          "乌进孝",
+          "祭宗祠"
+        ]
+      },
+      {
+        "title": "钟鸣鼎食与生理衰亡",
+        "body": "主子层精补肥甘、仆婢粗淡；同一社会内营养结构极化。饮食曲线与 saga 崩散同向，是「从胃到骨髓」的衰败写实（推演）。",
+        "evidence": [
+          "林黛玉",
+          "贾母",
+          "查抄"
+        ]
+      },
+      {
+        "title": "主导轴",
+        "body": "聚合后「feast_luxury」权重最高，可视为本书饮食水平的结构性偏向（inference）。",
+        "evidence": []
+      }
+    ]
+  },
+  "stats": {
+    "dish_entities": 143,
+    "occurrence_rows": 639,
+    "manual_axis_entities": 26,
+    "chapter_item_refs": 630,
+    "chapters_with_food": 117,
+    "peak_luxury_chapter": 39,
+    "peak_luxury": 62.1,
+    "saga_milestones": 12,
+    "social_segments": 4
+  }
+}

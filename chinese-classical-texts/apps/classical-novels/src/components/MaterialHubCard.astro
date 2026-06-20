@@ -1,0 +1,35 @@
+---
+interface Props {
+  href: string;
+  glyph: string;
+  title: string;
+  desc: string;
+  count: number;
+  countLabel?: string;
+  subHref?: string;
+  subLabel?: string;
+}
+
+const { href, glyph, title, desc, count, countLabel = '条实体', subHref, subLabel } = Astro.props;
+---
+
+<article class="material-hub-card">
+  <a href={href} class="material-hub-card__link">
+    <div class="material-hub-card__head">
+      <span class="glyph material-hub-card__glyph">{glyph}</span>
+      <h2 class="brand material-hub-card__title">{title}</h2>
+    </div>
+    <p class="material-hub-card__desc">{desc}</p>
+    <p class="material-hub-card__count">
+      <span class="material-hub-card__count-num">{count}</span>
+      {countLabel}
+    </p>
+  </a>
+  {
+    subHref && subLabel && (
+      <a href={subHref} class="material-hub-card__sub chip chip-mini">
+        {subLabel}
+      </a>
+    )
+  }
+</article>

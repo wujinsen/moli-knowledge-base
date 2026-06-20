@@ -1,0 +1,81 @@
+---
+import { getBooks } from '../../lib/getBooks';
+import Base from '../../layouts/Base.astro';
+import BackLink from '../../components/BackLink.astro';
+import JpmModuleNav from '../../components/JpmModuleNav.astro';
+import LitigationDashboard from '../../components/LitigationDashboard.tsx';
+import { getLitigationInference, LITIGATION_DEFAULT_CHAPTER } from '../../lib/litigationInference';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  return books
+    .filter((b) => b.data.features.includes('litigation'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+const litData = getLitigationInference(meta.slug);
+const initialChapter = LITIGATION_DEFAULT_CHAPTER[meta.slug] ?? 48;
+const stats = litData?.stats;
+---
+
+<Base title={`${meta.book} · 诉讼推演`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  <BackLink href={`/${meta.slug}`} label={meta.book} />
+
+  <div class="content-page">
+    <section class="surface relative mt-3 mb-8 overflow-hidden px-6 py-7 sm:px-8">
+      <div class="flex items-start gap-4">
+        <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">讼</span>
+        <div>
+          <h1 class="brand text-4xl" style="color: var(--primary)">司法 · 诉讼推演</h1>
+          <p class="mt-2 text-sm text-muted">
+            三级司法通关 · 腐败曲线 · 案件轨
+            {
+              stats && (
+                <span>
+                  · {stats.case_count} 案 · {stats.chapters_with_litigation} 回有着墨 · 峰值第{stats.peak_corruption_chapter}回
+                </span>
+              )
+            }
+            {litData?.generated && ` · JSON ${litData.generated}`}
+          </p>
+        </div>
+      </div>
+      <p class="mt-5 max-w-2xl text-sm leading-relaxed" style="color: var(--ink)">
+        兰陵笑笑生把《大明律》写成 **价目表**：武松告状、花子虚争产、苗员外命案构成 **基层→跨区→国家级** 三级通关。
+        本页为 <strong>inference 推演</strong>，与
+        <a href={`/${meta.slug}/chain`} class="hover:underline" style="color: var(--accent)">衰败链</a>、
+        <a href={`/${meta.slug}/silver`} class="hover:underline" style="color: var(--accent)">白银流</a>
+        互证； synthesis 见
+        <a href={`/${meta.slug}/topics/世情四横切面与社会推演`} class="hover:underline" style="color: var(--accent)">世情四横切面</a>。
+        URL <code class="rounded px-1" style="background: color-mix(in srgb, var(--primary) 8%, transparent)">?chapter=48</code> 深链定位回目。
+      </p>
+    </section>
+
+    {meta.slug === 'jinpingmei' && <JpmModuleNav bookSlug={meta.slug} features={meta.features} current="litigation" />}
+
+    {
+      litData ? (
+        <LitigationDashboard data={litData} bookSlug={meta.slug} initialChapter={initialChapter} client:load />
+      ) : (
+        <p class="surface p-4 text-sm text-muted">
+          推演数据尚未生成，请运行
+          <code class="mx-1 rounded px-2 py-0.5" style="background: var(--paper)">
+            python scripts/build_litigation_inference.py --write
+          </code>
+        </p>
+      )
+    }
+
+    <div class="surface mt-8 p-4 text-sm text-muted">
+      <span class="chip">数据源</span>
+      build_litigation_inference.py ·
+      <a href={`/${meta.slug}/topics/世情四横切面与社会推演`} class="hover:underline" style="color: var(--accent)">世情四横切面</a>
+      ·
+      <a href={`/${meta.slug}/chain`} class="hover:underline" style="color: var(--accent)">衰败链</a>
+      ·
+      <a href={`/${meta.slug}/silver`} class="hover:underline" style="color: var(--accent)">白银流</a>
+    </div>
+  </div>
+</Base>

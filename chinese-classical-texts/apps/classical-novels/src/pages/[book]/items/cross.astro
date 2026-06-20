@@ -1,0 +1,60 @@
+---
+import { getBooks } from '../../../lib/getBooks';
+import Base from '../../../layouts/Base.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import MaterialModuleNav from '../../../components/MaterialModuleNav.astro';
+import ItemsCrossIndex from '../../../components/ItemsCrossIndex.tsx';
+import { itemsIndexTitle } from '../../../lib/items';
+import { getItemsCrossIndex } from '../../../lib/itemsCrossIndex';
+import { materialHubHref } from '../../../lib/materialModules';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  return books
+    .filter((b) => b.data.features.includes('items') && getItemsCrossIndex(b.data.slug))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+const indexTitle = itemsIndexTitle(meta.book);
+const itemsCrossIndex = getItemsCrossIndex(meta.slug)!;
+const isJinpingmei = meta.book === '金瓶梅';
+---
+
+<Base title={`${meta.book} · 交叉索引`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  <Breadcrumb
+    slot="breadcrumb"
+    items={[{ href: materialHubHref(meta.slug), label: indexTitle }, { label: '交叉索引' }]}
+  />
+
+  <div class="content-page">
+    <section class="surface relative mb-6 overflow-hidden px-6 py-7 sm:px-8">
+      <div class="flex items-start gap-4">
+        <span class="glyph" style="width:3.6rem;height:3.6rem;font-size:1.9rem">索</span>
+        <div>
+          <h1 class="brand text-4xl" style="color: var(--primary)">物质交叉索引</h1>
+          <p class="mt-2 max-w-2xl text-sm text-muted">
+            {
+              isJinpingmei ? (
+                <>
+                  全物质按<strong>章回</strong>、<strong>人物</strong>与<strong>地点</strong>汇总；饮食 / 医药 / 服饰 / 民俗共用本索引。
+                </>
+              ) : (
+                <>
+                  全物质按<strong>章回</strong>与<strong>人物</strong>汇总；可跳转读回、人物页或名物详情。
+                </>
+              )
+            }
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <MaterialModuleNav bookSlug={meta.slug} features={meta.features} active="cross" />
+
+    <div class="kb-dashboard surface mb-10 p-4 sm:p-6">
+      <ItemsCrossIndex index={itemsCrossIndex} bookSlug={meta.slug} bookName={meta.book} client:load />
+    </div>
+  </div>
+</Base>

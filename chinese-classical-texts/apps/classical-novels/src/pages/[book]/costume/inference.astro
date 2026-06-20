@@ -1,0 +1,72 @@
+---
+import { getBooks } from '../../../lib/getBooks';
+import Base from '../../../layouts/Base.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import MaterialModuleNav from '../../../components/MaterialModuleNav.astro';
+import MaterialInferenceDashboard from '../../../components/MaterialInferenceDashboard.tsx';
+import {
+  DOMAIN_UI,
+  getMaterialInference,
+  MATERIAL_DEFAULT_CHAPTER,
+} from '../../../lib/materialInference';
+import { materialCrumbs } from '../../../lib/materialModules';
+
+export async function getStaticPaths() {
+  const books = await getBooks();
+  return books
+    .filter((b) => b.data.features.includes('costume'))
+    .map((b) => ({ params: { book: b.data.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const meta = book.data;
+const infData = getMaterialInference(meta.slug, 'costume');
+const ui = DOMAIN_UI.costume;
+const initialChapter = MATERIAL_DEFAULT_CHAPTER[meta.slug]?.costume ?? 1;
+const stats = infData?.stats;
+---
+
+<Base title={`${meta.book} · ${ui.title}`} bookSlug={meta.slug} bookName={meta.book} features={meta.features}>
+  <Breadcrumb items={materialCrumbs(meta.slug, 'costume', { view: 'inference' })} />
+
+  <div class="content-page">
+    <section class="surface material-page-head">
+      <div class="material-page-head__row">
+        <span class="glyph material-page-head__glyph">{ui.glyph}</span>
+        <div class="material-page-head__body">
+          <h1 class="brand material-page-head__title">{ui.title}</h1>
+          <p class="material-page-head__desc">
+            微观服饰档案 → 宏观社会四横切面 · 全书曲线 · 全社会精神面貌（inference）
+            {
+              stats && (
+                <span class="material-page-head__meta">
+                  · {stats.entity_count} 实体 · {stats.chapters_with_data} 回有着墨
+                </span>
+              )
+            }
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <MaterialModuleNav bookSlug={meta.slug} features={meta.features} active="costume" moduleSub="inference" />
+
+    {
+      infData ? (
+        <MaterialInferenceDashboard
+          data={infData}
+          bookSlug={meta.slug}
+          initialChapter={initialChapter}
+          client:load
+        />
+      ) : (
+        <p class="surface p-4 text-sm text-muted">
+          推演数据尚未生成，请运行
+          <code class="mx-1 rounded px-2 py-0.5" style="background: var(--paper)">
+            python scripts/build_material_inference.py costume --all-books --write
+          </code>
+        </p>
+      )
+    }
+  </div>
+</Base>

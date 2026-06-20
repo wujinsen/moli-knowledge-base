@@ -61,7 +61,7 @@ def load_chain_events(book: str) -> list[dict]:
         if fm.get("book") != book:
             continue
         st = fm.get("subtype")
-        if st not in ("financial", "plot"):
+        if st not in ("financial", "plot", "milestone"):
             continue
         ch = (fm.get("chapters") or [0])[0]
         ph = phase_for(int(ch))
@@ -128,7 +128,8 @@ def build(book: str) -> dict:
         "generated": date.today().isoformat(),
         "event_count": len(events),
         "financial_count": sum(1 for e in events if e["subtype"] == "financial"),
-        "plot_count": sum(1 for e in events if e["subtype"] == "plot"),
+        "plot_count": sum(1 for e in events if e["subtype"] in ("plot", "milestone")),
+        "milestone_count": sum(1 for e in events if e["subtype"] == "milestone"),
         "phases": phase_counts,
         "tx_chips": tx_chips,
         "by_character": by_character,

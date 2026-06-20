@@ -1,0 +1,2851 @@
+{
+  "domain": "costume",
+  "book": "红楼梦",
+  "slug": "honglou",
+  "generated_by": "build_material_inference.py",
+  "inference_note": "推演层：织品/首饰/礼服/信物/洋货关键词 + 社会分层 + 人物服饰档案（inference）；非法制史定论。",
+  "curve_labels": {
+    "primary": "炫耀度",
+    "secondary": "信物性"
+  },
+  "axes": [
+    {
+      "id": "silk_brocade",
+      "label": "绸缎绣",
+      "desc": "妆缎、刻丝、织锦"
+    },
+    {
+      "id": "jewelry_rank",
+      "label": "首饰等级",
+      "desc": "金、珠、凤、麒麟"
+    },
+    {
+      "id": "ceremonial",
+      "label": "礼仪礼服",
+      "desc": "省亲、蟒、大红妆"
+    },
+    {
+      "id": "daily_plain",
+      "label": "日常简素",
+      "desc": "旧衣、粗布、简装"
+    },
+    {
+      "id": "symbolic_token",
+      "label": "信物隐喻",
+      "desc": "玉、帕、锁、剑、汗巾"
+    },
+    {
+      "id": "foreign_rare",
+      "label": "异域稀有",
+      "desc": "雀金、俄罗斯、洋"
+    }
+  ],
+  "phases": [
+    {
+      "label": "楔子·入府",
+      "from": 1,
+      "to": 16
+    },
+    {
+      "label": "省亲极盛",
+      "from": 17,
+      "to": 41
+    },
+    {
+      "label": "园宴精工",
+      "from": 42,
+      "to": 52
+    },
+    {
+      "label": "露剂·园规",
+      "from": 53,
+      "to": 71
+    },
+    {
+      "label": "晚景简素",
+      "from": 72,
+      "to": 100
+    },
+    {
+      "label": "末世崩散",
+      "from": 101,
+      "to": 120
+    }
+  ],
+  "saga_milestones": [
+    {
+      "id": "hlm-e-001",
+      "title": "林黛玉进贾府",
+      "chapters": [
+        3
+      ],
+      "chapter": 3,
+      "href": "/honglou/e/hlm-e-001"
+    },
+    {
+      "id": "hlm-e-009",
+      "title": "秦可卿之死与凤姐协理",
+      "chapters": [
+        13
+      ],
+      "chapter": 13,
+      "href": "/honglou/e/hlm-e-009"
+    },
+    {
+      "id": "hlm-e-002",
+      "title": "元妃省亲",
+      "chapters": [
+        16,
+        17,
+        18
+      ],
+      "chapter": 16,
+      "href": "/honglou/e/hlm-e-002"
+    },
+    {
+      "id": "hlm-e-003",
+      "title": "共读西厢与黛玉葬花",
+      "chapters": [
+        23,
+        27
+      ],
+      "chapter": 23,
+      "href": "/honglou/e/hlm-e-003"
+    },
+    {
+      "id": "hlm-e-010",
+      "title": "宝玉挨打",
+      "chapters": [
+        33
+      ],
+      "chapter": 33,
+      "href": "/honglou/e/hlm-e-010"
+    },
+    {
+      "id": "hlm-e-011",
+      "title": "刘姥姥进大观园",
+      "chapters": [
+        39,
+        40,
+        41
+      ],
+      "chapter": 39,
+      "href": "/honglou/e/hlm-e-011"
+    },
+    {
+      "id": "hlm-e-012",
+      "title": "探春理家",
+      "chapters": [
+        55,
+        56
+      ],
+      "chapter": 55,
+      "href": "/honglou/e/hlm-e-012"
+    },
+    {
+      "id": "hlm-e-004",
+      "title": "紫鹃试玉",
+      "chapters": [
+        57
+      ],
+      "chapter": 57,
+      "href": "/honglou/e/hlm-e-004"
+    },
+    {
+      "id": "hlm-e-005",
+      "title": "抄检大观园",
+      "chapters": [
+        74
+      ],
+      "chapter": 74,
+      "href": "/honglou/e/hlm-e-005"
+    },
+    {
+      "id": "hlm-e-006",
+      "title": "调包计与黛玉焚稿",
+      "chapters": [
+        97,
+        98
+      ],
+      "chapter": 97,
+      "href": "/honglou/e/hlm-e-006"
+    },
+    {
+      "id": "hlm-e-007",
+      "title": "查抄宁国府",
+      "chapters": [
+        105
+      ],
+      "chapter": 105,
+      "href": "/honglou/e/hlm-e-007"
+    },
+    {
+      "id": "hlm-e-008",
+      "title": "宝玉悬崖撒手",
+      "chapters": [
+        120
+      ],
+      "chapter": 120,
+      "href": "/honglou/e/hlm-e-008"
+    }
+  ],
+  "by_chapter": [
+    {
+      "chapter": 1,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [],
+      "luxury_smooth": 27.5,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 2,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [],
+      "luxury_smooth": 31.2,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 3,
+      "entity_count": 1,
+      "luxury": 27.5,
+      "balance": 2.2,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 1,
+        "daily_plain": 0,
+        "symbolic_token": 2,
+        "foreign_rare": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [
+        "通灵宝玉"
+      ],
+      "luxury_smooth": 31.2,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 4,
+      "entity_count": 1,
+      "luxury": 35.0,
+      "balance": 0.0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 2,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [
+        "贾珠遗砚"
+      ],
+      "luxury_smooth": 31.2,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 5,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [],
+      "luxury_smooth": 31.2,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 6,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [],
+      "luxury_smooth": 28.8,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 7,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [],
+      "luxury_smooth": 22.5,
+      "balance_smooth": 4.4
+    },
+    {
+      "chapter": 8,
+      "entity_count": 1,
+      "luxury": 22.5,
+      "balance": 4.4,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 1,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 4,
+        "foreign_rare": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [
+        "金锁"
+      ],
+      "luxury_smooth": 22.5,
+      "balance_smooth": 4.4
+    },
+    {
+      "chapter": 9,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [],
+      "luxury_smooth": 22.5,
+      "balance_smooth": 4.4
+    },
+    {
+      "chapter": 10,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [],
+      "luxury_smooth": 22.5,
+      "balance_smooth": 4.4
+    },
+    {
+      "chapter": 11,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [],
+      "luxury_smooth": 75.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 12,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [],
+      "luxury_smooth": 75.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 13,
+      "entity_count": 1,
+      "luxury": 75.0,
+      "balance": 0.0,
+      "axes": {
+        "silk_brocade": 2,
+        "jewelry_rank": 0,
+        "ceremonial": 2,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [
+        "大红妆缎"
+      ],
+      "luxury_smooth": 75.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 14,
+      "entity_count": 1,
+      "luxury": 75.0,
+      "balance": 0.0,
+      "axes": {
+        "silk_brocade": 2,
+        "jewelry_rank": 0,
+        "ceremonial": 2,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [
+        "大红妆缎"
+      ],
+      "luxury_smooth": 75.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 15,
+      "entity_count": 1,
+      "luxury": 75.0,
+      "balance": 0.0,
+      "axes": {
+        "silk_brocade": 2,
+        "jewelry_rank": 0,
+        "ceremonial": 2,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [
+        "大红妆缎"
+      ],
+      "luxury_smooth": 75.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 16,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "楔子·入府",
+      "entities": [],
+      "luxury_smooth": 82.1,
+      "balance_smooth": 0.55
+    },
+    {
+      "chapter": 17,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 85.6,
+      "balance_smooth": 0.82
+    },
+    {
+      "chapter": 18,
+      "entity_count": 2,
+      "luxury": 96.2,
+      "balance": 1.65,
+      "axes": {
+        "silk_brocade": 2,
+        "jewelry_rank": 2,
+        "ceremonial": 9,
+        "daily_plain": 0,
+        "symbolic_token": 3,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [
+        "省亲礼服",
+        "荷包"
+      ],
+      "luxury_smooth": 96.2,
+      "balance_smooth": 1.65
+    },
+    {
+      "chapter": 19,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 90.6,
+      "balance_smooth": 0.82
+    },
+    {
+      "chapter": 20,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 90.6,
+      "balance_smooth": 0.82
+    },
+    {
+      "chapter": 21,
+      "entity_count": 1,
+      "luxury": 85.0,
+      "balance": 0.0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 6,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [
+        "累丝金凤"
+      ],
+      "luxury_smooth": 85.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 22,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 85.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 23,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 56.2,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 24,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 18.8,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 25,
+      "entity_count": 1,
+      "luxury": 27.5,
+      "balance": 2.2,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 1,
+        "daily_plain": 0,
+        "symbolic_token": 2,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [
+        "通灵宝玉"
+      ],
+      "luxury_smooth": 15.8,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 26,
+      "entity_count": 1,
+      "luxury": 10.0,
+      "balance": 2.2,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 2,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [
+        "手帕"
+      ],
+      "luxury_smooth": 19.2,
+      "balance_smooth": 2.55
+    },
+    {
+      "chapter": 27,
+      "entity_count": 1,
+      "luxury": 10.0,
+      "balance": 2.2,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 2,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [
+        "宫制堆纱花"
+      ],
+      "luxury_smooth": 19.2,
+      "balance_smooth": 2.55
+    },
+    {
+      "chapter": 28,
+      "entity_count": 4,
+      "luxury": 29.4,
+      "balance": 3.6,
+      "axes": {
+        "silk_brocade": 4,
+        "jewelry_rank": 3,
+        "ceremonial": 0,
+        "daily_plain": 2,
+        "symbolic_token": 14,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [
+        "汗巾儿",
+        "红麝串",
+        "茜香罗",
+        "金锁"
+      ],
+      "luxury_smooth": 16.5,
+      "balance_smooth": 2.67
+    },
+    {
+      "chapter": 29,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 24.8,
+      "balance_smooth": 2.67
+    },
+    {
+      "chapter": 30,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 32.2,
+      "balance_smooth": 2.9
+    },
+    {
+      "chapter": 31,
+      "entity_count": 2,
+      "luxury": 35.0,
+      "balance": 2.2,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 4,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 4,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [
+        "折扇",
+        "金麒麟"
+      ],
+      "luxury_smooth": 35.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 32,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 17.5,
+      "balance_smooth": 2.8
+    },
+    {
+      "chapter": 33,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 19.2,
+      "balance_smooth": 2.6
+    },
+    {
+      "chapter": 34,
+      "entity_count": 1,
+      "luxury": 0.0,
+      "balance": 3.4,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 2,
+        "symbolic_token": 4,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [
+        "旧帕"
+      ],
+      "luxury_smooth": 11.2,
+      "balance_smooth": 2.8
+    },
+    {
+      "chapter": 35,
+      "entity_count": 1,
+      "luxury": 22.5,
+      "balance": 2.2,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 1,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 2,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [
+        "梅花络"
+      ],
+      "luxury_smooth": 11.2,
+      "balance_smooth": 2.8
+    },
+    {
+      "chapter": 36,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 11.2,
+      "balance_smooth": 2.8
+    },
+    {
+      "chapter": 37,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 22.5,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 38,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 40.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 39,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [],
+      "luxury_smooth": 25.0,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 40,
+      "entity_count": 1,
+      "luxury": 40.0,
+      "balance": 0.0,
+      "axes": {
+        "silk_brocade": 2,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [
+        "软烟罗"
+      ],
+      "luxury_smooth": 25.0,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 41,
+      "entity_count": 1,
+      "luxury": 10.0,
+      "balance": 2.2,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 2,
+        "foreign_rare": 0
+      },
+      "phase": "省亲极盛",
+      "entities": [
+        "成窑杯"
+      ],
+      "luxury_smooth": 25.0,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 42,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 25.0,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 43,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 44,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 45,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 46,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 47,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 55.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 48,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 55.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 49,
+      "entity_count": 1,
+      "luxury": 55.0,
+      "balance": -1.0,
+      "axes": {
+        "silk_brocade": 2,
+        "jewelry_rank": 0,
+        "ceremonial": 2,
+        "daily_plain": 2,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "园宴精工",
+      "entities": [
+        "旧衣"
+      ],
+      "luxury_smooth": 55.0,
+      "balance_smooth": -1.0
+    },
+    {
+      "chapter": 50,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 38.8,
+      "balance_smooth": -0.5
+    },
+    {
+      "chapter": 51,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "园宴精工",
+      "entities": [],
+      "luxury_smooth": 59.2,
+      "balance_smooth": -0.33
+    },
+    {
+      "chapter": 52,
+      "entity_count": 1,
+      "luxury": 22.5,
+      "balance": 0.0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 1,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "园宴精工",
+      "entities": [
+        "虾须镯"
+      ],
+      "luxury_smooth": 61.2,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 53,
+      "entity_count": 1,
+      "luxury": 100.0,
+      "balance": 0.0,
+      "axes": {
+        "silk_brocade": 2,
+        "jewelry_rank": 0,
+        "ceremonial": 5,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [
+        "大红妆缎蟒袄"
+      ],
+      "luxury_smooth": 61.2,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 54,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 50.0,
+      "balance_smooth": 0.73
+    },
+    {
+      "chapter": 55,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 63.8,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 56,
+      "entity_count": 1,
+      "luxury": 27.5,
+      "balance": 2.2,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 1,
+        "daily_plain": 0,
+        "symbolic_token": 2,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [
+        "通灵宝玉"
+      ],
+      "luxury_smooth": 27.5,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 57,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 27.5,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 58,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 18.8,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 59,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 60,
+      "entity_count": 1,
+      "luxury": 10.0,
+      "balance": 0.0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [
+        "蔷薇硝"
+      ],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 61,
+      "entity_count": 1,
+      "luxury": 10.0,
+      "balance": 0.0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [
+        "蔷薇硝"
+      ],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 62,
+      "entity_count": 2,
+      "luxury": 10.0,
+      "balance": 0.0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [
+        "石榴裙",
+        "芍药裀"
+      ],
+      "luxury_smooth": 8.8,
+      "balance_smooth": 0.7
+    },
+    {
+      "chapter": 63,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 8.3,
+      "balance_smooth": 0.93
+    },
+    {
+      "chapter": 64,
+      "entity_count": 2,
+      "luxury": 5.0,
+      "balance": 2.8,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 2,
+        "symbolic_token": 6,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [
+        "九龙佩",
+        "旧帕"
+      ],
+      "luxury_smooth": 8.3,
+      "balance_smooth": 1.67
+    },
+    {
+      "chapter": 65,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 8.3,
+      "balance_smooth": 2.4
+    },
+    {
+      "chapter": 66,
+      "entity_count": 1,
+      "luxury": 10.0,
+      "balance": 2.2,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 2,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [
+        "鸳鸯剑"
+      ],
+      "luxury_smooth": 8.3,
+      "balance_smooth": 2.4
+    },
+    {
+      "chapter": 67,
+      "entity_count": 1,
+      "luxury": 10.0,
+      "balance": 2.2,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 2,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [
+        "鸳鸯剑"
+      ],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 68,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 69,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 30.0,
+      "balance_smooth": 1.32
+    },
+    {
+      "chapter": 70,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [],
+      "luxury_smooth": 50.0,
+      "balance_smooth": 0.44
+    },
+    {
+      "chapter": 71,
+      "entity_count": 5,
+      "luxury": 50.0,
+      "balance": 0.44,
+      "axes": {
+        "silk_brocade": 2,
+        "jewelry_rank": 8,
+        "ceremonial": 4,
+        "daily_plain": 0,
+        "symbolic_token": 2,
+        "foreign_rare": 0
+      },
+      "phase": "露剂·园规",
+      "entities": [
+        "伽南珠",
+        "寿宴玉杯",
+        "沉香拐",
+        "福寿香",
+        "金寿星"
+      ],
+      "luxury_smooth": 63.8,
+      "balance_smooth": 0.22
+    },
+    {
+      "chapter": 72,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 53.9,
+      "balance_smooth": 0.15
+    },
+    {
+      "chapter": 73,
+      "entity_count": 2,
+      "luxury": 77.5,
+      "balance": 0.0,
+      "axes": {
+        "silk_brocade": 4,
+        "jewelry_rank": 6,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [
+        "累丝金凤",
+        "绣春囊"
+      ],
+      "luxury_smooth": 42.9,
+      "balance_smooth": 0.11
+    },
+    {
+      "chapter": 74,
+      "entity_count": 3,
+      "luxury": 34.2,
+      "balance": 0.0,
+      "axes": {
+        "silk_brocade": 4,
+        "jewelry_rank": 1,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [
+        "同心帖",
+        "绣春囊",
+        "金银锞"
+      ],
+      "luxury_smooth": 40.6,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 75,
+      "entity_count": 1,
+      "luxury": 10.0,
+      "balance": 0.0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [
+        "大观园图"
+      ],
+      "luxury_smooth": 40.6,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 76,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 22.1,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 77,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 78,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 79,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 80,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 81,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 82,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 83,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 84,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 85,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 86,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 10.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 87,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 88,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 89,
+      "entity_count": 1,
+      "luxury": 100.0,
+      "balance": 0.0,
+      "axes": {
+        "silk_brocade": 2,
+        "jewelry_rank": 1,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 8
+      },
+      "phase": "晚景简素",
+      "entities": [
+        "雀金裘"
+      ],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 90,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 91,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 92,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 93,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 94,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 100.0,
+      "balance_smooth": 0.0
+    },
+    {
+      "chapter": 95,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 0.0,
+      "balance_smooth": 3.4
+    },
+    {
+      "chapter": 96,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 13.8,
+      "balance_smooth": 2.8
+    },
+    {
+      "chapter": 97,
+      "entity_count": 1,
+      "luxury": 0.0,
+      "balance": 3.4,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 2,
+        "symbolic_token": 4,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [
+        "旧帕"
+      ],
+      "luxury_smooth": 13.8,
+      "balance_smooth": 2.8
+    },
+    {
+      "chapter": 98,
+      "entity_count": 1,
+      "luxury": 27.5,
+      "balance": 2.2,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 1,
+        "daily_plain": 0,
+        "symbolic_token": 2,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [
+        "通灵宝玉"
+      ],
+      "luxury_smooth": 13.8,
+      "balance_smooth": 2.8
+    },
+    {
+      "chapter": 99,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 13.8,
+      "balance_smooth": 2.8
+    },
+    {
+      "chapter": 100,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "晚景简素",
+      "entities": [],
+      "luxury_smooth": 27.5,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 101,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 27.5,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 102,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 27.5,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 103,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 27.5,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 104,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 27.5,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 105,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 27.5,
+      "balance_smooth": 2.2
+    },
+    {
+      "chapter": 106,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 40.0,
+      "balance_smooth": 4.4
+    },
+    {
+      "chapter": 107,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 40.0,
+      "balance_smooth": 4.4
+    },
+    {
+      "chapter": 108,
+      "entity_count": 1,
+      "luxury": 40.0,
+      "balance": 4.4,
+      "axes": {
+        "silk_brocade": 2,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 4,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [
+        "茜香罗"
+      ],
+      "luxury_smooth": 40.0,
+      "balance_smooth": 4.4
+    },
+    {
+      "chapter": 109,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 40.0,
+      "balance_smooth": 4.4
+    },
+    {
+      "chapter": 110,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 40.0,
+      "balance_smooth": 4.4
+    },
+    {
+      "chapter": 111,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 28.8,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 112,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 28.8,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 113,
+      "entity_count": 2,
+      "luxury": 28.8,
+      "balance": 1.1,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 3,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 2,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [
+        "求愿金镯",
+        "随身小镜"
+      ],
+      "luxury_smooth": 28.8,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 114,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 28.8,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 115,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 28.8,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 116,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 28.8,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 117,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 28.8,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 118,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 28.8,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 119,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 28.8,
+      "balance_smooth": 1.1
+    },
+    {
+      "chapter": 120,
+      "entity_count": 0,
+      "luxury": 0,
+      "balance": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "phase": "末世崩散",
+      "entities": [],
+      "luxury_smooth": 28.8,
+      "balance_smooth": 1.1
+    }
+  ],
+  "characters": [
+    {
+      "id": "贾宝玉",
+      "name": "贾宝玉",
+      "social_tier": "elite",
+      "entity_count": 2,
+      "axes": {
+        "silk_brocade": 4,
+        "jewelry_rank": 0,
+        "ceremonial": 4,
+        "daily_plain": 0,
+        "symbolic_token": 16,
+        "foreign_rare": 0
+      },
+      "balance_score": 12.0,
+      "risk_tags": [
+        "异域/皮草/洋货轴高（推演）",
+        "礼仪礼服/僭越符号密集",
+        "信物隐喻轴高"
+      ],
+      "inference": "大红箭袖、雀金呢、拒穿补服——女红化富贵色对抗仕途男装（inference）；抄家后粗布衲衣、赤足拜别。",
+      "sample_entities": [
+        "茜香罗",
+        "通灵宝玉"
+      ]
+    },
+    {
+      "id": "林黛玉",
+      "name": "林黛玉",
+      "social_tier": "elite",
+      "entity_count": 2,
+      "axes": {
+        "silk_brocade": 2,
+        "jewelry_rank": 0,
+        "ceremonial": 3,
+        "daily_plain": 6,
+        "symbolic_token": 15,
+        "foreign_rare": 0
+      },
+      "balance_score": 13.0,
+      "risk_tags": [
+        "信物隐喻轴高"
+      ],
+      "inference": "第49回雪天「大红羽纱剪绒里猩猩毡斗篷」——孤傲文人审美，雪中一抹纯猩红（inference）。与「冷月葬花魂」并读。",
+      "sample_entities": [
+        "旧帕",
+        "荷包"
+      ]
+    },
+    {
+      "id": "薛宝钗",
+      "name": "薛宝钗",
+      "social_tier": "elite",
+      "entity_count": 2,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 4,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 10,
+        "foreign_rare": 0
+      },
+      "balance_score": 7.0,
+      "risk_tags": [
+        "首饰等级轴高",
+        "信物隐喻轴高"
+      ],
+      "inference": "常年半新不旧、蜜合色棉袄——低调顺从礼法，甘做背景板（inference）；[[金锁]]与省亲礼服是正统归宿。",
+      "sample_entities": [
+        "红麝串",
+        "金锁"
+      ]
+    },
+    {
+      "id": "王熙凤",
+      "name": "王熙凤",
+      "social_tier": "elite",
+      "entity_count": 0,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 0,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "balance_score": 0.0,
+      "risk_tags": [
+        "礼仪礼服/僭越符号密集"
+      ],
+      "inference": "第3回金丝八宝、刻丝银鼠褂、大红洋缎窄裉袄——金珠刻丝堆叠如「权力甲胄」（inference）。败落后「破席裹尸」与前期洋缎五彩形成阶级跌落对照。",
+      "sample_entities": []
+    },
+    {
+      "id": "贾母",
+      "name": "贾母",
+      "social_tier": "elite",
+      "entity_count": 5,
+      "axes": {
+        "silk_brocade": 2,
+        "jewelry_rank": 8,
+        "ceremonial": 4,
+        "daily_plain": 0,
+        "symbolic_token": 2,
+        "foreign_rare": 0
+      },
+      "balance_score": 3.2,
+      "risk_tags": [
+        "礼仪礼服/僭越符号密集",
+        "首饰等级轴高"
+      ],
+      "inference": "库房软烟罗、赐晴雯雀金裘——顶级织品分配权在族长手中。",
+      "sample_entities": [
+        "伽南珠",
+        "寿宴玉杯",
+        "沉香拐",
+        "福寿香",
+        "金寿星"
+      ]
+    },
+    {
+      "id": "晴雯",
+      "name": "晴雯",
+      "social_tier": "middling",
+      "entity_count": 2,
+      "axes": {
+        "silk_brocade": 2,
+        "jewelry_rank": 2,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 2,
+        "foreign_rare": 8
+      },
+      "balance_score": 7.0,
+      "risk_tags": [
+        "异域/皮草/洋货轴高（推演）"
+      ],
+      "inference": "[[雀金裘]]补裘与奴婢身份矛盾；临终与宝玉交换小袄——对「衣服剥夺人格」的阶级反抗（inference）。",
+      "sample_entities": [
+        "折扇",
+        "雀金裘"
+      ]
+    },
+    {
+      "id": "史湘云",
+      "name": "史湘云",
+      "social_tier": "elite",
+      "entity_count": 2,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 3,
+        "ceremonial": 0,
+        "daily_plain": 0,
+        "symbolic_token": 2,
+        "foreign_rare": 0
+      },
+      "balance_score": 2.5,
+      "risk_tags": [],
+      "inference": "第49回貂鼠脑袋面子大袄——雪地诗社皮草秀一环；豪爽与特权符号并置。",
+      "sample_entities": [
+        "芍药裀",
+        "金麒麟"
+      ]
+    },
+    {
+      "id": "贾元春",
+      "name": "贾元春",
+      "social_tier": "elite",
+      "entity_count": 1,
+      "axes": {
+        "silk_brocade": 0,
+        "jewelry_rank": 2,
+        "ceremonial": 6,
+        "daily_plain": 0,
+        "symbolic_token": 0,
+        "foreign_rare": 0
+      },
+      "balance_score": 8.0,
+      "risk_tags": [
+        "礼仪礼服/僭越符号密集"
+      ],
+      "inference": "[[省亲礼服]]；皇权礼仪与家族荣耀的服饰峰值，僭越与合规的边界。",
+      "sample_entities": [
+        "省亲礼服"
+      ]
+    }
+  ],
+  "social": {
+    "title": "全社会服饰精神面貌",
+    "segments": [
+      {
+        "id": "elite",
+        "label": "权贵/主子层",
+        "entity_count": 17,
+        "occurrence_weight": 24,
+        "axes": {
+          "silk_brocade": 10,
+          "jewelry_rank": 19,
+          "ceremonial": 22,
+          "daily_plain": 6,
+          "symbolic_token": 47,
+          "foreign_rare": 0
+        },
+        "sample_entities": [
+          "伽南珠",
+          "大红妆缎蟒袄",
+          "寿宴玉杯",
+          "成窑杯",
+          "旧帕",
+          "沉香拐"
+        ]
+      },
+      {
+        "id": "middling",
+        "label": "中层（体面仆婢·客商）",
+        "entity_count": 5,
+        "occurrence_weight": 5,
+        "axes": {
+          "silk_brocade": 4,
+          "jewelry_rank": 3,
+          "ceremonial": 0,
+          "daily_plain": 2,
+          "symbolic_token": 8,
+          "foreign_rare": 8
+        },
+        "sample_entities": [
+          "折扇",
+          "汗巾儿",
+          "虾须镯",
+          "随身小镜",
+          "雀金裘"
+        ]
+      },
+      {
+        "id": "folk",
+        "label": "市井/民间",
+        "entity_count": 1,
+        "occurrence_weight": 1,
+        "axes": {
+          "silk_brocade": 0,
+          "jewelry_rank": 3,
+          "ceremonial": 0,
+          "daily_plain": 0,
+          "symbolic_token": 0,
+          "foreign_rare": 0
+        },
+        "sample_entities": [
+          "求愿金镯"
+        ]
+      },
+      {
+        "id": "general",
+        "label": "未分层/制度性",
+        "entity_count": 15,
+        "occurrence_weight": 21,
+        "axes": {
+          "silk_brocade": 18,
+          "jewelry_rank": 14,
+          "ceremonial": 8,
+          "daily_plain": 2,
+          "symbolic_token": 12,
+          "foreign_rare": 0
+        },
+        "sample_entities": [
+          "九龙佩",
+          "同心帖",
+          "大红妆缎",
+          "大观园图",
+          "宫制堆纱花",
+          "手帕"
+        ]
+      }
+    ],
+    "global_axes": {
+      "silk_brocade": 32,
+      "jewelry_rank": 39,
+      "ceremonial": 30,
+      "daily_plain": 10,
+      "symbolic_token": 67,
+      "foreign_rare": 8
+    },
+    "inference": "权贵层与市井层在文本中的服饰精神面貌着墨密度悬殊；上层偏精细/排场，民间偏简易或求神问卜（推演）。",
+    "insights": [
+      {
+        "title": "阶层差：服饰精神面貌不对称",
+        "body": "权贵层与市井层在文本中的服饰精神面貌着墨密度悬殊；上层偏精细/排场，民间偏简易或求神问卜（推演）。",
+        "evidence": [
+          "伽南珠",
+          "大红妆缎蟒袄",
+          "寿宴玉杯",
+          "求愿金镯"
+        ]
+      },
+      {
+        "title": "洋货风潮与皮毛特权",
+        "body": "雀金呢、洋缎、貂狐猩毡——买办奢侈品+满族皮毛政治符号在温室冗余展示（推演）。",
+        "evidence": [
+          "雀金裘",
+          "软烟罗",
+          "省亲礼服"
+        ]
+      },
+      {
+        "title": "舆服等级与奴才之衣",
+        "body": "律例限丝绸颜色；晴雯绫罗成罪、换小袄为反抗——衣服是阶级监狱之墙（推演）。",
+        "evidence": [
+          "晴雯",
+          "旧衣",
+          "雀金裘"
+        ]
+      },
+      {
+        "title": "织造财政与抄家充公",
+        "body": "江宁织造、内务府料子连接南巡亏空；华服充公=经济泡沫破裂（推演）。",
+        "evidence": [
+          "大红妆缎",
+          "查抄"
+        ]
+      },
+      {
+        "title": "主导轴",
+        "body": "聚合后「信物隐喻」权重最高，可视为本书服饰精神面貌的结构性偏向（inference）。",
+        "evidence": []
+      }
+    ]
+  },
+  "global_insights": [
+    {
+      "title": "全书炫耀度曲线",
+      "body": "按回聚合服饰精神面貌指数；峰回第87回（晚景简素）。",
+      "evidence": [
+        "87"
+      ]
+    },
+    {
+      "title": "全社会服饰精神面貌",
+      "body": "权贵层与市井层在文本中的服饰精神面貌着墨密度悬殊；上层偏精细/排场，民间偏简易或求神问卜（推演）。",
+      "evidence": [
+        "权贵/主子层",
+        "中层（体面仆婢·客商）",
+        "市井/民间"
+      ]
+    },
+    {
+      "title": "人物服饰：衣如其人的第二皮肤",
+      "body": "凤姐刻丝银鼠如权力甲胄；黛玉猩猩毡孤傲；宝钗半新蜜合色顺从；宝玉大红箭袖拒补服；晴雯雀金裘+换小袄——性格与宿命写在丝绸上（推演）。",
+      "evidence": [
+        "王熙凤",
+        "林黛玉",
+        "薛宝钗",
+        "贾宝玉",
+        "晴雯",
+        "雀金裘"
+      ]
+    },
+    {
+      "title": "横切面一：奢侈洋货与买办经济",
+      "body": "大红洋缎、雀金呢、哆啰呢等洋货轴高；十三行白银换奢侈品、非生产性消费——买办权贵享受全球化红利（经济史 inference）。",
+      "evidence": [
+        "雀金裘",
+        "大红妆缎",
+        "软烟罗"
+      ]
+    },
+    {
+      "title": "横切面二：皮毛政治学与旗人退化",
+      "body": "第49回雪地诗社：猩猩毡、狐腋箭袖、貂鼠大袄——满族皮毛特权在温室里冗余展示；强悍体魄已失（社会学 inference）。",
+      "evidence": [
+        "史湘云",
+        "林黛玉",
+        "贾宝玉"
+      ]
+    },
+    {
+      "title": "横切面三：衣服等级与阶级毒性",
+      "body": "《大清律例》舆服限制；奴才不得衣丝绸。晴雯「妖里妖气」因绫罗；死前换小袄是对人格剥夺的反抗（法制—阶级 inference）。",
+      "evidence": [
+        "晴雯",
+        "旧衣",
+        "雀金裘"
+      ]
+    },
+    {
+      "title": "横切面四：江宁织造与财政雪崩",
+      "body": "内务府料子、南巡垫付、织造亏空——华服背后是江南血汗被抽干；抄家充公华服=宏观泡沫破裂（曹学 inference）。",
+      "evidence": [
+        "省亲礼服",
+        "查抄",
+        "大红妆缎"
+      ]
+    },
+    {
+      "title": "终极：从锦衣纨绔到捉襟见肘",
+      "body": "前部织金缂丝孔雀羽堆砌；后部《好了歌解注》「昨怜破袄寒，今嫌紫蟒长」。凤姐衣不蔽体、宝玉衲衣雪行——阶级大网撕裂（文学—社会 inference）。",
+      "evidence": [
+        "好了歌",
+        "王熙凤",
+        "贾宝玉"
+      ]
+    }
+  ],
+  "stats": {
+    "entity_count": 38,
+    "occurrence_rows": 51,
+    "chapters_with_data": 36,
+    "peak_chapter": 87,
+    "peak_primary": 100.0,
+    "saga_milestones": 12,
+    "social_segments": 4
+  }
+}

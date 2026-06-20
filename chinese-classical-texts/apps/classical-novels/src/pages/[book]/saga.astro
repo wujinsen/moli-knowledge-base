@@ -13,6 +13,7 @@ import {
 import { loadSagaEvents } from '../../lib/loadSagaEvents';
 import { readChapterPath } from '../../lib/editions';
 import { graphFocusHref } from '../../lib/sna';
+import { legacyDietHref } from '../../lib/materialModules';
 
 export async function getStaticPaths() {
   const books = await getBooks();
@@ -165,6 +166,18 @@ const readerLabel = isHonglou
                         </a>
                       )
                     }
+                    {
+                      ch != null && meta.features.includes('diet') && (
+                        <a
+                          href={legacyDietHref(meta.slug, ch)}
+                          class="chip hover:opacity-80"
+                          style="color: var(--accent)"
+                          title="在膳食推演曲线定位本回"
+                        >
+                          膳食 · 第{ch}回
+                        </a>
+                      )
+                    }
                     {d.characters.slice(0, 6).map((c) => (
                       <a href={`/${meta.slug}/c/${c}`} class="chip hover:opacity-80">{c}</a>
                     ))}
@@ -221,6 +234,12 @@ const readerLabel = isHonglou
       <>
         {' · '}
         <a href={`/${meta.slug}/graph`} class="hover:underline" style="color: var(--accent)">关系图谱</a>
+      </>
+    )}
+    {meta.features.includes('diet') && (
+      <>
+        {' · '}
+        <a href={legacyDietHref(meta.slug)} class="hover:underline" style="color: var(--accent)">膳食推演</a>
       </>
     )}
     {' · '}
